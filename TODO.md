@@ -8,6 +8,6 @@
 - [ ] https://en.wikipedia.org/wiki/Evidence_lower_bound#Relationship_to_entropy
 - [ ] https://www.ijcai.org/proceedings/2019/0727.pdf
 - [ ] https://github.com/Aidenzich/pytorch-lightning/tree/master
-
+- [ ] https://theaisummer.com/recommendation-systems/
 ## Watch list
 - [ ] https://github.com/FederatedAI/FATE/issues/2915
