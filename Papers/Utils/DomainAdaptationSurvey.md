@@ -3,8 +3,8 @@ $$
 \DeclareMathOperator*{\argmin}{arg\,min}
 $$
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
-## Domain Adaptation
-- The problem that arises when the data distribution in **our test domain is different from that in our training domain**. 
+## 1. Domain Adaptation
+- The problem that arises when the data distribution in <font color=orange>our test domain is different from that in our training domain</font>. 
 - The need for domain adaptation is prevalent in many real-world classification problems. 
     - For example, spam filters can be trained on some public collection of spam and ham emails. 
     - But when applied to an individual person’s inbox, we may want to “personalize” the spam filter, i.e. to adapt the spam filter to fit the person’s own distribution of emails in order to achieve better performance.
@@ -24,7 +24,7 @@ $$
 1. There have been a number of methods proposed to address domain adaptation, but it is not clear how these methods are related to each other. This survey tries to organize the existing work and lay out an overall picture of the problem with it's possible solutions.
 2. Second, a systematic literature survey naturally reveals the limitations of current work and points out promising directions that should be explored in the future
 
-## Notations 
+## 2. Notations 
 - **Source domain**
     >We refer to the training domain where labeled data is abundant(豐富) as the source domain.
 - **Target domain**
@@ -78,11 +78,11 @@ $$
     - In the case when $D_{t,l}$ is not availble, we refer to the problem as **unsupervised domain adaptation**.
     - While when $D_t,l$ is available, we refer to the problem as **supervised domain adapatation**.
 
-## Instance Weighting
+## 3. Instance Weighting
 > One general approach to addressing(解決) the domain adaptation problem is to **assign instance-dependent weights to the loss function when minimizing the expected loss over the distribution of data**.
 > 解決域適應問題的一種通用方法是在最小化數據分佈的預期損失時為損失函數分配與實例相關的權重
 ### Why instance weighting may help?
-- Review the **empirical risk mininmization framework (Vapnik, 1999)** for standard supervised learning.
+- Review the [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96) framework (Vapnik, 1999)** for standard supervised learning.
 - Then informally derive an instance weighting solution to domain adaptation.
 - $\Theta$: $\Theta$ is a model family
 - $\theta^{*}$: We want select an optimal model $\theta^{*}$ for classification task.
@@ -92,8 +92,57 @@ $$
 $$
 \theta^{*} = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} P(x, y)l(x,y,\theta)
 $$
-- Due to $P(X,Y)$ is unknown, we use the empirical distribution $\tilde{P}(X,Y)$ to approximate P(X,Y)
+- Due to $P(X,Y)$ is unknown, we use the [empirical distribution]() $\tilde{P}(X,Y)$ to approximate $P(X,Y)$
+    :::info
+    An empirical distribution is one for which each possible event is assigned a probability derived from experimental observation. It is assumed that the events are independent and the sum of the probabilities is 1.
+    :::
     - Let $\{(x_i, y_i)\}^N_{i=1}$ be a set of training instances randomly sampled from P(X,Y).
 $$
 \tilde{\theta} = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \tilde{P}(x, y)l(x,y,\theta)
 $$
+- Ideally, we want:
+    $$
+    \theta^{*}_t = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} P_t(x, y) l(x,y,\theta)
+    $$
+    - However, the training instance $D_s=\{ (x_i^s, y_i^s)\}$ are randomly sampled from the source distribution $P_s(X,Y)$, so we write the above equation:
+    $$
+    \begin{align}
+    \theta^{*}_t &= \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} P_s(x, y) l(x,y,\theta) \\
+    &\approx \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} \tilde{P_s}(x, y) l(x,y,\theta) \\
+    &= \argmin_{\theta \in \Theta} \sum_{i=1}^{N_s} \frac{P_t(x_i^s, y_i^s)}{P_s(x_i^s, y_i^s)} l(x_i^s, y_i^s, \theta) \quad \text{(by erm)} \quad (1)
+    \end{align}
+    $$
+    - use [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96)
+    - weighting the loss for the instance provides a well-justified solution to the problem.
+    - It's not possible to computer the exact value of $\frac{P_t(x,y)}{P_s(x,y)}$ for a pair $(x, y)$ (because we don't have enough labeled instances in the target domain.)
+
+## 3.1 Class imbalance
+- Assumption: 
+    - can make about the connection between the distributions of the source and the target domains is that <font color=orange>given the same class label, the conditional distributions of X are the same in the two domains</font>.
+    $$
+    P_t(X|Y=y) =  P_s(X|Y=y), \forall \ y \in Y
+    $$
+    - However, the class distributions may be different in the source and target domains.
+    $$
+    P_t(Y) \neq P_s(Y)
+    $$
+    - This difference is referred to as the class imbalance problem in some work (Japkowicz and Stephen, 2002).
+- When above assumption is made, equation (1) can be derived as follow:
+    $$
+    \begin{align}
+    \frac{P_t(x, y)}{P_s(x, y)} &= \frac{P_t(y)}{P_s(y)} \frac{P_t(x|y)}{P_s(x|y)} \\
+    &= \frac{P_t(y)}{P_s(y)}
+    \end{align}
+    $$
+    - Therefore, we only use $\frac{P_t(y)}{P_s(y)}$ to weight the instances. 
+        - we can <font color=orange>re-sample the training instances from the source domain</font> so that the re-sampled data roughly has the same class distribution as the target domain. 
+        - In re-sampling methods, under-represented classes are over-sampled, and over-represented classes are under-sampled (Kubat and Matwin, 1997; Chawla et al., 2002; Zhu and Hovy, 2007).
+    - This approach has been explored in (Lin et al., 2002)
+    - For classification algorithm that directly model the distribution $P(X|Y)$ (e.g. logistic regression), it can be shown theoretically that the estimated probability $P_s(y|x)$ can be transformed into $P_t(y|x)$ in the following way:
+        $$
+        P_t(y|x) = \frac{r(y)P_s(y|x)}{\sum_{y'\in Y}r(y')P_s(y'|x)}
+        $$
+        where $r(y)$ is defined as:
+        $$
+        r(y) = \frac{P_t(y)}{P_s(y)}
+        $$
