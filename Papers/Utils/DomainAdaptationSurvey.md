@@ -3,23 +3,21 @@ $$
 \DeclareMathOperator*{\argmin}{arg\,min}
 $$
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
+- <font color=blue>Cite</font>
+- <font color=orange>Emphasis</font>
+- <font color=green>Terminology</font>
 ## 1. Domain Adaptation
 - The problem that arises when the data distribution in <font color=orange>our test domain is different from that in our training domain</font>. 
 - The need for domain adaptation is prevalent in many real-world classification problems. 
     - For example, spam filters can be trained on some public collection of spam and ham emails. 
     - But when applied to an individual person’s inbox, we may want to “personalize” the spam filter, i.e. to adapt the spam filter to fit the person’s own distribution of emails in order to achieve better performance.
 - Special kinds of domain adaptation problems have been studied before (under diffrent names)
-    - Class imbalance
-        - (Japkowicz and Stephen, 2002)
-    - Covariate shift
-        - (Shimodaira, 2000)
-    - smaple selection bias
-        - (Heckman, 1979; Zadrozny, 2004)
+    - Class imbalance <font color=blue>(Japkowicz and Stephen, 2002)</font>
+    - Covariate shift <font color=blue>(Shimodaira, 2000)</font>
+    - smaple selection bias <font color=blue>(Heckman, 1979; Zadrozny, 2004)</font>
 - Also some closely-related but not equivalent ML problems that have benn studied extensively
-    - multi-task learning 
-        - (Caruana, 1997) 
-    - semi-supervised learning
-        - (Zhu, 2005; Chapelle et al., 2006)
+    - multi-task learning <font color=blue>(Caruana, 1997)</font>
+    - semi-supervised learning <font color=blue>(Zhu, 2005; Chapelle et al., 2006)</font>
 ## The Goal of this survey
 1. There have been a number of methods proposed to address domain adaptation, but it is not clear how these methods are related to each other. This survey tries to organize the existing work and lay out an overall picture of the problem with it's possible solutions.
 2. Second, a systematic literature survey naturally reveals the limitations of current work and points out promising directions that should be explored in the future
@@ -75,8 +73,8 @@ $$
 
 - $D_{t, l} = \{(x_i^{t,l}, y_i^{t,l})\}_{i=1}^{N_{t,l}}$
     > Sometimes, we may also have a small amount of labeled data from the target domain.
-    - In the case when $D_{t,l}$ is not availble, we refer to the problem as **unsupervised domain adaptation**.
-    - While when $D_t,l$ is available, we refer to the problem as **supervised domain adapatation**.
+    - In the case when $D_{t,l}$ is not availble, we refer to the problem as <font color=green>unsupervised domain adaptation.</font>
+    - While when $D_t,l$ is available, we refer to the problem as <font color=green>supervised domain adapatation</font>.
 
 ## 3. Instance Weighting
 > One general approach to addressing(解決) the domain adaptation problem is to **assign instance-dependent weights to the loss function when minimizing the expected loss over the distribution of data**.
@@ -117,28 +115,33 @@ $$
     - It's not possible to computer the exact value of $\frac{P_t(x,y)}{P_s(x,y)}$ for a pair $(x, y)$ (because we don't have enough labeled instances in the target domain.)
 
 ## 3.1 Class imbalance
-- Assumption: 
-    - can make about the connection between the distributions of the source and the target domains is that <font color=orange>given the same class label, the conditional distributions of X are the same in the two domains</font>.
-    $$
-    P_t(X|Y=y) =  P_s(X|Y=y), \forall \ y \in Y
-    $$
-    - However, the class distributions may be different in the source and target domains.
-    $$
-    P_t(Y) \neq P_s(Y)
-    $$
-    - This difference is referred to as the class imbalance problem in some work (Japkowicz and Stephen, 2002).
-- When above assumption is made, equation (1) can be derived as follow:
-    $$
-    \begin{align}
-    \frac{P_t(x, y)}{P_s(x, y)} &= \frac{P_t(y)}{P_s(y)} \frac{P_t(x|y)}{P_s(x|y)} \\
-    &= \frac{P_t(y)}{P_s(y)}
-    \end{align}
-    $$
-    - Therefore, we only use $\frac{P_t(y)}{P_s(y)}$ to weight the instances. 
-        - we can <font color=orange>re-sample the training instances from the source domain</font> so that the re-sampled data roughly has the same class distribution as the target domain. 
-        - In re-sampling methods, under-represented classes are over-sampled, and over-represented classes are under-sampled (Kubat and Matwin, 1997; Chawla et al., 2002; Zhu and Hovy, 2007).
-    - This approach has been explored in (Lin et al., 2002)
-    - For classification algorithm that directly model the distribution $P(X|Y)$ (e.g. logistic regression), it can be shown theoretically that the estimated probability $P_s(y|x)$ can be transformed into $P_t(y|x)$ in the following way:
+### Assumption
+- can make about the connection between the distributions of the source and the target domains is that <font color=orange>given the same class label, the conditional distributions of X are the same in the two domains</font>.
+$$
+P_t(X|Y=y) =  P_s(X|Y=y), \forall \ y \in Y
+$$
+- However, the class distributions may be different in the source and target domains.
+$$
+P_t(Y) \neq P_s(Y)
+$$
+- This difference is referred to as the class imbalance problem in some work (Japkowicz and Stephen, 2002).
+---
+### When above assumption is made, equation (1) can be derived as follow:
+$$
+\begin{align}
+\frac{P_t(x, y)}{P_s(x, y)} &= \frac{P_t(y)}{P_s(y)} \frac{P_t(x|y)}{P_s(x|y)} \\
+&= \frac{P_t(y)}{P_s(y)}
+\end{align}
+$$
+- Therefore, we only use $\frac{P_t(y)}{P_s(y)}$ to weight the instances. 
+    - we can <font color=orange>re-sample the training instances from the source domain</font> so that the re-sampled data roughly has the same class distribution as the target domain. 
+    - In re-sampling methods, under-represented classes are over-sampled, and over-represented classes are under-sampled <font color=blue>(Kubat and Matwin, 1997; Chawla et al., 2002; Zhu and Hovy, 2007)</font>.
+- This approach has been explored in <font color=blue>Lin et al., 2002</font>
+---
+### For classification algorithm that: 
+- directly model the probability distribution $P(Y|X)$:
+    -  e.g. logistic regression
+    -  it can be shown theoretically that the estimated probability $P_s(y|x)$ can be transformed into $P_t(y|x)$ in the following way:
         $$
         P_t(y|x) = \frac{r(y)P_s(y|x)}{\sum_{y'\in Y}r(y')P_s(y'|x)}
         $$
@@ -146,3 +149,65 @@ $$
         $$
         r(y) = \frac{P_t(y)}{P_s(y)}
         $$
+        - 1. estimate $P_s(y|x)$ from the source domain.
+        - 2. derive $P_t(y|x)$ using $P_s(Y)$ and $P_t(Y)$
+- not directly model $P(Y|X)$:
+    - e.g. naive Bayes classifiers and support vector machines
+    - If $P(Y|X)$ can be obtained through <font color=red>careful calibration</font>(校驗) the same trick can be applied.
+    - Chan and Ng (2006) applied this method to the domain adaptation problem in word sense disambiguation (WSD) using naive Bayes classifiers.
+- In Practice:
+    - <font color=orange>needs to know the class distribution in the target domain</font> in order to apply the methods described above
+        - In some studies, it is assumed that this distribution is known a priori <font color=blue>(Lin et al., 2002)</font>. 
+        - However, in reality, we may not have this information. <font color=blue>Chan and Ng (2005)</font> proposed to use the <font color=green>EM algorithm</font> to estimate the class distribution in the target domain.
+
+## 3.2 Covariate Shift
+- Assumption one can make about about the connection between the source and the target domains is that given the same observatioin $X=x$, the conditional distributions of $Y$ are the same in the two domains, which can be write as follow:
+    $$
+    \forall \ x \in X, \ P_s(Y|X=x) = P_t(Y|X=x)
+    $$
+    However, the marginal distrributions of X may be different in the source and the target domains:
+    $$
+    P_s(X) \neq P_t(X)
+    $$
+    This difference between the two domains is called <font color=green> $covariate \ shift$ </font> <font color=blue>(Shimodaira, 2000) </font>
+    
+### Why would the classifier learned from the source domain not perform well on the target domain under covariate shift ?
+- (At first glance, it may appear that covariate shift is not a problem.)
+- The covariate shift becomes a problem when misspecified models are used.
+- Suppose we consider a parameteric model family $\{P(Y| X, \theta) \in \Theta \}$ <font color=red>from which a model </font> $P(Y|X, \theta^{*})$ is selected to minimize the expected classificatioin error.
+- If none of the models in the model family can exactly match the true relation between X and Y, there <font color=orange>doesn't exist  any $\theta \in \Theta$</font> that 
+    $\forall x \in X, \ P(Y|X=x, \theta) = P(Y|X=x)$, we say that we have a <font color=green>misspecified model family</font>.
+    - With a misspecified model family, the optimal model we select depends on $P(X)$ <font color=red>(ntp)</font> and <font color=orange>$P_s(X) \neq P_t(X)$, so the optimal model for the target domain will differ from that for the source domain</font>.
+    -  the optimal model performs better in dense regions of $X$ than in sparse regions of $X$, because the dense regions dominate the average classification error, which is what we want to minimize. 
+    -  If the <font color=orange>dense regions of X are different in the source and the target domains</font>, the optimal model for the source domain will no longer be optimal for the target domain.
+:::info
+$$
+\argmin_{\theta \in \Theta} \sum_{i=1}^{N_s} \frac{P_t(x_i^s, y_i^s)}{P_s(x_i^s, y_i^s)} l(x_i^s, y_i^s, \theta) \quad (1)
+$$
+:::
+-  Under covariate shift, the ratio $\frac{P_t(x,y)}{P_s(x,y)}$ that we derived in Equation (1) can be rewritten as follow:
+    $$
+    \begin{align}
+    \frac{P_t(x, y)}{P_s(x,y)} &= \frac{P_t(x)}{P_s(x)} \frac{P_t(y|x)}{P_s(y|x)} \\
+    &= \frac{P_t(x)}{P_s(x)} 
+    \end{align}
+    $$
+    - therefore, we want to weight each training instance with $\frac{P_t(x)}{P_s(x)}$
+    - Shimodaira (2000) first propsed to reweight the log-liklihood of each training instance (x, y) using $\frac{P_t(x)}{P_s(x)}$ in maximum likelihood estimation for covariate shift.
+        - If the [support](https://en.wikipedia.org/wiki/Support_(mathematics)) of $P_t(X)$ is contained in the support of $P_s(X)$, then the optimal model that maximizes this re-weighted log-liklihood function <font color=red>asymptotically</font> <font color=orange> converges to the optimal model for the target domain</font>.
+        - A major challenge is how to estimate the ratio $\frac{P_t(x)}{P_s(x)}$ for each $x$ in the training set.
+            - A principled method of using non-parametric kernel density estimation is explored <font color=blue>(Shimodaira, 2000; Sugiyama and Muller, 2005)</font>.
+            - <font color=blue>It's proposed to transform the density atio estimation into a "problem of predicting whether an instance is from the source domain or from the target domain"  (Zadrozny, 2004; Bickel and Scheffer, 2007). </font>
+            - <font color=blue> Huang et al. (2007) transformed the problem into a kernel mean matching problem in a reproducing kernel Hilbert space. </font>
+            - <font color=blue> Bickel et al. (2007) proposed to learn this ratio together with the classification model parameters.</font>
+
+## 3.3 Change of Functional Relations
+- Both class imbalance and covariate shift <font color=orange>simplify the difference between $P_s(x,y)$ and $P_t(x,y)$</font>.
+- It's still possible that:
+    - $P_t(X|Y)$ differs from $P_s(X|Y)$
+    - $P_t(Y|X)$ differs from $P_s(Y|X)$
+- <font color=blue>Jiang and Zhai (2007a)</font> considered the case when $P_t(Y|X)$ differs from $P_s(Y|X)$, and <font color=orange>proposed a heuristic method to remove “misleading” training instances from the source domain</font>, where $P_s(y|x)$ is very different from $P_t(y|x)$.
+    - To discover these''misleading'' training instances, some labeled data from the target domain is needed. 
+    - This method therefore is <font color=orange>only suitable for supervised domain adaptation</font>.
+
+### 4 Semi-Supervised Learning
