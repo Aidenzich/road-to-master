@@ -2,10 +2,12 @@ $$
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 $$
-# A Literature Survey on Domain Adaptation of Statistical Classifiers
+- <font color=red>Unfamiliar words or grammar</font>
 - <font color=blue>Cite</font>
 - <font color=orange>Emphasis</font>
 - <font color=green>Terminology</font>
+# A Literature Survey on Domain Adaptation of Statistical Classifiers
+http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 ## 1. Domain Adaptation
 - The problem that arises when the data distribution in <font color=orange>our test domain is different from that in our training domain</font>. 
 - The need for domain adaptation is prevalent in many real-world classification problems. 
@@ -210,4 +212,23 @@ $$
     - To discover these''misleading'' training instances, some labeled data from the target domain is needed. 
     - This method therefore is <font color=orange>only suitable for supervised domain adaptation</font>.
 
-### 4 Semi-Supervised Learning
+## 4 Semi-Supervised Learning
+### Semi-Supervised Learning (SSL)
+Conditions:
+- Ignore the domain difference.
+- Treat the labeled source domain instances as labeled data.
+- Treat the unlabeled target domain instances as unlabeled data.
+
+We can then apply any SSL algorithms <font color=blue> (Zhu, 2005; Chapelle et al., 2006) </font> to the domain adaptation problem. 
+
+### The subtile difference between SSL and domain adaptation
+(1) the amount of labeled data in SSL is small but large in domain adaptation
+(2) the labeled data may be noisy in domain adaptation if we do not assume $P_s(Y|X=x) = P_t(Y|X=x)$ for all x, whereas in SSL the labeled data is all reliable.
+
+### Extending
+- <font color=blue>Dai et al. (2007a)</font> proposed an EM-based algorithm for domain adaptation
+    - which can be shown to be equivalent to a <font color=blue>semi-supervised EM algorithm (Nigam et al., 2000) </font> 
+    - except that Dai et al. proposed to estimate the trade-off parameter between the labeled and the unlabeled data <font color=orange>using the KL-divergence between the two domains</font>. 
+- <font color=blue>Jiang and Zhai (2007a) </font> proposed to not only include weighted source domain instances <font color=orange>but also weighted unlabeled target domain instances in training</font>, which essentially combines instance weighting with <font color=green>bootstrapping</font>. 
+
+- Xing et al. (2007) proposed a <font color=green>bridged refinement method</font> for domain adaptation using label propagation on a nearest neighbor graph, which has resemblance to graph-based semi-supervised learning algorithms (Zhu, 2005; Chapelle et al., 2006).
