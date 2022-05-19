@@ -230,5 +230,37 @@ We can then apply any SSL algorithms <font color=blue> (Zhu, 2005; Chapelle et a
     - which can be shown to be equivalent to a <font color=blue>semi-supervised EM algorithm (Nigam et al., 2000) </font> 
     - except that Dai et al. proposed to estimate the trade-off parameter between the labeled and the unlabeled data <font color=orange>using the KL-divergence between the two domains</font>. 
 - <font color=blue>Jiang and Zhai (2007a) </font> proposed to not only include weighted source domain instances <font color=orange>but also weighted unlabeled target domain instances in training</font>, which essentially combines instance weighting with <font color=green>bootstrapping</font>. 
-
 - Xing et al. (2007) proposed a <font color=green>bridged refinement method</font> for domain adaptation using label propagation on a nearest neighbor graph, which has resemblance to graph-based semi-supervised learning algorithms (Zhu, 2005; Chapelle et al., 2006).
+
+
+## 5 Change of Representation
+- The cause of the domain adaptation problem is the difference between Pt(X, Y ) and Ps(X, Y ). 
+- Note that <font color=orange>while the representation of Y is fixed, the representation of X can change if we use different features. </font> 
+    - Such a change of representation of X can affect both the marginal distribution $P(X)$ and the conditional distribution $P(Y|X)$. 
+    - One can assume that under some change of representation of $X$, $P_t(X, Y)$ and $P_s(X, Y )$ will become the same.
+- Formally:
+    - let $g : X → Z$ denote a transformation function that transforms an observation $x$ represented in the original form into another form $z = g(x) \in Z$. 
+    - Define variable $Z$ and an induced distribution of Z that satisfies $P(z) = \sum_{x \in X, g(x)=z}P(x)$. 
+    - The joint distribution of $Z$ and $Y$ is then:
+        $$
+            P(z, y) = \sum_{x\in X, g(x)=z} P(x,y)
+        $$
+- If we find a transformation function $g$, then $P_t(Z, Y) = P_s(Z, Y)$ and the optimal model $P(Y|Z, \theta*)$, for $P_s(Y|Z)$ is still optimal for $P_t(Y|Z)$
+    - The entropy of $Y|Z$ is <font color=orange>likely to increase from the entropy of $Y|X$ </font>
+        - $Z$ is usually a simpler representation of the observation than $X$
+        - encodes less information, uncertainty rises
+        - The Bayes error rate usually increases under a change of representation.
+- Researchs:
+    - <font color=blue>Ben-David et al. (2007)</font> first formally analyzed the effect of representation change for domain adaptation. 
+        - They proved a generalization bound for domain adaptation that is dependent on the distance between the induced $P_s(Z, Y)$ and $P_t(Z, Y)$.
+    - feature subset selection is a special and simple kind of transformation, <font color=blue>Satpal and Sarawagi (2007)</font> proposed a method that <font color=orange>the criterion for selecting features is to minimize an approximated distance function between the distributions in the two domains</font>.
+        - still need class labels in the target domain, they used predicted labels for the target domain instance.
+    - <font color=blue> Blitzer et al. (2006) </font> proposed a structural correspondence learning (SCL) algorithm that <font color=orange>makes use of the unlabeled data from the target domain to find a low-rank representation</font> that is suitable for domain adaptation. 
+        - <font color=blue>Ben-David et al., 2007</font> show that <font color=orange>the low-rank representation found by SCL indeed decreases the distance</font> between the distributions in the two domains.
+        - SCL doesn't directly try to find a representation Z that minimizes the distance between $P_s(Z, Y)$ and $P_t(Z, Y)$.
+        - SCL tries to find a representation that works well <font color=orange>for many related classification tasks for which labels are available</font> in both the source and the target domains. 
+        - The Assumption is that:
+            - if $Z$ gives good performance for the many related classification tasks in both domains, then $Z$ is also good for the main classification task we are interested in both domains.
+        - The core algorithm in SCL is from <font color=blue>Ando and Zhang, 2005</font>
+
+## 6 Bayesian Priors
