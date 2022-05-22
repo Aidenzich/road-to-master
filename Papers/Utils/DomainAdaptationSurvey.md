@@ -73,7 +73,7 @@ http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 - $D_{t,u}= \left{ x^{t,u}_i\ \right}^{N_{t,u}}_{i=1}$
     > $D_{t,u}$ denote the set of **unlabeled** instances.
 
-- D_{t,u} = \{ \}
+- $D_{t,u} = \{ \}$
 
 - $D_{t, l} = \{(x_i^{t,l}, y_i^{t,l})\}_{i=1}^{N_{t,l}}$
     > Sometimes, we may also have a small amount of labeled data from the target domain.
