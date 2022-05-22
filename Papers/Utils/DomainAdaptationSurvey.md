@@ -8,6 +8,10 @@ $$
 - <font color=green>Terminology</font>
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
 http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
+## The Goal of this survey
+1. There have been a number of methods proposed to address domain adaptation, but it is not clear how these methods are related to each other. This survey tries to organize the existing work and lay out an overall picture of the problem with it's possible solutions.
+2. Second, a systematic literature survey naturally reveals the limitations of current work and points out promising directions that should be explored in the future
+
 ## 1. Domain Adaptation
 - The problem that arises when the data distribution in <font color=orange>our test domain is different from that in our training domain</font>. 
 - The need for domain adaptation is prevalent in many real-world classification problems. 
@@ -20,9 +24,6 @@ http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 - Also some closely-related but not equivalent ML problems that have benn studied extensively
     - multi-task learning <font color=blue>(Caruana, 1997)</font>
     - semi-supervised learning <font color=blue>(Zhu, 2005; Chapelle et al., 2006)</font>
-## The Goal of this survey
-1. There have been a number of methods proposed to address domain adaptation, but it is not clear how these methods are related to each other. This survey tries to organize the existing work and lay out an overall picture of the problem with it's possible solutions.
-2. Second, a systematic literature survey naturally reveals the limitations of current work and points out promising directions that should be explored in the future
 
 ## 2. Notations 
 - **Source domain**
@@ -70,10 +71,8 @@ http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 - $D_s = \{(x^s_i, y^s_i)\}^{N_s}_{i=1}$
     > $D_s$ denote the set of **labeled** instances in the source domain.
 
-- $D_{t,u}= \left{ x^{t,u}_i\ \right}^{N_{t,u}}_{i=1}$
+- $D_{t,u}= \{ x^{t,u}_i\ \}^{N_{t,u}}_{i=1}$
     > $D_{t,u}$ denote the set of **unlabeled** instances.
-
-- $D_{t,u} = \{ \}$
 
 - $D_{t, l} = \{(x_i^{t,l}, y_i^{t,l})\}_{i=1}^{N_{t,l}}$
     > Sometimes, we may also have a small amount of labeled data from the target domain.
@@ -227,7 +226,7 @@ We can then apply any SSL algorithms <font color=blue> (Zhu, 2005; Chapelle et a
 (1) the amount of labeled data in SSL is small but large in domain adaptation
 (2) the labeled data may be noisy in domain adaptation if we do not assume $P_s(Y|X=x) = P_t(Y|X=x)$ for all x, whereas in SSL the labeled data is all reliable.
 
-### Extending
+### Extending Researches
 - <font color=blue>Dai et al. (2007a)</font> proposed an EM-based algorithm for domain adaptation
     - which can be shown to be equivalent to a <font color=blue>semi-supervised EM algorithm (Nigam et al., 2000) </font> 
     - except that Dai et al. proposed to estimate the trade-off parameter between the labeled and the unlabeled data <font color=orange>using the KL-divergence between the two domains</font>. 
@@ -252,17 +251,94 @@ We can then apply any SSL algorithms <font color=blue> (Zhu, 2005; Chapelle et a
         - $Z$ is usually a simpler representation of the observation than $X$
         - encodes less information, uncertainty rises
         - The Bayes error rate usually increases under a change of representation.
-- Researchs:
-    - <font color=blue>Ben-David et al. (2007)</font> first formally analyzed the effect of representation change for domain adaptation. 
-        - They proved a generalization bound for domain adaptation that is dependent on the distance between the induced $P_s(Z, Y)$ and $P_t(Z, Y)$.
-    - feature subset selection is a special and simple kind of transformation, <font color=blue>Satpal and Sarawagi (2007)</font> proposed a method that <font color=orange>the criterion for selecting features is to minimize an approximated distance function between the distributions in the two domains</font>.
-        - still need class labels in the target domain, they used predicted labels for the target domain instance.
-    - <font color=blue> Blitzer et al. (2006) </font> proposed a structural correspondence learning (SCL) algorithm that <font color=orange>makes use of the unlabeled data from the target domain to find a low-rank representation</font> that is suitable for domain adaptation. 
-        - <font color=blue>Ben-David et al., 2007</font> show that <font color=orange>the low-rank representation found by SCL indeed decreases the distance</font> between the distributions in the two domains.
-        - SCL doesn't directly try to find a representation Z that minimizes the distance between $P_s(Z, Y)$ and $P_t(Z, Y)$.
-        - SCL tries to find a representation that works well <font color=orange>for many related classification tasks for which labels are available</font> in both the source and the target domains. 
-        - The Assumption is that:
-            - if $Z$ gives good performance for the many related classification tasks in both domains, then $Z$ is also good for the main classification task we are interested in both domains.
-        - The core algorithm in SCL is from <font color=blue>Ando and Zhang, 2005</font>
+### Researches
+- <font color=blue>Ben-David et al. (2007)</font> first formally analyzed the effect of representation change for domain adaptation. 
+    - They proved a generalization bound for domain adaptation that is dependent on the distance between the induced $P_s(Z, Y)$ and $P_t(Z, Y)$.
+- <font color=green>feature subset selection</font> is a special and simple kind of transformation, <font color=blue>Satpal and Sarawagi (2007)</font> proposed a method that <font color=orange>the criterion for selecting features is to minimize an approximated distance function between the distributions in the two domains</font>.
+    - still need class labels in the target domain, they used predicted labels for the target domain instance.
+- <font color=blue> Blitzer et al. (2006) </font> proposed a <font color=green>Structural Correspondence Learning (SCL)</font> algorithm that <font color=orange>makes use of the unlabeled data from the target domain to find a low-rank representation</font> that is suitable for domain adaptation. 
+    - <font color=blue>Ben-David et al., 2007</font> show that <font color=orange>the low-rank representation found by SCL indeed decreases the distance</font> between the distributions in the two domains.
+    - SCL doesn't directly try to find a representation Z that minimizes the distance between $P_s(Z, Y)$ and $P_t(Z, Y)$.
+    - SCL tries to find a representation that works well <font color=orange>for many related classification tasks for which labels are available</font> in both the source and the target domains. 
+    - The Assumption is that:
+        - if $Z$ gives good performance for the many related classification tasks in both domains, then $Z$ is also good for the main classification task we are interested in both domains.
+    - The core algorithm in SCL is from <font color=blue>Ando and Zhang, 2005</font>
 
 ## 6 Bayesian Priors
+Review two kinds of methods that work for supervised domain
+adaptation, i.e. when a small amount of labeled data from the target domain is available.
+- Use the <font color=green>Maximum a Posterior (MAP)</font> estimation approach for supervised learning
+    - encode some prior knowledge about the classification model into a Bayesian prior distributon $P(\theta)$:
+        $$
+            \prod^N_{i=1} P(y_i | x_i; \theta) \quad (2)
+        $$
+        - [Factorial](https://zh.m.wikipedia.org/zh-tw/%E9%9A%8E%E4%B9%98) $\prod^{n}_{i=1}k = n!$
+        - $\theta$ : model parameter
+        - Instead of maximizing *equation(2)*, we maximize the following equation, specifically: 
+            $$
+                P(\theta) \prod^N_{i=1} P(y_i | x_i; \theta)
+            $$
+            - <font color=orange>why?</font>
+        - In *domain adaptation*, we then maximize the following objective function:
+            $$
+                P(\theta | D_s) P(D_{t,l}|\theta) = P(\theta | D_s) \prod^{N_{t,l}}_{i=1} P(y_i^t | x_i^t; \theta)
+            $$
+            - $P(\theta | D_s)$ : A Bayesian prior which is dependent on the labeled instances from the source domain
+### Researches
+- <font color=blue>Li and Bilmes (2007)</font> proposed a general Bayesian divergence prior framework for domain adaptation.
+    - showed <font color=orange>how the general prior can be instantiated for Generator and Discriminator</font>. 
+- <font color=blue>Chelba and Acero (2004)</font> applied this kind of a Bayesian prior for the task of adapting a maximum entropy <font color=red>capitalizer</font>(?) across domains.
+
+## 7 Multi-Task Learning
+- Also known as <font color=green>Transfer Learning</font>.
+- The original definition of multi-task learning considers a different setting than domain adaptation. 
+    - There is a single distribution of the observation, i.e. a single P(X).
+    - However, a number of different variables $Y_1, Y_2, ..., Y_M$, corresponding to $M$ different tasks.
+        - Which means, there are different joint distributions $\{P(X, Y_k)\}^M_{k=1}$.
+            - The class label sets are for $M$ different tasks.
+        - Assume that these different tasks are related.
+        - Impose a common component shared by $\{\theta_k\}^{M}_{k=1}$, the $M$ conditional models are:
+            $$
+            \{ P(Y_k|X, \theta_k) \}^M_{k=1}
+            $$
+        - studies:  
+            - <font color=blue>(Caruana, 1997; Ben-David and Schuller, 2003; Micchelli and Pontil, 2005; Xue et al., 2007)</font>    
+- Domain adaptaion can be treated as a special case of multi-task learning.
+    - Domain adaptaion have only a single task but different domain.
+    - Which can be seen as one task on the source domain and the other on the target domain.
+    - If we have some labeled data from the target domain, we <font color=orange>can apply some existing multi-task learning algorithm.</font>
+### Researches
+- <font color=blue>Daume III (2007)</font> proposed a simple method for domain adaptation based on <font color=green>feature duplications</font>.
+    - The idea is to make a domain-specific copy of the original features for each domain. (?)
+    - An instance from domain $k$ is then represented by <font color=orange>both the original features and the features specific to domain $k$</font>. 
+    - When linear classification algorithms are used, this feature duplication based method is equivalent to <font color=orange>decomposing the model parameter for domain k $\theta_k$ into $\theta_c + \theta_k^{'}$ </font>
+        - $θ_c$ is shared by all domains. 
+        - Similar to the regularized multi-task learning method proposed by <font color=blue>Evgeniou and Pontil (2004)</font>.
+- <font color=blue>Jiang and Zhai (2007b)</font> proposed a two-stage domain adaptation method (?)
+    - The first generalization stage
+        - labeled instances from $K$ different source training domains are used together to train $K$ different models
+        - These models share a common component, which only applies to a subset of features that are considered generalizable across domains.
+
+## 8 Ensemble Methods
+Ensemble Methods combine a set of models to construct a complex classifier for a classification problem. Include bagging, boosting, mixture of experts, etc.
+- Assume that there are a number of <font color=orange>different component distributions $\{ P^{(k)}(X,Y)\}^K_{k=1}$, each of which modeled by a simple model</font>.
+    -  The distribution of X and Y in either the source domain or the target domain is then a mixture of these component distributions. 
+        -  The source and the target domains <font color=orange>are related because they share some of these component distributions</font>
+        -  The <font color=orange>mixture coefficients are different in the two domains </font>, making the overall distributions different.
+### Researches
+-  <font color=blue>Daume III and Marcu (2006)</font> proposed a mixture model for domain adaptation in which
+    -  <font color=orange>three mixture components are assumed:</font>
+        - one shared by both the source and the target domains
+        - one specific to the source domain.
+        - one specific to the target domain. 
+    - Labeled data from both the source and the target domains is needed to learn this three-component mixture model using the <font color=green>conditional expectation maximization (CEM)</font> algorithm.
+-  <font color=blue>Storkey and Sugiyama (2007)</font> considered a more general mixture model in which
+    -  the source and the target domains <font color=orange>share more than one mixture components</font>. 
+    -  However, they did not assume any target domain specific component, and as a result, <font color=orange>no labeled data from the target domain is needed</font>. 
+    -  The mixture model is learned using the <font color=green>expectation maximization (EM)</font> algorithm.
+-  Boosting is a general ensemble method that combines multiple weak learners to form a complex and effective classifier. 
+    -  <font color=blue>Dai et al. (2007b)</font> proposed to modify the widely-used <font color=green>AdaBoost</font> algorithm to address the domain adaptation problem. 
+        -  With some labeled data from the target domain, the idea here is to :
+            - <font color=orange>(more weight on target)</font> put more weight on mistakenly classified target domain instances 
+            - <font color=orange>(less weight on source)</font> but less weight on mistakenly classified source domain instances in each iteration 
+        -  because the goal is to improve the performance of the final classifier on the target domain only.
