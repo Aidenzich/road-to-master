@@ -70,7 +70,7 @@ http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 - $D_s = \{(x^s_i, y^s_i)\}^{N_s}_{i=1}$
     > $D_s$ denote the set of **labeled** instances in the source domain.
 
-- $D_{t,u}= \{x^{t,u}_i\}^{N_{t,u}}_{i=1}$
+- $D_{t,u}= \left{ x^{t,u}_i\ \right}^{N_{t,u}}_{i=1}$
     > $D_{t,u}$ denote the set of **unlabeled** instances.
 
 - $D_{t, l} = \{(x_i^{t,l}, y_i^{t,l})\}_{i=1}^{N_{t,l}}$
