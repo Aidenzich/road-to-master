@@ -1,5 +1,4 @@
 # Fields
-
 ## 4 operations
 - `+` Addition 
 - `·` Multiplication 
