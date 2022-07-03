@@ -1,5 +1,8 @@
-# Self-Attentive Sequential Recommendation Abstract
-##  
+# Self-Attentive Sequential Recommendation
+| Title | Venue | Year | Code |
+|-|-|-|-|
+| [Self-Attentive Sequential Recommendation](https://ieeexplore.ieee.org/abstract/document/8594844?casa_token=KSghig8Awq4AAAAA:jd_bRp3qNTzU-E_L0h_l1bCBQMaUL3MgDhUKpu1FbspTD0UMPZNVVh8BElcQ2_733hId9DNC3A) | ICDM | ['18](https://icdm2018.org/program/list-of-accepted-papers/) | [code](https://github.com/kang205/SASRec) |
+## TBC
 Sequential dynamics are a key feature of many modern recommender systems, 
 which seek to capture the ‘context’ of users’ activities on the basis of actions they have performed recently. 
 To capture such patterns, two approaches have proliferated: Markov Chains (MCs) and Recurrent Neural Networks (RNNs). 

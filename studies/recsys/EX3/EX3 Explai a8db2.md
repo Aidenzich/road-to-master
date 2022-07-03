@@ -1,19 +1,15 @@
-# EX3
-: Explainable Attribute-aware Item-set Recommendations
+# EX3: Explainable Attribute-aware Item-set Recommendations
+| Title | Venue | Year | Code |
+|-|-|-|-|
+| [EX3: Explainable Attribute-aware Item-set Recommendations](https://dl.acm.org/doi/pdf/10.1145/3460231.3474240) | RecSys | ['21](https://recsys.acm.org/recsys21/accepted-contributions/) | X |
 
-- [paper](https://dl.acm.org/doi/pdf/10.1145/3460231.3474240)
-- ***RecSys '21***
-
-### Purpose
-
+## Purpose
 - Generate K sets of items (recommendations) each of which is associated with an important attribute (explanation) to justify why the items are recommended to users.
     - based on important item attributes whose value changes ***will affect*** user purchase decisions.
 - attempt to help users broaden their consideration set by presenting them with differentiated options by an attribute type.
 
-### Contribution
-
+## Contribution
 The contributions of this paper are three-fold:
-
 - Highlight the importance of jointly considering important attributes and relevant items in achieving the optimal user experience in explainable recommendations.
     - e.g. in matrix-factorization, only consider relevant items, which is without considering the importance of attributes.
 - Propose a novel three-step framework, EX3, to approach the explainable attribute-aware item-set recommendation problem along with a couple of novel components.
