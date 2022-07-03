@@ -21,4 +21,4 @@ $$
 - MAE can only accurately recreate 0.8 of the data set. 
 - RSME does not use Absolute Values, which is a lot more **mathematically convenient** whenever calculating distance, gradient, or other metrics.
 
-That’s why most cost functions in Machine Learning avoid using MAE and rather use sum of squared errors or Root Means Squared Error.
+That’s why most cost functions in Machine Learning avoid using `MAE` and rather use `sum of squared errors` or `Root Means Squared Error`.
