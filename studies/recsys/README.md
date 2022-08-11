@@ -4,6 +4,7 @@
 |-|-|-|-|-|
 | [CARCA: Context and Attribute-Aware Next-Item Recommendation via Cross-Attention](https://arxiv.org/abs/2204.06519) | RecSys | ['22](https://recsys.acm.org/recsys22/accepted-contributions/) | [code](https://github.com/ahmedrashed-ml/CARCA) |
 | [A Systematic Review of Recommender Systems and Their Applications in Cybersecurity](https://www.mdpi.com/1424-8220/21/15/5248) | Sensors | '21 | X | |
+| [UltraGCN: Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/pdf/2110.15114.pdf) | CIKM | '21 |[code](https://github.com/xue-pai/UltraGCN) |
 | [EX3: Explainable Attribute-aware Item-set Recommendations](https://dl.acm.org/doi/pdf/10.1145/3460231.3474240) | RecSys | ['21](https://recsys.acm.org/recsys21/accepted-contributions/) | X |
 | [LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation](https://arxiv.org/pdf/2002.02126.pdf) | SIGIR | '20 | [code](https://github.com/Aidenzich/HelloRecsys/blob/main/W9-TA/lightgcn_exmple.ipynb) | |
 | [BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer](https://arxiv.org/abs/1904.06690) | CIKM | ['19](https://dl.acm.org/doi/proceedings/10.1145/3357384) | [code](https://github.com/Aidenzich/BERT4Rec-VAE-Pytorch) |
