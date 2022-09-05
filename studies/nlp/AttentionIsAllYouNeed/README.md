@@ -1,5 +1,5 @@
 # Attention is All You Need
-https://arxiv.org/abs/1706.03762
+![transformer-architecture](./transformer_architecture.jpeg)
 
 ## Keywords
 ### Attention
@@ -32,3 +32,6 @@ def attention(query, key, value, mask=None, dropout=None):
 ### Positional Encoding
 ### Transformer Encoder
 ### Transformer Decoder
+- `t0` 先輸入`起始符(S)`
+- 通過n層 `Decoder Layer`計算masked自注意力與交互注意力(由decoder得到的q與encoder輸出的k，v計算)
+- 最終在第n層`Decoder Layer`得到當前的預測結果projection（可以理解成“I love you”中的“I”）；在t1時刻，將t0時刻得到的輸出“I”輸入至decoder，重複t0的過程（計算masked自註意力與交互注意力），最終在第n層decoder layer得到輸出“love”。最後經過多次計算，得到完整輸出結果“I love you E”（E為終止符，由“you”輸入decoder得到）
