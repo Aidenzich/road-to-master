@@ -60,3 +60,10 @@ user2cat = pd.Series(train_df['new_user_id'].values,index=train_df['user_id']).t
 cat2item = {v:k for k,v in item2cat.items()}
 cat2user = {v:k for k,v in user2cat.items()}
 ```
+
+## Best way to transform category
+- [Ref](https://stackoverflow.com/questions/39475187/how-to-speed-labelencoder-up-recoding-a-categorical-variable-into-integers)
+- Compare
+    | LabelEncoder                                                          | astype('category').cat.codes                                |
+    | --------------------------------------------------------------------- | ----------------------------------------------------------- |
+    | CPU times: user 6.28 s, sys: 48.9 ms, total: 6.33s, Wall time: 6.37 s | user 301 ms, sys: 28.6 ms, total: 330 ms, Wall time: 331 ms |
