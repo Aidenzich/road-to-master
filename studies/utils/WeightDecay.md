@@ -32,3 +32,6 @@ $\left \|W_t\right \|_n$ : $L_n$ norm of $W_t$
 - Why we don't let $L_r\ =\ \lambda\left( \left \|W_t\right \|_n + \left \|b\right \|_n \right)$ ?
     - If we let the bias also be small, our distribution of model will be near to the original point. This output is not we want.
     
+## Weight Decay $\neq$ L2 Regularization
+Hence we conclude that though weight decay and L2 regularization may reach equivalence under some conditions still are slightly different concepts and should be treated differently otherwise can lead to unexplained performance degradation or other practical problems.
+
