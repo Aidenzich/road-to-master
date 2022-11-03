@@ -3,7 +3,7 @@
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
 | [CARCA: Context and Attribute-Aware Next-Item Recommendation via Cross-Attention](https://arxiv.org/abs/2204.06519) | RecSys | ['22](https://recsys.acm.org/recsys22/accepted-contributions/) | [code](https://github.com/ahmedrashed-ml/CARCA) |
-| [Variational Self-attention Network for Sequential Recommendation](https://ieeexplore.ieee.org/abstract/document/9458633) | IEEE | '21 | X |
+| [VSAN, Variational Self-attention Network for Sequential Recommendation](https://ieeexplore.ieee.org/abstract/document/9458633) | IEEE | '21 | X |
 | [ACVAE, Adversarial and Contrastive Variational Autoencoder for Sequential Recommendation](https://dl.acm.org/doi/abs/10.1145/3442381.3449873) | WWW | '21 | [code](https://github.com/ACVAE/ACVAE-PyTorch) |  |
 | [A Systematic Review of Recommender Systems and Their Applications in Cybersecurity](https://www.mdpi.com/1424-8220/21/15/5248) | Sensors | '21 | X | |
 | [UltraGCN: Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/pdf/2110.15114.pdf) | CIKM | '21 |[code](https://github.com/xue-pai/UltraGCN) |
