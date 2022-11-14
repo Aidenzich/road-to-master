@@ -1,5 +1,4 @@
-## Loss
-### Cross Entropy
+# Cross Entropy
 - [torch.nn.CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)
 #### Pytorch
 - input is unnormalized scores

@@ -1,4 +1,4 @@
-# VI
+# Variantional Inference
 ## Reference
 https://www.youtube.com/watch?v=HxQ94L8n0vU&ab_channel=MachineLearning%26Simulation
 https://share.streamlit.io/ceyron/machine-learning-and-simulation/main/english/probabilistic_machine_learning/elbo_interactive_plot.py
