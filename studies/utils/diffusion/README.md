@@ -1,12 +1,11 @@
 # DDPM Report
-## TODO
-- [x] $L_{t-1}$ 證明補齊
-- [x] $q(x_{t−1}|x_t,x_0)$ 證明補齊
-- [x] reparameter trick 證明與介紹
-- [x] 合併 first look 跟 proves
-- [ ] 優化 Report
-## Report Structure
-- What is diffusion model
+| Title | Venue | Year | Code | Review |
+|-|-|-|-|-|
+| [DDPM, Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) | NIPS | '20 | [code](./diffusion/diffusion.ipynb) | [review](./diffusion/) |
+- [Math of DDPM](./prove.md)
+- [Some Notes of Experiment](./exp.md)
+- [⭐️ Slide](./DDPM_v3.pdf)
+
 ## Contribution
 - presented high quality image samples using diffusion models
 - found connections **among diffusion models and variational inference** for 
@@ -164,30 +163,3 @@ $$
 - [What is diffusion model](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)
 
 
-## 實作紀錄
-### p sample
-$$
-P_\theta
-$$
-- reverse
-- p_losses
-    - model 接 x_noisy 與 time torch
-    - x_noisy 來自 q_sample 自 batch image
-    - 算 Model 預測的 noisy 與 x_noisy 間的誤差
-
-每一張預測的
-
-
-### q sample
-- forward
-- fixed
-#### schedule
-- 設定好 timestep 總數
-- linear_beta_schedule
-#### sample from noise
-- noise 與 input 大小相同
-
-### Inference
-- p_sample_loop 回傳 timestep 長度的影像陣列
-    - 每個元素都是該 step 下的圖片
-    - 在 inference 也是跑跟訓練時相同的timestep (實際上也可以跳過部分step來訓練)
