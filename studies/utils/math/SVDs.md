@@ -1,5 +1,5 @@
 # SVD
-![svd](/img/svds.png)
+![svd](/assets/svds.png)
 ## Define
 $$
 A = U \Sigma V^{T}

@@ -10,7 +10,7 @@
     - We know the x, and we calculate the Probilities of Data distribution
     - Use $ln$ 
 - Probability is not Likelihood
-    ![](./imgs/Prob_Likelihood.png)
+    ![](./assets/Prob_Likelihood.png)
     - Distribution -> Probability
     - Likelihood is probability's reverse
 
