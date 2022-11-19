@@ -2,8 +2,8 @@
 - https://arxiv.org/abs/2104.08821
 
 ## Core Illustration
-![core_simCLR](../../../img/SimCLR.gif)
-![core_CSE](../../../img/SimCSE.png)
+![core_simCLR](../../../assets/SimCLR.gif)
+![core_CSE](../../../assets/SimCSE.png)
 
 ## Idea
 使用 Contrastive Learning 的方式運又在 NLP 上使用，可以區分為Unsupervised 與 Supervised 兩種任務：
