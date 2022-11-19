@@ -49,7 +49,7 @@ $$
         & \mathbb{E}_{q} \Big [ \log{p_{\theta}(x_0 | x_{1:T})} - D_{\text{KL}} \Big ( q(x_{1:T}|x_0)|| p_{\theta}(x_{1:T}) \Big ) \Big ] \\
         &= \mathbb{E}_{q} \Big [ \log{p_{\theta}(x_0|x_{1:T})} -  \log{\frac{q(x_{1:T}|x_0)}{p_{\theta}(x_{1:T})}} \Big ] \\
         &= \mathbb{E}_{q} \Big [ \log{\color{teal}{p_{\theta}(x_0|x_{1:T})}} + \log \frac{\color{teal}{p_{\theta}(x_{1:T})}}{q(x_{1:T}|x_0)} \Big ] \\
-        &= \mathbb{E_q}\Big [ \log{\frac{\color{blue}{p_{\theta}(x_{0:T})}}{\color{red}{q(x_{1:T}|x_0)}}}  \Big{]} \\
+        &= \mathbb{E_q}\Big [ \log{\frac{\color{blue}{p_{\theta}(x_{0:T})}}{\color{red}{q(x_{1:T}|x_0)}}}  \Big] \\
     &= \mathbb{E_q}\Big[ \log \frac{p_\theta(x_T) p_\theta(x_0|x_1)...p_\theta(x_{T-1}|x_T)}{q(x_1|x_0)q(x_2|x_1)...q(x_T|x_{T-1})} \Big] \\
 &= \color{orange}{\mathbb{E}_q \Big[ \log p_{\theta}(x_T) + \sum_{t \geq 1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})} \Big]}
 \end{aligned}
@@ -58,12 +58,12 @@ $$
 ## Split $\text{ELBO}$  to $L_T + L_{1:T} + L_0$
 $$
 \begin{aligned}
-L &= - \color{orange}{\mathbb{E}_{q} \Big{[} \log p(x_T) + \sum_{t \geq 1} \log{\frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})}} \Big{]}} \\
-&= - \mathbb{E}_{q} \Big{[} \log p(x_T) + \sum_{t > 1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})} + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big{]} \\
-&= - \mathbb{E}_{q} \Big{[} \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_{t})}{q(x_{t-1}| x_t) } \cdot \frac{q(x_{t-1}|x_0)}{q(x_t|x_0)} + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big{]} \\
-&= - \mathbb{E}_{q} \Big{[} \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log \frac{q(x_{1}|x_{0})}{\color{teal}{q(x_2|x_0)}} \cdot \frac{\color{teal}{q(x_2|x_0)}}{\color{teal}{q(x_3|x0)}} \cdot \text{...} \cdot \frac{\color{teal}{q(x_{T-1}|x_0)}}{q(x_T|x_0)}  + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big{]} \\
-&= - \mathbb{E}_{q} \Big{[} \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log \frac{q(x_{1}|x_{0})}{q(x_T|x_0)}  + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big{]} \\
-&= - \mathbb{E}_{q} \Big{[} \log \frac{p(x_T)}{q(x_T|x_0)} + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log p_{\theta}(x_0|x_1) \Big{]} \\
+L &= - \color{orange}{\mathbb{E}_{q} \Big[ \log p(x_T) + \sum_{t \geq 1} \log{\frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})}} \Big]} \\
+&= - \mathbb{E}_{q} \Big[ \log p(x_T) + \sum_{t > 1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})} + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big] \\
+&= - \mathbb{E}_{q} \Big[ \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_{t})}{q(x_{t-1}| x_t) } \cdot \frac{q(x_{t-1}|x_0)}{q(x_t|x_0)} + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big] \\
+&= - \mathbb{E}_{q} \Big[ \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log \frac{q(x_{1}|x_{0})}{\color{teal}{q(x_2|x_0)}} \cdot \frac{\color{teal}{q(x_2|x_0)}}{\color{teal}{q(x_3|x0)}} \cdot \text{...} \cdot \frac{\color{teal}{q(x_{T-1}|x_0)}}{q(x_T|x_0)}  + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big] \\
+&= - \mathbb{E}_{q} \Big[ \log p(x_T) + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log \frac{q(x_{1}|x_{0})}{q(x_T|x_0)}  + \log \frac{p_{\theta}(x_0|x_1)}{q(x_1|x_0)} \Big] \\
+&= - \mathbb{E}_{q} \Big[ \log \frac{p(x_T)}{q(x_T|x_0)} + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log p_{\theta}(x_0|x_1) \Big] \\
 &= \mathbb{E}_{q} \Big[ D_{\text{KL}}(q(x_T|x_0) || p(x_T)) + \sum_{t>1} D_{\text{KL}}(q(x_{t-1}|x_t, x_0) || p_{\theta}(x_{t-1}|x_t)) - \log p_{\theta}(x_0|x_1) \Big] \\
 &= L_T + L_{1:T} + L_0
 \end{aligned}

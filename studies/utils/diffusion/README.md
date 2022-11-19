@@ -103,8 +103,8 @@ $$
 - 這邊經過數學式的推導(見附錄)：
 $$
 \begin{aligned}
-\text{ELBO} &= \mathbb{E_q}\Big [ \log{\frac{p_{\theta}(x_{0:T})}{q(x_{1:T}|x_0)}}  \Big{]} \\ 
-&= \mathbb{E}_{q} \Big{[} \log \frac{p(x_T)}{q(x_T|x_0)} + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log p_{\theta}(x_0|x_1) \Big{]} \\
+\text{ELBO} &= \mathbb{E_q}\Big [ \log{\frac{p_{\theta}(x_{0:T})}{q(x_{1:T}|x_0)}}  \Big] \\ 
+&= \mathbb{E}_{q} \Big[ \log \frac{p(x_T)}{q(x_T|x_0)} + \sum_{t>1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_{t-1}|x_t)} + \log p_{\theta}(x_0|x_1) \Big] \\
 &= L_T + L_{1:T} + L_{0}
 \end{aligned}
 $$
