@@ -1,10 +1,10 @@
 # Attention is All You Need
-![transformer-architecture](./transformer_architecture.jpeg)
+![transformer-architecture](./assets/transformer_architecture.jpeg)
 
 ## Keywords
 ### Attention
 #### Illustration
-![self-attention](self-attention.gif)
+![self-attention](./assets/self-attention.gif)
 #### Python Code
 ```python
 import math
