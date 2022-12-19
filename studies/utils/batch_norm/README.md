@@ -2,7 +2,7 @@
 - [slide](https://docs.google.com/presentation/d/1qYnTqCsxlI9ORjDrSonFhS9Ie2mXYdIyslvQaOAXhPo/edit#slide=id.g11c431b466c_0_247) made by [ProFatXuanAll](https://github.com/ProFatXuanAll)
 
 ## Core Illustration
-![structure](../../assets/BatchNormalization.png)
+![structure](./assets/BatchNormalization.png)
 
 
 ## Code
