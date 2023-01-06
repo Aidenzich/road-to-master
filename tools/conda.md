@@ -1,4 +1,8 @@
-###### tags: `Python` `conda`
+###### tags: `Tools` `Python` `conda` `DataScience` 
+## Install
+<details>
+    <summary><em>Miniconda</em></summary>
+
 # Miniconda
 1. 到[官方網站](https://docs.conda.io/en/latest/miniconda.html)下載對應版本
     - e.g.
@@ -32,29 +36,61 @@ unset __conda_setup
 conda config --set auto_activate_base false
 ```
 
-# 常用指令
+</details>
+<details>
+    <summary><em>Miniforge</em></summary>
 
-## 建立虛擬環境
+# Miniforge
+- https://developer.apple.com/metal/tensorflow-plugin/
+- Can work with Mac m1
+```shell
+__conda_setup="$('/usr/local/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+```
+</details>
+
+
+## Commands
+<Details>
+    <summary><em>Commands</em></summary>
+
+# Commonly used
+
+## Create an environment
 
 ```bash=
 conda create --name my_new_env python=3.8
 ```
 
-## 啟動虛擬環境
+## Enable environment to use by `activate`
 
 ```bash=
 conda activate my_new_env
 ```
 
-## 解除虛擬環境
+## Leave the enviroment
 
 ```bash=
 conda deactivate my_new_env
 ```
 
-## 確認現有環境
+## Check the total environment in the machine
 ```bash=
 conda env list
+```
+
+## Remove Environment
+```bash
+conda env remove -n ENV_NAME
 ```
 
 ## Conda with open cv
@@ -64,24 +100,17 @@ conda install --file requirements.txt
 conda install -c conda-forge opencv
 ```
 
-## Conda save to requirement.txt
+
+
+## Save Environment package to `requirement.txt`
 - save env.yml
-```
+```bash
 conda env export > environment.yml --no-builds
 ```
 - install from env.yml
-```
+```bash
 conda env create -f environment.yml
 ```
 
-註： https://www.kaggle.com/carloalbertobarbano/vgg16-transfer-learning-pytorch
 
-## conda with torch
-- check the torch website
-
-## Often use
-```bash=
-conda install -c conda-forge shap
-```
-
-
+</Details>
