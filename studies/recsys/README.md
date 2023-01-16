@@ -2,7 +2,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
-| [CBiT, Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/pdf/2208.03895.pdf)| CIKM | '22 |  [code](https://github.com/hw-du/CBiT/tree/master.) | [review](./CBiT/) |
+| [CBiT, Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/pdf/2208.03895.pdf)| CIKM | ['22](https://www.cikm2022.org/papers-posters) |  [code](https://github.com/hw-du/CBiT/tree/master.) | [review](./CBiT/) |
 | [CARCA: Context and Attribute-Aware Next-Item Recommendation via Cross-Attention](https://arxiv.org/abs/2204.06519) | RecSys | ['22](https://recsys.acm.org/recsys22/accepted-contributions/) | [code](https://github.com/ahmedrashed-ml/CARCA) | [review](./CARCA/)|
 | [VSAN, Variational Self-attention Network for Sequential Recommendation](https://ieeexplore.ieee.org/abstract/document/9458633) | IEEE | '21 | X |
 | [ACVAE, Adversarial and Contrastive Variational Autoencoder for Sequential Recommendation](https://dl.acm.org/doi/abs/10.1145/3442381.3449873) | WWW | '21 | [code](https://github.com/ACVAE/ACVAE-PyTorch) |  |

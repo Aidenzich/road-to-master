@@ -1,8 +1,7 @@
 # Non-stationary Transformers: Exploring the Stationarity in Time Series Forecasting
-
 | Title | Venue | Year | Code |
 |-|-|-|-|
-| []() | NIPS | '22 | [code]() |
+| [Non-stationary Transformers: Exploring the Stationarity in Time Series Forecasting](./https://arxiv.org/pdf/2205.14415.pdf) | NIPS | '22 | [code](https://github.com/thuml/Nonstationary_Transformers) |
 
 ## Abstract
 - **Cause**: Transformers have shown great power in time series forecasting due to their global-range modeling ability. However, their performance can degenerate terribly on non-stationary real-world data in which the joint distribution changes over time. 
