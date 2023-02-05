@@ -27,7 +27,7 @@ $$
     - The tool for agent to interact with environment.
 4. ***S**ensors*
     - The tool for agent to perceive the environment.
-### Properties of Task Environments
+### Property of Task Environments
 - *Fully/Partially Observable*
     - sensors detect all aspects that are relevant to the choice of action
 - *Single/Multi Agent*
