@@ -100,11 +100,11 @@ $$
 #### Linear classification with logistic regression
 - **Logistic function**
     ![](https://i.imgur.com/87Rx47D.png)
-    - a. $Threshold(z)$
-    - b. $logistic \, function$
+    - a. $\text{Threshold}(z)$
+    - b. $\text{Logistic function}$
 - **Formula**
     $$
-        Logistic(z) = \frac{1}{1+e^{-z}}
+        \text{Logistic}(z) = \frac{1}{1+e^{-z}}
     $$
 - **Benefit**
     $$

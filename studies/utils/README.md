@@ -19,6 +19,7 @@ This folder contains some general AI training techniques.
 | K-Nearest Neighbors (KNN) | A type of non-parametric supervised learning algorithm used for classification and regression tasks. KNN predicts the target value for a new data point by finding the K nearest neighbors in the training data and combining their target values in a certain way. |
 | Naive Bayes | A type of probabilistic algorithm used for classification tasks. Naive Bayes models the class-conditional probability of each feature given a class and the prior probability of each class, and combines these probabilities to make predictions. |
 | Random Forest | A type of ensemble learning algorithm used for classification and regression tasks. Random forest consists of multiple decision trees trained on different random subsets of the data and features, and makes predictions by combining the predictions of the individual trees. |
+
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
@@ -30,3 +31,15 @@ This folder contains some general AI training techniques.
 | Title | Review |
 |-|-|
 | Embedding Related | [✓](./embed/) |
+
+## Other questions
+### What is the meaning of logits?
+In machine learning and deep learning, "logits" refer to the raw, pre-activated outputs of a model before the activation function is applied. 
+Logits are the inputs to the activation function, which is typically the final layer of a neural network, and the output of this activation function gives the final prediction of the model. Logits represent the un-normalized outputs of the model, which are then passed through an activation function (such as a sigmoid or softmax function) to produce the final predictions. Logits are used to preserve the model's ability to make confident predictions, whereas the final outputs of the activation function are typically normalized to produce probabilities or scores that can be compared to make predictions.
+
+### Use dot product to measure the similarity
+The `dot product` is used in the computation of logits to measure the similarity between two vectors results in a scalar, which can be interpreted as a measure of similarity. 
+
+In essence, the `dot product` measures the alignment between two vectors, with **larger values indicating a stronger similarity** between the two vectors. By computing the dot product between the positive item embeddings and the output sequence embeddings, the model is able to determine how similar the positive item is to the generated output sequence, which can then be used in the computation of the binary cross entropy loss.
+
+However, that the `dot product` is just one way to measure similarity between two vectors. Other methods for measuring similarity, such as `cosine similarity`, can also be used. The choice of similarity measure will depend on the specific problem being solved and the requirements of the model.
