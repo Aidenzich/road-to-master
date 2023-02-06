@@ -10,9 +10,21 @@ So, with more than neuron you need a way to aggregate the outputs of the neurons
 - In other words,using softmax is exactly what you suggested: use a sigmoid and loss function.
 
 ## Softmax
-Applies the Softmax function to an n-dimensional input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie **in the range [0,1] and sum to 1**.
+Applies the `Softmax` function to an `n-dimensional` input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie **in the range [0,1] and sum to 1**.
 $$
 \text{Softmax}(x_i) = \frac{\text{exp}(x_i)}{\sum_j\text{exp}(x_j)}
 $$
+
+## Logistic function
+| Property | Description |
+|-|-|
+| Function | Logistic Function |
+| Formula | $f(x) = 1 / (1 + e^-x)$ |
+| Range | $0 <= f(x) <= 1$ |
+| Domain | All real numbers |
+| Characteristics | Sigmoid curve, maps any real-valued number to a value between 0 and 1, commonly used as activation function in machine learning |
+
+The `logistic function` is a type of `sigmoid function`. The sigmoid functions have an "S" shaped curve, and the logistic function is one of the most commonly used types of sigmoid functions.
+
 ## Reference
 https://stats.stackexchange.com/questions/449510/with-sigmoid-activation-and-softmax-normalization-with-cross-entropy-are-we-fit
