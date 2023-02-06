@@ -63,6 +63,9 @@ Therefore, we investigate the potential of adopting **`Variational AutoEncoder (
 | | | The `decoder` maximizes the expected likelihood of input data **conditioned on** the latent variables. Can reduce the deficiency from unexpected uncertainty |
 | `Sparsity Issue` | The posterior distribution estimation in VAE decreases the vulnerability to the sparsity issue. | Though a sequence contains few items, we can still characterize its distribution from learned prior knowledge and thus generate the next item. |
 
+## Details of ContrastVAE
+[Check Here](./details.md)
+
 ## Contributions
 The contributions of this paper are summarized as follows:
 1. Deriving `ContrastELBO`, which is an extension of conventional single-view ELBO to two-view case and naturally incorporates contrastive learning into the framework of VAE.
