@@ -62,3 +62,11 @@ Therefore, we investigate the potential of adopting **`Variational AutoEncoder (
 | `Uncertainty Problem` | VAE characterizes the distributions of the `hidden representations` via an encoder-decoder learning paradigm.  | The `variances` in `Gaussian Distribution` can well characterize the uncertainty of the input data. |
 | | | The `decoder` maximizes the expected likelihood of input data **conditioned on** the latent variables. Can reduce the deficiency from unexpected uncertainty |
 | `Sparsity Issue` | The posterior distribution estimation in VAE decreases the vulnerability to the sparsity issue. | Though a sequence contains few items, we can still characterize its distribution from learned prior knowledge and thus generate the next item. |
+
+## Contributions
+The contributions of this paper are summarized as follows:
+1. Deriving `ContrastELBO`, which is an extension of conventional single-view ELBO to two-view case and naturally incorporates contrastive learning into the framework of VAE.
+2. Proposing `ContrastVAE`, a two-branched VAE framework guided by `ContrastELBO` for sequential recommendation.
+3. Introducing `model augmentation` and `variational augmentation` to avoid the `semantic inconsistency problem` led by conventional data augmentation.
+4. Conducting comprehensive experiments to evaluate our method. 
+5. Extensive ablation studies and empirical analysis verify the effectiveness of the proposed components.
