@@ -1,6 +1,4 @@
 # DDPM Prove
-https://github.com/lilianweng/lilianweng.github.io/blob/master/posts/2021-07-11-diffusion-models/index.html
-https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
 ## Groud Truth
 $$
     \begin{aligned}
@@ -34,7 +32,7 @@ D_\text{KL}( q_\phi({z}|{x}) \| p_\theta({z}|{x}) )  &=\int q_\phi({z}|{x}) \log
 \end{aligned} 
 $$
 
-- 因為$D_{KL}$ 大於等於 0
+- Because $D_{KL} \geq 0$:
     $$
         \begin{aligned}
         \log p_\theta({x}) &+ D_\text{KL}(q_\phi({z}|{x}) \| p_\theta({z})) - \mathbb{E}_{{z}\sim q_\phi({z}|{x})}\log p_\theta({x}|{z}) \geq 0 \\
@@ -89,17 +87,22 @@ $$
 ## Prove $q(x_{t-1}|x_t, x_0)$
 The reverse conditional probability is tractable when conditioned on $x_0$:
 $$ 
-q(\mathbf{x}_{t-1} \vert \mathbf{x}_t, \mathbf{x}_0) = \mathcal{N}(\mathbf{x}_{t-1}; \color{blue}{\tilde{\boldsymbol{\mu}}}(\mathbf{x}_t, \mathbf{x}_0), \color{red}{\tilde{\beta}_t} \mathbf{I}) 
+q(\mathbf{x}_{t-1} \vert \mathbf{x}_t, \mathbf{x}_0) = \mathcal{N}(\mathbf{x}_{t-1}; {\color{blue}{\tilde{\boldsymbol{\mu}}}(\mathbf{x}_t, \mathbf{x}_0)}, {\color{red}\tilde{\beta}_t} \mathbf{I}) 
 $$  
 
 - Using Bayes' rule and Gaussian Density Function, we have:
 $$ 
 \begin{aligned} 
-q(x_{t-1} | x_t, x_0) &= \color{orange}{q(x_t|x_{t-1}, x_0)} \times
+q(x_{t-1} | x_t, x_0) &= {\color{orange}q(x_t|x_{t-1}, x_0)} \times
     \frac{ \color{green}{q(x_{t-1}|x_0) }}{\color{teal}{q(x_t|x_0)}} \\ 
-&\color{green}{\propto} \exp \Big(-\frac{1}{2} \big(\frac{(x_t - \color{orange}{ \sqrt{\alpha_t} x_{t-1} })^2}{\color{orange}{\beta_t}} + \frac{(x_{t-1} - \color{green}{\sqrt{\bar{\alpha}_{t-1}} x_0})^2}{\color{green}{ 1-\bar{\alpha}_{t-1} } } - \frac{(x_t - \color{teal}{\sqrt{\bar{\alpha}_t} x_0 } )^2}{\color{teal}{1-\bar{\alpha}_t}} \big) \Big) \\ 
-&= \exp \Big(-\frac{1}{2} \big(\frac{\mathbf{x}_t^2 - 2\sqrt{\alpha_t} \mathbf{x}_t \color{blue}{\mathbf{x}_{t-1}} \color{black}{+ \alpha_t} \color{red}{\mathbf{x}_{t-1}^2} }{\beta_t} + \frac{ \color{red}{\mathbf{x}_{t-1}^2} \color{black}{- 2 \sqrt{\bar{\alpha}_{t-1}} \mathbf{x}_0} \color{blue}{\mathbf{x}_{t-1}} \color{black}{+ \bar{\alpha}_{t-1} \mathbf{x}_0^2} }{1-\bar{\alpha}_{t-1}} - \frac{(\mathbf{x}_t - \sqrt{\bar{\alpha}_t} \mathbf{x}_0)^2}{1-\bar{\alpha}_t} \big) \Big) \\ 
-&= \exp\Big( -\frac{1}{2} \big( \color{red}{(\frac{\alpha_t}{\beta_t} + \frac{1}{1 - \bar{\alpha}_{t-1}})} \mathbf{x}_{t-1}^2 - \color{blue}{(\frac{2\sqrt{\alpha_t}}{\beta_t} \mathbf{x}_t + \frac{2\sqrt{\bar{\alpha}_{t-1}}}{1 - \bar{\alpha}_{t-1}} \mathbf{x}_0)} \mathbf{x}_{t-1} \color{black}{ + C(\mathbf{x}_t, \mathbf{x}_0) \big) \Big)} \end{aligned} 
+    &{\color{green}\propto} \exp \Big(-\frac{1}{2} \big(\frac{(x_t - \color{orange}{ \sqrt{\alpha_t} x_{t-1} })^2}{\color{orange}{\beta_t}} + \frac{(x_{t-1} - \color{green}{\sqrt{\bar{\alpha}_{t-1}} x_0})^2}{\color{green}{ 1-\bar{\alpha}_{t-1} } } - \frac{(x_t - \color{teal}{\sqrt{\bar{\alpha}_t} x_0 } )^2}{\color{teal}{1-\bar{\alpha}_t}} \big) \Big) \\ 
+    &= \exp \Big(
+        -\frac{1}{2} \big(\frac{\mathbf{x}_t^2 - 2\sqrt{\alpha_t} \mathbf{x}_t \color{blue}{\mathbf{x}_{t-1}} {+ \alpha_t} \color{red}{\mathbf{x}_{t-1}^2} }{\beta_t} + \frac{ \color{red}{\mathbf{x}_{t-1}^2} {- 2 \sqrt{\bar{\alpha}_{t-1}} \mathbf{x}_0} \color{blue}{\mathbf{x}_{t-1}} {+ \bar{\alpha}_{t-1} \mathbf{x}_0^2} }{1-\bar{\alpha}_{t-1}} - \frac{(\mathbf{x}_t - \sqrt{\bar{\alpha}_t} \mathbf{x}_0)^2}{1-\bar{\alpha}_t} \big) 
+    \Big) \\ 
+&= \exp\Big( 
+    -\frac{1}{2} \big( {\color{red}(\frac{\alpha_t}{\beta_t} + \frac{1}{1 - \bar{\alpha}_{t-1}})} \mathbf{x}_{t-1}^2 - {\color{blue}(\frac{2\sqrt{\alpha_t}}{\beta_t} \mathbf{x}_t + \frac{2\sqrt{\bar{\alpha}_{t-1}}}{1 - \bar{\alpha}_{t-1}} \mathbf{x}_0)} \mathbf{x}_{t-1} + C(\mathbf{x}_t, \mathbf{x}_0) \big) 
+    \Big) 
+\end{aligned} 
 $$
 - **Left term** of PDF:
     $$
@@ -108,8 +111,8 @@ $$
     &= \color{orange}{\frac{1}{\beta_t\sqrt{2\pi}}} \color{green}{\frac{1}{(1 - \bar\alpha_{t-1})\sqrt{2\pi}}} \color{teal}{\frac{1}{ (1- \bar\alpha_t)\sqrt{2\pi}}}
     \end{aligned}
     $$
-- $C$ 是常數可以忽略
-- 未知的 $q(x_{t-1}|x_0, x_0)$ 轉換成可用已知 $q(x_t|x_{t-1})$ 與 $q(x_t|x_0)$ 的型式
+- $C$ is a constant and can be ignored
+- The unknown $q(x_{t-1}|x_0, x_0)$ is transformed into a usable known form of $q(x_t|x_{t-1})$ and $q(x_t|x_0)$."
     ![](https://i.imgur.com/VbCDgBu.png)
 - The $\color{blue}{\tilde\mu(x_t, x_0)}, \color{red}{\tilde\beta_t}$ can be parameterized  to $q(\mathbf{x}_{t-1} \vert \mathbf{x}_t, \mathbf{x}_0)'s$ PDF as below:
 $$
@@ -174,8 +177,8 @@ z &= \mu + \sigma \odot \epsilon \\
 \epsilon &\sim N(0, I)
 \end{aligned}
 $$
-- 在 VAE 中，reparameter trick 是透過encoder 生成的 $\mu$ 與 $\sigma$ 來 sample 出 latent variable z 
-- 但在 diffusion model 中，因為 forward(encoding) 的結果固定，且每個時間點的 $\sigma$ 取決於該時點固定的 $\beta$ 值，可得$x_t$ 與 $x_{t-1}$ 的關係為($x_{t}$的$\mu$ 是 $x_{t-1}$)：
+- In VAE, the reparameter trick is used to sample the latent variable z through the generated $\mu$ and $\sigma$ from the encoder.
+- However, in diffusion models, since the result of the forward (encoding) process is fixed, and the $\sigma$ at each time point depends on the fixed $\beta$ value at that time point, the relationship between $x_t$ and $x_{t-1}$ can be obtained (the $\mu$ of $x_{t}$ is $x_{t-1}$):
     $$
     \begin{aligned}
     x_t &= \sqrt{1-\beta_t}x_{t-1} + \sqrt{\beta_t} \epsilon_{t-1} \\
@@ -199,8 +202,8 @@ $$
 $$
 
 ${{\boldsymbol{\mu}}_{\theta} (x_t, t)}$
-- 因為 $x_t$, $t$ 都為已知項，可在訓練時當輸入，因此 DDPM 將模型改成以 $x_t$, $t$ 去預測 $\epsilon_t$
-- 使用與 ${\tilde{\boldsymbol{\mu}}_t (x_t, x_0)}$ 相同的運算式，但將$\epsilon_t$ 更改為 $\epsilon_\theta$：
+- Because $x_t$ and $t$ are known terms that can be used as inputs during training, DDPM modifies the model to predict $\epsilon_t$ using $x_t$ and $t$.
+- The same equation as ${\tilde{\boldsymbol{\mu}}t (x_t, x_0)}$ is used, but $\epsilon_t$ is changed to $\epsilon_\theta$:
 
 $$
 \color{violet}{\mu_\theta(x_t, t)} = \frac{1}{\sqrt{\alpha_t}} \Big( x_t - \frac{1-\alpha_t}{\sqrt{1-\bar\alpha_t}} \color{violet}{\epsilon_\theta(x_t, t)}  \Big)
@@ -209,16 +212,34 @@ $$
 ## Rewrite $L_{t-1}$ with $\epsilon$
 $$ 
 \begin{aligned} 
-L_{t-1} &= \mathbb{E}_q \Big[ \frac{1}{2\sigma^2_t}||\color{blue}{\tilde\mu(x_t, x_0)} - \color{violet}{\mu_\theta(x_t, t)} ||^2 \Big] \\
-&= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} \Big[\frac{1}{2 \sigma^2_t } \| \color{blue}{\frac{1}{\sqrt{\alpha_t}} \Big( \mathbf{x}_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \boldsymbol{\epsilon} \Big)} - \color{violet}{\frac{1}{\sqrt{\alpha_t}} \Big( \mathbf{x}_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \boldsymbol{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t) \Big)} \|^2 \Big] \\ 
-&= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} \Big[\frac{ (1 - \alpha_t)^2 }{2 \sigma^2_t \alpha_t (1 - \bar{\alpha}_t)} \|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t)\|^2 \Big] \\ 
-&= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} \Big[\color{orange}{\frac{ (1 - \alpha_t)^2 }{2 \sigma^2_t }\alpha_t (1 - \bar{\alpha}_t) } \|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta(\sqrt{\bar{\alpha}_t}\mathbf{x}_0 + \sqrt{1 - \bar{\alpha}_t}\boldsymbol{\epsilon}, t)\|^2 \Big] \end{aligned} 
+L_{t-1} &= \mathbb{E}_q \Big[ 
+        \frac{1}{2\sigma^2_t}||{\color{blue}\tilde\mu(x_t, x_0)} - {\color{violet}\mu_\theta(x_t, t)} ||^2 
+    \Big] \\
+&= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} 
+    \Big[
+        \frac{1}{2 \sigma^2_t } \| {\color{blue}\frac{1}{\sqrt{\alpha_t}} \Big( \mathbf{x}_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \boldsymbol{\epsilon} \Big)} - {\color{violet}
+        \frac{1}{\sqrt{\alpha_t}} \Big( \mathbf{x}_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \boldsymbol{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t) \Big)} \|^2 
+    \Big] \\ 
+    &= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} 
+    \Big[
+        \frac{ (1 - \alpha_t)^2 }{2 \sigma^2_t \alpha_t (1 - \bar{\alpha}_t)} \|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t)\|^2 
+    \Big] \\ 
+&= \mathbb{E}_{\mathbf{x}_0, \boldsymbol{\epsilon}} 
+    \color{orange}{
+    \Big[
+        \frac{ (1 - \alpha_t)^2 }{2 \sigma^2_t }\alpha_t (1 - \bar{\alpha}_t) } 
+        \|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta(\sqrt{\bar{\alpha}_t}\mathbf{x}_0 + \sqrt{1 - \bar{\alpha}_t}\boldsymbol{\epsilon}, t)\|^2   
+    \Big]  
+\end{aligned} 
 $$
 ### Simplified step-specific weighting from ELBO
 $$        
-        \text{loss} = \mathbb{E}_{x_0, \epsilon, t}\Big[ \color{orange}{w_t} || \epsilon - \epsilon_{\theta}(x_t, t) ||^2 \Big]
+        \text{loss} = {\color{orange}\mathbb{E}_{x_0, \epsilon, t}\Big[ {w_t} || \epsilon - \epsilon_{\theta}(x_t, t) ||^2 \Big]}
 $$
 - DDPM  find that a simpler version of the variational bound that discards the term weights that appear in the original bound led to better sample quality.
     $$
     \text{loss}_{\text{simple}} = \mathbb{E}_{{x_0},{\epsilon},t}\big[||\epsilon - \epsilon_\theta(x_t, t)||^2 \big]
     $$
+
+## Reference 
+I am greatly grateful to [Lilian's article](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/), which helped me understand the entire mathematical framework.
