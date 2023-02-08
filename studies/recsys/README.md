@@ -2,7 +2,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
-| [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/abs/2209.00456) | CIKM |  ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/YuWang-1024/ContrastVAE) | [🔧](./ContrastVAE/) |
+| [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/abs/2209.00456) | CIKM |  ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/YuWang-1024/ContrastVAE) | [✓](./ContrastVAE/) |
 | [CBiT: Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/abs/2208.03895)| CIKM | ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/hw-du/CBiT/tree/master.) | [✓](./CBiT/) |
 | [CARCA: Context and Attribute-Aware Next-Item Recommendation via Cross-Attention](https://arxiv.org/abs/2204.06519) | RecSys | ['22](https://recsys.acm.org/recsys22/accepted-contributions/) | [✓](https://github.com/ahmedrashed-ml/CARCA) | [✓](./CARCA/)|
 | [VSAN: Variational Self-attention Network for Sequential Recommendation](https://ieeexplore.ieee.org/abstract/document/9458633) | IEEE | '21 | X | [🔧](./VSAN/) |
