@@ -1,11 +1,3 @@
-$$
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
-$$
-- <font color=red>Unfamiliar words or grammar</font>
-- <font color=blue>Cite</font>
-- <font color=orange>Emphasis</font>
-- <font color=green>Terminology</font>
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
 http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 ## The Goal of this survey
@@ -81,7 +73,7 @@ http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
 
 ## 3. Instance Weighting
 > One general approach to addressing(解決) the domain adaptation problem is to **assign instance-dependent weights to the loss function when minimizing the expected loss over the distribution of data**.
-> 解決域適應問題的一種通用方法是在最小化數據分佈的預期損失時為損失函數分配與實例相關的權重
+
 ### Why instance weighting may help?
 - Review the [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96) framework (Vapnik, 1999)** for standard supervised learning.
 - Then informally derive an instance weighting solution to domain adaptation.
@@ -101,41 +93,52 @@ $$
 $$
 \tilde{\theta} = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \tilde{P}(x, y)l(x,y,\theta)
 $$
+
 - Ideally, we want:
-    $$
-    \theta^{*}_t = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} P_t(x, y) l(x,y,\theta)
-    $$
-    - However, the training instance $D_s=\{ (x_i^s, y_i^s)\}$ are randomly sampled from the source distribution $P_s(X,Y)$, so we write the above equation:
-    $$
-    \begin{align}
-    \theta^{*}_t &= \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} P_s(x, y) l(x,y,\theta) \\
-    &\approx \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} \tilde{P_s}(x, y) l(x,y,\theta) \\
-    &= \argmin_{\theta \in \Theta} \sum_{i=1}^{N_s} \frac{P_t(x_i^s, y_i^s)}{P_s(x_i^s, y_i^s)} l(x_i^s, y_i^s, \theta) \quad \text{(by erm)} \quad (1)
-    \end{align}
-    $$
-    - use [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96)
-    - weighting the loss for the instance provides a well-justified solution to the problem.
-    - It's not possible to computer the exact value of $\frac{P_t(x,y)}{P_s(x,y)}$ for a pair $(x, y)$ (because we don't have enough labeled instances in the target domain.)
+
+$$
+\theta^{*}_t = \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} P_t(x, y) l(x,y,\theta)
+$$
+
+- However, the training instance $D_s=\{ (x_i^s, y_i^s)\}$ are randomly sampled from the source distribution $P_s(X,Y)$, so we write the above equation:
+    
+$$
+\begin{align}
+\theta^{*}_t &= \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} P_s(x, y) l(x,y,\theta) \\
+&\approx \argmin_{\theta \in \Theta} \sum_{(x,y) \in X \times Y} \frac{P_t(x, y)}{P_s(x,y)} \tilde{P_s}(x, y) l(x,y,\theta) \\
+&= \argmin_{\theta \in \Theta} \sum_{i=1}^{N_s} \frac{P_t(x_i^s, y_i^s)}{P_s(x_i^s, y_i^s)} l(x_i^s, y_i^s, \theta) \quad \text{(by erm)} \quad (1)
+\end{align}
+$$
+
+- use [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96)
+- weighting the loss for the instance provides a well-justified solution to the problem.
+- It's not possible to computer the exact value of $\frac{P_t(x,y)}{P_s(x,y)}$ for a pair $(x, y)$ (because we don't have enough labeled instances in the target domain.)
 
 ## 3.1 Class imbalance
 ### Assumption
 - can make about the connection between the distributions of the source and the target domains is that <font color=orange>given the same class label, the conditional distributions of X are the same in the two domains</font>.
+
 $$
 P_t(X|Y=y) =  P_s(X|Y=y), \forall \ y \in Y
 $$
+
 - However, the class distributions may be different in the source and target domains.
+
 $$
 P_t(Y) \neq P_s(Y)
 $$
+
 - This difference is referred to as the class imbalance problem in some work (Japkowicz and Stephen, 2002).
 ---
 ### When above assumption is made, equation (1) can be derived as follow:
+
 $$
 \begin{align}
 \frac{P_t(x, y)}{P_s(x, y)} &= \frac{P_t(y)}{P_s(y)} \frac{P_t(x|y)}{P_s(x|y)} \\
 &= \frac{P_t(y)}{P_s(y)}
 \end{align}
 $$
+
 - Therefore, we only use $\frac{P_t(y)}{P_s(y)}$ to weight the instances. 
     - we can <font color=orange>re-sample the training instances from the source domain</font> so that the re-sampled data roughly has the same class distribution as the target domain. 
     - In re-sampling methods, under-represented classes are over-sampled, and over-represented classes are under-sampled <font color=blue>(Kubat and Matwin, 1997; Chawla et al., 2002; Zhu and Hovy, 2007)</font>.
@@ -145,15 +148,19 @@ $$
 - directly model the probability distribution $P(Y|X)$:
     -  e.g. logistic regression
     -  it can be shown theoretically that the estimated probability $P_s(y|x)$ can be transformed into $P_t(y|x)$ in the following way:
-        $$
-        P_t(y|x) = \frac{r(y)P_s(y|x)}{\sum_{y'\in Y}r(y')P_s(y'|x)}
-        $$
+    
+$$
+P_t(y|x) = \frac{r(y)P_s(y|x)}{\sum_{y'\in Y}r(y')P_s(y'|x)}
+$$
+
         where $r(y)$ is defined as:
-        $$
-        r(y) = \frac{P_t(y)}{P_s(y)}
-        $$
-        - 1. estimate $P_s(y|x)$ from the source domain.
-        - 2. derive $P_t(y|x)$ using $P_s(Y)$ and $P_t(Y)$
+
+$$
+r(y) = \frac{P_t(y)}{P_s(y)}
+$$
+
+- 1. estimate $P_s(y|x)$ from the source domain.
+- 2. derive $P_t(y|x)$ using $P_s(Y)$ and $P_t(Y)$
 - not directly model $P(Y|X)$:
     - e.g. naive Bayes classifiers and support vector machines
     - If $P(Y|X)$ can be obtained through <font color=red>careful calibration</font>(校驗) the same trick can be applied.
@@ -165,13 +172,17 @@ $$
 
 ## 3.2 Covariate Shift
 - Assumption one can make about about the connection between the source and the target domains is that given the same observatioin $X=x$, the conditional distributions of $Y$ are the same in the two domains, which can be write as follow:
-    $$
-    \forall \ x \in X, \ P_s(Y|X=x) = P_t(Y|X=x)
-    $$
+
+$$
+\forall \ x \in X, \ P_s(Y|X=x) = P_t(Y|X=x)
+$$
+
     However, the marginal distrributions of X may be different in the source and the target domains:
-    $$
-    P_s(X) \neq P_t(X)
-    $$
+    
+$$
+P_s(X) \neq P_t(X)
+$$
+
     This difference between the two domains is called <font color=green> $covariate \ shift$ </font> <font color=blue>(Shimodaira, 2000) </font>
     
 ### Why would the classifier learned from the source domain not perform well on the target domain under covariate shift ?
@@ -183,26 +194,30 @@ $$
     - With a misspecified model family, the optimal model we select depends on $P(X)$ <font color=red>(ntp)</font> and <font color=orange>$P_s(X) \neq P_t(X)$, so the optimal model for the target domain will differ from that for the source domain</font>.
     -  the optimal model performs better in dense regions of $X$ than in sparse regions of $X$, because the dense regions dominate the average classification error, which is what we want to minimize. 
     -  If the <font color=orange>dense regions of X are different in the source and the target domains</font>, the optimal model for the source domain will no longer be optimal for the target domain.
-:::info
+
+
 $$
 \argmin_{\theta \in \Theta} \sum_{i=1}^{N_s} \frac{P_t(x_i^s, y_i^s)}{P_s(x_i^s, y_i^s)} l(x_i^s, y_i^s, \theta) \quad (1)
 $$
-:::
+
+
 -  Under covariate shift, the ratio $\frac{P_t(x,y)}{P_s(x,y)}$ that we derived in Equation (1) can be rewritten as follow:
-    $$
-    \begin{align}
-    \frac{P_t(x, y)}{P_s(x,y)} &= \frac{P_t(x)}{P_s(x)} \frac{P_t(y|x)}{P_s(y|x)} \\
-    &= \frac{P_t(x)}{P_s(x)} 
-    \end{align}
-    $$
-    - therefore, we want to weight each training instance with $\frac{P_t(x)}{P_s(x)}$
-    - Shimodaira (2000) first propsed to reweight the log-liklihood of each training instance (x, y) using $\frac{P_t(x)}{P_s(x)}$ in maximum likelihood estimation for covariate shift.
-        - If the [support](https://en.wikipedia.org/wiki/Support_(mathematics)) of $P_t(X)$ is contained in the support of $P_s(X)$, then the optimal model that maximizes this re-weighted log-liklihood function <font color=red>asymptotically</font> <font color=orange> converges to the optimal model for the target domain</font>.
-        - A major challenge is how to estimate the ratio $\frac{P_t(x)}{P_s(x)}$ for each $x$ in the training set.
-            - A principled method of using non-parametric kernel density estimation is explored <font color=blue>(Shimodaira, 2000; Sugiyama and Muller, 2005)</font>.
-            - <font color=blue>It's proposed to transform the density atio estimation into a "problem of predicting whether an instance is from the source domain or from the target domain"  (Zadrozny, 2004; Bickel and Scheffer, 2007). </font>
-            - <font color=blue> Huang et al. (2007) transformed the problem into a kernel mean matching problem in a reproducing kernel Hilbert space. </font>
-            - <font color=blue> Bickel et al. (2007) proposed to learn this ratio together with the classification model parameters.</font>
+
+$$
+\begin{align}
+\frac{P_t(x, y)}{P_s(x,y)} &= \frac{P_t(x)}{P_s(x)} \frac{P_t(y|x)}{P_s(y|x)} \\
+&= \frac{P_t(x)}{P_s(x)} 
+\end{align}
+$$
+    
+- therefore, we want to weight each training instance with $\frac{P_t(x)}{P_s(x)}$
+- Shimodaira (2000) first propsed to reweight the log-liklihood of each training instance (x, y) using $\frac{P_t(x)}{P_s(x)}$ in maximum likelihood estimation for covariate shift.
+    - If the [support](https://en.wikipedia.org/wiki/Support_(mathematics)) of $P_t(X)$ is contained in the support of $P_s(X)$, then the optimal model that maximizes this re-weighted log-liklihood function <font color=red>asymptotically</font> <font color=orange> converges to the optimal model for the target domain</font>.
+    - A major challenge is how to estimate the ratio $\frac{P_t(x)}{P_s(x)}$ for each $x$ in the training set.
+        - A principled method of using non-parametric kernel density estimation is explored <font color=blue>(Shimodaira, 2000; Sugiyama and Muller, 2005)</font>.
+        - <font color=blue>It's proposed to transform the density atio estimation into a "problem of predicting whether an instance is from the source domain or from the target domain"  (Zadrozny, 2004; Bickel and Scheffer, 2007). </font>
+        - <font color=blue> Huang et al. (2007) transformed the problem into a kernel mean matching problem in a reproducing kernel Hilbert space. </font>
+        - <font color=blue> Bickel et al. (2007) proposed to learn this ratio together with the classification model parameters.</font>
 
 ## 3.3 Change of Functional Relations
 - Both class imbalance and covariate shift <font color=orange>simplify the difference between $P_s(x,y)$ and $P_t(x,y)$</font>.
@@ -243,14 +258,17 @@ We can then apply any SSL algorithms <font color=blue> (Zhu, 2005; Chapelle et a
     - let $g : X → Z$ denote a transformation function that transforms an observation $x$ represented in the original form into another form $z = g(x) \in Z$. 
     - Define variable $Z$ and an induced distribution of Z that satisfies $P(z) = \sum_{x \in X, g(x)=z}P(x)$. 
     - The joint distribution of $Z$ and $Y$ is then:
-        $$
-            P(z, y) = \sum_{x\in X, g(x)=z} P(x,y)
-        $$
+    
+$$
+    P(z, y) = \sum_{x\in X, g(x)=z} P(x,y)
+$$
+
 - If we find a transformation function $g$, then $P_t(Z, Y) = P_s(Z, Y)$ and the optimal model $P(Y|Z, \theta*)$, for $P_s(Y|Z)$ is still optimal for $P_t(Y|Z)$
     - The entropy of $Y|Z$ is <font color=orange>likely to increase from the entropy of $Y|X$ </font>
         - $Z$ is usually a simpler representation of the observation than $X$
         - encodes less information, uncertainty rises
         - The Bayes error rate usually increases under a change of representation.
+        
 ### Researches
 - <font color=blue>Ben-David et al. (2007)</font> first formally analyzed the effect of representation change for domain adaptation. 
     - They proved a generalization bound for domain adaptation that is dependent on the distance between the induced $P_s(Z, Y)$ and $P_t(Z, Y)$.
@@ -269,21 +287,27 @@ Review two kinds of methods that work for supervised domain
 adaptation, i.e. when a small amount of labeled data from the target domain is available.
 - Use the <font color=green>Maximum a Posterior (MAP)</font> estimation approach for supervised learning
     - encode some prior knowledge about the classification model into a Bayesian prior distributon $P(\theta)$:
-        $$
-            \prod^N_{i=1} P(y_i | x_i; \theta) \quad (2)
-        $$
-        - [Factorial](https://zh.m.wikipedia.org/zh-tw/%E9%9A%8E%E4%B9%98) $\prod^{n}_{i=1}k = n!$
-        - $\theta$ : model parameter
-        - Instead of maximizing *equation(2)*, we maximize the following equation, specifically: 
-            $$
-                P(\theta) \prod^N_{i=1} P(y_i | x_i; \theta)
-            $$
-            - <font color=orange>why?</font>
-        - In *domain adaptation*, we then maximize the following objective function:
-            $$
-                P(\theta | D_s) P(D_{t,l}|\theta) = P(\theta | D_s) \prod^{N_{t,l}}_{i=1} P(y_i^t | x_i^t; \theta)
-            $$
-            - $P(\theta | D_s)$ : A Bayesian prior which is dependent on the labeled instances from the source domain
+    
+$$
+    \prod^N_{i=1} P(y_i | x_i; \theta) \quad (2)
+$$
+
+- [Factorial](https://zh.m.wikipedia.org/zh-tw/%E9%9A%8E%E4%B9%98) $\prod^{n}_{i=1}k = n!$
+- $\theta$ : model parameter
+- Instead of maximizing *equation(2)*, we maximize the following equation, specifically: 
+
+$$
+    P(\theta) \prod^N_{i=1} P(y_i | x_i; \theta)
+$$
+
+- In *domain adaptation*, we then maximize the following objective function:
+
+$$
+    P(\theta | D_s) P(D_{t,l}|\theta) = P(\theta | D_s) \prod^{N_{t,l}}_{i=1} P(y_i^t | x_i^t; \theta)
+$$
+
+- $P(\theta | D_s)$ : A Bayesian prior which is dependent on the labeled instances from the source domain
+
 ### Researches
 - <font color=blue>Li and Bilmes (2007)</font> proposed a general Bayesian divergence prior framework for domain adaptation.
     - showed <font color=orange>how the general prior can be instantiated for Generator and Discriminator</font>. 
@@ -298,15 +322,18 @@ adaptation, i.e. when a small amount of labeled data from the target domain is a
             - The class label sets are for $M$ different tasks.
         - Assume that these different tasks are related.
         - Impose a common component shared by $\{\theta_k\}^{M}_{k=1}$, the $M$ conditional models are:
+        
             $$
             \{ P(Y_k|X, \theta_k) \}^M_{k=1}
             $$
+            
         - studies:  
             - <font color=blue>(Caruana, 1997; Ben-David and Schuller, 2003; Micchelli and Pontil, 2005; Xue et al., 2007)</font>    
 - Domain adaptaion can be treated as a special case of multi-task learning.
     - Domain adaptaion have only a single task but different domain.
     - Which can be seen as one task on the source domain and the other on the target domain.
     - If we have some labeled data from the target domain, we <font color=orange>can apply some existing multi-task learning algorithm.</font>
+
 ### Researches
 - <font color=blue>Daume III (2007)</font> proposed a simple method for domain adaptation based on <font color=green>feature duplications</font>.
     - The idea is to make a domain-specific copy of the original features for each domain. (?)
