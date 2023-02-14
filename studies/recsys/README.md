@@ -41,7 +41,7 @@
 |-|-|-|-|-|
 | [Is News Recommendation a Sequential Recommendation Task?](https://arxiv.org/pdf/2108.08984.pdf) | SIGIR | ['22](https://sigir.org/sigir2022/program/accepted/) | x | |
 | [Improving Conversational Recommender Systems via Transformer-based Sequential Modelling](https://dl.acm.org/doi/pdf/10.1145/3477495.3531852) | SIGIR  | ['22](https://sigir.org/sigir2022/program/accepted/) | | |
-| [Personalized Showcases: Generating Multi-Modal Explanations for Recommendations](https://arxiv.org/pdf/2207.00422.pdf) | pre |  | x |
+| [Personalized Showcases: Generating Multi-Modal Explanations for Recommendations](https://arxiv.org/pdf/2207.00422.pdf) | pre | - | - | [✓](./MultiModelExplanations/) |
 
 ## Reference
 - [Sequential-Recommender-System-Papers](https://github.com/DyGRec/Sequential-Recommender-System-Papers)
