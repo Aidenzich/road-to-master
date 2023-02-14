@@ -20,6 +20,7 @@ Firstly, we introduce `ContrastELBO`, a novel training objective that extends th
 
 Using the original sequence's **`origin view`** and **`augmented view`** to VAE, and get the `latent factor` $z$ and $z'$ to maximize agreement contrastively.
 - **Argumented view:**
+
     ![strategies_of_augmentations](./assets/strategies_of_augmentations.png)
 
 ## First. Introduction of the Background 
