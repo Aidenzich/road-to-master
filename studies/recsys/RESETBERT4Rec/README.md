@@ -1,5 +1,0 @@
-# RESETBERT4Rec: A Pre-training Model Integrating Time And User Historical Behavior for Sequential Recommendation
-Despite the great success of existing sequential recommendation-based methods, they **focus too much on item-level modeling of users' click history** and **lack information about the user's entire click history (such as click order, click time, etc.)**. 
-To tackle this problem, inspired by recent advances in pre-training techniques in the field of `natural language processing`, This paper builds a new pre-training task based on the original BERT pre-training framework and incorporate temporal information. 
-Specifically, This paper proposes a new model called the **RE**arrange **S**equence pr**E**-training and **T**ime embedding model via BERT for sequential **R**ecommendation (RESETBERT4Rec ) 
-It further captures the information of the `user's whole click history` by adding a `rearrange sequence prediction task` to the original BERT pre-training framework, while it integrates different views of time information. 
