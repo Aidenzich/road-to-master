@@ -41,3 +41,6 @@ three different perspectives based on timestamps of user interaction history: da
 
 ### Comparison
 ![performance](./assets/performance.png)
+
+### Ablation 
+![ablation](./assets/ablation.png)
