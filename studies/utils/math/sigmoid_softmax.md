@@ -11,8 +11,15 @@ So, with more than neuron you need a way to aggregate the outputs of the neurons
 
 ## Softmax
 Applies the `Softmax` function to an `n-dimensional` input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie **in the range [0,1] and sum to 1**.
+
+softmax function = softargmax = normalized exponential function
+
+## Formular
 $$
-\text{Softmax}(x_i) = \frac{\text{exp}(x_i)}{\sum_j\text{exp}(x_j)}
+\begin{aligned}
+\text{Softmax}(x_i) &= \frac{\text{exp}(x_i)}{\sum_j\text{exp}(x_j)} \\
+\sigma(x)_i &= \frac{e^{xi}}{\sum^K_{j=1}e^{xj}} \\ &\text{for} \ i=1, ..., K \ and  \ x = (x_1, ..., x_k) \in \mathbb{R}_k
+\end{aligned}
 $$
 
 ## Logistic function

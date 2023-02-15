@@ -3,6 +3,14 @@
 
 ## Keywords
 ### Attention
+$$
+\begin{aligned}
+Attention (Q, K, V ) &= \text{softmax}(\frac{QK^T}{\sqrt{d_k}}) V \\
+&= 
+\end{aligned}
+$$
+
+
 #### Illustration
 ![self-attention](./assets/self-attention.gif)
 #### Python Code
