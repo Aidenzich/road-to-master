@@ -62,6 +62,66 @@ $$
 | $N$ | Number of training samples $(X^i, I^i, Y^i)^N_{i=1}$ |
 | $I$ | Use `ground truth images from the user` for training <br> Use image from the `image-selection model` for inference|
 
+### Personalized Cross-Modal Contrastive Leaarning 
+Unlike image captioning tasks where the caption is a short description of an image, our task **utilizes multiple images as “prompts” to express personal feelings and opinions about them**. 
+To encourage generating `expressive`, `diverse` and `visual-aligned` explanations, we
+propose a `Personalized Cross-Modal Contrastive Learning (𝑃𝐶2𝐿)` framework. 
+We first project the `hidden representations of images`, `historical reviews`, and the `target sequence` into a latent space:
+
+$$
+\begin{aligned}
+{\color{cyan} \hat{H}^V = \phi_V(H^V)} \\
+{\color{orange} \hat{H}^R = \phi_R(H^R)} \\
+{\color{yellow} \hat{H}^Y = \phi_Y(H^Y) }\\
+\end{aligned}
+$$
+
+Then maximize the similarity between the pair of `source modality` and `target sequence`, and minimizeing the similarity between the `negative pairs` as follows:
+$$
+\begin{aligned}
+\mathcal{L}_{CL} &= - \sum^N_{i=1} \log \frac{\exp (s_{i,j}^{X,Y})}{\exp (s_{i, i}^{X,Y}) + \sum_{j \in K} \exp({\color{red}s_{i, j}^{X,Y}})} \\
+{\color{red}s_{i, j}^{X,Y}} &= sim(\hat{H}^X_i, \hat{H}^Y_j) / \mathcal{T}
+\end{aligned}
+$$
+
+| Property | Definition |
+|-|-|
+| $\mathcal{T}$ | temperature parameter |
+| $K$ | the set of negative samples for the sample $i$ |
+| $i, j$ | 2 samples in the mini-batch, $j$ is a negative sample |
+
+To ensure the visual grounding between multiple image features and output text, the paper proposed a `novel cross-modal contrastive loss`, which given a target explanation $Y$, then **randomly replace** the `entities`(extract using spacCy noun chunks) in the text with **other entities** presented in the dataset to construct a hard negative sample (i.e. "I like the *sushi*" to "I like the *burger*"): 
+$$
+\begin{aligned}
+Y &= \{ y_1, y_2, ..., y_t\} \\
+Y^{\text{ent}} &= \{ y_1, y_2, ..., y_n, ..., y_t \} \\
+{\color{red}Y^{\text{ent}}} &= \{ {\color{red}y'_{ent_1}}, y_2, ..., {\color{red}y'_{ent_2}}, .., y_L \} \quad \text{with randomly replace the entites} \\
+{\color{red} Y'} &= \{ {\color{red} y'_1}, y_2, ...,  {\color{red} y'_n}, ..., y_t \}
+\end{aligned} \\
+$$
+
+Adding the hidden representation of $Y^{\text{ent}}$ as an additional negative sample to formulate the `cross-modal contrastive loss`:
+
+$$
+\mathcal{L}_{CCL} = - \sum_{i=1}^N \log \frac{\exp(s^{{\color{cyan}{V}},Y}_{i,i})}{\exp (s^{{\color{cyan}{V}},Y}_{i,i}) + \sum_{j \in K \cup \text{\color{red}ent}} \exp(s^{{\color{cyan}{V}},Y}_{i,j}) }
+$$
+
+And, to enhance the personalization of explanation generation ...
+
+$$
+\mathcal{L}_{PCL} = - \sum_{i=1}^N \log \frac{ \exp (s^{{\color{orange}R},Y}_{i,i})}{\exp (s^{{\color{orange}R},Y}_{i,i}) + {\color{pink} f(i,j)} \sum_{j \in K} \exp(s^{{\color{orange}R}, Y}_{i, j}) } \\
+\begin{aligned}
+{\color{pink} f(i, j)} &= \alpha^{(1-sim(\tilde{R}_i, \tilde{R}_j))} \quad {\color{pink} f  \text{ is a user personality similarity function to re-weight negative pairs}}
+\end{aligned}
+$$
+
+- If the negative pairs with similar histories then reduce the weights. And if the negative pairs with distinct histories then increase the weights.
+
+    | Property | Definition |
+    |-|-|
+    | $\alpha$ | it's a hyperparameter which $\alpha > 1$ |
+    | $\text{sim}$ | the cosine similarity |
+    | $\tilde{R}_i, \tilde{R}_j $ | the average features of **2 users' input historical reviews** |
 
 ## Dataset
 ![](./assets/datasets.png)
@@ -71,3 +131,7 @@ $$
 | *GEST-raw* | Collected reviews with images from *Google Local*. |
 | *GEST-s1* | Subset of *GEST-raw*. For *personalized image set selection*. | Remove users with only one review for building a personalized dataset, then filter out reviews whose image urls are expired. |
 | *GEST-s2* | Subset of *GEST-raw*. For *visually-aware explanation generation*. |
+
+## Experiments
+### Showcase
+![showcase](./assets/showcase.png)
