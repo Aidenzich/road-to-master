@@ -90,7 +90,8 @@ $$
 | $K$ | the set of negative samples for the sample $i$ |
 | $i, j$ | 2 samples in the mini-batch, $j$ is a negative sample |
 
-To ensure the visual grounding between multiple image features and output text, the paper proposed a `novel cross-modal contrastive loss`, which given a target explanation $Y$, then **randomly replace** the `entities`(extract using spacCy noun chunks) in the text with **other entities** presented in the dataset to construct a hard negative sample (i.e. "I like the *sushi*" to "I like the *burger*"): 
+To ensure the visual grounding between multiple image features and output text, the paper proposed a `novel cross-modal contrastive loss`, which given a target explanation $Y$, then **randomly replace** the `entities`(extract using spacCy noun chunks) in the text with **other entities** presented in the dataset to construct a hard negative sample (i.e. "I like the *sushi*" to "I like the *burger*"):
+
 $$
 \begin{aligned}
 Y &= \{ y_1, y_2, ..., y_t\} \\
@@ -109,8 +110,8 @@ $$
 And, to enhance the personalization of explanation generation ...
 
 $$
-\mathcal{L}_{PCL} = - \sum_{i=1}^N \log \frac{ \exp (s^{{\color{orange}R},Y}_{i,i})}{\exp (s^{{\color{orange}R},Y}_{i,i}) + {\color{pink} f(i,j)} \sum_{j \in K} \exp(s^{{\color{orange}R}, Y}_{i, j}) } \\
 \begin{aligned}
+\mathcal{L}_{PCL} &= - \sum_{i=1}^N \log \frac{ \exp (s^{{\color{orange}R},Y}_{i,i})}{\exp (s^{{\color{orange}R},Y}_{i,i}) + {\color{pink} f(i,j)} \sum_{j \in K} \exp(s^{{\color{orange}R}, Y}_{i, j}) } \\
 {\color{pink} f(i, j)} &= \alpha^{(1-sim(\tilde{R}_i, \tilde{R}_j))} \quad {\color{pink} f  \text{ is a user personality similarity function to re-weight negative pairs}}
 \end{aligned}
 $$
