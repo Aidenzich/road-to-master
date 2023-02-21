@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # RESETBERT4Rec: A Pre-training Model Integrating Time And User Historical Behavior for Sequential Recommendation
 Despite the great success of existing sequential recommendation-based methods, they **focus too much on item-level modeling of users' click history** and **lack information about the user's entire click history (such as click order, click time, etc.)**. 
 

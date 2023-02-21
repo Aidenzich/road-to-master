@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # Determinantal Point Process Likelihoods for Sequential Recommendation
 In the training process of recommender systems, the loss function plays an essential role in guiding the optimization of recommendation models to generate accurate suggestions for users. 
 However, Most existing sequential recommendation techniques focus on designing algorithms or neural network architectures, and **few efforts have been made to tailor loss functions** that fit naturally into the practical application scenario of sequential recommender systems.

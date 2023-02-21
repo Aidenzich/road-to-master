@@ -1,10 +1,11 @@
-# NEAR: Non-Supervised Explainability Architecture for Accurate Review-Based Collaborative Filtering
 | Property  | Data |
 |-|-|
 | Created | 2022-12-18 |
 | Updated | 2022-12-19 |
 | Author | @Aiden |
 | Tags | #study |
+
+# NEAR: Non-Supervised Explainability Architecture for Accurate Review-Based Collaborative Filtering
 
 | Title | Venue | Year | Code |
 |-|-|-|-|
