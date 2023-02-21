@@ -2,6 +2,14 @@
 ![jake](./assets/JakeQuotes.jpeg)
 >  This is a repository for some data scientist stuff.
 
+## Collaborators
+
+| Name | Main Field  |
+|-|-|
+| [Aiden](https://github.com/Aidenzich) | Recommender System, Variational Inference, Sequence Forecasting |
+| [YiTing](https://github.com/yiting-tom) | Multi-Modality, Vision-Language, Recommender System  |
+| [MasterYee](https://github.com/Destiny0504) | NLP, Reinforcement Learning, CWS |
+
 ## Highlights
 ### Overall
 - 🪤 [The spike of recommendation system](./studies/recsys/README.md) (Mainly)

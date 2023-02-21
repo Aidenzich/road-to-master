@@ -1,3 +1,9 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
 # Hierarchical Multi-Scale Gaussian Transformer for Stock Movement Prediction
 ## Summary
 - This paper present several enhancements for the proposed basic Transformer. 
