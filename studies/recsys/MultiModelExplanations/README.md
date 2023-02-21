@@ -84,6 +84,7 @@ $$
 $$
 
 Then maximize the similarity between the pair of `source modality` and `target sequence`, and minimizeing the similarity between the `negative pairs` as follows:
+
 $$
 \begin{aligned}
 \mathcal{L}_{CL} &= - \sum^N_{i=1} \log \frac{\exp (s_{i,j}^{X,Y})}{\exp (s_{i, i}^{X,Y}) + \sum_{j \in K} \exp({\color{red}s_{i, j}^{X,Y}})} \\
