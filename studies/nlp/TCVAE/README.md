@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2022-12-19 |
+| Updated | 2022-12-19 |
+| Author | @Aiden |
+| Tags | #study |
+
 # T-CVAE
 https://www.ijcai.org/proceedings/2019/727
 ## Introduction

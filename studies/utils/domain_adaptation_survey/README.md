@@ -1,5 +1,12 @@
+| Property  | Data |
+|-|-|
+| Created | 2022-12-19 |
+| Updated | 2022-12-19 |
+| Author | @Aiden |
+| Tags | #study |
+
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
-http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf
+[paper](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)
 ## The Goal of this survey
 1. There have been a number of methods proposed to address domain adaptation, but it is not clear how these methods are related to each other. This survey tries to organize the existing work and lay out an overall picture of the problem with it's possible solutions.
 2. Second, a systematic literature survey naturally reveals the limitations of current work and points out promising directions that should be explored in the future

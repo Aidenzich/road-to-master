@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # S3-rec: Self-supervised learning for sequential recommendation with mutual information maximization
 | Title | Venue | Year | Code |
 |-|-|-|-|

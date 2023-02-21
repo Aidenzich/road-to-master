@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # Progressive Self-Attention Network with Unsymmetrical Positional Encoding for Sequential Recommendation
 In real-world recommendation systems, the preferences of users are often affected by `long-term constant interests` and `short-term temporal needs`. 
 All equivalent item-item interactions in original self-attention are cumbersome, failing to capture the drifting of users' local preferences, which contain abundant short-term patterns. 

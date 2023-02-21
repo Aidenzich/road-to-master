@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2022-12-19 |
+| Updated | 2022-12-19 |
+| Author | @Aiden |
+| Tags | #study |
+
 #  SimCSE: Simple Contrastive Learning of Sentence Embeddings
 - [paper](https://arxiv.org/abs/2104.08821)
 
