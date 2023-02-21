@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # CaFe: Coarse-to-Fine Sparse Sequential Recommendation
 Self-attentive methods still struggle to `model sparse data`, on which they struggle to learn high-quality item representations. 
 This paper proposes to model user `dynamics` from `shopping intents` and `interacted items` simultaneously. The learned intents are `coarse-grained` and work as `prior knowledge` for item recommendation. 

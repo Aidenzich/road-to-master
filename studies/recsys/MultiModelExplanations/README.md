@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # Personalized Showcases: Generating Multi-Modal Explanations for Recommendations
 | Title | Venue | Year | Code |
 |-|-|-|-|

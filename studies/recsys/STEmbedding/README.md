@@ -1,4 +1,11 @@
-# 👍 A New Sequential Prediction Framework with Spatial-temporal Embedding 
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
+# A New Sequential Prediction Framework with Spatial-temporal Embedding 
 Sequential prediction is one of the key components in recommendation. 
 In online e-commerce recommendation system, user behavior consists of the sequential visiting logs and item behavior contains the interacted user list in order. 
 Most of the existing state-of-the-art sequential prediction methods **only consider the user behavior while ignoring the item behavior**. 

@@ -1,4 +1,3 @@
-# ChatGPT
 | Property  | Data |
 |-|-|
 | Created | 2022-12-19 |
@@ -6,6 +5,7 @@
 | Author | @Aiden |
 | Tags | #study |
 
+# ChatGPT
 ## Training language models to follow instructions with human feedback
 | Title | Venue | Year | Code |
 |-|-|-|-|

@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2022-12-19 |
+| Updated | 2022-12-19 |
+| Author | @Aiden |
+| Tags | #study |
+
 # Bert Summary
 這篇先以 [bert-extractive-summarizer](https://github.com/dmmiller612/bert-extractive-summarizer) 開始做一些相關的實驗
 有機會的話，對 summarizer 的相關論文進行研究，了解整個架構的SOP是什麼樣子

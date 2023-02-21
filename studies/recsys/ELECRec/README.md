@@ -1,4 +1,11 @@
-### 👍 ELECRec: Training Sequential Recommenders as Discriminators
+| Property  | Data |
+|-|-|
+| Created | 2023-02-21 |
+| Updated | 2023-02-21 |
+| Author | [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
+# ELECRec: Training Sequential Recommenders as Discriminators
 Despite their prevalence(普遍), these methods usually require training with more
 meaningful samples to be effective, which otherwise will lead to a poorly trained model. 
 In this work, this paper proposes to train the sequential recommenders as `discriminators` rather than generators.

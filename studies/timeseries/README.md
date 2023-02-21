@@ -1,4 +1,4 @@
-# Time Series 
+# Time Series
 ## Papers
 | Title | Venue | Year | Code | Review | 
 |-|-|-|-|-|

@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2022-12-19 |
+| Updated | 2022-12-19 |
+| Author | @Aiden |
+| Tags | #study |
+
 # Attention is All You Need
 ![transformer-architecture](./assets/transformer_architecture.jpeg)
 
