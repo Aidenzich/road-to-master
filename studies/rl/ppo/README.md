@@ -30,8 +30,10 @@ $$
 
 ![l_clip](./assets/l_clip.png)
 $$
-L^{CLIP} (\theta) = \hat{\mathbb{E}}_t \bigg[ min( {\color{cyan} r_t(\theta)} \hat{A}_t, {\color{orange} \text{clip}(r_t (\theta), 1 - \epsilon, 1 + \epsilon )}  \bigg] \\
+\begin{aligned}
+L^{CLIP} (\theta) = \hat{\mathbb{E}}_t \bigg[ min( {\color{cyan} r_t(\theta)} \hat{A}_t, {\color{orange} \text{clip}(r_t (\theta), 1 - \epsilon, 1 + \epsilon )}  \bigg]  \\
 \text{clip} ({\color{green}\text{Between upper and lower bounds}} , {\color{red}\text{Lower bound}}, {\color{blue}\text{Upper bound}})
+\end{aligned}
 $$
 
 - The probability ratio $r$ is clipped at $1 − \epsilon $  or $1 + \epsilon$ depending on whether the advantage is positive or negative.
