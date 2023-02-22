@@ -1,10 +1,3 @@
-| Property  | Data |
-|-|-|
-| Created | 2022-12-19 |
-| Updated | 2022-12-19 |
-| Author | @Aiden |
-| Tags | #study |
-
 # Natural language processing (NLP) 
 ## Papers
 | Title | Venue | Year | Code | Review |
