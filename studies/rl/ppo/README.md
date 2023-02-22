@@ -36,7 +36,7 @@ L^{CLIP} (\theta) = \hat{\mathbb{E}}_t \bigg[ min( {\color{cyan} r_t(\theta)} \h
 \end{aligned}
 $$
 
-- The probability ratio $r$ is clipped at $1 − \epsilon $  or $1 + \epsilon$ depending on whether the advantage is positive or negative.
+- The probability ratio $r$ is clipped at $1 − \epsilon$  or $1 + \epsilon$ depending on whether the advantage is positive or negative.
 #### Notation Table
 | Property | Definition | 
 |-|-|
