@@ -27,6 +27,7 @@ This paper experiment with applying a standard `Transformer` **directly** to ima
 ### Transformers lack some of the inductive biases inherent to CNNs
 - `Locality`: closer object would have similar features
 - `Translastion equivariance`:
+
     $$
     (fog)(x) \equiv (gof)(x)
     $$
@@ -39,6 +40,7 @@ However, if the models are trained on larger datasets (14M-300M images). Finding
 ![method](./assets/method_structure.png)
 
 The training resolution is 224, so the shape of a image is 224 ⨉ 224 ⨉ 3, and then patching the image by 16 ⨉ 16 ⨉ 3, we get 196 patched images.
+
 $$
 \begin{aligned}
 &[ 224 \times 224 \times 3 ] \\ 
@@ -46,4 +48,5 @@ $$
 &\rightarrow_\text{flatten} {\color{pink}[768]} \times 196 \text{  pathed images} \\
 \end{aligned}
 $$
+
 With the extra learnable `[class]` embedding, so the sequence shape is ${\color{green} 197 \times 768}$
