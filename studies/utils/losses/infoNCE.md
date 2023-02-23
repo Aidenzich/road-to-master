@@ -3,7 +3,7 @@ The InfoNCE loss is proposed from [Contrastive Predictive Coding (CPC)](https://
 The formula mentioned in [Moco; He, Kaiming](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf) as below:
 
 $$
-\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+} / \mathcal{T})}{\sum_{i=0}^K \exp(q \cdot k_i / \mathcal{T})}
+\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+} / \mathcal{T})}{\Sigma_{i=0}^K \exp(q \cdot k_i / \mathcal{T})}
 $$
 
 | Property | Description |
@@ -15,7 +15,7 @@ $$
 | ${\sum_{i=0}^K \exp(q \cdot k_i / \mathcal{T})}$ | The sum is over 1 postive and $K$ negative samples |
 
 ## The relationship between Cross entropy and InfoNCE
-The cross entropy formular is:
+The cross entropy Formula is:
 
 $$
 \mathcal{L}_{CE}\big( p(y_i) \big) = - \sum_{i \in K} y_i \log \big(p(y_i) \big)
@@ -24,17 +24,17 @@ $$
 The softmax formula is:
 
 $$
-\text{softmax}(x_i) = \frac{\exp(x_i)}{\sum_{j=0}^K \exp(x_j)}
+\text{softmax}(x_i) = \frac{\exp(x_i)}{\Sigma_{j=0}^K \exp(x_j)}
 $$
 
 To calculate the probability of $y_i$, we have to use softmax on the model ouput logits $x_i$, so:
 
 $$
 \begin{aligned}
-p(y_+) &= \text{softmax}(x_+) = \frac{\exp(x_+)}{\sum_{j=0}^K \exp(x_j)} \\
-\mathcal{L}_{CE}(p(y_+)) &= - \sum_{i \in K} y_i \log(p(y_+)) \\
-&= - \sum_{i \in K} y_i \log(\frac{\exp(x_+)}{\sum_{j=0}^K \exp(x_j)}) \\
-&= - \log(\frac{\exp(x_+)}{\sum_{j=0}^K \exp(x_j)})
+p(y_+) &= \text{softmax}(x_+) = \frac{\exp(x_+)}{\Sigma_{j=0}^K \exp(x_j)} \\
+\mathcal{L}_{CE}(p(y_+)) &= - \Sigma_{i \in K} y_i \log(p(y_+)) \\
+&= - \sum_{i \in K} y_i \log(\frac{\exp(x_+)}{\Sigma_{j=0}^K \exp(x_j)}) \\
+&= - \log(\frac{\exp(x_+)}{\Sigma_{j=0}^K \exp(x_j)})
 \end{aligned}
 $$
 
@@ -45,13 +45,13 @@ But calculating with softmax on such a large number of categories is very time-c
 Then we look back to $\mathcal{L}_{\text{InfoNCE}}$:
 
 $$
-\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+} / \mathcal{T})}{\sum_{i=0}^K \exp(q \cdot k_i / \mathcal{T})}
+\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+} / \mathcal{T})}{\Sigma_{i=0}^K \exp(q \cdot k_i / \mathcal{T})}
 $$
 
 If we ignore the temperature hyper-parameter $\mathcal{T}$, the loss function became:
 
 $$
-\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+})}{\sum_{i=0}^K \exp(q \cdot k_i )}
+\mathcal{L}_\text{InfoNCE} = - \log \frac{\exp(q \cdot k_{+})}{\Sigma_{i=0}^K \exp(q \cdot k_i )}
 $$
 
 As we can see, The `InfoNCE` loss is actually a `cross entropy loss`, and it performs a classification task with $k+1$ classes.
@@ -61,9 +61,9 @@ First we need to derive the probability of positive sample when given a context 
 
 $$
 \begin{aligned}
-p(x_+ | X, c) &= \frac{p(x_+) \prod_{i=1,...,N;i \neq +}p(x_i)}{\sum^N_{j=1} [ p(x_j|c) \prod_{i=1,...,N;i \neq j}p(x_j)] } \\
-&= \frac{\color{blue} \frac{p(x_+|c)}{p(x_+)}}{\sum_{j=1}^N \frac{p(x_j|c)}{p(x_j)}} \\
-&= \frac{f(x_+, c)}{\sum^N_{j=1}f(x_j, c)}
+p(x_+ | X, c) &= \frac{p(x_+) \prod_{i=1,...,N;i \neq +}p(x_i)}{\Sigma^N_{j=1} [ p(x_j|c) \prod_{i=1,...,N;i \neq j}p(x_j)] } \\
+&= \frac{\color{blue} \frac{p(x_+|c)}{p(x_+)}}{\Sigma_{j=1}^N \frac{p(x_j|c)}{p(x_j)}} \\
+&= \frac{f(x_+, c)}{\Sigma^N_{j=1}f(x_j, c)}
 \end{aligned}
 $$
 - where the scoring function $f(x, c) \propto \frac{p(x|c)}{p(x)}$
@@ -71,7 +71,7 @@ $$
 For brevity, let us write the loss of InfoNCE as:
 
 $$
-\mathcal{L}_{\text{InfoNCE}} = - \mathbb{E} \big[ \log \frac{f(x,c)}{\sum_{x' \in X} f(x', c)} \big]
+\mathcal{L}_{\text{InfoNCE}} = - \mathbb{E} \big[ \log \frac{f(x,c)}{\Sigma_{x' \in X} f(x', c)} \big]
 $$
 
 And then we dervie the mutual information with [In terms of PMFs for discrete distributions](https://en.wikipedia.org/wiki/Mutual_information):

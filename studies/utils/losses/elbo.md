@@ -44,3 +44,10 @@ z &= \mu + \sigma \odot \epsilon \\
 $$
 ![reparameterization_trick](./assets/reparameterization_trick.png)
 - In VAE, the reparameter trick is used to sample the latent variable z through the generated $\mu$ and $\sigma$ from the encoder.
+
+
+## Reference
+- [What is Variational Inference?](https://www.youtube.com/watch?v=HxQ94L8n0vU&ab_channel=MachineLearning%26Simulation)
+- [Online showcase of ELBO](https://share.streamlit.io/ceyron/machine-learning-and-simulation/main/english/probabilistic_machine_learning/elbo_interactive_plot.py)
+- [KL Divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)
+- [Joint probability distribution](https://en.wikipedia.org/wiki/Joint_probability_distribution)

@@ -1,4 +1,5 @@
 # Knowledge Graph Embedding (KGE)
+> Note: The note is not made by our collaborators, may have many error, must be rewrite
 ## Introduction
 - [KGE-wiki](https://en.wikipedia.org/wiki/Knowledge_graph_embedding)
 - [Graph-Embedding](https://en.wikipedia.org/wiki/Graph_embedding)

@@ -34,5 +34,5 @@ layer = nn.Sequential(
 
 ```
 
-## Implement in NLP
-- 因為 padding 是 0，導致在 normalization 時，會使得效果不好。常見的應用做法是將 padding 用前面的句子取代，來避免其值為 0 的狀況發生
+## Implement issue in NLP
+Because the `padding` is 0, it will make the effect bad during normalization. A common practice is to replace padding with the previous sentence to avoid the situation where its value is 0

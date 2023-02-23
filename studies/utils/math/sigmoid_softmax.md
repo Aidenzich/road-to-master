@@ -14,11 +14,11 @@ Applies the `Softmax` function to an `n-dimensional` input Tensor rescaling them
 
 softmax function = softargmax = normalized exponential function
 
-## Formular
+## Formula
 $$
 \begin{aligned}
 \text{Softmax}(x_i) &= \frac{\text{exp}(x_i)}{\sum_j\text{exp}(x_j)} \\
-\sigma(x)_i &= \frac{e^{xi}}{\sum^K_{j=1}e^{xj}} \\ &\text{for} \ i=1, ..., K \ and  \ x = (x_1, ..., x_k) \in \mathbb{R}_k
+\sigma(x)_i &= \frac{e^{xi}}{\Sigma^{K}_{j=1} e^{xj}} \\ &\text{for} \ i=1, ..., K \ and  \ x = (x_1, ..., x_k) \in \mathbb{R}_k
 \end{aligned}
 $$
 
