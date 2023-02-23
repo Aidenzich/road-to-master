@@ -1,11 +1,11 @@
 ## Gradient Clipping
+
+$$
+    W = W - \eta \dfrac{\partial\mathcal{L}}{\partial W}
+$$
 - Schemetic Diagram
+
     ![Clipping Gradients](./assets/g_clipping.jpg)
-
-    $$
-        W = W - \eta \dfrac{\partial\mathcal{L}}{\partial W}
-    $$
-
 - **Purpose**: To prevent Exploding Gradient Problem
 - **Heine Borel**
 
@@ -17,10 +17,12 @@ $$
 
 
 - **limit**
-    $$
+
+$$
     \lim_{n \to -\infty} a_n = x \\
     \forall \epsilon \in \mathbb{R}, \exists N \in X 
-    $$
+$$
+    
 - [torch.nn.utils.clip_grad_norm](https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html)
 
     
