@@ -22,16 +22,15 @@ The resulting loss values are then `summed` over all examples and averaged to pr
 $$
 \frac{- 1}{N} \sum_1^N {y_i \times \log(p({y}_i)) + (1-y_i) \times \log(1- p({y}_i))}
 $$
-- What's the value of $y_i$
+
+- The value of $y_i$
     | label | $y_i$ |
     |-|-|
     | Positive | 1 |
     | Negative | 0 |
 
-#### Information Entropy
-- Ref: https://www.ycc.idv.tw/deep-dl_2.html
+
 #### Maximum Likelihood Estimation
-- Ref: https://www.ycc.idv.tw/deep-dl_3.html
 - Use Model to infer Data's distribution
     - We know the x, and we calculate the Probilities of Data distribution
     - Use $ln$ 
@@ -40,3 +39,6 @@ $$
     - Distribution -> Probability
     - Likelihood is probability's reverse
 
+## References
+- [Explanation of Infromation Entropy](https://www.ycc.idv.tw/deep-dl_2.html)
+- [Explanation of Maximum Likelihood Estimation](https://www.ycc.idv.tw/deep-dl_3.html)
