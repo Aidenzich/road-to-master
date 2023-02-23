@@ -1,5 +1,23 @@
 #  🛠 Utils
 This folder contains some general AI training techniques.
+
+## Papers
+| Title | Venue | Year | Code | Review |
+|-|-|-|-|-|
+| [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](http://proceedings.mlr.press/v37/ioffe15.html) | ICML | '15 | [✓](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm2d.html) | [✓](./batch_norm/) |
+| [Dropout: A Simple Way to Prevent Neural Networks from Overfitting]() | JMLR | '14 | - | [✓](./dropout/) |
+| [A Literature Survey on Domain Adaptation of Statistical Classifiers](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)| - | '08 | - | [✓](./domain_adaptation_survey/)|
+
+## Notes
+| Title | Review |
+|-|-|
+| Introduction of AI | [✓](./introduction_ai/) |
+| Note of Embedding Related | [✓](./embed/) |
+| Note of optimization | [✓](./optimum-design/) |
+| Note of Queuing Theory  | [✓](./queuing-theory/) |
+| Note of Statistics  | [✓](./math/assets/note_statistics.pdf) |
+
+
 ## Keywords
 | Keyword | Definition |
 |-|-|
@@ -20,19 +38,7 @@ This folder contains some general AI training techniques.
 | Naive Bayes | A type of probabilistic algorithm used for classification tasks. Naive Bayes models the class-conditional probability of each feature given a class and the prior probability of each class, and combines these probabilities to make predictions. |
 | Random Forest | A type of ensemble learning algorithm used for classification and regression tasks. Random forest consists of multiple decision trees trained on different random subsets of the data and features, and makes predictions by combining the predictions of the individual trees. |
 
-## Papers
-| Title | Venue | Year | Code | Review |
-|-|-|-|-|-|
-| [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](http://proceedings.mlr.press/v37/ioffe15.html) | ICML | '15 | [✓](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm2d.html) | [✓](./batch_norm/) |
-| [Dropout: A Simple Way to Prevent Neural Networks from Overfitting]() | jmlr | '14 | - | [✓](./dropout/) |
-| [A Literature Survey on Domain Adaptation of Statistical Classifiers](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)| ? | '08 | x | [✓](./domain_adaptation_survey/)|
-
-## Notes
-| Title | Review |
-|-|-|
-| Embedding Related | [✓](./embed/) |
-
-## Other questions
+## Others
 ### What is the meaning of logits?
 In machine learning and deep learning, "logits" refer to the raw, pre-activated outputs of a model before the activation function is applied. 
 Logits are the inputs to the activation function, which is typically the final layer of a neural network, and the output of this activation function gives the final prediction of the model. Logits represent the un-normalized outputs of the model, which are then passed through an activation function (such as a sigmoid or softmax function) to produce the final predictions. Logits are used to preserve the model's ability to make confident predictions, whereas the final outputs of the activation function are typically normalized to produce probabilities or scores that can be compared to make predictions.
