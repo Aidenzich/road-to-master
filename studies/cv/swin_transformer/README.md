@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-02-23 |
+| Updated | 2023-02-24 |
+| Author | [@YiTing](https://github.com/yiting-tom), [@Aiden](https://github.com/Aidenzich) |
+| Tags | #study |
+
 # Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
 ## Abstract
 `Swin Transformer`, that capably serves as a **general-purpose backbone** for computer vision. 
