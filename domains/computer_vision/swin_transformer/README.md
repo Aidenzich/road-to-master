@@ -6,7 +6,11 @@
 | Tags | #study |
 
 # Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
+| Title | Venue | Year | Code |
+|-|-|-|-|
+| [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030) | ICCV | '21 | [✓](https://github.com/microsoft/Swin-Transformer) |
 ## Abstract
+![swin_vs_vit](./assets/swin_and_vit.png)
 `Swin Transformer`, that capably serves as a **general-purpose backbone** for computer vision. 
 Challenges in adapting `Transformer` from language to vision arise from differences between the two domains, such as: 
 - large variations in the scale of visual entities 
