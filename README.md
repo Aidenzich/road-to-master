@@ -12,20 +12,20 @@
 
 ## Highlights
 ### Overall
-- 🪤 [The spike of recommendation system](./studies/recsys/README.md) (Mainly)
-- 📉 [The spike of time-series](./studies/timeseries/)
-- 🛠️ [The note of the foundation component of AI](./studies/utils/)
+- 🪤 [The spike of recommendation system](./domains/recommender_system/)
+- 📉 [The spike of time-series](./domains/timeseries/)
+- 🛠️ [The note of the foundation component of AI](./domains/utils/)
 ### Slides
-- 2023-01. 🦾 [Slide of ContrastVAE, which is the SOTA in recommender system](./studies/recsys/ContrastVAE/assets/slide.pdf)
-- 2022-09. 🌊 [Slide of Diffusion Model, include proof and lot of note.](./studies/cv/diffusion/assets/DDPM_v3.pdf)
-- 2022-05. 🤖 [Slide of VAECF, include the derivation of ELBO](./studies/recsys/VAECF/assets/vaecf_report.pdf)
-
+- 2023-02. 👀 [Slide of GLIP, include DETR and MDETR](./present/yt/GLIP.pdf)
+- 2023-01. 🦾 [Slide of ContrastVAE, which is the SOTA in recommender system](./domains/recommender_system/ContrastVAE/assets/slide.pdf)
+- 2022-09. 🌊 [Slide of Diffusion Model, include proof and lot of note.](./domains/cv/diffusion/assets/DDPM_v3.pdf)
+- 2022-05. 🤖 [Slide of VAECF, include the derivation of ELBO](./domains/recommender_system/VAECF/assets/vaecf_report.pdf)
 
 
 
 ## Repository Structure
 | Folder | Description |
 |-|-|
-| [studies](./studies/) | the interesting paper analysis and learning notes |
-| [tips](./tips) | some tips for data science |
-| [tools](./tools/) | some tools for data science |
+| [domains](./domains/) | The interesting paper of different domains |
+| [tips](./tips) | Some tips for data science |
+| [tools](./tools/) | Some tools for data science |
