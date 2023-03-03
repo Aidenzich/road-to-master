@@ -13,7 +13,7 @@
 ## Highlights
 ### Overall
 - 🪤 [The spike of recommender system](./domains/recommender_system/)
-- 👁️ [The spike of computer vision](./domains/timeseries/)
+- 👁️ [The spike of computer vision](./domains/computer_vision/)
 - 📉 [The spike of time-series](./domains/timeseries/)
 - 🛠️ [The note of the foundation component of AI](./domains/utils/)
 ### Slides
