@@ -2,8 +2,9 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) | [🔧](./ChatGPT4Robotics/) |
 | [NEAR: Non-Supervised Explainability Architecture for Accurate Review-Based Collaborative Filtering](./NEAR.pdf) | IEEE | '22 | [✓](https://github.com/IKMLab/PHD_Dissertation_Reinald_Pugoy_P78077040) | [✓](./NEAR/) |
-| [DisAPT: Discriminative Pre-trained Language Model with Adversarial Prompt Tuning for Few-shot Text Classification]() | ? | '22 | - | [✓](./DisAPT/) | 
+| [DisAPT: Discriminative Pre-trained Language Model with Adversarial Prompt Tuning for Few-shot Text Classification]() | - | '22 | - | [-](./DisAPT/) | 
 | [Training language models to follow instructions with human feedback](https://arxiv.org/pdf/2203.02155.pdf) | OpenAI | '22 | - | [✓](./ChatGPT) |
 | [LaMDA: Language Models for Dialog Applications](https://arxiv.org/pdf/2201.08239.pdf) | - | '22 | - | - |
 | [SimCSE: Simple Contrastive Learning of Sentence Embeddings](https://arxiv.org/abs/2104.08821) | EMNLP | '21 | [✓](https://github.com/princeton-nlp/SimCSE) | [✓](./SimCSE/) |
