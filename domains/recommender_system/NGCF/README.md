@@ -75,13 +75,14 @@ Using `High-order propagation mechanism` to stack more embedding propagation lay
 The representation of $u$ at the $l$-th layer is:
 
 $$
-\begin{aligned}
-e_u^{(l)} &= \text{LeakyReLU} ( {\color{cyan} m_{u \leftarrow u}^{(l)}} + {\color{magenta}  \sum_{i \in N_u} m_{u \leftarrow i}^{(l)}} ) \\
+e_u^{(l)} = \text{LeakyReLU} \big( {\color{cyan} m_{u \leftarrow u}^{(l)}} + {\color{magenta}  \sum_{i \in N_u} m_{u \leftarrow i}^{(l)}} \big)
+$$
+
+$$
 &\left\{ 
-    \begin{array}{rcl} 
-    m_{u \leftarrow i} =& p_{ui}\bigg(W_1^{(l)} e_i^{(l-1)} + W_2^{(l)} (e_i \odot e_u) \bigg), \\  
-    m_{u \leftarrow u} =& W_1^{(l)} e_u^{(l-1)}, \\
-    p_{ui} =& \frac{1}{\sqrt{|N_u||N_i|}}
-    \end{array}\right.
-\end{aligned}
+\begin{array}{rcl} 
+m_{u \leftarrow i} =& p_{ui}\bigg(W_1^{(l)} e_i^{(l-1)} + W_2^{(l)} (e_i \odot e_u) \bigg), \\  
+m_{u \leftarrow u} =& W_1^{(l)} e_u^{(l-1)}, \\
+p_{ui} =& \frac{1}{\sqrt{|N_u||N_i|}}
+\end{array}\right.
 $$
