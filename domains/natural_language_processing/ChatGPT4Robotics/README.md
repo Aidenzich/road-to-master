@@ -1,7 +1,9 @@
 # ChatGPT for Robotics: Design Principles and Model Abilities
+
 | Title | Venue | Year | Code |
-|-|-|-|-|-|
-| [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) |
+|-|-|-|-|
+| [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | 
+
 ## Abstract
 ![overall](./assets/overall.png)
 This paper is an experimental study that using ChatGPT for robotics applications. 
