@@ -8,6 +8,7 @@
     - This paper hypothesizes the updates to the weights also have a `low intrinsic rank` during adaptation.
 
 ![lora](./assets/lora.png)
+
 $$
 h = W_0 x + \Delta W_x  = W_0 + BA_x
 $$
