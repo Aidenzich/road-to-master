@@ -48,3 +48,9 @@ Normally, given a batch of sequences $\{S_u\}^N_{u=1}$ with batch size $N$, a pa
 
 - As we can see in Figure 4c and 4d, attention in the 2-th head tends to attend on the mask token, which indicates that the model is sensitive to the cloze task.
 - In the experiments find out that `bidirectional Transformers` can **only** outperform unidirectional Transformers by a `large margin on(大幅優於)`  condition that the `slide window technique` is adopted, which indicates the necessity of using the slide window technique in bidirectional Transformers.
+
+### Performance Comparison
+![exp](./assets/performance.png)
+
+### Hyper-parameter Sensitivity
+![hyper-param](./assets/hyper-param.png)
