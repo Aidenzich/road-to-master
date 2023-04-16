@@ -9,7 +9,7 @@
 |-|-|
 | [Aiden](https://github.com/Aidenzich) | Recommender System, Variational Inference, Sequence Forecasting |
 | [YiTing](https://github.com/yiting-tom) | Multi-Modality, Vision-Language, Recommender System  |
-| [MasterYee](https://github.com/Destiny0504) | NLP, Reinforcement Learning, CWS |
+
 
 ## Highlights
 ### Overall
