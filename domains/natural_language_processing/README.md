@@ -2,7 +2,8 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
-| [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) | [🔧](./ChatGPT4Robotics/) |
+| [Instruction Tuning with GPT-4](https://arxiv.org/abs/2304.03277) | - | '23 | [✓](https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM) | [-](./InstructioinTuningWithGPT4/) |
+| [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) | [✓](./ChatGPT4Robotics/) |
 | [NEAR: Non-Supervised Explainability Architecture for Accurate Review-Based Collaborative Filtering](./NEAR.pdf) | IEEE | '22 | [✓](https://github.com/IKMLab/PHD_Dissertation_Reinald_Pugoy_P78077040) | [✓](./NEAR/) |
 | [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) | ICLR | '22 | [✓](https://github.com/huggingface/peft/blob/main/src/peft/tuners/lora.py) | [✓](./Lora/) |
 | [DisAPT: Discriminative Pre-trained Language Model with Adversarial Prompt Tuning for Few-shot Text Classification]() | - | '22 | - | [-](./DisAPT/) | 
