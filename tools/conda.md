@@ -4,15 +4,17 @@
     <summary><em>Miniconda</em></summary>
 
 # Miniconda
-1. 到[官方網站](https://docs.conda.io/en/latest/miniconda.html)下載對應版本
+1. Download the corresponding version from the official website.
     - e.g.
         ```sh=
         curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
         chmod +x ./Miniconda3-latest-Linux-x86_64.sh
         ./Miniconda3-latest-Linux-x86_64.sh
         ```
-2. 以root執行安裝，並指定位置為 **/usr/local/miniconda3/**
-3. 在shell (以vim開啟~/.bashrc或~/.zshrc) 中加入以下環境變數:
+
+
+2. Install using root privilege, and specify the installation location as /usr/local/miniconda3/
+3. Add the following environment variables in the shell (using vim to open ~/.bashrc or ~/.zshrc).
 ```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -30,7 +32,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-4. (optional) 執行以下指令來取消預設啟動base環境
+4. (Optional) Execute the following command to deactivate the default base environment:
 
 ```bash
 conda config --set auto_activate_base false
