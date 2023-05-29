@@ -1,7 +1,7 @@
 | Property  | Data |
 |-|-|
 | Created | 2022-12-19 |
-| Updated | 2022-12-19 |
+| Updated | 2023-05-29 |
 | Author | @Aiden |
 | Tags | #study |
 
@@ -10,11 +10,10 @@
 
 ## Keywords
 ### Attention
+
 $$
 \begin{aligned}
-Attention (Q, K, V ) &= \text{softmax}(\frac{QK^T}{\sqrt{d_k}}) V \\
-&= 
-\sigma(z)_i = \frac{e^{zi}}{\sum^K_{j=1}e^zj}
+\text{Attention} (Q, K, V) &= \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V = \frac{e^{z_i}}{ \sum_{j=1}{e^{z_j}}}
 \end{aligned}
 $$
 
@@ -39,15 +38,49 @@ def attention(query, key, value, mask=None, dropout=None):
         p_attn = dropout(p_attn)
     return torch.matmul(p_attn, value), p_attn
 ```
-#### Attention vs Fully Connected Network
-- 單純使用 full connected network 會有極限：
-- If we use a window covers the whole sequence for fully connected network to condsider the whole swquence...
-    - FC requires a lot of parameters, the amount of calculation is large, and it may also be overfitting.
-- 因此使用 Attention 讓模型能夠考慮到整個 sequence 但是又不把所有的資訊，所以我們有一個特別的機制。這個機制是根據 a 換個系統，
-### Multi-Head Attention
-### Positional Encoding
-### Transformer Encoder
-### Transformer Decoder
-- `t0` 先輸入`起始符(S)`
-- 通過n層 `Decoder Layer`計算masked自注意力與交互注意力(由decoder得到的q與encoder輸出的k，v計算)
-- 最終在第n層`Decoder Layer`得到當前的預測結果projection（可以理解成“I love you”中的“I”）；在t1時刻，將t0時刻得到的輸出“I”輸入至decoder，重複t0的過程（計算masked自註意力與交互注意力），最終在第n層decoder layer得到輸出“love”。最後經過多次計算，得到完整輸出結果“I love you E”（E為終止符，由“you”輸入decoder得到）
+
+# Multi-Head Self-Attention
+Let $d_\text{model}$ represent the dimension of the input and output representations in the Transformer, and $d_k$ represent the dimension of the key, query, and value vectors for each head. The product of the number of heads $n$ and $d_k$ should equal $d_\text{model}$ to ensure that the concatenated output from all the heads will have the same dimension as:
+
+$$
+\begin{aligned}
+d_\text{model} = n \cdot d_k
+\end{aligned}
+$$
+
+The Multi-Head Attention mechanism can be denoted as:
+
+$$
+\begin{aligned}
+    &\text{Attention} (Q, K, V) = \text{softmax} \left ( \frac{Q K^\top}{\sqrt{d_k}} \right) V \\
+    &\text{MultiHead} (Q, K, V) = \text{Concat} (\text{head}_1, \dots, \text{head}_n) W^O \\
+    &\text{head}_i = \text{Attention} (Q W^Q_i, K W^K_i, V W^V_i)
+\end{aligned}
+$$
+
+Where $Q$, $K$, and $V$ are the query, key, and value matrices, respectively. $W^Q_i$, $W^K_i$, and $W^V_i$ are the weight matrices for the query, key, and value projections for each head $i$. $W^O$ is the output weight matrix for the multi-head attention.
+
+## Position-wise Feed-Forward Network
+Mathematically, the Position-wise Feed-Forward Network (PFFN) is represented as:
+
+$$
+\begin{align}
+    &\text{FFN} (x) = \text{GeLU} (x W_1 + b_1) W_2 + b_2 \\    
+    &\text{PFFN} (H^l) = [FFN (h^l_1)^{\top}; FFN (h^l_2)^{\top}; ...; FFN (h^l_t)^{\top}]^{\top}    
+\end{align}
+$$
+
+Where $W_1$, $W_2$, $b_1$, and $b_2$ are the weights and biases for the feed-forward neural network. And $h^l_t$ is the hidden representations at each layer $l$ for each position $i$. combining all $h^l_i \in \mathbb{R}^{d_{\text{model}}}$ together into matrix $H^l \in \mathbb{R}^{t \times d_{\text{model}}}$.
+
+## Stacking Transformer Layer
+The Transformer encoder, denoted as $\text{Trm}$, can be defined in the following manner:
+
+$$
+\begin{aligned}
+    \text{Trm} (H^l) = \text{LayerNorm} (F^l + \text{Dropout} (\text{PFFN} (F^l))), \\
+    F^l =  \text{LayerNorm} (H^l + \text{Dropout} (\text (MultiHead (H^l))))
+\end{aligned}
+$$
+
+where $H^l \in \mathbb{R}^{t \times d_{\text{model}}}$ denotes all hidden states at layer l, and $d_\text{model}$ specifies the Transformer's dimensionality. t is the input sequence of length. 
+Employing **layer normalization** and **dropout strategies** ensures the model's efficiency and robustness.
