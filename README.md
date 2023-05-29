@@ -20,7 +20,7 @@
 ### Slides
 - 2023-02. 👀 [Slide of GLIP, include DETR and MDETR](./present/yt/GLIP.pdf)
 - 2023-01. 🦾 [Slide of ContrastVAE, which is the SOTA in recommender system](./domains/recommender_system/ContrastVAE/assets/slide.pdf)
-- 2022-09. 🌊 [Slide of Diffusion Model, include proof and lot of note.](./domains/cv/diffusion/assets/DDPM_v3.pdf)
+- 2022-09. 🌊 [Slide of Diffusion Model, include proof and lot of note.](./domains/computer_vision/diffusion/assets/DDPM_v3.pdf)
 - 2022-05. 🤖 [Slide of VAECF, include the derivation of ELBO](./domains/recommender_system/VAECF/assets/vaecf_report.pdf)
 
 
