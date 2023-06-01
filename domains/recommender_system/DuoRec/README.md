@@ -70,3 +70,14 @@ $$
 
 #### 2. Supervised Positive Sampling
 ...
+
+
+
+## Experiments
+### Compared with the SOTA
+![comparison](./assets/comparison.png)
+- Not very strong compared with the SOTA in 2022
+- This paper pointed out BERT4Rec applies the masked item prediction objective to enforce the model to understand the semantics by filling in the masks. Although such a task can introduce a meaningful signal for the model, the perfor-mance is not consistent since the masked item prediction is not aligned well with the recommendation task
+### Compared with existing Contrastive training methods
+### How does contrastive regularization help with the training?
+### How is the sensitivity of the hyper-parameters in the DuoRec model?
