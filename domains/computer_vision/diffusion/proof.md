@@ -11,10 +11,10 @@
 ### Variational Schedule
 - notation $\alpha_t$
 ```math
-$$
+
 \alpha_t := 1 - \beta_t, \quad
 \bar{\alpha}_{t} = \prod^t_{s=1} \alpha_s
-$$
+
 ```
 - Using $\bar\alpha_t$, we have:
 ```math
@@ -24,7 +24,7 @@ q(x_t|x_0) = N(x_t; \sqrt{\bar\alpha_t}x_{0}, (1-\bar{\alpha_t})I)
 ## $\text{ELBO}$
 ## ELBO in VAE
 ```math
-$$ 
+ 
 \begin{aligned}  
 D_\text{KL}( q_\phi({z}|{x}) \| p_\theta({z}|{x}) )  &=\int q_\phi({z}|{x}) \log\frac{q_\phi({z} | {x})}{\color{teal}{p_\theta(z|x)}} d{z}  \\ 
 &=\int q_\phi({z} | {x}) \log\frac{q_\phi({z} | {x})\color{teal}{p_\theta(x)}}{\color{teal}{p_\theta(z, x)}} d{z}  \\ 
@@ -34,17 +34,17 @@ D_\text{KL}( q_\phi({z}|{x}) \| p_\theta({z}|{x}) )  &=\int q_\phi({z}|{x}) \log
 &=\log p_\theta({x}) + \mathbb{E}_{{z}\sim q_\phi({z} | {x})}\Big[\log \frac{q_\phi({z} | {x})}{p_\theta({z})} - \log p_\theta({x} | {z})\Big] \\ 
 &=\log p_\theta({x}) + D_\text{KL}(q_\phi({z}|{x}) \| p_\theta({z})) - \mathbb{E}_{{z}\sim q_\phi({z}|{x})}\log p_\theta({x}|{z})
 \end{aligned} 
-$$
+
 ```
 - Because $D_{KL} \geq 0$:
 ```math
-$$
+
     \begin{aligned}
     \log p_\theta({x}) &+ D_\text{KL}(q_\phi({z}|{x}) \| p_\theta({z})) - \mathbb{E}_{{z}\sim q_\phi({z}|{x})}\log p_\theta({x}|{z}) \geq 0 \\
     \log p_\theta(x) &\geq \color{orange}{\mathbb{E}_{{z}\sim q_\phi({z}|{x})}\log p_\theta({x}|{z}) - D_\text{KL}(q_\phi({z}|{x}) \| p_\theta({z}))} \\
     &= \mathbb{E}_{q_{\phi}} \Big [\log p_{\theta}(x|z)-D_{KL} \Big( q_{\phi}(z|x) \; || \; p_\theta(z) \Big) \Big ] 
     \end{aligned}
-$$
+
 ```
 
 ## ELBO in Diffusion
@@ -57,7 +57,7 @@ $$
 &= \mathbb{E_q}\Big[ \log \frac{p_\theta(x_T) p_\theta(x_0|x_1)...p_\theta(x_{T-1}|x_T)}{q(x_1|x_0)q(x_2|x_1)...q(x_T|x_{T-1})} \Big] \\
 &= \color{orange}{\mathbb{E}_q \Big[ \log p_{\theta}(x_T) + \sum_{t \geq 1} \log \frac{p_{\theta}(x_{t-1}|x_t)}{q(x_t|x_{t-1})} \Big]}
 \end{aligned}
-$$
+
 ```
 
 ## Split $\text{ELBO}$  to $L_T + L_{1:T} + L_0$
@@ -138,7 +138,7 @@ q(x_{t-1} | x_t, x_0) &= {\color{orange}q(x_t|x_{t-1}, x_0)} \times
 ```
 
 <Details>
-<summary>Appendix</summary>
+    <summary>Appendix</summary>
 
 - $q(x_t|x_{t-1})$
 
@@ -157,7 +157,7 @@ q(x_t|x_0) = N(x_t; \sqrt{\bar\alpha_t}x_{0}, (1-\bar{\alpha_t})I)
 - PDF
 
 ```math
-\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
+\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
 ```
 
 - $exp(x) = e^x$
@@ -166,7 +166,7 @@ q(x_t|x_0) = N(x_t; \sqrt{\bar\alpha_t}x_{0}, (1-\bar{\alpha_t})I)
 </Details>
 
 <Details>
-<summary>Appendix. KL Divergence between 2 Gaussians</summary>
+    <summary>Appendix. KL Divergence between 2 Gaussians</summary>
 
 ```math
 \text{log} \frac{\sigma_2}{\sigma_1} + \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2 \sigma^2_2} - \frac{1}{2}
@@ -179,7 +179,7 @@ q(x_t|x_0) = N(x_t; \sqrt{\bar\alpha_t}x_{0}, (1-\bar{\alpha_t})I)
 </Details>
 
 <Details>
-<summary>Appendix. Read Normal Distribution Symbol</summary>
+    <summary>Appendix. Read Normal Distribution Symbol</summary>
 
 ```math
 N(x; \mu, \sigma^2)
@@ -226,9 +226,9 @@ ${{\boldsymbol{\mu}}_{\theta} (x_t, t)}$
 - Because $x_t$ and $t$ are known terms that can be used as inputs during training, DDPM modifies the model to predict $\epsilon_t$ using $x_t$ and $t$.
 - The same equation as ${\tilde{\boldsymbol{\mu}}t (x_t, x_0)}$ is used, but $\epsilon_t$ is changed to $\epsilon_\theta$:
 
-$$
+
 \color{violet}{\mu_\theta(x_t, t)} = \frac{1}{\sqrt{\alpha_t}} \Big( x_t - \frac{1-\alpha_t}{\sqrt{1-\bar\alpha_t}} \color{violet}{\epsilon_\theta(x_t, t)}  \Big)
-$$
+
 
 ## Rewrite $L_{t-1}$ with $\epsilon$
 ```math
