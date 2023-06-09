@@ -110,10 +110,29 @@ q(x_{t-1} | x_t, x_0) &= {\color{orange}q(x_t|x_{t-1}, x_0)} \times
     &{\color{green}\propto} \exp \Big(-\frac{1}{2} \big(\frac{(x_t - \color{orange}{ \sqrt{\alpha_t} x_{t-1} })^2}{\color{orange}{\beta_t}} + \frac{(x_{t-1} - \color{green}{\sqrt{\bar{\alpha}_{t-1}} x_0})^2}{\color{green}{ 1-\bar{\alpha}_{t-1} } } - \frac{(x_t - \color{teal}{\sqrt{\bar{\alpha}_t} x_0 } )^2}{\color{teal}{1-\bar{\alpha}_t}} \big) \Big) \\ 
     &= \exp \Big(
         -\frac{1}{2} \big(\frac{\mathbf{x}_t^2 - 2\sqrt{\alpha_t} \mathbf{x}_t \color{blue}{\mathbf{x}_{t-1}} {+ \alpha_t} \color{red}{\mathbf{x}_{t-1}^2} }{\beta_t} + \frac{ \color{red}{\mathbf{x}_{t-1}^2} {- 2 \sqrt{\bar{\alpha}_{t-1}} \mathbf{x}_0} \color{blue}{\mathbf{x}_{t-1}} {+ \bar{\alpha}_{t-1} \mathbf{x}_0^2} }{1-\bar{\alpha}_{t-1}} - \frac{(\mathbf{x}_t - \sqrt{\bar{\alpha}_t} \mathbf{x}_0)^2}{1-\bar{\alpha}_t} \big) 
-    \Big) \\ 
+    \Big)
+\end{aligned} 
+```
+
+```math
+\begin{aligned} 
 &= \exp\Big( 
-    -\frac{1}{2} \big( {\color{red}(\frac{\alpha_t}{\beta_t} + \frac{1}{1 - \bar{\alpha}_{t-1}})} \mathbf{x}_{t-1}^2 - {\color{blue}(\frac{2\sqrt{\alpha_t}}{\beta_t} \mathbf{x}_t + \frac{2\sqrt{\bar{\alpha}_{t-1}}}{1 - \bar{\alpha}_{t-1}} \mathbf{x}_0)} \mathbf{x}_{t-1} + C(\mathbf{x}_t, \mathbf{x}_0) \big) 
-    \Big) 
+    -\frac{1}{2} \big(
+        {\color{red}
+            (
+                \frac{\alpha_t}{\beta_t} + 
+                \frac{1}{1 - \bar{\alpha}_{t-1}}
+            )
+        } \mathbf{x}_{t-1}^2 -        
+        {\color{blue}
+            (
+            \frac{2\sqrt{\alpha_t}}{\beta_t} \mathbf{x}_t +
+            \frac{2\sqrt{\bar{\alpha}_{t-1}}}{1 - \bar{\alpha}_{t-1}} \mathbf{x}_0
+            )
+        } \mathbf{x}_{t-1} + 
+        C(\mathbf{x}_t, \mathbf{x}_0) 
+    \big)
+\Big) 
 \end{aligned} 
 ```
 - **Left term** of PDF:
@@ -197,7 +216,7 @@ z &= \mu + \sigma \odot \epsilon \\
 \epsilon &\sim N(0, I)
 \end{aligned}
 ```
-- In VAE, the reparameter trick is used to sample the latent variable z through the generated $\mu$ and $\sigma$ from the encoder.
+- In VAE, the reparameter trick is  d to sample the latent variable z through the generated $\mu$ and $\sigma$ from the encoder.
 - However, in diffusion models, since the result of the forward (encoding) process is fixed, and the $\sigma$ at each time point depends on the fixed $\beta$ value at that time point, the relationship between $x_t$ and $x_{t-1}$ can be obtained (the $\mu$ of $x_{t}$ is $x_{t-1}$):
 ```math
 \begin{aligned}
