@@ -28,7 +28,7 @@ the multinomial likelihoods are well-suited for modeling implicit feedback data 
 
 ### 1. Model
 
-![Screen Shot 2022-02-23 at 5.11.26 PM.png](Variationa%200fb4a/Screen_Shot_2022-02-23_at_5.11.26_PM.png)
+![Screen Shot 2022-02-23 at 5.11.26 PM.png](./assets/Screen_Shot_2022-02-23_at_5.11.26_PM.png)
 
 - $u \in \{1, ..., U\}$: users index.
 - $I \in \{1, ..., I\}$: items index.
@@ -39,75 +39,62 @@ the multinomial likelihoods are well-suited for modeling implicit feedback data 
     - For simplicity, we binarize the click matrix. It is straightforward to extend it to general count data.
 - The model  transform latent representation as below:
     
-    $$
-    \begin{equation}
-    z_u \sim \mathcal{N(0, I_k)}, \quad \\
+```math
+\begin{equation}
+z_u \sim \mathcal{N(0, I_k)}, \quad \\
+
+ \pi(z_u) \propto exp{\{f_\theta(z_u)\}} 
+\quad \\
+ x_u \sim Mult(N_u, \theta(z_u))
+\end{equation}
+```
     
-     \pi(z_u) \propto exp{\{f_\theta(z_u)\}} 
-    \quad \\
-     x_u \sim Mult(N_u, \theta(z_u))
-    \end{equation}
-    
-    $$
-    
-    - Symbols
-        - $z_u$: origin latent representation which distribute with Expected value 0 and Variance $I_k$
-        - $f_\theta{(\cdot)}$: The non-linear function is a multilayer perception (MLP) with parameters $\theta$
-        - $\pi{(z_u)} \in \mathbb{S}^{I-1}$: A probability vector (an (I-1)-simplex) which produced from $z_u$ transformed by $f_{\theta}$ and normalized via a softmax function.
-        - $N_u = \sum_i x_{ui}$ from user $u$.
-        - $x_u$: The observed bag-of-words vector $x_u$ is sampled from a multinomial distribution with probability $\pi(z_u)$.
-    - if $f_\theta$ is linear and using a Gaussian likelihood, the latent factor model is recovered to classical matrix factorization.
+- Symbols
+    - $z_u$: origin latent representation which distribute with Expected value 0 and Variance $I_k$
+    - $f_\theta{(\cdot)}$: The non-linear function is a multilayer perception (MLP) with parameters $\theta$
+    - $\pi{(z_u)} \in \mathbb{S}^{I-1}$: A probability vector (an (I-1)-simplex) which produced from $z_u$ transformed by $f_{\theta}$ and normalized via a softmax function.
+    - $N_u = \sum_i x_{ui}$ from user $u$.
+    - $x_u$: The observed bag-of-words vector $x_u$ is sampled from a multinomial distribution with probability $\pi(z_u)$.
+- if $f_\theta$ is linear and using a Gaussian likelihood, the latent factor model is recovered to classical matrix factorization.
 - The log-likelihood for user $u$ conditioned on the latent representation have:
     - Multinomial log-likelihood (mult)
-        
-        $$
-        \begin{equation}
-        log_{p_{\theta}}(x_u | z_u) =^{c} \sum_{i} x_{ui} log{\pi_i}(z_u) 
-        \end{equation}
-        $$
-        
-        - Code Implement
+```math        
+\begin{equation}
+log_{p_{\theta}}(x_u | z_u) =^{c} \sum_{i} x_{ui} log{\pi_i}(z_u) 
+\end{equation}
+```     
+- Code Implement            
+```python
+x * torch.log(pred_x + EPS)
+```                
+- Gaussian log-likelihood (gaus)        
+```math
+\begin{equation}
+log_{p_\theta}(x_u|z_u) = \sum_i x_{ui} log{\sigma(f_{ui})} + (1-x_{ui}log(1-\sigma(f_{ui})))
+\end{equation}
+```       
+- Code Implement            
+```python
+-(x - pred_x) ** 2
+```
             
-            ```python
-            x * torch.log(pred_x + EPS)
-            ```
-            
+- Logistic log-likelihood (bern)
         
-    - Gaussian log-likelihood (gaus)
-        
-        $$
-        \begin{equation}
-        log_{p_\theta}(x_u|z_u) = \sum_i x_{ui} log{\sigma(f_{ui})} + (1-x_{ui}log(1-\sigma(f_{ui})))
-        \end{equation}
-        $$
-        
-        - Code Implement
+```math
+\begin{equation}
+log_{p_0}(x_u|z_u) = \sum_{i}{x_{ui}}log{\sigma}(f_{ui})+(1-x_{ui})log(1-\sigma(f_{ui}))
+\end{equation}
+```        
+- Code Implement            
+```python
+x * torch.log(pred_x + EPS) + (1 - x) * torch.log(1 - pred_x + EPS)
+```
             
-            ```python
-            -(x - pred_x) ** 2
-            ```
-            
-    - Logistic log-likelihood (bern)
-        
-        $$
-        \begin{equation}
-        log_{p_0}(x_u|z_u) = \sum_{i}{x_{ui}}log{\sigma}(f_{ui})+(1-x_{ui})log(1-\sigma(f_{ui}))
-        \end{equation}
-        $$
-        
-        - Code Implement
-            
-            ```python
-            x * torch.log(pred_x + EPS) + (1 - x) * torch.log(1 - pred_x + EPS)
-            ```
-            
-
 ### 2. Variational inference
 
-$$
+```math
 q(z_u) = N(\mu_{u}, diag(\sigma^{2}_{u}))
-
-$$
+```
 
 - Symbols
     - $q(z_u)$: Use simpler variational distribution $q(z_u)$
@@ -115,11 +102,11 @@ $$
     - which means we have to approximate the intractable posterior distribution $p(z_u | x_u)$
 - Use to optimize the free variational parameters {$\mu_u$, $\sigma^{2}_{u}$} to make the [Kullback-Leiber divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) $KL(q(z_u) || p(z_u|x_u))$ is minimized.
     
-    ```python
-    std = torch.exp(0.5 * logvar)
-    kld = -0.5 * (1 + 2.0 * torch.log(std) - mu.pow(2) - std.pow(2))
-    kld = torch.sum(kld, dim=1)
-    ```
+```python
+std = torch.exp(0.5 * logvar)
+kld = -0.5 * (1 + 2.0 * torch.log(std) - mu.pow(2) - std.pow(2))
+kld = torch.sum(kld, dim=1)
+```
     
 
 ### 2.1  Use the variational auto-encoder to amortized inference
@@ -127,45 +114,34 @@ $$
 - Parameters to optimize {$\mu_{u}, \sigma^2_u$} can become a bottleneck for recsys with a large number of users and items.
 - Learning VAES:
     
-    $$
-    \begin{align}
-    log p(x_u; \theta)  &\geq \mathbb{E}_{q_{\phi}(z_u|x_u)}[log_{p_{\theta}}(x_u|z_u)-KL(q_{\phi}(z_u|x_u)||p(z_u))] \\ &\equiv \mathcal{L}(x_u;\theta, \phi)
-    \end{align}
+```math
+\begin{align}
+log p(x_u; \theta)  &\geq \mathbb{E}_{q_{\phi}(z_u|x_u)}[log_{p_{\theta}}(x_u|z_u)-KL(q_{\phi}(z_u|x_u)||p(z_u))] \\ &\equiv \mathcal{L}(x_u;\theta, \phi)
+\end{align}
+```
+- An alternative interpretation of $ELBO$
+```math
+\begin{align}
+\mathbb{E}_{q_{\phi}(z_u|x_u)}[logp_{\theta}(x_u|z_u)] - \beta \cdot KL(q_{\phi}(z_u|x_u)||p(z_u))) \equiv \mathcal{L}_{\beta}(x_u; \theta, \phi)
+\end{align}
+```      
+- Use a parameter $\beta$ to control the strength of regularization.
+- Code Implement            
+```python
+torch.mean(beta * kld - ll)
+```            
+- $\beta \in [0, 1]$
+- If $\beta \neq 1$: means model are no longer optimizing a lower bound on the log marginal likelihood.
+- If $\beta < 1$, will weaken the influence of the prior constraint, the model is less able to generate novel user histories by ancestral sampling.
+- Selecting $\beta$:            
+    ![./assets/Screen Shot 2022-02-23 at 2.37.43 PM.png](./assets/Screen_Shot_2022-02-23_at_2.37.43_PM.png)            
+    - start training with $\beta = 0$, and gradually increase $\beta$ to 1. (red-dashed, anneal to $\beta = 1$)
+    - linearly anneal the KL term slowly over a large number of gradient updates to $\theta, \phi$
+    - record the best $\beta$ when its performance reaches the peak. (blue-dashed, stop annealing to $\beta$)
+- VAE Training procedure    
+    ![./assets/Screen Shot 2022-02-22 at 5.40.52 PM.png](./assets/Screen_Shot_2022-02-22_at_5.40.52_PM.png)
     
-    $$
-    
-    - An alternative interpretation of $ELBO$
-        
-        $$
-        \begin{align}
-        \mathbb{E}_{q_{\phi}(z_u|x_u)}[logp_{\theta}(x_u|z_u)] - \beta \cdot KL(q_{\phi}(z_u|x_u)||p(z_u))) \equiv \mathcal{L}_{\beta}(x_u; \theta, \phi)
-        \end{align}
-        $$
-        
-        - Use a parameter $\beta$ to control the strength of regularization.
-        - Code Implement
-            
-            ```python
-            torch.mean(beta * kld - ll)
-            ```
-            
-        - $\beta \in [0, 1]$
-        - If $\beta \neq 1$: means model are no longer optimizing a lower bound on the log marginal likelihood.
-        - If $\beta < 1$, will weaken the influence of the prior constraint, the model is less able to generate novel user histories by ancestral sampling.
-        - Selecting $\beta$:
-            
-            ![Screen Shot 2022-02-23 at 2.37.43 PM.png](Variationa%200fb4a/Screen_Shot_2022-02-23_at_2.37.43_PM.png)
-            
-            - start training with $\beta = 0$, and gradually increase $\beta$ to 1. (red-dashed, anneal to $\beta = 1$)
-            - linearly anneal the KL term slowly over a large number of gradient updates to $\theta, \phi$
-            - record the best $\beta$ when its performance reaches the peak. (blue-dashed, stop annealing to $\beta$)
-- VAE Training procedure
-    
-    ![Screen Shot 2022-02-22 at 5.40.52 PM.png](Variationa%200fb4a/Screen_Shot_2022-02-22_at_5.40.52_PM.png)
-    
-
 ### 2.2 Computational Burden
-
 - Previous collaborative filtering like NCF and CDAE are trained with stochastic gradient descent wherein each step a single (user, item) entry from the click matrix is randomly sampled to perform a gradient update.
 - VaeCF subsample users and take their entire click history (complete rows of the click matrix) to update model parameters.
     - Eliminates the necessity of negative sampling and hyper-parameter tuning for picking the number of negative examples.
@@ -175,25 +151,21 @@ $$
         - If it comes to a bottleneck, can apply the method proposed by *Complementary Sum Sampling for Likelihood Approximation in Large Scale Classification* to approximate the normalization factor for *$\pi(z_u)$.*
 
 ### 2.3 A taxonomy of auto-encoders
-
-![Screen Shot 2022-02-23 at 5.20.50 PM.png](Variationa%200fb4a/Screen_Shot_2022-02-23_at_5.20.50_PM.png)
+![./assets/Screen Shot 2022-02-23 at 5.20.50 PM.png](./assets/Screen_Shot_2022-02-23_at_5.20.50_PM.png)
 
 - Maximum marginal-likelihood  estimation in a regular auto-encoder takes the following form:
     
-    $$
-    \begin{align}
-    \theta^{AE}, \phi^{AE} &= \argmax_{\theta, \phi}\sum_{u} \mathbb{E}_{\delta}(z_u-g_{\phi}(x_u))[log{p_{\theta}(x_u|z_u)}] \\
-    &= \argmax_{\theta, \phi} \sum_{u} log p_{\theta}(x_u|g_{\phi}(x_u))
-    \end{align}
-    $$
-    
-    - (1) The Auto-encoder and the denoising auto-encoder don’t regularize $q_\phi(z_u|x_u)$ as VAE does.
-    
-    $$
-    q_\phi(z_u|x_u) = \delta(z_u - g_\phi(x_u))
-    $$
-    
-    - (2) Contrast this to the VAE where the learning is done using a variational distribution.
+```math
+\begin{align}
+\theta^{AE}, \phi^{AE} &= \text{argmax}_{\theta, \phi}\sum_{u} \mathbb{E}_{\delta}(z_u-g_{\phi}(x_u))[log{p_{\theta}(x_u|z_u)}] \\
+&= \text{argmax}_{\theta, \phi} \sum_{u} log p_{\theta}(x_u|g_{\phi}(x_u))
+\end{align}
+```    
+- (1) The Auto-encoder and the denoising auto-encoder don’t regularize $q_\phi(z_u|x_u)$ as VAE does. 
+```math
+q_\phi(z_u|x_u) = \delta(z_u - g_\phi(x_u))
+```    
+- (2) Contrast this to the VAE where the learning is done using a variational distribution.
         - $\delta(z_u - g_{\phi}(x_u))$
             - $\delta$ distribution with mass only at the output of $g_\phi(x_u)$.
             - i.e. $g_\phi(x_u)$ outputs the parameters ($\mu$ and $\sigma$) of a Gaussian distribution.
