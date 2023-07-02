@@ -13,6 +13,7 @@
 
 ## Highlights
 ### Overall
+- 📚 [The spike of deep generative models](./domains/natural_language_processing/spikes/202306.md)
 - 🪤 [The spike of recommender system](./domains/recommender_system/)
 - 👁️ [The spike of computer vision](./domains/computer_vision/)
 - 📉 [The spike of time-series](./domains/timeseries/)
