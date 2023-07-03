@@ -10,6 +10,8 @@
 |-|-|-|-|
 | [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/pdf/2209.00456.pdf) | CIKM | '22 | [✓](https://github.com/YuWang-1024/ContrastVAE) |
 
+- [👾slide](./assets/ContrastVAE.pdf)
+
 ## Abstract
 Current methods suffer from the following issues: 
 - 1) sparsity of user-item interactions
