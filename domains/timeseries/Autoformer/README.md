@@ -10,7 +10,7 @@
 |-|-|-|-|
 | [Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting](https://arxiv.org/pdf/2106.13008.pdf) | NIPS | 21 | [code](https://github.com/thuml/Autoformer) |
 ## Abstract
-- **Cause:** intricate(錯綜複雜) temporal patterns of the long-term future prohibit(阻止) the model from finding reliable dependencies. 
+- **Cause:** intricate temporal patterns of the long-term future prohibit the model from finding reliable dependencies. 
     - Also, Transformers have to adopt the <font color='red'>sparse versions of point-wise self-attentions for long series efficiency</font>, resulting in the information utilization bottleneck. 
 - **Process:** Design Autoformer as a novel decomposition architecture with an Auto-Correlation mechanism.
     - We break with the pre-processing convention of series decomposition and renovate it as a basic inner block of deep models. 
@@ -30,7 +30,7 @@ Autoformer still follows residual and encoder-decoder structure but
     - periodicity and aggregates similar sub-series from underlying periods. 
 This series-wise mechanism achieves O(Llog L) complexity for length-L series and breaks the information utilization bottleneck by **expanding the point-wise representation aggregation to sub-series level**.
 
-## Methods
+## Method
 ### AutoCorrelation
 ![autocorrelation](./assets/auto_correlation.png)
 - Which can be used to replace the attention mechanism directly.
