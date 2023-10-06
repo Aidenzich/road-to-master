@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-09-22 |
+| Updated | 2023-09-22 |
+| Author | @Aiden |
+| Tags | #spike |
+
 # What is memory?
 | Type | Human| LLM |
 | ------ | ------- | --- |
@@ -17,3 +24,12 @@
 | **HNSWLIB**| -| Implements Hierarchical Navigable Small World (HNSW) algorithm. Emphasizing high-performance similarity search. | Fast query performance, multi-core parallelism, custom distance metrics, Python/C++ interfaces. |
 | **NMSLIB** | -| Similarity and nearest neighbor search in both metric and non-metric spaces.| Range of indexing methods, custom distance metrics, efficient processing, bindings in Python, C++, and Java. |
 | **Cottontail DB**| -| Multimedia retrieval column store. Both boolean and vector-space retrieval. | Various indexing methods, wide range of distance functions, arithmetic vector operations, free-text search, gRPC interface.|
+
+### Vector Database Benchmarks
+- [Reference](https://qdrant.tech/benchmarks/?gad=1&gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw3HTp4ZS8BGtcznLRP5eZ27nSqng5pA2EMT70nggyvn9_9Q4UWbuJ4aAvIXEALw_wcB)
+
+- `Qdrant` and `Milvus` are the fastest engines when it comes to indexing time. The time they need to build internal search structures is order of magnitude lower than for the competitors.
+- `Qdrant` achives highest RPS and lowest latencies in almost all scenarios, no matter the precision threshold and the metric we choose.
+There is a noticeable difference between engines that try to do a single HNSW index and those with multiple segments. Single-segment leads to higher RPS but lowers the precision and higher indexing time. Qdrant allows you to configure the number of segments to achieve your desired goal.
+- `Redis` does better than the others while using **one thread only**. When we just use a single thread, the bottleneck might be the client, not the server, where Redis’s custom protocol gives it an advantage. But it is architecturally limited to only a single thread execution, which makes it impossible to scale vertically.
+- Elasticsearch is typically way slower than all the competitors, no matter the dataset and metric.

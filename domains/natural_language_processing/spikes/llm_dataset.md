@@ -1,3 +1,10 @@
+| Property  | Data |
+|-|-|
+| Created | 2023-09-22 |
+| Updated | 2023-09-22 |
+| Author | @Aiden |
+| Tags | #spike |
+
 # Do we really need BigData to effectivetly fine-tune LLMs?
 - The importance between data size and data quality. 
     - Increasingly research like LIMA and Phi-1 is showing quality over quantity in training data is what matters.
