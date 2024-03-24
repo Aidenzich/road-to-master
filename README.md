@@ -3,14 +3,8 @@
 ![jake](./assets/JakeQuotes.jpeg)
 >  This is a repository for some data scientist stuff.
 
-## Collaborators
-
-| Name | Main Field  |
-|-|-|
-| [Aiden](https://github.com/Aidenzich) | Recommender System, Variational Inference, Sequence Forecasting |
-| [YiTing](https://github.com/yiting-tom) | Multi-Modality, Vision-Language, Recommender System  |
-
-
+<details>
+ <summary>deprecated</summary>
 ## Highlights
 ### Overall
 - 📚 [The spike of deep generative models](./domains/natural_language_processing/spikes/202306.md)
@@ -23,6 +17,8 @@
 - 2023-01. 🦾 [Slide of ContrastVAE, which is the SOTA in recommender system](./domains/recommender_system/ContrastVAE/assets/slide.pdf)
 - 2022-09. 🌊 [Slide of Diffusion Model, include proof and lot of note.](./domains/computer_vision/diffusion/assets/DDPM_v3.pdf)
 - 2022-05. 🤖 [Slide of VAECF, include the derivation of ELBO](./domains/recommender_system/VAECF/assets/vaecf_report.pdf)
+
+</details>
 
 
 
