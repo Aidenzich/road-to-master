@@ -5,6 +5,7 @@
 
 <details>
  <summary>deprecated</summary>
+ 
 ## Highlights
 ### Overall
 - 📚 [The spike of deep generative models](./domains/natural_language_processing/spikes/202306.md)
