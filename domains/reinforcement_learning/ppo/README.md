@@ -1,8 +1,8 @@
 | Property  | Data |
 |-|-|
-| Created | 2022-02-21 |
-| Updated | 2022-02-22 |
-| Author | [@MasterYee](https://github.com/Destiny0504), @Aiden |
+| Created | 2023-02-21 |
+| Updated | 2023-02-22 |
+| Author | @Aiden, [@MasterYee](https://github.com/Destiny0504) |
 | Tags | #study |
 
 # PPO
@@ -21,20 +21,22 @@ What are the components of PPO?
 
 ### Conservative Policy Iteration 
 
-$$
+```math
 L^{CPI}(\theta) = \hat{\mathbb{E}}_t \bigg[ \frac{\color{orange}\pi_{\theta}(a_t | s_t)}{\color{red}\pi_{\theta_{old}} (a_t | s_t)} \hat{A}_t \bigg] = \hat{\mathbb{E}}_t \big[ {\color{cyan} r_t (\theta)} \hat{A_t}  \big]
-$$
+```
+
 - conservative (保守)
 - Without a constraint, maximization of LCP I would lead to an excessively large policy update.
 ### Clipped Surrogate Objective
 
 ![l_clip](./assets/l_clip.png)
-$$
+
+```math
 \begin{aligned}
 L^{CLIP} (\theta) = \hat{\mathbb{E}}_t \bigg[ min( {\color{cyan} r_t(\theta)} \hat{A}_t, {\color{orange} \text{clip}(r_t (\theta), 1 - \epsilon, 1 + \epsilon )}  \bigg]  \\
 \text{clip} ({\color{green}\text{Between upper and lower bounds}} , {\color{red}\text{Lower bound}}, {\color{blue}\text{Upper bound}})
 \end{aligned}
-$$
+```
 
 - The probability ratio $r$ is clipped at $1 − \epsilon$  or $1 + \epsilon$ depending on whether the advantage is positive or negative.
 #### Notation Table
@@ -48,14 +50,15 @@ $$
 
 ### Advantage estimation
 
-$$
+```math
 \begin{aligned}
 \hat{A}_t &= -V(s_t) + {\color{lime}r_t} + {\color{pink}\gamma} \cdot  {\color{lime}r_{t+1}} + ... + {\color{pink}\gamma^{T-t+1}} \cdot {\color{lime}r_{T-1}} + {\color{pink}\gamma^{T-t}} V(s_T) \\
 \hat{A}_t &= -V(s_t) + {\color{red}\tilde{Q}(s_t, a_t)} \quad \text{(can be think as Q value in Q learning)} \\
 \hat{A}_t  + V(s_t) &= \text{ The total reward after execute the actions from t to T } \\ 
 &+ \text{The estimated final value at } s_T
 \end{aligned}
-$$
+```
+
 #### Notation Table
 | Property | Definition |
 |-|-|
