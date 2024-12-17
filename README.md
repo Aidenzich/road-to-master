@@ -1,11 +1,12 @@
 
 # Road To Master
 ![jake](./assets/JakeQuotes.jpeg)
->  This is a repository for some data scientist stuff.
+> This is a repository for some data scientist stuff.
+> You can check the issues for the latest research notes.
 
 <details>
  <summary>deprecated</summary>
- 
+
 ## Highlights
 ### Overall
 - 📚 [The spike of deep generative models](./domains/natural_language_processing/spikes/202306.md)
