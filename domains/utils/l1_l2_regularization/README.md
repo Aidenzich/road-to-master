@@ -1,4 +1,4 @@
-# L1 and L2 Normalization
+# L1 and L2 Regularization
 L1 和 L2 的主要目的都是**防止模型過度擬合 (Overfitting)**。它們透過在損失函數 (Loss Function) 中加入一個「懲罰項」(Penalty Term) 來**限制參數 W 的大小**。
 
 ## 為什麼限制 W 就能防止過度擬合？
