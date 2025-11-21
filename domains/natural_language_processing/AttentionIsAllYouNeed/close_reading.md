@@ -489,7 +489,7 @@ $$
 
 ---
 
-## 實戰：如何突破硬體限制 (Long Context Handling)
+## 實戰：如何突破 Sequence Length 限制 (Long Context Handling)
 如果模型的 `max_seq_len` 只有 8192，但我們要輸入 100,000 個 token，工程上是怎麼做到的？
 這結合了 **KV Cache** 與 **RoPE** 的特性：
 
