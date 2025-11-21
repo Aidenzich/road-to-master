@@ -486,3 +486,23 @@ $$
 > 還有另一派做法完全捨棄了 Positional Embedding (如 Bloom 模型)。ALiBi 直接在計算 Attention Score 時扣分：距離越遠，分數扣越多。
 > $$ \text{Score}(q_i, k_j) = q_i \cdot k_j - m \cdot |i-j| $$
 > 這種做法簡單粗暴，外推性也很好，但目前主流仍是 RoPE。
+
+---
+
+## 實戰：如何突破硬體限制 (Long Context Handling)
+如果模型的 `max_seq_len` 只有 8192，但我們要輸入 100,000 個 token，工程上是怎麼做到的？
+這結合了 **KV Cache** 與 **RoPE** 的特性：
+
+1.  **KV Cache (記憶體管理)**：
+    我們不可能一次把 100k 個 token 丟進去算 Attention (記憶體會爆炸)。我們會使用 **KV Cache** 來儲存已經算過的 Key/Value 向量。
+
+2.  **分塊處理 (Chunked Prefill)**：
+    將 100k 的長文切成多個小片段 (Chunks)，例如每段 4k。
+    - 輸入第 1 段 (0~4k) $\rightarrow$ 算出 KV $\rightarrow$ 存入 Cache。
+    - 輸入第 2 段 (4k~8k) $\rightarrow$ 算出 KV $\rightarrow$ 存入 Cache。
+    - ...直到最後一段。
+
+3.  **RoPE 的關鍵角色 (座標定位)**：
+    在處理第 2 段 (4k~8k) 時，雖然輸入只有 4000 個字，但我們會告訴 RoPE：「這些字的 Position ID 是 **4001 到 8000**」。
+    - RoPE 會根據這些 ID 產生正確的旋轉角度。
+    - 這樣一來，當最後進行 Inference 時，模型回頭看 KV Cache，就能知道 Cache 裡的第 1 段和第 2 段是有先後順序的，而不是兩坨重疊的資訊。
