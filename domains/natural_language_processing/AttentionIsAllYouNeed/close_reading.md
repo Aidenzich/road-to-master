@@ -355,4 +355,134 @@ $$
 | **物理意義** | **Feature Engineering**<br>(把 "Apple" 變成 "Fruit") | **Context Discovery**<br>(發現 "Apple" 與 "Red" 的關聯) |
 
 
+## Layer Normalization
+在 Transformer 中，Normalization 是穩定訓練的關鍵。但為什麼選擇 Layer Normalization (LN) 而不是電腦視覺中常見的 Batch Normalization (BN)？
 
+### 為什麼不用 Batch Normalization?
+Batch Normalization 的核心假設是：**同一個 Batch 內的數據應該來自相似的分佈**。它是在「Batch 維度」上計算平均值與變異數。
+*   **CV 領域**：圖片大小固定（例如 $224 \times 224$），Batch 內的每個 Channel 代表的特徵意義一致（例如 Channel 1 都是邊緣檢測）
+*   **NLP 領域**：
+    1.  **序列長度不一**：一個 Batch 裡可能有長度 10 的句子，也有長度 100 的句子。Padding 的 0 會嚴重干擾 BN 的統計量計算
+    2.  **Batch Size 限制**：Transformer 模型通常很大，導致訓練時 Batch Size 很小，這會讓 BN 的統計估計非常不穩定
+
+### Layer Normalization 的運作
+Layer Normalization 是在 **Feature 維度** ($d_{model}$) 上進行標準化。它**獨立**處理每一個樣本（每一個 Token），完全不依賴 Batch 中的其他數據。
+
+對於一個 Token 的向量 $x \in \mathbb{R}^{d_{model}}$：
+1.  **計算平均值 $\mu$ 與變異數 $\sigma^2$**：
+    $$
+    \mu = \frac{1}{d_{model}} \sum_{i=1}^{d_{model}} x_i, \quad \sigma^2 = \frac{1}{d_{model}} \sum_{i=1}^{d_{model}} (x_i - \mu)^2
+    $$
+2.  **標準化 (Normalize)**：
+    $$
+    \hat{x} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}
+    $$
+3.  **重新縮放與偏移 (Scale and Shift)**：
+    $$
+    y = \gamma \hat{x} + \beta
+    $$
+
+#### $\gamma$ 和 $\beta$ 的重要性
+這兩個是**可學習的參數 (Learnable Parameters)**。
+- 標準化強制把數據變成 $\mu=0, \sigma=1$ 的分佈，這可能會破壞某些特徵表達（例如某些神經元本來就需要很大的激活值）
+- $\gamma$ 和 $\beta$ 讓模型有能力 **復原** 或 **調整** 標準化後的結果。如果模型發現不標準化比較好，它可以學成 $\gamma=\sigma, \beta=\mu$，從而抵消 LN 的作用
+
+### Post-LN vs. Pre-LN
+- **Post-LN (原始論文)**：`Add -> Norm`。
+  - 結構：$x_{out} = \text{LayerNorm}(x + \text{Sublayer}(x))$
+  - 問題：輸出層附近的梯度很大，但越往底層梯度越小（因為每一層都在做 Normalization），導致 Warm-up 階段非常敏感，容易訓練失敗
+- **Pre-LN (現代主流，如 GPT-2, LLaMA)**：`Norm -> Add`。
+  - 結構：$x_{out} = x + \text{Sublayer}(\text{LayerNorm}(x))$
+  - 優勢：殘差連接 (Residual Connection) 是一條「高速公路」，梯度可以直接流回底層，不需要經過 LayerNorm 的阻擋。這讓訓練更加穩定，甚至可以移除 `Warm-up` 階段
+
+## Positional Encoding
+Transformer 的 Self-Attention 機制有一個致命的「缺點」：**它具有排列不變性 (Permutation Invariance)**。
+如果不加位置編碼：
+*   "A hit B"
+*   "B hit A"
+對於 Self-Attention 來說，這兩句話是**完全一樣**的。因為它只看 $q \cdot k$ 的相似度，而不看誰在誰前面。
+
+為了補救這個問題，我們必須「手動」把位置資訊注入到輸入向量中。
+
+### 為什麼是相加 (Add) 而不是拼接 (Concat)?
+$$
+\text{Input} = \text{Embedding}(x) + \text{PositionalEncoding}(pos)
+$$
+*   **Concat**: 會增加維度，增加參數量。
+*   **Add**: 
+    *   **數學直覺**：在高維空間中（例如 512 維），Embedding 向量通常只佔據空間的一個小角落。Positional Encoding 就像是給這個向量加上了一個微小的「偏移量 (Bias)」
+    *   這個偏移量足夠讓 Attention 機制區分出「位置 1 的 Apple」和「位置 5 的 Apple」是不同的向量，但又不會大到破壞 "Apple" 本身的語義特徵
+
+### Sinusoidal Positional Encoding
+原始論文使用正弦和餘弦函數來生成位置編碼：
+
+$$
+\begin{aligned}
+
+\text{PE}_{(pos, 2i)} &= \sin(pos / 10000^{2i/d_{model}}) \\
+\text{PE}_{(pos, 2i+1)} &= \cos(pos / 10000^{2i/d_{model}})
+
+\end{aligned}
+$$
+
+#### 為什麼選 Sin/Cos?
+它有兩個數學性質：
+1.  **有界性 (Boundedness)**：
+    值永遠在 $[-1, 1]$ 之間，這保證了位置編碼不會像普通的整數編碼 ($1, 2, 3, \dots$) 那樣隨著序列變長而數值爆炸，影響模型訓練
+2.  **相對位置的線性關係 (Relative Positioning)**：
+    這是最精華的設計。我們希望模型不只能知道「絕對位置」（第 3 個字），還能理解「相對位置」（A 在 B 後面 2 格）    
+    - 根據三角函數公式：
+        $$
+        \sin(\alpha + \beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta
+        $$
+    - 對於位置 $pos+k$，它的編碼 $PE_{pos+k}$ 可以被表示為 $PE_{pos}$ 的**線性變換**（旋轉矩陣）
+    - 這意味著：**Attention 機制只需要學習一個線性的矩陣 $W$，就能輕易地捕捉到「相對距離為 $k$」的特徵**，而不需要死記每一個絕對位置。這讓模型具有更好的 **外推性 (Extrapolation)**，即訓練時只看過長度 100 的句子，測試時遇到長度 200 的句子也能一定程度上理解相對位置
+
+---
+
+## Positional Embedding 的演進
+雖然 Google 的原始論文提出了 Sinusoidal Encoding，但在隨後的幾年（BERT, GPT-2 時代），大家更傾向於使用 **Learnable Absolute Embedding**（直接讓模型學一個矩陣來代表位置，不強制用數學公式）。然而，到了現代 LLM (Llama 2/3, Mistral, PaLM) 時代，Sin/Cos 又強勢回歸，並進化成了 **RoPE (Rotary Positional Embedding)**。
+
+### RoPE (Rotary Positional Embedding)
+RoPE 的核心思想是：**不要把位置資訊「加 (Add)」在向量上，而是把向量進行「旋轉 (Rotate)」。**
+
+它利用了複數平面上的旋轉特性。對於二維向量 $(x_1, x_2)$，加上位置 $m$ 的旋轉矩陣 $R_m$：
+
+$$
+f(x, m) = R_m x = \begin{pmatrix} \cos m\theta & -\sin m\theta \\ \sin m\theta & \cos m\theta \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$
+- $m$: Token 在序列中的絕對位置索引 (Absolute Position Index), e.g. 第 1 個字 $m=1$
+- $f(x, m)$: 旋轉後的向量
+
+#### 為什麼 RoPE 更好？
+1.  **絕對位置即相對位置**：
+    如果你把 Query 旋轉 $m$ 度，Key 旋轉 $n$ 度，那麼它們做點積 (Dot Product) 時：
+    $$
+    q_m \cdot k_n = (R_m q) \cdot (R_n k) = q^T R_m^T R_n k = q^T R_{n-m} k
+    $$
+    - $q_m$: **Query 向量** (來自第 $m$ 個 token)，代表「觀察者」的位置。例如我在讀第 5 個字 ($m=5$)，我想回頭看前面的資訊。
+    - $k_n$: **Key 向量** (來自第 $n$ 個 token)，代表「被觀察對象」的位置，例如我想看看第 2 個字 ($n=2$) 跟我 ($m=5$) 的關係大不大。
+    - $R_{n-m}$: 相對位置 $n-m$ 的旋轉矩陣。
+    
+    **為什麼角度不同？**
+    因為 RoPE 的設計是 **「旋轉角度 = 位置索引 $\times$ 單位角度 $\theta_i$」**。
+    - 位置 $m$ 的 Query 會被旋轉 $m\theta_i$ 度。
+    - 位置 $n$ 的 Key 會被旋轉 $n\theta_i$ 度。
+    - 兩者做內積時，數學上剛好等於 **相減** ($n\theta_i - m\theta_i$)，這就是為什麼它能捕捉到 **相對距離**。
+    
+    > **關於 $\theta$ (Theta) 的補充：**
+    > 這裡的 $\theta$ 是一個**超參數 (Hyperparameter)**，通常被稱為 **Base Frequency**。
+    > *   原始 Transformer / Llama 1 設定為 $10000$。
+    > *   **Llama 2** 為了支援更長的 Context Window (4k)，將其調大到 $500000$。
+    > *   **Llama 3** 甚至調大到 $50000000$ (8k+)。
+    > *   調大 $\theta$ 的物理意義是：讓旋轉的頻率變慢，這樣即使位置索引 $m$ 很大（例如跑到第 10 萬個字），旋轉的角度也不會轉太多圈而發生混淆（Aliasing）。
+    
+    結果**只跟相對距離 $(n-m)$ 有關**！這完美實現了我們對相對位置的追求，而且比原始的 Sinusoidal Add 更直接。
+
+2.  **外推性 (Extrapolation) 極強**：
+    因為是旋轉角度，模型更容易泛化到沒見過的長度（例如訓練時只轉過 0~360 度，測試時轉到 720 度，模型依然能理解這是「兩圈」的概念，而不是一個未知的亂碼）。這也是為什麼現代 LLM 能支援超長 Context Window (如 128k tokens) 的關鍵原因之一。
+
+> **補充：ALiBi (Attention with Linear Biases)**
+> 還有另一派做法完全捨棄了 Positional Embedding (如 Bloom 模型)。ALiBi 直接在計算 Attention Score 時扣分：距離越遠，分數扣越多。
+> $$ \text{Score}(q_i, k_j) = q_i \cdot k_j - m \cdot |i-j| $$
+> 這種做法簡單粗暴，外推性也很好，但目前主流仍是 RoPE。
