@@ -487,9 +487,37 @@ $$
 > $$ \text{Score}(q_i, k_j) = q_i \cdot k_j - m \cdot |i-j| $$
 > 這種做法簡單粗暴，外推性也很好，但目前主流仍是 RoPE。
 
----
+## Top-K Sampling：從 Output Vector 到 Vocabulary Probability
+在討論 Sampling 之前，我們必須先理解 Transformer 是如何決定「下一個字」的機率的。
+Transformer 的最後一層輸出是一個維度為 $d_{model}$ 的向量（例如 512 維），我們稱之為 **Hidden State** 或 **Output Vector**。要將這個向量轉換成「下一個字是誰」的機率分佈，需要經過以下三個步驟：
 
-## 實戰：如何突破 Sequence Length 限制 (Long Context Handling)
+1.  **Linear Projection (Unembedding Layer)**
+    將 $d_{model}$ 維的向量投影到 **Vocabulary Size** (詞彙表大小，例如 50,000) 的維度。
+    這通常是一個全連接層 (Linear Layer)，其權重矩陣 $W_{vocab}$ 的形狀是 $(d_{model} \times V)$。
+    $$
+    \text{Logits} = \text{OutputVector} \times W_{vocab}
+    $$
+    輸出的 **Logits** 是一個長度為 $V$ 的向量，其中的每一個數值代表對應單詞的「原始分數」。分數越高，代表模型覺得下一個字是該單詞的可能性越大。
+
+2.  **Softmax Layer**
+    Logits 的數值範圍是 $(-\infty, \infty)$，為了將其轉化為機率，我們使用 Softmax 函數：
+    $$
+    P(w_i) = \frac{e^{\text{logit}_i}}{\sum_{j=1}^{V} e^{\text{logit}_j}}
+    $$
+    這會產生一個長度為 $V$ 的機率分佈向量，所有元素的總和為 1。
+
+3.  **對應到 Vocabulary**
+    機率向量中的每一個索引 (Index) 都唯一對應到詞彙表中的一個 Token。
+    例如：
+    *   Index 0 $\rightarrow$ "apple" (P = 0.01)
+    *   Index 1 $\rightarrow$ "banana" (P = 0.02)
+    *   ...
+    *   Index 4999 $\rightarrow$ "zoo" (P = 0.0001)
+
+    在 **Greedy Decoding** 中，我們直接選機率最大的那個字。
+    而在 **Top-K Sampling** 中，我們只從機率最高的 K 個候選字中進行隨機抽樣，以增加生成的多樣性並避免重複。
+
+## 補充：如何突破 Sequence Length 限制 (Long Context Handling)
 如果模型的 `max_seq_len` 只有 8192，但我們要輸入 100,000 個 token，工程上是怎麼做到的？
 這結合了 **KV Cache** 與 **RoPE** 的特性：
 
