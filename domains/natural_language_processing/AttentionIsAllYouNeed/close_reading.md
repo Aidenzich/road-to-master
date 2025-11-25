@@ -418,10 +418,8 @@ $$
 
 $$
 \begin{aligned}
-
 \text{PE}_{(pos, 2i)} &= \sin(pos / 10000^{2i/d_{model}}) \\
 \text{PE}_{(pos, 2i+1)} &= \cos(pos / 10000^{2i/d_{model}})
-
 \end{aligned}
 $$
 
@@ -505,6 +503,7 @@ Transformer 的最後一層輸出是一個維度為 $d_{model}$ 的向量（例�
     P(w_i) = \frac{e^{\text{logit}_i}}{\sum_{j=1}^{V} e^{\text{logit}_j}}
     $$
     這會產生一個長度為 $V$ 的機率分佈向量，所有元素的總和為 1。
+    - `e` [自然常數 Euler's number](https://zh.wikipedia.org/zh-tw/E_(%E6%95%B0%E5%AD%A6%E5%B8%B8%E6%95%B0))
 
 3.  **對應到 Vocabulary**
     機率向量中的每一個索引 (Index) 都唯一對應到詞彙表中的一個 Token。
