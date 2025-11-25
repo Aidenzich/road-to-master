@@ -1,8 +1,11 @@
 # Gradient Descent
 
-1.  定義數學模型與損失函數。
-2.  手動推導梯度
-3.  撰寫 Python 程式碼，將數學公式轉化為可執行的 `gradient_descent` 函式。
+這篇文章將介紹梯度下降 (Gradient Descent) 的基本概念，並展示如何使用 Python 實現一個簡單的梯度下降演算法。
+我們會按照以下步驟進行：
+1. 定義數學模型與損失函數。
+2. 手動推導梯度
+3. Gradient Descent 的數學表達，如何利用梯度來更新參數。
+4. 撰寫 Python 程式碼，將數學公式轉化為可執行的 `gradient_descent` 函式。
 
 
 ## 1\. 數學模型 (線性迴歸)
@@ -56,15 +59,30 @@ $$\frac{\partial L}{\partial w} = \frac{2}{N} \sum_{i=1}^{N} x^{(i)} \cdot (y_{p
 
 同樣使用連鎖律：
 
-1.  $\frac{\partial L}{\partial b} = \frac{\partial}{\partial b} \left[ \frac{1}{N} \sum ((w \cdot x + b) - y)^2 \right]$
-2.  $= \frac{1}{N} \sum \frac{\partial}{\partial b} \left[ ((w \cdot x + b) - y)^2 \right]$
-3.  $= \frac{1}{N} \sum 2 \cdot ((w \cdot x + b) - y) \cdot \frac{\partial}{\partial b} [w \cdot x + b - y]$
-4.  $= \frac{1}{N} \sum 2 \cdot (y_{pred} - y) \cdot 1$
-5.  **$\frac{\partial L}{\partial b} = \frac{2}{N} \sum_{i=1}^{N} (y_{pred}^{(i)} - y_{true}^{(i)})$**
+$$
+\begin{aligned}
+\frac{\partial L}{\partial b} &= \frac{\partial}{\partial b} \left[ \frac{1}{N} \sum ((w \cdot x + b) - y)^2 \right] \\
+&= \frac{1}{N} \sum \frac{\partial}{\partial b} \left[ ((w \cdot x + b) - y)^2 \right] \\
+&= \frac{1}{N} \sum 2 \cdot ((w \cdot x + b) - y) \cdot \frac{\partial}{\partial b} [w \cdot x + b - y] \\
+&= \frac{1}{N} \sum 2 \cdot (y_{pred} - y) \cdot 1 \\
+\frac{\partial L}{\partial b} &= \frac{2}{N} \sum_{i=1}^{N} (y_{pred}^{(i)} - y_{true}^{(i)})
+\end{aligned}
+$$
 
------
+## 3\. Gradient Descent
 
-## 3\. Python 完整實作 (使用 NumPy)
+有了梯度之後，我們就可以利用它來更新參數。梯度的方向是指向函數值「增加最快」的方向，因此我們要往梯度的**反方向**走，才能讓 Loss 變小。
+
+更新公式如下：
+
+$$w \leftarrow w - \eta \cdot \frac{\partial L}{\partial w}$$
+$$b \leftarrow b - \eta \cdot \frac{\partial L}{\partial b}$$
+
+其中 $\eta$ (eta) 是 **學習率 (Learning Rate)**，它決定了我們每一步走多遠。
+*   如果 $\eta$ 太大，可能會跨過最低點，甚至發散。
+*   如果 $\eta$ 太小，收斂速度會非常慢。
+
+## Python 完整實作 (使用 NumPy)
 
 現在我們可以把上面的數學公式寫成程式碼。我們將嚴格按照您的要求，**將梯度計算「函式化」** (即 `compute_gradient`)。
 
