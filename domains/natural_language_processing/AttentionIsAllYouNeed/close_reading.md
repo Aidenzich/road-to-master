@@ -3,7 +3,7 @@
 
 
 ## Query, Key, Value 的意義
-![alt text](imgs/ml.png)
+
 | 元件 | 角色 | 維度 | 抽象意義 |
 |---|---|---|---|
 | $Q$ | Query 查詢  | $(L \times d_k)$ | 「我在找什麼？」 |
@@ -11,6 +11,8 @@
 | $QK^T$ (經Softmax) | Attention Weighted (注意力權重) | $(L \times L)$ | 「我該關注『哪裡』？比例多少？」 |
 | $V$ | Value 值 | $(L \times d_v)$ | 「由$QK^T$ 指出的位置，內容資訊是什麼？」 如果沒有 $V$，注意力機制就只知道「A 和 B 很相關」，但它不知道「A 和 B 的**內容**是什麼」 |
 | $\text{Weights} \cdot V$ | **最終輸出** | $(L \times d_v)$ | 「這是融合了全局資訊後的新樣貌」 |
+
+![alt text](imgs/ml.png)
 
 
 ### Attention Weights $QK^T$ (經 Softmax) 
