@@ -272,7 +272,9 @@ $$
 * $d_{ff} = 2048$
 
 ### FFN 的靈魂：非線性 (Non-Linearity)
-FFN 是 Transformer Block 中，主要提供『特徵變換非線性』的地方。
+> 通常我們講的激活函數的激活，>指的就是「激活非線性」的能力
+
+FFN 是 Transformer Block 中，主要提供『特徵變換非線性』的地方。 如果把 relu 激活函數拿掉，Transformer 就等同於一個線性模型(注意，並非指線性回歸，線性回歸單指 $y = W_x + b$)
 
 Attention 中雖然有使用非線性運算 Softmax, 但這兩者有本質上的區別：
 - Attention 的 Softmax: 是作用在權重 (Weights) 上。它決定了「我要看哪裡」。它改變的是路由 (Routing)，而不是特徵本身的數值空間形狀。
@@ -309,6 +311,7 @@ f(x_L)
 $$
 
 在 PyTorch 中使用 nn.Linear 處理序列數據 (Batch, Seq_Len, Dim) 時，本質上就是進行標準的矩陣乘法。$$Y = XW + b$$根據矩陣乘法的定義，輸出矩陣的第 $i$ 列（Row $i$）僅由輸入矩陣的第 $i$ 列決定：
+
 $$
 \underbrace{
 \begin{bmatrix}
@@ -346,7 +349,7 @@ $$
 
 
 ### 維度變化：升維再降維
-FFN 的運作過程可以看作是一個**「升維再降維」**的過程。這在幾何上非常有意義，類似的操作如：Boltzmann Machine
+FFN 的運作過程可以看作是一個 **升維再降維** 的過程。這在幾何上非常有意義，類似的操作如：Boltzmann Machine
 
 
 $$
@@ -367,14 +370,12 @@ $$
 * **Attention 的 QKV:** 是在處理「上下文資訊」（例如：這個句子的主詞是誰？）。
 * **FFN 的權重:** 是在儲存「靜態知識」（例如：巴黎是法國的首都）。
 
-我們可以這樣理解 FFN 的兩層矩陣：
-1.  **$W_1$ (Keys):** 像是一個**模式識別器 (Pattern Detector)**。它在偵測輸入向量中是否包含某種特定的概念（例如：偵測到「法國」+「首都」的特徵組合）。
-2.  **$W_2$ (Values):** 像是一個**內容生成器**。如果 $W_1$ 被激活了，它就會透過 $W_2$ 輸出對應的資訊（例如：增加「巴黎」這個概念的向量數值）。
-
-**結論：**
-如果說 Attention 負責把句子讀通（理解結構），FFN 就負責查閱大腦裡的百科全書（補充知識）。這也是為什麼大型語言模型 (LLM) 的參數量大部分都集中在 FFN 層的原因。
-
-
+FFN 的兩層矩陣 $W_1$ 和 $W_2$ 處理的是**當前 Token 向量裡已經包含的複雜語義**：
+1.  **輸入向量 $x$：** 假設 $x$ 是「**艾菲爾鐵塔**」這個詞的向量。由於它已經被 Attention 處理過，這個向量 $x$ 裡其實已經融合了其上下文（如「法國」、「巴黎」、「著名」等）的資訊。
+2.  **$W_1$ (模式識別器 / Key):** 它在偵測**輸入向量 $x$ 中**是否已經具有某些**複雜的、高階的語義特徵**。它的輸出經過 $\text{ReLU}$ 篩選，確保只有偵測到的、數值為正的特徵才能通過。這些通過的特徵（即使數值很小也算激活），會根據它們的數值大小，決定對 $W_2$ 所儲存的語義內容貢獻多少力量。
+    * **比喻：** 偵測 $x$ 向量中**是否同時存在**高數值的 **國家類** 特徵和 **旅遊類** 特徵。
+3.  **$W_2$ (內容生成器 / Value):** 如果 $W_1$ 激活了，它就會輸出對應的內容。
+    * **比喻：** 既然確認了這個 Token 是一個 **國家級旅遊地標**，那麼就透過 $W_2$ 強化該 input 向量中 **大眾文化、歷史意義**等相關的更高階語義。
 
 #### $FFN$ 與 $QK^T$ 的用途差異
 | 運算類型 | FFN / Linear Layer | Attention Mechanism |
@@ -382,12 +383,50 @@ $$
 | **關鍵動作** | 乘上 **Weights** | 乘上 **Transposed Data** |
 | **數學式** | $X \cdot W$ | $X \cdot X^T$ (概念上) |
 | **轉置與否** | **無轉置** (或是只轉置 Weights) | **數據本身被轉置** ($K^T$) |
-| **視線方向** | **向內看 (Introverted)**<br>看自己內部的特徵組合 | **向外看 (Extroverted)**<br>看別人(其他時間點)跟我的關係 |
-| **物理意義** | **Feature Engineering**<br>(把 "Apple" 變成 "Fruit") | **Context Discovery**<br>(發現 "Apple" 與 "Red" 的關聯) |
+| **視線方向** | **向內看 (Introverted)**<br>針對自己 token 內部的特徵組合 | **向外看 (Extroverted)**<br>看別人(其他時間點) 跟我這個 token 的關係 |
+| **物理意義** | **Feature Engineering**<br>FFN 透過之前學習到其他資料(句子)的資訊，強化 "Apple" 這個Token中，能代表 "Fruit" 的特徵 (Fruit 不是出現在同一個句子的資訊) | **Context Discovery**<br>發現句子裡 "Apple" 與 "Red" 的關聯，將 "Red" 的上下文資訊加權拉進 "Apple" 的向量中。 |
+
+**結論：**
+如果說 Attention 負責把句子讀通（理解結構），FFN 就負責查閱大腦(已訓練過的資料)裡的百科全書（補充知識）。這也是為什麼大型語言模型 (LLM) 的參數量大部分都集中在 FFN 層的原因。
+
+
+
+## Add: Residual Connection
+**殘差連結 (Residual Connection)**，常被稱為 **Skip Connection (跳躍連結)**，是深度學習（特別是 ResNet 和 Transformer）中最重要的發明之一。 就是架構圖中的 "Add & Norm" 中的 Add 操作。
+
+它的概念就是：**與其讓神經網路重新學習整個輸出，不如讓它只學習『需要修改的部分』**
+如果沒有殘差連結，一層網路的運算通常是：
+
+$$
+y = F(x)
+$$
+
+- $x$ 是輸入
+- $F$ 是這一層的處理，即這一個 Attetion 層或 FFN 層
+- $y$ 是新產出的結果
+
+**有了殘差連結**，運算變成了：
+$$y = F(x) + x$$
+
+
+### 為什麼它對深度學習這麼重要？
+
+在 ResNet 發明之前，網路做不深（超過 20 層就訓練不動了），主要有兩個問題，殘差連結都解決了：
+#### A. 解決「梯度消失」 (Vanishing Gradient)
+* **問題：** 在反向傳播（訓練）時，誤差訊號要從最後一層傳回第一層。經過太多層的乘法，訊號會越來越弱，像傳話遊戲一樣，傳到前面就聽不見了。
+* **解決：** 殘差連結就像一條 **高速公路**。因為 $y = F(x) + x$，在微分時，那個 $+x$ 的項會變成 $1$ 傳給上一層。這意味著誤差訊號可以透過這條「捷徑」，無損地直接傳回前面的層。這讓訓練 **100 層甚至 1000 層** 的網路成為可能。
+
+#### B. 打破「退化問題」 (Degradation Problem)
+* **問題：** 以前發現，網路疊越深，效果反而越差。
+* **解決：** 有了 $+x$，模型很容易學會「什麼都不做」(Identity Mapping)。這保證了加深網路**至少不會比淺層網路差**，只會更好或持平。
+
+**小結：** 殘差連結是一種「繼承」機制。它確保下一層網路能直接拿到上一層的原始資訊，而不需要完全依賴中間層的轉換。這讓神經網路可以疊得非常深，而不會遺失資訊或難以訓練。
+
 
 
 ## Layer Normalization
-在 Transformer 中，Normalization 是穩定訓練的關鍵。但為什麼選擇 Layer Normalization (LN) 而不是電腦視覺中常見的 Batch Normalization (BN)？
+在 Transformer 中，Normalization 是穩定訓練的關鍵。但為什麼選擇 Layer Normalization (LN) 而不是電腦視覺(CV) 中常見的 Batch Normalization (BN)？
+> 補充. 1 個 Epoch = 模型把『整份訓練資料集』完整地看過一次。 在這 1 個 Epoch 裡面： 權重更新的次數 (Iterations) = 資料總數 / Batch Size
 
 ### 為什麼不用 Batch Normalization?
 Batch Normalization 的核心假設是：**同一個 Batch 內的數據應該來自相似的分佈**。它是在「Batch 維度」上計算平均值與變異數。
@@ -420,10 +459,11 @@ Layer Normalization 是在 **Feature 維度** ($d_{model}$) 上進行標準化�
 
 ### Post-LN vs. Pre-LN
 - **Post-LN (原始論文)**：`Add -> Norm`。
-  - 結構：$x_{out} = \text{LayerNorm}(x + \text{Sublayer}(x))$
-  - 問題：輸出層附近的梯度很大，但越往底層梯度越小（因為每一層都在做 Normalization），導致 Warm-up 階段非常敏感，容易訓練失敗
+  - 結構：$y_{out} = \text{LayerNorm}(x + \text{Sublayer}(x))$
+  - 問題：輸出層附近的梯度很大，但越往底層梯度越小（因為每一層都在做 Normalization）
+  導致 Warm-up 階段非常敏感，容易訓練失敗
 - **Pre-LN (現代主流，如 GPT-2, LLaMA)**：`Norm -> Add`。
-  - 結構：$x_{out} = x + \text{Sublayer}(\text{LayerNorm}(x))$
+  - 結構：$y_{out} = x + \text{Sublayer}(\text{LayerNorm}(x))$
   - 優勢：殘差連接 (Residual Connection) 是一條「高速公路」，梯度可以直接流回底層，不需要經過 LayerNorm 的阻擋。這讓訓練更加穩定，甚至可以移除 `Warm-up` 階段
 
 ## Positional Encoding
@@ -454,8 +494,17 @@ $$
 \end{aligned}
 $$
 
-#### 為什麼選 Sin/Cos?
-它有兩個數學性質：
+| Symbol | 意義 (Meaning) | 詳細說明 (Detailed Explanation) |
+| :----: | :---: | :--- |
+| **$pos$** | **位置索引 (Positional ID)** | 序列中詞彙的絕對位置。對於輸入序列中的第一個詞，$pos=0$；第二個詞，$pos=1$，依此類推。|
+| **$d_{model}$** | **模型維度 (Model Dimension)** | Transformer 模型中隱藏狀態 (hidden state) 向量的總維度大小 (例如 $512$ 或 $1024$)。這是一個固定的超參數。|
+| **$i$** | **頻率索引 (Frequency Index)** | 一個從 $0$ 開始計數的整數，決定了位置編碼中使用的波長/頻率。它的範圍是 $0 \le i < d_{model}/2$。|
+| **$2i$** | **偶數維度索引 (Even Dimension Index)** | 指的是位置編碼向量 $\text{PE}$ 中所有**偶數**索引 $j$ 的維度 $(j = 0, 2, 4, \dots, d_{model}-2)$。這些維度使用 $\sin$ 函數計算。|
+| **$2i+1$** | **奇數維度索引 (Odd Dimension Index)** | 指的是位置編碼向量 $\text{PE}$ 中所有**奇數**索引 $j$ 的維度 $(j = 1, 3, 5, \dots, d_{model}-1)$。這些維度使用 $\cos$ 函數計算。|
+| **$10000^{2i/d_{model}}$** | **波長 (Wavelength)** | 決定了 $\sin$ 和 $\cos$ 函數的週期。當 $i$ 越小 (接近 $0$)，波長越長；當 $i$ 越大 (接近 $d_{model}/2$)，波長越短，代表編碼更精細的位置資訊。|
+| **$\text{PE}_{(pos, j)}$** | **位置編碼值 (Positional Encoding Value)** | 在位置 $pos$ 的詞彙，其位置編碼向量中第 $j$ 個維度的值。|
+
+#### 為什麼選 Sin/Cos? 因為它有兩個數學性質：
 1.  **有界性 (Boundedness)**：
     值永遠在 $[-1, 1]$ 之間，這保證了位置編碼不會像普通的整數編碼 ($1, 2, 3, \dots$) 那樣隨著序列變長而數值爆炸，影響模型訓練
 2.  **相對位置的線性關係 (Relative Positioning)**：
@@ -473,16 +522,26 @@ $$
 雖然 Google 的原始論文提出了 Sinusoidal Encoding，但在隨後的幾年（BERT, GPT-2 時代），大家更傾向於使用 **Learnable Absolute Embedding**（直接讓模型學一個矩陣來代表位置，不強制用數學公式）。然而，到了現代 LLM (Llama 2/3, Mistral, PaLM) 時代，Sin/Cos 又強勢回歸，並進化成了 **RoPE (Rotary Positional Embedding)**。
 
 ### RoPE (Rotary Positional Embedding)
-RoPE 的核心思想是：**不要把位置資訊「加 (Add)」在向量上，而是把向量進行「旋轉 (Rotate)」。**
+RoPE 的核心思想是：**不要把位置資訊「加 (Add)」在向量上，而是對計算注意力分數時的 Q (Query) 和 K (Key) 向量進行「旋轉 (Rotate)」。**
 
 它利用了複數平面上的旋轉特性。對於二維向量 $(x_1, x_2)$，加上位置 $m$ 的旋轉矩陣 $R_m$：
 
 $$
-f(x, m) = R_m x = \begin{pmatrix} \cos m\theta & -\sin m\theta \\ \sin m\theta & \cos m\theta \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+f(x, m) = R_m x = 
+\textcolor{cyan}{
+\begin{pmatrix} 
+    \cos m\theta & -\sin m\theta \\ \sin m\theta & \cos m\theta 
+\end{pmatrix} 
+}
+
+
+\begin{pmatrix} 
+x_1 \\ x_2 
+\end{pmatrix}
 $$
 - $m$: Token 在序列中的絕對位置索引 (Absolute Position Index), e.g. 第 1 個字 $m=1$
 - $f(x, m)$: 旋轉後的向量
-
+- $\textcolor{cyan}{\text{cyan}}$: 2 X 2旋轉矩陣
 #### 為什麼 RoPE 更好？
 1.  **絕對位置即相對位置**：
     如果你把 Query 旋轉 $m$ 度，Key 旋轉 $n$ 度，那麼它們做點積 (Dot Product) 時：
