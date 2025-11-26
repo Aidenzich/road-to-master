@@ -460,8 +460,10 @@ Layer Normalization 是在 **Feature 維度** ($d_{model}$) 上進行標準化�
 ### Post-LN vs. Pre-LN
 - **Post-LN (原始論文)**：`Add -> Norm`。
   - 結構：$y_{out} = \text{LayerNorm}(x + \text{Sublayer}(x))$
-  - 問題：輸出層附近的梯度很大，但越往底層梯度越小（因為每一層都在做 Normalization）
-  導致 Warm-up 階段非常敏感，容易訓練失敗
+  - 問題：
+    - 輸出層附近的梯度很大，但越往底層梯度越小（因為每一層都在做 Normalization）
+    - 導致 Warm-up 階段非常敏感，容易訓練失敗
+    - 在 Post-LN 模式下，要計算梯度時一定會先對 LayerNorm 進行微分，然而 LayerNorm 輸出的梯度會非常大且不穩定，這種不穩定性迫使我們必須從非常小的 $\eta$ 開始（即 Warm-up），讓網路先「熱身」幾千步，找到一個穩定的梯度方向後，再慢慢增加 $\eta$
 - **Pre-LN (現代主流，如 GPT-2, LLaMA)**：`Norm -> Add`。
   - 結構：$y_{out} = x + \text{Sublayer}(\text{LayerNorm}(x))$
   - 優勢：殘差連接 (Residual Connection) 是一條「高速公路」，梯度可以直接流回底層，不需要經過 LayerNorm 的阻擋。這讓訓練更加穩定，甚至可以移除 `Warm-up` 階段
