@@ -308,7 +308,36 @@ f(x_L)
 \end{bmatrix}
 $$
 
-在 PyTorch 中使用 nn.Linear 處理序列數據 (Batch, Seq_Len, Dim) 時，本質上就是進行標準的矩陣乘法。$$Y = XW + b$$根據矩陣乘法的定義，輸出矩陣的第 $i$ 列（Row $i$）僅由輸入矩陣的第 $i$ 列決定。
+在 PyTorch 中使用 nn.Linear 處理序列數據 (Batch, Seq_Len, Dim) 時，本質上就是進行標準的矩陣乘法。$$Y = XW + b$$根據矩陣乘法的定義，輸出矩陣的第 $i$ 列（Row $i$）僅由輸入矩陣的第 $i$ 列決定：
+$$
+\underbrace{
+\begin{bmatrix}
+\textcolor{red}{x_{1,1}} & \textcolor{red}{x_{1,2}} & \textcolor{red}{\dots} & \textcolor{red}{x_{1,d}} \\
+\textcolor{lightgray}{x_{2,1}} & \textcolor{lightgray}{x_{2,2}} & \textcolor{lightgray}{\dots} & \textcolor{lightgray}{x_{2,d}} \\
+\textcolor{lightgray}{\vdots} & \textcolor{lightgray}{\vdots} & \textcolor{lightgray}{\ddots} & \textcolor{lightgray}{\vdots} \\
+\textcolor{lightgray}{x_{n,1}} & \textcolor{lightgray}{x_{n,2}} & \textcolor{lightgray}{\dots} & \textcolor{lightgray}{x_{n,d}}
+\end{bmatrix}
+}_{\text{Input } X}
+\times
+\underbrace{
+\begin{bmatrix}
+\textcolor{cyan}{w_{1,1}} & \textcolor{cyan}{w_{1,2}} & \textcolor{cyan}{\dots} \\
+\textcolor{cyan}{w_{2,1}} & \textcolor{cyan}{w_{2,2}} & \textcolor{cyan}{\dots} \\
+\textcolor{cyan}{\vdots} & \textcolor{cyan}{\vdots} & \textcolor{cyan}{\ddots} \\
+\textcolor{cyan}{w_{d,1}} & \textcolor{cyan}{w_{d,2}} & \textcolor{cyan}{\dots}
+\end{bmatrix}
+}_{\text{Weights } W}
+=
+\underbrace{
+\begin{bmatrix}
+\textcolor{orange}{z_{1,1}} & \textcolor{orange}{z_{1,2}} & \textcolor{orange}{\dots} \\
+\textcolor{lightgray}{z_{2,1}} & \textcolor{lightgray}{z_{2,2}} & \textcolor{lightgray}{\dots} \\
+\textcolor{lightgray}{\vdots} & \textcolor{lightgray}{\vdots} & \textcolor{lightgray}{\ddots} \\
+\textcolor{lightgray}{z_{n,1}} & \textcolor{lightgray}{z_{n,2}} & \textcolor{lightgray}{\dots}
+\end{bmatrix}
+}_{\text{Output } Z}
+$$
+
 
 > **⚠️ 面試陷阱題：FFN 等同於什麼樣的卷積神經網路 (CNN)？**
 >
