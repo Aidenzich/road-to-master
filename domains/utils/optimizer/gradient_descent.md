@@ -1,11 +1,11 @@
 # Gradient Descent
 
 這篇文章將介紹梯度下降 (Gradient Descent) 的基本概念，並展示如何使用 Python 實現一個簡單的梯度下降演算法。
-我們會按照以下步驟進行：
-1. 定義數學模型與損失函數。
-2. 手動推導梯度
-3. Gradient Descent 的數學表達，如何利用梯度來更新參數。
-4. 撰寫 Python 程式碼，將數學公式轉化為可執行的 `gradient_descent` 函式。
+
+**梯度下降 (Gradient Descent)** 是一種優化演算法，它通過計算**損失函數（Loss）的負梯度**，指導參數 $W$ 和 $B$ 朝著錯誤下降最快的方向，以特定的步幅（學習率）進行迭代修正。
+
+**下降 (Descent)** 這個詞特指：將計算出來的梯度 (方向是 Loss 增加最快的方向) 乘上 $-1$，然後用這個「負梯度」來修正權重。
+
 
 
 ## 1\. 數學模型 (線性迴歸)
@@ -145,8 +145,7 @@ def gradient_descent(X, y_true, learning_rate, num_epochs):
     
     print(f"開始訓練... Learning Rate: {learning_rate}, Epochs: {num_epochs}")
     
-    for i in range(num_epochs):
-        # ----------------------------------------------------
+    for i in range(num_epochs):        
         # 1. 計算梯度 (呼叫您要求的 gradient 函式)
         grad_w, grad_b = compute_gradient(X, y_true, w, b)
         
@@ -154,8 +153,7 @@ def gradient_descent(X, y_true, learning_rate, num_epochs):
         # w = w - alpha * grad_w
         # b = b - alpha * grad_b
         w = w - learning_rate * grad_w
-        b = b - learning_rate * grad_b
-        # ----------------------------------------------------
+        b = b - learning_rate * grad_b  
         
         # (可選) 計算並記錄當前的 Loss
         y_pred = (w * X) + b
@@ -167,8 +165,6 @@ def gradient_descent(X, y_true, learning_rate, num_epochs):
             
     print("訓練完成！")
     return w, b, loss_history
-
-# --- 主程式：執行範例 ---
 
 # 1. 產生模擬資料
 # 讓我們假裝真實的 w = 3, b = 4
