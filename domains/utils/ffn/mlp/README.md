@@ -109,6 +109,59 @@ print("輸出數據維度:", output.shape)
   * **`forward(self, x)`:** 這裡定義了「前向傳播」的SOP。當你呼叫 `model(input)` 時，PyTorch 內部會自動去執行 `forward` 函數。
 
 
+### 深入探討：為什麼多層線性網路等同於單層？
+你可能會好奇，如果我們把 `nn.ReLU()` 拿掉，單純堆疊多個 `nn.Linear` 層，會發生什麼事？這在數學上和單層線性網路有什麼區別？ 讓我們比較以下兩種寫法：
+
+- **情況 A：多層線性網路（無激活函數）**
+    ```python
+    self.layers = nn.Sequential(
+        nn.Linear(input_size, hidden_size),  
+        nn.Linear(hidden_size, hidden_size), # 額外一層
+        nn.Linear(hidden_size, output_size)  # 額外一層
+    )
+    ```
+
+- **情況 B：單層線性網路**
+    ```python
+    self.layers = nn.Sequential(
+        nn.Linear(input_size, output_size), 
+    )
+    ```
+
+#### 數學上的等價性
+
+雖然 **情況 A** 看起來結構更深，但在數學上，**這兩者是完全等價的**。
+
+原因在於**線性變換的疊加仍然是線性變換**。
+假設輸入是 $x$，每一層的權重矩陣分別是 $W_1, W_2, W_3$（忽略偏置 bias 以簡化說明）：
+
+*   第一層輸出：$h_1 = W_1 \cdot x$
+*   第二層輸出：$h_2 = W_2 \cdot h_1 = W_2 \cdot (W_1 \cdot x)$
+*   第三層輸出：$y = W_3 \cdot h_2 = W_3 \cdot (W_2 \cdot W_1 \cdot x)$
+
+根據矩陣乘法的結合律，我們可以先將權重矩陣相乘：
+$$ y = (W_3 \cdot W_2 \cdot W_1) \cdot x $$
+
+令 $W_{total} = W_3 \cdot W_2 \cdot W_1$，那麼：
+$$ y = W_{total} \cdot x $$
+
+這就變成了一個單層的線性變換，其權重為 $W_{total}$。
+
+#### 意義與差別
+
+1.  **表達能力 (Expressive Power)：**
+    *   **多層無激活函數**：表達能力**受限於線性模型**。無論你堆疊多少層，它只能模擬線性關係（如 $y = ax + b$），無法解決非線性問題（如 XOR 問題或複雜的圖像分類）。
+    *   **單層無激活函數**：同上，就是標準的線性回歸或線性分類器。
+    *   **結論**：如果不加激活函數，增加層數**不會帶來任何模型表達能力的提升**，只是徒增計算量和參數冗餘。
+
+2.  **為什麼需要激活函數 (Activation Function)？**
+    *   加入 `ReLU` 或 `Sigmoid` 後，每一層的輸出變成了非線性的 $f(W \cdot x)$。
+    *   這破壞了上述的線性疊加，使得 $f(W_2 \cdot f(W_1 \cdot x)) \neq W_{new} \cdot x$。
+    *   正是這種**非線性**，讓神經網路能夠透過層層堆疊，去逼近任意複雜的函數（Universal Approximation Theorem）。
+
+因此，**「深度」學習的威力，來自於「層數」與「非線性激活函數」的結合**。缺一不可。
+
+
 ### MLP 與 FFN 的不同
 
 MLP 與 FFN 這兩個詞在實務上**經常被混用**，但在學術定義上**有層級關係**。
@@ -130,9 +183,8 @@ MLP 與 FFN 這兩個詞在實務上**經常被混用**，但在學術定義上*
 3.  一個 `nn.Linear` 層（將維度縮回，例如 2048 -\> 512）
 
 **總結：**
-
   * **學術上：** FFN 是大概念（包含 MLP, CNN 等），MLP 是指全連接的 FFN。
-  * **實務上 (尤其在 Transformer 領域)：** FFN 常常被當作一個**專有名詞**，用來特指那個**作為組件的、小型的 MLP」**。
+  * **實務上 (尤其在 Transformer 領域)：** FFN 常常被當作一個**專有名詞**，用來特指那個**作為組件的、小型的 MLP**。
 
 因此，當你看到 FFN 時，需要根據上下文來判斷它指的是「前饋網路」這個大類別，還是 Transformer 裡那個特定的 MLP 組件。
 
