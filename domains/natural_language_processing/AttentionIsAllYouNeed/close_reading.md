@@ -466,7 +466,7 @@ Layer Normalization 是在 **Feature 維度** ($d_{model}$) 上進行標準化�
     - 在 Post-LN 模式下，要計算梯度時一定會先對 LayerNorm 進行微分，然而 LayerNorm 輸出的梯度會非常大且不穩定，這種不穩定性迫使我們必須從非常小的 $\eta$ 開始（即 Warm-up），讓網路先「熱身」幾千步，找到一個穩定的梯度方向後，再慢慢增加 $\eta$
 - **Pre-LN (現代主流，如 GPT-2, LLaMA)**：`Norm -> Add`。
   - 結構：$y_{out} = x + \text{Sublayer}(\text{LayerNorm}(x))$
-  - 優勢：殘差連接 (Residual Connection) 是一條「高速公路」，梯度可以直接流回底層，不需要經過 LayerNorm 的阻擋。這讓訓練更加穩定，甚至可以移除 `Warm-up` 階段
+  - 優勢：透過將 LayerNorm 移至 Sublayer 內部，確保了殘差連接 (Residual Connection) 是一條**完全乾淨**的「高速公路」。在反向傳播時，梯度可以直接通過 $x$ 路徑流回底層，**完全不需經過 LayerNorm 的微分運算**。這避免了梯度在層層回傳時被 Normalization 干擾，讓訓練極度穩定，甚至可以移除 `Warm-up` 階段。
 
 ## Positional Encoding
 Transformer 的 Self-Attention 機制有一個致命的「缺點」：**它具有排列不變性 (Permutation Invariance)**。
@@ -571,6 +571,9 @@ $$
 
 2.  **外推性 (Extrapolation) 極強**：
     因為是旋轉角度，模型更容易泛化到沒見過的長度（例如訓練時只轉過 0~360 度，測試時轉到 720 度，模型依然能理解這是「兩圈」的概念，而不是一個未知的亂碼）。這也是為什麼現代 LLM 能支援超長 Context Window (如 128k tokens) 的關鍵原因之一。
+
+> 實務上，當你把長度推到訓練長度的 2 倍或 4 倍以上時，使用 Rope 的模型效果仍會崩盤。這就是為什麼我們會有 LongRoPE, YaRN, NTK-Aware Scaling 這些後續研究。
+
 
 > **補充：ALiBi (Attention with Linear Biases)**
 > 還有另一派做法完全捨棄了 Positional Embedding (如 Bloom 模型)。ALiBi 直接在計算 Attention Score 時扣分：距離越遠，分數扣越多。
