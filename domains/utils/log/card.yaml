@@ -1,0 +1,75 @@
+cards:
+  - front: "似然性 (Likelihood) 的定義與自變數"
+    back: "在固定觀測數據 $D$ 的情況下，關於參數 $\\theta$ 的函數，描述不同參數生成該數據的相對可能性。"
+  
+  - front: "機率 (Probability) 的定義與自變數"
+    back: "在固定模型參數 $\\theta$ 的情況下，關於數據 $D$ 的函數，描述未來觀測值出現的頻率分佈。"
+  
+  - front: "勝算 (Odds) 的數學定義"
+    back: "事件發生機率 $P$ 與不發生機率 $1-P$ 的比值，公式為 $\\frac{P}{1-P}$。"
+  
+  - front: "資訊量 (Self-Information) 的物理意義"
+    back: "衡量單一事件發生所帶來的「驚訝度」或消除的不確定性，定義為 $I(x) = -\\log P(x)$。"
+  
+  - front: "熵 (Entropy) 的物理定義"
+    back: "系統所有可能狀態資訊量的期望值（平均驚訝度），公式為 $H(X) = -\\sum P(x) \\log P(x)$。"
+  
+  - front: "為什麼資訊量定義使用 Log 函數？"
+    back: "為了滿足物理上的「相加性」，將獨立事件相乘的機率轉化為相加的資訊量。"
+  
+  - front: "最大似然估計 (MLE) 的核心目標"
+    back: "尋找一組參數 $\\theta$，使得觀察到現有數據 $D$ 的聯合機率（似然值）最大。"
+  
+  - front: "負對數似然 (Negative Log-Likelihood, NLL)"
+    back: "對似然函數取負對數，將最大化機率乘積問題轉化為最小化能量（驚訝度）累加問題。"
+  
+  - front: "交叉熵 (Cross-Entropy) 的物理含義"
+    back: "當使用預測分佈 $Q$ 來描述真實分佈 $P$ 時，所產生的平均資訊量（總驚訝度）。"
+  
+  - front: "KL 散度 (KL Divergence) 與 MLE 的關係"
+    back: "在機器學習中，最大化似然等同於最小化模型分佈與經驗數據分佈之間的 KL 散度。"
+  
+  - front: "Sigmoid 函數公式"
+    back: "$\\sigma(z) = \\frac{1}{1 + e^{-z}}$，將實數域映射到 $(0, 1)$ 機率區間。"
+  
+  - front: "Logit 函數與 Log-odds"
+    back: "Sigmoid 的反函數，定義為 $L = \\ln\\left(\\frac{P}{1-P}\\right)$，代表對數勝算。"
+  
+  - front: "為什麼分類問題常用 Cross-Entropy 而非 MSE？"
+    back: "當預測極度錯誤時，Cross-Entropy 具備「無限大」的潛在梯度，能避免 Sigmoid 進入飽和區導致的梯度消失。"
+  
+  - front: "機率空間與對數空間的物理轉換"
+    back: "Log 轉換將擁擠的機率空間 $(0, 1)$ 拉伸至線性空間 $(-\\infty, 0)$，使梯度在遠端依然有效。"
+  
+  - front: "伯努利分佈 (Bernoulli Distribution) 的似然函數形式"
+    back: "$L(P) = P^y (1-P)^{1-y}$，其中 $y \\in \\{0, 1\\}$。"
+  
+  - front: "費雪資訊 (Fisher Information) 的幾何意義"
+    back: "似然函數曲線的「曲率」，衡量觀測數據對參數估計精確度的貢獻程度。"
+  
+  - front: "對數轉換與數值穩定性"
+    back: "避免大量小機率連乘導致的「數值下溢 (Numerical Underflow)」問題。"
+  
+  - front: "統計流形 (Statistical Manifold) 上的 MLE 投影"
+    back: "MLE 物理上是將觀測數據的分佈向模型參數定義的曲面做 KL 散度意義下的垂直投影。"
+  
+  - front: "自然對數底 $e$ 在資訊量定義中的優勢"
+    back: "在 $\\ln x$ 下，$x=1$ 處的導數為 $1$，簡化了梯度計算且符合自然成長的物理特質。"
+  
+  - front: "Log-Loss 的數學定義"
+    back: "$- [y \\ln(p) + (1-y) \\ln(1-p)]$，即二元交叉熵損失。"
+  
+  - front: "似然函數積分的限制"
+    back: "似然函數不是機率分佈，其對參數 $\\theta$ 的積分不需要等於 $1$。"
+  
+  - front: "獨立同分佈 (i.i.d.) 假設下的聯合似然"
+    back: "所有樣本邊際似然的乘積：$L(\\theta) = \\prod_{i=1}^n P(x_i|\\theta)$。"
+  
+  - front: "為什麼 $P=1$ 時資訊量為 $0$？"
+    back: "因為確定發生的事件沒有任何不確定性，觀察到它不會帶來任何新資訊（不驚訝）。"
+  
+  - front: "機率與能量的波茲曼關係 (Boltzmann Relationship)"
+    back: "$\\ln P \\propto -E$，對數機率在物理上對應於系統的能量負值。"
+  
+  - front: "邏輯迴歸中特徵與目標的線性關係假設"
+    back: "邏輯迴歸假設特徵的線性組合與「對數勝算 (Log-odds)」成線性關係。"
