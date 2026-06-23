@@ -19,23 +19,28 @@ BM25 仍然保留 TF-IDF 的核心直覺：一個 term 若在 query 和 document
 
 對於 query $q$ 和 document $D$，BM25 分數通常寫成：
 
+- $\color{orange}{k_1}$：控制 TF saturation。
+- $\color{cyan}{b, |D|, \text{avgdl}}$：控制 document length normalization。
+
 $$
 \text{BM25}(D, q) =
 \sum_{t \in q}
 \text{IDF}(t)
 \cdot
-\frac{f(t, D)(k_1 + 1)}
-{f(t, D) + k_1 \left(1 - b + b \cdot \frac{|D|}{\text{avgdl}}\right)}
+\frac{
+    \text{freq}(t, D)( {\color{orange}{k_1}} + 1)
+}
+{
+    \text{freq}(t, D) + {\color{orange}{k_1}} \left(1 - \color{cyan}{b} + {\color{cyan}{b} \cdot \frac{\color{cyan}{|D|}}{\color{cyan}{\text{avgdl}}}}\right)}
 $$
 
 其中：
-
+- $\text{freq}(t, D)$：term $t$ 在 document $D$ 中出現的次數。
 - $t$：query 中的某個詞項（term）。
-- $f(t, D)$：term $t$ 在 document $D$ 中出現的次數。
-- $|D|$：document $D$ 的長度，通常是 term 數量。
-- $\text{avgdl}$：corpus 中所有 document 的平均長度。
-- $k_1$：控制 TF saturation 的強度，常見範圍約 $1.2$ 到 $2.0$。
-- $b$：控制 document length normalization 的強度，常見預設值約 $0.75$。
+- $\color{orange}{k_1}$：控制 TF saturation 的強度，常見範圍約 $1.2$ 到 $2.0$。
+- $\color{cyan}{|D|}$：document $D$ 的長度，通常是 term 數量。
+- $\color{cyan}{\text{avgdl}}$：corpus 中所有 document 的平均長度。
+- $\color{cyan}{b}$：控制 document length normalization 的強度，常見預設值約 $0.75$。
 - $\text{IDF}(t)$：term $t$ 的全域稀有度權重。
 
 常見的 BM25 IDF 平滑版本為：
@@ -126,8 +131,9 @@ BM25 可以視為把其中的 $\text{TF}(t, D)$ 換成一個更成熟的 scoring
 
 $$
 \text{BM25-TF}(t, D) =
-\frac{f(t, D)(k_1 + 1)}
-{f(t, D) + k_1 \left(1 - b + b \cdot \frac{|D|}{\text{avgdl}}\right)}
+\frac{\text{freq}(t, D)( {\color{orange}{k_1}} + 1)}
+{\text{freq}(t, D) + {\color{orange}{k_1}} \left(1 - {\color{cyan}{b}} + {\color{cyan}{b}} \cdot \frac{
+    {\color{cyan}{|D|}}}{{\color{cyan}{\text{avgdl}}}} \right)}
 $$
 
 也就是說：
@@ -143,14 +149,14 @@ $$
 
 傳統 TF-IDF 常把 term frequency 當成近似線性訊號：term 在 document 中出現越多次，分數就越高。問題是 term 的資訊貢獻不應該無限線性增加。
 
-BM25 的 TF 部分會讓分數隨著 $f(t, D)$ 增加而上升，但上升速度會逐漸變慢：
+BM25 的 TF 部分會讓分數隨著 $\text{freq}(t, D)$ 增加而上升，但上升速度會逐漸變慢：
 
 $$
-\frac{f(t, D)(k_1 + 1)}
-{f(t, D) + k_1}
+\frac{\text{freq}(t, D)({\color{orange}{k_1}} + 1)}
+{\text{freq}(t, D) + \color{orange}{k_1}}
 $$
 
-這個簡化式先忽略 document length normalization，只看 saturation。當 $f(t, D)$ 從 1 增加到 2 時，分數會明顯上升；但當 $f(t, D)$ 從 50 增加到 100 時，新增貢獻會非常有限。
+這個簡化式先忽略 document length normalization，只看 saturation。當 $\text{freq}(t, D)$ 從 1 增加到 2 時，分數會明顯上升；但當 $\text{freq}(t, D)$ 從 50 增加到 100 時，新增貢獻會非常有限。
 
 這對 ranking 很重要：一份 document 不應該只因為刻意重複 query term 就無限加分。
 
@@ -161,7 +167,7 @@ $$
 BM25 用以下項目調整 document 長度：
 
 $$
-1 - b + b \cdot \frac{|D|}{\text{avgdl}}
+1 - \color{cyan}{b} + \color{cyan}{b} \cdot \frac{\color{cyan}{|D|}}{\color{cyan}{\text{avgdl}}}
 $$
 
 - 當 $|D| > \text{avgdl}$：document 比平均長，分母變大，term frequency 的加分被壓低。
@@ -175,8 +181,8 @@ $$
 
 | 參數 | 控制對象 | 值變大時的效果 | 常見直覺 |
 | :--- | :--- | :--- | :--- |
-| $k_1$ | TF saturation | 詞頻可以帶來更多加分，飽和較慢 | 越大越接近傳統 TF |
-| $b$ | document length normalization | 長度懲罰更強 | 越大越重視 document 長短差異 |
+| $\color{orange}{k_1}$ | TF saturation | 詞頻可以帶來更多加分，飽和較慢 | 越大越接近傳統 TF |
+| $\color{cyan}{b}$ | document length normalization | 長度懲罰更強 | 越大越重視 document 長短差異 |
 
 ### $k_1$
 
@@ -207,10 +213,9 @@ TF-IDF 容易把「term 出現很多次」直接當作強相關；BM25 則會問
 - 這個 term 的出現次數是否已經接近飽和？
 - 這份 document 是否只是因為篇幅很長才命中較多次？
 
-## 關鍵結論
+## WrapUP
 
-BM25 不是推翻 TF-IDF，而是把 TF-IDF 的 ranking 直覺做得更像人類判斷：
-
+BM25 是把 TF-IDF 的 ranking 直覺做得更像人類判斷：
 - IDF 保留「全域稀有 term 更重要」的概念。
 - TF saturation 避免 keyword stuffing 讓分數無限膨脹。
 - Length normalization 避免長 document 單純因篇幅長而佔優。
