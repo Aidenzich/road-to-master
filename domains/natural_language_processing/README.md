@@ -3,6 +3,7 @@
 | Topic | Review |
 |-|-|
 | Byte-Level BPE (BBPE) | [✓](./tokenizer/ByteLevelBPE/) |
+| TF-IDF: IDF | [✓](./information_retrieval/TFIDF/) |
 
 ## Papers
 | Title | Venue | Year | Code | Review |
