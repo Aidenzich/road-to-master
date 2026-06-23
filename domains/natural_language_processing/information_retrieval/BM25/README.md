@@ -44,9 +44,7 @@ $$
 \text{IDF}(t) =
 \log \left(
 \frac{N - \text{DF}(t) + 0.5}
-{\text{DF}(t) + 0.5}
- + 1
-\right)
+{\text{DF}(t) + 0.5} + 1 \right)
 $$
 
 - $N$：corpus 中的總 document 數量。
@@ -74,9 +72,7 @@ $$
 \text{IDF}(t) =
 \log \left(
 \frac{N - \text{DF}(t) + 0.5}
-{\text{DF}(t) + 0.5}
- + 1
-\right)
+{\text{DF}(t) + 0.5} + 1 \right)
 $$
 
 這裡其實是在比較：
