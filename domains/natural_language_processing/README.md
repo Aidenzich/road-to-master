@@ -4,6 +4,7 @@
 |-|-|
 | Byte-Level BPE (BBPE) | [✓](./tokenizer/ByteLevelBPE/) |
 | TF-IDF: IDF | [✓](./information_retrieval/TFIDF/) |
+| BM25 | [✓](./information_retrieval/BM25/) |
 
 ## Papers
 | Title | Venue | Year | Code | Review |
