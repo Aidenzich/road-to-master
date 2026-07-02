@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Large Language Models Are State-of-the-Art Evaluator for Grammatical Error Correction](https://arxiv.org/abs/2403.17540) | BEA (NAACL) | '24 | - | [✓](./LLMEvaluatorForGEC/) |
 | [Autodata: An agentic data scientist to create high quality synthetic data](https://arxiv.org/abs/2606.25996) | unknown | '26 | [✓](https://github.com/facebookresearch/RAM) | [✓](./AutoData/) |
 | [Instruction Tuning with GPT-4](https://arxiv.org/abs/2304.03277) | - | '23 | [✓](https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM) | [-](./InstructioinTuningWithGPT4/) |
 | [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) | [✓](./ChatGPT4Robotics/) |
