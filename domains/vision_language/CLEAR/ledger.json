@@ -1,0 +1,270 @@
+{
+  "note_path": "domains/vision_language/CLEAR/README.md",
+  "domain": "vision_language",
+  "topic": "CLEAR",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T15:52:18Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "CLEAR: Character Unlearning in Textual and Visual Modalities",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "CLEAR: Character Unlearning in Textual and Visual Modalities"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "Findings of the ACL 2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-03T01:21:00Z",
+      "quoted_snippet": "10.18653/v1/2025.findings-acl.1058"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-03T01:21:00Z",
+      "quoted_snippet": "2025.findings-acl.1058"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Alexey Dontsov, Dmitrii Korzh, Alexey Zhavoronkin, Boris Mikheev, Denis Bobkov, Aibek Alanov, Oleg Y. Rogov, Ivan Oseledets, Elena Tutubalina",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "Alexey Dontsov"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://huggingface.co/datasets/therem/CLEAR",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "https://huggingface.co/datasets/therem/CLEAR"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "this paper"
+    },
+    {
+      "claim_id": "cell-doi",
+      "claim_text": "DOI 10.18653/v1/2025.findings-acl.1058 -> Findings of the ACL 2025 (peer-reviewed, ACL Anthology)",
+      "kind": "evidence-supported",
+      "target": "academic-context:peer-review-status",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-03T01:21:00Z",
+      "quoted_snippet": "<meta name=\"citation_doi\" content=\"10.18653/v1/2025.findings-acl.1058\" />"
+    },
+    {
+      "claim_id": "body-prose-1-persist",
+      "claim_text": "即使名字從文字端被抹除，臉孔仍可能從視覺端被辨識出來",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "sensitive information may persist across modalities even after removal from one (e.g., a face linked to a name)"
+    },
+    {
+      "claim_id": "body-prose-2-holdout",
+      "claim_text": "這組 forget / retain / holdout / gold 的骨架，是後續所有指標的地基",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we utilize a holdout set"
+    },
+    {
+      "claim_id": "body-equation-1-graddiff",
+      "claim_text": "\\tilde L = -\\sum_{x_i \\in D_f} L(x_i, y_i, \\theta)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "\\tilde L = -\\sum_{x_i \\in D_f} L(x_i, y_i, \\theta)"
+    },
+    {
+      "claim_id": "body-prose-3-methods",
+      "claim_text": "CLEAR 評估的 11 種方法（DPO、GD、GA、IDK、KL、LLMU、NPO、Retain FT、RMU、SCRUB、SKU）大多是這條式子的變體",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we chose recently published MU methods for their easy adaptation to new modalities"
+    },
+    {
+      "claim_id": "body-prose-4-stylegan",
+      "claim_text": "先用 StyleGAN2 生成 2,000 張人臉的候選池",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we generate a pool of 2000 faces using StyleGAN2"
+    },
+    {
+      "claim_id": "body-prose-4-count",
+      "claim_text": "最終影像數少於文字組數（3,770 對影像-caption vs 4,000 組文字問答）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "the final dataset includes fewer images than text pairs (3,770 compared to 4,000)"
+    },
+    {
+      "claim_id": "body-prose-5-fid",
+      "claim_text": "合成臉對 CelebA 的 FID 為 74.4、對 WebFace 為 69.2，而 CelebA 對 WebFace 為 62.1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "FID between our faces and CelebA is 74.4, between our faces and WebFace is 69.2, and between CelebA and WebFace is 62.1"
+    },
+    {
+      "claim_id": "figure-age-pyramid",
+      "claim_text": "作者臉孔屬性的年齡金字塔與族裔分布",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/age_pyramid.png",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "balanced and representative regarding age, gender, and ethnicity"
+    },
+    {
+      "claim_id": "body-prose-6-splits",
+      "claim_text": "取 2、10、20 位（各占 200 人的 1%、5%、10%）作為要被遺忘的子集",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "made from data of 2, 10, and 20 persons"
+    },
+    {
+      "claim_id": "body-prose-6-realfaces",
+      "claim_text": "Forbes 名人榜交集出的 150 對「臉-名」配對",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "final set of 150 face-name pairs"
+    },
+    {
+      "claim_id": "body-prose-7-js",
+      "claim_text": "把 Kolmogorov-Smirnov 檢定的 p-value 換成 Jensen-Shannon 距離，再用 1 減去該距離以維持「越高越好」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we calculate the Jensen-Shannonn distance between these distributions"
+    },
+    {
+      "claim_id": "body-prose-7-harmonic",
+      "claim_text": "三者取調和平均 (harmonic mean) 分別在對應切分上聚合成 Real / Retain / Forget 三個總指標",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "harmonic mean of the ROUGE, the Probability score, and the Truth Ratio"
+    },
+    {
+      "claim_id": "body-equation-2-prob",
+      "claim_text": "\\text{Prob} = \\frac{p(y_1 \\mid x)}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "assuming that $y_1$ is the correct answer"
+    },
+    {
+      "claim_id": "body-prose-8-llava",
+      "claim_text": "實驗以 LLaVA（ViT 視覺編碼器 + LLaMA2-7B）為來源模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we use LLaVa model"
+    },
+    {
+      "claim_id": "body-table-1-dpo",
+      "claim_text": "DPO | 0.46 | 0.48 | 0.22 | 0.84",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "DPO & 0.46 & 0.48 & 0.22 & 0.84"
+    },
+    {
+      "claim_id": "body-prose-9-categories",
+      "claim_text": "像 GA、RMU 這類方法把 Forget 壓到 0.00（比黃金模型還「乾淨」），但 Retain 也崩到 0.00",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "completely destroy the model's retained knowledge"
+    },
+    {
+      "claim_id": "body-prose-10-spearman",
+      "claim_text": "文字對多模態的 $\\rho=0.7$、視覺對多模態的 $\\rho=0.2$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "indicating limited transferability"
+    },
+    {
+      "claim_id": "body-prose-10-belowgold",
+      "claim_text": "只有 LLMU 與 DPO 展現出兼顧遺忘與保留的潛力，但表現仍低於黃金模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "their performance remains below the gold model"
+    },
+    {
+      "claim_id": "critical-prose-1-forgetquality",
+      "claim_text": "作為「精確遺忘」代理的 Forget Quality 在主表中幾乎擠在 0.83–0.85 一線",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "harmonic mean of the ROUGE, the Probability score, and the Truth Ratio"
+    },
+    {
+      "claim_id": "critical-prose-2-synthetic",
+      "claim_text": "FID 現實檢查（合成臉對真實臉 74.4/69.2，兩真實集之間 62.1）只能說明「分布距離同量級」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "FID between our faces and CelebA is 74.4"
+    },
+    {
+      "claim_id": "critical-prose-3-novelty",
+      "claim_text": "必須誠實指出：本文沒有提出新的遺忘演算法",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "we chose recently published MU methods for their easy adaptation to new modalities"
+    },
+    {
+      "claim_id": "critical-prose-4-unsolved",
+      "claim_text": "沒有任何方法接近黃金模型，最好的 DPO / LLMU 仍在忘與留之間明顯讓步",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2410.18057",
+      "retrieved_at": "2026-07-02T15:43:54Z",
+      "quoted_snippet": "their performance remains below the gold model"
+    }
+  ]
+}
