@@ -1,0 +1,189 @@
+{
+  "note_path": "domains/computer_vision/Segment_Anything/README.md",
+  "domain": "computer_vision",
+  "topic": "Segment_Anything",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T03:02:02Z",
+  "entries": [
+    {
+      "claim_id": "table-title",
+      "claim_text": "Segment Anything",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Segment Anything"
+    },
+    {
+      "claim_id": "table-venue",
+      "claim_text": "ICCV",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)"
+    },
+    {
+      "claim_id": "table-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "ICCV), 2023, pp. 4015-4026"
+    },
+    {
+      "claim_id": "table-authors",
+      "claim_text": "Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C. Berg, Wan-Yen Lo, Piotr Dollar, Ross Girshick",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C. Berg, Wan-Yen Lo, Piotr Dollar, Ross Girshick"
+    },
+    {
+      "claim_id": "table-official-code",
+      "claim_text": "https://github.com/facebookresearch/segment-anything",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/facebookresearch/segment-anything",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "https://github.com/facebookresearch/segment-anything"
+    },
+    {
+      "claim_id": "table-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "SAM turns segmentation into prompt-conditioned mask prediction",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "The <em id=\"S2.SS0.SSS0.Px1.p1.1.1\" class=\"ltx_emph ltx_font_italic\">promptable segmentation task</em>, then, is to return a"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "prompt-conditioned decoder equation",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "(\\hat{M}_{1:k}, \\hat{q}_{1:k}) = D_\\theta(E_I(x), E_P(p))"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "The design separates image encoding from prompt decoding.",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "a powerful image encoder computes an image embedding, a prompt encoder embeds prompts, and then the two information sources are combined in a lightweight mask decoder"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "Component | Input | Main role",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "By separating SAM into an image encoder and a fast prompt encoder / mask decoder, the same image embedding can be reused"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "The data story is as important as the architecture",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Our data engine has three stages: <em id=\"S1.SS0.SSS0.Px3.p1.1.5\" class=\"ltx_emph ltx_font_italic\">assisted-manual</em>, <em id=\"S1.SS0.SSS0.Px3.p1.1.6\" class=\"ltx_emph ltx_font_italic\">semi-automatic</em>, and <em id=\"S1.SS0.SSS0.Px3.p1.1.7\" class=\"ltx_emph ltx_font_italic\">fully automatic</em>."
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "The evaluation argues for zero-shot transfer rather than task-specific retraining",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "using a diverse new suite of 23 segmentation datasets, we find that SAM produces high-quality masks from a single foreground point"
+    },
+    {
+      "claim_id": "figure-overview",
+      "claim_text": "SAM overview figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/sam_overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Segment Anything Model (SAM) overview."
+    },
+    {
+      "claim_id": "figure-ambiguous",
+      "claim_text": "Ambiguous point prompt masks figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/ambiguous_masks.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2304.02643",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Each column shows 3 valid masks generated by SAM from a single ambiguous point prompt"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "Promptable segmentation is a real problem because many segmentation workflows are interactive or compositional",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Promptable segmentation is a real problem because many segmentation workflows are interactive or compositional"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "The evaluation is broad and the human study is a serious attempt to address IoU's weakness under ambiguous prompts",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "The evaluation is broad and the human study is a serious attempt to address IoU's weakness under ambiguous prompts"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "calling it a foundation model is plausible, but also a branding move",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "calling it a foundation model is plausible, but also a branding move"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "SAM materially improves the default tool for object-level mask generation, but it does not fully solve segmentation.",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "SAM materially improves the default tool for object-level mask generation, but it does not fully solve segmentation."
+    },
+    {
+      "claim_id": "static-inspection-sam",
+      "claim_text": "Static inspection found the public Sam class wiring image_encoder, prompt_encoder, and mask_decoder.",
+      "kind": "evidence-supported",
+      "target": "static-inspection:repo",
+      "source_url": "/tmp/research-note-cache/segment-anything/code/segment_anything/modeling/sam.py",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "self.image_encoder = image_encoder"
+    },
+    {
+      "claim_id": "static-inspection-amg",
+      "claim_text": "Static inspection found the automatic mask generator samples point grids and filters generated masks.",
+      "kind": "evidence-supported",
+      "target": "static-inspection:repo",
+      "source_url": "/tmp/research-note-cache/segment-anything/code/segment_anything/automatic_mask_generator.py",
+      "retrieved_at": "2026-07-02T03:02:02Z",
+      "quoted_snippet": "Generates a grid of point prompts over the image, then filters"
+    }
+  ]
+}
