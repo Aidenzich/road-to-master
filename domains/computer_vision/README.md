@@ -7,3 +7,4 @@
 | [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030) | ICCV | '21 | [✓](https://github.com/microsoft/Swin-Transformer) | [✓](./swin_transformer) |
 | [ViT: Transformer for image recognition at scale](https://arxiv.org/abs/2010.11929) | ICLR | '21 |  [✓](https://github.com/google-research/vision_transformer), [✓](https://github.com/lucidrains/vit-pytorch) | [✓](./ViT/) |
 | [DDPM, Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) | NIPS | '20 | [✓](./diffusion/diffusion.ipynb) | [✓](./diffusion/) |
+| [Bigger is not Always Better: Scaling Properties of Latent Diffusion Models](https://arxiv.org/abs/2404.01367) | TMLR | '24 |  | [✓](./scaling_properties_ldm/) |

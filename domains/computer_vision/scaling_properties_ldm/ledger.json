@@ -1,0 +1,252 @@
+{
+  "note_path": "domains/computer_vision/scaling_properties_ldm/README.md",
+  "domain": "computer_vision",
+  "topic": "scaling_properties_ldm",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Bigger is not Always Better: Scaling Properties of Latent Diffusion Models",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "Bigger is not Always Better"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "TMLR (Transactions on Machine Learning Research)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://openreview.net/forum?id=0u7pWfjri5",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "\\usepackage[accepted]{tmlr}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "\\def\\year{2024}"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Kangfu Mei, Zhengzhong Tu, Mauricio Delbracio, Hossein Talebi, Vishal M. Patel, Peyman Milanfar",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "Kangfu Mei"
+    },
+    {
+      "claim_id": "cell-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "\\usepackage[accepted]{tmlr}"
+    },
+    {
+      "claim_id": "fig-39m",
+      "claim_text": "39M model text-to-image results with 50-step DDIM sampling and CFG 7.5",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/t2i_39M.jpg",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.01367/assets/figures/t2i/c64.jpg",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "\\caption{\\texttt{39M} model}"
+    },
+    {
+      "claim_id": "fig-866m",
+      "claim_text": "866M model text-to-image results with 50-step DDIM sampling and CFG 7.5",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/t2i_866M.jpg",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.01367/assets/figures/t2i/c320.jpg",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "figures/t2i/c320.jpg"
+    },
+    {
+      "claim_id": "fig-2b",
+      "claim_text": "2B model text-to-image results with 50-step DDIM sampling and CFG 7.5",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/t2i_2B.jpg",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.01367/assets/figures/t2i/c512.jpg",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "\\caption{\\texttt{2B} model}"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "一張圖要跑很多步去噪才會清晰",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "the total cost of sampling is the product of sampling steps and the cost of each step"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "在受限的取樣預算下，較小的模型反而常常贏過較大的模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "smaller models frequently outperform their larger equivalents"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "batch size 2048",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "batch size 2048"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "於 COCO-2014 驗證集（30k 樣本）量測的 pretraining 品質",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "with 30k samples"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "25.30 | 24.30 | 24.18",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "25.30 & 24.30 & 24.18"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "只計算 latent 空間裡的去噪 U-Net",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "1.4B} text encoder and the \\texttt{250M} latent encoder and decoder"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "FID 從 39M 的 25.30 單調下降到 5B 的 20.14",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "20.98 & 20.14"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "| 39M | 866M | 2B |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "All images generated using 50-step DDIM sampling and CFG rate of 7.5"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "關鍵在於把 x 軸從「參數量」換成",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "sampling cost (normalized cost $\\times$ sampling steps)"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "給定一個固定預算，每個模型能負擔的步數不同",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "sampling cost (normalized cost $\\times$ sampling steps)"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "固定預算 cost = 3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "at a cost of 3, the 83M model achieves the best FID"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "只有 3 步，去噪嚴重不足，影像糊",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "0.07 & 0.13 & 0.20"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "模型拿到所有模型中最好的 FID",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "smaller models frequently outperform larger models across a range of sampling cost"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "把 DDIM 換成隨機的 DDPM 或高階的 DPM-Solver++",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "smaller models tend to achieve better performance than larger models under the same sampling cost"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "下游品質由 pretraining 決定",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "has a greater influence on the super-resolution FID scores than the duration of finetuning"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "取樣效率確實是擴散模型落地的真痛點",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "the major barrier against wide deployment"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "整篇「小模型更省」的結論本質上是「小模型在 FID 上更省」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "We opted to avoid human evaluations"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "Nichol et al. 早已指出擴散模型「越大越好」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "improves as the model size increases"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "都是在作者自訂的 normalized-cost 座標",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.01367",
+      "retrieved_at": "2026-07-02T22:46:55+00:00",
+      "quoted_snippet": "made specifically for the particular model family studied in this work"
+    }
+  ]
+}
