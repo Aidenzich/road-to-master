@@ -1,0 +1,162 @@
+{
+  "note_path": "domains/natural_language_processing/GoodFixtureNote/README.md",
+  "domain": "natural_language_processing",
+  "topic": "GoodFixtureNote",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "t1",
+      "claim_text": "Paper title",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "Attention Is All You Need"
+    },
+    {
+      "claim_id": "v1",
+      "claim_text": "Published at NIPS",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "31st Conference on Neural Information Processing Systems"
+    },
+    {
+      "claim_id": "y1",
+      "claim_text": "Year 2017",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "2017"
+    },
+    {
+      "claim_id": "a1",
+      "claim_text": "Authors Vaswani et al.",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "Ashish Vaswani, Noam Shazeer, Niki Parmar, et al."
+    },
+    {
+      "claim_id": "vk1",
+      "claim_text": "Peer-reviewed conference paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "NIPS 2017"
+    },
+    {
+      "claim_id": "f1",
+      "claim_text": "Scaled dot-product attention figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1.png",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "Figure 2 (left): Scaled Dot-Product Attention"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "The core mechanism is scaled dot-product attention",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "The core mechanism is scaled dot-product attention"
+    },
+    {
+      "claim_id": "be1",
+      "claim_text": "Scaled dot-product attention equation",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "\\text{Attention}(Q,K,V) = \\text{softmax}"
+    },
+    {
+      "claim_id": "bt1",
+      "claim_text": "Query, key and value tensor shapes",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "Symbol | Shape | Meaning"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "A minimal reference implementation of one attention head reads",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "A minimal reference implementation of one attention head reads"
+    },
+    {
+      "claim_id": "c1",
+      "claim_text": "One attention head implementation",
+      "kind": "evidence-supported",
+      "target": "note-section:body-code-1",
+      "source_url": "code/attention.py",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "scores = (q @ k.transpose(-2, -1)) / (d_k ** 0.5)"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "Long-range dependency modelling is a real problem",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "Long-range dependency modelling in sequence transduction is a real"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "Ablations do not fully isolate training-budget effects",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "reported gains partly ride on training-budget and regularisation choices"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "The novelty is a pure-attention trainable stack",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "the genuine novelty is discarding recurrence entirely"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "The broader slogan is stronger than the evidence",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "The narrowed claim (competitive MT quality at lower training cost) is supported"
+    },
+    {
+      "claim_id": "i1",
+      "claim_text": "The slogan overreaches beyond studied tasks",
+      "kind": "paper-claim",
+      "target": "note-section:critical-novelty",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "broader slogan is stronger than the evidence"
+    },
+    {
+      "claim_id": "d1",
+      "claim_text": "Ablations do not isolate training-budget effects",
+      "kind": "paper-claim",
+      "target": "note-section:critical-doubt",
+      "source_url": "https://arxiv.org/abs/1706.03762",
+      "retrieved_at": "2026-07-02T00:00:00Z",
+      "quoted_snippet": "gains partly ride on training-budget choices"
+    }
+  ]
+}

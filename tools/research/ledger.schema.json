@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/road-to-master/tools/research/ledger.schema.json",
+  "title": "road-to-master research-note evidence ledger",
+  "description": "Per-note provenance ledger. Every non-'unknown'/'unavailable' Academic Context table cell, every referenced figure, and every non-trivial note claim MUST have a matching entry. Validated offline (shape/coverage only) by tools/research/check_note.py — snippet TRUTH (re-fetch) is a Task 02 ProvenanceCritic concern, out of scope here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "note_path",
+    "domain",
+    "topic",
+    "no_untrusted_code_executed",
+    "generated_at",
+    "entries"
+  ],
+  "properties": {
+    "note_path": {
+      "type": "string",
+      "description": "Repo-relative path to the note, e.g. domains/<domain>/<Topic>/README.md"
+    },
+    "domain": {
+      "type": "string",
+      "description": "One of the fixed domains (enum is derived at runtime from live domains/ dirs): natural_language_processing, computer_vision, recommender_system, timeseries, reinforcement_learning, mlops, utils, vision_language"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Sanitized <Topic> folder name; MUST match ^[A-Za-z0-9._-]+$ (no '..', no path separators, no shell metachars).",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "no_untrusted_code_executed": {
+      "type": "boolean",
+      "const": true,
+      "description": "Attestation that no untrusted code was executed while producing the note. The gate requires literal true."
+    },
+    "generated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when the ledger was generated, or null when unknown."
+    },
+    "entries": {
+      "type": "array",
+      "description": "Claim/provenance entries. May be empty ONLY for a note that makes no claims; check_note.py fails ledger:coverage when the body contains substantive claim material without the exact required note-section:<body-kind-N> target and a snippet/text matching that body unit.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "claim_text",
+          "kind",
+          "target",
+          "source_url",
+          "retrieved_at",
+          "quoted_snippet"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "description": "Stable id, unique within the ledger."
+          },
+          "claim_text": {
+            "type": "string",
+            "description": "The claim / cell value being backed."
+          },
+          "kind": {
+            "type": "string",
+            "description": "4-way epistemic taxonomy (a 2-way split is a FAIL). paper-claim = what the paper asserts, not yet judged; evidence-supported = backed by verifiable evidence (paper data/figure, a cited source, or a read code file); reasonable-inference = the note author's reasoned inference, explicitly labeled; unproven-or-doubtful = flagged as not established / questionable.",
+            "enum": [
+              "paper-claim",
+              "evidence-supported",
+              "reasonable-inference",
+              "unproven-or-doubtful"
+            ]
+          },
+          "target": {
+            "type": "string",
+            "description": "What this entry backs. Conventions the gate understands: 'table-cell:<normalized-field>' (Academic Context cell; field lowercased, spaces->hyphens), 'figure:imgs/<file>' (a referenced figure), or 'note-section:<body-kind-N>' for deterministic first-principles body claim units (body-prose-1, body-equation-1, body-table-1, body-code-1, ...). A code claim uses a target containing 'code'.",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": ["string", "null"],
+            "description": "Provenance. Substantive Academic Context cells and non-code note-section entries with kind paper-claim/evidence-supported require a non-empty source_url. For an evidence-supported CODE claim (target contains 'code') this MUST be a filesystem path (matching ^(\\.?/|[^:]+/), never a URL ^[a-z]+://) that resolves to a real file in the inspected clone (note dir or repo root); null / a pathless string / a nonexistent path all FAIL the code-source gate. May be null for reasonable-inference / unproven-or-doubtful entries."
+          },
+          "retrieved_at": {
+            "type": ["string", "null"],
+            "format": "date-time",
+            "description": "ISO-8601 timestamp when source_url was retrieved, or null."
+          },
+          "quoted_snippet": {
+            "type": "string",
+            "description": "Verbatim snippet substantiating the claim. Must contain no secrets."
+          }
+        }
+      }
+    }
+  }
+}

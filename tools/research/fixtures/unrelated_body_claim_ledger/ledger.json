@@ -1,0 +1,18 @@
+{
+  "note_path": "domains/natural_language_processing/GoodFixtureNote/README.md",
+  "domain": "natural_language_processing",
+  "topic": "UnrelatedBodyClaimLedger",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "unrelated1",
+      "claim_text": "This ledger row is unrelated to the first-principles body",
+      "kind": "reasonable-inference",
+      "target": "note-section:unrelated-body",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "not present in the body"
+    }
+  ]
+}
