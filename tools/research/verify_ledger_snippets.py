@@ -134,7 +134,7 @@ def main() -> None:
             else:
                 status, where = "SKIPPED_MISSING_PATH", source_url
         # 3) live re-fetch
-        if status == "NOT_FOUND" and source_url.startswith("https://"):
+        if status == "NOT_FOUND" and source_url and source_url.startswith("https://"):
             if args.live:
                 if source_url not in live_cache:
                     body = live_fetch(source_url)
