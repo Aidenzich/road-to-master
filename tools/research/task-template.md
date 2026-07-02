@@ -22,9 +22,13 @@ Invoke the deep-research Skill methodology for evidence gathering: broaden sourc
 cross-check paper/project/venue metadata, and keep provenance in the ledger instead of relying
 on a single search result.
 
-Fetch/cache into an uncommitted cache dir OUTSIDE the note tree. Use `curl --proto '=https'`
-for paper fetches; abort PDF fetches over 50 MB; timeout is 30000 ms with 2 retries only for
-transient/timeout/5xx failures. HTTP 403 / 404 / 410 are non-retryable terminal outcomes with
+Fetch the paper ONCE with `python3 road-to-master/tools/research/fetch_paper.py --url <paper_url>
+--out <WORKSPACE_DIR>/.loop-manager/paper-cache/<slug>` and REUSE that cache on every later
+round (the tool is idempotent). Prefer the extracted `source/*.tex` for quotes and numeric
+values; run `tools/research/verify_ledger_snippets.py` as a pre-handoff self-check and fix
+every NOT_FOUND before finishing. Extra manual fetches stay inside the same cache dir with
+`curl --proto '=https'`; abort PDF fetches over 50 MB; timeout is 30000 ms with 2 retries only
+for transient/timeout/5xx failures. HTTP 403 / 404 / 410 are non-retryable terminal outcomes with
 no retry storm: 404/410 -> FAIL as dead URL. On 403/paywall/no full text, first try the arXiv
 preprint fallback (query `https://export.arxiv.org/api/query` by exact title; accept only on
 normalized-title match plus author overlap; on a verified match author the normal note from
