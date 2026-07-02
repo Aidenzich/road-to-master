@@ -1,0 +1,252 @@
+{
+  "note_path": "domains/natural_language_processing/TemperatureCreativity/README.md",
+  "domain": "natural_language_processing",
+  "topic": "TemperatureCreativity",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Is Temperature the Creativity Parameter of Large Language Models?",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Is Temperature the Creativity Parameter of Large Language Models?"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ICCC 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Proceedings of ICCC'24"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Proceedings of ICCC'24"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Max Peeperkorn, Tom Kouwenhoven, Dan Brown, Anna Jordanous",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Max Peeperkorn, Tom Kouwenhoven, Dan Brown, Anna Jordanous"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/maxpeeperkorn/creativity-parameter",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "https://github.com/maxpeeperkorn/creativity-parameter"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "narrative generation"
+    },
+    {
+      "claim_id": "body-p1",
+      "claim_text": "四個必要條件：新穎性（novelty）、典型性（typicality）、凝聚性（cohesion）與連貫性（coherence）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "four necessary conditions for creativity in narrative generation: novelty, typicality, cohesion, and coherence"
+    },
+    {
+      "claim_id": "body-p2",
+      "claim_text": "它把網路輸出的 logits 除以 $t$ 之後再做指數正規化，重新分配機率質量",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "redistributing the output probability mass, flattening the distribution proportional to the chosen temperature"
+    },
+    {
+      "claim_id": "body-eq1",
+      "claim_text": "\\mathrm{softmax}(\\mathbf{z})_i = \\frac{\\exp(z_i / t)}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "\\mathrm{softmax}(\\mathbf{z})_i = \\frac{"
+    },
+    {
+      "claim_id": "body-p3",
+      "claim_text": "當 $t > 1$ 時，高機率被壓低、低機率被抬高",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "for $t > \\textrm{1}$, high probabilities are decreased, while low probabilities are increased"
+    },
+    {
+      "claim_id": "body-p4",
+      "claim_text": "作者借用認知科學中的原型理論（prototype theory）與範例理論（exemplar theory）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "prototype theory \\cite{Rosch1973} and exemplar theory \\cite{MedinSchaffer1978}"
+    },
+    {
+      "claim_id": "body-p5",
+      "claim_text": "所有故事都由指令微調過的 `Llama 2-Chat` 70B 生成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "using the instruction-tuned \\textsc{Llama 2-Chat} 70B model"
+    },
+    {
+      "claim_id": "body-p6",
+      "claim_text": "上各生成 100 篇故事",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "We generate 100 stories over 7 different temperature values"
+    },
+    {
+      "claim_id": "body-p7",
+      "claim_text": "分佈圖顯示模型在高溫下並未產生更多樣的輸出",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "is unable to produce more diversity at higher temperature"
+    },
+    {
+      "claim_id": "body-p8",
+      "claim_text": "他們招募 36 名參與者",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "we recruited 36 participants"
+    },
+    {
+      "claim_id": "body-p9",
+      "claim_text": "作者用線性混合效應模型（linear mixed-effects models）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "We use linear mixed-effects models"
+    },
+    {
+      "claim_id": "body-p10",
+      "claim_text": "假設某步的三個候選 logits 為",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-t1",
+      "claim_text": "| Novelty | 3.12 | 1.17 | 0.547 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Novelty    & 3.12 & 1.17 & .547"
+    },
+    {
+      "claim_id": "body-p11",
+      "claim_text": "核心的相關性分析則整理於下表",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-t2",
+      "claim_text": "| Novelty | 0.308 ± 0.138 (*) ; R²c=0.385",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": ".308$\\pm$.138* & .385 & .152"
+    },
+    {
+      "claim_id": "body-p12",
+      "claim_text": "溫度對新穎性有弱的正相關",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "a weak positive correlation between novelty and temperature"
+    },
+    {
+      "claim_id": "fig-ppl",
+      "claim_text": "每個溫度下故事困惑度的分佈",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/comp_eval_perplexity_write.png",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Perplexity of stories given the LLM per temperature value."
+    },
+    {
+      "claim_id": "fig-cossim",
+      "claim_text": "故事與 exemplar 的餘弦相似度隨溫度變化",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/comp_eval_cossim_write.png",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Cosine similarity of stories with the exemplar per temperature value."
+    },
+    {
+      "claim_id": "fig-edit",
+      "claim_text": "故事與 exemplar 的正規化編輯距離隨溫度變化",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/comp_eval_normeditdist_write.png",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "Normalised edit distance of stories with the exemplar per temperature value."
+    },
+    {
+      "claim_id": "fig-pca",
+      "claim_text": "7 個溫度下 100 篇故事嵌入的 PCA 投影",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pca_embeddings_per_temperature.png",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "$\\bigstar$ denotes the exemplar story."
+    },
+    {
+      "claim_id": "crit-p1",
+      "claim_text": "人類評估只有 36 名參與者、每個溫度僅 5 篇故事、總計 31 篇語料，樣本量偏小",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "The key limitation of this study is its size"
+    },
+    {
+      "claim_id": "crit-p2",
+      "claim_text": "真正的新意不在指標",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.00492",
+      "retrieved_at": "2026-07-02T23:25:15+00:00",
+      "quoted_snippet": "further investigation is needed to see if this phenomenon emerges for different domains, prompts, and models"
+    }
+  ]
+}
