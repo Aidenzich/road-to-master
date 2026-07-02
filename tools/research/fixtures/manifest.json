@@ -1,0 +1,217 @@
+{
+  "good": {
+    "expect_pass": true
+  },
+  "ledger_missing_cell": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "academic_context_cell_null_source": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "unrelated_table_cell_ledger": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "empty_ledger_body_claim": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "unrelated_body_claim_ledger": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "body_claim_null_source": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "body_claim_unsourced_duplicate": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "critical_assessment_missing_ledger": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "unrelated_critical_assessment_ledger": {
+    "expect_fail": [
+      "ledger:coverage"
+    ]
+  },
+  "broken_relative_link": {
+    "expect_fail": [
+      "link"
+    ]
+  },
+  "relative_link_escapes_worktree": {
+    "expect_fail": [
+      "link"
+    ]
+  },
+  "missing_figure": {
+    "expect_fail": [
+      "figure"
+    ]
+  },
+  "figure_escapes_worktree": {
+    "expect_fail": [
+      "figure"
+    ]
+  },
+  "secret_in_snippet": {
+    "expect_fail": [
+      "secret"
+    ]
+  },
+  "unsafe_topic_name": {
+    "expect_fail": [
+      "name"
+    ]
+  },
+  "invalid_domain": {
+    "expect_fail": [
+      "domain"
+    ]
+  },
+  "preexisting_folder": {
+    "expect_fail": [
+      "duplicate"
+    ]
+  },
+  "absent_ledger_file": {
+    "expect_fail": [
+      "nothing-ran"
+    ]
+  },
+  "no_substance": {
+    "expect_fail": [
+      "structure:substance"
+    ]
+  },
+  "missing_academic_context": {
+    "expect_fail": [
+      "structure:academic-context"
+    ]
+  },
+  "missing_academic_context_table": {
+    "expect_fail": [
+      "structure:academic-context"
+    ]
+  },
+  "wrong_section_order": {
+    "expect_fail": [
+      "structure:section-order"
+    ]
+  },
+  "prose_before_academic_context": {
+    "expect_fail": [
+      "structure:section-order"
+    ]
+  },
+  "body_before_academic_context": {
+    "expect_fail": [
+      "structure:section-order"
+    ]
+  },
+  "body_after_related_notes": {
+    "expect_fail": [
+      "structure:section-order"
+    ]
+  },
+  "missing_related_notes": {
+    "expect_fail": [
+      "structure:related-notes"
+    ]
+  },
+  "code_claim_url_source": {
+    "expect_fail": [
+      "ledger:code-source-not-file"
+    ]
+  },
+  "blank_cell": {
+    "expect_fail": [
+      "ledger:blank-or-unsourced-cell"
+    ]
+  },
+  "code_claim_null_source": {
+    "expect_fail": [
+      "ledger:code-source-not-file"
+    ]
+  },
+  "code_claim_missing_file_source": {
+    "expect_fail": [
+      "ledger:code-source-not-file"
+    ]
+  },
+  "code_claim_escaping_source": {
+    "expect_fail": [
+      "ledger:code-source-not-file"
+    ]
+  },
+  "code_claim_absolute_escape": {
+    "expect_fail": [
+      "ledger:code-source-not-file"
+    ]
+  },
+  "ledger_schema_violation": {
+    "expect_fail": [
+      "ledger:schema"
+    ]
+  },
+  "malformed_retrieved_at": {
+    "expect_fail": [
+      "ledger:schema"
+    ]
+  },
+  "missing_critical_assessment": {
+    "expect_fail": [
+      "structure:critical-assessment"
+    ]
+  },
+  "trivial_critical_assessment": {
+    "expect_fail": [
+      "structure:critical-assessment"
+    ]
+  },
+  "unsafe_folder;name": {
+    "expect_fail": [
+      "name"
+    ]
+  },
+  "invalid_kind": {
+    "expect_fail": [
+      "ledger:kind-enum"
+    ]
+  },
+  "uncritical_restatement": {
+    "expect_fail": [
+      "ledger:no-endorsement"
+    ]
+  },
+  "bad_attestation": {
+    "expect_fail": [
+      "attestation"
+    ]
+  },
+  "executed_code_marker": {
+    "expect_fail": [
+      "attestation"
+    ]
+  },
+  "multi_fault": {
+    "expect_fail": [
+      "structure:academic-context",
+      "ledger:coverage",
+      "link"
+    ]
+  }
+}
