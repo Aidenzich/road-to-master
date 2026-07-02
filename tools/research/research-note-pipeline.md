@@ -39,3 +39,32 @@ road-to-master PR (or the blocked-run tracking issue).
 
 Run research-note batches with `CONCURRENCY=1`. Domain README tables are shared files, so
 parallel notes can race on the same index.
+
+## Paper cache & tool-first verification (token efficiency)
+
+Every consumer used to re-run its own discovery → fetch → extract → verify loop
+(worker per renew round, R2/R5 per review round, R1's ad-hoc `verify-*.txt`
+scripts) — the same paper was re-acquired 4-5× per round. The tools here
+collapse that to ONE fetch and ONE deterministic verifier:
+
+| Tool | Job | Notes |
+|-|-|-|
+| `fetch_paper.py` | fetch ONCE into `<WS>/.loop-manager/paper-cache/<slug>/` | arXiv: PDF + e-print LaTeX (`source/*.tex`) + ar5iv HTML; `meta.json` records sha256/bytes/urls; idempotent (cache hit = no-op); 403 → exit 3 for the BLOCKED protocol |
+| `verify_ledger_snippets.py` | exact-substring check of every `quoted_snippet` vs the cache | EXACT / NORMALIZED (ws-collapse + tag-strip) / NOT_FOUND (exit 1); `--live` re-fetches non-cached https sources; worker pre-handoff self-check AND R1's first step |
+| `snapshot_pdf_region.py` | crop a PDF page region to PNG (table/figure evidence) | numeric claims verified by looking at ONE image; needs pymupdf, exits 5 gracefully without it — then quote the `.tex` table environment lines instead |
+
+Division of labor (deliberate):
+- **Worker** fetches once, authors from `source/*.tex` when present (LaTeX is the
+  preferred provenance representation — line wrapping and HTML markup in
+  PDF-extracted text / ar5iv cause false snippet mismatches), runs the verifier
+  before handing off, and fixes every NOT_FOUND first.
+- **R2/R5** read the cache (same bytes as the worker) — no re-fetch.
+- **R1** runs the verifier first, then spends judgment ONLY on what a tool cannot
+  decide: venue-tier sourcing, claim-kind labeling, and 2-3 sampled LIVE
+  re-fetches compared against `meta.json` sha256s (cache-poisoning check). R1's
+  independent live sampling is the anti-fabrication gate — never replace it
+  with the cache.
+
+These are agent-invoked tools referenced by the pipeline prompts — deliberately
+NOT wired as a pipeline `commands:` gate (a hard gate that needs network is the
+same failure class as the pre-#88 paywall gate crash).
