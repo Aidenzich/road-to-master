@@ -1,0 +1,315 @@
+{
+  "note_path": "domains/natural_language_processing/AutoData/README.md",
+  "domain": "natural_language_processing",
+  "topic": "AutoData",
+  "no_untrusted_code_executed": true,
+  "generated_at": null,
+  "entries": [
+    {
+      "claim_id": "tc-title",
+      "claim_text": "Autodata: An agentic data scientist to create high quality synthetic data",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "Autodata: An agentic data scientist to create high quality synthetic data"
+    },
+    {
+      "claim_id": "tc-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "2026"
+    },
+    {
+      "claim_id": "tc-authors",
+      "claim_text": "Ilia Kulikov, Chenxi Whitehouse, Tianhao Wu, Yixin Nie, Swarnadeep Saha, Eryk Helenowski, Weizhe Yuan, Olga Golovneva, Jack Lanchantin, Yoram Bachrach, Jakob Foerster, Xian Li, Han Fang, Sainbayar Sukhbaatar, Jason Weston (FAIR at Meta)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "Swarnadeep Saha, Eryk Helenowski, Weizhe Yuan, Olga Golovneva"
+    },
+    {
+      "claim_id": "tc-code",
+      "claim_text": "https://github.com/facebookresearch/RAM",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/facebookresearch/RAM",
+      "retrieved_at": "2026-07-02T13:09:00Z",
+      "quoted_snippet": "https://github.com/facebookresearch/RAM"
+    },
+    {
+      "claim_id": "tc-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "arXiv:2606.25996"
+    },
+    {
+      "claim_id": "fig-pipeline",
+      "claim_text": "Autodata overall loop: an agent acting as a data scientist iteratively generates, inspects, evaluates, and updates the recipe.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/autodata_pipeline.png",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "emulates the role of a data scientist, iteratively generating data"
+    },
+    {
+      "claim_id": "fig-asi",
+      "claim_text": "Agentic Self-Instruct: main agent directs a challenger, weak/strong solvers and a judge.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/agentic_self_instruct.png",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "The main LLM agent directs four subagents"
+    },
+    {
+      "claim_id": "bp-1",
+      "claim_text": "事後過濾",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "motivating approaches such as filtering"
+    },
+    {
+      "claim_id": "bp-2",
+      "claim_text": "外圈則是把",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "The agent itself can also be optimized to be"
+    },
+    {
+      "claim_id": "bp-3",
+      "claim_text": "四個 LLM 子代理",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "The main orchestrator agent has access to four LLM subagents"
+    },
+    {
+      "claim_id": "bp-4",
+      "claim_text": "多數投票正確",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "majority vote over the strong solver is correct, while majority vote over the weak solver is wrong"
+    },
+    {
+      "claim_id": "bp-5",
+      "claim_text": "各作答 3 次以降低變異",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "each invoked 3 times to reduce variance"
+    },
+    {
+      "claim_id": "bp-6",
+      "claim_text": "多半太簡單",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "most questions generated by prompted Kimi-K2.6 are too"
+    },
+    {
+      "claim_id": "bt-1",
+      "claim_text": "0.677",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "0.677 & 0.458"
+    },
+    {
+      "claim_id": "bp-7",
+      "claim_text": "掉了 22 個百分點",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "the weak solver's score drops by 22 points"
+    },
+    {
+      "claim_id": "bp-8",
+      "claim_text": "接受前",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "80\\% of failed rounds were rejected because the question was too easy"
+    },
+    {
+      "claim_id": "bp-9",
+      "claim_text": "batch size 16",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "batch size 16, learning rate 1e-6"
+    },
+    {
+      "claim_id": "bt-2",
+      "claim_text": "0.630",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "0.630 & 0.758 & 0.366 & 0.484"
+    },
+    {
+      "claim_id": "bp-10",
+      "claim_text": "反向遷移到易分佈",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "The Agentic-trained model transfers in both directions"
+    },
+    {
+      "claim_id": "bp-11",
+      "claim_text": "Pile of Law",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "evaluate on PRBench-Legal and the PRBench-Legal-Hard subset"
+    },
+    {
+      "claim_id": "bp-12",
+      "claim_text": "loop judge",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "each legal document is first passed through a dedicated"
+    },
+    {
+      "claim_id": "bp-13",
+      "claim_text": "標準差從 7.93 升到 12.63",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "per-prompt weak-rollout standard deviation rises from 7.93 to 12.63"
+    },
+    {
+      "claim_id": "bp-14",
+      "claim_text": "剛剛好",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "but to make them"
+    },
+    {
+      "claim_id": "bp-15",
+      "claim_text": "遷移到更易的題目",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "training on harder problems transfers to easier ones"
+    },
+    {
+      "claim_id": "bp-16",
+      "claim_text": "token 效率",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "from 23.75\\% to 4.09\\% for Agentic Self-Instruct"
+    },
+    {
+      "claim_id": "bp-17",
+      "claim_text": "演化式最佳化",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "each defined by a code diff relative to the baseline repository"
+    },
+    {
+      "claim_id": "be-1",
+      "claim_text": "T = 0.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "with temperature $T{=}0.1$"
+    },
+    {
+      "claim_id": "bp-18",
+      "claim_text": "歷史日誌",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "solvers run at temperature 1.0"
+    },
+    {
+      "claim_id": "bp-19",
+      "claim_text": "79.6%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "from 62.1\\% to 79.6\\%"
+    },
+    {
+      "claim_id": "cp-1",
+      "claim_text": "這一動機成立",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "convert increased inference compute into higher quality model training"
+    },
+    {
+      "claim_id": "cp-2",
+      "claim_text": "值得肯定",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "re-grade the same rollouts with GPT-5 as an independent, stronger grader"
+    },
+    {
+      "claim_id": "cp-3",
+      "claim_text": "循環性",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "graded by Kimi-K2.6"
+    },
+    {
+      "claim_id": "cp-4",
+      "claim_text": "射靶",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.25996",
+      "retrieved_at": "2026-07-02T13:08:34Z",
+      "quoted_snippet": "overly tied to specific experimental numbers from the paper rather than testing generalizable reasoning"
+    },
+    {
+      "claim_id": "cp-5",
+      "claim_text": "等算力",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "a mean of 6.59"
+    }
+  ]
+}
