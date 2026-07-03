@@ -2,7 +2,10 @@
 
 > 本文是對 [issue #80](https://github.com/Aidenzich/road-to-master/issues/80)(2025 年初撰寫)的逐條主張稽核,
 > 由 read-only spike pipeline 產出(三模型 A/B/n 盲測勝出版本),證據規則:URL + 逐字引文 + 擷取日期,一手來源優先。
-> 結案定調:issue 的分析層主張基本獲證實(可靠性優勢未經檢驗、幻覺風險只是轉移),被時間推翻的只有時效性事實(Claude 獨佔微調)。
+> 結案定調:issue 的**分析層主張基本獲證實**——所有「論證」的部分全部命中(可靠性優勢至今仍無 head-to-head 檢驗、
+> 幻覺風險只是轉移且變質為攻擊面、API 少時 plain function calling 更優);被時間推翻的只有「時效性事實」
+> (Claude 獨佔微調——寫作當下為真,後被全廠商採用與 AAIF 捐贈覆蓋)。連「LLM 變強後 MCP 價值下降」都以
+> code-execution over MCP 的形式部分兌現(裸 tool-calling 層被繞過,MCP 退守連接層)。詳見文末〈作者結案附記〉。
 
 - **調查對象**：GitHub issue https://github.com/Aidenzich/road-to-master/issues/80（撰於 2025 年初）
 - **調查性質**：read-only spike，交付物為證據支撐的稽核報告，非實作計畫、非 PR
@@ -223,6 +226,8 @@ Cloudflare「Code Mode」（**primary vendor**）：
 
 **判決：部分成立——精神正確，但需修正：工具一多時，把定義塞進 context（不論 function calling 或 MCP）都會退化；勝出模式是動態發現/RAG-over-tools/code execution，而非「上手就載入更多工具」。**
 
+（作者附記,2026-07-04:token bloat 這點 issue 作者 2025 年即已知曉而未寫入——因為工程上繞過很簡單（動態載入/檢索工具子集即可）。真正把「全部工具寫進 context」變成普遍現象的,是 Anthropic 自家出版的 reference client 的實作選擇,不是協定的內在要求。此為作者第一人稱證言,非本 spike 的檢索證據;但與證據相容:上文 Anthropic 2025-11 的 code-execution 修正與 Tool Search 均為 client 端緩解,spec 從未強制全量載入。）
+
 - context 成本（primary vendor）：Anthropic「as agents are connected to thousands of tools, they'll need to process hundreds of thousands of tokens before reading a request.」
 - 退化實證（primary）：RAG-MCP baseline 13.62% → 檢索式 43.13%；工具多時準確率崩潰（見主張三證據 C）。
 - 沒有權威「最大工具數 N」——primary 指引皆為**定性**：把**進入 context 的工具集**保持小，超過約數十個就改用檢索/code-execution。
@@ -320,6 +325,21 @@ Cloudflare「Code Mode」（**primary vendor**）：
 5. **供應鏈風險量級**（如 Shodan 曝露數、postmark-mcp 下載量）——來自 vendor blog，未獨立核實，視為 indicative。
 
 ---
+
+## 12. 作者結案附記（issue #80 作者定調,2026-07-04）
+
+本 dossier 的稽核結果應如此解讀:**issue 的分析對了,世界只是在「採用」維度上不跟分析走。**
+
+| issue 主張 | 結案 |
+|-|-|
+| 可靠性優勢是未經檢驗的假設 | ✅ 至今仍無 head-to-head benchmark;前沿模型真實 MCP 任務失敗率 40–70% |
+| 不消除幻覺、只轉移風險 | ✅ 且被低估:tool description 變質為對抗性注入通道（tool poisoning、CVE、供應鏈後門） |
+| API 少 → plain function calling 更優 | ✅ 與 Anthropic 2025-11 官方 code-execution 建議同構 |
+| LLM 變強後 MCP 價值下降 | ⚠️ 部分兌現:code-execution over MCP 實質繞過裸 tool-calling 層;MCP 以連接層身分靠網路效應贏下標準戰 |
+| 只有 Claude 微調過 | ❌ 已過時（寫作當下為真）:2025 全廠商落地,2025-12 捐入 Linux Foundation AAIF |
+| MCP 本質是另一層 Function Calling | ⚠️ 對 2025 年初的 MCP 準確;其後 spec 長出 resources/sampling/elicitation 屬協定演化 |
+
+另一個必要的歸因修正:本文批評的「把大量 tool 定義塞進 context 裸選」反模式,**不是 issue 作者未預見的盲點,也不是協定的內在缺陷,而是 Anthropic 早期 reference client 的實作選擇**——作者 2025 年即知此問題且知工程繞法簡單,故未寫入 issue。issue 真正未預見的只有一類:tool 定義從「誠實錯誤來源」變質為「對抗性攻擊面」（主張四的新風險類別）——而這類攻擊在 2025 年初尚未在野外出現。
 
 ## 附錄：已親自向 primary 覆核的關鍵引用（WebFetch，2026-07-04）
 
