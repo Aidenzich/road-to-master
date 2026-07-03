@@ -1,0 +1,315 @@
+{
+  "note_path": "domains/natural_language_processing/Agent-as-a-Judge/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Agent-as-a-Judge",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T14:42:08+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Agent-as-a-Judge: Evaluate Agents with Agents",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Evaluate Agents with Agents"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "reasonable-inference",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "gpt-4o-2024-05-13"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Mingchen Zhuge",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Mingchen Zhuge"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/metauto-ai/agent-as-a-judge",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "https://github.com/metauto-ai/agent-as-a-judge"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "paper"
+    },
+    {
+      "claim_id": "body-1-multiple-choice",
+      "claim_text": "這就像用選擇題去評量一個學生，是一種相當不可靠的估計",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "evaluating an agentic system in the traditional way is like evaluating a student using multiple-choice testing"
+    },
+    {
+      "claim_id": "body-2-fig1-caption",
+      "claim_text": "Agent-as-a-Judge 讓一個具備工具與記憶的代理去讀取工作區與軌跡並逐條判定需求",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "agentic systems are used to evaluate agentic systems"
+    },
+    {
+      "claim_id": "body-3-devai-def",
+      "claim_text": "55 個真實的自動化 AI 開發任務組成，每個任務包含三個部分",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "DevAI consists of a curated set of $55$ tasks"
+    },
+    {
+      "claim_id": "body-4-fig2-caption",
+      "claim_text": "涵蓋監督式學習、強化學習、電腦視覺、自然語言處理與生成模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "supervised learning, reinforcement learning, computer vision, natural language processing, generative models"
+    },
+    {
+      "claim_id": "body-5-three-devs",
+      "claim_text": "GitHub 星數皆超過三萬",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "each having over 30,000 stars on GitHub"
+    },
+    {
+      "claim_id": "body-6-human-eval",
+      "claim_text": "在忽略相依時各能滿足約 44% 的需求、在考慮相依後降到約 29%，但只有在一個任務上能滿足全部需求",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "could satisfy about $29\\%$ of the requirements (or around $44\\%$ if prerequisites are ignored) but only on one task could they meet all the requirements"
+    },
+    {
+      "claim_id": "body-table1-human",
+      "claim_text": "22.13% | 44.80% | 42.89%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "44.80\\%"
+    },
+    {
+      "claim_id": "body-7-disagreement",
+      "claim_text": "三位評測者兩兩之間的分歧率落在約 10% 到 30% 之間",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the disagreement rates between pairs of evaluators range from around $10\\%$ to $30\\%$"
+    },
+    {
+      "claim_id": "body-code1-modules",
+      "claim_text": "讀懂 33 種格式的多模態內容",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "multimodal data across $33$ different formats"
+    },
+    {
+      "claim_id": "body-8-ablation-combo",
+      "claim_text": "最終表現最佳的組合只用了 (1) graph、(2) locate、(3) read、(5) retrieve、(6) ask 五個模組",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the modular combination of \\text{(1)}, \\text{(2)}, \\text{(3)}, \\text{(5)}, and \\text{(6)} achieved the highest performance"
+    },
+    {
+      "claim_id": "body-9-metric-def",
+      "claim_text": "Alignment Rate 定義為「在全部 365 條需求上，AI 評測者的判定與人類共識判定相同的比例」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the percentage of requirement evaluations that are the same as the Human-as-a-Judge consensus evaluation"
+    },
+    {
+      "claim_id": "body-eq1-alignment",
+      "claim_text": "\\text{Alignment Rate} = \\frac{1}{N}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-10-blackbox-align",
+      "claim_text": "Agent-as-a-Judge 的 Alignment Rate 達 90.44%，而 LLM-as-a-Judge 只有 60.38%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "reaches $92.07\\%$ and $90.44\\%$, surpassing LLM-as-a-Judge's $70.76\\%$ and $60.38\\%$"
+    },
+    {
+      "claim_id": "body-10-judge-shift",
+      "claim_text": "Judge Shift 低到 0.27%，LLM-as-a-Judge 卻高達 31.42%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "31.42\\%"
+    },
+    {
+      "claim_id": "body-table2-blackbox",
+      "claim_text": "84.15% | 65.30% | 60.38%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "65.30\\%"
+    },
+    {
+      "claim_id": "body-11-ablation-start",
+      "claim_text": "從只有 `ask` 的裸判定開始，對齊率是 65.03%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the agent achieves a $65.03\\%$ alignment rate"
+    },
+    {
+      "claim_id": "body-11-ablation-locate",
+      "claim_text": "加入 `locate`（把注意力精準對準與需求相關的檔案）帶來最大的跳躍，衝到 90.44%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Incorporating \\texttt{locate} brings a substantial boost to $90.44\\%$"
+    },
+    {
+      "claim_id": "body-table3-ablation",
+      "claim_text": "65.03% | 75.95% | 82.24% | 90.44% | 90.16%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "75.95\\%"
+    },
+    {
+      "claim_id": "body-12-cost",
+      "claim_text": "Agent-as-a-Judge 只花了 30.58 美元的 API 費用、耗時 118.43 分鐘，分別是人類的 2.29% 成本與 2.36% 時間",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Agent-as-a-Judge cost only $30.58$ USD in API calls and took only $118.43$ minutes"
+    },
+    {
+      "claim_id": "body-13-pr-caption",
+      "claim_text": "在 OpenHands 上 Agent-as-a-Judge 甚至勝過任一位單獨的人類評測者，並最貼近多數決",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Agent-as-a-Judge even outperforms any single human evaluator on OpenHands and aligns closest with majority voting"
+    },
+    {
+      "claim_id": "crit-1-repackaging",
+      "claim_text": "它其實是「LLM-as-a-Judge + 程式碼結構圖 + 定位 + 檢索」的工程組合，核心判定仍由 `ask` 這個 LLM 呼叫完成",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the modular combination of \\text{(1)}, \\text{(2)}, \\text{(3)}, \\text{(5)}, and \\text{(6)} achieved the highest performance"
+    },
+    {
+      "claim_id": "crit-2-noisy-truth",
+      "claim_text": "即使三人多數決後相對共識仍有約 6% 的殘餘錯誤，作者也坦承「共識未必等於絕對真值」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2410.10934",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "the consensus evaluation may not represent the absolute ground truth"
+    },
+    {
+      "claim_id": "crit-3-scale",
+      "claim_text": "只有 55 個任務、3 個被評系統、3 位人類評測者",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Judging developer agents is a class-imbalanced task"
+    },
+    {
+      "claim_id": "crit-3-shared-model",
+      "claim_text": "被評的三個開發者都以 gpt-4o 為後端，而論文正文並未明確交代 Agent-as-a-Judge 的 `ask` 模組使用哪個模型",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "gpt-4o-2024-05-13"
+    },
+    {
+      "claim_id": "crit-4-self-improve",
+      "claim_text": "全文並沒有任何一個實驗真的把這個評測訊號回饋給開發者代理去驅動自我改進",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "rich and reliable reward signals necessary for dynamic and scalable self-improvement"
+    },
+    {
+      "claim_id": "fig-judge-paradigms",
+      "claim_text": "三種評測範式的比較",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/judge_paradigms.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.10934/assets/x1.png",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "agentic systems are used to evaluate agentic systems"
+    },
+    {
+      "claim_id": "fig-devai-dist",
+      "claim_text": "DevAI 任務分佈",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/devai_distribution.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.10934/assets/x2.png",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "Distribution of DevAI Tasks"
+    },
+    {
+      "claim_id": "fig-disagreement",
+      "claim_text": "人類評測者之間的分歧",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/disagreement_meta.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.10934/assets/FILES_IMAGES/disagreement_meta.png",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "a large amount of disagreement was observed in their individual evaluations"
+    },
+    {
+      "claim_id": "fig-pr-curves",
+      "claim_text": "PR 曲線比較各評測方法",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pr_curves_meta.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.10934/assets/FILES_IMAGES/pr_curves_meta.png",
+      "retrieved_at": "2026-07-02T14:42:08+00:00",
+      "quoted_snippet": "PR Curves comparing judge Methods"
+    }
+  ]
+}
