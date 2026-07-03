@@ -1,0 +1,198 @@
+{
+  "note_path": "domains/vision_language/Alpha-CLIP/README.md",
+  "domain": "vision_language",
+  "topic": "Alpha-CLIP",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T15:20:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Alpha-CLIP: A CLIP Model Focusing on Wherever You Want",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "Alpha-CLIP: A CLIP Model Focusing on Wherever You Want"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "CVPR",
+      "kind": "paper-claim",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "CVPR 2024 Paper Template"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "\\def\\confYear{2024}"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Zeyi Sun, Ye Fang, Tong Wu, Pan Zhang, Yuhang Zang, Shu Kong, Yuanjun Xiong, Dahua Lin, Jiaqi Wang",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "Zeyi Sun"
+    },
+    {
+      "claim_id": "cell-official-code",
+      "claim_text": "https://aleafy.github.io/alpha-clip",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "aleafy.github.io/alpha-clip"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "CVPR 2024 Paper Template"
+    },
+    {
+      "claim_id": "body-prose-1-clip-blindspot",
+      "claim_text": "[CLS]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "it is not directly compatible with methods that require the whole feature map instead of just the \\texttt{[CLS]} token"
+    },
+    {
+      "claim_id": "body-prose-2-grounding-pipeline",
+      "claim_text": "GRIT-20m",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "grounding data pipeline from GRIT-20m"
+    },
+    {
+      "claim_id": "body-prose-3-classification-pipeline",
+      "claim_text": "460k",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "460k RGBA region-text pair"
+    },
+    {
+      "claim_id": "body-prose-4-alpha-conv",
+      "claim_text": "Alpha Conv",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "We initialize the Alpha Conv kernel weights to zero, ensuring that the initial \\methodname ignores the alpha channel as input"
+    },
+    {
+      "claim_id": "body-equation-1-infonce",
+      "claim_text": "InfoNCE",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "use Info-NCE"
+    },
+    {
+      "claim_id": "body-prose-5-training-recipe",
+      "claim_text": "r_s=0.1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "we keep the CLIP text encoder fixed and entirely train the \\methodname image encoder"
+    },
+    {
+      "claim_id": "body-prose-6-worked-example",
+      "claim_text": "75.62",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "rectangular box & \\cellcolor{violet!10} 75.62"
+    },
+    {
+      "claim_id": "body-table-1-imagenet-s",
+      "claim_text": "77.41",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "mask & \\cellcolor{violet!15} 77.41"
+    },
+    {
+      "claim_id": "figure-method-overview",
+      "claim_text": "Alpha-CLIP data-generation pipeline and model architecture overview figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/method_overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2312.03818/assets/x3.png",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "The pipeline of our data generation method and model architecture"
+    },
+    {
+      "claim_id": "body-prose-7-rec-ovd",
+      "claim_text": "28.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "MaskImageNet (Alpha-CLIP) & \\bfseries{28.6}"
+    },
+    {
+      "claim_id": "body-prose-8-mllm-generation",
+      "claim_text": "160.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "\\textbf{18.9} & \\textbf{160.3}"
+    },
+    {
+      "claim_id": "critical-prose-1-oracle-mask",
+      "claim_text": "77.41",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "when provided with ground-truth region to focus on, Alpha-CLIP achieves 4.1\\% improvement"
+    },
+    {
+      "claim_id": "critical-prose-2-baseline-fairness",
+      "claim_text": "MaskCLIP",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "We make necessary modifications to MaskCLIP to adapt it for the recognition task"
+    },
+    {
+      "claim_id": "critical-prose-3-novelty",
+      "claim_text": "plug-and-play",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "plug-and-play"
+    },
+    {
+      "claim_id": "critical-prose-4-generation-evidence",
+      "claim_text": "R-Precision",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2312.03818",
+      "retrieved_at": "2026-07-02T15:00:52+00:00",
+      "quoted_snippet": "We compare the R-Precision of PureCLIPNeRF"
+    }
+  ]
+}

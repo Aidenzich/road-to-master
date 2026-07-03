@@ -88,7 +88,7 @@ delta = h2 - h1                                          # delta vector δ
 
 ### 距離軸最弱,而它的成長預測 counter 穩健度
 
-把三條軸的一致性攤開來看，結論很乾脆：距離軸一致性 $\mathrm{Coh}_\mathrm{D}$ 在每一個模型、每一個訓練規模上都是三軸中最低的。微調會把垂直一致性拉得很高（Molmo 從 0.23 到 0.57、Qwen 從 0.29 到 0.59），但 $\mathrm{Coh}_\mathrm{D}$ 的成長幅度小得多。下表節錄幾個代表性列（完整表見原文 Table 4）：
+把三條軸的一致性攤開來看，結論很乾脆：距離軸一致性 $\mathrm{Coh}_\mathrm{D}$ 在每一個模型、每一個訓練規模上都是三軸中最低的。微調會把垂直一致性拉得很高（Molmo 從 0.23 到 0.57、Qwen 從 0.29 到 0.59），但 $\mathrm{Coh}_\mathrm{D}$ 的成長幅度小得多。下表節錄幾個代表性列（完整表見原文 Table 5）：
 
 | Model | $\mathrm{Coh}_\mathrm{H}$ | $\mathrm{Coh}_\mathrm{V}$ | $\mathrm{Coh}_\mathrm{D}$ | VD-EI |
 |-|-|-|-|-|
