@@ -1,0 +1,261 @@
+{
+  "note_path": "domains/natural_language_processing/MetaHarness/README.md",
+  "domain": "natural_language_processing",
+  "topic": "MetaHarness",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Meta-Harness: End-to-End Optimization of Model Harnesses",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Meta-Harness: End-to-End Optimization of Model Harnesses"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "colm2026_conference"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Yoonho Lee, Roshen Nair, Qizheng Zhang, Kangwook Lee, Omar Khattab, Chelsea Finn",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Yoonho Lee"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/stanford-iris-lab/meta-harness-tbench2-artifact",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "https://github.com/stanford-iris-lab/meta-harness-tbench2-artifact"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "colm2026_conference"
+    },
+    {
+      "claim_id": "fig-method",
+      "claim_text": "Meta-Harness search loop figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/method_loop.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "reads a filesystem containing all prior candidates"
+    },
+    {
+      "claim_id": "fig-learning",
+      "claim_text": "文字分類搜尋進度",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/learning_curves.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "matching the next-best method's final accuracy after just 4 evaluations"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "決定「要儲存什麼、要檢索什麼、要把什麼呈現給模型」的那段程式碼",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The \\textit{harness}---the code that determines what to store, retrieve, and show to the model"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "有的只看純量分數、有的只看當前候選、有的把回饋限制成短模板或 LLM 生成的摘要",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "they typically operate with short-horizon or heavily compressed feedback"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "透過**檔案系統**存取「完整歷史」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "the filesystem stores the source code, evaluation scores, and execution traces"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "把該次的所有 log（提出的程式碼、推理軌跡、評測分數）寫進檔案系統的新目錄",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "stored in the filesystem in a new directory, and the loop repeats"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "執行一條 rollout 軌跡",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "we execute a rollout trajectory"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "r(\\tau, x)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "\\tau \\sim p_M(H, x)"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "作者改以 Pareto 支配來評比候選",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "we evaluate candidates under Pareto dominance and report the resulting frontier"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "P 提出 k 個新的 harness",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Proposer $P$ proposes $k$ new harnesses"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "提議者每個迭代讀取的檔案數中位數是 82",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The proposer reads a median of 82 files per iteration"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "逐一收到帶標籤的樣本、更新記憶、再在保留測試集上評測",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "an LLM receives labeled examples one at a time, updates its memory, and is evaluated on a held-out test set"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "把高度相似但標籤不同的範例並排",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "query-anchored contrastive pairs"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "86.8 | 45.0 | 48.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Meta-Harness improves online text classification accuracy while using a smaller input context"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "比 ACE 高 7.7 分、比 MCE 高 8.6 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "outperforming ACE by 7.7 points and MCE by 8.6 points"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "scores-only 中位數 34.6、最佳 41.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "scores-only reaches 34.6 median and 41.3 best accuracy"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "在全部五個保留模型上都勝過「不檢索」基準，平均進步 4.7 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The discovered retrieval harness outperforms the no-retrieval baseline across all five held-out models"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "達到 76.4% 通過率，超過人工調校的 Terminus-KIRA（74.7%）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "76.4\\% pass rate, surpassing the hand-engineered Terminus-KIRA"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "harness 對 LLM 系統表現的影響是真實且被廣泛觀察到的",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2603.28052",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Changing the harness around a fixed large language model"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "若與最接近的固定基準 BM25 比，整體只領先 1.3 分",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "這比較像是一個被 2026 年前後 coding agent 能力躍升所解鎖的工程配置",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "沒有獨立的保留切分",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "「幾小時 wall-clock」的說法掩蓋了可觀的 token 與 API 成本",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "note_path": "domains/vision_language/WhyFarLooksUp/README.md",
+  "domain": "vision_language",
+  "topic": "WhyFarLooksUp",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T14:30:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ECCV 2026",
+      "kind": "paper-claim",
+      "target": "table-cell:venue",
+      "source_url": "https://github.com/cheolhong0916/contrastive-probing",
+      "retrieved_at": "2026-07-02T14:18:00+00:00",
+      "quoted_snippet": "year=2026,ID=10791"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "year=2026,ID=10791"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Cheolhong Min, Jaeyun Jung, Daeun Lee, Hyeonseong Jeon, Yu Su, Jonathan Tremblay, Chan Hee Song, Jaesik Park",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "Cheolhong Min"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/cheolhong0916/contrastive-probing",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "https://cheolhong0916.github.io/whyfarlooksup.github.io/"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "\\usepackage{eccv}"
+    },
+
+    {
+      "claim_id": "fig-teaser",
+      "claim_text": "Many VLMs answer spatial questions via a perspective-driven shortcut; higher-in-image is read as farther.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/teaser.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x1.png",
+      "retrieved_at": "2026-07-02T14:17:00+00:00",
+      "quoted_snippet": "Many VLMs answer spatial questions via a perspective-driven shortcut"
+    },
+    {
+      "claim_id": "fig-tunnel",
+      "claim_text": "SpatialTunnel holds two objects at fixed depths while sweeping angular positions so 2D layout varies independently of depth ordering.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/spatialtunnel.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x3.png",
+      "retrieved_at": "2026-07-02T14:17:00+00:00",
+      "quoted_snippet": "holds the two objects at fixed depths while sweeping their angular positions"
+    },
+    {
+      "claim_id": "fig-probing",
+      "claim_text": "Contrastive probing: swap object order, take the difference of intermediate-layer final-token hidden states as a delta vector.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/contrastive_probing.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x6.png",
+      "retrieved_at": "2026-07-02T14:17:00+00:00",
+      "quoted_snippet": "compute a \\textit{delta vector} as their difference"
+    },
+    {
+      "claim_id": "fig-pca",
+      "claim_text": "PCA of delta vectors: RoboRefer and Qwen3 exhibit three clearly separated clusters; 2M variants keep distance vectors entangled.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/pca_delta.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x7.png",
+      "retrieved_at": "2026-07-02T14:17:00+00:00",
+      "quoted_snippet": "RoboRefer and Qwen3 exhibit three clearly separated clusters"
+    },
+
+    {
+      "claim_id": "bp-1",
+      "claim_text": "本身沒有深度感測",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "achieve strong performance on spatial reasoning benchmarks, yet it remains unclear"
+    },
+    {
+      "claim_id": "bp-2",
+      "claim_text": "這是古典的仰角深度線索",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "objects farther away on a common ground surface appear higher in the image"
+    },
+    {
+      "claim_id": "bp-3",
+      "claim_text": "consistent 佔 80.9%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "consistent examples account for 80.9\\% of EmbSpatial-Bench and 60.5\\% of CV-Bench-3D"
+    },
+    {
+      "claim_id": "bp-4",
+      "claim_text": "counter 只有 24.0%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "achieves 60.9\\% on the consistent split of EmbSpatial-Bench but only 24\\% on counter examples, yielding a 36.9 percentage-point gap"
+    },
+    {
+      "claim_id": "bp-5",
+      "claim_text": "深度排序不變",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "We parameterize each object by its depth $z$ and an angular position $\\theta$"
+    },
+    {
+      "claim_id": "bp-5b-repo",
+      "claim_text": "共 3,072 列",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "/tmp/cp-clone/README.md",
+      "retrieved_at": "2026-07-02T14:18:00+00:00",
+      "quoted_snippet": "3,072"
+    },
+    {
+      "claim_id": "bp-6",
+      "claim_text": "取第一個生成 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "we define a local probability by extracting the logits for \\texttt{Yes} and \\texttt{No} at the first generated token"
+    },
+    {
+      "claim_id": "be-1",
+      "claim_text": "p=\\sigma\\!\\bigl(\\ell_{\\texttt{Yes}}-\\ell_{\\texttt{No}}\\bigr)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "p=\\sigma\\!\\bigl(\\ell_{\\texttt{Yes}}-\\ell_{\\texttt{No}}\\bigr)"
+    },
+    {
+      "claim_id": "bp-7",
+      "claim_text": "四項指標分別是平均正確性",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "A model with no directional bias would yield $\\Delta \\approx 0$"
+    },
+    {
+      "claim_id": "bt-1",
+      "claim_text": "0.776",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "0.570 & 0.776 & 0.360 & +0.416"
+    },
+    {
+      "claim_id": "bp-8",
+      "claim_text": "並非單調",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "the gap $\\Delta$ rises sharply from $+0.033$ (base) to $+0.267$ at 400k"
+    },
+    {
+      "claim_id": "bp-9",
+      "claim_text": "作者的核心方法是**對比探測**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "we construct a pair of questions that differ only in the ordering of the queried objects"
+    },
+    {
+      "claim_id": "be-2",
+      "claim_text": "\\delta = h_{q_2} - h_{q_1}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "\\delta = h_{q_2} - h_{q_1}"
+    },
+    {
+      "claim_id": "bp-10",
+      "claim_text": "抵銷了兩題共有的視覺內容",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "This procedure aims to isolate the latent encoding of spatial directions by neutralizing common visual components"
+    },
+    {
+      "claim_id": "bp-11",
+      "claim_text": "把兩個對立類別的 delta 都翻正到同一標準方向",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "we pool the delta vectors from both opposing categories"
+    },
+    {
+      "claim_id": "be-3",
+      "claim_text": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)}"
+    },
+    {
+      "claim_id": "bp-12",
+      "claim_text": "量化垂直軸與距離軸方向上的耦",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "High coherence indicates that the model encodes the axis as a stable, consistent direction"
+    },
+    {
+      "claim_id": "be-4",
+      "claim_text": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4}"
+    },
+    {
+      "claim_id": "bp-13",
+      "claim_text": "VD-EI 為正",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "A positive value indicates that vertical and distance representations are directionally coupled"
+    },
+    {
+      "claim_id": "bp-14",
+      "claim_text": "都是三軸中最低的",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "Fine-tuning substantially increases vertical coherence"
+    },
+    {
+      "claim_id": "bt-2",
+      "claim_text": "0.182",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "0.323 & 0.289 & 0.052 & 0.539"
+    },
+    {
+      "claim_id": "bp-15",
+      "claim_text": "59.7% 的 counter 準確率",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$) in the family, corresponding to $59.7\\%$ counter accuracy on EmbSpatial-Bench versus $41.1\\%$"
+    },
+    {
+      "claim_id": "bp-16",
+      "claim_text": "跨域效力",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "$\\rho=0.759$ and $0.804$"
+    },
+    {
+      "claim_id": "bp-17-code",
+      "claim_text": "compute_vd_ei_per_layer",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "/tmp/cp-clone/probing.py",
+      "retrieved_at": "2026-07-02T14:18:00+00:00",
+      "quoted_snippet": "compute_vd_ei_per_layer"
+    },
+
+    {
+      "claim_id": "cp-1",
+      "claim_text": "可證偽的疑慮",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "quoted_snippet": "increasingly deployed in robotics"
+    },
+    {
+      "claim_id": "cp-2",
+      "claim_text": "$n$ 很小，相關係數對單點很敏感",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "$\\rho=0.759$ and $0.804$"
+    },
+    {
+      "claim_id": "cp-3",
+      "claim_text": "概念方向探測",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "This procedure aims to isolate the latent encoding of spatial directions by neutralizing common visual components"
+    },
+    {
+      "claim_id": "cp-4",
+      "claim_text": "循環論證味道",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "To examine whether \\CohD reflects a reusable representation rather than a benchmark-specific artifact"
+    },
+    {
+      "claim_id": "cp-5",
+      "claim_text": "先升後降",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "intensifies under data scaling even as overall benchmark accuracy improves"
+    }
+  ]
+}

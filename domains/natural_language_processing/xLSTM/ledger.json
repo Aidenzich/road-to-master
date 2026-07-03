@@ -1,0 +1,279 @@
+{
+  "note_path": "domains/natural_language_processing/xLSTM/README.md",
+  "domain": "natural_language_processing",
+  "topic": "xLSTM",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:55:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "xLSTM: Extended Long Short-Term Memory",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "xLSTM: Extended Long Short-Term Memory"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "Neural Information Processing Systems",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2405.04517",
+      "retrieved_at": "2026-07-03T00:43:40Z",
+      "quoted_snippet": "Neural Information Processing Systems"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://export.arxiv.org/api/query?id_list=2405.04517",
+      "retrieved_at": "2026-07-03T00:48:00Z",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Maximilian Beck",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "Maximilian Beck"
+    },
+    {
+      "claim_id": "cell-official-code",
+      "claim_text": "https://github.com/NX-AI/xlstm",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "https://github.com/NX-AI/xlstm"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "our paper"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "作者主張 LSTM 有三個主要限制",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "LSTMs have three main limitations"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "原始 LSTM 的 cell state 與 hidden state 更新可寫成下式",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "The constant error carousel is the additive update of"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "h_t = o_t \\, \\psi(c_t)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "The constant error carousel is the additive update of"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "並用一個 stabilizer state",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "For normalization, we introduce a normalizer state that sums up"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "n_t = f_t \\, n_{t-1} + i_t",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "the product of the input gate times all future forget gates"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "構成了一種新的 memory mixing 形式",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "establishes a new way of memory mixing"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "升級為矩陣記憶",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "we increase the LSTM memory cell from a scalar"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "矩陣記憶的更新與檢索",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "we use the absolute value of this dot product"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "C_t = f_t \\, C_{t-1} + i_t \\, v_t k_t^\\top",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "the forget gate corresponds to decay rate and the input gate to the learning rate"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "這條遞迴可以被改寫成一個平行版本",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "this recurrence can be reformulated in a parallel version"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "42 個 mLSTM 區塊",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "For a common total block number of 48, this translates to"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "逐步 morph 成 xLSTM 的消融",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "we morph a vanilla LSTM architecture step-by-step into an xLSTM architecture"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "2417.86",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "Vanilla Multi-Layer LSTM"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "作者據此把主要增益歸因於指數閘控與矩陣記憶兩者",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "attribute the strong performance improvement"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "皆對齊 GPT-3 350M 的維度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "match a GPT-3 model with 350M parameters in size"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "13.43",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "13.43"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "以 13.43 拿下全場最佳",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "outperforms all existing methods in validation perplexity"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "8.89",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "8.89"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "568 out of 571",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "in 568 out of 571 (99.5\\%) text domains a lower perplexity than Mamba"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "線性時間、常數記憶的序列模型能否追上 Transformer",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "How far do we get in language modeling"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "最大只到 1.3B",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "125M, 350M, 760M, 1.3B"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "並非全新",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "The covariance update rule is equivalent to Fast Weight Programmers"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "圍繞自家 sLSTM 的強項來定義題目",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "regular grammars like the parity task"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "更像是一個有力的存在性證明",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.04517",
+      "retrieved_at": "2026-07-03T00:43:25Z",
+      "quoted_snippet": "we did neither fully optimize the architecture nor the hyperparameters"
+    }
+  ]
+}
