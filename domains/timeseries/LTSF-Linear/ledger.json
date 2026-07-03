@@ -1,0 +1,234 @@
+{
+ "note_path": "domains/timeseries/LTSF-Linear/README.md",
+ "domain": "timeseries",
+ "topic": "LTSF-Linear",
+ "no_untrusted_code_executed": true,
+ "generated_at": "2026-07-02T15:16:00Z",
+ "entries": [
+  {
+   "claim_id": "ac-title",
+   "claim_text": "Are Transformers Effective for Time Series Forecasting?",
+   "kind": "paper-claim",
+   "target": "table-cell:title",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "Are Transformers Effective for Time Series Forecasting?"
+  },
+  {
+   "claim_id": "ac-venue",
+   "claim_text": "AAAI 2023",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue",
+   "source_url": "https://dblp.org/rec/conf/aaai/ZengCZ023",
+   "retrieved_at": "2026-07-02T15:12:00Z",
+   "quoted_snippet": "\"venue\":\"AAAI\""
+  },
+  {
+   "claim_id": "ac-year",
+   "claim_text": "2023",
+   "kind": "evidence-supported",
+   "target": "table-cell:year",
+   "source_url": "https://dblp.org/rec/conf/aaai/ZengCZ023",
+   "retrieved_at": "2026-07-02T15:12:00Z",
+   "quoted_snippet": "\"year\":\"2023\""
+  },
+  {
+   "claim_id": "ac-authors",
+   "claim_text": "Ailing Zeng, Muxi Chen, Lei Zhang, Qiang Xu",
+   "kind": "evidence-supported",
+   "target": "table-cell:authors",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "Ailing Zeng"
+  },
+  {
+   "claim_id": "ac-code",
+   "claim_text": "https://github.com/cure-lab/LTSF-Linear",
+   "kind": "paper-claim",
+   "target": "table-cell:official-code",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "github.com/cure-lab/LTSF-Linear"
+  },
+  {
+   "claim_id": "ac-venue-kind",
+   "claim_text": "paper",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue-kind",
+   "source_url": "https://dblp.org/rec/conf/aaai/ZengCZ023",
+   "retrieved_at": "2026-07-02T15:12:00Z",
+   "quoted_snippet": "\"type\":\"Conference and Workshop Papers\""
+  },
+  {
+   "claim_id": "body-prose-1",
+   "claim_text": "但 self-attention 本質上是 permutation-invariant（排列不變）的",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-1",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "the nature of the permutation-invariant self-attention mechanism inevitably results in temporal information loss"
+  },
+  {
+   "claim_id": "body-prose-2",
+   "claim_text": "論文把現有 LTSF-Transformer 的共通管線拆成四段",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "The pipeline of existing Transformer-based TSF solutions"
+  },
+  {
+   "claim_id": "body-equation-1",
+   "claim_text": "\\hat{X}_{i} = W X_i",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-1",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "\\hat{X}_{i} = WX_i"
+  },
+  {
+   "claim_id": "body-prose-3",
+   "claim_text": "權重在所有變數之間共享，且完全不建模變數之間的空間相關性",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-3",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "shares weights across different variates and does not model any spatial correlations"
+  },
+  {
+   "claim_id": "body-prose-4",
+   "claim_text": "moving average kernel（kernel size 25，與 Autoformer 相同）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-4",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "the moving average kernel size for decomposition is 25, which is the same as Autoformer"
+  },
+  {
+   "claim_id": "body-prose-5",
+   "claim_text": "整個 Electricity 模型的參數量就只有兩個矩陣",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-5",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "The total parameters of the \\emph{DLinear} are 2\\*T\\*L"
+  },
+  {
+   "claim_id": "body-table-1",
+   "claim_text": "139.7K",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "139.7K"
+  },
+  {
+   "claim_id": "body-prose-6",
+   "claim_text": "在 Electricity、$T=720$ 這一格，DLinear（$L=336$）的 MSE 為 0.203，優於最強的 Transformer（FEDformer 0.246），對應論文標註的 17.47% 相對改進",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "17.47\\%"
+  },
+  {
+   "claim_id": "body-prose-7",
+   "claim_text": "MSE 從 Informer 的 0.847 先「上升」到 Att.-Linear 的 1.003，接著在丟掉 FFN 等輔助設計後大幅降到 Embed+Linear 的 0.173，最後再拿掉 embedding 化為純 Linear 的 0.084",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-7",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "0.847 & 1.003 & 0.173 & 0.084"
+  },
+  {
+   "claim_id": "body-prose-8",
+   "claim_text": "現有 Transformer 的誤差隨窗變長多半持平甚至變差，而 LTSF-Linear 則穩定變好",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-8",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "performance deteriorates or stays stable when the look-back window size increases"
+  },
+  {
+   "claim_id": "body-prose-9",
+   "claim_text": "所有 Transformer 的誤差幾乎不動（FEDformer 平均變化 −0.09%），而 LTSF-Linear 掉了 27.26%",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-9",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "27.26\\%"
+  },
+  {
+   "claim_id": "fig-pipeline",
+   "claim_text": "現有 Transformer LTSF 方案的共通管線",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/pipeline.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2205.13504",
+   "retrieved_at": "2026-07-02T15:11:00Z",
+   "quoted_snippet": "The pipeline of existing Transformer-based TSF solutions"
+  },
+  {
+   "claim_id": "fig-linear",
+   "claim_text": "基礎線性模型：把 L 步歷史加權回歸成 T 步未來",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/linear-model.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2205.13504",
+   "retrieved_at": "2026-07-02T15:11:00Z",
+   "quoted_snippet": "Illustration of the basic linear model."
+  },
+  {
+   "claim_id": "fig-lookback",
+   "claim_text": "不同回看窗長度下的 MSE（Traffic, T=720）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/lookback-traffic.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2205.13504",
+   "retrieved_at": "2026-07-02T15:11:00Z",
+   "quoted_snippet": "The MSE results (Y-axis) of models with different look-back window sizes"
+  },
+  {
+   "claim_id": "critical-prose-1",
+   "claim_text": "論文最紮實的貢獻不是那個線性模型",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-1",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "critical-prose-2",
+   "claim_text": "論文沒有做這個中間點",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-2",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "critical-prose-3",
+   "claim_text": "作者對線性模型用 $L=336$",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-3",
+   "source_url": "https://arxiv.org/abs/2205.13504v3",
+   "retrieved_at": "2026-07-02T15:09:11Z",
+   "quoted_snippet": "L=96 for Transformers by default"
+  },
+  {
+   "claim_id": "critical-prose-4",
+   "claim_text": "整套評估是圍繞著作者自己方法的強項",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-4",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "critical-prose-5",
+   "claim_text": "它挑的九個基準是否本身就太容易",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-5",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  }
+ ]
+}
