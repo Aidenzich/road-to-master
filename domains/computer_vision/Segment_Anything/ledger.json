@@ -1,0 +1,378 @@
+{
+  "note_path": "domains/computer_vision/Segment_Anything/README.md",
+  "domain": "computer_vision",
+  "topic": "Segment_Anything",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T08:45:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Segment Anything",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "\\title{\\vspace{-3mm}\\LARGE Segment Anything\\vspace{-6mm}}"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ICCV",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2023/html/Kirillov_Segment_Anything_ICCV_2023_paper.html",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "ICCV"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2023",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "2023"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C. Berg, Wan-Yen Lo, Piotr Dollár, Ross Girshick",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "{\\normalsize Alexander Kirillov$^{1,2,4}$ \\quad Eric Mintun$^{2}$ \\quad Nikhila Ravi$^{1,2}$\n \\quad Hanzi Mao$^{2}$ \\quad Chloe Rolland$^{3}$ \\quad Laura Gustafson$^{3}$}\\\\[0mm]\n{\\normalsize Tete Xiao$^{3}$ \\hspace{4.65mm} Spencer Whitehead \\hspace{4.65mm} Alexander C. Berg \\hspace{4.65mm}\nWan-Yen Lo \\hspace{4.65mm} Piotr Doll\\'{a}r$^{4}$ \\hspace{4.65mm} Ross Girshick$^{4}$}"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/facebookresearch/segment-anything",
+      "kind": "evidence-supported",
+      "target": "table-cell:official-code",
+      "source_url": "static-inspection/segment-anything/README.md",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "pip install git+https://github.com/facebookresearch/segment-anything.git"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "We introduce the Segment Anything (SA) project: a new task, model, and dataset for image segmentation."
+    },
+    {
+      "claim_id": "fig-model-diagram",
+      "claim_text": "imgs/model_diagram.png",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/model_diagram.png",
+      "source_url": "static-inspection/segment-anything/README.md",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "![SAM design](assets/model_diagram.png?raw=true)"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "輸入可以是前景點、背景點、框、粗 mask 或文字",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "a prompt can be a set of foreground / background points, a rough box or mask, free-form text"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "1024×1024 輸入、ViT patch size 16、64×64 image embedding、256 維 prompt embedding",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "static-inspection/segment-anything/segment_anything/build_sam.py",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "prompt_embed_dim = 256\n    image_size = 1024\n    vit_patch_size = 16\n    image_embedding_size = image_size // vit_patch_size"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\text{image }1024\\times1024 \\rightarrow E\\in\\mathbb{R}^{64\\times64\\times256}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "The image embedding is therefore 64$\\x$64. To reduce the channel dimension, following~\\cite{li2022exploring}, we use a 1$\\x$1 convolution to get to 256 channels"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "two-way decoder 做 2 層 token self-attention、token-to-image cross-attention",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "Each decoder layer performs 4 steps: (1) self-attention on the tokens, (2) cross-attention from tokens (as queries) to the image embedding"
+    },
+    {
+      "claim_id": "body-prose-decoder-upsampling",
+      "claim_text": "decoder 最後上採樣 4x 到相對輸入 1/4 的 mask grid",
+      "kind": "paper-claim",
+      "target": "note-section:forward-pass-upsampling",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "After running the decoder, we upsample the updated image embedding by 4$\\x$ with two transposed convolutional layers (now it's downscaled 4$\\x$ relative to the input image)."
+    },
+    {
+      "claim_id": "body-prose-runtime",
+      "claim_text": "prompt encoder 與 mask decoder 可在瀏覽器 CPU 約 50ms 內完成一次互動",
+      "kind": "paper-claim",
+      "target": "note-section:forward-pass-runtime",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "Given a precomputed image embedding, the prompt encoder and mask decoder run in a web browser, on CPU, in \\app50ms."
+    },
+    {
+      "claim_id": "body-table-data-generation",
+      "claim_text": "自動資料生成使用 32x32 foreground point grid，並產生 11M images / 1.1B masks",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-data-generation",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/automatic_stage.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "Specifically, we prompted the model with a 32$\\x$32 regular grid of points and for each point predicted a set of masks that may correspond to valid objects."
+    },
+    {
+      "claim_id": "body-table-data-generation-filtering",
+      "claim_text": "自動資料生成經 predicted IoU、stability 與 NMS 過濾",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-data-generation",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/automatic_stage.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "The IoU prediction module of our model is used to select \\emph{confident} masks; moreover, we identified and selected only \\emph{stable} masks (we consider a mask stable if thresholding the probability map at $0.5-\\delta$ and $0.5+\\delta$ results in similar masks). Finally, after selecting the confident and stable masks, we applied non-maximal suppression (NMS) to filter duplicates."
+    },
+    {
+      "claim_id": "body-table-data-scale",
+      "claim_text": "全自動資料生成套用到 11M images 並產生 1.1B masks",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-data-scale",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/automatic_stage.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "We applied fully automatic mask generation to all 11M images in our dataset, producing a total of 1.1B high-quality masks."
+    },
+    {
+      "claim_id": "body-prose-data-license-privacy",
+      "claim_text": "11M 張授權且處理隱私的影像",
+      "kind": "paper-claim",
+      "target": "note-section:data-engine-license-privacy",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "Using our efficient model in a data collection loop, we built the largest segmentation dataset to date (by far), with over 1 \\textbf{billion} masks on 11M licensed and privacy respecting images."
+    },
+    {
+      "claim_id": "body-prose-data-privacy-processing",
+      "claim_text": "釋出影像經過隱私處理，包含模糊臉和車牌",
+      "kind": "paper-claim",
+      "target": "note-section:data-engine-license-privacy",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "Faces and vehicle license plates have been blurred in the released images."
+    },
+    {
+      "claim_id": "body-table-single-point",
+      "claim_text": "單點泛化在 23 個資料集中 SAM 於 16/23 較高，oracle 選 3 個候選中最佳者時全部較高",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-single-point",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/single_point_results.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "\\sam yields higher results on 16 of the 23 datasets, by as much as $\\app$47 IoU. We also present an ``oracle'' result, in which the most relevant of \\sam's 3 masks is selected by comparing them to the ground truth, rather than selecting the most confident mask."
+    },
+    {
+      "claim_id": "body-table-single-point-oracle",
+      "claim_text": "oracle ambiguity resolution 下 SAM outperforms RITM on all datasets",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-single-point-oracle",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/single_point_results.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "In particular, with the oracle to perform ambiguity resolution, \\sam outperforms RITM on \\emph{all} datasets."
+    },
+    {
+      "claim_id": "body-table-edge-detection",
+      "claim_text": "BSDS500 edge detection reports ODS .768, OIS .786, AP .794, R50 .928 for SAM",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-edge-detection",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/edge_detection_table.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "\\sam & 2023 &.768 &.786 & .794 & .928 \\\\"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "SAM all 59.3；ViTDet-H all 63.0；SAM rare 65.8 高於 ViTDet-H rare 58.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/object_proposals_table.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "ViTDet-H~\\cite{li2022exploring} & 63.0 & 51.7 & 80.8 & 87.0 & 63.1 & 63.3 & 58.3 \\\\\n\\multicolumn{8}{@{}l}{\\emph{zero-shot transfer methods:}} \\\\\n\\sam\\ -- single out. & 54.9 & 42.8 & 76.7 & 74.4 & 54.7 & 59.8 & 62.0 \\\\\n\\sam & 59.3 & 45.5 & 81.6 & 86.9 & 59.1 & 63.9 & 65.8 \\\\"
+    },
+    {
+      "claim_id": "body-table-instance-segmentation",
+      "claim_text": "以 ViTDet boxes 提示 SAM 時 COCO AP 46.5 vs ViTDet-H 51.0，LVIS AP 44.7 vs 46.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-instance-segmentation",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/instance_segmentation_table.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "ViTDet-H~\\cite{li2022exploring} & 51.0 & 32.0 & 54.3 & 68.9 & 46.6 & 35.0 & 58.0 & 66.3\\\\\n\\multicolumn{9}{@{}l}{\\emph{zero-shot transfer methods (segmentation module only):}} \\\\\n\\sam & 46.5 & 30.8 & 51.0 & 61.7 & 44.7 & 32.5 & 57.6 & 65.5\\\\"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "作者抽樣 500 張影像、約 50k masks 讓專業標註者修正，回報 94% 自動 mask 與修正版 IoU 大於 90%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/mask_quality.tex",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "we randomly sampled 500 images ($\\app$50k masks) and asked our professional annotators to improve the quality of all masks in these images. Annotators did so using our model and pixel-precise ``brush'' and ``eraser'' editing tools. This procedure resulted in pairs of automatically predicted and professionally corrected masks. We computed IoU between each pair and found that 94\\% of pairs have greater than 90\\% IoU"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "單點提示本來就可能對應多個有效物件",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "With one output, the model will average multiple valid masks if given an ambiguous prompt."
+    },
+    {
+      "claim_id": "body-prose-human-rating-scale",
+      "claim_text": "人類對 mask 品質的 1 到 10 分評分",
+      "kind": "paper-claim",
+      "target": "note-section:evaluation-design",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "They then submitted a rating from 1-10 indicating the overall mask quality."
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "公開程式碼和論文描述大致對齊",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "static-inspection/segment-anything/segment_anything/modeling/mask_decoder.py",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "num_multimask_outputs: int = 3,\n        activation: Type[nn.Module] = nn.GELU,\n        iou_head_depth: int = 3,\n        iou_head_hidden_dim: int = 256"
+    },
+    {
+      "claim_id": "body-prose-code-iou-head",
+      "claim_text": "mask_decoder.py defines num_mask_tokens = num_multimask_outputs + 1 and iou_prediction_head",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "static-inspection/segment-anything/segment_anything/modeling/mask_decoder.py",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "self.num_mask_tokens = num_multimask_outputs + 1\n        self.mask_tokens = nn.Embedding(self.num_mask_tokens, transformer_dim)"
+    },
+    {
+      "claim_id": "body-prose-code-iou-prediction-head",
+      "claim_text": "mask_decoder.py defines iou_prediction_head for mask quality prediction",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "static-inspection/segment-anything/segment_anything/modeling/mask_decoder.py",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "self.iou_prediction_head = MLP(\n            transformer_dim, iou_head_hidden_dim, self.num_mask_tokens, iou_head_depth\n        )"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "論文自己的限制段落也承認",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "While \\sam performs well in general, it is not perfect. It can miss fine structures, hallucinates small disconnected components at times, and does not produce boundaries as crisply as more computationally intensive methods that ``zoom-in'', \\eg~\\cite{chen2022focalclick}. In general, we expect dedicated interactive segmentation methods to outperform \\sam when many points are provided, \\eg~\\cite{liu2022simpleclick}. Unlike these methods, \\sam is designed for generality and breadth of use rather than high IoU interactive segmentation. Moreover, \\sam can process prompts in real-time, but nevertheless \\sam's overall performance is not real-time when using a heavy image encoder. Our foray into the text-to-mask task is exploratory and not entirely robust, although we believe it can be improved with more effort. While \\sam can perform many tasks, it is unclear how to design simple prompts that implement semantic and panoptic segmentation."
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "很多 headline 結果仍依賴作者設計的 prompt engineering 與評估協定",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "These four tasks differ significantly from the promptable segmentation task that \\sam was trained on and are implemented via prompt engineering."
+    },
+    {
+      "claim_id": "critical-prose-2a",
+      "claim_text": "object proposal 用 64x64 point grid 與 NMS threshold 0.9 調到約 900 masks/image",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2a",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/object_proposals_method.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "We choose a 64$\\x$64 point grid and an NMS threshold of 0.9, which produces \\app900 masks per image on average."
+    },
+    {
+      "claim_id": "critical-prose-2b",
+      "claim_text": "edge detection 使用 Sobel 與 edge NMS 後處理",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2b",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "Then we apply a Sobel filter to the remaining masks' unthresholded probability maps and set values to zero if they do not intersect with the outer boundary pixels of a mask."
+    },
+    {
+      "claim_id": "critical-prose-ablation",
+      "claim_text": "消融實驗有助於說明規模與資料引擎不是裝飾",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/ablation_text.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "We perform several ablations on our 23 dataset suite with the single center point prompt protocol."
+    },
+    {
+      "claim_id": "critical-prose-ablation-auto",
+      "claim_text": "只用自動 masks 比使用全部資料只低約 0.5 mIoU",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-ablation-auto",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/ablation_text.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "With this data, \\sam performs only marginally lower than using all data (\\app0.5 mIoU)."
+    },
+    {
+      "claim_id": "critical-prose-ablation-scale",
+      "claim_text": "1M images 接近 11M images，而 0.1M images 明顯掉分",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-ablation-scale",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/ablation_text.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "At 0.1M images, we observe a large mIoU decline under all settings. However, with 1M images, about 10\\% of the full dataset, we observe results comparable to using the full dataset."
+    },
+    {
+      "claim_id": "critical-prose-ablation-backbone",
+      "claim_text": "ViT-H 明顯優於 ViT-B，但相對 ViT-L 的增益已變小",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-ablation-backbone",
+      "source_url": ".loop-manager/paper-cache/2304.02643/evidence/ablation_text.tex",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "ViT-H improves substantially over ViT-B, but has only marginal gains over ViT-L."
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "真正難複製的是 11M images / 1.1B masks 的資料閉環、專業標註流程與運算資源",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "As segmentation masks are not abundant on the internet, we built a data engine to enable the collection of our 1.1B mask dataset, \\sad. The data engine has three stages: (1) a model-assisted manual annotation stage, (2) a semi-automatic stage with a mix of automatically predicted masks and model-assisted annotation, and (3) a fully automatic stage"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "clothing segmentation 在 perceived gender presentation 上有一點提示下的差距",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:25:12.446228+00:00",
+      "quoted_snippet": "We find that \\sam is better at segmenting clothing on those who present predominantly masculine, with disjoint 95\\% confidence intervals."
+    },
+    {
+      "claim_id": "critical-prose-geography-underrepresentation",
+      "claim_text": "資料地理分布也不是均勻世界樣本",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "\\sad has a substantially higher percentage of images in Europe and Asia \\& Oceania as well as in middle income countries. All datasets underrepresent Africa as well as low income countries."
+    },
+    {
+      "claim_id": "critical-prose-captions-locations-not-released",
+      "claim_text": "SA-1B 的 captions 與 inferred locations 不公開",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2304.02643",
+      "retrieved_at": "2026-07-02T08:45:00+00:00",
+      "quoted_snippet": "As such, we use the extracted locations to analyze the dataset as a whole, but do not release the inferred locations. The captions will not be released publicly as required by the image provider."
+    }
+  ]
+}
