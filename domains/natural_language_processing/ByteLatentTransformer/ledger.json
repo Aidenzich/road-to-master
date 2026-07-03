@@ -1,0 +1,408 @@
+{
+  "note_path": "domains/natural_language_processing/ByteLatentTransformer/README.md",
+  "domain": "natural_language_processing",
+  "topic": "ByteLatentTransformer",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T15:40:00+00:00",
+  "entries": [
+    {
+      "claim_id": "tc-title",
+      "claim_text": "Byte Latent Transformer: Patches Scale Better Than Tokens",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "Byte Latent Transformer: Patches Scale Better Than Tokens"
+    },
+    {
+      "claim_id": "tc-venue",
+      "claim_text": "arXiv preprint (2412.09871)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "2412.09871"
+    },
+    {
+      "claim_id": "tc-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "tc-authors",
+      "claim_text": "Artidoro Pagnoni",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "Artidoro Pagnoni"
+    },
+    {
+      "claim_id": "tc-code",
+      "claim_text": "https://github.com/facebookresearch/blt",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "https://github.com/facebookresearch/blt"
+    },
+    {
+      "claim_id": "tc-venue-kind",
+      "claim_text": "tech-report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "FAIR at Meta"
+    },
+
+    {
+      "claim_id": "fig-arch",
+      "claim_text": "BLT 由 Local Encoder、Latent Transformer、Local Decoder 三個模組組成",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/blt_architecture.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2412.09871/assets/x3.png",
+      "retrieved_at": "2026-07-02T15:25:00+00:00",
+      "quoted_snippet": "comprises three modules, a lightweight"
+    },
+    {
+      "claim_id": "fig-patching",
+      "claim_text": "各種 patching 方案的比較",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/patching_types.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2412.09871/assets/assets/patching_types.png",
+      "retrieved_at": "2026-07-02T15:25:00+00:00",
+      "quoted_snippet": "Patching schemes group bytes in different ways, each leading to a different number of resulting patches"
+    },
+    {
+      "claim_id": "fig-entropy",
+      "claim_text": "例句逐 byte 的熵與 patch 邊界",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/entropy_patching.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2412.09871/assets/x4.png",
+      "retrieved_at": "2026-07-02T15:25:00+00:00",
+      "quoted_snippet": "plots the entropy $H(x_i)$ of each byte"
+    },
+
+    {
+      "claim_id": "bp-1",
+      "claim_text": "唯一的例外是 tokenization",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "trained almost entirely end-to-end, except for tokenization"
+    },
+    {
+      "claim_id": "bp-2",
+      "claim_text": "切分的依據是下一個 byte 的預測熵",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "allocating more compute and model capacity where increased data complexity demands it"
+    },
+    {
+      "claim_id": "bp-3",
+      "claim_text": "把 embedding table 相對 Llama 2 放大 4 倍",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "increasing the size of its embedding table 4x compared to"
+    },
+    {
+      "claim_id": "bp-4",
+      "claim_text": "patch 的數量直接決定了主要的 FLOP 開銷",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "the number of patches directly determines the bulk of the compute expended in terms of"
+    },
+    {
+      "claim_id": "bp-5",
+      "claim_text": "資料驅動地找出「高不確定性」的下一 byte 位置",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "we instead take a data-driven approach to identify high uncertainty next-byte predictions"
+    },
+    {
+      "claim_id": "be-1",
+      "claim_text": "H(x_i) = \\sum_{v \\in \\mathcal{V}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "H(x_i) = \\sum_{v \\in \\mathcal{V}} p_{e}(x_i=v|\\pmb{x}_{<i}) \\log p_{e}(x_i=v|\\pmb{x}_{<i})"
+    },
+    {
+      "claim_id": "bp-6",
+      "claim_text": "全域門檻（global threshold）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "finds points above a global entropy threshold"
+    },
+    {
+      "claim_id": "be-2",
+      "claim_text": "H(x_t) - H(x_{t-1}) > \\theta_r",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "- H(x_{t-1}) > \\theta_r"
+    },
+    {
+      "claim_id": "bp-7",
+      "claim_text": "100M 參數、14 層",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "100M parameters, 14 layers, and a hidden dimensionality of 512"
+    },
+    {
+      "claim_id": "bp-8",
+      "claim_text": "incremental patching",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "needs to decide whether the current step in the byte sequence is at a patch boundary"
+    },
+    {
+      "claim_id": "be-3",
+      "claim_text": "f_p(\\pmb{x}_{<i}) = f_p(\\pmb{x})_{<i}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "f_p(\\pmb{x}_{<i}) = f_p(\\pmb{x})_{<i}"
+    },
+    {
+      "claim_id": "bp-9",
+      "claim_text": "entropy patching 相對 tokenization",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "is not an incremental patching scheme as the same prefix can be tokenized differently"
+    },
+    {
+      "claim_id": "bp-10",
+      "claim_text": "global 模型消耗絕大部分的 FLOP",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "This model consumes the bulk of the \\flop{}s during pre-training as well as inference"
+    },
+    {
+      "claim_id": "bp-11",
+      "claim_text": "500,000 個 hash、單一 hash 函數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "500,000$ hashes with a single hash function"
+    },
+    {
+      "claim_id": "be-4",
+      "claim_text": "e_i = x_i + \\sum",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "E_{n}^{hash}(\\text{Hash}(g_{i,n}))"
+    },
+    {
+      "claim_id": "bp-12",
+      "claim_text": "encoder 端以 patch 表徵為 query",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "patch representations as queries, and byte representations as keys/values"
+    },
+    {
+      "claim_id": "bp-13",
+      "claim_text": "與 tokenizer 無關的困惑度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "a tokenizer independent version of perplexity"
+    },
+    {
+      "claim_id": "be-5",
+      "claim_text": "\\frac{\\mathcal{L}_{CE}(\\pmb{x})}{\\ln(2)\\cdot n_{\\text{bytes}}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "\\frac{\\mathcal{L}_{CE}(\\pmb{x})}{\\ln(2)\\cdot n_{\\text{bytes}}}"
+    },
+    {
+      "claim_id": "bp-14",
+      "claim_text": "當作 0-FLOP 操作",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "becoming a 0-\\flop{} operation"
+    },
+    {
+      "claim_id": "bp-15",
+      "claim_text": "`G` 與 `e` 的熵超過 $\\theta_g$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "the entropies of ``G'' and ``e'' in ``George R.R. Martin'' exceed"
+    },
+    {
+      "claim_id": "bp-16",
+      "claim_text": "換來論文宣稱的近 50% 推論 FLOP 節省",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "using a patch size of 8 bytes would lead to nearly 50\\% inference \\flop{} savings"
+    },
+    {
+      "claim_id": "bp-17",
+      "claim_text": "以相同 FLOP 預算訓練的三個 8B 模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "All three models are trained with an equivalent \\flop{} budget"
+    },
+    {
+      "claim_id": "bt-1",
+      "claim_text": "| Average | 60.0 | 58.0 | **61.1** |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "60.0 & 58.0 & \\textbf{61.1}"
+    },
+    {
+      "claim_id": "bp-18",
+      "claim_text": "BLT-Entropy 在 7 項中有 4 項勝過同資料量的 Llama 3",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "outperforms the \\llama{} 3 model on 4 out of 7 tasks"
+    },
+    {
+      "claim_id": "bp-19",
+      "claim_text": "字元層級（character-level）任務",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "as well as awareness of characters, both English and multi-lingual"
+    },
+    {
+      "claim_id": "bt-2",
+      "claim_text": "| CUTE（總分） | 27.5 | 20.0 | **54.1** |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "27.5 & 20.0 & \\emph{\\textbf{54.1}}"
+    },
+    {
+      "claim_id": "bp-20",
+      "claim_text": "高出 25 分以上，拼寫（spelling）任務甚至到 99.9%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "more than 25 points on this benchmark"
+    },
+    {
+      "claim_id": "bp-21",
+      "claim_text": "在固定推論 FLOP 預算下同時放大模型與 patch size",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "simultaneously increase model size and patch size while maintaining the same"
+    },
+    {
+      "claim_id": "bt-3",
+      "claim_text": "760m (1.6x)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "760m~(1.6x)"
+    },
+    {
+      "claim_id": "bp-22",
+      "claim_text": "這些算力可以拿去把 global latent transformer 養得更大",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "reallocated to grow the size of the global latent transformer, because it is run less often"
+    },
+
+    {
+      "claim_id": "cp-1",
+      "claim_text": "byte 模型贏在這裡幾乎是定義上的必然",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "This benchmark poses a significant challenge for most tokenizer-based models"
+    },
+    {
+      "claim_id": "cp-2",
+      "claim_text": "這個 scaling law 是給 BPE transformer 算的，對 BLT 可能導致次佳的配置",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "these scaling laws were calculated for BPE-level transformers and may lead to suboptimal"
+    },
+    {
+      "claim_id": "cp-3",
+      "claim_text": "static patching 來自 MegaByte、space patching 來自 SpaceByte",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "We closely follow the input cross-attention module of the Perceiver architecture"
+    },
+    {
+      "claim_id": "cp-4",
+      "claim_text": "是一個理論上限",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "our implementations may yet not be at parity with tokenizer-based models in terms of wall-clock time"
+    },
+    {
+      "claim_id": "cp-5",
+      "claim_text": "用 220B tokens 就把 MMLU 拉到 63.7",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2412.09871",
+      "retrieved_at": "2026-07-02T15:24:32+00:00",
+      "quoted_snippet": "25.2 & 63.7 & 66.3"
+    }
+  ]
+}

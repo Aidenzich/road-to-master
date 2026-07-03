@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Byte Latent Transformer: Patches Scale Better Than Tokens](https://arxiv.org/abs/2412.09871) | - | '24 | [✓](https://github.com/facebookresearch/blt) | [✓](./ByteLatentTransformer/) |
 | [Agent-as-a-Judge: Evaluate Agents with Agents](https://arxiv.org/abs/2410.10934) | - | '24 | [✓](https://github.com/metauto-ai/agent-as-a-judge) | [✓](./Agent-as-a-Judge/) |
 | [GNN-RAG: Graph Neural Retrieval for Large Language Model Reasoning](https://arxiv.org/abs/2405.20139) | arXiv | '24 | [✓](https://github.com/cmavro/GNN-RAG) | [✓](./GNN-RAG/) |
 | [GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models](https://arxiv.org/abs/2410.05229) | ICLR | '25 | [✓](https://github.com/apple/ml-gsm-symbolic) | [✓](./GSM-Symbolic/) |
