@@ -1,0 +1,189 @@
+{
+  "note_path": "domains/vision_language/Video-MME/README.md",
+  "domain": "vision_language",
+  "topic": "Video-MME",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:25:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Video-MME: The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video Analysis",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "Video-MME: The First-Ever Comprehensive Evaluation Benchmark"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "CVPR 2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "CVPR 2025 Paper Template"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "CVPR 2025 Paper Template"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Chaoyou Fu",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "Chaoyou Fu"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://video-mme.github.io",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "video-mme.github.io"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "CVPR 2025 Paper Template"
+    },
+    {
+      "claim_id": "fig-stats",
+      "claim_text": "Statistics analysis of Video-MME: 6 domains and 30 sub-class video types with duration and question-type distributions.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/Video-MME.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.21075/assets/images/Video-MME.png",
+      "retrieved_at": "2026-07-03T00:23:00Z",
+      "quoted_snippet": "Statistics analysis of Video-MME"
+    },
+    {
+      "claim_id": "fig-radar",
+      "claim_text": "Comparison between four selected MLLMs on Video-MME across different tasks; counting is a joint bottleneck.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/radar_performance.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.21075/assets/images/radar_performance.png",
+      "retrieved_at": "2026-07-03T00:23:00Z",
+      "quoted_snippet": "Comparison between four selected MLLMs on Video-MME across different tasks"
+    },
+    {
+      "claim_id": "body-1-scale",
+      "claim_text": "900 支 YouTube 影片",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "we meticulously curate a dataset of 900 videos"
+    },
+    {
+      "claim_id": "body-2-textonly",
+      "claim_text": "Gemini 1.5 Pro achieves less than 15% accuracy in the text-only setup",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "Gemini 1.5 Pro achieves less than 15\\% accuracy in the text-only setup"
+    },
+    {
+      "claim_id": "body-3-certificate",
+      "claim_text": "certificate length",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "the minimum set of sub-clips of the video that are both necessary and sufficient"
+    },
+    {
+      "claim_id": "body-eq-cl",
+      "claim_text": "\\mathrm{CL}(q)",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "The certificate length is calculated as the sum of the temporal lengths of the sub-clips"
+    },
+    {
+      "claim_id": "body-4-clnumbers",
+      "claim_text": "26s, 164.7s, and 890.7s",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "a median certificate length of 26s, 164.7s, and 890.7s"
+    },
+    {
+      "claim_id": "body-5-tablecaption",
+      "claim_text": "Performance of MLLMs on Video-MME",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "Performance of MLLMs on Video-MME"
+    },
+    {
+      "claim_id": "body-table-gemini",
+      "claim_text": "Gemini 1.5 Pro",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "\\textbf{75.0} & \\textbf{81.3}"
+    },
+    {
+      "claim_id": "body-6-imagebasis",
+      "claim_text": "image understanding is the foundation of video understanding",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "image understanding is the foundation of video understanding"
+    },
+    {
+      "claim_id": "body-7-duration",
+      "claim_text": "from short to long videos",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "14.3\\% from short to long videos"
+    },
+    {
+      "claim_id": "crit-1-firstever",
+      "claim_text": "the first-ever comprehensive",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "the first-ever comprehensive"
+    },
+    {
+      "claim_id": "crit-2-scale",
+      "claim_text": "2,700 題",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "2,700 high-quality multiple-choice questions"
+    },
+    {
+      "claim_id": "crit-3-circular",
+      "claim_text": "filter out QA pairs",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.21075",
+      "retrieved_at": "2026-07-03T00:22:20Z",
+      "quoted_snippet": "filter out QA pairs that can be answered solely based on the textual questions"
+    }
+  ]
+}
