@@ -1,0 +1,333 @@
+{
+  "note_path": "domains/timeseries/TimesFM/README.md",
+  "domain": "timeseries",
+  "topic": "TimesFM",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:10:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "A decoder-only foundation model for time-series forecasting",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "A decoder-only foundation model for time-series forecasting"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ICML",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://proceedings.mlr.press/v235/das24c.html",
+      "retrieved_at": "2026-07-03T00:08:00+00:00",
+      "quoted_snippet": "41st International Conference on Machine Learning"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://proceedings.mlr.press/v235/das24c.html",
+      "retrieved_at": "2026-07-03T00:08:00+00:00",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Abhimanyu Das, Weihao Kong, Rajat Sen, Yichen Zhou",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "Abhimanyu Das"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/google-research/timesfm",
+      "kind": "reasonable-inference",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/google-research/timesfm",
+      "retrieved_at": "2026-07-03T00:08:00+00:00",
+      "quoted_snippet": "google-research/timesfm"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://proceedings.mlr.press/v235/das24c.html",
+      "retrieved_at": "2026-07-03T00:08:00+00:00",
+      "quoted_snippet": "Proceedings of Machine Learning Research"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "面對從沒見過的資料集，不做任何微調",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "(200M parameters) and pretraining data size (O(100B) timepoints)"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "訓練期間不能依賴任何資料集專屬的靜態或動態 covariate",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "we cannot have dataset specific dynamic or static covariates during training time"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\longrightarrow",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "map any time-series context to horizon"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "每個 patch 就像語言模型裡的一個 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "A patch of a time-series is a natural analogue for a token in language models"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "output patch 可以比 input patch 長",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "suppose the input patch length is 32 and output patch length is 128"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "同時附一個 binary padding mask",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "we also supply a binary padding mask"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "InputResidualBlock",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "each patch is processed by a Residual Block into a vector of size"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "只能注意到序列中它之前",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "each output token can only attend to input tokens that come before it in the sequence"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "OutputResidualBlock",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "We use another Residual Block to map the output tokens to the predictions"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "因為本文只做 point forecasting",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "we focus on point forecasting"
+    },
+    {
+      "claim_id": "body-equation-4",
+      "claim_text": "TrainLoss",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "we can use a point forecasting loss during training like Mean Squared Error (MSE)"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "最大 context 512",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "Suppose the maximum context length is 512 and $p=32$"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "跑一次 ETT 的 zero-shot 任務",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "ceil(512/128)=4",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "以 context 中第一個 input patch 的均值與標準差",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "the context of each time-series is scaled by the context mean and standard deviation of the first input patch"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "1280 | 128 | 32 | 16 | 0.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "20 & 1280 & 128 & 32 & 16 & 0.2"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "作者用三大來源湊出量與多樣性：Google Trends",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "We create 3M synthetic time-series each of length 2048 time-points"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "239,110,787,496",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "5,608,693 & 239,110,787,496"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "在 16 核 TPUv5e 上跑 1.5M 次迭代",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "For the 200M model it takes 2 days to complete 1.5M iterations"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "TimesFM(ZS) 為 0.36",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "0.53 & 0.53 & 0.99 & 0.36"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "0.99 | 0.36",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "0.53 & 0.53 & 0.99 & 0.36"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "TimesFM(ZS) 得 0.6846",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "0.6846"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "拿掉合成資料後",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "there is a performance drop on Monash because many of the datasets in Monash have under-represented granularities"
+    },
+    {
+      "claim_id": "fig-architecture",
+      "claim_text": "TimesFM architecture: patch to Residual Block to causal transformer to output Residual Block",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/architecture.png",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "SA refers to self-attention"
+    },
+    {
+      "claim_id": "fig-scaling",
+      "claim_text": "Scaled MAE on Monash decreases monotonically with FLOPS across 17M/70M/200M",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/scaling_flops.png",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "the errors decrease monotonically with the number of FLOPS"
+    },
+    {
+      "claim_id": "fig-output-patch",
+      "claim_text": "Average MAE decreases as output_patch_len grows from 8 to 128",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/output_patch_len.png",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "We see a monotonic decrease in average MAE with output"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "會做「context 長度的推論期調校」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "we did some inference time-tuning of the context length"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "換一種同樣合理的彙總法，領先就消失了",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "OpenAI has discontinued access to GPT-3, therefore we had to use the GPT-3.5-Turbo model"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "patching 來自 PatchTST",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "On ETT datasets, the PatchTST(ZS) model is performs similarly to TimesFM(ZS) and PatchTST"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "反而輸給 ARIMA",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2310.10688",
+      "retrieved_at": "2026-07-03T00:03:01+00:00",
+      "quoted_snippet": "within statistical significance of the best models that is llmtime and seasonal ARIMA"
+    }
+  ]
+}
