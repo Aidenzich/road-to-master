@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Meta-Harness: End-to-End Optimization of Model Harnesses](https://arxiv.org/abs/2603.28052) | unknown | '26 | [✓](https://github.com/stanford-iris-lab/meta-harness-tbench2-artifact) | [✓](./MetaHarness/) |
 | [Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models](https://arxiv.org/abs/2408.02442) | - | '24 | [✓](https://github.com/appier-research/structure-gen) | [✓](./LetMeSpeakFreely/) |
 | [Layer-Condensed KV Cache for Efficient Inference of Large Language Models](https://arxiv.org/abs/2405.10637) | ACL | '24 | [✓](https://github.com/whyNLP/LCKV) | [✓](./LayerCondensedKVCache/) |
 | [Human Feedback is not Gold Standard](https://arxiv.org/abs/2309.16349) | ICLR | '24 | [✓](https://github.com/cohere-ai/human-feedback-paper) | [✓](./HumanFeedbackNotGoldStandard/) |
