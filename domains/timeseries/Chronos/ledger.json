@@ -1,0 +1,306 @@
+{
+  "note_path": "domains/timeseries/Chronos/README.md",
+  "domain": "timeseries",
+  "topic": "Chronos",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T16:10:00+00:00",
+  "entries": [
+    {
+      "claim_id": "tc-title",
+      "claim_text": "Chronos: Learning the Language of Time Series",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "Learning the Language of Time Series"
+    },
+    {
+      "claim_id": "tc-venue",
+      "claim_text": "TMLR (Transactions on Machine Learning Research)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://openreview.net/forum?id=gerNCVqqtR",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "accepted]{tmlr}"
+    },
+    {
+      "claim_id": "tc-year",
+      "claim_text": "2024",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "year{2024}"
+    },
+    {
+      "claim_id": "tc-authors",
+      "claim_text": "Abdul Fatir Ansari, Lorenzo Stella, Caner Turkmen, et al. (AWS AI Labs)",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "Abdul Fatir Ansari"
+    },
+    {
+      "claim_id": "tc-code",
+      "claim_text": "https://github.com/amazon-science/chronos-forecasting",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/amazon-science/chronos-forecasting",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "amazon-science/chronos-forecasting"
+    },
+    {
+      "claim_id": "tc-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "accepted]{tmlr}"
+    },
+    {
+      "claim_id": "fig-overview",
+      "claim_text": "Chronos 整體架構：分詞、訓練、推論三段式流程",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/chronos-overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2403.07815/assets/x1.png",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "The input time series is scaled and quantized to obtain a sequence of tokens"
+    },
+    {
+      "claim_id": "fig-tsmixup",
+      "claim_text": "TSMixup：把不同資料集隨機序列做加權凸組合以增加樣態多樣性",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/tsmixup.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2403.07815/assets/x2.png",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "TSMixup improves pattern diversity by taking weighted combinations"
+    },
+    {
+      "claim_id": "fig-kernelsynth",
+      "claim_text": "KernelSynth：從 kernel bank 抽樣、隨機組合，再由 GP prior 生成合成序列",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/kernelsynth.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2403.07815/assets/x3.png",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "Kernels are sampled from a kernel bank and then randomly combined"
+    },
+    {
+      "claim_id": "bp-1",
+      "claim_text": "作者的立場是，兩者都只是在建模序列結構、預測未來",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "both endeavors fundamentally aim to model the sequential structure of the data to predict future patterns"
+    },
+    {
+      "claim_id": "bp-2",
+      "claim_text": "餵進一個 encoder-decoder 或 decoder-only 的語言模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "which may either be an encoder-decoder or a decoder-only model"
+    },
+    {
+      "claim_id": "bp-3",
+      "claim_text": "Chronos 採用 mean scaling",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "We opt for mean scaling"
+    },
+    {
+      "claim_id": "be-1",
+      "claim_text": "\\tilde{x}_i = \\frac{x_i - m}{s}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "involves setting $m = 0$ and $s = \\frac{1}{C}\\sum_{i=1}^C|x_i|$"
+    },
+    {
+      "claim_id": "bp-4",
+      "claim_text": "作者在實線上選 $B$ 個 bin center",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "The positioning of bin centers and edges"
+    },
+    {
+      "claim_id": "be-2",
+      "claim_text": "q(x)=\\begin{cases}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "d(j) = c_j"
+    },
+    {
+      "claim_id": "bp-5",
+      "claim_text": "刻意忽略 day-of-week",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "we ignore time and frequency information"
+    },
+    {
+      "claim_id": "bp-6",
+      "claim_text": "在詞彙表上做 categorical 分佈，用 cross-entropy",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "categorical cross entropy loss"
+    },
+    {
+      "claim_id": "be-3",
+      "claim_text": "\\ell(\\bm\\theta) = -\\sum_{h=1}^{H+1}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "\\ell(\\bm{\\theta})"
+    },
+    {
+      "claim_id": "bp-7",
+      "claim_text": "cross-entropy 不是 distance-aware 的",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "not a distance-aware objective function"
+    },
+    {
+      "claim_id": "bp-8",
+      "claim_text": "主結果用 20 條 sample path",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "20 sample forecast paths"
+    },
+    {
+      "claim_id": "bp-9",
+      "claim_text": "TSMixup 把 Mixup 推廣到多條序列",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "symmetric Dirichlet distribution"
+    },
+    {
+      "claim_id": "be-4",
+      "claim_text": "\\tilde{\\bm x}^{\\mathrm{TSMixup}}_{1:l}=\\sum_{i=1}^{k}\\lambda_i",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "\\lambda_i\\tilde{\\rvx}"
+    },
+    {
+      "claim_id": "bp-10",
+      "claim_text": "KernelSynth 則反過來用 Gaussian process 憑空生序列",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "randomly compose GP kernels"
+    },
+    {
+      "claim_id": "bp-11",
+      "claim_text": "脈絡長度 $C=512$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "The context length of the sequences was set to 512"
+    },
+    {
+      "claim_id": "bc-1",
+      "claim_text": "bin 間距 = 30 / (B-1)",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "B = 4094"
+    },
+    {
+      "claim_id": "bp-12",
+      "claim_text": "任何相距小於這個值的兩點會被映到同一個 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "fall out of the representable range"
+    },
+    {
+      "claim_id": "bp-13",
+      "claim_text": "Mini 20M、Small 46M、Base 200M、Large 710M",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "Mini (20M), Small (46M), Base (200M) and Large (710M)"
+    },
+    {
+      "claim_id": "bt-1",
+      "claim_text": "Benchmark I | 15 | 97,272",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "97,272"
+    },
+    {
+      "claim_id": "bp-14",
+      "claim_text": "再用幾何平均跨資料集彙整",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "aggregated across all datasets using the geometric mean"
+    },
+    {
+      "claim_id": "cp-1",
+      "claim_text": "論文全程限定在 univariate",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "we have focused on univariate forecasting of uniformly-spaced time series"
+    },
+    {
+      "claim_id": "cp-2",
+      "claim_text": "涵蓋統計/深度/預訓練三類基準",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2403.07815",
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "comprising both classical local models"
+    },
+    {
+      "claim_id": "cp-3",
+      "claim_text": "幾乎全在減法而非加法",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "making minimal changes to the model architectures and training procedure"
+    },
+    {
+      "claim_id": "cp-4",
+      "claim_text": "同時出現在 Chronos 的訓練語料裡",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T15:42:31+00:00",
+      "quoted_snippet": "the in-domain setting does not apply to these models"
+    }
+  ]
+}
