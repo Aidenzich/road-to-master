@@ -1,0 +1,297 @@
+{
+  "note_path": "domains/natural_language_processing/LayerSkip/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LayerSkip",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "LayerSkip: Enabling Early Exit Inference and Self-Speculative Decoding",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "\\System: Enabling Early Exit Inference and Self-Speculative Decoding"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ACL 2024 (Volume 1: Long Papers)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://aclanthology.org/2024.acl-long.681/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://aclanthology.org/2024.acl-long.681/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "ACL 2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Mostafa Elhoushi, Akshat Shrivastava, Diana Liskovich, Basil Hosmer, Bram Wasti, Liangzhen Lai, Anas Mahmoud, Bilge Acun, Saurabh Agrawal, Ahmed Roman, Ahmed A Aly, Beidi Chen, Carole-Jean Wu",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "\\author[1,\\dagger,*]{Mostafa Elhoushi}"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/facebookresearch/LayerSkip",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "\\metadata[Code] {\\url{https://github.com/facebookresearch/LayerSkip}}"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://aclanthology.org/2024.acl-long.681/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics"
+    },
+    {
+      "claim_id": "fig-overview",
+      "claim_text": "Overview of the end-to-end LayerSkip solution showing its 3 components.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.16710/assets/x1.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Overview of our end-to-end solution, \\System, showing its 3 components."
+    },
+    {
+      "claim_id": "fig-motivation",
+      "claim_text": "Train once with layer dropout and early exit loss to create a model equivalent to an ensemble of models of various depths.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/motivation.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.16710/assets/x4.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "create a model that is equivalent to an ensemble of models of various depths"
+    },
+    {
+      "claim_id": "fig-selfspec",
+      "claim_text": "Comparison between autoregressive decoding, speculative decoding, and self-speculative decoding.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/self_speculative_decoding.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.16710/assets/x6.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Comparison between autoregressive decoding, speculative decoding, and our proposed self-speculative decoding."
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "平均一個 token 只需要 23.45 層",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "a token requires 23.45 layers out of the model's 32 layers"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "不新增任何 auxiliary layer 或額外草稿模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we do not introduce any additional modules or linear layers for early exit, and instead used a shared exit for all layers"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "x_{l+1,t} = x_{l,t} + M(p_{l,t}) f_l(x_{l,t})",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "x_{l+1,t} = x_{l,t} + M(p_{l,t}) f_l(x_{l,t})"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "第一個修改是把 dropout 加到",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "The first modification we apply to common training recipes, is to apply layer dropout"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "淺層近乎不 drop、深層幾乎必 drop",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "increase dropout rate exponentially across layers from 0.0 in layer 0, to 1.0 in last layer"
+    },
+    {
+      "claim_id": "body-eq-2",
+      "claim_text": "D(l) = e^{\\frac{l\\text{ln}2}{L-1}} - 1",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "D(l) = e^{\\frac{l\\text{ln}2}{L-1}} - 1"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "從零預訓練時，指數型時間 curriculum",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "for pretraining from scratch, we found that an exponential curriculum"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "把每一層的輸出都接到同一顆 LM head",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we augment layer dropout with early exit loss at each layer"
+    },
+    {
+      "claim_id": "body-eq-3",
+      "claim_text": "J(X,Y,t) = \\sum_{l=0}^{l=L-1} \\tilde{e}(t,l)J_{\\text{CE}}(g(x_{l+1}),Y)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "J(X,Y,t) = \\sum_{l=0}^{l=L-1} \\tilde{e}(t,l)J_{\\text{CE}}(g(x_{l+1}),Y)"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "那會拖慢訓練並傷到最後一層準確度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "adding early exit loss of all layers at all iterations during training slows down training and reduces the accuracy of the last layer"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "而是全層共享同一顆 LM head",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we chose to have a shared LM head for all transformer layers in the model"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "只跑前 $E$ 層，直接把 $g(x_E)$ 當作模型輸出",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we run the first $E$ transformer layers in a model, and skip to the model's LM head"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "只存下第 $E-1$ 層的 query 向量",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "saves the query vector of exit layer $E-1$"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "在 TOPv2 語意剖析資料上以 LayerSkip 微調",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "finetune on TOPv2~\\citet{TOPv2}, a multi-domain task-oriented compositional semantic parsing dataset"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "Self Speculative | 6 | 82.9% | 76.0% | 18 | 2.0×",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "Self Speculative & 6 & 82.9\\% & 76.0\\% & 18 & \\textbf{2.0$\\times$}"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "最終 EM 回到 82.9%，而每 token 平均時間降到 18 ms，換算 2.0× 加速",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "$E=6$: 76.0\\%, $E=12$: 97.2\\%, $E=18$: 98.9\\%) reaching 2.0$\\times$ speedup"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "CNN/DM 明顯更快（1.81× vs. 1.5×）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we are significantly faster on CNN/DM (1.81$\\times$ vs. 1.5$\\times$) and slightly slower on XSUM (1.34$\\times$ vs. 1.48$\\times$)"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "既有模型平均要 23.45/32 層，完美預測器頂多省 26%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "even if we have a perfect predictor that has zero compute overhead, we can only save up to 26\\% of computation"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "ROUGE-2／EM 幾乎與自迴歸持平（例如 TOPv2 的 82.9% vs. 85.9%）",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "We show speedup of upto 1.82$\\times$ with no accuracy drop"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "把一個回歸轉述成「未來工作的動機」，讀來有淡化既有缺點之嫌",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "we notice a larger drop in last layer accuracy when continually pretraining with \\System, despite training on more tokens"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "使得 headline 數字有被最有利設定放大的空間",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "slightly slower on XSUM (1.34$\\times$ vs. 1.48$\\times$)"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "相較跳中間層的 Draft & Verify 是實質的機制差異，不只是換名詞",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "can reuse the activation and KV cache from the draft stage as both stages execute the same early layers in the same order"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "屬於「對願意付出訓練成本者成立」的加速方案",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.16710",
+      "retrieved_at": "2026-07-02T18:26:02+00:00",
+      "quoted_snippet": "The solution achieves speedups between 1.34$\\times$ and $2.16\\times$ depending on the task"
+    }
+  ]
+}
