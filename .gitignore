@@ -166,3 +166,6 @@ cython_debug/
 
 
 .vscode
+# VAR research note folder collides with the Python `var/` ignore on case-insensitive filesystems; keep it tracked.
+!/domains/computer_vision/VAR/
+!/domains/computer_vision/VAR/**
