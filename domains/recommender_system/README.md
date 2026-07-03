@@ -2,6 +2,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](https://arxiv.org/abs/2502.13581) | ICML | '25 | [✓](https://github.com/google-deepmind/action_piece) | [✓](./ActionPiece/) |
 | [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/abs/2209.00456) | CIKM |  ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/YuWang-1024/ContrastVAE) | [✅](./ContrastVAE/) |
 | [CBiT: Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/abs/2208.03895)| CIKM | ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/hw-du/CBiT/tree/master.) | [✓](./CBiT/) |
 | [DuoRec: Contrastive Learning for Representation Degeneration Problem in Sequential Recommendation](https://arxiv.org/pdf/2110.05730.pdf) | WSDM | ['22](https://www.wsdm-conference.org/2022/accepted-papers/) | [✓](https://github.com/RuihongQiu/DuoRec)  | [✓](./DuoRec/) |

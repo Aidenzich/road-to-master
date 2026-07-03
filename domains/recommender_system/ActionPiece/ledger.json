@@ -1,0 +1,297 @@
+{
+  "note_path": "domains/recommender_system/ActionPiece/README.md",
+  "domain": "recommender_system",
+  "topic": "ActionPiece",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-02T14:45:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "ActionPiece: Contextually Tokenizing Action Sequences for"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ICML",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\usepackage[accepted]{icml2025}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "icml2025"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Yupeng Hou, Jianmo Ni, Zhankui He, Noveen Sachdeva, Wang-Cheng Kang, Ed H. Chi, Julian McAuley, Derek Zhiyuan Cheng",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\icmlauthor{Yupeng Hou}{ucsd,intern}"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/google-deepmind/action_piece",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "https://github.com/google-deepmind/action_piece"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\bibliographystyle{icml2025}"
+    },
+    {
+      "claim_id": "fig-case",
+      "claim_text": "ActionPiece tokenization case study illustrating four token types and context-dependent segmentation",
+      "kind": "paper-claim",
+      "target": "figure:imgs/case.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2502.13581/assets/x1.png",
+      "retrieved_at": "2026-07-02T14:44:00+00:00",
+      "quoted_snippet": "Illustration of the tokenization process of ActionPiece"
+    },
+    {
+      "claim_id": "fig-weight",
+      "claim_text": "Illustration of weighted co-occurrence counting during vocabulary construction",
+      "kind": "paper-claim",
+      "target": "figure:imgs/weight.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2502.13581/assets/x2.png",
+      "retrieved_at": "2026-07-02T14:44:00+00:00",
+      "quoted_snippet": "Illustration of how weights of co-occurring token pairs are counted"
+    },
+    {
+      "claim_id": "fig-vocab",
+      "claim_text": "Recommendation performance (NDCG@10) and normalized sequence length (NSL) w.r.t. vocabulary size",
+      "kind": "paper-claim",
+      "target": "figure:imgs/vocab_size.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2502.13581/assets/x4.png",
+      "retrieved_at": "2026-07-02T14:44:00+00:00",
+      "quoted_snippet": "average tokenized sequence length (NSL"
+    },
+    {
+      "claim_id": "body-1-gr-vocab",
+      "claim_text": "不隨物品池大小成長",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "compact vocabulary that does not scale with the item pool size, improving model scalability, memory efficiency"
+    },
+    {
+      "claim_id": "body-2-independent",
+      "claim_text": "每個 action 都被獨立地 tokenize",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "existing GR models tokenize each action independently"
+    },
+    {
+      "claim_id": "body-3-unordered",
+      "claim_text": "無序集合(unordered set)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "the features associated with an action form an unordered set"
+    },
+    {
+      "claim_id": "body-4-formulation",
+      "claim_text": "換成它的特徵集合",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "each item $i_j$ is usually associated with a set of features"
+    },
+    {
+      "claim_id": "body-5-bottomup",
+      "claim_text": "bottom-up 精神",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "we construct the vocabulary using a bottom-up approach"
+    },
+    {
+      "claim_id": "body-6-cooccur",
+      "claim_text": "集合序列裡有兩種共現",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "There are two types of token co-occurrence within a sequence of sets"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "\\frac{2}{|\\mathcal{A}_i|}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\frac{2}{|\\mathcal{A}_i|}"
+    },
+    {
+      "claim_id": "body-eq-2",
+      "claim_text": "\\frac{1}{|\\mathcal{A}_i| \\times |\\mathcal{A}_{i+1}|}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\frac{1}{|\\mathcal{A}_i| \\times |\\mathcal{A}_{i + 1}|}"
+    },
+    {
+      "claim_id": "body-7-intermediate",
+      "claim_text": "中間節點(intermediate node)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "to handle tokens that combine features from multiple sets"
+    },
+    {
+      "claim_id": "body-8-complexity",
+      "claim_text": "$O(\\log Q \\log H \\cdot NLm^2)$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "reduce the original time complexity to"
+    },
+    {
+      "claim_id": "body-9-naive-bias",
+      "claim_text": "只有一部分 token 被頻繁使用",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "this strategy can lead to a bias, where only a subset of tokens"
+    },
+    {
+      "claim_id": "body-10-bpe-framing",
+      "claim_text": "本質上是「把 bpe 從一維 byte 序列搬到",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-table-comparison",
+      "claim_text": "set permutation regularization",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "greedy fixed-order merging"
+    },
+    {
+      "claim_id": "body-11-worked-features",
+      "claim_text": "opq 量化出的 4 個 code",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "quantize the sentence embeddings into $4$ codes"
+    },
+    {
+      "claim_id": "body-12-weight-arith",
+      "claim_text": "$P=\\tfrac{2}{|\\mathcal{A}|}=\\tfrac{2}{5}=0.4$",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-13-tenx",
+      "claim_text": "權重是跨物品配對的 **10 倍**",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-14-beauty-result",
+      "claim_text": "actionpiece 為 0.0424",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "\\textbf{0.0424}\\textsubscript{ $\\pm$ 0.0011} & +6.00\\%"
+    },
+    {
+      "claim_id": "crit-1-scope",
+      "claim_text": "只是 future work 的宣稱,沒有任何實驗支撐",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "including audio modeling, sequential decision-making, and time series forecasting"
+    },
+    {
+      "claim_id": "crit-2-rigor",
+      "claim_text": "跑五個隨機種子並回報標準差",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "We run the experiments with five random seeds and report the average metrics."
+    },
+    {
+      "claim_id": "crit-3-fairness",
+      "claim_text": "把「單次推論的 baseline」與「5 次集成的本方法」直接並列",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-4-spr-driver",
+      "claim_text": "token 利用率從 56.89% 升到第一個 epoch 的 87.01%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "56.89"
+    },
+    {
+      "claim_id": "crit-5-improv-inconsistency",
+      "claim_text": "p5-cid(0.0287)其實高於被標為次佳(underline)的 spm-sid(0.0280)",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "0.0287"
+    },
+    {
+      "claim_id": "crit-6-opq-rq-confound",
+      "claim_text": "ActionPiece 用 OPQ 量化出 4 code(+1 識別 code),TIGER/SPM-SID 用 RQ 的 3 code(+1 識別 code)",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2502.13581",
+      "retrieved_at": "2026-07-02T14:42:06+00:00",
+      "quoted_snippet": "we quantize the sentence embeddings into $4$ codes for all other methods to ensure a fair comparison"
+    }
+  ]
+}
