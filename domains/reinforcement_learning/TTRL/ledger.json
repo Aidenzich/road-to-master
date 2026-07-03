@@ -1,0 +1,216 @@
+{
+  "note_path": "domains/reinforcement_learning/TTRL/README.md",
+  "domain": "reinforcement_learning",
+  "topic": "TTRL",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:30:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "TTRL: Test-Time Reinforcement Learning",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "TTRL: Test-Time Reinforcement Learning"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "arXiv preprint",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:20:00+00:00",
+      "quoted_snippet": "Journal reference / conference venue: none listed (arXiv preprint)."
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:20:00+00:00",
+      "quoted_snippet": "Submitted (v1): Tue, 22 Apr 2025 17:59:56 UTC"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Yuxin Zuo, Kaiyan Zhang, Li Sheng, Shang Qu, Ganqu Cui",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "Yuxin Zuo"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/PRIME-RL/TTRL",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "https://github.com/PRIME-RL/TTRL"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:20:00+00:00",
+      "quoted_snippet": "arXiv preprint"
+    },
+    {
+      "claim_id": "body-setting",
+      "claim_text": "在推論當下如何在拿不到 ground-truth 的情況下估計 reward",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "The core challenge of the problem is reward estimation during inference while not having access to ground-truth information."
+    },
+    {
+      "claim_id": "body-mv-reward",
+      "claim_text": "majority voting，本身就能產生「夠好」的 reward 來驅動 RL 訓練",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "majority voting, yield surprisingly effective rewards suitable for driving RL training"
+    },
+    {
+      "claim_id": "body-objective",
+      "claim_text": "優化目標就是最大化期望 reward",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "A consensus output $y^*$ is derived, for instance, by majority voting"
+    },
+    {
+      "claim_id": "body-reward-fn",
+      "claim_text": "先用 majority voting 從 $N$ 個抽取出的答案",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "The majority-voted prediction"
+    },
+    {
+      "claim_id": "body-code",
+      "claim_text": "def majority_voting_reward_fn",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "def majority_voting_reward_fn(outputs):"
+    },
+    {
+      "claim_id": "body-impl",
+      "claim_text": "All experiments were conducted on 8 * NVIDIA A100 80GB GPUs",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "All experiments were conducted on 8 * NVIDIA A100 80GB GPUs."
+    },
+    {
+      "claim_id": "body-main-results",
+      "claim_text": "AIME 2024 相對進步約 $211.6\\%$、平均進步約 $76.5\\%$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "$\\uparrow211.6\\%$"
+    },
+    {
+      "claim_id": "body-main-table",
+      "claim_text": "Qwen2.5-Math-7B w/ TTRL",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "$40.2$ & $68.1$ & $83.4$"
+    },
+    {
+      "claim_id": "body-lucky-hit",
+      "claim_text": "reward accuracy 卻高達 $92\\%$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "the reward accuracy reaches an impressive $92\\%$"
+    },
+    {
+      "claim_id": "body-upper-bound",
+      "claim_text": "improved by $123.2\\%$ 到 $73.0$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "starting from a subpar performance of $32.7$ on MATH-500"
+    },
+    {
+      "claim_id": "body-failure",
+      "claim_text": "prior knowledge is insufficient to handle the complexity of the data",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "prior knowledge of the backbone is insufficient to support learning on more challenging questions"
+    },
+    {
+      "claim_id": "body-difficulty-table",
+      "claim_text": "w/ TTRL Accuracy",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "$71.2$       & $76.2$"
+    },
+    {
+      "claim_id": "crit-problem-realness",
+      "claim_text": "用無標籤資料做 RL」確實是實務痛點",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "o3 solves only $4\\%$ of problems on the recently released ARC-AGI-2 benchmark"
+    },
+    {
+      "claim_id": "crit-novelty",
+      "claim_text": "把它包裝成「test-time」其實有點名詞放大",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-baseline",
+      "claim_text": "它「在 benchmark 的題目上訓練、又在同一批題目上評測」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2504.16084",
+      "retrieved_at": "2026-07-03T00:09:44+00:00",
+      "quoted_snippet": "We apply \\method to each benchmark individually and then evaluate."
+    },
+    {
+      "claim_id": "crit-upper-bound",
+      "claim_text": "而「為何能超越」目前只有 Lucky Hit 這類經驗性論證",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-real-world",
+      "claim_text": "把它讀成「LLM 可無上限自我進化」則是明顯過度外推",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}

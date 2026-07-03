@@ -1,0 +1,216 @@
+{
+  "note_path": "domains/natural_language_processing/Illusion-of-Thinking/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Illusion-of-Thinking",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "The Illusion of Thinking: \\\\ Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2025",
+      "kind": "reasonable-inference",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "2506.06941"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Parshin Shojaee, Iman Mirzadeh, Keivan Alizadeh, Maxwell Horton, Samy Bengio, Mehrdad Farajtabar (Apple)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "Parshin Shojaee"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "\\documentclass[11pt]{article}"
+    },
+    {
+      "claim_id": "body-1-lrm-def",
+      "claim_text": "在給出答案前，會先產生一長串「思考」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "Large Reasoning Models (LRMs) that generate detailed thinking processes before providing answers"
+    },
+    {
+      "claim_id": "body-2-contamination",
+      "claim_text": "數學與程式基準有資料污染（data contamination）問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "this evaluation paradigm often suffers from data contamination and does not provide insights into the reasoning traces' structure and quality"
+    },
+    {
+      "claim_id": "body-3-puzzle-tool",
+      "claim_text": "可控謎題環境",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "controllable puzzle environments that allow precise manipulation of compositional complexity while maintaining consistent logical structures"
+    },
+    {
+      "claim_id": "body-4-hanoi-desc",
+      "claim_text": "三根柱、$N$ 個大小不同的圓盤",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "is a puzzle featuring three pegs and $n$ disks of different sizes stacked on the first peg in size order"
+    },
+    {
+      "claim_id": "body-eq1-hanoi",
+      "claim_text": "2^{N} - 1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "the minimum number of required moves with $n$ initial disks will be $2^n-1$"
+    },
+    {
+      "claim_id": "body-5-checker-formula",
+      "claim_text": "$(N+1)^2 - 1$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "with $2n$ checkers, the minimum number of moves required will be $(n+1)^2-1$"
+    },
+    {
+      "claim_id": "body-6-setup",
+      "claim_text": "每個謎題／每個複雜度層級跑 25 個樣本",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "For each puzzle instance and complexity level, we analyze 25 samples per model"
+    },
+    {
+      "claim_id": "body-table1-regimes",
+      "claim_text": "標準 LLM 準確率相當甚至更好，且 token 更省",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "non-thinking models are capable of obtaining performance comparable to, or even better than thinking models with"
+    },
+    {
+      "claim_id": "body-7-collapse",
+      "claim_text": "塌陷到近乎零",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "accuracy progressively declines as problem complexity increases until reaching collapse (near-zero accuracy) beyond a model-specific complexity threshold"
+    },
+    {
+      "claim_id": "body-8-token-drop",
+      "claim_text": "即使它離 64k 的生成上限還很遠",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "begin to reduce their reasoning effort despite increasing problem complexity"
+    },
+    {
+      "claim_id": "body-9-inside-thoughts",
+      "claim_text": "記錄它在軌跡中的相對位置",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "its relative position within the reasoning trace"
+    },
+    {
+      "claim_id": "body-10-nonmonotonic",
+      "claim_text": "卻在過河 $N=3$（僅 11 步的解）第 4 步就錯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "it fails to solve the River Crossing puzzle when (N=3), which has a solution of 11 moves"
+    },
+    {
+      "claim_id": "body-11-worked-intro",
+      "claim_text": "一組合法解正好是 $2^3-1=7$ 步",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "With 3 disks numbered 1 (smallest), 2, and 3 (largest), the initial state is [[3, 2, 1], [], []], and a solution might be"
+    },
+    {
+      "claim_id": "body-code1-moves",
+      "claim_text": "moves = [[1, 0, 2], [2, 0, 1], [1, 2, 1], [3, 0, 2]",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "moves = [[1, 0, 2], [2, 0, 1], [1, 2, 1], [3, 0, 2], [1, 1, 0], [2, 1, 2], [1, 0, 2]]"
+    },
+    {
+      "claim_id": "body-12-worked-model",
+      "claim_text": "觀察同一個 Claude 3.7 Sonnet Thinking",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "we focus on the reasoning traces generated by"
+    },
+    {
+      "claim_id": "body-13-first-failure",
+      "claim_text": "第一個錯誤大約落在第 40 步（約全解的 15%）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "for N=8, which requires 255 moves, failure occurs around $\\sim$40 moves (15\\% of solution length)"
+    },
+    {
+      "claim_id": "body-14-sampling",
+      "claim_text": "開取樣反而在 $N=8$ 保住 18.2% 準確率、把崩潰延到 $N=9$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2506.06941",
+      "retrieved_at": "2026-07-02T23:45:34Z",
+      "quoted_snippet": "in Tower of Hanoi, the R1 model with temperature 0 collapses at N=8, whereas with sampling enabled, it maintains 18.2\\% accuracy at N=8 and delays collapse until N=9"
+    },
+    {
+      "claim_id": "critical-1-metric-doubt",
+      "claim_text": "準確率的「崩潰」有一部分是這個 0/1 指標放大出來的",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-2-benchmark-inference",
+      "claim_text": "評測結論（會崩潰）恰好落在這套自定義量尺的極端區",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "note_path": "domains/vision_language/LLaVA-Med/README.md",
+  "domain": "vision_language",
+  "topic": "LLaVA-Med",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T03:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "Training a Large Language-and-Vision Assistant for Biomedicine in One Day"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "NeurIPS 2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://dblp.org/rec/conf/nips/LiWZULYNPG23",
+      "retrieved_at": "2026-07-03T02:55:00Z",
+      "quoted_snippet": "Neural Information Processing Systems 2023, NeurIPS 2023"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://dblp.org/rec/conf/nips/LiWZULYNPG23",
+      "retrieved_at": "2026-07-03T02:55:00Z",
+      "quoted_snippet": "year         = {2023}"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Chunyuan Li, Cliff Wong, Sheng Zhang, Naoto Usuyama, Haotian Liu, Jianwei Yang, Tristan Naumann, Hoifung Poon, Jianfeng Gao",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "Naoto Usuyama, Haotian Liu, Jianwei Yang"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/microsoft/LLaVA-Med",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/microsoft/LLaVA-Med",
+      "retrieved_at": "2026-07-03T02:55:00Z",
+      "quoted_snippet": "https://aka.ms/llava-med"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://dblp.org/rec/conf/nips/LiWZULYNPG23",
+      "retrieved_at": "2026-07-03T02:55:00Z",
+      "quoted_snippet": "inproceedings"
+    },
+    {
+      "claim_id": "fig-training-pipeline",
+      "claim_text": "LLaVA-Med 兩階段課程學習訓練流程示意",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/training_pipeline.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2306.00890/assets/x4.png",
+      "retrieved_at": "2026-07-03T02:52:00Z",
+      "quoted_snippet": "continuously trained in a curriculum learning fashion"
+    },
+    {
+      "claim_id": "body-1-layperson",
+      "claim_text": "面對生物醫學影像時往往表現得像門外漢",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "general-domain visual assistants may behave like a layperson"
+    },
+    {
+      "claim_id": "body-2-datagen",
+      "claim_text": "用 language-only GPT-4 只根據文字",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "uses GPT-4 to generate diverse biomedical multimodal instruction-following data"
+    },
+    {
+      "claim_id": "body-3-alignment-data",
+      "claim_text": "以 30 詞為分界",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "We sample 600K image-text pairs from PMC-15M"
+    },
+    {
+      "claim_id": "body-4-instruct-data",
+      "claim_text": "這五種最常見模態取樣 60K 組",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "we sample 60K image-text pairs from the five most common imaging modalities"
+    },
+    {
+      "claim_id": "body-5-format",
+      "claim_text": "每一筆對齊樣本被組織成單輪的指令跟隨格式",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "we create a single-round instruction-following example"
+    },
+    {
+      "claim_id": "body-code-template",
+      "claim_text": "Assistant : X_c",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "single-round instruction-following example"
+    },
+    {
+      "claim_id": "body-6-two-stage",
+      "claim_text": "同時凍結視覺編碼器與語言模型，只更新投影矩陣",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "only update the projection matrix"
+    },
+    {
+      "claim_id": "body-7-cost",
+      "claim_text": "Stage 1 與 Stage 2 分別約 7 與 8 小時、合計不到 15 小時",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "it takes 7 and 8 hours for stage 1 and 2 on 8 40G A100 GPUs"
+    },
+    {
+      "claim_id": "body-table-runtime",
+      "claim_text": "6.8 | 19.4 | 0.6 | 1.8 | 2.6 | 8.0",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "60K & 2.6 & 8.0"
+    },
+    {
+      "claim_id": "body-8-chat-eval",
+      "claim_text": "作者構建 193 題全新問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "we construct an evaluation dataset with 193 novel questions"
+    },
+    {
+      "claim_id": "body-table-chat",
+      "claim_text": "55.1 | 36.4 | 50.2",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "55.1 & 36.4 & 56.2 & 40.4 & 52.7 & 51.8 & 50.1 & 50.2"
+    },
+    {
+      "claim_id": "body-9-worked-example",
+      "claim_text": "只做 Stage 1 反而掉到 23.3",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "with Stage-1 training alone is insufficient as a chatbot"
+    },
+    {
+      "claim_id": "body-10-benchmarks",
+      "claim_text": "封閉式問題報 accuracy、開放式問題報 recall",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "For the closed-set questions, we report the accuracy"
+    },
+    {
+      "claim_id": "body-table-vqa",
+      "claim_text": "84.19 | 85.34 | 91.21",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "83.08 & 85.34"
+    },
+    {
+      "claim_id": "body-11-sota",
+      "claim_text": "刷新了 supervised SoTA",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "is higher than supervised SoTA on the closed-set questions on VQA-RAD and PathVQA"
+    },
+    {
+      "claim_id": "body-12-openset-caveat",
+      "claim_text": "LLaVA-Med 只在 SLAKE 上取得 SoTA",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2306.00890",
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "achieves SoTA on SLAKE, while its performance is limited on other datasets"
+    },
+    {
+      "claim_id": "ca-1-problem-realness",
+      "claim_text": "這在臨床脈絡下不只是品質瑕疵，而是安全風險",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "limited by hallucinations and weak in-depth reasoning"
+    },
+    {
+      "claim_id": "ca-2-metric-circularity",
+      "claim_text": "存在循環評估（circular evaluation）的偏誤風險",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "We leverage GPT-4 to quantify the correctness of the model answer"
+    },
+    {
+      "claim_id": "ca-3-repackaging",
+      "claim_text": "真正的新意集中在「圖說→指令」的資料生成配方與兩階段課程",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "initialize the language model from Vicuna"
+    },
+    {
+      "claim_id": "ca-4-openset-unsolved",
+      "claim_text": "更貼近真實臨床提問的開放式問題，LLaVA-Med 反而多半落後既有方法",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T18:50:52Z",
+      "quoted_snippet": "its performance is limited on other datasets, especially compared with existing methods"
+    }
+  ]
+}
