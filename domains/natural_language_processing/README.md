@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Prompt Language (English vs Chinese) and LLM Coding Accuracy — a survey](https://github.com/Aidenzich/road-to-master/issues/89) | survey | '26 | - | [✓](./PromptLanguageCodingAccuracy/) |
 | [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941) | - | '25 | - | [✓](./Illusion-of-Thinking/) |
 | [Is Temperature the Creativity Parameter of Large Language Models?](https://arxiv.org/abs/2405.00492) | ICCC | '24 | [✓](https://github.com/maxpeeperkorn/creativity-parameter) | [✓](./TemperatureCreativity/) |
 | [SELF-REFINE: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651) | NeurIPS | '23 | [✓](https://selfrefine.info/) | [✓](./SelfRefine/) |
