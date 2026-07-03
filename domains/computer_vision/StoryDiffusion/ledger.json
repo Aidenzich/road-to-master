@@ -1,0 +1,389 @@
+{
+  "note_path": "domains/computer_vision/StoryDiffusion/README.md",
+  "domain": "computer_vision",
+  "topic": "StoryDiffusion",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "StoryDiffusion: Consistent Self-Attention for Long-Range Image and Video Generation",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "Consistent Self-Attention for Long-Range Image and Video Generation"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "NeurIPS",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://neurips.cc/virtual/2024/poster/94916",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "NeurIPS Poster StoryDiffusion: Consistent Self-Attention for Long-Range Image and Video Generation"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://neurips.cc/virtual/2024/poster/94916",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "NeurIPS Poster"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Yupeng Zhou, Daquan Zhou, Ming-Ming Cheng, Jiashi Feng, Qibin Hou",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "Ming-Ming Cheng"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/HVision-NKU/StoryDiffusion",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/HVision-NKU/StoryDiffusion",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "HVision-NKU/StoryDiffusion"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://openreview.net/forum?id=VFqzxhINFU",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "StoryDiffusion: Consistent Self-Attention for Long-Range Image and Video Generation"
+    },
+    {
+      "claim_id": "fig-csa",
+      "claim_text": "第一階段 pipeline：把 Consistent Self-Attention 插入預訓練 T2I 擴散模型，對 batch 內多張圖建立連結",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pipeline_csa.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.01434/assets/x2.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "builds connections among multiple images in a batch for subject consistency"
+    },
+    {
+      "claim_id": "fig-ablation",
+      "claim_text": "消融實驗：不同取樣率對一致性的影響；引入外部 ID 控制",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/ablation.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.01434/assets/x6.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Evaluations of the impact of different sampling rates"
+    },
+    {
+      "claim_id": "fig-smp",
+      "claim_text": "第二階段 pipeline：把條件圖編碼進語意空間預測過場 embedding，再由影片擴散模型解碼",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pipeline_smp.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.01434/assets/x3.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "encode the conditional images into the image semantic space"
+    },
+
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "整體方法分為這兩個階段，第一階段以 Consistent Self-Attention 生成主體一致的圖像",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "Our method can be divided into two stages"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "注意力權重是「輸入相依」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "self-attention is one of the most important modules"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "因為引導太強，會反過來壓縮文字 prompt 對生成內容的可控性",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "the controllability over the generated content of the text prompts is reduced"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "定義注意力函數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "a function $\\operatorname{Attention} ( X_k, X_q, X_v )$ to calculate self-attention"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\operatorname{Attention}\\left(Q_i, K_i, V_i\\right)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "O_i = \\operatorname{Attention}\\left (Q_i,K_i,V_i\\right )"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "隨機抽樣一批 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "samples some tokens $S_i$ from other image features in the batch"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "\\operatorname{RandSample}\\left(I_1, I_2, ..., I_{i-1}, I_{i+1}, ..., I_{B-1}, I_{B}\\right)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "S_i = \\operatorname{RandSample}\\left (I_1, I_2, .., I_{i-1}, I_{i+1}, ..., I_{B-1}, I_{B}\\right )"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "拼成一組新的 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "we pair the sampled tokens"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "\\operatorname{Attention}\\left(Q_i, K_{Pi}, V_{Pi}\\right)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "O_i = \\operatorname{Attention}\\left (Q_i, K_{Pi}, V_{Pi}\\right )"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "沒有新增任何參數，所以整套操作免訓練",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "no extra training is required"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "讓峰值記憶體不再隨故事文字長度線性成長",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "removes the peak memory consumption's dependency on the input text length"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "def ConsistentSelfAttention(images_features, sampling_rate, tile_size)",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "def ConsistentSelfAttention(images_features, sampling_rate, tile_size)"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "在實作上等價於一張隨機的注意力遮罩",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://raw.githubusercontent.com/HVision-NKU/StoryDiffusion/main/utils/gradio_utils.py",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "bool_matrix1024 = torch.rand((1, total_length * 1024),device = device,dtype = dtype) < sa32"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "官方程式碼裡對應 `id_length=4`",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://raw.githubusercontent.com/HVision-NKU/StoryDiffusion/main/app.py",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "self.total_length = id_length + 1"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "把 5 格攤平成",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "token_KV = concat([sampled_tokens, tile_features], dim=1)"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "實務上預設把取樣率設為 0.5",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "we set the sampling rate to 0.5 by default"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "先用一個編碼器",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "we utilize a pre-trained CLIP image encoder as $E$"
+    },
+    {
+      "claim_id": "body-equation-4",
+      "claim_text": "K_s, K_e = E\\left(F_s, F_e\\right)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "K_s,K_e = E\\left ( F_s, F_e  \\right )"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "展開成長度為 $L$ 的序列",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "linear interpolation to expand the two frames"
+    },
+    {
+      "claim_id": "body-equation-5",
+      "claim_text": "P_1, P_2, ..., P_l = B\\left(K_1, K_2, ..., K_L\\right)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "P_1,P_2,...,P_l = B\\left ( K_1, K_2,..., K_L  \\right )"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "以影片擴散模型當解碼器",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "the video diffusion model as the decoder"
+    },
+    {
+      "claim_id": "body-equation-6",
+      "claim_text": "\\mathrm{CrossAttention}\\left(V_i, \\operatorname{concat}(T, P_i)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-6",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "V_i = \\mathrm{CrossAttention}\\left( V_i, \\operatorname{concat}(T,P_i),\\operatorname{concat}(T,P_i) \\right )"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "8 層 transformer、hidden 維度 1024、12 個注意力頭",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "8 transformer layers, with a hidden dimension of 1024 and 12 attention heads"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "50 步 DDIM 取樣、classifier-free guidance 5.0",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "50-step DDIM sampling, and the classifier-free guidance score is consistently set to 5.0"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "0.6586",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "0.6129 & 0.6541 & \\textbf{0.6586}"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "0.3794",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "\\textbf{0.3794} & \\textbf{0.1635} & \\textbf{0.9606} & \\textbf{0.9870}"
+    },
+    {
+      "claim_id": "body-prose-18",
+      "claim_text": "使用者偏好 StoryDiffusion 的比例為 72.8%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "10.4 \\% & 16.8 \\% & \\textbf{72.8 \\%}"
+    },
+
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "跨圖角色一致",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "the controllability over the generated content of the text prompts is reduced"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "都是用 CLIP 分數算的",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "character similarity, which measures the CLIP Scores of the character images"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "沒有 0.4、0.6、0.7 的曲線",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "a sampling rate of 0.3 could not maintain subject consistency"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "跨圖/跨幀共享 KV",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "The sampled tokens share the same set of"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "缺少第三方可複現的固定基準",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "we use GPT-4 to generate twenty character prompts and one hundred activity prompts"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "sliding window 只是權宜",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.01434",
+      "retrieved_at": "2026-07-02T23:14:39+00:00",
+      "quoted_snippet": "our method is not designed specifically for long video generation"
+    }
+  ]
+}
