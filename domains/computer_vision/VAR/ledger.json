@@ -1,0 +1,360 @@
+{
+  "note_path": "domains/computer_vision/VAR/README.md",
+  "domain": "computer_vision",
+  "topic": "VAR",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T09:40:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Scalable Image Generation via Next-Scale Prediction",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "Scalable Image Generation via Next-Scale Prediction"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "NeurIPS 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/9a24e284b187f662681440ba15c416fb-Abstract-Conference.html",
+      "retrieved_at": "2026-07-03T09:30:00+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T09:30:00+00:00",
+      "quoted_snippet": "2024-04-03T17:59:53Z"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Keyu Tian",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "Keyu Tian"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "github.com/FoundationVision/VAR",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/FoundationVision/VAR",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "https://github.com/FoundationVision/VAR"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-ar-vs-var",
+      "claim_text": "standard AR vs VAR coarse-to-fine multi-scale figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/ar-vs-var.png",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "multi-scale token maps are autoregressively generated from coarse to fine scales"
+    },
+    {
+      "claim_id": "fig-two-stage",
+      "claim_text": "VAR two-stage training figure: multi-scale VQVAE then transformer",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/two-stage-training.png",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "VAR involves two separated training stages"
+    },
+    {
+      "claim_id": "fig-scaling-laws",
+      "claim_text": "power-law scaling of test loss vs parameter count",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/scaling-laws.png",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "power-law fits (dashed) and equations (in legend)"
+    },
+    {
+      "claim_id": "fig-fid-vs-speed",
+      "claim_text": "FID vs inference time across model families, VAR on the Pareto front",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fid-vs-speed.png",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "of different model families on ImageNet"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "依序預測序列中的下一個",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "predicting the next token"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "數學前提被違反",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "Mathematical premise violation"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "自回歸的單元不再是單一",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "Here, the autoregressive unit is"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "p(x_1, x_2, \\dots, x_T) = \\prod_{t=1}^{T}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "p(x_1, x_2, \\dots, x_T) = \\prod_{t=1}^{T} p(x_t \\mid x_1, x_2, \\dots, x_{t-1})"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "逐級變大的多尺度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "multi-scale token maps"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "p(r_1, r_2, \\dots, r_K) = \\prod_{k=1}^{K}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "p(r_1, r_2, \\dots, r_K) = \\prod_{k=1}^{K} p(r_k \\mid r_1, r_2, \\dots, r_{k-1})"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "前面所有尺度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "is the token map at scale"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "確保每個",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "a block-wise causal attention mask is used to ensure that each"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "shared codebook for all scales with $V=4096$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "We use a shared codebook for all scales with $V=4096$"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "Multi-scale VQVAE Encoding",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "r_k = \\mathcal{Q}(\\text{interpolate}(f, h_k, w_k))"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "residual-style design",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "can perform better than independent interpolation"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "複雜度層級的下降",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "significantly reduced to $\\mathcal{O}(n^4)$"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "decoder-only",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "rotary position embedding (RoPE), SwiGLU MLP, or RMS Norm"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "18\\,dw^2 = 73728\\,d^3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "18\\,dw^2 = 73728\\,d^3"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "訓練用 adamw",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "a base learning rate of $10^{-4}$ per 256 batch size"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "spatial downsample ratio of",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "a spatial downsample ratio of $16\\times$"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "18.65 vs. 5.22",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "AR to VAR"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "各家生成模型家族的對照",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "ImageNet 256$\\times$256 benchmark"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "dit-xl/2 | 2.27 | 278.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "VAR-$d30$-re"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "350 training epochs compared to dit-xl/2",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "requires only 350 training epochs compared to DiT-XL/2's 1400"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "ar to var | var-$d16$ | 5.22",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "$-$13.43"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "從 18m 到 2b 的模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "We trained models across 12 different sizes, from 18M to 2B parameters"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "勝過擴散 transformer",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "makes GPT-style AR models surpass diffusion transformers"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "18.65→5.22",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "AR to VAR"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "步數 250→10",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "significantly reduced to $\\mathcal{O}(n^4)$"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "12 個點",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "The Pearson correlation coefficients near $-0.998$"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "zero-shot 結果目前主要以視覺樣本呈現",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "zero-shot generalization ability in downstream tasks including image in-painting"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "var 的高 is",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.02905",
+      "retrieved_at": "2026-07-03T00:39:00+00:00",
+      "quoted_snippet": "inception score (IS) from 80.4 to 350.2"
+    },
+    {
+      "claim_id": "critical-prose-7",
+      "claim_text": "同條件複現的結論",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-7",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
