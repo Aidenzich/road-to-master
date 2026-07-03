@@ -1,0 +1,234 @@
+{
+  "note_path": "domains/natural_language_processing/LetMeSpeakFreely/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LetMeSpeakFreely",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "t1",
+      "claim_text": "A Study on the Impact of",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "A Study on the Impact of"
+    },
+    {
+      "claim_id": "y1",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "a1",
+      "claim_text": "Zhi Rui Tam",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Zhi Rui Tam"
+    },
+    {
+      "claim_id": "oc1",
+      "claim_text": "https://github.com/appier-research/structure-gen",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "https://github.com/appier-research/structure-gen"
+    },
+    {
+      "claim_id": "vk1",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Appier AI Research"
+    },
+    {
+      "claim_id": "fig1",
+      "claim_text": "reasoning task performance across restriction levels",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/reasoning_restriction.png",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "JSON-mode performs the worse in most case followed by FRI"
+    },
+    {
+      "claim_id": "fig2",
+      "claim_text": "GSM8K showcase answered correctly in NL but failed under format restriction",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cover_showcase.png",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "answered correctly, but failed when format restrictions were applied"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "structured generation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Structured generation, the process of producing content in standardized formats like JSON and XML"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "first systematic investigation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "this is the first systematic investigation into the relationship between format-restricting instructions"
+    },
+    {
+      "claim_id": "bt1",
+      "claim_text": "Constrained Decoding (JSON-mode)",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Constrained Decoding (JSON-mode)"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "enforcing predefined token space during the generation process",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "enforcing predefined token space during the generation process"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "Shuffled Objects",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "stricter format constraints generally lead to greater performance degradation in reasoning tasks"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "demonstrates a significant performance boost when JSON-mode is enabled",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "demonstrates a significant performance boost when JSON-mode is enabled"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "460",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "The final answer is 460"
+    },
+    {
+      "claim_id": "bc1",
+      "claim_text": "490",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Add both amounts to find the total earnings for the week."
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "100\\% of GPT 3.5 Turbo JSON-mode responses placed the \"answer\" key before the \"reason\" key",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "100\\% of GPT 3.5 Turbo JSON-mode responses placed the \"answer\" key before the \"reason\" key"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "GSM8K",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "we evaluate our approach by nine prompt combinations"
+    },
+    {
+      "claim_id": "bt2",
+      "claim_text": "23.44",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "23.44 &  79.76"
+    },
+    {
+      "claim_id": "be1",
+      "claim_text": "\\Delta_{\\text{fmt}} = \\text{Acc}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "adding schema not only increase the sensitivity to prompt but also degrade in average performance",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "adding schema not only increase the sensitivity to prompt but also degrade in average performance"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "the parsing error rate for the Last Letter task in JSON format is only 0.148\\%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "the parsing error rate for the Last Letter task in JSON format is only 0.148\\%, yet there exists a substantial 38.15\\% performance gap"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "In 2 out of 3 reasoning datasets",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "still performs slightly better than JSON-Schema"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "0.86",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "has the highest aggreement with"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "56%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "performance variations of up to 56\\%"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "LLaMA-70B",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2408.02442",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "unable to include results from more powerful language models such as LLaMA 70B"
+    }
+  ]
+}
