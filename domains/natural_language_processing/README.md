@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Is Temperature the Creativity Parameter of Large Language Models?](https://arxiv.org/abs/2405.00492) | ICCC | '24 | [✓](https://github.com/maxpeeperkorn/creativity-parameter) | [✓](./TemperatureCreativity/) |
 | [SELF-REFINE: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651) | NeurIPS | '23 | [✓](https://selfrefine.info/) | [✓](./SelfRefine/) |
 | [Perplexed by Perplexity: Perplexity-Based Data Pruning With Small Reference Models](https://arxiv.org/abs/2405.20541) | - | '24 | - | [✓](./PerplexityDataPruning/) |
 | [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366) | NeurIPS | '23 | [✓](https://github.com/noahshinn024/reflexion) | [✓](./Reflexion/) |
