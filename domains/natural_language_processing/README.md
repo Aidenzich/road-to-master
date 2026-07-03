@@ -37,5 +37,6 @@
 | [LaMDA: Language Models for Dialog Applications](https://arxiv.org/pdf/2201.08239.pdf) | - | '22 | - | - |
 | [SimCSE: Simple Contrastive Learning of Sentence Embeddings](https://arxiv.org/abs/2104.08821) | EMNLP | '21 | [✓](https://github.com/princeton-nlp/SimCSE) | [✓](./SimCSE/) |
 | [OPTIMUS: Organizing Sentences via Pre-trained Modeling of a Latent Space](https://arxiv.org/abs/2004.04092) | EMNLP | '20 | - | - |
+| [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) | - | '20 | - | [✓](./ScalingLaws/) |
 | [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://aclanthology.org/N19-1423/) | NAACL | '19 | - | - |
 | [Attention is all you need](https://arxiv.org/abs/1706.03762) | NIPS | '17 | [✓](https://nlp.seas.harvard.edu/2018/04/03/attention.html) | [✓](./AttentionIsAllYouNeed/) |
