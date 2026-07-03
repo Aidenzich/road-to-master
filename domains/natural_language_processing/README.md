@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941) | - | '25 | - | [✓](./Illusion-of-Thinking/) |
 | [Is Temperature the Creativity Parameter of Large Language Models?](https://arxiv.org/abs/2405.00492) | ICCC | '24 | [✓](https://github.com/maxpeeperkorn/creativity-parameter) | [✓](./TemperatureCreativity/) |
 | [SELF-REFINE: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651) | NeurIPS | '23 | [✓](https://selfrefine.info/) | [✓](./SelfRefine/) |
 | [Perplexed by Perplexity: Perplexity-Based Data Pruning With Small Reference Models](https://arxiv.org/abs/2405.20541) | - | '24 | - | [✓](./PerplexityDataPruning/) |
