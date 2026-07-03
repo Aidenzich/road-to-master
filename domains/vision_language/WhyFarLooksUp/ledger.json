@@ -3,361 +3,547 @@
   "domain": "vision_language",
   "topic": "WhyFarLooksUp",
   "no_untrusted_code_executed": true,
-  "generated_at": "2026-07-02T14:30:00+00:00",
+  "generated_at": "2026-07-03T07:30:00+00:00",
   "entries": [
     {
-      "claim_id": "ac-title",
+      "claim_id": "cell-title",
       "claim_text": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
       "kind": "evidence-supported",
       "target": "table-cell:title",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
       "quoted_snippet": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models"
     },
     {
-      "claim_id": "ac-venue",
+      "claim_id": "cell-venue",
       "claim_text": "ECCV 2026",
       "kind": "paper-claim",
       "target": "table-cell:venue",
-      "source_url": "https://github.com/cheolhong0916/contrastive-probing",
-      "retrieved_at": "2026-07-02T14:18:00+00:00",
-      "quoted_snippet": "year=2026,ID=10791"
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "year=2026"
     },
     {
-      "claim_id": "ac-year",
+      "claim_id": "cell-year",
       "claim_text": "2026",
       "kind": "evidence-supported",
       "target": "table-cell:year",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "year=2026,ID=10791"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "year=2026"
     },
     {
-      "claim_id": "ac-authors",
+      "claim_id": "cell-authors",
       "claim_text": "Cheolhong Min, Jaeyun Jung, Daeun Lee, Hyeonseong Jeon, Yu Su, Jonathan Tremblay, Chan Hee Song, Jaesik Park",
       "kind": "evidence-supported",
       "target": "table-cell:authors",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
       "quoted_snippet": "Cheolhong Min"
     },
     {
-      "claim_id": "ac-code",
+      "claim_id": "cell-code",
       "claim_text": "https://github.com/cheolhong0916/contrastive-probing",
       "kind": "paper-claim",
       "target": "table-cell:official-code",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "https://cheolhong0916.github.io/whyfarlooksup.github.io/"
+      "source_url": "https://github.com/cheolhong0916/contrastive-probing",
+      "retrieved_at": "2026-07-03T07:03:00+00:00",
+      "quoted_snippet": ""
     },
     {
-      "claim_id": "ac-venuekind",
+      "claim_id": "cell-vkind",
       "claim_text": "paper",
       "kind": "evidence-supported",
       "target": "table-cell:venue-kind",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "\\usepackage{eccv}"
-    },
-
-    {
-      "claim_id": "fig-teaser",
-      "claim_text": "Many VLMs answer spatial questions via a perspective-driven shortcut; higher-in-image is read as farther.",
-      "kind": "paper-claim",
-      "target": "figure:imgs/teaser.png",
-      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x1.png",
-      "retrieved_at": "2026-07-02T14:17:00+00:00",
-      "quoted_snippet": "Many VLMs answer spatial questions via a perspective-driven shortcut"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "ECCV"
     },
     {
-      "claim_id": "fig-tunnel",
-      "claim_text": "SpatialTunnel holds two objects at fixed depths while sweeping angular positions so 2D layout varies independently of depth ordering.",
-      "kind": "paper-claim",
-      "target": "figure:imgs/spatialtunnel.png",
-      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x3.png",
-      "retrieved_at": "2026-07-02T14:17:00+00:00",
-      "quoted_snippet": "holds the two objects at fixed depths while sweeping their angular positions"
-    },
-    {
-      "claim_id": "fig-probing",
-      "claim_text": "Contrastive probing: swap object order, take the difference of intermediate-layer final-token hidden states as a delta vector.",
-      "kind": "paper-claim",
-      "target": "figure:imgs/contrastive_probing.png",
-      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x6.png",
-      "retrieved_at": "2026-07-02T14:17:00+00:00",
-      "quoted_snippet": "compute a \\textit{delta vector} as their difference"
-    },
-    {
-      "claim_id": "fig-pca",
-      "claim_text": "PCA of delta vectors: RoboRefer and Qwen3 exhibit three clearly separated clusters; 2M variants keep distance vectors entangled.",
-      "kind": "paper-claim",
-      "target": "figure:imgs/pca_delta.png",
-      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x7.png",
-      "retrieved_at": "2026-07-02T14:17:00+00:00",
-      "quoted_snippet": "RoboRefer and Qwen3 exhibit three clearly separated clusters"
-    },
-
-    {
-      "claim_id": "bp-1",
-      "claim_text": "本身沒有深度感測",
+      "claim_id": "bp1",
+      "claim_text": "只能從間接視覺線索反推空間結構",
       "kind": "paper-claim",
       "target": "note-section:body-prose-1",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "achieve strong performance on spatial reasoning benchmarks, yet it remains unclear"
-    },
-    {
-      "claim_id": "bp-2",
-      "claim_text": "這是古典的仰角深度線索",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-2",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
       "quoted_snippet": "objects farther away on a common ground surface appear higher in the image"
     },
     {
-      "claim_id": "bp-3",
-      "claim_text": "consistent 佔 80.9%",
+      "claim_id": "bp2",
+      "claim_text": "較遠者 $y$ 值較小（位置較高）即為 consistent",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "if the farther object has a smaller $y$-coordinate"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "consistent 佔 976 題（80.9%）",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-3",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "consistent examples account for 80.9\\% of EmbSpatial-Bench and 60.5\\% of CV-Bench-3D"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "consistent examples account for 80.9\\% of EmbSpatial-Bench"
     },
     {
-      "claim_id": "bp-4",
-      "claim_text": "counter 只有 24.0%",
+      "claim_id": "bp3b",
+      "claim_text": "counter 卻只剩 24.0%，落差高達 36.9 個百分點",
       "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "60.9\\% on the consistent split of EmbSpatial-Bench but only 24\\% on counter examples, yielding a 36.9 percentage-point gap"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "用 Blender 造了一個 tunnel（單點透視走廊）合成資料集",
+      "kind": "paper-claim",
       "target": "note-section:body-prose-4",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "achieves 60.9\\% on the consistent split of EmbSpatial-Bench but only 24\\% on counter examples, yielding a 36.9 percentage-point gap"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we build a tunnel-shaped synthetic scene in Blender"
     },
     {
-      "claim_id": "bp-5",
-      "claim_text": "深度排序不變",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-5",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "We parameterize each object by its depth $z$ and an angular position $\\theta$"
-    },
-    {
-      "claim_id": "bp-5b-repo",
-      "claim_text": "共 3,072 列",
+      "claim_id": "bp5",
+      "claim_text": "得到 $16\\times16\\times12=3{,}072$ 張影像",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-5",
-      "source_url": "/tmp/cp-clone/README.md",
-      "retrieved_at": "2026-07-02T14:18:00+00:00",
-      "quoted_snippet": "3,072"
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "16 \\times 16 \\times 12 = 3{,}072"
     },
     {
-      "claim_id": "bp-6",
-      "claim_text": "取第一個生成 token",
+      "claim_id": "bp6",
+      "claim_text": "準確率落差 $\\Delta=v_\\text{cons}-v_\\text{ctr}$",
       "kind": "paper-claim",
       "target": "note-section:body-prose-6",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "we define a local probability by extracting the logits for \\texttt{Yes} and \\texttt{No} at the first generated token"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "\\Delta = v_\\text{cons} - v_\\text{ctr}"
     },
     {
-      "claim_id": "be-1",
+      "claim_id": "bp7",
+      "claim_text": "得到 $v_\\text{cons}=0.776$；所有 counter 樣本平均則只有 $v_\\text{ctr}=0.360$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "v_\\text{cons} = 0.776$ but only $v_\\text{ctr} = 0.360"
+    },
+    {
+      "claim_id": "bp7b",
+      "claim_text": "在同一測試上 $v=0.793$、$\\Delta$ 只有 $+0.046$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "RoboRefer~\\cite{zhou2025roborefer}, trained on more than 20M QA pairs, achieves the smallest gap"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "構造一對只差在物體順序的問句",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we construct a pair of questions that differ only in the ordering of the queried objects"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "並對相反那一側取負號使全部朝同一正向",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we negate the deltas from the opposing category so that all vectors point toward the canonical direction"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "對 above、below、far、close 各算平均 delta $\\mu_c$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we compute the mean delta vector $\\mu_c$ for each category"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "VD-EI 為正，代表垂直與距離表徵正如透視投影預測地耦合在一起",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "A positive value indicates that vertical and distance representations are directionally coupled"
+    },
+    {
+      "claim_id": "bp11b",
+      "claim_text": "Qwen2.5-VL $L^*{=}28$／共 36 層 ≈78%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-whyfarlooksup-zh-collab-20260703/.loop-manager/code-clone/probing.py",
+      "retrieved_at": "2026-07-03T08:05:00+00:00",
+      "quoted_snippet": "L*=28 (78% of 36)"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "在每一個模型、每一個訓練規模上都是三軸中最低的",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "is the lowest among the three axes"
+    },
+    {
+      "claim_id": "bp12b",
+      "claim_text": "微調會把垂直一致性拉得很高（Molmo 從 0.23 到 0.57、Qwen 從 0.29 到 0.59）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "Molmo: $0.23 \\to 0.57$; Qwen: $0.29 \\to 0.59$"
+    },
+    {
+      "claim_id": "bp13",
+      "claim_text": "當距離一致性隨資料規模成長，counter 準確率會跟著上升",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "counter accuracy rises in tandem"
+    },
+    {
+      "claim_id": "bp13b",
+      "claim_text": "幾乎不動（0.043→0.052）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "Qwen's $\\CohD$ remains nearly flat throughout scaling ($0.043 \\to 0.052$)"
+    },
+    {
+      "claim_id": "bp14",
+      "claim_text": "對 EmbSpatial-Bench 是 $\\rho=0.759$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "$\\rho=0.759$ and $0.804$"
+    },
+    {
+      "claim_id": "bp15",
+      "claim_text": "家族內最高的 $\\mathrm{Coh}_\\mathrm{D}$（0.182）與最低的 VD-EI（0.362）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$)"
+    },
+    {
+      "claim_id": "bp15b",
+      "claim_text": "遠高於 NVILA-2M 的 41.1%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "$59.7\\%$ counter accuracy on EmbSpatial-Bench versus $41.1\\%$ for NVILA (2M)"
+    },
+    {
+      "claim_id": "bp16",
+      "claim_text": "NVILA(2M) 在 CV-3D Depth 有 93.8%，到 BLINK Spatial Relation 卻掉到 62.9%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "NVILA (2M) achieves $93.8\\%$ on CV-3D Depth but only $62.9\\%$ on BLINK Spatial Relation"
+    },
+    {
+      "claim_id": "beq1",
       "claim_text": "p=\\sigma\\!\\bigl(\\ell_{\\texttt{Yes}}-\\ell_{\\texttt{No}}\\bigr)",
       "kind": "paper-claim",
       "target": "note-section:body-equation-1",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
       "quoted_snippet": "p=\\sigma\\!\\bigl(\\ell_{\\texttt{Yes}}-\\ell_{\\texttt{No}}\\bigr)"
     },
     {
-      "claim_id": "bp-7",
-      "claim_text": "四項指標分別是平均正確性",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-7",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "A model with no directional bias would yield $\\Delta \\approx 0$"
-    },
-    {
-      "claim_id": "bt-1",
-      "claim_text": "0.776",
-      "kind": "evidence-supported",
-      "target": "note-section:body-table-1",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "0.570 & 0.776 & 0.360 & +0.416"
-    },
-    {
-      "claim_id": "bp-8",
-      "claim_text": "並非單調",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "the gap $\\Delta$ rises sharply from $+0.033$ (base) to $+0.267$ at 400k"
-    },
-    {
-      "claim_id": "bp-9",
-      "claim_text": "作者的核心方法是**對比探測**",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-9",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "we construct a pair of questions that differ only in the ordering of the queried objects"
-    },
-    {
-      "claim_id": "be-2",
-      "claim_text": "\\delta = h_{q_2} - h_{q_1}",
+      "claim_id": "beq2",
+      "claim_text": "\\frac{2}{N(N-1)} \\sum_{i < j} \\cos",
       "kind": "paper-claim",
       "target": "note-section:body-equation-2",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "\\delta = h_{q_2} - h_{q_1}"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "\\frac{2}{N(N-1)} \\sum_{i < j} \\cos"
     },
     {
-      "claim_id": "bp-10",
-      "claim_text": "抵銷了兩題共有的視覺內容",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-10",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "This procedure aims to isolate the latent encoding of spatial directions by neutralizing common visual components"
-    },
-    {
-      "claim_id": "bp-11",
-      "claim_text": "把兩個對立類別的 delta 都翻正到同一標準方向",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-11",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "we pool the delta vectors from both opposing categories"
-    },
-    {
-      "claim_id": "be-3",
-      "claim_text": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)}",
+      "claim_id": "beq3",
+      "claim_text": "\\cos(\\mu_{\\text{below}},\\mu_{\\text{close}})",
       "kind": "paper-claim",
       "target": "note-section:body-equation-3",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)}"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "\\cos(\\mu_{\\text{below}}, \\mu_{\\text{close}})"
     },
     {
-      "claim_id": "bp-12",
-      "claim_text": "量化垂直軸與距離軸方向上的耦",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-12",
+      "claim_id": "btab1",
+      "claim_text": "0.143 | 0.228 | 0.075 | 0.279",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "High coherence indicates that the model encodes the axis as a stable, consistent direction"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "0.143 & 0.228 & 0.075 & 0.279"
     },
     {
-      "claim_id": "be-4",
-      "claim_text": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4}",
-      "kind": "paper-claim",
-      "target": "note-section:body-equation-4",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4}"
+      "claim_id": "bcode1",
+      "claim_text": "delta = h2 - h1",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-1",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-whyfarlooksup-zh-collab-20260703/.loop-manager/code-clone/probing.py",
+      "retrieved_at": "2026-07-03T08:05:00+00:00",
+      "quoted_snippet": "Δr = h(r+) − h(r−) per layer"
     },
     {
-      "claim_id": "bp-13",
-      "claim_text": "VD-EI 為正",
-      "kind": "paper-claim",
-      "target": "note-section:body-prose-13",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "A positive value indicates that vertical and distance representations are directionally coupled"
-    },
-    {
-      "claim_id": "bp-14",
-      "claim_text": "都是三軸中最低的",
+      "claim_id": "bp-code-impl",
+      "claim_text": "probing.py 實作 delta、coherence 與 6×6 相似度矩陣",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-14",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "Fine-tuning substantially increases vertical coherence"
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-whyfarlooksup-zh-collab-20260703/.loop-manager/code-clone/probing.py",
+      "retrieved_at": "2026-07-03T08:05:00+00:00",
+      "quoted_snippet": "6×6 cosine similarity of mean Δ per category"
     },
     {
-      "claim_id": "bt-2",
-      "claim_text": "0.182",
+      "claim_id": "bp-code-plateau",
+      "claim_text": "Qwen3-235B VD-EI 在高層震盪、沒有明顯平原（程式碼註解自承）",
       "kind": "evidence-supported",
-      "target": "note-section:body-table-2",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "0.323 & 0.289 & 0.052 & 0.539"
+      "target": "note-section:body-prose-14",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-whyfarlooksup-zh-collab-20260703/.loop-manager/code-clone/probing.py",
+      "retrieved_at": "2026-07-03T08:05:00+00:00",
+      "quoted_snippet": "layers without a clear plateau"
     },
     {
-      "claim_id": "bp-15",
-      "claim_text": "59.7% 的 counter 準確率",
+      "claim_id": "figteaser",
+      "claim_text": "透視捷徑示意",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-15",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$) in the family, corresponding to $59.7\\%$ counter accuracy on EmbSpatial-Bench versus $41.1\\%$"
+      "target": "figure:imgs/teaser.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x1.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "objects located higher in the image are further away in 3D"
     },
     {
-      "claim_id": "bp-16",
-      "claim_text": "跨域效力",
+      "claim_id": "figcc",
+      "claim_text": "consistent 與 counter 樣本",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-16",
-      "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "$\\rho=0.759$ and $0.804$"
+      "target": "figure:imgs/consistent_counter.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x2.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "Farther object appears higher in the image"
     },
     {
-      "claim_id": "bp-17-code",
-      "claim_text": "compute_vd_ei_per_layer",
+      "claim_id": "figtunnel",
+      "claim_text": "SpatialTunnel 固定兩物深度",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-17",
-      "source_url": "/tmp/cp-clone/probing.py",
-      "retrieved_at": "2026-07-02T14:18:00+00:00",
-      "quoted_snippet": "compute_vd_ei_per_layer"
+      "target": "figure:imgs/spatialtunnel.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x3.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "holds the two objects at fixed depths while sweeping their angular positions"
     },
-
     {
-      "claim_id": "cp-1",
-      "claim_text": "可證偽的疑慮",
+      "claim_id": "figprobe",
+      "claim_text": "contrastive probing 概念",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/contrastive_probing.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x6.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we construct a minimal question pair by swapping the object order"
+    },
+    {
+      "claim_id": "figcohd",
+      "claim_text": "Counter 準確率對距離一致性",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cohd_vs_counter_acc.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/figure/acc_cohd_with_num.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "Positive correlation between behavioral accuracy on counter examples"
+    },
+    {
+      "claim_id": "figpca",
+      "claim_text": "delta 向量的 PCA",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pca_delta.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x7.png",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "RoboRefer and Qwen3 exhibit three clearly separated clusters"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "EmbSpatial 只有 129 題、CV-Bench-3D 只有 65 題",
       "kind": "reasonable-inference",
       "target": "note-section:critical-prose-1",
       "source_url": "https://arxiv.org/abs/2605.30161",
-      "retrieved_at": "2026-07-02T14:16:49+00:00",
-      "quoted_snippet": "increasingly deployed in robotics"
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "129 (10.7\\%)"
     },
     {
-      "claim_id": "cp-2",
-      "claim_text": "$n$ 很小，相關係數對單點很敏感",
-      "kind": "unproven-or-doubtful",
-      "target": "note-section:critical-prose-2",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "$\\rho=0.759$ and $0.804$"
-    },
-    {
-      "claim_id": "cp-3",
-      "claim_text": "概念方向探測",
+      "claim_id": "cp2",
+      "claim_text": "作者自己也承認 RoboRefer",
       "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "we treat it as an illustrative reference rather than attributing its gains to a single factor"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "但把它讀成「訓練目標」則超出了現有證據",
+      "kind": "unproven-or-doubtful",
       "target": "note-section:critical-prose-3",
       "source_url": null,
       "retrieved_at": null,
-      "quoted_snippet": "This procedure aims to isolate the latent encoding of spatial directions by neutralizing common visual components"
+      "quoted_snippet": ""
     },
     {
-      "claim_id": "cp-4",
-      "claim_text": "循環論證味道",
-      "kind": "unproven-or-doubtful",
-      "target": "note-section:critical-prose-4",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "To examine whether \\CohD reflects a reusable representation rather than a benchmark-specific artifact"
-    },
-    {
-      "claim_id": "cp-5",
-      "claim_text": "先升後降",
+      "claim_id": "cp4",
+      "claim_text": "小落差反映的是無能力而非無偏差",
       "kind": "unproven-or-doubtful",
       "target": "note-section:critical-prose-5",
       "source_url": null,
       "retrieved_at": null,
-      "quoted_snippet": "intensifies under data scaling even as overall benchmark accuracy improves"
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "cp5",
+      "claim_text": "一致性平原（Spearman $\\rho=0.928$）",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:01:26+00:00",
+      "quoted_snippet": "$\\rho=0.928$"
+    },
+    {
+      "claim_id": "fig-heatmap-cons",
+      "claim_text": "Molmo-7B SpatialTunnel consistent 熱力圖 base->400k->2M 紅區擴張",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/heatmap_compare_molmo_consistent.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x5.png",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "From base $\\rightarrow$ 400k $\\rightarrow$ 2M training samples, accuracy on (a) perspective-consistent cells improves steadily"
+    },
+    {
+      "claim_id": "fig-heatmap-ctr",
+      "claim_text": "Molmo-7B SpatialTunnel counter 熱力圖 400k 最深藍、2M 部分回升",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/heatmap_compare_molmo_counter.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x5.png",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "(b) counter cells remain substantially harder, with the largest drop at 400k and a partial recovery at 2M"
+    },
+    {
+      "claim_id": "bp-heatmap",
+      "claim_text": "到 2M 雖回升成大片紅色，但紅得比 consistent 側淺",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "counter cells remain substantially harder, with the largest drop at 400k and a partial recovery at 2M"
+    },
+    {
+      "claim_id": "bp7-aggregate",
+      "claim_text": "這些是整個資料集的聚合統計，不是單一格子或單次前向的值",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "Mean accuracy} ($v$), the mean correctness score across all images and questions"
+    },
+    {
+      "claim_id": "fig-cohd-vdei",
+      "claim_text": "CohD 對 VD-EI 散點:NVILA 微調變體聚右下,RoboRefer 獨佔低 VD-EI 高 CohD 區",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cohd_vdei.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/figure/cohd_vdei.png",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "RoboRefer occupies a unique region of high coherence and low entanglement"
+    },
+    {
+      "claim_id": "bp-fig-discrepancy",
+      "claim_text": "數值與正文 Table 4 逐列報告的選層值略有出入",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "PCA visualizations are shown at $L{=}25$, where cluster separation is more visually distinguishable"
+    },
+    {
+      "claim_id": "fig-cross-domain",
+      "claim_text": "合成走廊(灰條)與真實 EmbSpatial(紅點)上的 CohD 並排,絕對值不同但家族內排序保留",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cross_domain_distance_coherence.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x10.png",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "the relative ordering within each model family is largely preserved. The red box highlights the NVILA family, where the ranking is identical across both datasets"
+    },
+    {
+      "claim_id": "bp-cross-domain-order",
+      "claim_text": "的次序在合成與真實兩域完全一致",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "RoboRefer ${>}$ NVILA\\,2M ${>}$ NVILA\\,400k ${\\approx}$ NVILA\\,800k ${>}$ NVILA\\,80k ${>}$ NVILA\\,base"
+    },
+    {
+      "claim_id": "fig-size",
+      "claim_text": "物體大小消融:Molmo/NVILA 隨遠物變大正確率下滑,Qwen 全程近亂猜",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/correctness_vs_size.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.30161/assets/x9.png",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "Molmo and NVILA show clear degradation as the farther object becomes larger than the nearer one, whereas Qwen remains near chance throughout"
+    },
+    {
+      "claim_id": "bp-size-gap",
+      "claim_text": "微調版尤其陡，落差可達 0.2 以上",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "For Molmo-7B (2M), mean accuracy rises to $v = 0.801$, but the size-bias gap also grows to $\\Delta_s = +0.246$"
+    },
+    {
+      "claim_id": "bp-size-qwen",
+      "claim_text": "而是它在這個設定下根本沒有深度判別力",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "This weak sensitivity should not be interpreted as robustness"
+    },
+    {
+      "claim_id": "bp-layer-depth",
+      "claim_text": "分析層落在網路約 71% 到 93% 深度處",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "The selected depth of 93\\% notably exceeds the 71--75\\% range observed in smaller models"
+    },
+    {
+      "claim_id": "bp-layer-qwen3-late",
+      "claim_text": "原文明說它三軸的連貫表徵「很晚才形成」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "Coherence across all axes forms very late in this model"
+    },
+    {
+      "claim_id": "cp1b",
+      "claim_text": "24.0%（$n=129$）的常態近似 95% 信賴區間約為 $[16.6\\%, 31.4\\%]$",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T07:24:00+00:00",
+      "quoted_snippet": "60.9 & 24.0 \\textcolor{red}{(-36.9)} & 62.0 & 53.8"
     }
   ]
 }
