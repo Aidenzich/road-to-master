@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) | Nature | '25 | [✓](https://github.com/deepseek-ai/DeepSeek-R1) | [✓](./DeepSeekR1/) |
 | [Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM](https://arxiv.org/abs/2603.18507) | - | '26 | - | [✓](./PRISM/) |
 | [Byte Latent Transformer: Patches Scale Better Than Tokens](https://arxiv.org/abs/2412.09871) | - | '24 | [✓](https://github.com/facebookresearch/blt) | [✓](./ByteLatentTransformer/) |
 | [Agent-as-a-Judge: Evaluate Agents with Agents](https://arxiv.org/abs/2410.10934) | - | '24 | [✓](https://github.com/metauto-ai/agent-as-a-judge) | [✓](./Agent-as-a-Judge/) |
