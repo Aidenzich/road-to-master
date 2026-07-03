@@ -1,0 +1,324 @@
+{
+  "note_path": "domains/natural_language_processing/ScalingTestTimeCompute/README.md",
+  "domain": "natural_language_processing",
+  "topic": "ScalingTestTimeCompute",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Charlie Snell"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "In this paper, we study the scaling of inference-time computation"
+    },
+    {
+      "claim_id": "fig-summary-revisions",
+      "claim_text": "compute-optimal 對 revisions 與 search 的整體結果（上：revisions）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/summary_revisions.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x1.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Summary of our main results"
+    },
+    {
+      "claim_id": "fig-summary-search",
+      "claim_text": "compute-optimal 對 revisions 與 search 的整體結果（下：PRM search）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/summary_search.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x2.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Comparing test-time compute and model parameter scaling"
+    },
+    {
+      "claim_id": "fig-search-methods",
+      "claim_text": "三種對 PRM 搜尋的方法示意",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/search_methods.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x3.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Comparing different PRM search methods"
+    },
+    {
+      "claim_id": "fig-compute-optimal-search",
+      "claim_text": "compute-optimal 搜尋對 best-of-N 基線",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/compute_optimal_search.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x5.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Comparing compute-optimal test-time compute allocation against baselines with PRM search"
+    },
+    {
+      "claim_id": "fig-parallel-vs-sequential",
+      "claim_text": "平行取樣（best-of-N）對序列式改寫（revisions）的示意",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/parallel_vs_sequential.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x6.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Parallel sampling (e.g., Best-of-N) verses sequential revisions"
+    },
+    {
+      "claim_id": "fig-compute-optimal-revisions",
+      "claim_text": "compute-optimal revisions 對 best-of-N",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/compute_optimal_revisions.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x9.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Comparing compute-optimal test-time compute allocation against the parallel compute baseline with our revision model"
+    },
+    {
+      "claim_id": "fig-pretrain-exchange",
+      "claim_text": "預訓練與測試時計算在 FLOPs 對齊下的取捨",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/pretrain_exchange.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2408.03314/assets/x10.png",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "Tradeoff between pretraining and test-time compute in a FLOPs-matched evaluation"
+    },
+    {
+      "claim_id": "body-1-overview",
+      "claim_text": "相對於 best-of-N 基線，這個策略把推論計算的效率提升了 4 倍以上",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "improve the efficiency of test-time compute scaling by more than"
+    },
+    {
+      "claim_id": "body-2-unified",
+      "claim_text": "作者把這個過程類比為 MCMC 取樣",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "reminiscent of Markov chain Monte Carlo (MCMC)"
+    },
+    {
+      "claim_id": "body-3-formalize",
+      "claim_text": "形式化為一個對超參數 $\\theta$ 的最佳化問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "We would like to select the hyper-parameters $\\theta$ which maximize the accuracy"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "\\theta^{*}_{q,a^*(q)}(N)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "\\theta^{*}_{q,a^*(q)}(N) = \\operatorname{argmax}_{\\theta}"
+    },
+    {
+      "claim_id": "body-4-difficulty-stat",
+      "claim_text": "難度被當成一個充分統計量",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "question difficulty acts as a sufficient statistic of a question"
+    },
+    {
+      "claim_id": "body-5-2048",
+      "claim_text": "用 2048 個樣本估計模型的 pass@1 率",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "estimated from 2048 samples"
+    },
+    {
+      "claim_id": "body-6-prm-train",
+      "claim_text": "改採 Math-Shepherd 的無人工標註做法",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "apply the approach of~\\citet{wang2023mathshepherd} to supervise PRMs without human labels"
+    },
+    {
+      "claim_id": "body-7-search-methods",
+      "claim_text": "作者比較三種對 PRM 的搜尋方式",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "We study three search approaches that sample outputs from a few-shot prompted base LLM"
+    },
+    {
+      "claim_id": "body-code-1-beam",
+      "claim_text": "保留分數最高的前 N/M 個步",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "filter for only the top $\\frac{N}{M}$ highest scoring steps"
+    },
+    {
+      "claim_id": "body-8-cost-results",
+      "claim_text": "成本被定義為 $N \\times (k+1)$ 個樣本",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "we define the cost of lookahead-search to be $N \\times (k+1)$ samples"
+    },
+    {
+      "claim_id": "body-9-copt-search",
+      "claim_text": "例如 16 對 64 次生成",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "16 verses 64 generations"
+    },
+    {
+      "claim_id": "body-10-revision-train",
+      "claim_text": "約 38% 原本正確的答案在下一次改寫被改錯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "around 38\\% of correct answers get converted back to incorrect ones"
+    },
+    {
+      "claim_id": "body-11-copt-revisions",
+      "claim_text": "例如 64 對 256 個樣本",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "64 samples verses 256"
+    },
+    {
+      "claim_id": "body-12-flops-question",
+      "claim_text": "這些額外預算該投入預訓練還是測試時計算",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "should we spend our FLOPs on increased pretraining compute or on additional test-time compute"
+    },
+    {
+      "claim_id": "body-eq-2",
+      "claim_text": "X = 6 N D_{\\text{pretrain}}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "X = 6ND_{\\text{pretrain}}"
+    },
+    {
+      "claim_id": "body-13-multiplier",
+      "claim_text": "小模型的推論計算可以放大",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "multiply the smaller model's inference compute by a factor of"
+    },
+    {
+      "claim_id": "body-14-r-values",
+      "claim_text": "挑三個 $R$ 值：0.16",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "3 different values of R: 0.16 ($R << 1$), 0.79"
+    },
+    {
+      "claim_id": "body-15-worked-beam",
+      "claim_text": "得到 $16 \\times 4 = 64$ 個前綴",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2408.03314",
+      "retrieved_at": "2026-07-03T00:00:00Z",
+      "quoted_snippet": "resulting in a total of $N/M \\times M$ candidate prefixes"
+    },
+    {
+      "claim_id": "body-16-table-intro",
+      "claim_text": "此處數值為本文據論文公式",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-16",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "自我改進（推論少）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-17-worked-conclusion",
+      "claim_text": "小模型能動用約 258 倍於原本的推論計算",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-17",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-1-ablation",
+      "claim_text": "全篇只在單一資料集 MATH、單一基礎模型 PaLM 2-S*",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-2-novelty",
+      "claim_text": "真正的新貢獻是",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-3-solved",
+      "claim_text": "compute-optimal 策略在線上部署的實際效益仍是存疑的",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}

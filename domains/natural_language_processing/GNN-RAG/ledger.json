@@ -1,0 +1,252 @@
+{
+  "note_path": "domains/natural_language_processing/GNN-RAG/README.md",
+  "domain": "natural_language_processing",
+  "topic": "GNN-RAG",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T02:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "tc-title",
+      "claim_text": "GNN-RAG: Graph Neural Retrieval for Large Language Model Reasoning",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "Graph Neural  Retrieval for Large Language Model Reasoning"
+    },
+    {
+      "claim_id": "tc-venue",
+      "claim_text": "arXiv (preprint)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "[preprint]{neurips_2024}"
+    },
+    {
+      "claim_id": "tc-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "neurips_2024"
+    },
+    {
+      "claim_id": "tc-authors",
+      "claim_text": "Costas Mavromatis, George Karypis",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "Costas Mavromatis"
+    },
+    {
+      "claim_id": "tc-code",
+      "claim_text": "https://github.com/cmavro/GNN-RAG",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "https://github.com/cmavro/GNN-RAG"
+    },
+    {
+      "claim_id": "tc-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "neurips_2024"
+    },
+    {
+      "claim_id": "fig-fig2",
+      "claim_text": "GNN-RAG framework figure: GNN reasons over a dense subgraph to retrieve candidate answers and reasoning paths, verbalized for LLM RAG.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.20139/assets/x2.png",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "The GNN reasons over a dense subgraph to retrieve candidate answers, along with the corresponding reasoning paths"
+    },
+    {
+      "claim_id": "fig-fig1",
+      "claim_text": "Landscape of KGQA methods figure: GNN-based vs LLM-based (ToG, RoG) retrieval and reasoning.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.20139/assets/x1.png",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "GNN-based methods reason on dense subgraphs as they can handle complex and multi-hop graph information"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "訓練時只有問題—答案配對，沒有標註「通往答案的路徑」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "question-answer pairs are given for training, but not the ground-truth paths"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "RAG 在 KGQA 上的表現高度取決於「檢索到哪些事實」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "RAG's performance highly depends on the KG facts that are retrieved"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "GNN 雖然不像 LLM 那樣理解自然語言，但它天生擅長處理複雜的圖結構",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "a GNN reasons over a dense KG subgraph to retrieve answer candidates for a given question"
+    },
+    {
+      "claim_id": "beq1",
+      "claim_text": "\\omega(q, r)\\cdot \\mathbf{m}_{vv'}^{(l)}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "\\omega(q, r) \\cdot \\vm_{vv'}^{(l)}"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "GNN 把 KGQA 視為節點分類問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "KGQA can be regarded as a node classification problem"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "GNN 的求和運算子（sum-operator）就能「過濾掉」無關資訊",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "selecting question-relevant facts and filtering-out question-irrelevant facts through"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "他們訓練兩個 GNN，一個用 SBERT",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "we train two separate GNN models, one using pretrained LMs, such as  SBERT"
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "作者對開源可訓練的模型（一個 LLaMA2-Chat-7B）做 RAG prompt tuning",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "A LLaMA2-Chat-7B model is fine-tuned based on the training question-answer pairs"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "量測「Answer Coverage」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "We train two different GNNs, a deep one"
+    },
+    {
+      "claim_id": "bt1",
+      "claim_text": "2,582",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "112 & 83.6 & 2,582 & 79.8"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "在 2-hop 問題上，深 GNN 用最少的 token",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "deep GNNs ($L=3$) can handle the complex graph structure"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "把兩者檢索到的推理路徑取聯集",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "we take the union of the reasoning paths retrieved by the two retrievers"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "中位輸入 token 只有 144 / 207",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "144 / 207"
+    },
+    {
+      "claim_id": "bt2",
+      "claim_text": "90.7",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "90.7"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "在 WebQSP 上以 7B 模型全面超過 ToG+GPT-4 的 82.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.20139",
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "we estimate ToG+GPT-4 has an overall cost above"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "任何下游方法的上限都被子圖擷取步驟卡死",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "1,305.8 & 79.3"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "論文沒有給出誤差棒或多次隨機種子的變異",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "85.7"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "這更接近一次設計良好的系統整合與經驗發現",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "We employ RoG~\\citep{luo2024rog} for RAG-based prompt tuning"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "要外推到一般開放領域 RAG 仍有明顯落差",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-03T02:00:00+00:00",
+      "quoted_snippet": "8.9--15.5\\% points"
+    }
+  ]
+}

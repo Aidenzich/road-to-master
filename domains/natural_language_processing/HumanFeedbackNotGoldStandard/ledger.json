@@ -1,0 +1,297 @@
+{
+  "note_path": "domains/natural_language_processing/HumanFeedbackNotGoldStandard/README.md",
+  "domain": "natural_language_processing",
+  "topic": "HumanFeedbackNotGoldStandard",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Human Feedback is not Gold Standard",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Human Feedback is not Gold Standard"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ICLR 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Accepted at ICLR 2024"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Accepted at ICLR 2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Tom Hosking, Phil Blunsom, Max Bartolo",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Tom Hosking"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/cohere-ai/human-feedback-paper",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "https://github.com/cohere-ai/human-feedback-paper"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Accepted at ICLR 2024"
+    },
+    {
+      "claim_id": "body-1-defacto",
+      "claim_text": "human evaluation using a single overall score has become the",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "human evaluation using a single overall score has become the"
+    },
+    {
+      "claim_id": "body-2-shortcuts",
+      "claim_text": "look for shortcuts to make the task easier",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "look for shortcuts to make the task easier"
+    },
+    {
+      "claim_id": "body-3-errortypes",
+      "claim_text": "Maxim of Quantity",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "the Maxim of Quantity implies that repetition is undesirable"
+    },
+    {
+      "claim_id": "body-4-setup",
+      "claim_text": "900 distinct outputs",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "We annotate a total of 900 distinct outputs, with a total of 4,440 annotations including quality checks."
+    },
+    {
+      "claim_id": "body-5-qc",
+      "claim_text": "Gwet's AC1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "finding good agreement scores of between"
+    },
+    {
+      "claim_id": "body-6-lasso",
+      "claim_text": "Lasso regression",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "we fit a Lasso regression model"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "\\hat{s} \\;=\\; s_0",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "each weight corresponds to the expected reduction in overall score if the corresponding error is present"
+    },
+    {
+      "claim_id": "body-7-l1",
+      "claim_text": "Lasso 的 $\\ell_1$ 懲罰會把貢獻微弱的錯誤權重壓成零",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-7",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "each weight corresponds to the expected reduction in overall score"
+    },
+    {
+      "claim_id": "body-8-sixoften",
+      "claim_text": "six out of ten error types contribute to the overall scores",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Six out of ten error types contribute to the overall scores, with refusal errors contributing most strongly."
+    },
+    {
+      "claim_id": "body-9-distractor",
+      "claim_text": "factuality and contradiction (within the output) are both rated worse for the distractor examples",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "factuality and contradiction (within the output) are both rated worse for the distractor examples"
+    },
+    {
+      "claim_id": "body-10-ideology",
+      "claim_text": "language ideology",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "a statement conveyed confidently as fact is more likely to be interpreted as true"
+    },
+    {
+      "claim_id": "body-11-expert",
+      "claim_text": "300 examples for each error type",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "carefully annotate a subset of 300 examples for each error type"
+    },
+    {
+      "claim_id": "body-12-trusting",
+      "claim_text": "annotators are more trusting of assertive responses, and are less likely to identify factuality or inconsistency errors within them",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "annotators are more trusting of assertive responses, and are less likely to identify factuality or inconsistency errors within them"
+    },
+    {
+      "claim_id": "body-13-tableintro",
+      "claim_text": "以下數字為群眾（Ann.）、專家（Exp.）與差值",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "the more assertive an output is, the less likely annotators are to detect factual errors that it may contain"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "24.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "2.2 & 24.6 & -22.3"
+    },
+    {
+      "claim_id": "body-14-walkthrough",
+      "claim_text": "20.3% 的輸出有事實錯誤",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "4.3 & 20.3 & -16.1"
+    },
+    {
+      "claim_id": "body-15-pearson",
+      "claim_text": "Assertiveness is strongly positively correlated with overall quality scores, with a Pearson correlation coefficient of 0.68",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Assertiveness is strongly positively correlated with overall quality scores, with a Pearson correlation coefficient of 0.68"
+    },
+    {
+      "claim_id": "body-16-rlhf",
+      "claim_text": "Command was fine-tuned on preference scores, while Llama 2 was trained using on-policy RLHF",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Command was fine-tuned on preference scores, while Llama 2 was trained using on-policy RLHF"
+    },
+    {
+      "claim_id": "crit-1-realness",
+      "claim_text": "偏好分數同時是主流評估指標與訓練訊號",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "is increasingly being used as a training objective"
+    },
+    {
+      "claim_id": "crit-2-expertbias",
+      "claim_text": "not strictly an unbiased set of ratings",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "Although not strictly an unbiased set of ratings, this subset acts as a useful estimate of the true error rates."
+    },
+    {
+      "claim_id": "crit-3-novelty",
+      "claim_text": "sycophancy 的一個具體切面",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "optimizing models for preferences can sacrifice truthfulness for sycophancy"
+    },
+    {
+      "claim_id": "crit-4-referencelowest",
+      "claim_text": "該主張只在 biased 欄（reference 3.50）成立且與次低者僅差 0.01",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2309.16349",
+      "retrieved_at": "2026-07-02T18:09:14Z",
+      "quoted_snippet": "the reference outputs were given the lowest overall quality scores"
+    },
+    {
+      "claim_id": "fig-lasso",
+      "claim_text": "Lasso regression weightings of each criteria on overall scores",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/part1_lasso.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2309.16349/assets/x1.png",
+      "retrieved_at": "2026-07-02T18:10:00Z",
+      "quoted_snippet": "Weightings for each criteria under a Lasso regression model of overall scores"
+    },
+    {
+      "claim_id": "fig-errordiff",
+      "claim_text": "difference in error rates between crowdsourced and expert annotations by preamble",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/part2_errors_by_preamble_diff.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2309.16349/assets/x4.png",
+      "retrieved_at": "2026-07-02T18:10:00Z",
+      "quoted_snippet": "The difference in error rates between crowdsourced annotations and"
+    },
+    {
+      "claim_id": "fig-assertivebins",
+      "claim_text": "crowdsourced error rates fall as assertiveness rises",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/part2_assertivebins.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2309.16349/assets/x5.png",
+      "retrieved_at": "2026-07-02T18:10:00Z",
+      "quoted_snippet": "Variation in crowdsourced error rates with assertiveness"
+    },
+    {
+      "claim_id": "fig-allmodels",
+      "claim_text": "quality against assertiveness grouped by model and preamble",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/all_models.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2309.16349/assets/x6.png",
+      "retrieved_at": "2026-07-02T18:10:00Z",
+      "quoted_snippet": "Quality against Assertiveness, grouped by model and preamble type"
+    }
+  ]
+}
