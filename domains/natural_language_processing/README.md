@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941) | - | '25 | - | [✓](./Illusion-of-Thinking/) |
 | [Instruction Tuning with GPT-4](https://arxiv.org/abs/2304.03277) | - | '23 | [✓](https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM) | [-](./InstructioinTuningWithGPT4/) |
 | [ChatGPT for Robotics: Design Principles and Model Abilities](https://www.microsoft.com/en-us/research/uploads/prod/2023/02/ChatGPT___Robotics.pdf) | - | '23 | [✓](https://github.com/microsoft/PromptCraft-Robotics) | [✓](./ChatGPT4Robotics/) |
 | [NEAR: Non-Supervised Explainability Architecture for Accurate Review-Based Collaborative Filtering](./NEAR.pdf) | IEEE | '22 | [✓](https://github.com/IKMLab/PHD_Dissertation_Reinald_Pugoy_P78077040) | [✓](./NEAR/) |
