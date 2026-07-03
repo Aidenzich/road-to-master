@@ -1,6 +1,7 @@
 # Computer Vision, CV
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [DiT: Scalable Diffusion Models with Transformers](https://arxiv.org/abs/2212.09748) | ICCV | '23 | [✓](https://github.com/facebookresearch/DiT) | [✓](./DiT/) |
 | [MDETR: Modulated Detection for End-to-End Multi-Modal Understanding](https://arxiv.org/abs/2104.12763) | ICCV | '21 | [✓](https://github.com/ashkamath/mdetr) | [-](./mdetr/) |
 | [DETR: End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872) | ECCV | '20 | [✓](https://github.com/facebookresearch/detr) | [-](./detr/) |
 | [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020) | ICML | '21 | [✓](https://github.com/openai/CLIP) |  |
