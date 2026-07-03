@@ -1,0 +1,270 @@
+{
+  "note_path": "domains/natural_language_processing/LayerCondensedKVCache/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LayerCondensedKVCache",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Layer-Condensed KV Cache for Efficient Inference of Large Language Models",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Layer-Condensed KV Cache for Efficient Inference of"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ACL 2024 (Volume 1: Long Papers)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://aclanthology.org/2024.acl-long.602/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "\\usepackage[final]{acl}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://aclanthology.org/2024.acl-long.602/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Generated on Wed Jun  5 17:04:43 2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Haoyi Wu, Kewei Tu",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Haoyi Wu \\and Kewei Tu"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/whyNLP/LCKV",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "https://github.com/whyNLP/LCKV"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "In this paper, we propose"
+    },
+    {
+      "claim_id": "fig-architecture",
+      "claim_text": "LCKV computation graph: all layers' queries attend to the top-layer KV; non-top layers do not compute or cache KV.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/architecture.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Illustration of a standard transformer decoder and our model."
+    },
+    {
+      "claim_id": "fig-kv-convergence",
+      "claim_text": "MSE of KV over iterations on a randomly initialized model; more warmup layers converge faster.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/kv-convergence.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "MSE of the KV before and after the $i$th iteration. The model is randomly initialized and tested with 2048 tokens."
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "KV cache memory",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Its memory consumption is proportional to both the sequence length and the number of layers."
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "LLaMA-7B",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "takes over 30\\% of the GPU memory"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "d_{\\text{kv}}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "reducing the number of layers"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "W_K, W_V",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "queries of all layers are paired with keys and values of just the top layer"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "dummy KV",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "which is equivalent to masking the diagonal of the attention matrix"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "sandwich",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "retain standard attention for a small number of layers"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "it is impossible to train on a sequence of tokens in parallel"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "Transformer-XL",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "backpropagate the loss only through the last $b$ iterations"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "m=7",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "the values of KVs converge very fast over iterations"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "prompt",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "perform iterative computation for the prompts for $m+b$ iterations"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "hidden size 2048",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The 1.1B model configuration follows that of TinyLlama"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "CPU-offload",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "32$\\times$ larger batch sizes and up to 26$\\times$ higher throughput"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "SlimPajama",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "pre-train from scratch two 1.1B models"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "46.84",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "our model with $w=10$ has almost no performance degradation"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "108.29",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "108.29"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "9.746",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2405.10637",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "9.746"
+    },
+    {
+      "claim_id": "crit-prose-1",
+      "claim_text": "latency",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "reduced latency for our model when compared with the standard transformer"
+    },
+    {
+      "claim_id": "crit-prose-2",
+      "claim_text": "HellaSwag",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "pre-train from scratch two 1.1B models"
+    },
+    {
+      "claim_id": "crit-prose-3",
+      "claim_text": "Feedback Transformer",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "aggregate hidden representations from all layers"
+    },
+    {
+      "claim_id": "crit-prose-4",
+      "claim_text": "5+8187",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "some of the sequence lengths exceed the maximum input lengths that the models are trained on"
+    },
+    {
+      "claim_id": "crit-prose-5",
+      "claim_text": "2.7",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "the throughput degrades when the prompts are much longer than the generation length"
+    }
+  ]
+}

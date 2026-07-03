@@ -1,0 +1,360 @@
+{
+  "note_path": "domains/natural_language_processing/Vec2Text/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Vec2Text",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Text Embeddings Reveal (Almost) As Much As Text",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Text Embeddings Reveal (Almost) As Much As Text"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "EMNLP 2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Accepted at EMNLP 2023"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "2023-10-10"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "John X. Morris, Volodymyr Kuleshov, Vitaly Shmatikov, Alexander M. Rush",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "John X. Morris, Volodymyr Kuleshov, Vitaly Shmatikov, Alexander M. Rush"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/jxmorris12/vec2text",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "github.com/jxmorris12/vec2text"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Accepted at EMNLP 2023"
+    },
+    {
+      "claim_id": "body-p1-threat",
+      "claim_text": "向量資料庫",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "the data owner only sends \\textit{embeddings} of text data"
+    },
+    {
+      "claim_id": "body-e1-objective",
+      "claim_text": "\\arg\\max_{x} \\text{cos}(\\phi(x), e)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "\\hat{x} = \\arg\\max_{x} \\text{cos}(\\phi(x), e)"
+    },
+    {
+      "claim_id": "body-p2-collision",
+      "claim_text": "碰撞（collision）極罕見",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "collisions are rare and can be ignored"
+    },
+    {
+      "claim_id": "body-p3-basemodel",
+      "claim_text": "條件語言模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "learning a distribution of texts given embeddings"
+    },
+    {
+      "claim_id": "body-e2-mle",
+      "claim_text": "\\mathbb{E}_{x\\sim\\mathcal{D}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "\\mathbb{E}_{x \\sim \\mathcal{D}} [ p(x \\mid \\phi(x); \\hat{\\theta}) ]"
+    },
+    {
+      "claim_id": "body-p4-basebleu",
+      "claim_text": "31.9",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Base [0 steps] & 32 & 32 & 31.9"
+    },
+    {
+      "claim_id": "body-p5-iterative",
+      "claim_text": "迭代修正",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "iteratively refines this hypothesis by re-embedding and correcting"
+    },
+    {
+      "claim_id": "body-e3-recursive",
+      "claim_text": "p(x^{(t+1)} \\mid e, x^{(t)}, \\hat{e}^{(t)})",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "p(x^{(t+1)} \\mid e, x^{(t)}, \\hat{e}^{(t)})"
+    },
+    {
+      "claim_id": "body-p6-params",
+      "claim_text": "235M",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "each model has approximately 235M parameters"
+    },
+    {
+      "claim_id": "body-e4-embtoseq",
+      "claim_text": "\\text{EmbToSeq}(e) = W_2",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "\\text{EmbToSeq}(e) = W_2"
+    },
+    {
+      "claim_id": "body-p7-concat",
+      "claim_text": "兩者之差",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "the ground-truth embedding $e$, the hypothesis embedding $\\hat{e}^{(t)}$"
+    },
+    {
+      "claim_id": "body-p8-example",
+      "claim_text": "Nabo Gass",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Nabo Gass (25 August, 1954 in Ebingen, Germany) is a German painter and glass artist."
+    },
+    {
+      "claim_id": "body-t1-round4",
+      "claim_text": "1.00",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Round 4 (1.00)"
+    },
+    {
+      "claim_id": "body-t1-round1",
+      "claim_text": "0.85",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Round 1 (0.85)"
+    },
+    {
+      "claim_id": "body-p9-cossaturate",
+      "claim_text": "0.99",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": null,
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Round 2 (0.99)"
+    },
+    {
+      "claim_id": "body-p10-indomain",
+      "claim_text": "in-domain",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Reconstruction score on in-domain datasets"
+    },
+    {
+      "claim_id": "body-t2-bleu",
+      "claim_text": "97.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "97.3"
+    },
+    {
+      "claim_id": "body-t2-exact",
+      "claim_text": "92.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "92.0"
+    },
+    {
+      "claim_id": "body-p11-sbeam",
+      "claim_text": "2 到 6 倍",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "increasing the exact match score by $2$ to $6$ times"
+    },
+    {
+      "claim_id": "body-p12-feedback",
+      "claim_text": "52.0%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "our model with feedback gets $52.0\\%$ of examples correct"
+    },
+    {
+      "claim_id": "body-p12-nofeedback",
+      "claim_text": "4.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "only perfectly matches $4.2\\%$ of examples after $50$ rounds"
+    },
+    {
+      "claim_id": "body-p13-mimic",
+      "claim_text": "MIMIC-III",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "pseudo re-identified"
+    },
+    {
+      "claim_id": "body-t3-full",
+      "claim_text": "89.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "89.2"
+    },
+    {
+      "claim_id": "body-t3-exact",
+      "claim_text": "26.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "26.0"
+    },
+    {
+      "claim_id": "body-p14-names",
+      "claim_text": "94.2%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "recover $94\\%$ of first names, $95\\%$ of last names, and $89\\%$ of full names"
+    },
+    {
+      "claim_id": "body-e5-noise",
+      "claim_text": "\\phi_{\\text{noisy}}(x) = \\phi(x) + \\lambda \\cdot \\epsilon",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "\\phi_{\\text{noisy}}(x) = \\phi(x) + \\lambda \\cdot \\epsilon"
+    },
+    {
+      "claim_id": "body-p15-defense",
+      "claim_text": "13%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "barely degraded ($2\\%$) while reconstruction performance plummets to $13\\%$ of the original BLEU"
+    },
+    {
+      "claim_id": "crit-p1-realness",
+      "claim_text": "託管式向量資料庫",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Vector databases are increasingly popular, but privacy threats within them have not been comprehensively explored"
+    },
+    {
+      "claim_id": "crit-p2-lengthdep",
+      "claim_text": "8.0%",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "8.0"
+    },
+    {
+      "claim_id": "crit-p3-novelty",
+      "claim_text": "iterative refinement",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "only attempted to recover bags of words from the embeddings of a shallow encoder model"
+    },
+    {
+      "claim_id": "crit-p4-selfbench",
+      "claim_text": "32-token",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2310.06816",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "we have not investigated the limits of inversion beyond embeddings of this length"
+    },
+    {
+      "claim_id": "fig-overview",
+      "claim_text": "Vec2Text 方法總覽",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2310.06816/assets/x1.png",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Overview of our method"
+    },
+    {
+      "claim_id": "fig-multiround",
+      "claim_text": "多輪自我修正的重建表現",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/multiround.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2310.06816/assets/x4.png",
+      "retrieved_at": "2026-07-02T23:45:34+00:00",
+      "quoted_snippet": "Recovery performance across multiple rounds of self-correction"
+    }
+  ]
+}
