@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Text Embeddings Reveal (Almost) As Much As Text](https://arxiv.org/abs/2310.06816) | EMNLP | '23 | [✓](https://github.com/jxmorris12/vec2text) | [✓](./Vec2Text/) |
 | [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) | Nature | '25 | [✓](https://github.com/deepseek-ai/DeepSeek-R1) | [✓](./DeepSeekR1/) |
 | [Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM](https://arxiv.org/abs/2603.18507) | - | '26 | - | [✓](./PRISM/) |
 | [Byte Latent Transformer: Patches Scale Better Than Tokens](https://arxiv.org/abs/2412.09871) | - | '24 | [✓](https://github.com/facebookresearch/blt) | [✓](./ByteLatentTransformer/) |
