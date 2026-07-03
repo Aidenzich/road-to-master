@@ -1,0 +1,318 @@
+{
+  "note_path": "domains/computer_vision/DiT/README.md",
+  "domain": "computer_vision",
+  "topic": "DiT",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Scalable Diffusion Models with Transformers",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "\\title{Scalable Diffusion Models with Transformers}"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ICCV",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://www.wpeebles.com/DiT.html",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "ICCV 2023 (Oral Presentation)"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://www.wpeebles.com/DiT.html",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "ICCV 2023"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "William Peebles, Saining Xie",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "Saining Xie"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/facebookresearch/DiT",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://www.wpeebles.com/DiT.html",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Code and project page available"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": ""
+    },
+
+    {
+      "claim_id": "fig-patchify",
+      "claim_text": "Input specifications for DiT: patchify converts a spatial representation into a sequence of length T = (I/p)^2",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/patchify.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x4.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "$T = (I/p)^2$ with hidden dimension $d$"
+    },
+    {
+      "claim_id": "fig-architecture",
+      "claim_text": "The Diffusion Transformer (DiT) architecture and block variants; adaptive layer norm works best",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/architecture.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x3.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Adaptive layer norm works best."
+    },
+    {
+      "claim_id": "fig-conditioning",
+      "claim_text": "Comparing different conditioning strategies; adaLN-Zero outperforms cross-attention and in-context",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/conditioning.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x5.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "adaLN-Zero outperforms cross-attention and in-context conditioning at all stages of training."
+    },
+    {
+      "claim_id": "fig-scaling",
+      "claim_text": "Scaling the DiT model improves FID at all stages of training",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/scaling.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x6.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Scaling the transformer backbone yields better generative models across all model sizes and patch sizes."
+    },
+    {
+      "claim_id": "fig-gflops-fid",
+      "claim_text": "Transformer Gflops are strongly correlated with FID",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/gflops_fid.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x8.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Transformer Gflops are strongly correlated with FID."
+    },
+    {
+      "claim_id": "fig-bubbles",
+      "claim_text": "DiT-XL/2 is compute-efficient and outperforms all prior U-Net-based diffusion models",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/bubbles.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2212.09748/assets/x2.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "outperforms all prior U-Net-based diffusion models, like ADM and LDM."
+    },
+
+    {
+      "claim_id": "body-1",
+      "claim_text": "把擴散模型常用的 U-Net 骨幹換成一個直接在潛空間 patch 上運作的 Transformer",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "replacing the commonly-used U-Net backbone with a transformer that operates on latent patches"
+    },
+    {
+      "claim_id": "body-2",
+      "claim_text": "本文所用的 VAE 直接取自 Stable Diffusion，其編碼器有 8 倍下採樣",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "The VAE encoder has a downsample factor of 8"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "q(x_t|x_0) forward noising process",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "q(x_t|x_0) = \\mathcal{N}(x_t; \\sqrt{\\bar{\\alpha}_t}x_0, (1 - \\bar{\\alpha}_t)\\mathbf{I})"
+    },
+    {
+      "claim_id": "body-eq-2",
+      "claim_text": "simple mean-squared error noise prediction loss",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "\\mathcal{L}_{simple}(\\theta) = ||\\epsilon_\\theta(x_t) - \\epsilon_t||_2^2"
+    },
+    {
+      "claim_id": "body-3",
+      "claim_text": "額外以完整的變分下界訓練可學習的協方差",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "train $\\epsilon_\\theta$ with $\\mathcal{L}_{simple}$, and train $\\Sigma_\\theta$ with the full $\\mathcal{L}$"
+    },
+    {
+      "claim_id": "body-eq-3",
+      "claim_text": "classifier-free guidance extrapolation",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "+ s \\cdot (\\epsilon_\\theta(x_t, c) - \\epsilon_\\theta(x_t, \\emptyset))"
+    },
+    {
+      "claim_id": "body-4",
+      "claim_text": "沒有 guidance 時 DiT-XL/2 的 FID 只有 9.62",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "\\textbf{DiT-XL/2} & 9.62 & 6.85 & 121.50 & 0.67"
+    },
+    {
+      "claim_id": "body-5",
+      "claim_text": "把 $p$ 減半會讓 $T$ 變成四倍",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "halving $p$ will quadruple $T$, and thus \\textit{at least} quadruple total transformer Gflops"
+    },
+    {
+      "claim_id": "body-6",
+      "claim_text": "並把該 MLP 初始化為輸出零向量，使整個 DiT 區塊初始為恆等函數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "this initializes the full DiT block as the identity function"
+    },
+    {
+      "claim_id": "body-7",
+      "claim_text": "adaLN-Zero 在所有訓練階段都優於 cross-attention 與 in-context",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "The adaLN-Zero block yields lower FID than both cross-attention and in-context conditioning while being the most compute-efficient"
+    },
+    {
+      "claim_id": "body-tbl-1",
+      "claim_text": "| DiT-XL | 28 | 1152 | 16 | 29.1 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "DiT-XL & 28 & 1152 & 16 & 29.1"
+    },
+    {
+      "claim_id": "body-8",
+      "claim_text": "把每個 token 線性解碼成 $p \\times p \\times 2C$ 的張量",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "linearly decode each token into a $p \\times p \\times 2C$ tensor"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "潛表徵 z 32 × 32 × 4",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "for $256\\times256\\times3$ images, $z$ has shape $32\\times32\\times4$"
+    },
+    {
+      "claim_id": "body-9",
+      "claim_text": "於是序列長度變成 1024 個 token、單次前向 524.6 Gflops",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "this XL/2 model processes a total of 1024 tokens after patchifying the $64\\times64\\times4$ input latent (524.6 Gflops)"
+    },
+    {
+      "claim_id": "body-10",
+      "claim_text": "本文最重要的實證結論是：DiT 的樣本品質由 Gflops 決定，而非參數量",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "scaling model \\textit{Gflops} is actually the key to improved performance"
+    },
+    {
+      "claim_id": "body-11",
+      "claim_text": "可見很強的負相關",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "We find a strong negative correlation between model Gflops and FID-50K"
+    },
+    {
+      "claim_id": "body-12",
+      "claim_text": "把先前由 LDM 保持的 3.60 FID 紀錄推進到 2.27",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "decreasing the previous best FID-50K of 3.60 achieved by LDM to 2.27"
+    },
+    {
+      "claim_id": "body-tbl-2",
+      "claim_text": "| DiT-XL/2-G (cfg=1.50) | 2.27 | 278.24 | 0.83 | 0.57 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "\\textbf{DiT-XL/2-G} (cfg=1.50) & \\textbf{2.27} & \\textbf{4.60} & \\textbf{278.24} & 0.83 & 0.57"
+    },
+
+    {
+      "claim_id": "crit-1",
+      "claim_text": "「U-Net 是否為擴散模型的必要條件」是一個貨真價實、可證偽的科學問題",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-2",
+      "claim_text": "in-context 449M、cross-attention 598M、adaLN 600M、adaLN-Zero 675M",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "119.37 & 449 & 400 & 256 & $1 \\times 10^{-4}$ & in-context"
+    },
+    {
+      "claim_id": "crit-3",
+      "claim_text": "其「可擴展性」結論是在自己定義的 Gflops 座標軸與 ImageNet class-conditional 這個特定基準上成立的",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-4",
+      "claim_text": "DiT-XL/2 在 TPU v3-256 上以約 5.7 iterations/second 訓練並跑到 7M 步",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2212.09748",
+      "retrieved_at": "2026-07-02T22:11:07+00:00",
+      "quoted_snippet": "trains at roughly 5.7 iterations/second on a TPU v3-256 pod"
+    }
+  ]
+}
