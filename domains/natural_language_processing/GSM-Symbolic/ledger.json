@@ -1,0 +1,261 @@
+{
+  "note_path": "domains/natural_language_processing/GSM-Symbolic/README.md",
+  "domain": "natural_language_processing",
+  "topic": "GSM-Symbolic",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "ICLR",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://openreview.net/forum?id=AjXkRZIvjB",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "\\iclrfinalcopy"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://openreview.net/forum?id=AjXkRZIvjB",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "iclr2025_conference"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Iman Mirzadeh, Keivan Alizadeh",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "Iman Mirzadeh"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/apple/ml-gsm-symbolic",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "https://github.com/apple/ml-gsm-symbolic"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "paper"
+    },
+    {
+      "claim_id": "fig-symbolic-drop",
+      "claim_text": "GSM8K to GSM-Symbolic accuracy drop per model",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/symbolic-drop.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.05229/assets/x7.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The performance of all state-of-the-art models on \\gsmsymb~drops compared to \\gsm."
+    },
+    {
+      "claim_id": "fig-noop-drop",
+      "claim_text": "GSM8K to GSM-NoOp accuracy drop per model",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/noop-drop.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.05229/assets/x20.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The performance of models drops significantly on \\gsmnoop, with more recent models experiencing a greater decline than older ones."
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "包含 7473 個訓練題與 1319 個測試題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "divided into 7473 training and 1319 test examples"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "不如把它看成一個分布",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "viewing LLM performance as a distribution across various problem instances provides deeper insights"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "每個樣板定義三件事：變數、變數的定義域",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "identifying variables, their domains, and necessary conditions"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "range(5, 100)",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "range(5, 100)"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "保證每次隨機抽樣出的實例都自洽",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "we deliberately select numerical ranges that closely align with those in the original"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "就得到 Figure 1 左邊的題目",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "Let T be the number of bouncy balls in the tube."
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "$$T = 62 - (31 + 8 + 9) = 62 - 48 = 14.$$",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Let T be the number of bouncy balls in the tube."
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "同一個樣板生成 50 個實例",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "using 100 templates and generating 50 samples per template, resulting in 5000 total examples"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "每個模型的準確率都有不可忽視的變異",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "this holds for 21 out of 25 models"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "污染嫌疑最重的老模型",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2410.05229/assets/x7.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "The performance of all state-of-the-art models on \\gsmsymb~drops compared to \\gsm."
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "移除一個子句得到 M1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "as the difficulty increases, the performance decreases and the variance increases"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "82.9 | 74.0 | 57.4 | 35.5 | 20.4",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "82.9 ($\\pm$ 2.87) & 74.0 ($\\pm$ 3.49) & 57.4 ($\\pm$ 5.20) & 35.5 ($\\pm$ 5.07) & 20.4"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "這是全文最有殺傷力的實驗",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "seemingly relevant but ultimately inconsequential statements"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "週五摘 44 顆奇異果",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "Oliver picks 44 kiwis on Friday. Then he picks 58 kiwis on Saturday."
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "正解應忽略「五顆比較小」這句廢話",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "44 (Friday) + 58 (Saturday) + 83 (Sunday) = 185"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "Phi-3-mini 掉超過 65%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "Phi-3-mini model experiencing over a 65"
+    },
+    {
+      "claim_id": "body-prose-13-fewshot",
+      "claim_text": "無法用 few-shot 救回",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2410.05229",
+      "retrieved_at": "2026-07-02T17:55:28+00:00",
+      "quoted_snippet": "the performance remains within the standard deviation, even with 8 shots"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "全部取自 GSM8K 測試集",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "we verify that at least two models answer each question correctly"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "符號樣板與擾動評估並非本文首創",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "lacks symbolic templates and has a fixed size and difficulty"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "能力越強的模型退化越小",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "current LLMs are not capable of genuine logical reasoning"
+    }
+  ]
+}
