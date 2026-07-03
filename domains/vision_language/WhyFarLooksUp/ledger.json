@@ -1,0 +1,270 @@
+{
+  "note_path": "domains/vision_language/WhyFarLooksUp/README.md",
+  "domain": "vision_language",
+  "topic": "WhyFarLooksUp",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T16:26:00Z",
+  "entries": [
+    {
+      "claim_id": "table-cell-title",
+      "claim_text": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "\\title{Why Far Looks Up: Probing Spatial Representation in Vision-Language Models}"
+    },
+    {
+      "claim_id": "table-cell-venue",
+      "claim_text": "ECCV",
+      "kind": "paper-claim",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "\\usepackage{eccv}"
+    },
+    {
+      "claim_id": "table-cell-year",
+      "claim_text": "2026",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "year=2026"
+    },
+    {
+      "claim_id": "table-cell-authors",
+      "claim_text": "Cheolhong Min, Jaeyun Jung, Daeun Lee, Hyeonseong Jeon, Yu Su, Jonathan Tremblay, Chan Hee Song, Jaesik Park",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "\\author{Cheolhong Min"
+    },
+    {
+      "claim_id": "table-cell-official-code",
+      "claim_text": "https://github.com/cheolhong0916/contrastive-probing",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "github.com/cheolhong0916/contrastive-probing"
+    },
+    {
+      "claim_id": "table-cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "\\documentclass[runningheads]{llncs}"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "vertical-distance entanglement",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "We term this phenomenon \\textbf{vertical-distance entanglement}, where image-plane vertical position becomes conflated with depth."
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "contrastive probing",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "For a question pair $(q_1,q_2)$, we define \\textbf{delta vector} $\\delta = h_{q_2} - h_{q_1}$ as the representation-space displacement induced by the swap."
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\mathrm{VD\\text{-}EI} = \\frac{1}{4} \\left[ \\cos(\\mu_{\\text{above}}, \\mu_{\\text{far}}) + \\cos(\\mu_{\\text{below}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{above}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{below}}, \\mu_{\\text{far}}) \\right]",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4} \\bigl["
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "SpatialTunnel",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "To enable controlled interventions, we introduce \\TUNNEL, a synthetic dataset that decouples"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "RoboRefer-2B-SFT",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "RoboRefer-2B-SFT & 0.793 & 0.816 & 0.770 & +0.046"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "RoboRefer-2B-SFT",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "RoboRefer occupies a distinct region: the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$)"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "denom = (np.linalg.norm(v) * np.linalg.norm(d) + 1e-12)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-code-1",
+      "source_url": "domains/vision_language/WhyFarLooksUp/probing.py",
+      "retrieved_at": "2026-07-03T08:15:00Z",
+      "quoted_snippet": "denom = (np.linalg.norm(v) * np.linalg.norm(d) + 1e-12)"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "Qwen2.5-VL-3B-Instruct",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "axis coherence",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-6",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "計算得出的垂直-距離糾纏指數",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-7",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "\\mathrm{VD\\text{-}EI} = \\frac{1}{4} \\left[ 0.4975 + 0.4390 - (-0.4299) - (-0.4954) \\right] = \\frac{1}{4} \\left[ 1.8618 \\right] = 0.46545",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Cross-category similarity heatmaps for the Qwen family"
+    },
+    {
+      "claim_id": "figure-teaser",
+      "claim_text": "Teaser showing perspective bias concept",
+      "kind": "paper-claim",
+      "target": "figure:imgs/teaser.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 1"
+    },
+    {
+      "claim_id": "figure-consistent-counter",
+      "claim_text": "Consistent vs counter example illustration",
+      "kind": "paper-claim",
+      "target": "figure:imgs/consistent_counter.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 2"
+    },
+    {
+      "claim_id": "figure-spatial-tunnel",
+      "claim_text": "SpatialTunnel Blender corridor setup",
+      "kind": "paper-claim",
+      "target": "figure:imgs/spatial_tunnel.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 3"
+    },
+    {
+      "claim_id": "figure-contrastive-probing",
+      "claim_text": "Contrastive probing framework diagram",
+      "kind": "paper-claim",
+      "target": "figure:imgs/contrastive_probing.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 5"
+    },
+    {
+      "claim_id": "figure-acc-cohd",
+      "claim_text": "Accuracy vs distance coherence plot",
+      "kind": "paper-claim",
+      "target": "figure:imgs/acc_cohd_with_num.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 6"
+    },
+    {
+      "claim_id": "figure-cohd-vdei",
+      "claim_text": "Distance coherence vs VD-EI plot",
+      "kind": "paper-claim",
+      "target": "figure:imgs/cohd_vdei.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 6"
+    },
+    {
+      "claim_id": "figure-pca-delta",
+      "claim_text": "3D PCA plot across model checkpoints",
+      "kind": "paper-claim",
+      "target": "figure:imgs/pca_delta_vectors.png",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "Figure 7"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "ill-posed inverse problem",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "spatial SFT data scaling",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-03T08:13:38Z",
+      "quoted_snippet": "The NVILA scaling trajectory yields only marginal gains in $\\CohD$ while \\VDEI remains high ($0.54$--$0.64$)."
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "diagnostic tool",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "robotic manipulation",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "Blender",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
