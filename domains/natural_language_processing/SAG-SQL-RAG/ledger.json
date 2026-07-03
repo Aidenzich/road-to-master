@@ -1,0 +1,459 @@
+{
+  "note_path": "domains/natural_language_processing/SAG-SQL-RAG/README.md",
+  "domain": "natural_language_processing",
+  "topic": "SAG-SQL-RAG",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T16:00:00Z",
+  "entries": [
+    {
+      "claim_id": "t1",
+      "claim_text": "SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges"
+    },
+    {
+      "claim_id": "v1",
+      "claim_text": "arXiv preprint（以 ICLR 2026 投稿格式排版；同儕審查狀態 unknown）",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "iclr2026_conference"
+    },
+    {
+      "claim_id": "y1",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "iclr2026_conference"
+    },
+    {
+      "claim_id": "a1",
+      "claim_text": "Yuchao Wu, Junqin Li, XingCheng Liang, Yongjie Chen, Yinghao Liang",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Junqin Li, XingCheng Liang, Yongjie Chen, Yinghao Liang"
+    },
+    {
+      "claim_id": "oc1",
+      "claim_text": "https://github.com/Zleap-AI/SAG-Benchmark",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "https://github.com/Zleap-AI/SAG-Benchmark"
+    },
+    {
+      "claim_id": "vk1",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "This paper introduces SAG"
+    },
+    {
+      "claim_id": "f1",
+      "claim_text": "三種 RAG 範式（NaiveRAG / GraphRAG / SAG）的流程與能力比較圖",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/paradigm-comparison.png",
+      "source_url": "https://raw.githubusercontent.com/Zleap-AI/SAG-Benchmark/main/assets/paper-rag-comparison.png",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Process and performance comparison of three RAG paradigms"
+    },
+    {
+      "claim_id": "f2",
+      "claim_text": "SAG 架構總覽圖：離線抽 event/entity，線上 seed 召回、擴展、壓縮候選後選取",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/sag-architecture.png",
+      "source_url": "https://raw.githubusercontent.com/Zleap-AI/SAG-Benchmark/main/assets/paper-sag-architecture.png",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Architecture overview of SAG"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "純語意相似度就開始漏",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "dense retrieval, is at its core semantic-similarity matching"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "檢索既不該全交給 dense similarity",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "retrieval should be governed neither entirely by dense similarity"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "一個 chunk 對應一個 event，刻意不再拆成多個獨立三元組",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "for a total of 11 types"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "entity 只做字串正規化與 SQL 去重，不做實體合併",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "relying on simple string normalization and SQL deduplication"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "走兩條平行路徑",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "constructs the initial candidate event set"
+    },
+    {
+      "claim_id": "be1",
+      "claim_text": "\\mathcal{E}_R^{\\text{entity}} \\cup \\mathcal{E}_R^{\\text{direct}}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\mathcal{E}_R^{\\text{entity}} \\cup \\mathcal{E}_R^{\\text{direct}}"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "多跳擴展就是資料庫裡的關聯式 join，不是 PageRank",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "not PageRank or graph reasoning"
+    },
+    {
+      "claim_id": "be2",
+      "claim_text": "\\mathcal{E}_{\\text{cand}} = \\mathcal{E}_R \\cup \\mathcal{E}_E",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\mathcal{E}_{\\text{cand}} = \\mathcal{E}_R \\cup \\mathcal{E}_E"
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "整條鏈路可完整審計",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "retains the top $K_{\\text{cand}}$ (default 100)"
+    },
+    {
+      "claim_id": "be3",
+      "claim_text": "\\mathcal{E}_R \\rightarrow \\mathcal{E}_{\\text{cand}}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\hat{\\mathcal{U}}_q"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "Recall@5 從 80.0% 掉到 69.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "With Expansion (Baseline) & \\textbf{36.2} & \\textbf{64.1} & \\textbf{80.0} & \\textbf{83.4}"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "9 項 Recall@K 指標拿下 8 項最佳",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "8 out of 9 Recall@K metrics"
+    },
+    {
+      "claim_id": "bt1",
+      "claim_text": "64.1 / 80.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\textbf{SAG (Ours)} & \\textbf{64.1} / \\textbf{80.0}"
+    },
+    {
+      "claim_id": "bt1b",
+      "claim_text": "SAG 主表全列：MuSiQue 64.1/80.0、2Wiki 82.3/88.0、HotpotQA 91.6/96.5、平均 79.3/88.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\textbf{SAG (Ours)} & \\textbf{64.1} / \\textbf{80.0} & \\textbf{82.3} / 88.0 & \\textbf{91.6} / \\textbf{96.5} & \\textbf{79.3} / \\textbf{88.2}"
+    },
+    {
+      "claim_id": "bt1c",
+      "claim_text": "HippoRAG 2 主表全列：MuSiQue 49.5/65.1、2Wiki 76.6/90.4、HotpotQA 78.4/94.4、平均 68.2/83.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "HippoRAG 2 (BGE-Large-EN-v1.5) & 49.5 / 65.1 & 76.6 / \\textbf{90.4} & 78.4 / 94.4 & 68.2 / 83.3"
+    },
+    {
+      "claim_id": "bt1d",
+      "claim_text": "BGE-Large-EN-v1.5 純向量主表全列：MuSiQue 41.6/56.2、2Wiki 61.6/69.0、HotpotQA 76.0/88.8、平均 59.7/71.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "BGE-Large-EN-v1.5 & 41.6 / 56.2 & 61.6 / 69.0 & 76.0 / 88.8 & 59.7 / 71.3"
+    },
+    {
+      "claim_id": "bt1e",
+      "claim_text": "SAG 平均 Recall@2/5 79.3/88.2 對 HippoRAG 2 的 68.2/83.3，高 11.1/4.9 個百分點（由主表兩列相減得出）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "\\textbf{79.3} / \\textbf{88.2}"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "遠端節點在阻尼下衰減",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "which features the longest reasoning chains"
+    },
+    {
+      "claim_id": "bt2",
+      "claim_text": "69.4",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Without Expansion & 35.7 & 57.3 & 69.4 & 74.3"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "hyperedge 相對三元組只多 2.9 個百分點",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "a further 2.9 percentage points"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "是一張帶唯一鍵的多對多關聯表",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sag-sqlrag-20260703/road-to-master/domains/natural_language_processing/SAG-SQL-RAG/code/sql_hyperedge_excerpt.py",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "__tablename__ = \"event_entity\""
+    },
+    {
+      "claim_id": "bc1",
+      "claim_text": "query-time 擴展在程式裡是一段 select().join() 關聯式查詢",
+      "kind": "evidence-supported",
+      "target": "note-section:body-code-1",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sag-sqlrag-20260703/road-to-master/domains/natural_language_processing/SAG-SQL-RAG/code/sql_hyperedge_excerpt.py",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "select(EventEntity.event_id).where("
+    },
+    {
+      "claim_id": "bt3",
+      "claim_text": "三元組表示的 MuSiQue Recall@5 為 77.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Triple & 35.6 & 61.5 & 77.1 & 81.2"
+    },
+    {
+      "claim_id": "bt4",
+      "claim_text": "換成 Qwen3-Reranker-0.6B 時 Recall@5 掉到 62.2（−17.8）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Qwen3-Reranker-0.6B & 32.5 & 46.7 & 62.2 & 70.8"
+    },
+    {
+      "claim_id": "bt5",
+      "claim_text": "只走語意路（K_event=0）時 Recall@5 為 56.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "0 & 10 & 29.4 & 41.6 & 56.2 & 63.8"
+    },
+    {
+      "claim_id": "bt6",
+      "claim_text": "Recall@5 由 76.1% 明顯拉到 80.0%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "50 & 36.1 & 61.6 & 76.1 & 79.7 & \\textbf{12.0}"
+    },
+    {
+      "claim_id": "bt7",
+      "claim_text": "候選 event 100（baseline）Recall@5=80.0、Token=20.0M",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "100 (Baseline)} & 36.2 & 64.1 & 80.0 & 83.4 & 20.0"
+    },
+    {
+      "claim_id": "bt8",
+      "claim_text": "候選 event 200/500 Recall@5=80.9/81.8、Token 暴增至 35.5M/76.4M",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "500 & 36.3 & 64.3 & \\textbf{81.8} & \\textbf{86.1} & 76.4"
+    },
+    {
+      "claim_id": "f3",
+      "claim_text": "候選 event 數 vs Token 開銷的 Recall@5 邊際收益曲線圖（Figure）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/token_marginal_benefit.png",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Token marginal benefit analysis"
+    },
+    {
+      "claim_id": "nv1",
+      "claim_text": "SAG 與 HippoRAG 2 的 MuSiQue Recall@5 分別是 81.7% 與 74.6%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "SAG (NV-Embed-v2) & \\textbf{36.4} & \\textbf{64.6} & \\textbf{81.7}"
+    },
+    {
+      "claim_id": "nv2",
+      "claim_text": "NV-Embed-v2 下 HippoRAG 2 的 Recall@5 為 74.6；換回 BGE 掉到 65.1（−9.5），SAG 僅由 81.7 變 80.0（−1.7）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "HippoRAG 2 (NV-Embed-v2) & 33.7 & 56.0 & 74.6"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "並非人造問題",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "a systematic decoupling between offline structure and online recall"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "統一配置下的直接對手只有 HippoRAG 2 一個",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "We compare SAG against HippoRAG~2"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "並非推理鏈完整覆蓋的嚴格保證",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "tends to overstate performance under strict multi-hop evaluation"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "新穎性更接近系統重組",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "not to replace standard RAG with stronger modules"
+    },
+    {
+      "claim_id": "cp5",
+      "claim_text": "但「尾部召回」與參數可攜性仍是未定之數",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "SAG's current pruning strategy has a systematic blind spot for low-frequency bridging entities"
+    },
+    {
+      "claim_id": "ds1",
+      "claim_text": "MuSiQue 走查量級：語料 11,656 個 passages、每個資料集抽樣 1,000 題",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-worked-example",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Num of queries & 1,000 & 1,000 & 1,000 \\\\\nNum of passages & 11,656 & 6,119 & 9,811"
+    },
+    {
+      "claim_id": "hp1",
+      "claim_text": "預設超參數：H=1、K_seed=50、entity frontier 剪枝預算 50、K_cand=100、K_out=10",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-worked-example",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "Expansion hops $H=1$, initial seed recall budget $K_{\\text{seed}}=50$, entity frontier pruning budget 50, candidate events passed to LLM $K_{\\text{cand}}=100$. The system ultimately returns $K_{\\text{out}}=10$ chunks"
+    },
+    {
+      "claim_id": "hp2",
+      "claim_text": "Path A entity 向量召回預設門檻 0.9",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-online-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "using each seed entity as a query (default threshold 0.9)"
+    },
+    {
+      "claim_id": "hp3",
+      "claim_text": "Path B 直接 event 召回相似度門檻 τ 預設 0.4",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-online-1",
+      "source_url": "https://arxiv.org/abs/2606.15971",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "retaining events whose similarity exceeds threshold $\\tau$ (default 0.4)"
+    },
+    {
+      "claim_id": "cc1",
+      "claim_text": "官方 config.py 直接向量召回門檻預設 0.4，與論文 τ=0.4 相符",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sag-sqlrag-20260703/.loop-manager/code-audit/SAG-Benchmark/pipeline/modules/search/config.py:116-117",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "similarity_threshold: float = Field(\n        default=0.4,"
+    },
+    {
+      "claim_id": "cc2",
+      "claim_text": "官方 config.py 擴展跳數 max_hops 預設 1，與論文 H=1 相符",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sag-sqlrag-20260703/.loop-manager/code-audit/SAG-Benchmark/pipeline/modules/search/config.py:418-419",
+      "retrieved_at": "2026-07-03T15:32:08Z",
+      "quoted_snippet": "max_hops: int = Field(\n        default=1,"
+    }
+  ]
+}

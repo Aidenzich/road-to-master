@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges](https://arxiv.org/abs/2606.15971) | arXiv | '26 | [✓](https://github.com/Zleap-AI/SAG-Benchmark) | [✓](./SAG-SQL-RAG/) |
 | [Prompt Language (English vs Chinese) and LLM Coding Accuracy — a survey](https://github.com/Aidenzich/road-to-master/issues/89) | survey | '26 | - | [✓](./PromptLanguageCodingAccuracy/) |
 | [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941) | - | '25 | - | [✓](./Illusion-of-Thinking/) |
 | [Is Temperature the Creativity Parameter of Large Language Models?](https://arxiv.org/abs/2405.00492) | ICCC | '24 | [✓](https://github.com/maxpeeperkorn/creativity-parameter) | [✓](./TemperatureCreativity/) |
