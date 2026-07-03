@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Layer-Condensed KV Cache for Efficient Inference of Large Language Models](https://arxiv.org/abs/2405.10637) | ACL | '24 | [✓](https://github.com/whyNLP/LCKV) | [✓](./LayerCondensedKVCache/) |
 | [Human Feedback is not Gold Standard](https://arxiv.org/abs/2309.16349) | ICLR | '24 | [✓](https://github.com/cohere-ai/human-feedback-paper) | [✓](./HumanFeedbackNotGoldStandard/) |
 | [Large Language Models Are State-of-the-Art Evaluator for Grammatical Error Correction](https://arxiv.org/abs/2403.17540) | BEA (NAACL) | '24 | - | [✓](./LLMEvaluatorForGEC/) |
 | [Text Embeddings Reveal (Almost) As Much As Text](https://arxiv.org/abs/2310.06816) | EMNLP | '23 | [✓](https://github.com/jxmorris12/vec2text) | [✓](./Vec2Text/) |
