@@ -1,0 +1,327 @@
+{
+  "note_path": "domains/natural_language_processing/DeepSeekR1/README.md",
+  "domain": "natural_language_processing",
+  "topic": "DeepSeekR1",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T01:40:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-03T01:35:00+00:00",
+      "quoted_snippet": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "Nature",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-03T01:35:00+00:00",
+      "quoted_snippet": "Nature volume 645, pages 633-638 (2025)"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-03T01:35:00+00:00",
+      "quoted_snippet": "Nature volume 645, pages 633-638 (2025)"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Daya Guo",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "Daya Guo"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "github.com/deepseek-ai/DeepSeek-R1",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "retrieved_at": "2026-07-03T01:33:00+00:00",
+      "quoted_snippet": "github.com/deepseek-ai/DeepSeek-R1"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-03T01:35:00+00:00",
+      "quoted_snippet": "Nature volume 645, pages 633-638 (2025)"
+    },
+
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "DeepSeek-V3-Base",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "we bypass the conventional supervised fine-tuning (SFT) phase before RL training"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "value network",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "reduce the resource consumption of Proximal Policy Optimization"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\mathcal{J}_{GRPO}(\\theta)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "\\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "critic",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "is the advantage, computed using a group of rewards"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "A_i=\\frac{r_i-\\mathrm{mean}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "A_i = \\frac{r_i"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "value model",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "we sample 16 outputs"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "accuracy reward",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "accuracy rewards and format rewards"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "Reward_\\text{rule}=Reward_\\text{acc}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "Reward_\\text{rule} = Reward_\\text{acc} + Reward_\\text{format}"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "neural reward model",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "we abstain from applying neural reward models"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "10,400",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "a total of 10,400 steps"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "86.7",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "an initial 15.6"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "aha moment",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "5- to 7-fold"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "0.375",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "we sample 16 outputs"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "+1.29",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "language mixing",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "poor readability, and language mixing"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "87.6",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "24.7 & 50.1 & 55.8 & 62.1"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "46.6",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "46.6& 71.7 & 72.0 & 78.1"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "2029",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "1820 & 2061 & 2029"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "28.9",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "28.9 & 52.7 & 83.9"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "94.3",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "{94.3} & {62.1} & {57.2}"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "47.0",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "47.0 & 60.0 & 91.6 & 55.0 & 40.2"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "147K",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "101K & 5K & 41K & 147K"
+    },
+
+    {
+      "claim_id": "fig-aime",
+      "claim_text": "R1-Zero AIME accuracy learning curve figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/r1zero_aime.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2501.12948/assets/figures/plot_aime_with_maj.png",
+      "retrieved_at": "2026-07-03T01:33:00+00:00",
+      "quoted_snippet": "AIME accuracy of DeepSeek-R1-Zero during training"
+    },
+    {
+      "claim_id": "fig-length",
+      "claim_text": "R1-Zero response length growth figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/r1zero_length.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2501.12948/assets/figures/plot_length.png",
+      "retrieved_at": "2026-07-03T01:33:00+00:00",
+      "quoted_snippet": "average response length of DeepSeek-R1-Zero"
+    },
+    {
+      "claim_id": "fig-benchmark",
+      "claim_text": "R1 vs R1-Zero vs human/models benchmark overview figure",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/benchmark_overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2501.12948/assets/x1.png",
+      "retrieved_at": "2026-07-03T01:33:00+00:00",
+      "quoted_snippet": "compared with human scores across different datasets"
+    },
+
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "verifier",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "approximately six million potential pre-training texts"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "moderate level",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "generally at a moderate level"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "aha moment",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "language mixing",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2501.12948",
+      "retrieved_at": "2026-07-02T17:30:20+00:00",
+      "quoted_snippet": "may result in language mixing"
+    }
+  ]
+}

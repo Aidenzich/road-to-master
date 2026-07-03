@@ -1,0 +1,324 @@
+{
+  "note_path": "domains/natural_language_processing/LLMEvaluatorForGEC/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LLMEvaluatorForGEC",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Large Language Models Are State-of-the-Art Evaluator for Grammatical Error Correction",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "Large Language Models Are State-of-the-Art Evaluator"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "Workshop on Innovative Use of NLP for Building Educational Applications (BEA), NAACL 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://aclanthology.org/2024.bea-1.6/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Workshop on Innovative Use of NLP for Building Educational Applications"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://aclanthology.org/2024.bea-1.6/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "2024"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Masamune Kobayashi, Masato Mita, Mamoru Komachi",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "Masamune Kobayashi"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://aclanthology.org/2024.bea-1.6/",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "In this work, we investigated the capability of LLMs"
+    },
+    {
+      "claim_id": "fig-radar-e",
+      "claim_text": "Window analysis radar chart for SEEDA-E: GPT-4 keeps high stable correlations while conventional metrics swing to no/negative correlation.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/radar_seedaE.png",
+      "source_url": "https://arxiv.org/e-print/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "no correlation or negative correlation"
+    },
+    {
+      "claim_id": "fig-radar-s",
+      "claim_text": "Window analysis radar chart for SEEDA-S: overall high correlation with a marked drop near x=10.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/radar_seedaS.png",
+      "source_url": "https://arxiv.org/e-print/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "using only subsets of consecutive four systems in the human rankings"
+    },
+    {
+      "claim_id": "b1",
+      "claim_text": "如何評分一個 GEC 系統",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "there has been no comprehensive analysis using dozens of systems"
+    },
+    {
+      "claim_id": "b2",
+      "claim_text": "給定學習者寫的原句 source、系統修正後的 hypothesis、以及人工黃金修正 reference，用某個 metric",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "assess only the edits made in the corrected text"
+    },
+    {
+      "claim_id": "b3",
+      "claim_text": "它跟人類判斷的相關性，比所有既有的自動 metric 都高",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "GPT-4 achieved state-of-the-art performance"
+    },
+    {
+      "claim_id": "b4",
+      "claim_text": "只看「所做的編輯」對不對。包含 M²、ERRANT、GoToScorer、PT-M²",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "assess only the edits made in the corrected text"
+    },
+    {
+      "claim_id": "b5",
+      "claim_text": "prompt 裡把編輯明確標出來讓 LLM 評每個編輯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "LLMs for edit-based evaluation are denoted with"
+    },
+    {
+      "claim_id": "b6",
+      "claim_text": "三個受測 LLM：LLaMa 2（13B chat）、GPT-3.5（`gpt-3.5-turbo-1106`）、GPT-4",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "gpt-4-1106-preview"
+    },
+    {
+      "claim_id": "b7",
+      "claim_text": "三位標註者在 edit-based 與 sentence-based 兩種粒度下",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "resulting in 5347 pairwise judgments"
+    },
+    {
+      "claim_id": "b8",
+      "claim_text": "把每個系統的 metric 分數",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "we use Pearson correlation"
+    },
+    {
+      "claim_id": "b-eq1",
+      "claim_text": "\\text{concordant pairs}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Kendall's rank correlation of 0.662 with human evaluations"
+    },
+    {
+      "claim_id": "b9",
+      "claim_text": "若 metric 對這一對的排序方向與人類一致就是 concordant",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "Kendall ("
+    },
+    {
+      "claim_id": "b10",
+      "claim_text": "在 12 個系統之外，再加入兩句「流暢型修正」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "which adds two fluent corrected sentences"
+    },
+    {
+      "claim_id": "b11",
+      "claim_text": "下表節錄自論文 Table 1（`tab:meta`）。列出關鍵列，數值直接引自 LaTeX 原始檔",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "Results of system-level and sentence-level meta-evaluations"
+    },
+    {
+      "claim_id": "b-tab1",
+      "claim_text": "GPT-4-S + Fluency 的句子層級 SEEDA-E Base Kendall tau = 0.662",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "0.662"
+    },
+    {
+      "claim_id": "b12",
+      "claim_text": "系統層級 $r$ 大家都擠在 0.9 上下（gpt-4-s 0.960 vs some 0.901，差距很小",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "system-level correlations for GPT-4 exceed 0.9"
+    },
+    {
+      "claim_id": "b-code1",
+      "claim_text": "The GPT-4-S + Fluency prompt example lists five candidate corrections of the social-media sentence.",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "socia media benefits people in several ways"
+    },
+    {
+      "claim_id": "b13",
+      "claim_text": "並補上 fluency 那句，輸出為 JSON 格式的分數",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "the prompts output scores in JSON format"
+    },
+    {
+      "claim_id": "b14",
+      "claim_text": "餵進 TrueSkill，得到系統層級排名",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "generated using Trueskill are shown in Table"
+    },
+    {
+      "claim_id": "b-tab2",
+      "claim_text": "GPT-4-S + Fluency ranks GPT-3.5 first with score 0.721",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "0.721"
+    },
+    {
+      "claim_id": "b15",
+      "claim_text": "GPT-4-S + Fluency 把它們排到第 1、2 名",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "GPT-4 can rank fluent corrections highly"
+    },
+    {
+      "claim_id": "b16",
+      "claim_text": "把上面這組 LLM 排名對上人類排名，在句子層級用成對判斷算",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "Kendall's rank correlation of 0.662 with human evaluations"
+    },
+    {
+      "claim_id": "b17",
+      "claim_text": "的系統子集，算它們的 Pearson $r$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "using only subsets of consecutive four systems in the human rankings"
+    },
+    {
+      "claim_id": "b18",
+      "claim_text": "傳統 metric 則常掉到無相關甚至負相關",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "no correlation or negative correlation"
+    },
+    {
+      "claim_id": "c1",
+      "claim_text": "既有 GEC metric 在高效能系統之間",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "may have reached a performance saturation point"
+    },
+    {
+      "claim_id": "c2",
+      "claim_text": "基線相當完整：四個 EBM + 四個 SBM，涵蓋 f-score 系、n-gram 系、以及 BERT 微調系",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2403.17540",
+      "retrieved_at": "2026-07-02T18:52:57+00:00",
+      "quoted_snippet": "For EBMs, we employ four metrics"
+    },
+    {
+      "claim_id": "c3",
+      "claim_text": "全部結論建立在 SEEDA（英語、W&I+LOCNESS 域）之上",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "12 outputs from neural-based GEC systems"
+    },
+    {
+      "claim_id": "c4",
+      "claim_text": "確實是實打實的增益",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "humans also prioritize fluency when comparing high-quality corrected sentences"
+    },
+    {
+      "claim_id": "c5",
+      "claim_text": "就方法而言，本文新穎性有限——沒有新模型、新演算法",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "there has been no comprehensive analysis using dozens of systems"
+    },
+    {
+      "claim_id": "c6",
+      "claim_text": "能用的（GPT-4）不可複現，可複現的（LLaMa 2）不能用。這個張力尚未被解決",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "we also conducted evaluations using reproducible LLMs"
+    }
+  ]
+}

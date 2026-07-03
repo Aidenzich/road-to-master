@@ -1,0 +1,353 @@
+{
+  "note_path": "domains/computer_vision/CoDi/README.md",
+  "domain": "computer_vision",
+  "topic": "CoDi",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "CoDi: Conditional Diffusion Distillation for Higher-Fidelity and Faster Image Generation",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "CoDi: Conditional Diffusion Distillation for Higher-Fidelity and Faster Image Generation"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "CVPR 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "\\def\\confName{CVPR}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "\\def\\confYear{2024}"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Kangfu Mei, Mauricio Delbracio, Hossein Talebi, Zhengzhong Tu, Vishal M. Patel, Peyman Milanfar",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "Kangfu Mei"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-depth-condition",
+      "claim_text": "depth condition input for depth-to-image generation",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_condition.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2310.01407/assets/assets/d2i/d2i_depth.png",
+      "retrieved_at": "2026-07-03T01:12:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-depth-controlnet",
+      "claim_text": "ControlNet depth-to-image result sampled in 4 steps",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_controlnet_4step.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2310.01407/assets/assets/d2i/d2i_ddim.png",
+      "retrieved_at": "2026-07-03T01:12:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-depth-codi",
+      "claim_text": "CoDi depth-to-image result sampled in 4 steps",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_codi_4step.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2310.01407/assets/assets/d2i/d2i_ours.png",
+      "retrieved_at": "2026-07-03T01:12:00Z",
+      "quoted_snippet": ""
+    },
+
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "但推論時需要 20–200 次的取樣步數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "sampling steps (function evaluations)"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "主流有兩條路線，論文把它們整理成 CM-X 與 GD-X",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "first finetune the diffusion model with the new conditional data, then conducting distillation"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "不再需要文字–影像資料，也不必先做一次會傷到先驗的微調",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "eliminates the need for the original text-to-image data"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "複製 U-Net 的 encoder 層當作「條件編碼器」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "duplicating the encoder layers of the pretrained network"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "(1 - \\mu)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "(1 - \\mu) \\boldsymbol{h}_\\theta(\\bz_t) + \\mu \\boldsymbol{h}_\\eta(c)"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "改造後的模型在訓練起點與預訓練模型**完全等價**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "Starting from this zero initialization"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "一致性模型（consistency model）的核心是自我一致性",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "enforcing a self-consistency in the predicted signal space"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "\\hat{\\mathbf{w}}_\\theta(\\mathbf{z}_t, c, t) = \\hat{\\mathbf{w}}_\\theta",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "\\hat{\\bw}_\\theta(\\bz_t, c, t) = \\hat{\\bw}_\\theta(\\hat{\\bz}_s, c, s)"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "這裡有兩個和原始一致性模型不同的地方",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "this consistency property differs from the one in consistency models"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "以往的蒸餾（progressive／guided distillation）用凍結的預訓練教師跑 DDIM 兩步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "solve the ODE using the Euler solver, while progressive distillation"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "\\hat{\\mathbf{z}}_s = \\alpha_s\\,\\hat{\\mathbf{x}}_\\theta(\\mathbf{z}_t, c, t) + \\sigma_s\\,\\epsilon",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "\\hat{\\bz}_s = \\alpha_s \\hat{\\bx}_\\theta(\\bz_t, c, t) + \\sigma_s \\epsilon"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "調和了兩個相互衝突的最佳化方向",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "harmonizes the conflicting optimization directions"
+    },
+    {
+      "claim_id": "body-equation-4",
+      "claim_text": "\\mathcal{L}(\\theta) := \\mathbb{E}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "two distance functions to measure difference in the noise space"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "第一項 $d_\\epsilon$ 是噪聲空間的自我一致性",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "\\sigma_\\mathrm{data}=0.5"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "最後預設採用**潛在空間的 $\\ell_2$**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "adopted the $\\ell_2$ distance in the latent space"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "論文附錄以 pseudocode 給出 Conditional Diffusion Distillation（CDD）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "Conditional Diffusion Distillation (CDD)"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "經驗上 Δt = 1",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "empirically $\\Delta t = 1$"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "而一致性目標 $\\hat{\\epsilon}_s$ 是用 EMA 的 $\\theta^-$ 算",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "exponential moving average"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "把它套在 ControlNet 這種只複製 encoder 的介面上，就得到 PE-CoDi",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "selectively update parameters pertinent to distillation"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "以論文的真實世界超解析度實驗（DF2K、Real-ESRGAN 退化管線、3,000 對測試影像）為例",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "3,000 randomly degraded image pairs"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "蒸餾完成後，推論只跑 **4 步**",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-16",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "19.637",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "19.637"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "幾乎追平教師 LDM 跑 250 步的 19.200",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "64 TPU-v4 pods"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "25.728",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "25.728"
+    },
+    {
+      "claim_id": "body-prose-18",
+      "claim_text": "代表增益不是來自架構變動",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "28.951"
+    },
+    {
+      "claim_id": "body-prose-19",
+      "claim_text": "CoDi 單步取樣就能達到與 IP2P 200 步相近的視覺品質",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "our single-step sampling result can achieve comparable visual quality to 200 steps"
+    },
+    {
+      "claim_id": "body-prose-20",
+      "claim_text": "左為深度條件，中為 ControlNet 4 步，右為 CoDi 4 步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "from ControlNet sampled in 4 steps (middle), and ours from the unconditional pretraining sampled in 4 steps (right)"
+    },
+
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "這兩個對照有效地把功勞歸因到一致性項而非架構",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "私有基礎模型",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "internal text-to-image data"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "整體上這是一份設計乾淨、消融紮實但可外部驗證性受限的工作",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2310.01407",
+      "retrieved_at": "2026-07-02T15:59:11Z",
+      "quoted_snippet": "introduces additional computation"
+    }
+  ]
+}

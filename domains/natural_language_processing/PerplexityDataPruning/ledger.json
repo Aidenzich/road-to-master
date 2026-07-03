@@ -1,0 +1,261 @@
+{
+  "note_path": "domains/natural_language_processing/PerplexityDataPruning/README.md",
+  "domain": "natural_language_processing",
+  "topic": "PerplexityDataPruning",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T04:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Perplexity-Based Data Pruning With Small Reference Models",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Perplexity-Based Data Pruning With Small Reference Models"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "neurips_2024"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Zachary Ankner, Cody Blakeney, Kartik Sreenivasan, Max Marion, Matthew L. Leavitt, Mansheej Paul",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Zachary Ankner"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "preprint"
+    },
+    {
+      "claim_id": "fig-intermediate",
+      "claim_text": "各設定在預訓練過程中的中途下游表現，剪枝在所有評估步數都勝過基線",
+      "kind": "paper-claim",
+      "target": "figure:imgs/intermediate-eval.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Perplexity-based data pruning leads to an improvement in performance for all intermediate training steps evaluated"
+    },
+    {
+      "claim_id": "fig-pplx-dist",
+      "claim_text": "參考模型評估出的樣本 perplexity 分布，Pile 多峰、Dolma 單峰",
+      "kind": "paper-claim",
+      "target": "figure:imgs/pplx-dist.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Distribution of sample perplexities as evaluated by the reference model for the Pile and Dolma"
+    },
+    {
+      "claim_id": "fig-domain-comp",
+      "claim_text": "各領域在剪枝前後佔資料集的比例",
+      "kind": "paper-claim",
+      "target": "figure:imgs/domain-composition.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Proportion of the total dataset each domain makes up before and after pruning"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "把 3 billion 參數模型的平均表現提升最多 2.04",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "improves the average performance on downstream tasks of a 3 billion parameter model by up to 2.04"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "用來訓練參考模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we partition the original dataset into two splits: one for training the reference model and one for training the final model"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "D_ref, D_train ← random_split(D, R)",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we compute the reference model's perplexity on each of the samples in the final model's training split"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\text{PPLX}(x)=2^{\\text{NLL}(x)}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "the perplexity of a sample under a reference language model is the best pruning metric"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "medium 則選 perplexity 落在中位數附近的樣本",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "In medium selection, we select samples whose perplexity is close to the median perplexity"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "參考模型固定 125 million 參數",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "All reference models have 125 million parameters, and we consider final models with 1 billion and 3 billion parameters"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "a_n=\\frac{a_m-a_r}{1-a_r}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we normalize the accuracy of each individual task"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "每個任務的分數會先用隨機猜測基線做歸一化",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "normalize each task by the baseline of random guessing"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "論文把 33 個任務分成",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "We evaluate models on 33 different downstream question-answering tasks using the MosaicML evaluation gauntlet"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "最佳剪枝設定對比無剪枝基線的平均歸一化準確率",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Average normalized accuracy grouped by task category for both datasets and both final model sizes"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "15.62 (High)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "outperforms the average downstream performance of no pruning for 1B models by 1.89 and 1.51 for the Pile and Dolma respectively"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "平均反而比不剪枝掉了 0.23",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "selecting medium-perplexity samples on the Pile leads to a decrease in the average downstream performance of 0.23"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "只保留 perplexity 最高的那 50% 樣本",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "the best settings are to select high-perplexity samples at a 50\\% rate for the Pile"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "1.31 倍與 1.45 倍更少的步數",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "reach the same average normalized accuracy as the baseline models"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "從 1.51 掉到 0.84",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we see a gain of 1.51 when training for a compute optimal duration but this decreases to a gain of 0.84 when over-training"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "從 7.83 惡化到 8.51",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "training on perplexity pruned data significantly worsens perplexity on a test split of the pretraining data, while the average downstream performance is significantly improved"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "Pubmed Central、ArXiv、Github 等領域的比例至少被砍到原本的三分之一以下",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "pruning increases the proportion of data coming from web-scraped domains while decreasing the proportion of data coming from highly specific technical domains"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "上游與下游可以",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we find that some techniques that significantly improve downstream performance have no, or even adverse, effects on upstream performance"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "完全沒有掃描參考模型大小",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "All reference models have 125 million parameters, and we consider final models with 1 billion and 3 billion parameters"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "沒有一套能事先預測參數的理論",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "we do not present a predictive theory for how pruning parameters should be selected for different datasets"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "砍掉 code 與科學論文",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2405.20541",
+      "retrieved_at": "2026-07-02T19:34:34Z",
+      "quoted_snippet": "Future work should investigate how perplexity-based pruning affects a model's performance on downstream tasks that are in the same category as the highly pruned domains"
+    }
+  ]
+}
