@@ -1,0 +1,270 @@
+{
+  "note_path": "domains/natural_language_processing/PRISM/README.md",
+  "domain": "natural_language_processing",
+  "topic": "PRISM",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "Expert Personas Improve LLM Alignment but Damage Accuracy"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "2026"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Zizhao Hu, Mohammad Rostami, Jesse Thomason",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "Zizhao Hu"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "In this work"
+    },
+    {
+      "claim_id": "fig1",
+      "claim_text": "Figure 1: expert persona 在模型、任務、粒度與位置上的影響",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1_granularity.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.18507/assets/x1.png",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "Expert persona impact across models, tasks, granularity, and placement"
+    },
+    {
+      "claim_id": "fig2",
+      "claim_text": "Figure 2: instruction-tuned vs reasoning-distilled 的 per-persona 效果熱圖",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_persona_alignment.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.18507/assets/x2.png",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "indicate gains are context-driven rather than expertise-specific"
+    },
+    {
+      "claim_id": "fig3",
+      "claim_text": "Figure 3: PRISM 五階段訓練管線與兩個替代方案的對比",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3_pipeline.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.18507/assets/x3.png",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "The five-stage PRISM training pipeline, which addresses both limitations"
+    },
+    {
+      "claim_id": "fig4",
+      "claim_text": "Figure 4: 各類別路由到 LoRA 的比例 vs expert persona 效果",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig4_routing_correlation.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2603.18507/assets/x4.png",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "MMLU (low), safety (high), MT-Bench (mixed)"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "這篇論文回答一個在實務上長期矛盾的問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "persona effectiveness is fundamentally task-type dependent"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "作者把 LLM 能力拆成兩層來源",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "models learn alignment capabilities such as stylistic adaptation, tone control, format adherence"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "在判別式知識任務上，證據很直接",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "underperforms the base model consistently across all four subject categories"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "反過來在對齊型任務上 persona 一致有幫助",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "improve scores in 5 out of 8 categories"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "persona 的效果還與模型如何被優化強相關",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "persona effectiveness is fundamentally tied to what was learned and preserved at each training stage"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "能不能只吸收有益的部分、避開有害的部分",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "PRISM builds its entire training pipeline using only the base model itself"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "PRISM 管線分五個階段自我閉環",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "The expert persona wins only if it is selected in both orderings"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "gate 的設計有一個精巧之處",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "the gate always receives the same representation regardless of whether the adapter is active"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "R_\\phi(x) = \\sigma(W_\\phi \\cdot h(x)) \\in [0, 1]",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "R_\\phi(x) = \\sigma(W_\\phi \\cdot h(x)) \\in [0, 1]"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "關鍵在於 LoRA 只套用在第",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "with GELU activations, operating on the last-token hidden state of the first transformer layer"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "P_{\\theta + \\Delta\\theta}(\\cdot \\mid x) & \\text{if } R_\\phi(x) \\geq 0.5",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "P_{\\theta + \\Delta\\theta}(\\cdot \\mid x) & \\text{if } R_\\phi(x) \\geq 0.5"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "換言之，只有在 persona 行為確實有益的查詢上才啟動 LoRA",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "compressing both beneficial and harmful persona behaviors into shared parameters"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "把整條路徑用 Qwen2.5-7B-Instruct 的實際數字走一遍",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "282 distill and 318 retain samples (600 total)"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "Qwen2.5-7B — PRISM | 7.76 | 71.7 | 63.7 | 73.5",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "73.5 Overall"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "具體讀這張表",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "where expert prompting actively hurts"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "最後一塊證據把「gate 學到了任務類型」這件事量化出來",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "routes more aggressively to LoRA for categories where expert personas help"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "文獻對其效益的分歧確實存在且未被系統性解釋",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "評審模型的選擇引入了循環風險",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2603.18507",
+      "retrieved_at": "2026-07-02T17:30:31Z",
+      "quoted_snippet": "the self-judge is rewarding the persona's verbose, step-by-step formatting rather than evaluating mathematical correctness"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "數個「改善」落在單一標準差內",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "PRISM 的個別元件並不新",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "把 PRISM 當成通用的對齊提升方案來讀會高估其成熟度",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
