@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models](https://arxiv.org/abs/2410.05229) | ICLR | '25 | [✓](https://github.com/apple/ml-gsm-symbolic) | [✓](./GSM-Symbolic/) |
 | [Autodata: An agentic data scientist to create high quality synthetic data](https://arxiv.org/abs/2606.25996) | unknown | '26 | [✓](https://github.com/facebookresearch/RAM) | [✓](./AutoData/) |
 | [LayerSkip: Enabling Early Exit Inference and Self-Speculative Decoding](https://arxiv.org/abs/2404.16710) | ACL | '24 | [✓](https://github.com/facebookresearch/LayerSkip) | [✓](./LayerSkip/) |
 | [Instruction Tuning with GPT-4](https://arxiv.org/abs/2304.03277) | - | '23 | [✓](https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM) | [-](./InstructioinTuningWithGPT4/) |
