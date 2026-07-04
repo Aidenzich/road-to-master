@@ -1,0 +1,261 @@
+{
+  "topic": "WhyFarLooksUp",
+  "domain": "vision_language",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-04T09:53:00+08:00",
+  "note_path": "domains/vision_language/WhyFarLooksUp/README.md",
+  "entries": [
+    {
+      "claim_id": "title",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
+      "quoted_snippet": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models"
+    },
+    {
+      "claim_id": "venue",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "ECCV",
+      "quoted_snippet": "ECCV"
+    },
+    {
+      "claim_id": "year",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "2026",
+      "quoted_snippet": "2026"
+    },
+    {
+      "claim_id": "authors",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "Cheolhong Min, Jaeyun Jung, Daeun Lee, Hyeonseong Jeon, Yu Su, Jonathan Tremblay, Chan Hee Song, Jaesik Park",
+      "quoted_snippet": "\\author{Cheolhong Min\\inst{1} \\and"
+    },
+    {
+      "claim_id": "code",
+      "target": "table-cell:official-code",
+      "source_url": ".loop-manager/code-cache/contrastive-probing/README.md",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "https://github.com/cheolhong0916/contrastive-probing",
+      "quoted_snippet": "https://github.com/cheolhong0916/contrastive-probing"
+    },
+    {
+      "claim_id": "venue-kind",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "paper",
+      "quoted_snippet": "paper"
+    },
+    {
+      "claim_id": "bp1",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "視覺語言模型 (VLMs) 在許多空間推理的基準測試中表現優異，但這究竟是源自於真實的 3D 空間理解，還是依賴自然影像中的統計捷徑 (statistical shortcuts)？本論文指出一個名為**垂直距離糾纏 (vertical-distance entanglement)** 的現象：模型會將影像平面上的垂直位置與 3D 深度混淆，亦即預設「在畫面中位置較高的物體，距離相機較遠」，這反映了自然攝影中的透視投影偏差。",
+      "quoted_snippet": "models frequently use an object's vertical position in the image as a proxy for its distance from the camera."
+    },
+    {
+      "claim_id": "bp2",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "為了驗證此現象，作者將測試樣本分為兩類：\n1. **一致樣本 (Consistent)**：較遠的物體在畫面中的高度較高，符合透視捷徑。\n2. **反直覺樣本 (Counter)**：較遠的物體在畫面中的高度較低，違反捷徑。",
+      "quoted_snippet": "The farther object appears higher in the image, meaning the ground-truth relationship aligns with the perspective projection heuristic."
+    },
+    {
+      "claim_id": "bp3",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "在真實世界影像的基準測試 (例如 EmbSpatial-Bench) 中，所有測試的模型在一致樣本上的準確率皆大幅高於反直覺樣本。例如，經過 2M 樣本微調的 Qwen2.5-VL-3B 模型，在 EmbSpatial-Bench 的一致樣本準確率為 60.9%，但在反直覺樣本上僅有 24.0%，兩者差距達 36.9%。",
+      "quoted_snippet": "Qwen2.5-VL fine-tuned on 2M samples achieves 60.9% on the consistent split of EmbSpatial-Bench but only 24% on counter examples, yielding a 36.9 percentage-point gap."
+    },
+    {
+      "claim_id": "bp4",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "為了排除真實影像中其他深度線索的干擾，論文提出了一個合成資料集 SpatialTunnel (Synthetic benchmark for spatial bias)。",
+      "quoted_snippet": "To isolate this bias from evaluation-set skew, we introduce \\TUNNEL, a synthetic benchmark designed to expose spatial shortcut biases by removing common correlations present in natural images."
+    },
+    {
+      "claim_id": "bp5",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "即使在此受控環境下，VLMs 依然表現出嚴重的偏差。以 Qwen2.5-VL-3B (Base) 為例，其在 `SpatialTunnel` 的一致樣本準確率為 0.776，而反直覺樣本僅為 0.360",
+      "quoted_snippet": "For example, base Qwen2.5-VL-3B achieves $v_\\text{cons} = 0.776$ but only $v_\\text{ctr} = 0.360$"
+    },
+    {
+      "claim_id": "bp6",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "論文進一步透過「對比探測」框架來分析模型內部的空間表徵。給定一個空間關係的問題，透過交換物體的順序 (例如將「A 在 B 的左邊嗎？」改為「B 在 A 的左邊嗎？」) 來反轉真實關係。接著提取模型在中間層最後一個 token 的隱藏狀態 $h_q \\in \\mathbb{R}^d$，並計算其差異向量 $\\delta = h_{q_2} - h_{q_1}$。",
+      "quoted_snippet": "\\delta = h_{q_2} - h_{q_1}"
+    },
+    {
+      "claim_id": "bp7",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "透過這些差異向量，可以計算**軸向連貫性 (Axis coherence)**，用以衡量模型是否在表徵空間中編碼了穩定的方向 (stable direction)：",
+      "quoted_snippet": "Axis coherence is the mean pairwise cosine similarity over the sign-corrected set"
+    },
+    {
+      "claim_id": "bp8",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "同時，定義了 **VD-Entanglement Index (VD-EI)** 來量化垂直表徵與深度表徵之間的糾纏程度：\n$$ \\mathrm{VD\\text{-}EI} = \\tfrac{1}{4} \\bigl[ \\cos(\\mu_{\\text{above}}, \\mu_{\\text{far}}) + \\cos(\\mu_{\\text{below}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{above}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{below}}, \\mu_{\\text{far}}) \\bigr] $$\n若數值 (positive value) 為正，代表垂直與距離方向在表徵空間 (representation space) 中耦合 (coupled)。",
+      "quoted_snippet": "A positive value indicates that vertical and distance representations are directionally coupled in the manner predicted by perspective projection"
+    },
+    {
+      "claim_id": "bp9",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "論文推論 (This suggests that as models form)，當模型透過擴展空間訓練資料而形成更具連貫性的距離表徵時，對垂直位置捷徑的穩健性也會隨之提升。相反地，若距離連貫性停滯，即便持續增加訓練資料量，也無法解決空間表徵的糾纏問題。",
+      "quoted_snippet": "This suggests that as models form a more coherent distance representation through spatial data scaling, they become more robust to the vertical-position shortcut.\nConversely, when distance coherence stagnates, continued scaling does not resolve the entanglement."
+    },
+    {
+      "claim_id": "bp10",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "上圖的 PCA 視覺化顯示，具備強大空間推理能力的模型 (如 RoboRefer 與 Qwen3) 能夠展現出三個清晰分離的叢集 (clusters)，且各自對齊於不同的主成分 (principal components)。表現較差的模型則無法呈現如此清晰的幾何結構。",
+      "quoted_snippet": "Molmo (2M), NVILA (2M), and Qwen (2M) show separation along the horizontal and vertical axes, but distance delta vectors remain poorly distinguished. RoboRefer and Qwen3 exhibit three clearly separated clusters, each aligned with a distinct principal component."
+    },
+    {
+      "claim_id": "bp11",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "在微調過程中，模型的垂直連貫性顯著提升 (如 Molmo: $0.23 \\to 0.57$; Qwen: $0.29 \\to 0.59$)，但距離連貫性 $\\mathrm{Coh}_{\\mathrm{D}}$ 的增長幅度相對較小。",
+      "quoted_snippet": "Fine-tuning substantially increases vertical coherence (\\eg, Molmo: $0.23 \\to 0.57$; Qwen: $0.29 \\to 0.59$), but \\CohD grows by a comparatively smaller margin."
+    },
+    {
+      "claim_id": "eq1",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)},\\; \\tilde{\\delta}^{(j)})",
+      "quoted_snippet": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)},\\; \\tilde{\\delta}^{(j)})"
+    },
+    {
+      "claim_id": "eq2",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "paper-claim",
+      "claim_text": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4} \\bigl[ \\cos(\\mu_{\\text{above}}, \\mu_{\\text{far}}) + \\cos(\\mu_{\\text{below}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{above}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{below}}, \\mu_{\\text{far}}) \\bigr]",
+      "quoted_snippet": "\\mathrm{VD\\text{-}EI} = \\tfrac{1}{4} \\bigl[ \n        &\\cos(\\mu_{\\text{above}}, \\mu_{\\text{far}}) + \\cos(\\mu_{\\text{below}}, \\mu_{\\text{close}}) \\\\\n        &- \\cos(\\mu_{\\text{above}}, \\mu_{\\text{close}}) - \\cos(\\mu_{\\text{below}}, \\mu_{\\text{far}}) \n    \\bigr]"
+    },
+    {
+      "claim_id": "f1",
+      "target": "figure:imgs/consistent_counter.png",
+      "source_url": "https://cheolhong0916.github.io/whyfarlooksup/",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "Consistent vs Counter",
+      "quoted_snippet": "Consistent vs. counter examples."
+    },
+    {
+      "claim_id": "f2",
+      "target": "figure:imgs/tunnel-grid-alt.png",
+      "source_url": "https://cheolhong0916.github.io/whyfarlooksup/",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "SpatialTunnel",
+      "quoted_snippet": "TUNNEL holds the two objects at fixed depths"
+    },
+    {
+      "claim_id": "f3",
+      "target": "figure:imgs/contrastive_probing_alt2.png",
+      "source_url": "https://cheolhong0916.github.io/whyfarlooksup/",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "Contrastive Probing",
+      "quoted_snippet": "Contrastive probing for representation-level spatial analysis."
+    },
+    {
+      "claim_id": "f4",
+      "target": "figure:imgs/pca.png",
+      "source_url": "https://cheolhong0916.github.io/whyfarlooksup/",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "PCA",
+      "quoted_snippet": "PCA of delta vectors across models."
+    },
+    {
+      "claim_id": "cp1",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "reasonable-inference",
+      "claim_text": "該論文提出的問題極具現實意義。對於需要與物理環境互動的具身智能 (Embodied AI) 與機器人而言，若視覺語言模型僅依賴 2D 透視捷徑而非真正的 3D 幾何理解，將在視角改變或非典型場景中產生嚴重的災難性失敗。",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "cp2",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30161",
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "evidence-supported",
+      "claim_text": "實驗設計相當嚴謹。SpatialTunnel 有效地移除了自然影像中的多重共線性 (multicollinearity)，將垂直位置與深度 (depth) 隔離。",
+      "quoted_snippet": "To isolate this bias from evaluation-set skew, we introduce \\TUNNEL, a synthetic benchmark designed to expose spatial shortcut biases by removing common correlations present in natural images."
+    },
+    {
+      "claim_id": "cp3",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "reasonable-inference",
+      "claim_text": "本研究並非單純的基準測試包裝，其核心創新在於將行為層面的失敗 (Behavioral gap) 連結至內部表徵空間的幾何結構。透過 VD-EI 與對比探測 (Contrastive Probing)，論文提供了一個不依賴特定任務格式的內部診斷工具，這比單純提出新資料集更具深度。",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "cp4",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "unproven-or-doubtful",
+      "claim_text": "儘管對比探測提供了一個優雅的診斷工具 (diagnostic tool)，但其依賴合成場景的結論是否能完全泛化至複雜的自然真實環境仍有待商榷。SpatialTunnel 雖然控制了變因，但也過度簡化了模型在真實世界中依賴的豐富深度線索（如遮擋、相對大小等）。這意味著我們觀察到的「表徵糾纏」，或許部分是模型應對自然影像分佈的合理特徵壓縮 (feature compression)，而非單純的缺陷。這部分的泛化邊界尚未被充分驗證。",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "cp5",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T09:47:35+08:00",
+      "kind": "unproven-or-doubtful",
+      "claim_text": "論文的定位是「診斷與探測」而非提出一個通用架構解法 (architecture solution)。然而，作者指出兩條可能解決此問題的途徑：一是提供顯式的 3D 深度監督 (如 RoboRefer)，二是極大規模的預訓練 (如 Qwen3-VL-235B)。雖然論文並未發明新的模型架構來消除糾纏，但其提出的指標 ($\\mathrm{Coh}_{\\mathrm{D}}$) 可作為未來模型訓練時監控空間理解能力的實用訊號。",
+      "quoted_snippet": ""
+    }
+  ]
+}
