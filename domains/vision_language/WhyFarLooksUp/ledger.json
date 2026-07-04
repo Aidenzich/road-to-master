@@ -1,0 +1,198 @@
+{
+  "note_path": "domains/vision_language/WhyFarLooksUp/README.md",
+  "domain": "vision_language",
+  "topic": "WhyFarLooksUp",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-04T13:07:43Z",
+  "entries": [
+    {
+      "claim_id": "c1",
+      "claim_text": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "source/main.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\title{Why Far Looks Up: Probing Spatial Representation in Vision-Language Models}"
+    },
+    {
+      "claim_id": "c2",
+      "claim_text": "ECCV",
+      "kind": "paper-claim",
+      "target": "table-cell:venue",
+      "source_url": "source/main.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\usepackage[review,year=2026,ID=10791]{eccv}"
+    },
+    {
+      "claim_id": "c3",
+      "claim_text": "2026",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "source/main.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\usepackage[review,year=2026,ID=10791]{eccv}"
+    },
+    {
+      "claim_id": "c4",
+      "claim_text": "Cheolhong Min, Jaeyun Jung, Daeun Lee, Hyeonseong Jeon, Yu Su, Jonathan Tremblay, Chan Hee Song, Jaesik Park",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "source/main.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\author{Cheolhong Min\\inst{1} \\and\nJaeyun Jung\\inst{1} \\and\nDaeun Lee\\inst{1} \\and\nHyeonseong Jeon\\inst{1} \\and \\\\\nYu Su\\inst{2} \\and\nJonathan Tremblay\\inst{3} \\and\nChan Hee Song\\inst{3, \\dagger, \\ddagger} \\and\nJaesik Park\\inst{1, \\dagger} \n}"
+    },
+    {
+      "claim_id": "c5",
+      "claim_text": "https://github.com/cheolhong0916/contrastive-probing",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-whyfarlooksup-zh-agypro2-20260704/.loop-manager/code-cache/WhyFarLooksUp/README.md",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "# Why Far Looks Up: Probing Spatial Representation in Vision-Language Models"
+    },
+    {
+      "claim_id": "c6",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "source/main.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\documentclass[runningheads]{llncs}"
+    },
+    {
+      "claim_id": "c7",
+      "claim_text": "本篇論文研究視覺語言模型（VLMs）在推論 3D 空間關係時，是否真正理解 3D 幾何結構，還是僅僅依賴於 2D 影像的表面捷徑。具體而言，作者指出了一種稱為「",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "source/3.finding.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "We term this phenomenon \\textbf{vertical-distance entanglement}, where image-plane vertical position becomes conflated with depth."
+    },
+    {
+      "claim_id": "c8",
+      "claim_text": "在現有的空間推理基準測試（例如 EmbSpatial-Bench 和 CV-Bench-3D）中，樣本分佈嚴重偏向「一致性（consistent）」的例子，即較",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "evidence/table1.txt",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "Consistent & 976 (80.9\\%) & 363 (60.5\\%)"
+    },
+    {
+      "claim_id": "c9",
+      "claim_text": "為了解除深度與 2D 垂直位置的耦合，作者利用 Blender 構建了名為 `SpatialTunnel` 的合成場景。透過固定物體的 3D 深度，僅改變其在隧",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "source/4.spatialtunnel.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "To satisfy these requirements, we build a tunnel-shaped synthetic scene in Blender~\\cite{blender} (Figure~\\ref{fig:tunnel_grid})."
+    },
+    {
+      "claim_id": "c10",
+      "claim_text": "為了探究模型內部的空間特徵，作者引入了對比探測技術。給定一組空間問答，將問題中的目標物體順序對調以反轉真實關係（例如將「左」換成「右」），並提取模型中間層的隱藏",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "Given an image, we construct a pair of questions that differ only in the ordering of the queried objects"
+    },
+    {
+      "claim_id": "c11",
+      "claim_text": "透過分析這些 $\\delta$ 向量，作者定義了軸向連貫性（Axis Coherence）。例如距離軸的連貫性 $\\mathrm{Coh}_{\\mathrm{D",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "Axis coherence is the mean pairwise cosine similarity over the sign-corrected set"
+    },
+    {
+      "claim_id": "c12",
+      "claim_text": "$$ \\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)},\\; \\tilde{\\delta}^{(j)}). $$",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\mathrm{Coh}_{\\mathrm{axis}} = \\frac{2}{N(N-1)} \\sum_{i < j} \\cos(\\tilde{\\delta}^{(i)},\\; \\tilde{\\delta}^{(j)})."
+    },
+    {
+      "claim_id": "c13",
+      "claim_text": "研究發現，透過 PCA 降維可見，一般微調模型（如 Molmo 2M、NVILA 2M 與 Qwen 2M）在水平與垂直軸上呈現分離，但距離特徵的群集依然難以區分；只有在使用深度監督或極大規模資料預訓練的模型（如 RoboRefer 和 Qwen3）中，距離特徵才會形成獨立的群集。",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "Molmo (2M), NVILA (2M), and Qwen (2M) show separation along the horizontal and vertical axes, but distance delta vectors remain poorly distinguished. RoboRefer and Qwen3 exhibit three clearly separated clusters, each aligned with a distinct principal component."
+    },
+    {
+      "claim_id": "c14",
+      "claim_text": "探究 VLM 如何理解 3D 空間這項議題極具真實性。隨著具身 AI（Embodied AI）與機器人技術的發展，模型若無法正確區分 2D 垂直位置與 3D 深",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c15",
+      "claim_text": "論文不僅在現有資料集上區分了一致性與反常理樣本，更提出了 `SpatialTunnel` 這個能控制混淆變數的合成資料集。",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2",
+      "source_url": "source/4.spatialtunnel.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "an object’s vertical position can be adjusted independently of its depth"
+    },
+    {
+      "claim_id": "c16",
+      "claim_text": "它並沒有提出一個通用的架構或訓練損失函數來主動「解決」這個糾纏問題",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c17",
+      "claim_text": "unknown",
+      "kind": "unproven-or-doubtful",
+      "target": "table-cell:venue-tier",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c18",
+      "claim_text": "unavailable",
+      "kind": "unproven-or-doubtful",
+      "target": "table-cell:citation-count",
+      "source_url": null,
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c19",
+      "claim_text": "為具體說明這項探測技術如何連結內部表徵與外部表現，以 NVILA-Lite-2B 模型家族與其變形 RoboRefer 為例：一般經過 200 萬筆樣本微調的 NVILA (2M) 模型，在面對 EmbSpatial-Bench 基準測試的反常理樣本（即違反透視捷徑的樣本）時，準確率僅有 41.1%。",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "RoboRefer occupies a distinct region: the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$) in the family, corresponding to $59.7\\%$ counter accuracy on EmbSpatial-Bench versus $41.1\\%$ for NVILA (2M)."
+    },
+    {
+      "claim_id": "c20",
+      "claim_text": "相反地，RoboRefer 模型在其家族中佔據了一個獨特的空間特徵區域：它展現了最高的距離軸連貫性（$\\mathrm{Coh}_{\\mathrm{D}}$ 為 0.182）以及最低的垂直-距離糾纏指數（VD-EI 為 0.362）。反映在實際的空間問答上，這使得 RoboRefer 在 EmbSpatial-Bench 的反常理樣本上準確率達到了 59.7%，顯著優於 NVILA (2M)。這個具體的比較展示了：唯有內部表徵中的 $\\mathrm{Coh}_{\\mathrm{D}}$ 提高且糾纏降低，模型才能真正抵抗視覺透視偏差。",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "source/5.probing.tex",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "RoboRefer occupies a distinct region: the highest $\\CohD$ ($0.182$) and the lowest \\VDEI ($0.362$) in the family, corresponding to $59.7\\%$ counter accuracy on EmbSpatial-Bench versus $41.1\\%$ for NVILA (2M)."
+    },
+    {
+      "claim_id": "c21",
+      "claim_text": "Figure: Distance Coherence vs. VD-EI",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cohd_vdei.png",
+      "source_url": "evidence/fig_cohd_vdei.txt",
+      "retrieved_at": "2026-07-04T13:07:43Z",
+      "quoted_snippet": "\\includegraphics[width=\\linewidth]{figure/cohd_vdei.png}"
+    }
+  ]
+}
