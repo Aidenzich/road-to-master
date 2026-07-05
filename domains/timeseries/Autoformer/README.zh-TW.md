@@ -6,7 +6,7 @@
 | Tags | #study |
 
 # Autoformer
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 
 | Title | Venue | Year | Code |
 |-|-|-|-|
@@ -25,8 +25,8 @@
 Propose an original Autoformer in place of the Transformers for long-term time series forecasting. 
 
 Autoformer still follows residual and encoder-decoder structure but
-**renovates** Transformer into a **decomposition** forecasting architecture. 
-- By embedding our proposed decomposition blocks as the inner operators, Autoformer can progressively separate the **long-term trend information** from predicted hidden variables. 
+**renovates(翻新)** Transformer into a **decomposition(分解)** forecasting architecture. 
+- By embedding our proposed decomposition blocks as the inner operators, Autoformer can progressively(逐步) separate the **long-term trend information** from predicted hidden variables. 
     - This design allows our model to alternately decompose and refine the intermediate results during the forecasting procedure. 
 - Inspired by the <font color='orange'>stochastic process theory</font> [8, 24], Autoformer introduces an Auto-Correlation mechanism in place of self-attention, which discovers the sub-series similarity based on the series:
     - periodicity and aggregates similar sub-series from underlying periods. 

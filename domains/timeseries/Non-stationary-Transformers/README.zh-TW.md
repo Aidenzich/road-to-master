@@ -6,7 +6,7 @@
 | Tags | #study |
 
 # Non-stationary Transformers: Exploring the Stationarity in Time Series Forecasting
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 
 | Title | Venue | Year | Code |
 |-|-|-|-|
@@ -15,8 +15,8 @@
 ## Abstract
 - **Cause**: Transformers have shown great power in time series forecasting due to their global-range modeling ability. However, their performance can degenerate terribly on non-stationary real-world data in which the joint distribution changes over time. 
     - <font color='red'>**over-stationarization**</font>: 
-        - Previous studies primarily adopt stationarization to **attenuate the nonstationarity of original series for better predictability**. But the stationarized series deprived of inherent non-stationarity can be less instructive for real-world bursty events forecasting. 
-        - leads Transformers to generate indistinguishable temporal attentions for different series and impedes the predictive capability of deep models. 
+        - Previous studies primarily adopt stationarization to **attenuate(衰減、減少) the nonstationarity of original series for better predictability**. But the stationarized series deprived of inherent non-stationarity can be less instructive for real-world bursty events forecasting. 
+        - leads Transformers to generate indistinguishable temporal attentions for different series and impedes(妨礙) the predictive capability of deep models. 
 - **Effect:** To tackle the dilemma between series predictability and model capability, we propose Non-stationary Transformers as a generic framework with two interdependent modules: 
     - **Series Stationarization**: Unifies the statistics of each input and converts the output with restored statistics for better predictability.
     - **De-stationary Attention**: To address the over-stationarization problem, Destationary Attention is devised to recover the intrinsic non-stationary information into temporal dependencies by <font color='green'>approximating distinguishable attentions</font> learned from raw series. 

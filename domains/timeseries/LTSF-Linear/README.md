@@ -1,4 +1,5 @@
 # LTSF-Linear — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,79 +12,79 @@
 | Official Code | https://github.com/cure-lab/LTSF-Linear |
 | Venue Kind | paper |
 
-> 本筆記依據 arXiv 預印本 `2205.13504v3` 撰寫（OpenReview 全文以 HTTP 403 無法匿名取得，改用作者身分驗證通過的 arXiv 版本）。正式發表版本為 AAAI 2023，camera-ready 內容可能與此處引用的數字略有出入。
+> This note is written based on the arXiv preprint `2205.13504v3` (the full OpenReview text returns HTTP 403 and cannot be retrieved anonymously, so the author-identity-verified arXiv version is used instead). The officially published version is AAAI 2023, and the camera-ready content may differ slightly from the numbers cited here.
 
-這篇論文的立場非常挑釁：它不提出新方法，而是質疑近年在長期時間序列預測（long-term time series forecasting, LTSF）上大量湧現的 Transformer 變體是否真的有效。作者用一個「簡單到令人尷尬」的單層線性模型 LTSF-Linear 當作對照組，在九個常用基準上把 LogTrans、Informer、Autoformer、Pyraformer、FEDformer 全部比了下去，藉此論證：這一整條研究路線的溫度計可能量錯了地方。
+This paper takes a deliberately provocative stance: instead of proposing a new method, it questions whether the flood of Transformer variants that have emerged in recent years for long-term time series forecasting (LTSF) are really effective. The authors use an "embarrassingly simple" single-layer linear model, LTSF-Linear, as a control, and on nine commonly used benchmarks it beats LogTrans, Informer, Autoformer, Pyraformer, and FEDformer across the board — arguing that this entire line of research may have been taking its temperature in the wrong place.
 
 ## First Principles
 
-### 為什麼在時間序列上「排列不變性」是致命傷
+### Why "permutation invariance" is a fatal flaw for time series
 
-Transformer 的核心是 multi-head self-attention，它擅長抽取一個長序列中「元素之間的語意關聯」——例如句子裡的詞、影像裡的 2D patch。但 self-attention 本質上是 permutation-invariant（排列不變）的：把輸入 token 的順序打亂，注意力算出來的兩兩關聯不變。NLP 之所以能容忍這點，是因為文字本身語意豐富，就算重排部分詞語意也大致保留。時間序列則相反——原始數值（股價、電力值）幾乎沒有 point-wise 的語意關聯，我們真正在乎的是「一組連續點之間的時間變化」，順序本身才是最關鍵的資訊。作者的論點是：即使加上 positional encoding 與把子序列 embed 成 token，套上 self-attention 之後仍不可避免地造成時間資訊流失。
+The core of the Transformer is multi-head self-attention, which excels at extracting the "semantic correlations between elements" in a long sequence — for example, words in a sentence or 2D patches in an image. But self-attention is inherently permutation-invariant: shuffle the order of the input tokens and the pairwise correlations it computes remain unchanged. NLP can tolerate this because text is itself semantically rich, so rearranging some words largely preserves the meaning. Time series are the opposite — raw values (stock prices, electricity readings) carry almost no point-wise semantic correlation, and what we truly care about is "the temporal change across a set of consecutive points," where the order itself is the most critical information. The authors argue that even with positional encoding added and sub-series embedded into tokens, applying self-attention still inevitably causes a loss of temporal information.
 
-論文把現有 LTSF-Transformer 的共通管線拆成四段（下圖），這也是後面消融實驗要逐一拆掉的對象：預處理（正規化、時間戳準備、季節-趨勢分解）、輸入嵌入（channel projection、固定位置編碼、局部/全域時間戳）、編碼器（各家自己的稀疏或低秩 attention 變體）、解碼器（多半改成一次輸出的 direct multi-step 解碼）。
+The paper breaks the common pipeline of existing LTSF-Transformers into four stages (figure below), which are also the targets the later ablation experiments dismantle one by one: pre-processing (normalization, timestamp preparation, seasonal-trend decomposition), input embedding (channel projection, fixed positional encoding, local/global timestamps), the encoder (each method's own sparse or low-rank attention variant), and the decoder (mostly changed to one-shot direct multi-step decoding).
 
-![現有 Transformer LTSF 方案的共通管線](imgs/pipeline.png)
+![The common pipeline of existing Transformer LTSF approaches](imgs/pipeline.png)
 
-### 一個「刻意過度簡單」的對照組：LTSF-Linear
+### A "deliberately over-simple" control: LTSF-Linear
 
-作者提出的基礎模型只是一層沿時間軸的線性層，把歷史序列用加權和直接回歸成未來序列：
+The basic model the authors propose is just a single linear layer along the temporal axis, directly regressing the historical series into the future series via a weighted sum:
 
 $\hat{X}_{i} = W X_i$
 
-其中 $W \in \mathbb{R}^{T \times L}$，$L$ 是回看窗（look-back window）長度、$T$ 是預測長度，$X_i$、$\hat{X}_i$ 是第 $i$ 個變數（variate）的輸入與預測。關鍵設計選擇是：權重在所有變數之間共享，且完全不建模變數之間的空間相關性。這條式子還隱含一個常被忽略的實驗設定差異——它是 direct multi-step（DMS）預測，一次吐出全部 $T$ 步，而現有論文裡被比下去的傳統基線多半是 iterated multi-step（IMS），會逐步累積誤差。作者因此懷疑：Transformer 論文宣稱的增益，有很大一部分其實來自 DMS 這個策略，而非架構本身。
+where $W \in \mathbb{R}^{T \times L}$, $L$ is the look-back window length, $T$ is the forecast length, and $X_i$, $\hat{X}_i$ are the input and prediction of the $i$-th variate. The key design choices are: the weights are shared across all variates, and the spatial correlation between variates is not modeled at all. This equation also embeds an often-overlooked difference in experimental setup — it is direct multi-step (DMS) forecasting that emits all $T$ steps at once, whereas the traditional baselines beaten in existing papers are mostly iterated multi-step (IMS), which accumulate error step by step. The authors therefore suspect that a large part of the gains claimed by Transformer papers actually comes from the DMS strategy rather than the architecture itself.
 
-![基礎線性模型：把 L 步歷史加權回歸成 T 步未來](imgs/linear-model.png)
+![The basic linear model: weighted regression of L steps of history into T steps of the future](imgs/linear-model.png)
 
-在此之上再加兩個針對資料特性的前處理變體：
+On top of this, two pre-processing variants targeting data characteristics are added:
 
-- **DLinear**：先用一個 moving average kernel（kernel size 25，與 Autoformer 相同）把輸入拆成趨勢分量與剩餘（季節）分量，對兩個分量各接一層線性層，最後相加。當資料有明顯趨勢時特別有幫助。
-- **NLinear**：先把整段輸入減去序列的最後一個值，過完線性層後再把這個值加回去。這等於對輸入做一次簡單正規化，用來對抗訓練/測試之間的 distribution shift。
+- **DLinear**: first uses a moving average kernel (kernel size 25, the same as Autoformer) to split the input into a trend component and a remaining (seasonal) component, attaches one linear layer to each component, and finally sums them. This is especially helpful when the data has a clear trend.
+- **NLinear**: first subtracts the last value of the series from the entire input, and after passing through the linear layer adds this value back. This amounts to a simple normalization of the input, used to counter the distribution shift between training and test.
 
-### 一個帶真實數字的前向與成本走查
+### A forward pass and cost walk-through with real numbers
 
-以 Electricity 資料集、回看窗 $L=96$、預測 $T=720$ 為例，看 DLinear 一次前向做了什麼：取某個變數的 96 維歷史向量 $x$，先算 moving average 得到趨勢 $x_t$、再取殘差得到季節分量 $x_s = x - x_t$；兩條分支各有一個 $720 \times 96$ 的權重矩陣 $W_t$、$W_s$，輸出 $\hat{y} = W_t x_t + W_s x_s \in \mathbb{R}^{720}$。因為權重跨 321 個變數共享，整個 Electricity 模型的參數量就只有兩個矩陣：$2 \times T \times L = 2 \times 720 \times 96 = 138{,}240$，約 138.2K（Table 8 量到的 139.7K 還額外含兩條分支的 bias 項，約多 1.4K）。對照論文 Table 8（$L=96, T=720$，Electricity）量到的實際成本：
+Take the Electricity dataset, look-back window $L=96$, forecast $T=720$ as an example, and look at what one DLinear forward pass does: take the 96-dimensional history vector $x$ of some variate, first compute the moving average to get the trend $x_t$, then take the residual to get the seasonal component $x_s = x - x_t$; each of the two branches has a $720 \times 96$ weight matrix $W_t$, $W_s$, and the output is $\hat{y} = W_t x_t + W_s x_s \in \mathbb{R}^{720}$. Because the weights are shared across all 321 variates, the parameter count of the entire Electricity model is just these two matrices: $2 \times T \times L = 2 \times 720 \times 96 = 138{,}240$, about 138.2K (the 139.7K measured in Table 8 additionally includes the bias terms of the two branches, about 1.4K more). Compared against the actual cost measured in the paper's Table 8 ($L=96, T=720$, Electricity):
 
-| 模型 | MACs | 參數量 | 推論時間 | 記憶體 |
+| Model | MACs | Params | Inference time | Memory |
 |-|-|-|-|-|
 | DLinear | 0.04G | 139.7K | 0.4ms | 687MiB |
 | Informer | 3.93G | 14.39M | 49.3ms | 3869MiB |
 | Autoformer | 4.41G | 14.91M | 164.1ms | 7607MiB |
 | FEDformer | 4.41G | 20.68M | 40.5ms | 4143MiB |
 
-DLinear 的參數量比 Autoformer 少約兩個數量級，推論卻快數十到數百倍。準確度則要小心一個設定差異：為了各自跑出最佳表現，論文主基準表把 DLinear 的回看窗放大到 $L=336$、Transformer 維持 $L=96$（supp.tex:63 明講「report L=336 for DLinear and L=96 for Transformers by default」）。在 Electricity、$T=720$ 這一格，DLinear（$L=336$）的 MSE 為 0.203，優於最強的 Transformer（FEDformer 0.246），對應論文標註的 17.47% 相對改進。要注意上面那張成本表量的是 $L=96$ 的 DLinear（138.2K 參數、0.4ms），與這裡的 0.203 準確度並非同一組配置——不過即使把 DLinear 也放到 $L=336$，參數量也只是 $2\times720\times336\approx484$K，推論成本仍遠低於任何 Transformer。換句話說，更小、更快、還更準這個結論在兩種回看窗下都站得住。
+DLinear's parameter count is about two orders of magnitude smaller than Autoformer's, yet its inference is tens to hundreds of times faster. For accuracy, one setup difference must be watched: to let each method run at its best, the paper's main benchmark table enlarges DLinear's look-back window to $L=336$ while keeping the Transformers at $L=96$ (supp.tex:63 explicitly states "report L=336 for DLinear and L=96 for Transformers by default"). In the Electricity, $T=720$ cell, DLinear ($L=336$) has an MSE of 0.203, better than the strongest Transformer (FEDformer 0.246), corresponding to the 17.47% relative improvement noted in the paper. Note that the cost table above measures the $L=96$ DLinear (138.2K parameters, 0.4ms), which is not the same configuration as the 0.203 accuracy here — but even putting DLinear at $L=336$, the parameter count is only $2\times720\times336\approx484$K, and the inference cost is still far below any Transformer. In other words, the conclusion of smaller, faster, and more accurate holds under both look-back windows.
 
-### 逐步把 Informer 拆成線性層
+### Progressively reducing Informer to a linear layer
 
-作者做了一個很有說服力的「破壞性」消融：把 Informer 一步步簡化。第一步把每個 self-attention 層換成線性層（Att.-Linear，因為 attention 可視為權重動態變化的全連接層），此時 embedding 與 FFN 等輔助設計都還在；第二步丟掉 FFN 等其他輔助設計、只留 embedding 層與線性層（Embed+Linear，embedding 仍保留）；最後才把 embedding 也拿掉、化簡成單一線性層。以 Exchange-Rate、$T=96$ 為例，這條路徑並不是單調變好的：MSE 從 Informer 的 0.847 先「上升」到 Att.-Linear 的 1.003，接著在丟掉 FFN 等輔助設計後大幅降到 Embed+Linear 的 0.173，最後再拿掉 embedding 化為純 Linear 的 0.084。值得注意的是，單純把 attention 換成線性層（0.847→1.003）本身並沒有幫助，反而變差；決定性的一步是拿掉 FFN 這些複雜輔助模組（1.003→0.173，此時 embedding 還在），而移除 embedding 只是收尾的小幅改進（0.173→0.084）。整體看，被這串消融證明「非必要」的，是 attention 的動態加權加上那些複雜輔助設計，而不是把責任推給某個單一元件；至少對現有 LTSF 基準而言，self-attention 與這些複雜模組都不是關鍵。
+The authors run a very persuasive "destructive" ablation: simplifying Informer step by step. The first step replaces each self-attention layer with a linear layer (Att.-Linear, since attention can be viewed as a fully connected layer with dynamically changing weights), while the embedding, FFN, and other auxiliary designs are all still present; the second step drops the FFN and other auxiliary designs, keeping only the embedding layer and the linear layer (Embed+Linear, embedding retained); finally the embedding is also removed, reducing to a single linear layer. Taking Exchange-Rate, $T=96$ as an example, this path is not monotonically improving: the MSE first "rises" from Informer's 0.847 to Att.-Linear's 1.003, then drops sharply to Embed+Linear's 0.173 after dropping the FFN and other auxiliary designs, and finally to pure Linear's 0.084 after removing the embedding. Notably, simply replacing attention with a linear layer (0.847→1.003) does not help by itself and even makes things worse; the decisive step is removing the complex auxiliary modules such as the FFN (1.003→0.173, with the embedding still present), and removing the embedding is only a small finishing improvement (0.173→0.084). Overall, what this chain of ablations proves to be "non-essential" is attention's dynamic weighting plus those complex auxiliary designs, rather than pinning the blame on any single component; at least for existing LTSF benchmarks, neither self-attention nor these complex modules are the key.
 
-### 兩個直指「時間建模能力被誇大」的證據
+### Two pieces of evidence pointing directly at "overstated temporal-modeling ability"
 
-第一，**加長回看窗**。一個真正會抽取時間關係的模型，看得越多應該預測越準。作者掃過 $L \in \{24, 48, ..., 720\}$，發現現有 Transformer 的誤差隨窗變長多半持平甚至變差，而 LTSF-Linear 則穩定變好（下圖 Traffic，$T=720$）。這暗示 Transformer 在長輸入上是在過擬合時間噪音，而不是在抽取更多時間資訊。
+First, **lengthening the look-back window**. A model that truly extracts temporal relationships should predict more accurately the more it sees. The authors sweep $L \in \{24, 48, ..., 720\}$ and find that the error of existing Transformers mostly stays flat or even worsens as the window grows longer, whereas LTSF-Linear steadily improves (figure below, Traffic, $T=720$). This suggests that on long inputs the Transformer is overfitting temporal noise rather than extracting more temporal information.
 
-![不同回看窗長度下的 MSE（Traffic, T=720）](imgs/lookback-traffic.png)
+![MSE under different look-back window lengths (Traffic, T=720)](imgs/lookback-traffic.png)
 
-第二，**打亂輸入順序**。若模型真的仰賴時間順序，打亂輸入應該嚴重傷害它。作者用 Shuf.（整段隨機打亂）與 Half-Ex.（前後半對調）測試：在 Exchange-Rate 上，所有 Transformer 的誤差幾乎不動（FEDformer 平均變化 −0.09%），而 LTSF-Linear 掉了 27.26%。這反過來說明 Transformer 根本沒把順序當回事，而線性模型有。有趣的是還有一個 naive 到極點的 Repeat 基線（直接重複回看窗最後一個值），在 Exchange-Rate 上竟贏過所有 Transformer 約 45%——因為它至少不會亂猜趨勢。
+Second, **shuffling the input order**. If a model truly relies on temporal order, shuffling the input should badly hurt it. The authors test with Shuf. (randomly shuffling the whole segment) and Half-Ex. (swapping the first and second halves): on Exchange-Rate, the error of all Transformers barely moves (FEDformer's average change is −0.09%), while LTSF-Linear drops by 27.26%. This conversely shows that the Transformer does not take order seriously at all, whereas the linear model does. Interestingly, there is also an extremely naive Repeat baseline (simply repeating the last value of the look-back window) that actually beats all Transformers by about 45% on Exchange-Rate — because it at least does not wildly guess the trend.
 
 ## 🧪 Critical Assessment
 
-### 這個問題是真的，還是被實驗設定放大的
+### Is the problem real, or amplified by the experimental setup?
 
-「Transformer 對 LTSF 是否有效」這個提問本身很有價值：領域確實在幾年內堆疊了大量複雜架構，卻很少有人回頭做這種控制變因的對照。論文最紮實的貢獻不是那個線性模型，而是它把「架構增益」與「DMS 策略增益」分離開來的一連串消融——加窗、打亂、拆 Informer、去 embedding、比實測成本。這些證據彼此獨立又指向同一結論，說服力遠高於單看一張準確度表。從第一性原理看，permutation-invariance 與數值序列缺乏語意這兩點也確實是 self-attention 用在時間序列上的結構性弱點。
+The question "is the Transformer effective for LTSF" is itself valuable: the field has indeed stacked up a great deal of complex architecture over a few years, yet few have gone back to do this kind of controlled comparison. The paper's most solid contribution is not that linear model, but the series of ablations that separate "architectural gains" from "DMS-strategy gains" — lengthening the window, shuffling, dismantling Informer, removing the embedding, and comparing measured cost. These pieces of evidence are mutually independent yet point to the same conclusion, far more persuasive than a single accuracy table alone. From first principles, permutation invariance and the lack of semantics in numerical sequences are indeed structural weaknesses of self-attention applied to time series.
 
-不過要小心一個對稱的風險：論文的結論高度依賴 DMS/IMS 這個混淆變因是否被完全控制。它坦承現有 Transformer 論文的傳統基線多為 IMS，因此帶有誤差累積劣勢；但反過來，作者自己的線性模型是 DMS，而被比較的 Transformer 也已是 DMS，這部分是公平的。真正沒有被完全回答的是：如果把同樣的 DMS + 分解 + 正規化前處理原封不動搬到一個中等複雜度的非線性模型上，增益是否還在？論文沒有做這個中間點，因此「線性就夠了」與「這些基準太簡單」兩種解讀都成立。
+However, a symmetric risk must be watched: the paper's conclusion depends heavily on whether the DMS/IMS confounder is fully controlled. It candidly admits that the traditional baselines in existing Transformer papers are mostly IMS and therefore carry an error-accumulation disadvantage; but conversely, the authors' own linear model is DMS, and the Transformers being compared are already DMS too, so this part is fair. What is not fully answered is: if the same DMS + decomposition + normalization pre-processing were transplanted unchanged onto a moderately complex non-linear model, would the gains still hold? The paper does not test this intermediate point, so both readings — "linear is enough" and "these benchmarks are too easy" — are tenable.
 
-### 基線、資料集與評估指標夠不夠
+### Are the baselines, datasets, and metrics sufficient?
 
-被比較的五個 Transformer 都是當時的代表作，且實作直接沿用原作者或 Autoformer 的程式碼與預設超參，這點值得肯定。但有兩個不對稱值得注意。其一，為了「比各自最佳」，作者對線性模型用 $L=336$、對 Transformer 用 $L=96$（附錄明講），理由是線性模型短窗會欠擬合、Transformer 長窗會過擬合——這個設定對線性模型有利，雖然有加窗實驗佐證，但頭條表格的公平性因此打了折扣。其二，指標只有 MSE/MAE，全部落在九個高度同源的基準（ETT 系列就佔了四個）。這些資料集本身是否足以代表「長期預測」這個宏大命題，是存疑的——它們大多有清楚的日/週週期，恰好是線性趨勢-季節分解的主場。
+The five Transformers being compared are all representative works of the time, and their implementations directly reuse the original authors' or Autoformer's code and default hyperparameters, which deserves credit. But two asymmetries are worth noting. First, to "compare each at its best," the authors use $L=336$ for the linear model and $L=96$ for the Transformers (stated explicitly in the appendix), on the grounds that a short window underfits the linear model while a long window overfits the Transformer — this setup favors the linear model, and although it is backed by the window-lengthening experiment, the fairness of the headline table is thereby discounted. Second, the metrics are only MSE/MAE, all on nine highly homogeneous benchmarks (the ETT series alone accounts for four). Whether these datasets are themselves sufficient to represent the grand proposition of "long-term forecasting" is questionable — most of them have clear daily/weekly periodicity, which happens to be the home turf of linear trend-seasonal decomposition.
 
-### 是重新命名，還是真的更簡單
+### Is it renaming, or genuinely simpler?
 
-線性回歸當然不是新東西，DLinear 的分解也直接借自 Autoformer/FEDformer；就「方法新穎性」而言這篇幾乎為零，作者自己在結論也明說貢獻不在提出線性模型。所以它不該被當成一個「新模型」來評價，而該被當成一次「基準有效性稽核」。這裡有一個值得警惕的地方：整套評估是圍繞著作者自己方法的強項（有明顯趨勢與週期、單變數為主、以 MSE 衡量）所定義的基準展開的。在 Exchange-Rate 這種低訊噪比的金融資料上，連 Repeat 都能贏 Transformer，這與其說證明線性模型強，不如說證明這些基準對「會亂外插趨勢」的模型特別不友善。結論的外推範圍應該被限制在「現有這九個 LTSF 基準」，而作者在正文也謹慎地加了這個限定詞。
+Linear regression is of course nothing new, and DLinear's decomposition is borrowed directly from Autoformer/FEDformer; in terms of "methodological novelty" this paper is close to zero, and the authors themselves state in the conclusion that the contribution is not proposing a linear model. So it should not be evaluated as a "new model," but as an "audit of benchmark validity." There is a point worth being wary of here: the entire evaluation is built around benchmarks defined by the strengths of the authors' own method (clear trend and periodicity, predominantly univariate, measured by MSE). On low signal-to-noise financial data like Exchange-Rate, even Repeat can beat the Transformers, which — rather than proving the linear model is strong — proves that these benchmarks are especially unfriendly to models that "wildly extrapolate trends." The scope of extrapolation of the conclusion should be limited to "these existing nine LTSF benchmarks," and the authors cautiously add this qualifier in the main text.
 
-### 問題真的被解決了嗎，對真實世界有多少意義
+### Is the problem really solved, and how much does it mean for the real world?
 
-論文本身很誠實：它反覆強調 LTSF-Linear 只是一個「有競爭力的簡單基線」，模型容量有限，單層線性難以捕捉 change point 造成的動態，未來仍需要新設計。所以它並沒有宣稱「解決」長期預測，而是把門檻重新校準——後續任何複雜模型都得先贏過這個幾乎零成本的基線才算數。這個貢獻對實務其實很實在：在許多有明確週期的營運場景（電力、交通），一個 139.7K 參數、0.4ms 推論的模型可能就是更合理的預設選擇。真正未解的是這篇論文開放性的更大哉問——它挑的九個基準是否本身就太容易，以致於無法區分任何模型的真實時間建模能力。若是如此，那麼社群更該投資的是更難、更能反映真實動態的評估協定，而不是繼續在被線性模型飽和的基準上刷小數點。這也是這篇論文留給領域最有生產力的一根刺。
+The paper itself is very honest: it repeatedly stresses that LTSF-Linear is only a "competitive simple baseline," that its model capacity is limited, that a single-layer linear model struggles to capture the dynamics caused by change points, and that new designs are still needed in the future. So it does not claim to "solve" long-term forecasting, but rather recalibrates the bar — any subsequent complex model must first beat this nearly zero-cost baseline to count. This contribution is quite concrete for practice: in many operational scenarios with clear periodicity (electricity, traffic), a model with 139.7K parameters and 0.4ms inference may well be the more reasonable default choice. What is truly unresolved is this paper's more open, larger question — whether the nine benchmarks it picked are themselves so easy that they cannot distinguish any model's true temporal-modeling ability. If so, the community should invest more in harder evaluation protocols that better reflect real dynamics, rather than continuing to shave decimals on benchmarks that are saturated by linear models. This is also the most productive thorn this paper leaves for the field.
 
 ## 🔗 Related notes
 
