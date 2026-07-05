@@ -23,9 +23,10 @@
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "the performance of in-memory approximate nearest neighbor algorithms"
     },
+
     {
       "claim_id": "bt1-sources",
-      "claim_text": "S1 為 ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms（arXiv:1807.05614）",
+      "claim_text": "ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms",
       "kind": "evidence-supported",
       "target": "note-section:body-table-1",
       "source_url": "https://arxiv.org/abs/1807.05614",
@@ -33,100 +34,670 @@
       "quoted_snippet": "ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms"
     },
     {
-      "claim_id": "bp1",
-      "claim_text": "所有網路來源的擷取日為 2026-07-05；S1/S2 為 arXiv preprint 全文，正式版可能略有差異",
+      "claim_id": "a-prose1",
+      "claim_text": "Milvus 的 milvus.io 文件在自動抓取時一律回 403",
       "kind": "reasonable-inference",
       "target": "note-section:body-prose-1",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "所有網路來源的擷取日為 2026-07-05"
+      "source_url": "https://zilliz.com/zilliz-cloud",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "a fully managed vector database"
     },
+    {
+      "claim_id": "a-prose2",
+      "claim_text": "這是本筆記的主交付物",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector search and a keyword search in parallel"
+    },
+    {
+      "claim_id": "a-prose3",
+      "claim_text": "儲存與計算分離",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
+    },
+
+    {
+      "claim_id": "tc-pinecone-license",
+      "claim_text": "Pinecone 為純託管 SaaS、無公開原始碼，授權欄標 proprietary（由其儲存計算分離、託管架構合理推論）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
+    },
+    {
+      "claim_id": "tc-weaviate-license",
+      "claim_text": "Weaviate 授權為 BSD-3-Clause",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/weaviate/weaviate",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\":\"BSD-3-Clause\""
+    },
+    {
+      "claim_id": "tc-milvus-license",
+      "claim_text": "Milvus 授權為 Apache-2.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/milvus-io/milvus",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\":\"Apache-2.0\""
+    },
+    {
+      "claim_id": "tc-qdrant-license",
+      "claim_text": "Qdrant 授權為 Apache-2.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/qdrant/qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\":\"Apache-2.0\""
+    },
+    {
+      "claim_id": "tc-chroma-license",
+      "claim_text": "Chroma 授權為 Apache-2.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/chroma-core/chroma",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\":\"Apache-2.0\""
+    },
+    {
+      "claim_id": "tc-pgvector-license",
+      "claim_text": "pgvector 授權為 PostgreSQL License",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/LICENSE",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Permission to use, copy, modify, and distribute this software"
+    },
+    {
+      "claim_id": "tc-es-license",
+      "claim_text": "Elasticsearch 2024-08 新增 AGPL-3.0，重新可稱開源",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "AGPL, an OSI approved license"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-license",
+      "claim_text": "pgvectorscale 授權為 PostgreSQL License",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/timescale/pgvectorscale",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\": \"PostgreSQL\""
+    },
+    {
+      "claim_id": "tc-lancedb-license",
+      "claim_text": "LanceDB 授權為 Apache-2.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://api.github.com/repos/lancedb/lancedb",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\": \"Apache-2.0\""
+    },
+    {
+      "claim_id": "tc-turbopuffer-license",
+      "claim_text": "Turbopuffer 為純託管服務、無公開原始碼，授權推論為 proprietary",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://turbopuffer.com/docs",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "turbopuffer is a fast, object-storage native search engine."
+    },
+    {
+      "claim_id": "tc-pinecone-deploy",
+      "claim_text": "Pinecone 提供 managed 與 serverless 部署，儲存與計算分離",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
+    },
+    {
+      "claim_id": "tc-weaviate-deploy",
+      "claim_text": "Weaviate 提供 managed／serverless 雲（外加開源自架）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://weaviate.io/deployment",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "We manage everything for you in the Weaviate Cloud"
+    },
+    {
+      "claim_id": "tc-milvus-deploy",
+      "claim_text": "Milvus 為開源自架，另有 Zilliz Cloud 全託管",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/zilliz-cloud",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "a fully managed vector database"
+    },
+    {
+      "claim_id": "tc-qdrant-deploy",
+      "claim_text": "Qdrant 提供 Managed／Hybrid／Private Cloud 與開源自架",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/documentation/deploy-intro/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Managed Cloud Hybrid Cloud Private Cloud"
+    },
+    {
+      "claim_id": "tc-chroma-deploy",
+      "claim_text": "Chroma 為開源自架，另有 Chroma Cloud serverless DBaaS",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.trychroma.com/docs/overview/getting-started",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Chroma Cloud - a fast, scalable, and serverless database-as-a-service"
+    },
+    {
+      "claim_id": "tc-es-deploy",
+      "claim_text": "Elasticsearch 有開源自架、Elastic Cloud 與 Serverless",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/serverless/current/intro.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Elastic Cloud Serverless is a fully managed solution that allows you to deploy"
+    },
+    {
+      "claim_id": "tc-pgvector-deploy",
+      "claim_text": "pgvector 為 Postgres 擴充，自架或任何 managed Postgres 皆可",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Open-source vector similarity search for Postgres"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-deploy",
+      "claim_text": "pgvectorscale 為 Postgres 擴充，自架部署（managed 需另找 Postgres 供應商）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "higher performance embedding search and cost-efficient storage for AI applications"
+    },
+    {
+      "claim_id": "tc-lancedb-deploy",
+      "claim_text": "LanceDB 可嵌入本機執行，亦有託管雲",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "runs locally or in your cloud"
+    },
+    {
+      "claim_id": "tc-pinecone-index",
+      "claim_text": "Pinecone 用專有索引，官方明言不用 HNSW",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.pinecone.io/how-pinecone-works/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "does not use Hierarchical Navigable Small World (HNSW)"
+    },
+    {
+      "claim_id": "tc-weaviate-index",
+      "claim_text": "Weaviate 有 HNSW、flat 與 dynamic 索引",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://weaviate.io/developers/weaviate/concepts/vector-index",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "The dynamic index can even start off as a flat index and then dynamically switch to the HNSW index"
+    },
+    {
+      "claim_id": "tc-milvus-index",
+      "claim_text": "Milvus 同時支援 FLAT／IVF_FLAT／HNSW／DiskANN／ScaNN 等多種 base index",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/learn/how-to-pick-a-vector-index-in-milvus-visual-guide",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "IVF_FLAT"
+    },
+    {
+      "claim_id": "tc-qdrant-index",
+      "claim_text": "Qdrant 的向量索引為 HNSW",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/documentation/concepts/indexing/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Hierarchical Navigable Small World"
+    },
+    {
+      "claim_id": "tc-chroma-index",
+      "claim_text": "Chroma 單機使用 HNSW 索引",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.trychroma.com/docs/collections/configure",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "we use an HNSW (Hierarchical Navigable Small World) index to perform"
+    },
+    {
+      "claim_id": "tc-es-index",
+      "claim_text": "Elasticsearch 以 Lucene 的 HNSW 做 kNN 檢索",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/dense-vector.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Elasticsearch uses the HNSW algorithm to support efficient kNN search"
+    },
+    {
+      "claim_id": "tc-pgvector-index",
+      "claim_text": "pgvector 提供 HNSW 與 IVFFlat 兩種索引",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "[IVFFlat](#ivfflat)"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-index",
+      "claim_text": "pgvectorscale 新增 StreamingDiskANN 索引",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "A new index type called StreamingDiskANN"
+    },
+    {
+      "claim_id": "tc-weaviate-quant",
+      "claim_text": "Weaviate 支援 BQ／PQ／SQ 量化",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://weaviate.io/developers/weaviate/concepts/vector-quantization",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Binary quantization (BQ) Product quantization (PQ) Scalar quantization (SQ)"
+    },
+    {
+      "claim_id": "tc-milvus-quant",
+      "claim_text": "Milvus 支援 Product Quantization 與 Scalar Quantization（IVF_PQ／IVF_SQ8）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/learn/scalar-quantization-and-product-quantization",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Product Quantization"
+    },
+    {
+      "claim_id": "tc-qdrant-quant",
+      "claim_text": "Qdrant 支援 Scalar／Product／Binary Quantization",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/documentation/guides/quantization/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Binary Quantization"
+    },
+    {
+      "claim_id": "tc-es-quant",
+      "claim_text": "Elasticsearch 提供 int8／int4 與 BBQ（bbq_hnsw／bbq_flat／bbq_disk）量化",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/dense-vector.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "You can choose one of the following BBQ index types: bbq_hnsw bbq_flat bbq_disk"
+    },
+    {
+      "claim_id": "tc-pgvector-quant",
+      "claim_text": "pgvector 支援 half-precision（halfvec）與 binary 量化向量型別",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "single-precision, half-precision, binary, and sparse vectors"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-quant",
+      "claim_text": "pgvectorscale 配 Statistical Binary Quantization (SBQ)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Statistical Binary Quantization"
+    },
+    {
+      "claim_id": "tc-pinecone-hybrid",
+      "claim_text": "Pinecone 單一 index 同時存 dense 與 sparse 向量、一次查詢融合",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.pinecone.io/guides/search/hybrid-search",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "a single index that stores both a dense vector and a sparse vector per record, queried together in one request"
+    },
+    {
+      "claim_id": "tc-weaviate-hybrid",
+      "claim_text": "Weaviate 以 RRF 併稠密向量與關鍵字兩路，是真 hybrid",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector search and a keyword search in parallel"
+    },
+    {
+      "claim_id": "tc-milvus-hybrid",
+      "claim_text": "Milvus 融合 BM25 sparse 與 dense 向量做 hybrid",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/learn/mastering-bm25-a-deep-dive-into-the-algorithm-and-application-in-milvus",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "combines sparse vectors of BM25 with dense vectors"
+    },
+    {
+      "claim_id": "tc-qdrant-hybrid",
+      "claim_text": "Qdrant 以 RRF 融合 dense 與 sparse 向量做 hybrid",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/documentation/concepts/hybrid-queries/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "combine dense and sparse vectors to get the best of both worlds"
+    },
+    {
+      "claim_id": "tc-chroma-hybrid",
+      "claim_text": "Chroma Cloud 以 RRF 融合 dense 與 sparse 做 hybrid",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.trychroma.com/cloud/search-api/hybrid-search",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "combine multiple ranking strategies using Reciprocal Rank Fusion (RRF)"
+    },
+    {
+      "claim_id": "tc-chroma-fulltext",
+      "claim_text": "Chroma OSS 核心的 full-text 僅是 $contains／$not_contains 過濾，非 dense+BM25 融合",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.trychroma.com/docs/querying-collections/full-text-search",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "We support full-text search with the $contains and $not_contains operators"
+    },
+    {
+      "claim_id": "tc-es-hybrid",
+      "claim_text": "Elasticsearch 用 RRF 融合 BM25 與 dense 檢索",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/rrf.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "documents from a traditional BM25 query and an ELSER query to achieve improved relevance"
+    },
+    {
+      "claim_id": "tc-pgvector-hybrid",
+      "claim_text": "pgvector 原生不做 BM25 融合，README 指向 Postgres 全文檢索",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Use together with Postgres"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-hybrid",
+      "claim_text": "pgvectorscale 同 pgvector，無原生 BM25 融合",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Use together with Postgres"
+    },
+    {
+      "claim_id": "tc-turbopuffer-hybrid",
+      "claim_text": "Turbopuffer 提供 vector＋full-text 的 hybrid search",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://turbopuffer.com/docs",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Combine vector and full-text search"
+    },
+    {
+      "claim_id": "tc-lancedb-hybrid",
+      "claim_text": "LanceDB 支援 vector＋full-text＋SQL 檢索",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector similarity search, full-text search and SQL"
+    },
+    {
+      "claim_id": "tc-pinecone-rbac",
+      "claim_text": "Pinecone 官方安全文件逐字寫 uses role-based access controls (RBAC)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.pinecone.io/guides/production/security-overview",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Pinecone uses role-based access controls (RBAC) to manage access to resources"
+    },
+    {
+      "claim_id": "tc-weaviate-rbac",
+      "claim_text": "Weaviate 支援 RBAC 依角色限制存取",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://weaviate.io/developers/weaviate/configuration/rbac",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "If role-based access control (RBAC) is enabled, access can be further restricted"
+    },
+    {
+      "claim_id": "tc-milvus-rbac",
+      "claim_text": "Milvus 支援 Role-Based Access Control (RBAC)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/security",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Role-Based Access Control (RBAC)"
+    },
+    {
+      "claim_id": "tc-qdrant-rbac",
+      "claim_text": "Qdrant 以 JWT 鋪陳 granular access control（RBAC）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/blog/qdrant-1.9.x/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "granular access control using JSON Web Tokens (JWT)"
+    },
+    {
+      "claim_id": "tc-es-rbac",
+      "claim_text": "Elasticsearch 主要授權方式為 role-based access control (RBAC)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/authorization.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "The primary method of authorization in a cluster is role-based access control (RBAC)"
+    },
+    {
+      "claim_id": "tc-pgvector-rbac",
+      "claim_text": "pgvector 為 Postgres 擴充，RBAC 繼承 Postgres 角色系統",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Open-source vector similarity search for Postgres"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-rbac",
+      "claim_text": "pgvectorscale 同為 Postgres 擴充，RBAC 繼承 Postgres 角色",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "higher performance embedding search and cost-efficient storage for AI applications"
+    },
+    {
+      "claim_id": "tc-pinecone-disk",
+      "claim_text": "Pinecone 索引主體放進 distributed object storage",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
+    },
+    {
+      "claim_id": "tc-milvus-disk",
+      "claim_text": "Milvus 以 meta stores、log brokers 與 object storage 為底層",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://zilliz.com/what-is-milvus",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "meta stores, log brokers and object storage"
+    },
+    {
+      "claim_id": "tc-qdrant-disk",
+      "claim_text": "Qdrant 支援 mmap（on-disk）儲存",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://qdrant.tech/documentation/concepts/storage/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "mmap (also known as on-disk) storage"
+    },
+    {
+      "claim_id": "tc-es-disk",
+      "claim_text": "Elasticsearch 有 bbq_disk 這種可落盤的量化索引變體",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.elastic.co/guide/en/elasticsearch/reference/current/dense-vector.html",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "bbq_hnsw bbq_flat bbq_disk"
+    },
+    {
+      "claim_id": "tc-pgvector-disk",
+      "claim_text": "pgvector 原生 HNSW 在記憶體，落盤須靠 pgvectorscale 的 StreamingDiskANN",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "A new index type called StreamingDiskANN"
+    },
+    {
+      "claim_id": "tc-pgvectorscale-disk",
+      "claim_text": "pgvectorscale 的 StreamingDiskANN 把圖索引落盤（DiskANN）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/timescale/pgvectorscale/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "StreamingDiskANN, inspired by the [DiskANN](https://github.com/microsoft/DiskANN) algorithm"
+    },
+    {
+      "claim_id": "tc-turbopuffer-disk",
+      "claim_text": "Turbopuffer 是 object-storage native 的檢索引擎",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://turbopuffer.com/docs",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "turbopuffer is a fast, object-storage native search engine."
+    },
+    {
+      "claim_id": "tc-lancedb-disk",
+      "claim_text": "LanceDB 建於 Lance 列式格式（落盤）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "It is built on top of the Lance columnar format."
+    },
+
+    {
+      "claim_id": "a-prose4",
+      "claim_text": "要比效能，只能看把 recall、dataset、hardware 都釘住的來源",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Recall-QPS"
+    },
+    {
+      "claim_id": "a-prose5",
+      "claim_text": "ParadeDB 自身的 Vector Search 與 Hybrid Search 仍標為 coming soon",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://raw.githubusercontent.com/paradedb/paradedb/dev/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "coming soon"
+    },
+    {
+      "claim_id": "tc-paradedb-bm25",
+      "claim_text": "ParadeDB 用 Tantivy 把 Elastic 級全文檢索帶進 Postgres",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://raw.githubusercontent.com/paradedb/paradedb/dev/README.md",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "brings Elastic-quality full-text search"
+    },
+    {
+      "claim_id": "tc-paradedb-license",
+      "claim_text": "ParadeDB 授權為 AGPL-3.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://api.github.com/repos/paradedb/paradedb",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\": \"AGPL-3.0\""
+    },
+
     {
       "claim_id": "bp2",
       "claim_text": "中立學術 benchmark 把橫軸畫成 recall、縱軸畫成 QPS，每個引擎是一條曲線而非一個點",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-2",
+      "target": "note-section:body-prose-6",
       "source_url": "https://arxiv.org/abs/1807.05614",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "Recall-QPS (1/s) tradeoff - up and to the right is better"
     },
     {
       "claim_id": "bp3",
-      "claim_text": "NeurIPS'21 競賽在固定 QPS 下比 recall，Track 1 表頭寫 Recall/AP achieved at 10000 QPS on Azure F32v2 VM with 32 vCPUs",
+      "claim_text": "NeurIPS'21 競賽 Track 1 表頭寫 Recall/AP achieved at 10000 QPS on Azure F32v2 VM with 32 vCPUs",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-3",
+      "target": "note-section:body-prose-6",
       "source_url": "https://arxiv.org/abs/2205.03763",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "Recall/AP achieved at 10000 QPS on Azure F32v2 VM with 32 vCPUs"
     },
     {
-      "claim_id": "bp3b",
-      "claim_text": "另有一欄直接叫 Querries per second at 90% recall",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-3",
-      "source_url": "https://arxiv.org/abs/2205.03763",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "Querries per second at 90\\% recall"
-    },
-    {
       "claim_id": "bp4",
       "claim_text": "S1 量的是 in-memory 單機 library，每個演算法 is run in an isolated Docker container",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-4",
+      "target": "note-section:body-prose-6",
       "source_url": "https://arxiv.org/abs/1807.05614",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "is run in an isolated Docker container"
     },
     {
-      "claim_id": "bp4b",
-      "claim_text": "S1 把 NYTimes 記為 234791/10000 筆、256 維、Euclidean，與 seed 的 nyt-256-angular 約 29 萬向量錯位",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-4",
-      "source_url": "https://arxiv.org/abs/1807.05614",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "\\textsf{NYTimes} & 234\\,791 / 10\\,000 & 256 & Euclidean"
-    },
-    {
       "claim_id": "bp5",
-      "claim_text": "看一個把三件套標齊的實測",
+      "claim_text": "TigerData 在 r6id.4xlarge 固定 99% recall 下對照 pgvector 與 Qdrant",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-5",
+      "target": "note-section:body-prose-7",
       "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "r6id.4xlarge machine instances, which have 16 vCPUs and 128 GB"
+      "quoted_snippet": "r6id.4xlarge"
     },
     {
       "claim_id": "bt2-metrics",
-      "claim_text": "471.57 QPS",
+      "claim_text": "Postgres 吞吐 471.57 QPS",
       "kind": "evidence-supported",
-      "target": "note-section:body-table-2",
+      "target": "note-section:body-table-3",
       "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "471.57 queries per second"
+      "quoted_snippet": "471.57"
     },
     {
       "claim_id": "bt2b-metrics",
-      "claim_text": "60.42 ms",
+      "claim_text": "p95 尾延遲 36.73 ms vs 60.42 ms",
       "kind": "evidence-supported",
-      "target": "note-section:body-table-2",
+      "target": "note-section:body-table-3",
       "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "p95 latency (36.73 ms vs. 60.42 ms)"
+      "quoted_snippet": "60.42"
     },
     {
       "claim_id": "bp6",
-      "claim_text": "沒有全域贏家",
+      "claim_text": "Postgres 拿到約 11.4 倍吞吐，沒有全域贏家",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-6",
+      "target": "note-section:body-prose-8",
       "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "11.4x more throughput than Qdrant"
     },
     {
       "claim_id": "bp7",
-      "claim_text": "Qdrant 自家 benchmark 的結論句是 highest RPS and lowest latencies in almost all the scenarios",
+      "claim_text": "Qdrant 自家 benchmark 結論句是 highest RPS and lowest latencies in almost all the scenarios",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-7",
+      "target": "note-section:body-prose-8",
       "source_url": "https://qdrant.tech/benchmarks/",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "highest RPS and lowest latencies in almost all the scenarios"
@@ -135,113 +706,59 @@
       "claim_id": "bp7b",
       "claim_text": "VectorDBBench README 逐字自承 sponsored by Zilliz",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-7",
+      "target": "note-section:body-prose-8",
       "source_url": "https://github.com/zilliztech/VectorDBBench",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "sponsored by Zilliz"
     },
     {
-      "claim_id": "bt3-flip",
-      "claim_text": "BSD-3-Clause",
-      "kind": "evidence-supported",
-      "target": "note-section:body-table-3",
-      "source_url": "https://api.github.com/repos/weaviate/weaviate",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "\"spdx_id\":\"BSD-3-Clause\""
-    },
-    {
-      "claim_id": "bt3b-flip",
-      "claim_text": "從來不用 HNSW",
-      "kind": "evidence-supported",
-      "target": "note-section:body-table-3",
-      "source_url": "https://www.pinecone.io/how-pinecone-works/",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "does not use Hierarchical Navigable Small World (HNSW)"
-    },
-    {
-      "claim_id": "bp8",
-      "claim_text": "Elastic 2024-08 宣布新增 AGPL，且明言 adding another option, and not removing anything",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
+      "claim_id": "a-prose9",
+      "claim_text": "換掉 seed 選錯的欄位並更新過時的判定",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
       "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "adding another option, and not removing anything"
     },
     {
-      "claim_id": "bp8b",
-      "claim_text": "AGPL 是 an OSI approved license，故 Elasticsearch 重新可稱開源",
+      "claim_id": "a-table4",
+      "claim_text": "GitHub API：BSD-3-Clause",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
-      "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
+      "target": "note-section:body-table-4",
+      "source_url": "https://api.github.com/repos/weaviate/weaviate",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "AGPL, an OSI approved license"
-    },
-    {
-      "claim_id": "bp8c",
-      "claim_text": "pgvector 的 LICENSE 是 PostgreSQL License 而非 Apache",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
-      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/LICENSE",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "Permission to use, copy, modify, and distribute this software"
+      "quoted_snippet": "BSD-3-Clause"
     },
     {
       "claim_id": "bp8d",
-      "claim_text": "Milvus star 從 seed 的 23k 漲到實測 45073",
+      "claim_text": "star 數普遍成長：Milvus 從 seed 的 23k 漲到實測 45073",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
+      "target": "note-section:body-table-4",
       "source_url": "https://api.github.com/repos/milvus-io/milvus",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "\"stargazers_count\":45073"
     },
     {
       "claim_id": "bp8e",
-      "claim_text": "pgvector star 從 seed 的 6k 漲到實測 22069",
+      "claim_text": "pgvector star 從 seed 的 6k 漲到實測 22069（約 3.7 倍）",
       "kind": "evidence-supported",
-      "target": "note-section:body-prose-8",
+      "target": "note-section:body-table-4",
       "source_url": "https://api.github.com/repos/pgvector/pgvector",
       "retrieved_at": "2026-07-05T00:00:00Z",
       "quoted_snippet": "\"stargazers_count\":22069"
     },
     {
-      "claim_id": "bp9",
-      "claim_text": "Pinecone 官方安全文件逐字寫 Pinecone uses role-based access controls (RBAC) to manage access to resources",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-9",
-      "source_url": "https://docs.pinecone.io/guides/production/security-overview",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "Pinecone uses role-based access controls (RBAC) to manage access to resources"
-    },
-    {
-      "claim_id": "bp9b",
-      "claim_text": "Qdrant 官方 1.9 版公告以 granular access control using JSON Web Tokens (JWT) 鋪陳 RBAC",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-9",
-      "source_url": "https://qdrant.tech/blog/qdrant-1.9.x/",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "granular access control using JSON Web Tokens (JWT)"
-    },
-    {
-      "claim_id": "bp10",
-      "claim_text": "2026 的 hybrid = 稠密向量與 BM25 兩路並跑再融合，權威定義為 vector search and a keyword search in parallel 交給 RRF",
+      "claim_id": "bp8",
+      "claim_text": "Elastic 2024-08 明言 adding another option, and not removing anything",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-10",
-      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "Reciprocal Rank Fusion (RRF), which combines and ranks the objects into a single list"
+      "quoted_snippet": "adding another option, and not removing anything"
     },
     {
-      "claim_id": "bp10b",
-      "claim_text": "hybrid 指兩路檢索並跑 vector search and a keyword search in parallel，與 scalar filtering 是兩件事",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-10",
-      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "vector search and a keyword search in parallel"
-    },
-    {
-      "claim_id": "bp11",
-      "claim_text": "Pinecone 官方逐字強調自己 does not use Hierarchical Navigable Small World (HNSW)，改用 serverless 下依 slab 大小挑選的專有索引",
+      "claim_id": "a-prose11",
+      "claim_text": "Pinecone 官方逐字強調 does not use Hierarchical Navigable Small World (HNSW)",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-11",
       "source_url": "https://www.pinecone.io/how-pinecone-works/",
@@ -249,67 +766,68 @@
       "quoted_snippet": "does not use Hierarchical Navigable Small World (HNSW)"
     },
     {
+      "claim_id": "bp10",
+      "claim_text": "真 hybrid 交給 Reciprocal Rank Fusion (RRF) 融合",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector search and a keyword search in parallel"
+    },
+    {
       "claim_id": "bp11b",
-      "claim_text": "各家早已分岔，Milvus/Weaviate/Elasticsearch 各有 HNSW/IVF/DiskANN/flat 等多種 base index，seed 整欄漏掉 quantization",
+      "claim_text": "index 比較應把 base graph 演算法與 quantization 變體分成兩軸",
       "kind": "reasonable-inference",
       "target": "note-section:body-prose-11",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "現代的索引比較應該把 base graph 演算法與 quantization 變體分成兩軸"
+      "source_url": "https://weaviate.io/developers/weaviate/concepts/vector-quantization",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Binary quantization (BQ) Product quantization (PQ) Scalar quantization (SQ)"
     },
     {
-      "claim_id": "bp12",
-      "claim_text": "Pinecone serverless 把儲存與計算分離，索引主體 stored in distributed object storage that provides virtually unlimited scalability and high availability，是 2023 seed 缺席的一整類產品",
+      "claim_id": "a-prose12",
+      "claim_text": "LanceDB built on top of the Lance columnar format 且 runs locally or in your cloud",
       "kind": "evidence-supported",
       "target": "note-section:body-prose-12",
-      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "source_url": "https://raw.githubusercontent.com/lancedb/lancedb/main/README.md",
       "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
-    },
-    {
-      "claim_id": "bp13",
-      "claim_text": "disk-first 索引：pgvectorscale adds StreamingDiskANN implemented in Rust，並配 Statistical Binary Quantization (SBQ)，把圖索引落盤並壓縮",
-      "kind": "evidence-supported",
-      "target": "note-section:body-prose-13",
-      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
-      "retrieved_at": "2026-07-05T00:00:00Z",
-      "quoted_snippet": "pgvectorscale adds StreamingDiskANN implemented in Rust"
-    },
-    {
-      "claim_id": "cp1",
-      "claim_text": "issue #62 的粗欄大致可用，但把效能寫成單一 QPS 數字在方法論上站不住，是量錯了維度",
-      "kind": "unproven-or-doubtful",
-      "target": "note-section:critical-prose-1",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "它把效能寫成單一 qps 數字，這在方法論上就站不住"
-    },
-    {
-      "claim_id": "cp2",
-      "claim_text": "S1/S2/TigerData 三者實驗設定互不相容、不能並列成一張表，且廠商 benchmark 幾乎都自家贏",
-      "kind": "unproven-or-doubtful",
-      "target": "note-section:critical-prose-2",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "本稽核用到的量化來源，實驗設定互不相容"
-    },
-    {
-      "claim_id": "cp3",
-      "claim_text": "seed 最大的錯是欄位設計而非某格填錯，重填數字修不好，得換維度",
-      "kind": "reasonable-inference",
-      "target": "note-section:critical-prose-3",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "它最大的錯不是某格填錯，而是欄位設計"
+      "quoted_snippet": "built on top of the Lance columnar format"
     },
     {
       "claim_id": "cp4",
-      "claim_text": "這張表只能給選型方向、不能給排名；唯一能關閉排名的方法是在自己的 dataset、固定 recall、同一台機器上實測",
+      "claim_text": "但這張表只給方向、不給排名",
       "kind": "reasonable-inference",
-      "target": "note-section:critical-prose-4",
-      "source_url": null,
-      "retrieved_at": null,
-      "quoted_snippet": "任何現成表格都答不了"
+      "target": "note-section:body-prose-13",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "11.4x more throughput than Qdrant"
+    },
+
+    {
+      "claim_id": "cp1",
+      "claim_text": "從一開始就量錯了維度",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Recall-QPS (1/s) tradeoff - up and to the right is better"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "三者不能並列成一張效能表",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "r6id.4xlarge"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "寧可空著也不填 folklore",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector search and a keyword search in parallel"
     }
   ]
 }
