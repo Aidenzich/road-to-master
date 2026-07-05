@@ -1,0 +1,297 @@
+{
+  "note_path": "domains/natural_language_processing/LLM-Training-Types/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LLM-Training-Types",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-05T00:30:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "The distinct training types/stages of modern LLMs and what each stage changes",
+      "kind": "reasonable-inference",
+      "target": "table-cell:title",
+      "source_url": "https://github.com/Aidenzich/road-to-master/issues/54",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "Training Type of LLM"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "This note is a survey answering a cross-paper question, hence Venue Kind = survey",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "Instruction Tuning for Large Language Models: A Survey"
+    },
+    {
+      "claim_id": "src-table-titles",
+      "claim_text": "Sources table lists the four primary papers by title",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "Direct Preference Optimization"
+    },
+    {
+      "claim_id": "src-table-lora",
+      "claim_text": "LoRA source row title",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "LoRA: Low-Rank Adaptation of Large Language Models"
+    },
+    {
+      "claim_id": "venue-inference",
+      "claim_text": "Published venues (NeurIPS 2022, ICLR 2022, NeurIPS 2023) are author prior knowledge, not verified in the fetched arXiv full text",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "instruction tuning"
+    },
+    {
+      "claim_id": "it-definition",
+      "claim_text": "Instruction tuning is supervised re-training on (instruction, output) pairs that bridges the next-word prediction objective and instruction following",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "bridges the gap between the next-word prediction objective of LLMs"
+    },
+    {
+      "claim_id": "tax-table-instructgpt-data",
+      "claim_text": "InstructGPT SFT dataset size used in the audited taxonomy table",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "SFT dataset contains about 13k training prompts"
+    },
+    {
+      "claim_id": "tax-table-lora-eff",
+      "claim_text": "LoRA parameter-efficiency figure used in the audited taxonomy table",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "10,000 times"
+    },
+    {
+      "claim_id": "tax-table-it-compute",
+      "claim_text": "Instruction-tuning compute is a small fraction of pre-training",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "fine-tuning costs 0.2"
+    },
+    {
+      "claim_id": "sft-controllable",
+      "claim_text": "SFT/instruction tuning yields more controllable and predictable behavior; Fine-tuning and Instruct-tuning collapse to one SFT stage",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "allows for a more controllable and predictable model behavior compared to standard LLMs"
+    },
+    {
+      "claim_id": "superficial-alignment",
+      "claim_text": "Superficial alignment hypothesis: knowledge/capabilities almost all acquired in pre-training; alignment teaches user-preferred formalizations",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "the knowledge and capabilities of a model are almost acquired in the pre-training stage"
+    },
+    {
+      "claim_id": "surface-level-criticism",
+      "claim_text": "The survey records the criticism that SFT captures surface-level patterns/styles rather than comprehending tasks",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "captures surface-level patterns and styles (e.g., the output format) rather than comprehending and learning"
+    },
+    {
+      "claim_id": "instructgpt-preferred",
+      "claim_text": "Labelers prefer 1.3B InstructGPT over 175B GPT-3; same architecture, differs only by human-data fine-tuning",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having over 100x fewer parameters"
+    },
+    {
+      "claim_id": "instructgpt-truthfulness",
+      "claim_text": "InstructGPT improves truthfulness and reduces toxic output",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "improvements in truthfulness and reductions in toxic output generation"
+    },
+    {
+      "claim_id": "instructgpt-three-step",
+      "claim_text": "InstructGPT alignment is three steps: SFT, reward model training, PPO",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "reinforcement learning via proximal policy optimization (PPO)"
+    },
+    {
+      "claim_id": "instructgpt-6b-rm",
+      "claim_text": "InstructGPT uses a 6B reward model to save compute and stabilize RL",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "In this paper we only use 6B RMs"
+    },
+    {
+      "claim_id": "dpo-bce",
+      "claim_text": "DPO optimizes a policy with a simple binary cross-entropy objective",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "optimize a policy using a simple binary cross entropy objective"
+    },
+    {
+      "claim_id": "dpo-no-rm",
+      "claim_text": "DPO optimizes without an explicit standalone reward model or sampling from the policy during training",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "without learning an explicit, standalone reward model or sampling from the policy during training"
+    },
+    {
+      "claim_id": "dpo-loss-eq",
+      "claim_text": "DPO loss is a log-sigmoid of beta-scaled log-ratio differences between preferred and dispreferred completions",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "-\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left(\\beta \\log \\frac"
+    },
+    {
+      "claim_id": "dpo-same-objective",
+      "claim_text": "DPO implicitly optimizes the same KL-constrained reward-maximization objective as RLHF (the model is secretly a reward model)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "implicitly optimizes the same objective as existing RLHF algorithms (reward maximization with a KL-divergence constraint)"
+    },
+    {
+      "claim_id": "dpo-winrate",
+      "claim_text": "DPO win rate approximately 61% at temperature 0.0 on TL;DR, edging PPO's ~57%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "win rate of approximately 61"
+    },
+    {
+      "claim_id": "lora-freeze-inject",
+      "claim_text": "LoRA freezes pretrained weights and injects trainable rank-decomposition matrices into each Transformer layer",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture"
+    },
+    {
+      "claim_id": "lora-eq",
+      "claim_text": "LoRA reparameterizes the weight update as a low-rank product BA added to the frozen W0",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "W_0+\\Delta W=W_0+BA"
+    },
+    {
+      "claim_id": "lora-efficiency",
+      "claim_text": "LoRA reduces trainable params 10,000x and GPU memory 3x on GPT-3 175B",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times"
+    },
+    {
+      "claim_id": "lora-onpar",
+      "claim_text": "LoRA performs on-par or better than fine-tuning on RoBERTa/DeBERTa/GPT-2/GPT-3",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "performs on-par or better than fine-tuning in model quality on RoBERTa, DeBERTa, GPT-2, and GPT-3"
+    },
+    {
+      "claim_id": "lora-no-latency",
+      "claim_text": "Merging BA into W introduces no additional inference latency",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "we do not introduce any additional latency during inference"
+    },
+    {
+      "claim_id": "worked-example-alignment-tax",
+      "claim_text": "The 1.3B>175B result shows alignment/behavior gains but there is a measured capability cost (alignment tax); the 'zero-cost, interface-only' framing is refuted",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "comes at the cost of lower performance on certain tasks that we may care about"
+    },
+    {
+      "claim_id": "worked-example-ptx",
+      "claim_text": "Regressions reduced by mixing PPO updates with pretraining log-likelihood updates (PPO-ptx)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "mixing PPO updates with updates that increase the log likelihood of the pretraining distribution"
+    },
+    {
+      "claim_id": "crit-comparability",
+      "claim_text": "The four sources span different eras/models/metrics; none is a head-to-head on current-generation models, so the composite map is a cross-era montage",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2203.02155",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3"
+    },
+    {
+      "claim_id": "crit-metric-target",
+      "claim_text": "Preference metrics risk self-defined targets; DPO itself notes ROUGE can be poorly correlated with human preferences, so 'better' is relative to the evaluator's preference",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2305.18290",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "automatic evaluation metrics such as ROUGE can be poorly correlated with human preferences"
+    },
+    {
+      "claim_id": "crit-method-not-stage",
+      "claim_text": "LoRA is a resource-side method, not a stage; naming instruction tuning vs SFT as separate columns is repackaging, not a real pipeline split",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2106.09685",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "we do not introduce any additional latency during inference"
+    },
+    {
+      "claim_id": "crit-folk-claim-verdict",
+      "claim_text": "The 'no new knowledge, interface-only' folk claim is only half-supported: superficial alignment supports the knowledge half but is an unreplicated hypothesis, while alignment tax refutes the zero-cost half",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2308.10792",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "the knowledge and capabilities of a model are almost acquired in the pre-training stage"
+    }
+  ]
+}

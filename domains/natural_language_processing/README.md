@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| LLM 訓練階段/類型綜述 (What each training stage actually changes) | survey | '21–'23 | - | [✓](./LLM-Training-Types/) |
 | [Fine-tuning vs In-context Learning vs RAG — a survey](https://github.com/Aidenzich/road-to-master/issues/55) | survey | '26 | - | [✓](./FineTuning-vs-ICL-vs-RAG/) |
 | [SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges](https://arxiv.org/abs/2606.15971) | arXiv | '26 | [✓](https://github.com/Zleap-AI/SAG-Benchmark) | [✓](./SAG-SQL-RAG/) |
 | [Prompt Language (English vs Chinese) and LLM Coding Accuracy — a survey](https://github.com/Aidenzich/road-to-master/issues/89) | survey | '26 | - | [✓](./PromptLanguageCodingAccuracy/) |
