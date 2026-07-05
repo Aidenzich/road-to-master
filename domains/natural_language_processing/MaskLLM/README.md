@@ -1,4 +1,5 @@
 # MaskLLM — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,115 +12,115 @@
 | Official Code | https://github.com/NVlabs/MaskLLM |
 | Venue Kind | paper |
 
-> 說明：本筆記的全文證據取自 arXiv e-print 的 camera-ready 原始碼（`maskllm_camera_ready.tex`，NeurIPS 2024 final 版式），數值與公式皆以該 `.tex` 為準。
+> Note: The full-text evidence for this note is taken from the camera-ready source of the arXiv e-print (`maskllm_camera_ready.tex`, the NeurIPS 2024 final layout); all numbers and formulas are based on that `.tex`.
 
 ## First Principles
 
-MaskLLM 要解的問題是**半結構化剪枝（semi-structured pruning）中的 N:M 稀疏**：在每連續 M 個權重中至多保留 N 個非零值。之所以鎖定 N:M 而非任意非結構化稀疏，是因為 N:M 這種規則排列對 GPU 等加速器友善，能同時拿到「結構化的加速」與「細粒度稀疏的彈性」。本文主力設定為 2:4，也就是每四個連續參數留兩個、清掉兩個。
+The problem MaskLLM aims to solve is **N:M sparsity in semi-structured pruning**: within every consecutive M weights, keep at most N nonzero values. The reason for locking onto N:M rather than arbitrary unstructured sparsity is that the regular arrangement of N:M is friendly to accelerators such as GPUs, obtaining both "structured acceleration" and "the flexibility of fine-grained sparsity" at the same time. This paper's main setting is 2:4, that is, keeping two of every four consecutive parameters and clearing two.
 
-把稀疏化寫成一個**遮罩選擇（mask selection）**問題後，候選集合的大小是一個組合數。對一個由四個連續參數組成的區塊 $\mathcal{W} \in \mathbb{R}^{1\times4}$，2:4 的二元遮罩必須剛好含兩個零，因此候選集只有下式這 6 種：
+Once sparsification is written as a **mask selection** problem, the size of the candidate set is a combinatorial number. For a block $\mathcal{W} \in \mathbb{R}^{1\times4}$ made of four consecutive parameters, a 2:4 binary mask must contain exactly two zeros, so the candidate set has only the 6 options below:
 
 $$
 \mathbf{S}^{2:4} = \{\mathcal{M} \in \mathbb{B}^{1\times4} \mid \textstyle\sum \mathcal{M} = 2\} = \{[1,1,0,0], [1,0,1,0], [1,0,0,1],[0,1,0,1],[0,1,1,0],[0,0,1,1]\}
 $$
 
-一般化的候選集大小是 $|\mathbf{S}|=\binom{M}{N} = \frac{M!}{N!(M-N)!}$，2:4 時 $\binom{4}{2}=6$。單一區塊只有 6 種選擇看似簡單，真正的困難在於**規模**：論文指出一個完全 2:4 稀疏化的 LLaMA-2 7B 的稠密層裡有 16 億（1.6 billion）個 2:4 遮罩要決定，整體是一個天文數字的組合最佳化問題。
+The generalized candidate-set size is $|\mathbf{S}|=\binom{M}{N} = \frac{M!}{N!(M-N)!}$, and for 2:4 it is $\binom{4}{2}=6$. A single block having only 6 choices seems simple; the real difficulty lies in **scale**: the paper points out that in the dense layers of a fully 2:4-sparsified LLaMA-2 7B there are 1.6 billion (1.6 billion) 2:4 masks to decide, and the whole thing is an astronomically large combinatorial optimization problem.
 
 $$
 \{\mathcal{M}_i^{*}\} = \operatorname{argmin}_{\{\mathcal{M}_i \in \mathbf{S}^{2:4}\} } \mathbb{E}_{x\sim p(x)} \left[ \mathcal{L}_{LM}(x; \{\mathcal{W}_i \odot \mathcal{M}_i\}) \right]
 $$
 
-上式就是理想目標：在觀測資料上，找一組遮罩讓剪枝後的語言模型損失 $\mathcal{L}_{LM}$ 最小；$\odot$ 是逐元素相乘。問題是遮罩的挑選本身是離散、不可微分的，無法直接對它做反向傳播。既有做法（如 SparseGPT、Wanda）繞過這點的方式是用一小份校正集（calibration set）搭配手工設計的重要性準則來估哪些權重可刪，但這帶來兩個結構性弱點：其一，小校正集不足以代表 LLM 在龐大多樣語料裡學到的知識，論文觀察到把校正集擴大到超過 256 筆後結果不再改善；其二，用手工準則當作「剪枝真實誤差」的代理，本身就會累積估計誤差。
+The equation above is the ideal objective: on observed data, find a set of masks that minimizes the pruned language-model loss $\mathcal{L}_{LM}$; $\odot$ is element-wise multiplication. The problem is that the selection of masks is itself discrete and non-differentiable, and cannot be directly backpropagated through. The way existing approaches (such as SparseGPT and Wanda) bypass this is to use a small calibration set together with hand-designed importance criteria to estimate which weights can be removed, but this brings two structural weaknesses: first, a small calibration set is insufficient to represent the knowledge an LLM learns from a vast and diverse corpus — the paper observes that after enlarging the calibration set beyond 256 samples the result no longer improves; second, using a hand-crafted criterion as a proxy for the "true pruning error" itself accumulates estimation error.
 
-MaskLLM 的核心手法是把「選遮罩」重寫成「**抽樣**」：對每個參數區塊定義一個類別分佈（categorical distribution），類別機率為 $p_1, p_2, \ldots, p_{|\mathbf{S}|}$ 且 $\sum_j p_j = 1$。訓練時若某個被抽到的遮罩剪枝後品質好，就提高它的機率；反覆抽樣與更新後，高機率的遮罩就是剪枝後仍能維持品質的遮罩。於是目標從對離散遮罩的最佳化，變成對機率分佈的最佳化：
+MaskLLM's core technique is to rewrite "selecting a mask" as "**sampling**": for each parameter block, define a categorical distribution with class probabilities $p_1, p_2, \ldots, p_{|\mathbf{S}|}$ and $\sum_j p_j = 1$. During training, if a sampled mask yields good quality after pruning, its probability is increased; after repeated sampling and updating, the high-probability masks are those that still maintain quality after pruning. The objective thus turns from optimization over discrete masks into optimization over a probability distribution:
 
 $$
 \{p^{*}(\mathcal{M}_i)\} = \operatorname{argmin}_{\{p(\mathcal{M}_i)\}} \mathbb{E}_{x\sim p(x),\, \mathcal{M}_i \sim p(\mathcal{M}_i)} \left[ \mathcal{L}_{LM}(x; \{\mathcal{W}_i \odot \mathcal{M}_i\}) \right]
 $$
 
-但從類別分佈抽樣一樣不可微分。作者借用 **Gumbel Softmax** 這個重參數化技巧解決：先用 Gumbel Max 把抽樣的隨機性外包給一個獨立噪聲變數 $g_i=-\log(-\log \epsilon_i),\ \epsilon_i \sim U(0,1)$，得到硬性的 one-hot 索引 $y=\text{onehot}(\operatorname{argmax}_i [\log(p_i) + g_i])$；接著用 Softmax 取代不可微的 argmax，得到一個溫度 $\tau$ 控制的軟索引：
+But sampling from a categorical distribution is likewise non-differentiable. The authors borrow the reparameterization trick **Gumbel Softmax** to resolve this: first use Gumbel Max to outsource the randomness of sampling to an independent noise variable $g_i=-\log(-\log \epsilon_i),\ \epsilon_i \sim U(0,1)$, obtaining a hard one-hot index $y=\text{onehot}(\operatorname{argmax}_i [\log(p_i) + g_i])$; then use Softmax to replace the non-differentiable argmax, obtaining a soft index controlled by a temperature $\tau$:
 
 $$
 \tilde{y}_i = \frac{\exp((\log(p_i) + g_i) / \tau)}{\sum_j \exp( (\log(p_j) + g_j) / \tau )}
 $$
 
-當溫度 $\tau \rightarrow 0$ 時軟索引會趨近 one-hot。有了軟索引 $\tilde{\mathbf{y}}$ 這個列向量，再把 6 個候選遮罩疊成矩陣 $\mathbf{S}$（第 $i$ 列是候選 $\hat{\mathcal{M}}_i$），一次矩陣乘法就得到可微分的「軟遮罩」——它其實是候選遮罩依軟索引加權後的平均：
+As the temperature $\tau \rightarrow 0$, the soft index approaches one-hot. With the soft index $\tilde{\mathbf{y}}$, this row vector, and by stacking the 6 candidate masks into a matrix $\mathbf{S}$ (the $i$-th row is candidate $\hat{\mathcal{M}}_i$), a single matrix multiplication yields a differentiable "soft mask" — which is in fact the average of the candidate masks weighted by the soft index:
 
 $$
 \tilde{\mathcal{M}} = \tilde{\mathbf{y}} \times \mathbf{S}=\sum_{i=1}^{|\mathbf{S}|} \tilde{y}_i \cdot \hat{\mathcal{M}}_i
 $$
 
-實務上作者不直接學機率，而是學 logits $\pi_i$，再配一個縮放因子 $\kappa$ 得到 $p_i = \frac{\exp(\pi_i \cdot \kappa)}{\sum_j \exp( \pi_j \cdot \kappa ) }$。這個 $\kappa$ 是控制「探索 vs 收斂」的關鍵旋鈕：$\kappa$ 太大時 logits 壓過 Gumbel 噪聲，抽樣幾乎固定、失去探索；$\kappa$ 太小時噪聲主導、遮罩一直變動、收斂很慢。論文全程用 $\kappa$ 從 1e2 線性升到 5e2。
+In practice the authors do not learn the probabilities directly, but learn the logits $\pi_i$, together with a scaling factor $\kappa$ to obtain $p_i = \frac{\exp(\pi_i \cdot \kappa)}{\sum_j \exp( \pi_j \cdot \kappa ) }$. This $\kappa$ is the key knob controlling "exploration vs. convergence": when $\kappa$ is too large, the logits overwhelm the Gumbel noise, sampling is almost fixed and exploration is lost; when $\kappa$ is too small, noise dominates, the mask keeps changing, and convergence is very slow. Throughout, the paper linearly ramps $\kappa$ from 1e2 to 5e2.
 
-作者另外發現一個實務坑：剪枝會把部分參數清零，導致梯度消失、傷害後續的下游轉移與微調。為此加入**稀疏權重正則化（Sparse Weight Regularization）**，鼓勵剩餘權重維持夠大的量級，形成最終學習目標：
+The authors additionally found a practical pitfall: pruning zeroes out some parameters, causing gradient vanishing and harming subsequent downstream transfer and finetuning. To address this they add **Sparse Weight Regularization**, encouraging the remaining weights to maintain a large enough magnitude, forming the final learning objective:
 
 $$
 \min_{\{p_{\pi}(\mathcal{M}_i)\}} \mathbb{E}_{x, \tilde{\mathcal{M}}_i \sim p_{\pi}(\mathcal{M}_i)} \left[ \mathcal{L}_{LM}(x; \{\mathcal{W}_i \odot \tilde{\mathcal{M}}_i\}) \right] - \lambda \sum_i \|\mathcal{W}_i \odot \tilde{\mathcal{M}}_i\|^2_2
 $$
 
-第二項由 $\lambda$ 加權，論文用 $\lambda=$ 1e-5；表 8（附錄）顯示 GPT-3 2B 前 500 步的平均梯度範數會從無正則化的 0.219 提升到 0.542（1e-5）與 0.559（1e-4），佐證它確實維持了梯度。
+The second term is weighted by $\lambda$, and the paper uses $\lambda=$ 1e-5; Table 8 (appendix) shows that the average gradient norm of GPT-3 2B over the first 500 steps rises from 0.219 without regularization to 0.542 (1e-5) and 0.559 (1e-4), corroborating that it indeed maintains the gradient.
 
-最後是**遷移學習（transfer learning）**的部分。既然學的是機率分佈，就能用預先算好的遮罩來初始化 logits，加速收斂。作者提出 Mask Prior：給定一個先驗遮罩 $\mathcal{M}_0$（可來自 Magnitude、SparseGPT 或 Wanda），計算它與各候選遮罩的相似度並重新置中，再依相似度調整初始 logits：
+Finally there is the **transfer learning** part. Since what is learned is a probability distribution, one can use precomputed masks to initialize the logits and accelerate convergence. The authors propose a Mask Prior: given a prior mask $\mathcal{M}_0$ (which may come from Magnitude, SparseGPT, or Wanda), compute its similarity to each candidate mask and re-center it, then adjust the initial logits according to the similarity:
 
 $$
 \pi_i^{\prime} = \pi_i + \sigma(\pi)* \text{sim}(\mathcal{M}_0, \hat{\mathcal{M}}_i) * \alpha
 $$
 
-其中 $\sigma(\pi)$ 是 logits 的標準差、$\alpha$ 控制先驗強度；$\alpha=0$ 時等於不用任何先驗、純粹從頭學。整個訓練流程可濃縮成下面的演算法：
+where $\sigma(\pi)$ is the standard deviation of the logits and $\alpha$ controls the prior strength; when $\alpha=0$ it is equivalent to using no prior at all, learning purely from scratch. The whole training process can be condensed into the algorithm below:
 
 ```text
 Algorithm 1  MaskLLM: Learnable 2:4 Semi-Structured Sparsity
-  S = { [1,1,0,0], [1,0,1,0], ... , [0,0,1,1] }          # 6 個 2:4 候選遮罩
-  # 對所有參數區塊 W 平行執行：
-  初始化 logits  π_i ~ N(0, σ)
-  以先驗遮罩 M0 更新    π'_i = π_i + σ(π) * sim(M0, M̂_i) * α
-  while 訓練未結束:
-      # 可微分抽樣
+  S = { [1,1,0,0], [1,0,1,0], ... , [0,0,1,1] }          # 6 candidate 2:4 masks
+  # Executed in parallel over all parameter blocks W:
+  Initialize logits  π_i ~ N(0, σ)
+  Update with prior mask M0    π'_i = π_i + σ(π) * sim(M0, M̂_i) * α
+  while training not finished:
+      # Differentiable sampling
       ỹ_i = softmax((π_i·κ + g_i)/τ),  g_i = -log(-log ε_i),  ε_i ~ U(0,1)
       M̃   = ỹ × S = Σ_i ỹ_i · M̂_i
-      以梯度更新 logits:  ∇_π [ L_LM(x; W ⊙ M̃) - λ‖W ⊙ M̃‖² ]
+      Update logits by gradient:  ∇_π [ L_LM(x; W ⊙ M̃) - λ‖W ⊙ M̃‖² ]
   k  = argmax(π)
-  M* = M̂_k                                                # 推論時的最終硬遮罩
+  M* = M̂_k                                                # final hard mask at inference time
 ```
 
-**一個具體的前向例子（數字取自論文，示意用的權重數值為本筆記自訂並標記為 ours）。** 取一個 2:4 區塊，設其四個權重為 $\mathcal{W}=[0.8, -0.1, 0.5, 0.05]$（ours）。候選集就是上面 6 個遮罩。若以 Magnitude 先驗初始化，最大量級的兩個位置是第 1、3 格（$|0.8|,|0.5|$），對應候選 $\hat{\mathcal{M}}_2=[1,0,1,0]$，於是 Mask Prior 會抬高 $\pi_2$。訓練期間 Gumbel 噪聲仍讓模型偶爾抽到別的候選（例如 $[1,1,0,0]$）去試探，但只要那些選擇讓 $\mathcal{L}_{LM}$ 變差，其 logits 就被壓低。2,000 步後 $\operatorname{argmax}(\pi)$ 落在 $[1,0,1,0]$，最終硬遮罩把區塊剪成 $\mathcal{W}\odot\mathcal{M}^*=[0.8, 0, 0.5, 0]$。把這個機制平行套到 LLaMA-2 7B 的 16 億個區塊、凍結權重只學遮罩、跑 2,000 步後，Wikitext PPL 從 SparseGPT 的 10.42 降到 6.72，接近稠密模型的 5.12。
+**A concrete forward example (numbers taken from the paper; the illustrative weight values are defined by this note and marked as ours).** Take a 2:4 block and set its four weights to $\mathcal{W}=[0.8, -0.1, 0.5, 0.05]$ (ours). The candidate set is the 6 masks above. If initialized with a Magnitude prior, the two positions of largest magnitude are slots 1 and 3 ($|0.8|,|0.5|$), corresponding to candidate $\hat{\mathcal{M}}_2=[1,0,1,0]$, so the Mask Prior raises $\pi_2$. During training the Gumbel noise still occasionally lets the model sample other candidates (e.g., $[1,1,0,0]$) to explore, but as long as those choices make $\mathcal{L}_{LM}$ worse, their logits are suppressed. After 2,000 steps, $\operatorname{argmax}(\pi)$ lands on $[1,0,1,0]$, and the final hard mask prunes the block into $\mathcal{W}\odot\mathcal{M}^*=[0.8, 0, 0.5, 0]$. Applying this mechanism in parallel to LLaMA-2 7B's 1.6 billion blocks, freezing the weights and learning only the masks, after running 2,000 steps the Wikitext PPL drops from SparseGPT's 10.42 to 6.72, close to the dense model's 5.12.
 
-下表是論文主結果（凍結權重、只學遮罩；SparseGPT 一欄有做權重更新），一次看清 MaskLLM 相對三個 2:4 基線的位置（Wikitext PPL，越低越好；括號旁為七項 zero-shot 任務平均準確率 Avg.）：
+The table below shows the paper's main results (freezing weights, learning only masks; the SparseGPT column does weight updates), giving a clear view of MaskLLM's position relative to three 2:4 baselines (Wikitext PPL, lower is better; alongside the parentheses is the average accuracy Avg. over seven zero-shot tasks):
 
 | Method (LLaMA-2 7B) | Wikitext PPL | Avg. (7 tasks) |
 |-|-|-|
-| Dense（稠密上界） | 5.12 | 57.16 |
+| Dense (dense upper bound) | 5.12 | 57.16 |
 | Magnitude | 54.71 | 46.19 |
-| SparseGPT（含權重更新） | 10.42 | 47.16 |
+| SparseGPT (with weight update) | 10.42 | 47.16 |
 | Wanda | 11.29 | 45.98 |
-| MaskLLM（凍結權重） | 6.72 | 52.09 |
+| MaskLLM (frozen weights) | 6.72 | 52.09 |
 
-在 LLaMA-2 13B、Nemotron-4 15B、GPT-3 2B/843M 上有一致的趨勢：MaskLLM 的 PPL 全面優於三個基線。先驗的效果也很明顯——LLaMA-2 7B 在「無先驗」時只能學到 9.12 PPL，換上 Magnitude 先驗後降到 6.77、SparseGPT 先驗降到 6.72，說明「先驗初始化 + 端到端精修」比單獨任一者都好。
+On LLaMA-2 13B, Nemotron-4 15B, and GPT-3 2B/843M there is a consistent trend: MaskLLM's PPL is comprehensively better than the three baselines. The effect of the prior is also clear — LLaMA-2 7B can only learn to 9.12 PPL with "no prior," dropping to 6.77 after switching to a Magnitude prior and to 6.72 with a SparseGPT prior, showing that "prior initialization + end-to-end refinement" is better than either alone.
 
-![MaskLLM 的可學習 N:M 稀疏總覽：學到的通用遮罩可再遷移到下游任務](imgs/teaser_learnable_nm_sparsity.png)
+![Overview of MaskLLM's learnable N:M sparsity: the learned general mask can be further transferred to downstream tasks](imgs/teaser_learnable_nm_sparsity.png)
 
-![MaskLLM 框架：把遮罩選擇建模成分佈學習，端到端訓練後可遷移至下游任務達成無損壓縮](imgs/framework_overview.png)
+![The MaskLLM framework: modeling mask selection as distribution learning, and after end-to-end training it can be transferred to downstream tasks to achieve lossless compression](imgs/framework_overview.png)
 
-![以 Gumbel Softmax 從可學習分佈抽出隨機遮罩：每 M 個連續參數關聯一個候選遮罩的分佈，抽樣與加權平均全程可微分](imgs/gumbel_mask_sampling.png)
+![Sampling a stochastic mask from a learnable distribution with Gumbel Softmax: each M consecutive parameters is associated with a distribution over candidate masks, and both sampling and weighted averaging are differentiable throughout](imgs/gumbel_mask_sampling.png)
 
-在下游應用面，論文主張學到的遮罩可以「無損」地把凍結 LLM 適配到特定領域：對 GPT-3 2B，直接沿用通用遮罩會退化到平均 PPL 10.61、從頭訓練專家遮罩為 7.51，而以通用遮罩當先驗再遷移可達 7.39，甚至略優於稠密的 7.42。成本面上，每個任務只需儲存遮罩、共用同一份權重：以簡單算術編碼每參數僅 0.65 bits（$\log_2(6)/4$），相對存整份 16-bit 微調權重是約 25 倍的儲存節省；在 A6000 上以 TensorRT-LLM 跑 batch size 1，2:4 稀疏帶來約 1.4 倍（實測 1.36–1.41 倍）吞吐加速與約 27% 記憶體節省。
+On the downstream-application side, the paper argues that the learned mask can "losslessly" adapt a frozen LLM to a specific domain: for GPT-3 2B, directly reusing the general mask degrades to an average PPL of 10.61, training an expert mask from scratch gives 7.51, whereas using the general mask as a prior and then transferring reaches 7.39, even slightly better than the dense 7.42. On cost, each task only needs to store a mask and shares the same set of weights: with simple arithmetic coding, each parameter is only 0.65 bits ($\log_2(6)/4$), about a 25× storage saving relative to storing a full set of 16-bit finetuned weights; running batch size 1 with TensorRT-LLM on an A6000, 2:4 sparsity brings about a 1.4× (measured 1.36–1.41×) throughput speedup and about 27% memory saving.
 
 ## 🧪 Critical Assessment
 
-### 2:4 稀疏的硬體現實與小校正集的結構限制
-N:M 稀疏是真實且有硬體支撐的問題，而非人造需求：Ampere 之後的 NVIDIA GPU 對 2:4 有原生加速，論文也附上 TensorRT-LLM 的實測吞吐（LLaMA-2 7B 約 1.36–1.41×、13B 約 1.50–1.57×），代表 PPL 的改善確有落地路徑，不是只停在紙面指標。作者對既有方法弱點的診斷也站得住腳：小校正集（>256 筆後不再改善）與手工重要性準則作為剪枝真實誤差的代理，確實是 SparseGPT/Wanda 路線的結構限制。
+### The hardware reality of 2:4 sparsity and the structural limitation of small calibration sets
+N:M sparsity is a real, hardware-backed problem rather than a manufactured need: NVIDIA GPUs after Ampere have native acceleration for 2:4, and the paper also includes measured TensorRT-LLM throughput (LLaMA-2 7B about 1.36–1.41×, 13B about 1.50–1.57×), meaning the PPL improvement genuinely has a landing path and does not stop at paper metrics. The authors' diagnosis of the weaknesses of existing methods also holds up: a small calibration set (no improvement beyond 256 samples) and a hand-crafted importance criterion as a proxy for the true pruning error are indeed structural limitations of the SparseGPT/Wanda line.
 
-### 評測落在 PPL 與 zero-shot，缺少生成品質的直接驗證
-基線涵蓋 Magnitude、SparseGPT、Wanda 三條主線，附錄再補上 ADMM-Iter、GBLM、RIA、Pruner-Zero 等 SOTA，且明確標注 SparseGPT「有做權重更新」而 MaskLLM「凍結權重」，比較條件揭露得相對誠實。消融面向也算完整：先驗類型、縮放因子 $\kappa$、Gumbel 溫度 $\tau$、先驗強度 $\alpha$、稀疏正則化、層敏感度都有掃過。可質疑處在於指標偏重 Wikitext PPL 與 zero-shot 準確率——PPL 對稀疏擾動敏感、但與真正的生成品質（長文一致性、指令遵循）並非線性對應，論文並未提供這類端到端的下游生成評測。
+### Evaluation falls on PPL and zero-shot, lacking direct verification of generation quality
+The baselines cover the three main lines of Magnitude, SparseGPT, and Wanda, with the appendix adding SOTA methods such as ADMM-Iter, GBLM, RIA, and Pruner-Zero, and it clearly labels SparseGPT as "does weight updates" while MaskLLM is "frozen weights," so the comparison conditions are disclosed relatively honestly. The ablations are also fairly complete: prior type, scaling factor $\kappa$, Gumbel temperature $\tau$, prior strength $\alpha$, sparse regularization, and layer sensitivity are all swept. A questionable point is that the metrics lean heavily on Wikitext PPL and zero-shot accuracy — PPL is sensitive to sparse perturbations, but does not correspond linearly to true generation quality (long-text coherence, instruction following), and the paper does not provide such end-to-end downstream generation evaluation.
 
-### 成本被低估：真實開銷藏在訓練端
-「凍結權重、只學遮罩」聽起來很輕，但學遮罩本身的代價不小：LLaMA-2 7B 要 64 張 A100、8-way tensor parallel、跑 2,000 步共約 1,280 GPU 小時，13B 更是約 2,304 GPU 小時。相對地 SparseGPT/Wanda 是「一次性、少量校正、幾乎不訓練」。因此 MaskLLM 的 PPL 優勢是用「數個數量級更高的算力」換來的；論文的敘事把重點放在品質提升，但這個算力量級差異對「誰該用哪個方法」的實務決策其實非常關鍵，值得更醒目地並列。
+### Cost is underestimated: the real expense hides on the training side
+"Freezing weights and learning only the masks" sounds very light, but learning the mask itself is not cheap: LLaMA-2 7B requires 64 A100s, 8-way tensor parallel, running 2,000 steps for a total of about 1,280 GPU hours, and 13B is even about 2,304 GPU hours. By contrast SparseGPT/Wanda are "one-time, small calibration, almost no training." Therefore MaskLLM's PPL advantage is bought with "several orders of magnitude more compute"; the paper's narrative places emphasis on quality improvement, but this order-of-magnitude compute difference is in fact very critical to the practical decision of "who should use which method," and deserves a more prominent side-by-side presentation.
 
-### 把已知技巧放大到十億級凍結 LLM，與作者自訂的「無損」門檻
-核心組件（Gumbel Softmax、可學習稀疏遮罩、先驗初始化）在視覺模型與更早的可學習稀疏文獻中都已存在，本文自己也坦承是「首次」把這套搬到凍結的、十億級參數規模的 LLM 上。因此它的貢獻更接近「把已知技巧成功放大到新規模並解決放大時才浮現的問題（梯度消失→稀疏權重正則化）」，而非全新機制。這是紮實的工程貢獻，但把它讀成方法論上的重大突破會高估其原創性。另外「無損（lossless）」一詞用得偏寬：下游 PPL 7.39 vs 稠密 7.42 只是在該指標上打平，稱其為「無損壓縮」是作者以自身指標定義的達標門檻，並不等於任意任務、任意指標下都不掉分。
+### Scaling a known technique to billion-scale frozen LLMs, and the author-defined "lossless" threshold
+The core components (Gumbel Softmax, learnable sparse masks, prior initialization) already exist in vision models and earlier learnable-sparsity literature, and the paper itself admits it is the "first" to bring this set to a frozen, billion-parameter-scale LLM. Therefore its contribution is closer to "successfully scaling a known technique to a new scale and solving the problems that only surface at scale (gradient vanishing → sparse weight regularization)," rather than an entirely new mechanism. This is a solid engineering contribution, but reading it as a major methodological breakthrough would overestimate its originality. In addition, the term "lossless" is used somewhat loosely: a downstream PPL of 7.39 vs. the dense 7.42 is only a tie on that metric, and calling it "lossless compression" is a target threshold defined by the authors with their own metric, and does not mean no drop under arbitrary tasks and arbitrary metrics.
 
-### 宣稱的問題是否真的解決、以及現實相關性
-在「以更多算力、對凍結權重學出更好的 2:4 遮罩」這個被收窄的命題上，證據是充分的：多個模型家族、一致優於基線、且有部署數據。但更大的敘事——「N:M 稀疏可對 LLM 達成無損壓縮」——被證據支持的程度弱於字面主張：它成立於特定下游領域的 PPL、且以昂貴的每任務遮罩訓練為前提。現實相關性因此是雙面的：對已經大量重複部署同一凍結模型、且能負擔一次性遮罩訓練成本的場景（例如雲端服務商固定服務一顆 LLaMA-2），25× 儲存節省與 1.4× 加速很有吸引力；對算力有限、只想快速壓縮一次的使用者，一次性方法的性價比可能仍勝出。
+### Is the claimed problem really solved, and its real-world relevance
+On the narrowed proposition of "using more compute to learn a better 2:4 mask over frozen weights," the evidence is sufficient: multiple model families, consistently better than baselines, and with deployment data. But the larger narrative — "N:M sparsity can achieve lossless compression on LLMs" — is supported by the evidence to a degree weaker than the literal claim: it holds for the PPL of a specific downstream domain, and is premised on expensive per-task mask training. Real-world relevance is therefore two-sided: for scenarios that already repeatedly deploy the same frozen model in large volume and can afford the one-time mask-training cost (e.g., a cloud provider permanently serving one LLaMA-2), the 25× storage saving and 1.4× speedup are quite attractive; for users with limited compute who only want to quickly compress once, the cost-effectiveness of a one-time method may still win out.
 
 ## 🔗 Related notes
 

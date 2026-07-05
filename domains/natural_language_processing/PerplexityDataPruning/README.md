@@ -1,4 +1,5 @@
 # Perplexed by Perplexity — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,20 +12,20 @@
 | Official Code | unknown |
 | Venue Kind | paper |
 
-> 本筆記依據 arXiv 預印本 `2405.20541`（`https://arxiv.org/abs/2405.20541`）撰寫。作者分屬 Databricks、MIT 與 DatologyAI；論文腳註寫明「Code to be made public soon.」，撰寫當下沒有可解析的官方程式碼連結，故 Official Code 記為 `unknown`；正式會議版若存在可能與此預印本有差異。
+> This note is written based on the arXiv preprint `2405.20541` (`https://arxiv.org/abs/2405.20541`). The authors are affiliated with Databricks, MIT, and DatologyAI; a paper footnote states "Code to be made public soon.", and at the time of writing there is no resolvable official code link, so Official Code is recorded as `unknown`; an official conference version, if it exists, may differ from this preprint.
 
 ## First Principles
 
-### 核心問題與反直覺的主張
+### The core question and a counterintuitive claim
 
-這篇論文問的問題很單純：**能不能用一個很小的語言模型，去替一個大很多的模型挑選預訓練資料？** 先前的 perplexity（困惑度）剪枝工作（Marion 等人）通常用「和最終模型一樣大、甚至更大」的參考模型來打分，並且用「在預訓練資料測試集上的 perplexity」這種上游指標來衡量成效。本文的反直覺結論是：一個只有 125 million 參數的參考模型，就能替一個大 30 倍的模型剪掉資料，並在下游任務上把 3 billion 參數模型的平均表現提升最多 2.04，同時把達到基線表現所需的預訓練步數縮短最多 1.45 倍。
+The question this paper asks is very simple: **can a very small language model be used to select pretraining data for a much larger model?** Prior perplexity-based pruning work (Marion et al.) typically uses a reference model that is "as large as the final model, or even larger" to score, and measures effectiveness with an upstream metric like "perplexity on a held-out test set of the pretraining data." This paper's counterintuitive conclusion is: a reference model with only 125 million parameters can prune data for a model 30x larger, improving the average downstream performance of a 3-billion-parameter model by up to 2.04, while shortening the number of pretraining steps needed to reach the baseline performance by up to 1.45x.
 
-### 剪枝演算法：先訓練參考模型，再依 perplexity 百分位取樣
+### The pruning algorithm: first train the reference model, then sample by perplexity percentile
 
-流程分兩段。第一段是把原始資料集 $D$ 隨機切成兩份：一份 $D_{\text{ref}}$ 用來訓練參考模型 $\theta_{\text{ref}}$，另一份 $D_{\text{train}}$ 留給最終模型。參考模型以標準的 next-token prediction 目標訓練後，對 $D_{\text{train}}$ 中的每一個樣本計算平均負對數似然（NLL）並轉成 perplexity。第二段依照這些 perplexity 的經驗累積分布（empirical CDF）$\hat{F}_P$，把樣本落在某個百分位區間內的部分保留下來，訓練最終模型。整體虛擬碼如下：
+The process has two stages. The first stage randomly splits the original dataset $D$ into two parts: one, $D_{\text{ref}}$, is used to train the reference model $\theta_{\text{ref}}$, and the other, $D_{\text{train}}$, is reserved for the final model. After the reference model is trained with the standard next-token-prediction objective, it computes the mean negative log-likelihood (NLL) for each sample in $D_{\text{train}}$ and converts it to perplexity. The second stage, following the empirical CDF $\hat{F}_P$ of these perplexities, keeps the samples that fall within a certain percentile interval and trains the final model. The overall pseudocode is as follows:
 
 ```text
-Input: 資料集 D = {x^(i)}; selection_criteria ∈ {low, medium, high};
+Input: dataset D = {x^(i)}; selection_criteria ∈ {low, medium, high};
        selection rate r_s ∈ (0,1); reference split size R
 D_ref, D_train ← random_split(D, R)
 θ_ref* ← train(random_init, D_ref)
@@ -40,85 +41,85 @@ D_pruned ← [ x for x in D_train if min < F̂_P(PPLX[x]) < max ]
 return θ_final*
 ```
 
-每個樣本的 perplexity 定義為以 2 為底、平均負對數似然的指數：
+The perplexity of each sample is defined as base 2 raised to the mean negative log-likelihood:
 
 $$\text{NLL}(x)=\frac{1}{|x|}\sum_{t_j \in x} -\log P(t_j \mid t_{<j};\theta_{\text{ref}}),\qquad \text{PPLX}(x)=2^{\text{NLL}(x)}$$
 
-### 三種選取準則與選取率
+### The three selection criteria and the selection rate
 
-選取準則（selection criteria）決定要保留分布的哪一段：low 選最低 perplexity 的樣本，high 選最高的，medium 則選 perplexity 落在中位數附近的樣本，也就是位在 $[50-\frac{r_s}{2},\,50+\frac{r_s}{2}]$ 百分位的樣本。選取率（selection rate）$r_s$ 決定剪掉多少——實驗最終固定用 50%。這裡有個關鍵的觀念轉換：這種以「模型本身在同分布上訓練後的 perplexity」不是在判斷「這段文字是否離群、是否髒」，而更像是在估計「這個樣本對模型而言有多難」。高 perplexity 代表模型覺得難、資訊量高，這也解釋了為什麼在某些資料集上「保留高 perplexity 樣本」反而有益。
+The selection criteria determine which segment of the distribution to keep: low selects the samples with the lowest perplexity, high selects the highest, and medium selects the samples whose perplexity falls near the median, i.e., those in the $[50-\frac{r_s}{2},\,50+\frac{r_s}{2}]$ percentile. The selection rate $r_s$ determines how much to prune away—the experiments ultimately fix it at 50%. There is a key conceptual shift here: this "perplexity of the model after training on the same distribution" is not judging "whether this text is an outlier or dirty," but rather estimating "how hard this sample is for the model." High perplexity means the model finds it hard and information-rich, which also explains why on some datasets "keeping high-perplexity samples" is instead beneficial.
 
-### 實驗設定：兩個組成迥異的資料集
+### Experimental setup: two datasets with very different compositions
 
-模型全部基於 MPT transformer 家族，參考模型固定 125 million 參數，最終模型為 1 billion 與 3 billion 兩種。兩個資料集的領域組成刻意選得非常不同：the Pile 由 22 個領域組成，只有 15.61% 來自一般網路爬取；Dolma 由 7 個領域組成，卻有 81.31% 來自 CommonCrawl。所有資料都用 GPT-4 tokenizer 斷詞。參考模型固定訓練 26 billion tokens，最終模型除非特別說明皆訓練到 Chinchilla optimal（token 數為參數量的 20 倍）。評估用 MosaicML evaluation gauntlet 上的 33 個下游問答任務。
+The models are all based on the MPT transformer family, the reference model is fixed at 125 million parameters, and the final model comes in two sizes, 1 billion and 3 billion. The domain compositions of the two datasets are deliberately chosen to be very different: the Pile is composed of 22 domains, with only 15.61% from general web crawl; Dolma is composed of 7 domains, yet 81.31% is from CommonCrawl. All data are tokenized with the GPT-4 tokenizer. The reference model is fixed at 26 billion tokens of training, and the final model, unless otherwise specified, is trained to Chinchilla optimal (token count equal to 20x the parameter count). Evaluation uses the 33 downstream question-answering tasks on the MosaicML evaluation gauntlet.
 
-每個任務的分數會先用隨機猜測基線做歸一化，再取平均。歸一化公式把「模型準確率 $a_m$」與「隨機猜測準確率 $a_r$」轉成落在同一尺度上的分數：
+Each task's score is first normalized against a random-guessing baseline, then averaged. The normalization formula converts "model accuracy $a_m$" and "random-guessing accuracy $a_r$" into scores on the same scale:
 
 $$a_n=\frac{a_m-a_r}{1-a_r}$$
 
-論文把 33 個任務分成 World Knowledge、Common Sense Reasoning、Language Understanding、Symbolic Problem Solving、Reading Comprehension 五大類，先在類內平均、再跨類平均得到最終的 Average normalized accuracy。要注意這個歸一化不同於 EleutherAI LM Evaluation Harness 依 byte 長度做的歸一化。
+The paper groups the 33 tasks into five major categories—World Knowledge, Common Sense Reasoning, Language Understanding, Symbolic Problem Solving, Reading Comprehension—averaging within categories first and then across categories to obtain the final Average normalized accuracy. Note that this normalization differs from the byte-length-based normalization of the EleutherAI LM Evaluation Harness.
 
-### 主要結果
+### Main results
 
-下表是四個「資料集 × 模型大小」設定下，最佳剪枝設定對比無剪枝基線的平均歸一化準確率（節錄自論文 Table 1，Pile 用 high、Dolma 用 medium，皆 50% 選取率）：
+The table below shows the average normalized accuracy of the best pruning setting versus the no-pruning baseline across the four "dataset × model size" settings (excerpted from the paper's Table 1, with Pile using high and Dolma using medium, both at a 50% selection rate):
 
-| 設定 | No Pruning (Average) | Best Pruning (Average) | Gain |
+| Setting | No Pruning (Average) | Best Pruning (Average) | Gain |
 |-|-|-|-|
 | 1B on Pile | 13.73 | 15.62 (High) | +1.89 |
 | 3B on Pile | 18.63 | 20.67 (High) | +2.04 |
 | 1B on Dolma | 13.84 | 15.35 (Medium) | +1.51 |
 | 3B on Dolma | 19.20 | 19.79 (Medium) | +0.59 |
 
-跨所有資料集與模型大小，在剪枝後資料上訓練的模型平均都勝過基線，論文據此主張小模型的 perplexity 對大很多的模型而言是有效的資料品質訊號。但一個容易被平均值蓋掉的細節是：不同資料集的**最佳準則並不通用**——在 Dolma 上最好的 medium 準則若套到 Pile，平均反而比不剪枝掉了 0.23。
+Across all datasets and model sizes, the model trained on the pruned data beats the baseline on average, and the paper accordingly claims that a small model's perplexity is an effective data-quality signal for a much larger model. But a detail easily obscured by the average is that the **best criterion is not universal** across datasets—the medium criterion that is best on Dolma, if applied to the Pile, actually loses 0.23 on average relative to no pruning.
 
-### 一次完整的剪枝走查（用論文真實數字）
+### A complete pruning walkthrough (with the paper's real numbers)
 
-以 1B on Pile 這一格為例走一遍。先訓練一個 125M 參考模型 26 billion tokens；接著對 Pile 的 $D_{\text{train}}$ 每個樣本算 perplexity。因為 Pile 上最佳準則是 high、$r_s=0.5$，演算法會令 $\text{min\_percentile}=1-0.5=0.5$、$\text{max\_percentile}=1.0$，也就是**只保留 perplexity 最高的那 50% 樣本**（參考模型覺得最難的一半）。用這半份資料，從頭訓練一個 1 billion 參數的最終模型到 Chinchilla optimal（約 20 billion tokens）。結果：平均歸一化準確率從基線的 13.73 提升到 15.62（+1.89）。逐類拆開看，World Knowledge 從 15.51 升到 18.18、Language Understanding 從 28.11 升到 33.2，是提升的主力；但 Symbolic Problem Solving 幾乎沒動（3.53 對 3.36）。這個走查也凸顯後面批判會談到的一點：整體平均的提升，其實高度集中在某些類別。
+Take the 1B on Pile cell as an example to walk through. First train a 125M reference model on 26 billion tokens; then compute the perplexity of each sample in the Pile's $D_{\text{train}}$. Because the best criterion on the Pile is high with $r_s=0.5$, the algorithm sets $\text{min\_percentile}=1-0.5=0.5$ and $\text{max\_percentile}=1.0$, i.e., **keeps only the 50% of samples with the highest perplexity** (the half the reference model finds hardest). Using this half of the data, train a 1-billion-parameter final model from scratch to Chinchilla optimal (about 20 billion tokens). Result: the average normalized accuracy improves from the baseline 13.73 to 15.62 (+1.89). Broken down by category, World Knowledge rises from 15.51 to 18.18 and Language Understanding from 28.11 to 33.2, which are the main drivers of the improvement; but Symbolic Problem Solving barely moves (3.53 vs. 3.36). This walkthrough also highlights a point the later critique will discuss: the overall average improvement is in fact highly concentrated in certain categories.
 
-### 訓練效率：更快到達同一水準
+### Training efficiency: reaching the same level faster
 
-![各設定在預訓練過程中的中途下游表現](imgs/intermediate-eval.png)
+![Intermediate downstream performance of each setting during pretraining](imgs/intermediate-eval.png)
 
-剪枝不只改善最終表現，也改善訓練動態。論文對部分訓練的檢查點做中途評估，發現剪枝模型在所有評估過的中途步數上都勝過基線；並且剪枝模型分別在 Pile 1B/3B 上以 1.31 倍與 1.45 倍更少的步數、在 Dolma 1B/3B 上以 1.29 倍與 1.14 倍更少的步數，就達到了基線模型的平均歸一化準確率。
+Pruning improves not only final performance but also training dynamics. The paper performs intermediate evaluations on partially trained checkpoints and finds that the pruned model beats the baseline at all evaluated intermediate steps; and the pruned model reaches the baseline model's average normalized accuracy with 1.31x and 1.45x fewer steps on Pile 1B/3B respectively, and with 1.29x and 1.14x fewer steps on Dolma 1B/3B respectively.
 
-### 非標準情境：過度訓練與資料受限
+### Non-standard scenarios: over-training and data-constrained
 
-論文進一步在兩個非標準情境測試。過度訓練（over-training）上，把 1B 模型訓練到 130B tokens（Chinchilla optimal 的 5 倍）：Pile 上剪枝相對基線的增益從 1.89 微降到 1.74（大致維持），但 Dolma 上從 1.51 掉到 0.84（明顯縮小）。資料受限（data-constrained）上，剪枝在 Pile 與 Dolma 上都能維持增益直到基礎資料（base data）約重複 2 次；因 $r_s=0.5$（$1/r_s=2$），此時被保留的剪枝子集實際上被重複了約 4 次，呼應了 Muennighoff 等人「超過四次重複收益趨近於零」的發現。
+The paper further tests two non-standard scenarios. On over-training, it trains the 1B model to 130B tokens (5x Chinchilla optimal): on the Pile the pruning gain over the baseline slightly decreases from 1.89 to 1.74 (roughly maintained), but on Dolma it drops from 1.51 to 0.84 (a clear shrinkage). On the data-constrained side, pruning maintains its gain on both the Pile and Dolma until the base data is repeated about 2 times; because $r_s=0.5$ ($1/r_s=2$), the retained pruned subset is at this point effectively repeated about 4 times, echoing the finding of Muennighoff et al. that "returns approach zero beyond four repetitions."
 
-### 上游 perplexity 是會誤導的評估指標
+### Upstream perplexity is a misleading evaluation metric
 
-論文一個值得記住的觀察是：用「預訓練資料測試集上的 perplexity」來評估剪枝，會給出錯誤結論。以 1B on Pile 為例，剪枝後模型在測試集上的 perplexity 從 7.83 惡化到 8.51，但下游平均準確率卻從 13.73 提升到 15.62。原因是剪枝改變了資料分布，使模型成為原始分布的有偏估計，因此在原始分布上的 perplexity 本就不是公平的品質衡量。這也是本文主張「要直接在下游 benchmark 上評估」的核心論據。
+One observation from the paper worth remembering is: using "perplexity on a held-out test set of the pretraining data" to evaluate pruning gives the wrong conclusion. Take 1B on Pile as an example: the pruned model's perplexity on the test set worsens from 7.83 to 8.51, yet the downstream average accuracy improves from 13.73 to 15.62. The reason is that pruning changes the data distribution, making the model a biased estimator of the original distribution, so perplexity on the original distribution is inherently not a fair measure of quality. This is also the core argument for the paper's claim that "one should evaluate directly on downstream benchmarks."
 
-### 剪枝如何改變領域組成
+### How pruning changes domain composition
 
-![剪枝前後的 log perplexity 分布](imgs/pplx-dist.png)
+![Log-perplexity distribution before and after pruning](imgs/pplx-dist.png)
 
-![各領域在剪枝前後佔資料集的比例](imgs/domain-composition.png)
+![The proportion of each domain in the dataset before and after pruning](imgs/domain-composition.png)
 
-從 log perplexity 分布看，Pile 是多峰且不對稱的，Dolma 則是單峰且對稱的——這也解釋了為何 Pile 適合 high、Dolma 適合 medium。從領域組成看，剪枝傾向**增加**一般網路爬取領域的比例、**減少**高度專門的技術領域比例：在 Pile 上，Pile-CC 與 OpenWebText2 的比例幾乎翻倍，而 Pubmed Central、ArXiv、Github 等領域的比例至少被砍到原本的三分之一以下。這帶出一個作者自己也點名的隱憂：被大量剪掉的領域，其對應下游能力會不會受損。
+From the log-perplexity distribution, the Pile is multimodal and asymmetric, whereas Dolma is unimodal and symmetric—which also explains why the Pile suits high and Dolma suits medium. From the domain composition, pruning tends to **increase** the proportion of general web-crawl domains and **decrease** the proportion of highly specialized technical domains: on the Pile, the proportions of Pile-CC and OpenWebText2 nearly double, while the proportions of Pubmed Central, ArXiv, Github, and other domains are cut to at least below one-third of the original. This raises a concern the authors themselves flag: for the domains that are heavily pruned away, will the corresponding downstream capabilities be harmed.
 
 ## 🧪 Critical Assessment
 
-### 上游到下游的評估切換是本文最實在的貢獻
+### The upstream-to-downstream evaluation switch is the paper's most substantive contribution
 
-問題本身是真的：預訓練資料品質確實是 LLM 表現的關鍵槓桿，而「用小模型替大模型省下打分成本」在下一代模型比任何現有模型都大時尤其實際。論文相對前人最實在的貢獻，是把評估從上游 perplexity 換成 33 個下游任務，並且明確展示了上游與下游可以**反向**（測試集 perplexity 變差、下游卻變好），這個反例本身就有方法論價值，值得記住。
+The problem itself is real: pretraining data quality is indeed a key lever for LLM performance, and "using a small model to save the scoring cost for a large model" is especially practical when the next-generation model is larger than any existing model. The paper's most substantive contribution relative to prior work is switching the evaluation from upstream perplexity to 33 downstream tasks, and explicitly demonstrating that upstream and downstream can move in **opposite** directions (test-set perplexity worsens while downstream improves)—this counterexample alone has methodological value and is worth remembering.
 
-### 單一 125M 參考模型與被平均掩蓋的分項退步
+### A single 125M reference model and per-category regressions masked by the average
 
-實驗的廣度不錯：兩個組成迥異的資料集、兩種模型大小、每個實驗兩次試驗、對準則與選取率都有掃描。但有幾個缺口值得存疑。第一，論文標題主打「small reference models」，實際卻只用了單一的 125M 參考模型，完全沒有掃描參考模型大小——所以「多小才夠小」這個最有價值的問題其實沒被回答。第二，歸一化平均容易掩蓋分項退步：3B on Pile 的 Symbolic Problem Solving 從 4.88 掉到 2.91、Reading Comprehension 在 Dolma 3B 上從 14.2 掉到 13.19，都是被整體平均的正號蓋過去的實質退步。第三，Dolma 3B 上僅 +0.59 的增益，在只有兩次試驗、又用「一個標準誤內視為並列」的判準下，是否穩健是可疑的。
+The breadth of the experiments is decent: two datasets with very different compositions, two model sizes, two trials per experiment, and sweeps over both the criterion and the selection rate. But there are several gaps worth doubting. First, the paper's title touts "small reference models," but it actually uses only a single 125M reference model, with no sweep of reference-model size at all—so the most valuable question, "how small is small enough," is in fact not answered. Second, the normalized average easily masks per-category regressions: on 3B on Pile, Symbolic Problem Solving drops from 4.88 to 2.91, and Reading Comprehension on Dolma 3B drops from 14.2 to 13.19, both substantive regressions covered up by the positive sign of the overall average. Third, the mere +0.59 gain on Dolma 3B, under only two trials and a "within one standard error counts as a tie" criterion, is of doubtful robustness.
 
-### 演算法沿用 Marion，貢獻在於實證體檢
+### The algorithm follows Marion; the contribution is an empirical checkup
 
-需要誠實看待：剪枝**演算法本身**來自 Marion 等人，本文並未提出新的剪枝機制。它的貢獻是實證性的——換下游指標、換不同領域組成、加測非標準情境——而不是演算法創新。這不減損其實用價值，但把它當成「新方法」來讀會失焦；它更像是對一個既有方法「在什麼情況下有效、在什麼情況下會反效果」的系統性體檢。
+It must be viewed honestly: the pruning **algorithm itself** comes from Marion et al., and this paper does not propose a new pruning mechanism. Its contribution is empirical—switching to a downstream metric, using different domain compositions, adding non-standard scenarios—rather than an algorithmic innovation. This does not diminish its practical value, but reading it as a "new method" would lose focus; it is more like a systematic checkup of an existing method on "under what conditions it works and under what conditions it backfires."
 
-### 最佳準則在同一套 gauntlet 上掃出、跨資料集不通用
+### The best criterion is swept out on the same gauntlet and is not universal across datasets
 
-最佳準則與選取率，是在「用來報告增益的同一套 gauntlet」上掃出來的，因此「Pile 用 high、Dolma 用 medium」某種程度上是對評估集過擬合的結果；論文也坦承沒有一套能事先預測參數的理論，只證明了 1B 掃出的最佳設定可以轉移到 3B。換句話說，跨資料集不通用、需要每個新資料集重新掃參數，這個成本在真實應用中並不小，論文對此的緩解（設定可從 1B 便宜地轉移到 3B）只回答了問題的一半。
+The best criterion and selection rate are swept out on "the same gauntlet used to report the gains," so "the Pile uses high, Dolma uses medium" is to some extent a result of overfitting to the evaluation set; the paper also admits there is no theory that can predict the parameters in advance, and only shows that the best setting swept out on 1B can transfer to 3B. In other words, being non-universal across datasets and needing to re-sweep parameters for each new dataset is a cost that is not small in real applications, and the paper's mitigation of this (the setting can be transferred cheaply from 1B to 3B) only answers half the question.
 
-### 領域組成偏移與 tokenizer/家族綁定限制了外推
+### Domain-composition shift and tokenizer/family binding limit extrapolation
 
-就「小模型能替大模型剪枝並改善下游」這個主張而言，論文在其設定內確實給出了有說服力的證據。但幾個現實因素會限制外推：領域組成會系統性地偏向網路文本、砍掉 code 與科學論文，對這些下游能力的影響論文自己也只留作未來工作；撰寫當下程式碼尚未釋出，重現需自行實作；且結論綁定在特定 tokenizer 與 MPT 家族上。整體而言這是一份紮實但範圍明確的實證研究，把它讀成「data pruning 已被解決」會過度延伸——比較準確的定位是：它把 perplexity 剪枝從「單一資料集上的上游觀察」推進到「多資料集、多情境、以下游為準的可用工具」。
+As for the claim that "a small model can prune for a large model and improve downstream," the paper does give convincing evidence within its setting. But several practical factors limit extrapolation: the domain composition is systematically skewed toward web text, cutting away code and scientific papers, and the impact on these downstream capabilities is left by the authors themselves only as future work; the code is not yet released at the time of writing, so reproduction requires self-implementation; and the conclusion is bound to a specific tokenizer and the MPT family. Overall this is a solid but clearly scoped empirical study, and reading it as "data pruning is solved" would overextend it—a more accurate positioning is: it advances perplexity pruning from "an upstream observation on a single dataset" to "a usable tool across multiple datasets, multiple scenarios, and judged by downstream."
 
 ## 🔗 Related notes
 
-<!-- 目前 domains/natural_language_processing 下沒有可安全解析的直接相關筆記，保留標題留空。 -->
+<!-- Currently there are no safely resolvable directly related notes under domains/natural_language_processing; the heading is kept and left empty. -->

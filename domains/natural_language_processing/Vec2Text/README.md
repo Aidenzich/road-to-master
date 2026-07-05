@@ -1,4 +1,5 @@
 # Vec2Text — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,112 +12,112 @@
 | Official Code | https://github.com/jxmorris12/vec2text |
 | Venue Kind | paper |
 
-> 引用數（citation count）：本輪查詢 Semantic Scholar API 回傳 HTTP 429（限流），故記為 `unavailable`，不以 `0` 充數。
+> Citation count: this round's query to the Semantic Scholar API returned HTTP 429 (rate limited), so it is recorded as `unavailable` rather than being padded with `0`.
 
 ## First Principles
 
-這篇論文問的是一個很實際的隱私問題：當你把文字送進一個嵌入模型 $\phi$、只把稠密向量 $e=\phi(x)$ 存進向量資料庫（vector database），而把原文留在本地，攻擊者若拿到這個向量、又能對同一個黑箱模型 $\phi$ 發查詢（black-box query access），他能不能還原出原文 $x$？作者把答案推到了一個令人不安的極端：對 GTR 這類 state-of-the-art 檢索嵌入，32-token 的輸入可以被**逐字**還原九成以上。
+This paper asks a very practical privacy question: when you feed text into an embedding model $\phi$, store only the dense vector $e=\phi(x)$ in a vector database, and keep the original text locally, then if an attacker obtains this vector and also has black-box query access to the same model $\phi$, can they recover the original text $x$? The authors push the answer to a disturbing extreme: for state-of-the-art retrieval embeddings like GTR, a 32-token input can be recovered **verbatim** more than 90% of the time.
 
-### 把「反演」寫成一個最佳化問題
+### Writing "inversion" as an optimization problem
 
-嵌入模型的訓練目標是讓語意相近的文字有相近的向量，因此「還原原文」可以改寫成「找一段文字，其嵌入與目標向量的餘弦相似度最大」。作者把反演（inversion）形式化為對文字序列的搜尋：
+An embedding model is trained so that semantically similar texts have similar vectors, so "recovering the original text" can be rewritten as "finding a piece of text whose embedding has maximum cosine similarity to the target vector." The authors formalize inversion as a search over text sequences:
 
 $$\hat{x} = \arg\max_{x} \text{cos}(\phi(x), e)$$
 
-這個式子的關鍵在於威脅模型（threat model）：攻擊者只需要能查詢 $\phi$，不需要梯度、也不需要權重；而當 $\text{cos}(\phi(\hat{x}), e)=1$ 時攻擊者幾乎可以確定 $\hat{x}$ 就是原文，因為在實務上不同文字「撞」到同一個向量的碰撞（collision）極罕見。這把一個看似模糊的隱私疑慮，變成了一個有明確停止條件的搜尋問題。
+The key to this formula is the threat model: the attacker only needs to be able to query $\phi$, and needs neither gradients nor weights; and when $\text{cos}(\phi(\hat{x}), e)=1$, the attacker can be almost certain that $\hat{x}$ is the original text, because in practice a collision where different texts "hit" the same vector is extremely rare. This turns a seemingly vague privacy concern into a search problem with a clear stopping condition.
 
-### 為什麼單步解碼不夠
+### Why single-step decoding is not enough
 
-窮舉所有可能序列去解上式在計算上不可行，退而求其次是學一個條件語言模型 $p(x \mid e)$，用最大概似把組合最佳化「攤提」進網路權重：
+Exhaustively enumerating all possible sequences to solve the above is computationally infeasible, so the fallback is to learn a conditional language model $p(x \mid e)$, using maximum likelihood to "amortize" the combinatorial optimization into the network's weights:
 
 $$\theta = \arg\max_{\hat\theta}\; \mathbb{E}_{x\sim\mathcal{D}}\,[\,p(x\mid\phi(x);\hat\theta)\,]$$
 
-問題是直接從向量硬解出通順又正確的文字，在文獻上一向很難，實驗裡這個 base model 的 BLEU 只有 31.9、逐字命中率是 0。單靠一次前向解碼，模型看得到終點卻走不到。
+The problem is that directly forcing fluent and correct text out of a vector has always been hard in the literature, and in the experiments this base model has a BLEU of only 31.9 and a verbatim hit rate of 0. Relying on a single forward decoding, the model can see the destination but cannot walk to it.
 
-### Vec2Text：把向量的「誤差」翻譯成文字修正
+### Vec2Text: translating the vector's "error" into a text correction
 
-![Vec2Text 方法總覽：給定目標向量 e 與可查詢的嵌入模型 φ，系統反覆生成假設、重新嵌入、再修正，逐步逼近目標](imgs/overview.png)
+![Vec2Text method overview: given a target vector e and a queryable embedding model φ, the system repeatedly generates a hypothesis, re-embeds it, and corrects it, progressively approaching the target](imgs/overview.png)
 
-作者的核心方法 Vec2Text 改成**迭代修正**（iterative correction）：先由 base model 猜一個初始假設 $x^{(0)}$，把它重新嵌入得到 $\hat{e}^{(0)}=\phi(x^{(0)})$，再訓練一個修正模型看著「目標向量與目前假設向量的落差」去改寫文字，如此反覆。整個過程用對中間假設的邊際化遞迴定義：
+The authors' core method Vec2Text switches to **iterative correction**: first the base model guesses an initial hypothesis $x^{(0)}$, re-embeds it to obtain $\hat{e}^{(0)}=\phi(x^{(0)})$, and then trains a correction model that, looking at "the gap between the target vector and the current hypothesis vector," rewrites the text, and so on repeatedly. The whole process is defined recursively via marginalization over the intermediate hypotheses:
 
 $$p(x^{(t+1)} \mid e) = \sum_{x^{(t)}} p(x^{(t)} \mid e)\, p(x^{(t+1)} \mid e, x^{(t)}, \hat{e}^{(t)})$$
 
-修正模型的骨幹是標準的 encoder-decoder transformer（以 T5-base 初始化，含投影頭約 235M 參數）。難點是要把維度為 $d$ 的單一向量餵進 encoder，作者用一個小 MLP 把向量投影並重塑成長度 $s=16$ 的序列：
+The backbone of the correction model is a standard encoder-decoder transformer (initialized from T5-base, about 235M parameters including the projection head). The difficulty is feeding a single vector of dimension $d$ into the encoder; the authors use a small MLP to project and reshape the vector into a sequence of length $s=16$:
 
 $$\text{EmbToSeq}(e) = W_2\, \sigma(W_1\, e)$$
 
-實際輸入是把三個投影序列——目標向量 $e$、假設向量 $\hat{e}^{(t)}$、以及兩者之差 $e-\hat{e}^{(t)}$——再接上目前假設的詞嵌入一起送進 encoder。餵入「差向量」是這裡最巧妙的一步：它讓模型直接讀到「該往哪個方向改」，而不是每次都從零重猜。推論時因為無法真的把中間假設加總掉，作者在序列層級做 beam search（論文稱 sbeam）：每一步保留 $b$ 個候選，只有當新生成在餘弦相似度上更接近目標時才採用。
+The actual input feeds three projected sequences into the encoder—the target vector $e$, the hypothesis vector $\hat{e}^{(t)}$, and the difference of the two $e-\hat{e}^{(t)}$—together with the word embeddings of the current hypothesis. Feeding in the "difference vector" is the cleverest step here: it lets the model read directly "which direction to change toward," rather than re-guessing from scratch each time. At inference time, because one cannot actually sum out the intermediate hypotheses, the authors do beam search at the sequence level (the paper calls it sbeam): at each step keep $b$ candidates, and only adopt a new generation when it is closer to the target in cosine similarity.
 
-### 一次完整修正的實例（論文原始數字）
+### A worked example of one full correction (original figures from the paper)
 
-論文給了一個很具體的還原軌跡，可以拿來走一遍前向過程。目標句是一段維基百科文字「Nabo Gass (25 August, 1954 in Ebingen, Germany) is a German painter and glass artist.」，括號內是該回合輸出與真值嵌入的餘弦相似度：
+The paper gives a very concrete recovery trajectory, which can be used to walk through the forward process. The target sentence is a piece of Wikipedia text "Nabo Gass (25 August, 1954 in Ebingen, Germany) is a German painter and glass artist.", and in parentheses is the cosine similarity between that round's output and the ground-truth embedding:
 
-| 回合 | 重建輸出（節錄） | cos | 逐字正確 |
+| Round | Reconstructed output (excerpt) | cos | Verbatim correct |
 |-|-|-|-|
 | Round 1 | Nabo Gass (11 August 1974 in Erlangen …) is an artist. | 0.85 | ✗ |
 | Round 2 | Nabo Gass (b. 18 August 1954 in Egeland …) is a German painter and glass artist. | 0.99 | ✗ |
 | Round 3 | Nabo Gass (25 August 1954 in Ebingen …) is a German painter and glass artist. | 0.99 | ✗ |
 | Round 4 | Nabo Gass (25 August, 1954 in Ebingen …) is a German painter and glass artist. | 1.00 | ✓ |
 
-值得注意的是餘弦相似度在 Round 2 就衝到 0.99，但文字仍有「Egeland/Ebingen」「1974/1954」等錯誤；模型是在 0.99→1.00 這段幾乎看不出向量差異的區間裡，才把地名、逗號等細節逐一補對。這說明最後的逐字正確得靠 sbeam 在多個 0.99 級候選之間做取捨，而不是單靠餘弦分數本身。
+It is worth noting that the cosine similarity shoots up to 0.99 already at Round 2, but the text still has errors like "Egeland/Ebingen" and "1974/1954"; it is only in the interval from 0.99 to 1.00, where the vector difference is almost invisible, that the model fills in details like the place name and the comma one by one. This shows that the final verbatim correctness relies on sbeam choosing among multiple 0.99-level candidates, rather than on the cosine score alone.
 
-### 主要重建結果
+### Main reconstruction results
 
-在同領域（in-domain）的 GTR / Natural Questions 設定下，Vec2Text 與各基線的對比如下（tokens 皆為 32）：
+Under the in-domain GTR / Natural Questions setting, the comparison of Vec2Text with the various baselines is as follows (tokens are all 32):
 
-| 方法 | BLEU | Token F1 | Exact | cos |
+| Method | BLEU | Token F1 | Exact | cos |
 |-|-|-|-|-|
 | Bag-of-words (Song et al.) | 0.3 | 51 | 0.0 | 0.70 |
-| Base [0 步] | 31.9 | 67 | 0.0 | 0.91 |
-| Vec2Text [1 步] | 50.7 | 80 | 0.0 | 0.96 |
-| Vec2Text [20 步] | 83.9 | 96 | 40.2 | 0.99 |
-| Vec2Text [50 步] | 85.4 | 97 | 40.6 | 0.99 |
-| Vec2Text [50 步 + sbeam] | 97.3 | 99 | 92.0 | 0.99 |
+| Base [0 steps] | 31.9 | 67 | 0.0 | 0.91 |
+| Vec2Text [1 step] | 50.7 | 80 | 0.0 | 0.96 |
+| Vec2Text [20 steps] | 83.9 | 96 | 40.2 | 0.99 |
+| Vec2Text [50 steps] | 85.4 | 97 | 40.6 | 0.99 |
+| Vec2Text [50 steps + sbeam] | 97.3 | 99 | 92.0 | 0.99 |
 
-多輪修正對 BLEU 的幫助是單調的但邊際遞減——20 步就吃掉了大部分增益，50 步只再多一點；真正把「逐字命中率」從 40% 級拉到 92% 的是序列層級 beam search，論文指出 sbeam 把 exact match 提高了約 2 到 6 倍。這也印證了前面實例的觀察：餘弦已經飽和之後，搜尋寬度才是攻破最後細節的關鍵。
+The help of multi-round correction for BLEU is monotonic but with diminishing returns—20 steps eat up most of the gain, and 50 steps add only a little more; what really pulls the "verbatim hit rate" from the 40% level up to 92% is sequence-level beam search, and the paper notes that sbeam increases exact match by about 2 to 6 times. This also confirms the earlier example's observation: once cosine has saturated, it is the search width that is key to cracking the last details.
 
-![多輪自我修正的重建表現：有 φ 回饋的模型持續進步，純文字（無回饋）版本很快停滯](imgs/multiround.png)
+![Reconstruction performance of multi-round self-correction: the model with φ feedback keeps improving, while the text-only (no-feedback) version quickly stalls](imgs/multiround.png)
 
-回饋（feedback）本身也被單獨消融：在 50 步貪婪自我修正下，有把最新假設重新嵌入回饋的模型能達到 52.0% 逐字命中，而拿掉回饋、只做文字改寫的版本只有 4.2%。差距顯示模型真正利用的是嵌入空間的幾何資訊，而不只是語言模型的自我改寫慣性。
+Feedback itself is also ablated separately: under 50-step greedy self-correction, the model that re-embeds the latest hypothesis as feedback can reach 52.0% verbatim hits, whereas the version that removes feedback and only rewrites text reaches only 4.2%. The gap shows that what the model truly leverages is the geometric information of the embedding space, not merely the language model's self-rewriting inertia.
 
-作者接著把攻擊放到一個真正敏感的場域——MIMIC-III 臨床病歷（用插入假名的 pseudo-reidentified 版本）：
+The authors then move the attack to a truly sensitive domain—MIMIC-III clinical records (using a pseudo-reidentified version with inserted pseudonyms):
 
-| 方法 | first | last | full | BLEU | Exact | cos |
+| Method | first | last | full | BLEU | Exact | cos |
 |-|-|-|-|-|-|-|
 | Base | 40.0 | 27.8 | 10.8 | 4.9 | 0.0 | 0.78 |
 | Vec2Text | 94.2 | 95.3 | 89.2 | 55.6 | 26.0 | 0.98 |
 
-即使只有 26.0% 的病歷被逐字還原，姓名這種高敏感實體卻被大量抓出：名字 94.2%、姓氏 95.3%、完整姓名（名+姓）89.2%。換句話說，就算重建不完美，隱私外洩已經成立——這正是作者要主張「嵌入應被當作與原文同等敏感」的實證支點。
+Even though only 26.0% of the records are recovered verbatim, highly sensitive entities like names are extracted in large numbers: first name 94.2%, last name 95.3%, full name (first+last) 89.2%. In other words, even if the reconstruction is imperfect, the privacy leak is already established—this is precisely the empirical fulcrum for the authors' argument that "embeddings should be treated as just as sensitive as the original text."
 
-### 一個看似便宜的防禦，以及它的代價
+### A seemingly cheap defense, and its cost
 
-作者測了最直覺的防禦：對每個向量加高斯雜訊，換取隱私。
+The authors test the most intuitive defense: adding Gaussian noise to each vector, trading it for privacy.
 
 $$\phi_{\text{noisy}}(x) = \phi(x) + \lambda \cdot \epsilon$$
 
-在 $\lambda=0.01$ 時檢索效能（15 個 BEIR 任務的平均 NDCG@10）只掉約 2%，但重建 BLEU 崩到原本的 13%。這給出一個實務上的甜蜜點，但作者自己也提醒：低 BLEU 不代表「臨床科別、治療方向」這類粗粒度推論就抓不出來，而且防禦是在「攻擊模型沒針對雜訊重訓」的前提下測的。
+At $\lambda=0.01$, retrieval performance (the average NDCG@10 over 15 BEIR tasks) drops only about 2%, but the reconstruction BLEU collapses to 13% of the original. This gives a practical sweet spot, but the authors themselves also caution: a low BLEU does not mean that coarse-grained inferences like "clinical department, treatment direction" cannot be extracted, and the defense was tested under the premise that "the attack model was not retrained against the noise."
 
 ## 🧪 Critical Assessment
 
-### 問題的真實性與重要性
+### The reality and importance of the problem
 
-這個威脅模型抓得相當準：託管式向量資料庫（Pinecone、Weaviate 等）正是把「只送嵌入、不送原文」當賣點，作者攻的就是這個信任假設。而且它不需要梯度或權重、只要黑箱查詢權限與同一個嵌入模型——由於實務上大家都用那幾個模型，這個前提在現實中並不苛刻。以「反演」把隱私問題轉成有明確停止條件（$\cos=1$）的搜尋，是漂亮且可落地的框架。
+This threat model is quite on target: hosted vector databases (Pinecone, Weaviate, etc.) precisely sell the point of "send only the embedding, not the original text," and what the authors attack is this trust assumption. Moreover it needs neither gradients nor weights, only black-box query access and the same embedding model—and since in practice everyone uses those few models, this premise is not demanding in reality. Turning the privacy problem into a search with a clear stopping condition ($\cos=1$) via "inversion" is an elegant and deployable framework.
 
-### 基線、消融與評測的充分性
+### The adequacy of the baselines, ablations, and evaluation
 
-證據面整體紮實：對照了 bag-of-words 與 GPT-2 decoder 兩種既有反演法、對回饋與初始化都做了消融、還在 15 個 BEIR 資料集上測了跨域泛化。值得肯定的是初始化消融顯示即使從隨機 token 起步、跑 20 步仍能達到約 50% 逐字命中，說明方法不是靠一個特別強的初始猜測在撐。要挑剔的話，最亮眼的 92% 只成立於 32-token；表格裡 OpenAI/128-token 設定的逐字命中掉到個位數（8.0%），BEIR 上較長的資料集 BLEU 普遍落在十幾到二十幾。標題的「(Almost) As Much As Text」其實高度依賴「短序列」這個前提，而摘要與導言的敘事容易讓讀者把 92% 當成普遍結論。
+The evidence is on the whole solid: it compares against two existing inversion methods, bag-of-words and a GPT-2 decoder, ablates both feedback and initialization, and also tests cross-domain generalization on 15 BEIR datasets. It is worth commending that the initialization ablation shows that even starting from random tokens and running 20 steps still reaches about 50% verbatim hits, indicating that the method does not rely on a particularly strong initial guess. To nitpick, the most eye-catching 92% holds only at 32 tokens; in the table, the verbatim hit rate for the OpenAI/128-token setting drops to single digits (8.0%), and on the longer BEIR datasets BLEU generally falls in the teens to twenties. The title's "(Almost) As Much As Text" in fact heavily depends on the premise of "short sequences," and the narrative of the abstract and introduction can easily lead readers to take 92% as a general conclusion.
 
-### 這是新方法還是既有技術的重新包裝？
+### Is this a new method or a repackaging of existing techniques?
 
-把它拆開看，元件都不新：條件式文字生成、iterative refinement 式的自我修正、CLIPCap 式的向量投影，都是既有做法。真正的貢獻是「把嵌入差向量 $e-\hat{e}$ 當作可微分梯度的離散代理、驅動一個可反覆套用的修正器」這個組合，並第一個把它推到段落級、逐字還原的規模——這比先前只能還原 bag-of-words 的工作實質前進了一大步。因此它比較像是「把對的零件組成一個先前沒人做成的攻擊」，而非換名詞的重述。
+Taking it apart, none of the components is new: conditional text generation, iterative-refinement-style self-correction, and CLIPCap-style vector projection are all existing practices. The real contribution is the combination of "treating the embedding difference vector $e-\hat{e}$ as a discrete proxy for a differentiable gradient, driving a corrector that can be applied repeatedly," and being the first to push it to the scale of paragraph-level, verbatim recovery—a substantial step forward from prior work that could only recover bag-of-words. So it is more like "assembling the right parts into an attack no one had built before" than a restatement under new names.
 
-### 評測是否被設計得偏袒自己的方法？
+### Was the evaluation designed to favor the authors' own method?
 
-有一點需要點名：主打數字建立在作者自選的 32-token 截斷上，而 GTR、OpenAI ada-002 這些模型實際支援上千 token 的輸入，論文也在限制一節坦承沒測過更長序列。防禦實驗同樣是在「攻擊者不對雜訊做適應性重訓」的假設下進行，屬於對己方有利的設定——一個會針對防禦重訓的攻擊者可能讓 $\lambda=0.01$ 的甜蜜點失效。這些都不至於推翻結論，但讓「嵌入 ≈ 原文」在長文與自適應對手下的成立範圍仍是開放的。
+There is one point worth naming: the headline numbers are built on the authors' self-chosen 32-token truncation, whereas models like GTR and OpenAI ada-002 actually support inputs of thousands of tokens, and the paper also frankly admits in the limitations section that it did not test longer sequences. The defense experiment is likewise conducted under the assumption that "the attacker does not do adaptive retraining against the noise," which is a setting favorable to the authors' own side—an attacker who retrains against the defense might invalidate the $\lambda=0.01$ sweet spot. None of this overturns the conclusion, but it leaves open the range of validity of "embedding ≈ original text" under long texts and adaptive adversaries.
 
-### 問題真的被解決了嗎？現實相關性如何
+### Was the problem really solved? How relevant is it to reality
 
-在「短文本、非自適應防禦」這個切片內，論文相當有說服力地證明了嵌入會外洩幾乎全部原文，MIMIC 上 89% 的完整姓名還原具體到足以構成真實隱私風險，「嵌入應與原文同級保護」的政策主張因此站得住腳。但把它當成對所有向量資料庫的普適警訊則言過其實：真實部署常嵌入數百到數千 token 的文件，而方法在這個尺度上的效力尚未驗證；同時每一步修正都要再查一次黑箱模型，攻擊成本與可偵測性（大量相似查詢）在現實中也不是零。結論方向可信，但其強度應被讀成「一個已被實證的下界」，而非天花板。
+Within the slice of "short text, non-adaptive defense," the paper quite persuasively proves that embeddings leak almost all of the original text, and the 89% full-name recovery on MIMIC is concrete enough to constitute a real privacy risk, so the policy claim that "embeddings should be protected at the same level as the original text" holds up. But treating it as a universal warning for all vector databases would be an overstatement: real deployments often embed documents of hundreds to thousands of tokens, and the method's efficacy at this scale is not yet verified; meanwhile every correction step requires another query to the black-box model, so the attack's cost and detectability (a large number of similar queries) are not zero in reality either. The direction of the conclusion is credible, but its strength should be read as "an empirically established lower bound" rather than a ceiling.
 
 ## 🔗 Related notes
 

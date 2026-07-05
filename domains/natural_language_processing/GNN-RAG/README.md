@@ -1,4 +1,5 @@
 # GNN-RAG — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,43 +12,43 @@
 | Official Code | https://github.com/cmavro/GNN-RAG |
 | Venue Kind | paper |
 
-> 本篇為根據 arXiv 預印本 `2405.20139` 撰寫的閱讀筆記；原稿採用 NeurIPS 2024 preprint 樣式，正式發表版本（camera-ready）可能與此有出入。所有數值與引述均以預印本 LaTeX 原始檔為準。
+> This is a reading note written from the arXiv preprint `2405.20139`; the manuscript uses the NeurIPS 2024 preprint style, and the official published version (camera-ready) may differ from this. All numbers and quotations are based on the preprint LaTeX source files.
 
 ## First Principles
 
-### 問題背景：KGQA 的瓶頸在「檢索」而非「生成」
+### Problem Background: KGQA's Bottleneck Is "Retrieval," Not "Generation"
 
-這篇論文處理的任務是知識圖譜問答（KGQA, Question Answering over Knowledge Graphs）：給定一個由 `(head, relation, tail)` 三元組構成的知識圖譜 $\mathcal{G}$，以及一個自然語言問題 $q$，要求模型抽出圖譜中正確回答 $q$ 的實體集合 $\{a\}$。訓練時只有問題—答案配對，沒有標註「通往答案的路徑」，因此屬於弱監督（weakly-supervised）設定。作者把 KGQA 拆成兩階段：先從擁有數百萬條事實的完整 KG 中，用實體連結與 PageRank 擷取一個問題相關的稠密子圖 $\mathcal{G}_q$，再交給推理模型輸出答案。整個 pipeline 用 retrieval-augmented generation（RAG）的形式串起來，把 KG 事實逐字轉成文字塞進 LLM 的 prompt。
+The task this paper addresses is Question Answering over Knowledge Graphs (KGQA): given a knowledge graph $\mathcal{G}$ made of `(head, relation, tail)` triples and a natural-language question $q$, the model is required to extract the set of entities $\{a\}$ in the graph that correctly answer $q$. During training there are only question–answer pairs, with no annotated "path to the answer," so it is a weakly-supervised setting. The authors split KGQA into two stages: first, from the complete KG with millions of facts, use entity linking and PageRank to extract a question-relevant dense subgraph $\mathcal{G}_q$; then hand it to a reasoning model to output the answer. The whole pipeline is strung together in the form of retrieval-augmented generation (RAG), verbalizing the KG facts into text and stuffing them into the LLM's prompt.
 
-RAG 在 KGQA 上的表現高度取決於「檢索到哪些事實」。作者指出真正的難點在檢索端：KG 動輒上百萬條事實，要撈出正確資訊需要有效的圖處理能力，而撈進無關資訊反而會干擾 LLM 的推理。既有做法要嘛靠 LLM 逐跳（hop-by-hop）檢索、無法處理複雜圖結構而在多跳問題上失效；要嘛得仰賴 GPT-4 這種超大模型的內部知識去補檢索的缺口。換句話說，論文把矛頭指向「檢索器不夠強」這個常被 RAG 敘事忽略的環節。
+RAG's performance on KGQA depends heavily on "which facts are retrieved." The authors point out that the real difficulty lies on the retrieval side: a KG easily has millions of facts, and fetching the correct information requires effective graph-processing ability, while fetching irrelevant information instead interferes with the LLM's reasoning. Existing approaches either rely on the LLM to retrieve hop-by-hop, which cannot handle complex graph structures and fails on multi-hop questions; or they must rely on the internal knowledge of an ultra-large model like GPT-4 to fill the gaps in retrieval. In other words, the paper points the finger at the "the retriever is not strong enough" link that RAG narratives often overlook.
 
-### GNN-RAG 的核心設計：把 GNN 當成稠密子圖推理器
+### GNN-RAG's Core Design: Using the GNN as a Dense-Subgraph Reasoner
 
-![GNN-RAG 框架：GNN 在稠密子圖上推理出候選答案與對應的最短路徑，路徑經逐字轉換（可選擇性地與 RA 合併）後交給 LLM 做 RAG](imgs/fig2.png)
+![The GNN-RAG framework: the GNN reasons over the dense subgraph to produce candidate answers and their corresponding shortest paths; the paths are verbalized (optionally merged with RA) and handed to the LLM for RAG](imgs/fig2.png)
 
-GNN-RAG 的中心主張是：GNN 雖然不像 LLM 那樣理解自然語言，但它天生擅長處理複雜的圖結構，正好可以「改用途」（repurpose）當成檢索器。整個流程分三步：第一步，一個 GNN 在稠密子圖上做訊息傳遞推理，把每個節點分類為「答案 / 非答案」，取出機率高於門檻的候選答案；第二步，抽出從問題實體到這些候選答案的最短路徑，作為 KG 推理路徑（reasoning paths）；第三步，把這些路徑逐字轉成 `{問題實體} → {關係} → {實體} → … → {答案實體}` 的文字，連同問題一起餵給下游 LLM 做 RAG。在這個分工裡，GNN 負責從圖裡萃取有用資訊，LLM 負責用它的語言理解能力做最終問答。
+GNN-RAG's central claim is: although a GNN does not understand natural language the way an LLM does, it is inherently good at handling complex graph structures, and can be exactly "repurposed" as a retriever. The whole flow has three steps: first, a GNN does message-passing reasoning over the dense subgraph, classifying each node as "answer / non-answer," and takes out candidate answers whose probability exceeds a threshold; second, extract the shortest paths from the question entities to these candidate answers as KG reasoning paths; third, verbalize these paths into text of the form `{question entity} → {relation} → {entity} → … → {answer entity}` and, together with the question, feed them to the downstream LLM for RAG. In this division of labor, the GNN is responsible for extracting useful information from the graph, and the LLM is responsible for the final question answering using its language-understanding ability.
 
-### GNN 的訊息傳遞與「問題—關係匹配」
+### The GNN's Message Passing and "Question–Relation Matching"
 
-GNN 把 KGQA 視為節點分類問題。在第 $l$ 層，節點 $v$ 的表徵 $\mathbf{h}_v^{(l)}$ 由聚合鄰居訊息更新，而且訊息傳遞會條件化在問題 $q$ 上：
+The GNN treats KGQA as a node-classification problem. At layer $l$, the representation $\mathbf{h}_v^{(l)}$ of node $v$ is updated by aggregating neighbor messages, and the message passing is conditioned on the question $q$:
 
 $$
 \mathbf{h}_v^{(l)} = \psi\!\Big(\mathbf{h}_v^{(l-1)},\; \sum_{v' \in \mathcal{N}_v} \omega(q, r)\cdot \mathbf{m}_{vv'}^{(l)}\Big)
 $$
 
-這裡的關鍵是 $\omega(q, r)$：它衡量事實 $(v, r, v')$ 的關係 $r$ 對問題 $q$ 有多相關，等於是在做「問題—關係匹配」（question-relation matching）。作者在附錄的定理裡證明：在理想情況下，若 $\omega$ 能對相關事實給 1、對無關事實給 0，GNN 的求和運算子（sum-operator）就能「過濾掉」無關資訊、只保留問題相關的子圖，達到最優推理。這也點出 GNN 的罩門——它的成敗完全押在 $\omega$ 這個語意匹配函數上。
+The key here is $\omega(q, r)$: it measures how relevant the relation $r$ of the fact $(v, r, v')$ is to the question $q$, which amounts to doing "question–relation matching." In a theorem in the appendix, the authors prove that in the ideal case, if $\omega$ can assign 1 to relevant facts and 0 to irrelevant facts, the GNN's sum-operator can "filter out" irrelevant information and keep only the question-relevant subgraph, achieving optimal reasoning. This also points out the GNN's Achilles' heel—its success or failure rides entirely on $\omega$, this semantic-matching function.
 
-由於 $\omega(q, r)$ 的實作依賴一個共享的預訓練 LM 去編碼問題與關係表徵（常見形式為 $\phi(\mathbf{q}^{(k)} \odot \mathbf{r})$），作者的巧思是：與其換不同的 GNN 架構，不如換 $\omega$ 裡的 LM。他們訓練兩個 GNN，一個用 SBERT、一個用 $\text{LM}_{\text{SR}}$（一個針對 KG 上問題—關係匹配預訓練的 LM）。實驗顯示這兩個 GNN 雖然撈到不同的 KG 資訊，卻都能改善 RAG，因此後續可以把它們的路徑聯集起來做 ensemble。
+Since the implementation of $\omega(q, r)$ depends on a shared pretrained LM to encode the question and relation representations (a common form being $\phi(\mathbf{q}^{(k)} \odot \mathbf{r})$), the authors' clever move is: rather than swap out different GNN architectures, swap the LM inside $\omega$. They train two GNNs, one using SBERT and one using $\text{LM}_{\text{SR}}$ (an LM pretrained for question–relation matching over the KG). Experiments show that although these two GNNs fetch different KG information, both can improve RAG, so their paths can subsequently be unioned to form an ensemble.
 
-### 從推理路徑到 LLM 的 RAG
+### From Reasoning Paths to the LLM's RAG
 
-拿到推理路徑後，作者把它們逐字轉成文字餵給下游 LLM。由於 LLM 對 prompt 模板與圖資訊的敘述方式很敏感，作者對開源可訓練的模型（一個 LLaMA2-Chat-7B）做 RAG prompt tuning：用訓練集的問題—答案對微調它，prompt 為「Based on the reasoning paths, please answer the given question」。訓練時餵的是問題實體到答案的最短路徑，推論時則換成 GNN-RAG 檢索出來的路徑。值得注意的是，這個 7B 模型與 RAG 微調做法本身沿用自對照方法 RoG，GNN-RAG 真正替換的是「檢索器」這一塊。
+After obtaining the reasoning paths, the authors verbalize them into text and feed them to the downstream LLM. Since the LLM is very sensitive to the prompt template and the way graph information is phrased, the authors do RAG prompt tuning on an open-source, trainable model (a LLaMA2-Chat-7B): fine-tuning it with the training set's question–answer pairs, with the prompt "Based on the reasoning paths, please answer the given question". During training it is fed the shortest paths from the question entities to the answer, while at inference these are replaced with the paths retrieved by GNN-RAG. It is worth noting that this 7B model and the RAG fine-tuning approach are themselves carried over from the comparison method RoG; what GNN-RAG truly replaces is the "retriever" part.
 
-### 為何 GNN 適合多跳檢索，以及它的限制
+### Why the GNN Is Suited to Multi-Hop Retrieval, and Its Limitations
 
-![既有 KGQA 方法的版圖：GNN-based 方法在稠密子圖上推理，LLM-based 方法（ToG 逐跳、RoG 生成關係路徑）用同一個 LLM 兼做檢索與推理](imgs/fig1.png)
+![The landscape of existing KGQA methods: GNN-based methods reason over the dense subgraph, while LLM-based methods (ToG hop-by-hop, RoG generating relation paths) use the same LLM to do both retrieval and reasoning](imgs/fig1.png)
 
-作者用一組檢索分析佐證「為什麼 GNN 是好的多跳檢索器」。他們訓練一個深的（$L=3$）與一個淺的（$L=1$）GNN，量測「Answer Coverage」（檢索到的路徑是否至少包含一個正確答案，注意這只評檢索、不評最終問答）與輸入 token 數（效率）。WebQSP 上的結果如下：
+The authors support "why the GNN is a good multi-hop retriever" with a set of retrieval analyses. They train a deep ($L=3$) and a shallow ($L=1$) GNN and measure "Answer Coverage" (whether the retrieved paths contain at least one correct answer—note this evaluates only retrieval, not the final QA) and the number of input tokens (efficiency). The results on WebQSP are as follows:
 
 | Retriever | 1-hop #Input Tok. | 1-hop %Ans. Cov. | 2-hop #Input Tok. | 2-hop %Ans. Cov. |
 |-|-|-|-|-|
@@ -55,15 +56,15 @@ $$
 | GNN ($L=1$) | 112 | 83.6 | 2,582 | 79.8 |
 | GNN ($L=3$) | 105 | 82.4 | 357 | 88.5 |
 
-這張表把故事講得很清楚：在 2-hop 問題上，深 GNN 用最少的 token（357，遠少於淺 GNN 的 2,582 與 RoG 的 435）達到最高的答案覆蓋率（88.5%）——它既更有效也更省。但在 1-hop 問題上情況反轉：這時「精準的問題—關係匹配」比「深層圖搜尋」更重要，LLM 檢索器（RoG，87.1%）反而略勝 GNN（82.4%）。這個「深 GNN 贏多跳、LLM 贏單跳」的互補性，直接催生了下一節的檢索增強。
+This table tells the story very clearly: on 2-hop questions, the deep GNN uses the fewest tokens (357, far fewer than the shallow GNN's 2,582 and RoG's 435) to achieve the highest answer coverage (88.5%)—it is both more effective and more economical. But on 1-hop questions the situation reverses: here "precise question–relation matching" matters more than "deep graph search," and the LLM retriever (RoG, 87.1%) slightly beats the GNN (82.4%). This complementarity of "deep GNN wins multi-hop, LLM wins single-hop" directly gives rise to the retrieval augmentation of the next section.
 
-### 檢索增強（RA）：把兩種檢索器的長處聯集起來
+### Retrieval Augmentation (RA): Unioning the Strengths of Both Retrievers
 
-檢索增強（Retrieval Augmentation, RA）的想法很直接：既然 GNN 擅長多跳、LLM 擅長單跳，那就在推論時把兩者檢索到的推理路徑取聯集，兼顧多樣性與答案召回。論文的預設 **GNN-RAG+RA** 就是把 GNN 檢索器與 RoG 這個 LLM 檢索器的路徑合併。作者也提出一個更便宜的替代方案 **GNN-RAG+Ensemble**：不呼叫 LLM，只把前面兩個配不同 LM 的 GNN（GNN+SBERT 與 GNN+$\text{LM}_{\text{SR}}$）的路徑聯集，避免 LLM 檢索器 beam-search 多次生成帶來的額外開銷。
+The idea of Retrieval Augmentation (RA) is very direct: since the GNN is good at multi-hop and the LLM is good at single-hop, take the union of the reasoning paths retrieved by both at inference time, balancing diversity and answer recall. The paper's default **GNN-RAG+RA** merges the paths of the GNN retriever with those of the RoG LLM retriever. The authors also propose a cheaper alternative, **GNN-RAG+Ensemble**: without calling an LLM, it only unions the paths of the two earlier GNNs paired with different LMs (GNN+SBERT and GNN+$\text{LM}_{\text{SR}}$), avoiding the extra overhead of the LLM retriever's multiple beam-search generations.
 
-### 一次具體的前向流程（用論文的真實數字）
+### One Concrete Forward Pass (Using the Paper's Real Numbers)
 
-以圖中的 WebQSP 問句「Which language do Jamaican people speak?」為例走一遍：子圖檢索先用實體連結與 PageRank 從 Freebase 撈出平均約 1,429.8 個實體的稠密子圖；GNN 在其上推理，輸出候選答案（English, Jamaican English, French, Caribbean…）並抽出最短路徑，例如 `Jamaica → language_spoken → Jamaican English`；這些路徑逐字化後餵給微調過的 LLaMA2-Chat-7B，輸出最終答案。關鍵在效率與效果的帳：整條 GNN-RAG（預設）在檢索端**不需要任何額外的 LLM 呼叫**（#LLM Calls = 0），WebQSP / CWQ 的中位輸入 token 只有 144 / 207，卻拿到 71.3 / 59.4 的 F1；相較之下 RoG 每題要 3 次 beam-search 生成、輸入 202 / 325 token，F1 只有 70.8 / 56.2。主結果表把整體對比攤開：
+Take the WebQSP question in the figure, "Which language do Jamaican people speak?", and walk through it: subgraph retrieval first uses entity linking and PageRank to fetch from Freebase a dense subgraph with an average of about 1,429.8 entities; the GNN reasons over it, outputs candidate answers (English, Jamaican English, French, Caribbean…) and extracts the shortest paths, for example `Jamaica → language_spoken → Jamaican English`; these paths, once verbalized, are fed to the fine-tuned LLaMA2-Chat-7B, which outputs the final answer. The key is the ledger of efficiency versus effectiveness: the whole GNN-RAG (default) requires **no extra LLM calls** on the retrieval side (#LLM Calls = 0), the median input tokens for WebQSP / CWQ are only 144 / 207, yet it achieves 71.3 / 59.4 F1; by comparison, RoG requires 3 beam-search generations per question, inputs 202 / 325 tokens, and achieves only 70.8 / 56.2 F1. The main results table lays out the overall comparison:
 
 | Method | WebQSP Hit | WebQSP H@1 | WebQSP F1 | CWQ Hit | CWQ H@1 | CWQ F1 |
 |-|-|-|-|-|-|-|
@@ -73,27 +74,27 @@ $$
 | GNN-RAG (Ours) | 85.7 | 80.6 | 71.3 | 66.8 | 61.7 | 59.4 |
 | GNN-RAG+RA (Ours) | 90.7 | 82.8 | 73.5 | 68.7 | 62.8 | 60.4 |
 
-把這幾列連起來讀：光是把檢索器從「無」換成 GNN-RAG，就把 7B LLaMA2 的 WebQSP Hit 從 64.4 拉到 85.7；再加 RA 後衝到 90.7，在 WebQSP 上以 7B 模型全面超過 ToG+GPT-4 的 82.6，在 CWQ 上也逼近（68.7 對 69.5）。作者估算 ToG+GPT-4 整體花費超過 800 美元，而 GNN-RAG 可在單張 24GB GPU 上部署——這是「小模型 + 好檢索」勝過「大模型 + 弱檢索」的核心賣點。在多跳與多實體問題上差距最明顯：相對於 RoG，GNN-RAG 在 F1 上高出 6.5–17.2（WebQSP）與 8.5–8.9（CWQ）個百分點。
+Reading these rows together: simply switching the retriever from "none" to GNN-RAG raises the 7B LLaMA2's WebQSP Hit from 64.4 to 85.7; adding RA further pushes it to 90.7, surpassing ToG+GPT-4's 82.6 across the board on WebQSP with a 7B model, and approaching it on CWQ as well (68.7 vs 69.5). The authors estimate ToG+GPT-4 costs over $800 overall, while GNN-RAG can be deployed on a single 24GB GPU—this is the core selling point of "a small model + good retrieval" beating "a large model + weak retrieval." The gap is most pronounced on multi-hop and multi-entity questions: relative to RoG, GNN-RAG is higher on F1 by 6.5–17.2 (WebQSP) and 8.5–8.9 (CWQ) percentage points.
 
 ## 🧪 Critical Assessment
 
-### 問題是不是真的、重不重要
+### Is the Problem Real and Important
 
-「RAG 的品質受限於檢索器」這個問題是真實且被獨立佐證的——論文引用多篇工作說明撈進雜訊會拖垮 LLM 推理。把診斷聚焦在檢索端、而非一味放大生成模型，方向上是站得住腳的。KGQA 本身也是有實際意義的知識密集任務。要留意的是，這個問題設定綁定在「已經有一個乾淨、結構化、且答案覆蓋率夠高的知識圖譜」這個前提上：WebQSP 子圖的答案覆蓋率是 94.9%，但 CWQ 只有 79.3%，意味著約兩成的 CWQ 問題其正確答案根本不在檢索子圖裡，任何下游方法的上限都被子圖擷取步驟卡死。論文的貢獻其實只作用在「子圖已給定」之後的環節，這個邊界在敘事中被輕描淡寫帶過。
+The problem that "RAG's quality is limited by the retriever" is real and independently corroborated—the paper cites multiple works showing that fetching noise drags down LLM reasoning. Focusing the diagnosis on the retrieval side, rather than blindly scaling up the generation model, is a defensible direction. KGQA itself is also a knowledge-intensive task with practical significance. What must be noted is that this problem setting is bound to the premise of "already having a clean, structured knowledge graph with high enough answer coverage": the answer coverage of the WebQSP subgraph is 94.9%, but CWQ's is only 79.3%, meaning about twenty percent of CWQ questions have their correct answer simply not in the retrieved subgraph, and the ceiling of any downstream method is capped by the subgraph-extraction step. The paper's contribution actually only operates on the link after "the subgraph is given," and this boundary is glossed over lightly in the narrative.
 
-### 基線、消融、資料集與指標是否充分
+### Are the Baselines, Ablations, Datasets, and Metrics Sufficient
 
-這篇的實證相當紮實：主結果涵蓋 embedding / GNN / LLM / KG+LLM / GNN+LLM 五類共二十多個基線，並附有更換 GNN（GraftNet/NSM/ReaRev）、更換底層 LLM（Alpaca、Flan-T5、ChatGPT）、稠密 vs 稀疏子圖、訓練資料組合等多組消融，效率面也誠實報告了 #LLM Calls 與輸入 token。指標選得合理：Hit、Hits@1、F1 各自量測不同面向，作者甚至坦言 Hit 因為只看「是否命中任一答案」而對 LLM 較寬鬆。一個值得追問的缺口是統計顯著性——像 GNN-RAG 與 RoG 在 WebQSP Hit 都是 85.7 這種並列，或 F1 只差 0.5 的情形，論文沒有給出誤差棒或多次隨機種子的變異，讀者難以判斷部分「持平或些微勝出」是否為雜訊。另外，消融也顯示「弱 GNN 不是好檢索器」（GNN-RAG 換成 GraftNet/NSM 時 CWQ 表現不如 RoG），代表整套方法的效益高度依賴一個本身就已是 SOTA 的 GNN（ReaRev），而非 GNN-RAG 框架本身。
+This paper's empirical work is quite solid: the main results cover five categories—embedding / GNN / LLM / KG+LLM / GNN+LLM—totaling more than twenty baselines, and it comes with multiple ablations such as swapping the GNN (GraftNet/NSM/ReaRev), swapping the underlying LLM (Alpaca, Flan-T5, ChatGPT), dense vs sparse subgraphs, and training-data combinations, and it also honestly reports #LLM Calls and input tokens on the efficiency side. The metrics are chosen reasonably: Hit, Hits@1, and F1 each measure different aspects, and the authors even admit that Hit is more lenient toward the LLM because it only looks at "whether any answer is hit." One gap worth pressing on is statistical significance—for cases like GNN-RAG and RoG both being 85.7 on WebQSP Hit, or F1 differing by only 0.5, the paper gives no error bars or variation over multiple random seeds, making it hard for readers to judge whether some "ties or slight wins" are noise. In addition, the ablations also show that "a weak GNN is not a good retriever" (when GNN-RAG is swapped to GraftNet/NSM, CWQ performance is worse than RoG), meaning the benefit of the whole method depends heavily on a GNN that is already SOTA in itself (ReaRev), rather than on the GNN-RAG framework itself.
 
-### 這是新方法還是既有元件的重組
+### Is This a New Method or a Recombination of Existing Components
 
-平心而論，GNN-RAG 的組成元件幾乎都是現成的：GNN 檢索用的是 ReaRev、RAG 微調與 7B LLaMA2 沿用 RoG、$\text{LM}_{\text{SR}}$ 來自 SR、子圖擷取沿用 NSM 的 PageRank 做法。真正原創的是「用 GNN 節點分類的輸出去反推最短路徑、再把路徑當檢索結果餵給 RAG」這個接合方式，以及據此設計的 RA 聯集策略。這確實是有價值的洞見——它把「GNN 擅長多跳、LLM 擅長語意」用一個乾淨的介面（verbalized 路徑）銜接起來，而不是硬做 latent 融合。但若用嚴格的新穎性標準看，這更接近一次設計良好的系統整合與經驗發現，而非方法論上的突破；論文自身的貢獻敘述（Framework / Effectiveness / Efficiency）也偏向工程與實證面。
+In fairness, GNN-RAG's constituent components are almost all off-the-shelf: the GNN retrieval uses ReaRev, the RAG fine-tuning and the 7B LLaMA2 are carried over from RoG, $\text{LM}_{\text{SR}}$ comes from SR, and the subgraph extraction follows NSM's PageRank approach. What is truly original is the joining approach of "using the GNN node-classification output to back out the shortest paths, then feeding the paths as retrieval results to RAG," and the RA union strategy designed on top of it. This is indeed a valuable insight—it connects "the GNN is good at multi-hop, the LLM is good at semantics" via a clean interface (verbalized paths), rather than forcing a latent fusion. But by a strict novelty standard, this is closer to a well-designed system integration and empirical finding than a methodological breakthrough; the paper's own contribution statement (Framework / Effectiveness / Efficiency) also leans toward the engineering and empirical side.
 
-### 評測是否被作者「量身訂做」，以及真實世界關聯
+### Is the Evaluation "Tailor-Made" by the Authors, and Its Real-World Relevance
 
-多跳、多實體子集上的巨大增益（F1 高出對手 8.9–15.5 個百分點）需要放在脈絡裡看：這些正是 GNN 深層圖搜尋的主場，等於是在挑選對自身機制最有利的切片來凸顯優勢，讀者應把它理解為「在深度圖搜尋重要時」的條件式結論，而非全面碾壓——事實上在 1-hop 問題上 GNN 反而略遜 LLM 檢索器，作者也誠實呈現了這點。就整體 F1 而言（例如 WebQSP 的 71.3 對 RoG 70.8）差距其實很小。真實世界關聯的最大保留在於對「高品質 KG」的依賴：方法假設存在一個結構化、可更新、且與問題對齊的知識圖譜，這在 Freebase/WikiMovies 這類學術基準上成立，但在多數實務場景中，KG 的建置與維護成本往往才是瓶頸，而這正是本方法不處理的部分。因此本篇的結論在「KGQA 學術基準」上是可信且有說服力的，但要外推到一般開放領域 RAG 仍有明顯落差，不宜過度誇大其普適性。
+The huge gains on the multi-hop, multi-entity subsets (F1 higher than competitors by 8.9–15.5 percentage points) need to be seen in context: these are precisely the home turf of the GNN's deep graph search, which amounts to picking the slice most favorable to its own mechanism to highlight the advantage, and readers should understand it as a conditional conclusion of "when deep graph search matters," not an across-the-board crushing—in fact, on 1-hop questions the GNN is instead slightly inferior to the LLM retriever, which the authors honestly present. In terms of overall F1 (for example WebQSP's 71.3 vs RoG's 70.8), the gap is actually very small. The biggest reservation about real-world relevance lies in the dependence on a "high-quality KG": the method assumes the existence of a structured, updatable knowledge graph aligned with the question, which holds on academic benchmarks like Freebase/WikiMovies, but in most practical scenarios the cost of building and maintaining a KG is often the very bottleneck—and that is precisely the part this method does not address. Therefore this note's conclusion is credible and persuasive on "KGQA academic benchmarks," but there remains an obvious gap when extrapolating to general open-domain RAG, and its universality should not be overstated.
 
 ## 🔗 Related notes
 
-- [BM25](../information_retrieval/BM25/) — 經典稀疏檢索基線，可與此處的圖檢索作對照
-- [TF-IDF: IDF](../information_retrieval/TFIDF/) — 檢索權重的基礎概念
+- [BM25](../information_retrieval/BM25/) — Classic sparse-retrieval baseline, useful as a contrast to the graph retrieval here
+- [TF-IDF: IDF](../information_retrieval/TFIDF/) — Foundational concept of retrieval weighting

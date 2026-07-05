@@ -1,4 +1,5 @@
 # Agent-as-a-Judge — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -7,104 +8,104 @@
 | Title | Agent-as-a-Judge: Evaluate Agents with Agents |
 | Venue | unknown |
 | Year | 2024 |
-| Authors | Mingchen Zhuge, Changsheng Zhao, Dylan R. Ashley, Wenyi Wang, Dmitrii Khizbullin, Yunyang Xiong, Zechun Liu, Ernie Chang, Raghuraman Krishnamoorthi, Yuandong Tian, Yangyang Shi, Vikas Chandra, Jürgen Schmidhuber（Meta AI、KAUST） |
+| Authors | Mingchen Zhuge, Changsheng Zhao, Dylan R. Ashley, Wenyi Wang, Dmitrii Khizbullin, Yunyang Xiong, Zechun Liu, Ernie Chang, Raghuraman Krishnamoorthi, Yuandong Tian, Yangyang Shi, Vikas Chandra, Jürgen Schmidhuber (Meta AI, KAUST) |
 | Official Code | https://github.com/metauto-ai/agent-as-a-judge |
 | Venue Kind | paper |
 
 ## First Principles
 
-這篇論文要解的痛點是：**當被評測的對象本身是一個會多步驟行動、會自我溝通的 agentic system 時，傳統評測方法失效了**。傳統做法只看最終產物（例如 SWE-Bench 的 resolve rate），把一個需要幾十個中間步驟才能完成的開發任務壓縮成一個二元的成敗訊號；作者用一個比喻點出問題——這就像用選擇題去評量一個學生，是一種相當不可靠的估計。另一條路是找人類專家逐步審查，可靠但貴到難以規模化。Agent-as-a-Judge 的主張是：既然被評的對象像人一樣一步步思考，那評測者也應該是一個能讀取完整思考與行動軌跡、能給出中間回饋的 agentic system。它被定位成 LLM-as-a-Judge 的自然延伸——保留了用模型評模型的低成本，但加上了 agentic 的能力，讓評測者可以在整個解題過程中提供豐富的中間回饋。
+The pain point this paper sets out to solve is: **when the object being evaluated is itself an agentic system that acts over multiple steps and communicates with itself, traditional evaluation methods break down**. The traditional approach looks only at the final product (for example, SWE-Bench's resolve rate), compressing a development task that takes dozens of intermediate steps to complete into a single binary success/failure signal; the authors illustrate the problem with an analogy—this is like assessing a student with multiple-choice questions, a rather unreliable estimate. Another route is to have human experts review step by step, which is reliable but too expensive to scale. The claim of Agent-as-a-Judge is: since the object being evaluated thinks step by step like a human, the evaluator should likewise be an agentic system that can read the full trajectory of thought and action and provide intermediate feedback. It is positioned as a natural extension of LLM-as-a-Judge—retaining the low cost of using a model to evaluate a model, but adding agentic capabilities so that the evaluator can provide rich intermediate feedback throughout the problem-solving process.
 
-![三種評測範式的比較](imgs/judge_paradigms.png)
+![Comparison of three evaluation paradigms](imgs/judge_paradigms.png)
 
-*上圖對照三種評測範式：LLM-as-a-Judge 用模型評模型、Human-as-a-Judge 用人類專家逐步審查、而 Agent-as-a-Judge 讓一個具備工具與記憶的代理去讀取工作區與軌跡並逐條判定需求。*
+*The figure above contrasts three evaluation paradigms: LLM-as-a-Judge uses a model to evaluate a model, Human-as-a-Judge uses human experts to review step by step, and Agent-as-a-Judge lets an agent equipped with tools and memory read the workspace and trajectory and adjudicate requirements one by one.*
 
-### DevAI：一個以「開發過程」為中心的基準
+### DevAI: A Benchmark Centered on the "Development Process"
 
-要驗證這個想法，作者先造了一個新基準 **DevAI**，因為既有的程式生成基準（HumanEval 只涵蓋演算法題、SWE-Bench 聚焦自動修復）都只看最終結果、無法反映開發的中間階段。DevAI 由 55 個真實的自動化 AI 開發任務組成，每個任務包含三個部分：一段自然語言的 user query、一組帶有相依關係的 requirements（全體共 365 條），以及一組較軟性的 preferences（全體共 125 條）。關鍵設計在於：一個任務的需求被組織成一張有向無環圖（DAG），像「視覺化結果」這條需求會相依於「正確載入資料」與「建模」。這種階層化結構讓評測不再是一個稀疏的成敗位元，而是能沿著開發流程給出非稀疏的回饋，也讓單純的記憶背誦無法通關。
+To validate this idea, the authors first built a new benchmark, **DevAI**, because existing code-generation benchmarks (HumanEval covers only algorithmic problems, SWE-Bench focuses on automated repair) look only at the final result and cannot reflect the intermediate stages of development. DevAI consists of 55 realistic automated AI development tasks, each containing three parts: a natural-language user query, a set of requirements with dependency relationships (365 in total), and a set of softer preferences (125 in total). The key design lies in this: a task's requirements are organized into a directed acyclic graph (DAG)—a requirement like "visualize results" would depend on "correctly load data" and "modeling." This hierarchical structure means evaluation is no longer a sparse success/failure bit, but can give non-sparse feedback along the development flow, and it also makes it impossible to pass by mere memorization.
 
-![DevAI 任務分佈](imgs/devai_distribution.png)
+![DevAI task distribution](imgs/devai_distribution.png)
 
-*DevAI 任務涵蓋監督式學習、強化學習、電腦視覺、自然語言處理與生成模型等領域，查詢中「dataset」「model」「results」等詞特別常見。*
+*DevAI tasks span domains such as supervised learning, reinforcement learning, computer vision, natural language processing, and generative models, with words like "dataset," "model," and "results" appearing especially frequently in the queries.*
 
-作者接著把三個社群認可度最高（GitHub 星數皆超過三萬）的開源程式生成框架跑在 DevAI 上，當作被評測的「AI 開發者」基線：MetaGPT、GPT-Pilot 與 OpenHands。三者都以 `gpt-4o-2024-05-13` 作為後端語言模型，每個任務有 1800 秒的時間上限，超時即強制中止。作者以自製的儀器程式記錄下每個系統在開發過程中的程式碼、檔案與關鍵決策，形成一條可供後續評測使用的開發軌跡。
+The authors then ran the three most community-recognized (all with over thirty thousand GitHub stars) open-source code-generation frameworks on DevAI as the "AI developer" baselines being evaluated: MetaGPT, GPT-Pilot, and OpenHands. All three use `gpt-4o-2024-05-13` as the backend language model, with a time limit of 1800 seconds per task, forcibly aborting on timeout. The authors used their own instrumentation program to record each system's code, files, and key decisions during the development process, forming a development trajectory usable for subsequent evaluation.
 
-先由三位人類專家對這些基線做白箱審查（可存取生成的工作區、人工蒐集的軌跡與開源碼庫），結果如下表。表現最好的兩個系統 GPT-Pilot 與 OpenHands，在忽略相依時各能滿足約 44% 的需求、在考慮相依後降到約 29%，但只有在一個任務上能滿足全部需求——這說明 DevAI 對當前系統構成了「有挑戰但不至於做不動」的合適難度。
+Three human experts first performed a white-box review of these baselines (with access to the generated workspaces, manually collected trajectories, and the open-source code repositories), with results in the table below. The two best-performing systems, GPT-Pilot and OpenHands, each satisfied about 44% of requirements when ignoring dependencies, dropping to about 29% once dependencies are considered, but only on a single task could they satisfy all requirements—showing that DevAI poses an appropriate level of difficulty for current systems, "challenging but not undoable."
 
-| 指標（人類共識，白箱） | MetaGPT | GPT-Pilot | OpenHands |
+| Metric (human consensus, white-box) | MetaGPT | GPT-Pilot | OpenHands |
 |-|-|-|-|
-| 需求滿足率（獨立） | 22.13% | 44.80% | 42.89% |
-| 需求滿足率（含相依） | 6.55% | 28.96% | 28.68% |
-| 任務完全解決率 | 0.00% | 1.81% | 1.81% |
+| Requirement satisfaction rate (independent) | 22.13% | 44.80% | 42.89% |
+| Requirement satisfaction rate (with dependencies) | 6.55% | 28.96% | 28.68% |
+| Task fully solved rate | 0.00% | 1.81% | 1.81% |
 
-值得注意的是，人類評測本身並不穩定。作者刻意在第一輪只給評測者最少的指示以捕捉真實部署情境的偏差，結果三位評測者兩兩之間的分歧率落在約 10% 到 30% 之間；他們接著花了額外約 28.5 小時辯論以收斂到一份共識，並把這份共識當作後續比對的近似真值。單一評測者的錯誤可觀（例如 `cn9o` 在評 GPT-Pilot 時錯誤率達 23.77%），但三人多數決後整體錯誤率降到 6.01%——這既支持了用共識當真值的做法，也預先埋下一個問題：這個「真值」本身帶噪。
+It is worth noting that human evaluation itself is not stable. The authors deliberately gave the evaluators minimal instructions in the first round to capture the bias of a real deployment scenario, and as a result the pairwise disagreement rate among the three evaluators fell in the range of roughly 10% to 30%; they then spent an additional roughly 28.5 hours debating to converge on a consensus, and treated this consensus as the approximate ground truth for subsequent comparison. The error of a single evaluator can be considerable (for example, `cn9o` had a 23.77% error rate when evaluating GPT-Pilot), but after a majority vote among the three the overall error rate dropped to 6.01%—this both supports the practice of using consensus as ground truth and plants a problem in advance: this "ground truth" is itself noisy.
 
-![人類評測者之間的分歧](imgs/disagreement_meta.png)
+![Disagreement among human evaluators](imgs/disagreement_meta.png)
 
-*三位人類評測者的個別判定存在大量分歧，凸顯單一人類評測的不可靠。*
+*The individual judgments of the three human evaluators exhibit substantial disagreement, underscoring the unreliability of single-human evaluation.*
 
-### Agent-as-a-Judge 的模組化設計
+### The Modular Design of Agent-as-a-Judge
 
-作者模仿人類的評測流程，設計了八個可互動的模組作為 proof-of-concept。可以把它想成一條「先建立專案的結構認知、再定位、再讀取證據、最後判定」的流水線：
+Imitating the human evaluation process, the authors designed eight interacting modules as a proof-of-concept. Think of it as a pipeline that "first builds structural awareness of the project, then locates, then reads evidence, and finally adjudicates":
 
 ```text
-輸入：user query + 需求清單 + 生成的工作區（可選：開發軌跡）
-  ├─ (1) graph     建構專案的檔案/模組/相依圖，並可切分成程式片段
-  ├─ (2) locate    定位某條需求所指的資料夾或檔案
-  ├─ (3) read      讀懂 33 種格式的多模態內容（程式、圖片、影片、文件）
-  ├─ (4) search    以語意檢索相關程式片段與隱藏相依
-  ├─ (5) retrieve  從長文本／軌跡中抽取相關片段
-  ├─ (6) ask       綜合上述脈絡，判定某條需求是否被滿足
-  ├─ (7) memory    儲存歷史判定，供後續評測沿用
-  └─ (8) planning  規劃下一步動作
-輸出：逐條需求的滿足與否 + 動態蒐集的證據
+Input: user query + requirements list + generated workspace (optional: development trajectory)
+  ├─ (1) graph     build the project's file/module/dependency graph, optionally splitting into code fragments
+  ├─ (2) locate    locate the folder or file referred to by a given requirement
+  ├─ (3) read      understand multimodal content in 33 formats (code, images, video, documents)
+  ├─ (4) search    semantically retrieve relevant code fragments and hidden dependencies
+  ├─ (5) retrieve  extract relevant fragments from long text / trajectories
+  ├─ (6) ask       synthesize the above context to adjudicate whether a given requirement is satisfied
+  ├─ (7) memory    store historical judgments for reuse in subsequent evaluation
+  └─ (8) planning  plan the next action
+Output: satisfaction/non-satisfaction per requirement + dynamically collected evidence
 ```
 
-耐人尋味的是，作者的消融實驗顯示「模組不是愈多愈好」：最終表現最佳的組合只用了 (1) graph、(2) locate、(3) read、(5) retrieve、(6) ask 五個模組，而 planning 與 memory 反而被拿掉。作者的解釋是評測對雜訊敏感、需要高品質的事實資訊：planning 帶來的決策雖有潛力但過程不穩定；memory 更是有害，因為前一次判定的錯誤會沿著記憶鏈傳遞、污染後續判斷；至於 search，因為開發者代理生成的工作區往往只有數百行程式碼，發揮不出檢索的價值。這是一個誠實且有價值的負面結果。
+Intriguingly, the authors' ablation experiments show that "more modules is not better": the best-performing final combination used only five modules—(1) graph, (2) locate, (3) read, (5) retrieve, (6) ask—while planning and memory were removed instead. The authors' explanation is that evaluation is sensitive to noise and needs high-quality factual information: although planning's decisions have potential, the process is unstable; memory is even harmful, because the error of a previous judgment propagates along the memory chain and pollutes subsequent judgments; as for search, because the workspace generated by developer agents often has only a few hundred lines of code, retrieval cannot show its value. This is an honest and valuable negative result.
 
-### 對齊率、Judge Shift 與一個實際的例子
+### Alignment Rate, Judge Shift, and a Concrete Example
 
-作者用兩個指標衡量 AI 評測者與人類共識的接近程度。Alignment Rate 定義為「在全部 365 條需求上，AI 評測者的判定與人類共識判定相同的比例」；Judge Shift 則衡量與人類共識的偏離，愈低愈好。用我們自己的記號把 Alignment Rate 寫成下式（此式為本文的整理，非論文原式）：
+The authors use two metrics to measure how close the AI evaluator is to human consensus. Alignment Rate is defined as "the proportion, over all 365 requirements, on which the AI evaluator's judgment matches the human consensus judgment"; Judge Shift measures the deviation from human consensus, lower being better. Using our own notation, Alignment Rate is written as follows (this formulation is our own consolidation, not the paper's original formula):
 
 $$\text{Alignment Rate} = \frac{1}{N}\sum_{i=1}^{N}\mathbb{1}\big[\hat{y}_i = y_i^{\text{consensus}}\big],\quad N = 365$$
 
-在最實用的黑箱設定下（不需存取那些「現實中幾乎拿不到」的人工軌跡），Agent-as-a-Judge 一致地勝過 LLM-as-a-Judge：以評測 OpenHands 為例，Agent-as-a-Judge 的 Alignment Rate 達 90.44%，而 LLM-as-a-Judge 只有 60.38%；在需求滿足率（獨立）這一列，Agent-as-a-Judge 相對人類共識的 Judge Shift 低到 0.27%，LLM-as-a-Judge 卻高達 31.42%。下表把黑箱設定下三個系統的對齊率並列，並附上人類基準作為天花板參照。
+In the most practical black-box setting (which does not require access to those human-collected trajectories that are "almost unobtainable in reality"), Agent-as-a-Judge consistently beats LLM-as-a-Judge: taking the evaluation of OpenHands as an example, Agent-as-a-Judge reaches an Alignment Rate of 90.44%, whereas LLM-as-a-Judge is only 60.38%; on the requirement satisfaction rate (independent) row, Agent-as-a-Judge's Judge Shift relative to human consensus is as low as 0.27%, while LLM-as-a-Judge is as high as 31.42%. The table below juxtaposes the alignment rates of the three systems under the black-box setting, with the human baseline attached as a ceiling reference.
 
-| 評測者（黑箱） | MetaGPT | GPT-Pilot | OpenHands |
+| Evaluator (black-box) | MetaGPT | GPT-Pilot | OpenHands |
 |-|-|-|-|
 | LLM-as-a-Judge | 84.15% | 65.30% | 60.38% |
 | Agent-as-a-Judge | 88.52% | 83.88% | 90.44% |
-| 人類個體最佳 | 92.63% | 90.98% | 89.89% |
-| 人類多數決 | 95.08% | 93.98% | 94.26% |
+| Best individual human | 92.63% | 90.98% | 89.89% |
+| Human majority vote | 95.08% | 93.98% | 94.26% |
 
-把「模組化如何一步步逼近人類」講清楚，最好的一個實例是評測 OpenHands 時逐一累加模組的消融。從只有 `ask` 的裸判定開始，對齊率是 65.03%；加入 `graph`（讓代理理解檔案之間的關係）升到 75.95%；再加 `read`（直接讀檔案內容）到 82.24%；加入 `locate`（把注意力精準對準與需求相關的檔案）帶來最大的跳躍，衝到 90.44%；而在這個特定案例中再加 `retrieve` 幾乎沒有幫助，反而微降到 90.16%——因為 OpenHands 的工作區太短、軌跡檢索派不上用場。這條 65.03% → 90.44% 的曲線，具體展示了「定位到正確的證據」比「讀更多東西」對評測品質更關鍵。
+The best example for making clear "how modularity approaches human performance step by step" is the ablation that adds modules one at a time when evaluating OpenHands. Starting from a bare judgment with only `ask`, the alignment rate is 65.03%; adding `graph` (letting the agent understand the relationships between files) raises it to 75.95%; adding `read` (directly reading file contents) to 82.24%; adding `locate` (precisely focusing attention on the files relevant to the requirement) brings the largest jump, surging to 90.44%; and in this particular case adding `retrieve` further gives almost no help, instead dipping slightly to 90.16%—because OpenHands's workspace is too short and trajectory retrieval has no use. This curve from 65.03% → 90.44% concretely demonstrates that "locating the correct evidence" is more critical to evaluation quality than "reading more things."
 
-| OpenHands 消融（累加模組） | +ask | +graph | +read | +locate | +retrieve |
+| OpenHands ablation (cumulative modules) | +ask | +graph | +read | +locate | +retrieve |
 |-|-|-|-|-|-|
 | Alignment Rate | 65.03% | 75.95% | 82.24% | 90.44% | 90.16% |
 
-成本這一面向是整篇最有說服力的賣點。三位人類專家自報總共花了 86.5 小時，以每小時 15 美元的最低工資估算，一次完整的 DevAI 評測約需 1297.50 美元；相較之下 Agent-as-a-Judge 只花了 30.58 美元的 API 費用、耗時 118.43 分鐘，分別是人類的 2.29% 成本與 2.36% 時間。LLM-as-a-Judge 雖然更快（10.99 分鐘），但因為缺少 Agent-as-a-Judge 那種有智慧的脈絡挑選，費用仍高達 29.63 美元卻換來明顯較差的對齊。
+The cost dimension is the most persuasive selling point of the whole paper. The three human experts self-reported spending 86.5 hours in total; estimated at the minimum wage of 15 US dollars per hour, one full DevAI evaluation costs about 1297.50 US dollars; by contrast, Agent-as-a-Judge spent only 30.58 US dollars in API fees and took 118.43 minutes, respectively 2.29% of the cost and 2.36% of the time of humans. Although LLM-as-a-Judge is faster (10.99 minutes), because it lacks the intelligent context selection of Agent-as-a-Judge, its cost is still as high as 29.63 US dollars yet yields markedly worse alignment.
 
-![PR 曲線比較各評測方法](imgs/pr_curves_meta.png)
+![PR curves comparing evaluation methods](imgs/pr_curves_meta.png)
 
-*作者也指出對齊率在類別極不平衡時會誤導，因此補上 PR 曲線；在 OpenHands 上 Agent-as-a-Judge 甚至勝過任一位單獨的人類評測者，並最貼近多數決。*
+*The authors also point out that the alignment rate can be misleading when classes are highly imbalanced, so they add PR curves; on OpenHands, Agent-as-a-Judge even beats any single individual human evaluator and comes closest to the majority vote.*
 
 ## 🧪 Critical Assessment
 
-### 這個問題是真的，但「評測者」的名字比機制更新
+### The Problem Is Real, but the "Evaluator" Name Is Newer Than the Mechanism
 
-「agentic system 的評測不能只看最終結果」是一個真實而重要的痛點，作者對 SWE-Bench 只看 resolve rate、以及 Goodhart's law（當一個度量變成目標就不再是好度量）的批評都站得住腳。但把這套方法叫做「Agent-as-a-Judge」是否名過其實，值得追問：拆開來看，它其實是「LLM-as-a-Judge + 程式碼結構圖 + 定位 + 檢索」的工程組合，核心判定仍由 `ask` 這個 LLM 呼叫完成，其餘模組本質上是把 RAG 與靜態分析接到評測前端。消融結果自己也印證了這點——真正帶來增益的是 `locate` 與 `read` 這類「餵給 LLM 更準的證據」的模組，而被視為 agentic 招牌的 planning 與 memory 反而有害被移除。因此它的新意更多在於「把既有元件組成一條可用的評測流水線並認真量測」，而非一個全新的評測範式。
+"The evaluation of agentic systems cannot look only at the final result" is a real and important pain point, and the authors' critiques of SWE-Bench looking only at resolve rate, as well as of Goodhart's law (when a metric becomes a target it ceases to be a good metric), hold up. But whether calling this method "Agent-as-a-Judge" overstates its novelty is worth questioning: taken apart, it is in fact an engineering combination of "LLM-as-a-Judge + code structure graph + locate + retrieval," with the core adjudication still done by the single LLM call `ask`, and the remaining modules essentially bolting RAG and static analysis onto the front end of evaluation. The ablation results themselves confirm this—the modules that truly bring gains are `locate` and `read`, the kind that "feed the LLM more accurate evidence," while planning and memory, viewed as the agentic hallmark, are instead harmful and removed. Therefore its novelty lies more in "composing existing components into a usable evaluation pipeline and measuring it seriously" than in a wholly new evaluation paradigm.
 
-### 被拿來當真值的人類共識本身帶噪，且基準由同一團隊定義
+### The Human Consensus Used as Ground Truth Is Itself Noisy, and the Benchmark Is Defined by the Same Team
 
-最需要保留的一點是：Agent-as-a-Judge 的所有對齊數字，都是相對於一份由同一批作者、在同一個自建基準上收斂出來的人類共識。而作者自己就報告了這份共識的可靠度有限——評測者兩兩分歧達 10%～30%，即使三人多數決後相對共識仍有約 6% 的殘餘錯誤，作者也坦承「共識未必等於絕對真值」。換句話說，90% 級別的對齊率是「與一個帶噪目標的接近程度」，而非與客觀正確答案的接近程度；當基準、被評系統的軌跡蒐集、以及真值定義都出自同一團隊、且評測代理的證據蒐集方式又是圍繞這個基準設計時，高對齊有一部分可能來自方法與評量標準的同源性，而非純粹的評測能力。
+The most important point to retain is: all of Agent-as-a-Judge's alignment numbers are relative to a human consensus converged upon by the same set of authors, on the same self-built benchmark. And the authors themselves report that the reliability of this consensus is limited—pairwise disagreement among evaluators reaches 10%–30%, and even after a three-way majority vote there remains about 6% residual error relative to the consensus, and the authors also admit that "consensus is not necessarily equal to absolute ground truth." In other words, the 90%-level alignment rate is "closeness to a noisy target," not closeness to an objectively correct answer; when the benchmark, the trajectory collection of the systems being evaluated, and the definition of ground truth all come from the same team, and the evaluation agent's evidence-collection method is designed around this benchmark, part of the high alignment may come from the common origin of the method and the evaluation criteria, rather than from pure evaluation capability.
 
-### 樣本規模小、且評測者與被評者共用同一個底層模型
+### The Sample Size Is Small, and Evaluator and Evaluatee Share the Same Underlying Model
 
-證據強度受限於規模：只有 55 個任務、3 個被評系統、3 位人類評測者，PR 曲線這個作者自己承認「較不會被類別不平衡誤導」的關鍵指標又只在 OpenHands 一個系統上展示。更值得注意的是，被評的三個開發者都以 gpt-4o 為後端，而論文正文並未明確交代 Agent-as-a-Judge 的 `ask` 模組使用哪個模型；若評測者與被評者共用同一模型家族，就存在自我偏好（self-preference）而抬高對齊的風險，而論文沒有針對這個混淆因子做控制實驗。此外，MetaGPT 幾乎不滿足需求，使得 LLM-as-a-Judge 光靠「全部猜否定」就能拿到 84.15% 的對齊——這正是作者補 PR 曲線的原因，但也提醒讀者不要只看對齊率的表面數字。
+The strength of the evidence is limited by scale: only 55 tasks, 3 systems evaluated, 3 human evaluators, and the PR curve—the key metric the authors themselves admit is "less liable to be misled by class imbalance"—is shown on only one system, OpenHands. More notable still is that the three developers being evaluated all use gpt-4o as backend, while the body of the paper does not clearly state which model the `ask` module of Agent-as-a-Judge uses; if the evaluator and the evaluatee share the same model family, there is a risk of self-preference inflating alignment, and the paper does not run a controlled experiment addressing this confounder. In addition, MetaGPT satisfies almost no requirements, which lets LLM-as-a-Judge obtain 84.15% alignment simply by "guessing negative on everything"—this is exactly why the authors add the PR curve, but it also reminds the reader not to look only at the surface numbers of the alignment rate.
 
-### 宣稱基本成立，但「可規模化的自我改進獎勵訊號」尚未被驗證
+### The Claim Basically Holds, but the "Scalable Self-Improving Reward Signal" Is Not Yet Validated
 
-在「能否用低成本逼近人類評測」這個較窄的問題上，論文的證據是可信的：黑箱下 Agent-as-a-Judge 對 OpenHands 的 90.44% 對齊已超過單一最佳人類的 89.89%，成本卻只有人類的約 2.3%，因此「在某些情況下可近似取代單一人類評測者」是站得住的（但仍低於人類多數決的 94.26%，所以「取代人類」要打折）。真正尚未兌現的是摘要裡更大的願景——把 Agent-as-a-Judge 當成「動態且可規模化的自我改進所需的獎勵訊號」。全文並沒有任何一個實驗真的把這個評測訊號回饋給開發者代理去驅動自我改進，因此這部分目前只是合理但未經證實的展望，讀者應把它與已被量測的評測對齊結果分開看待。
+On the narrower question of "whether human evaluation can be approximated at low cost," the paper's evidence is credible: in the black-box setting, Agent-as-a-Judge's 90.44% alignment on OpenHands already surpasses the single best human's 89.89%, yet at only about 2.3% of the human cost, so "in some cases it can approximately replace a single human evaluator" holds up (but it is still below the human majority vote's 94.26%, so "replacing humans" must be discounted). What truly remains unfulfilled is the larger vision in the abstract—treating Agent-as-a-Judge as "the reward signal needed for dynamic and scalable self-improvement." Nowhere in the paper does any experiment actually feed this evaluation signal back to the developer agent to drive self-improvement, so this part is for now only a reasonable but unverified prospect, and the reader should keep it separate from the already-measured evaluation-alignment results.
 
 ## 🔗 Related notes

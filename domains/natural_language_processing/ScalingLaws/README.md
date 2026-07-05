@@ -1,4 +1,5 @@
 # Scaling Laws for Neural Language Models — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,19 +12,19 @@
 | Official Code | unknown |
 | Venue Kind | paper |
 
-這是一篇 OpenAI 與 Johns Hopkins University 合作、僅以 arXiv 預印本形式發表的實證研究，並未走過任何正式的同行評審流程，因此下方的場館等級（venue tier）在證據上只能標記為 unknown。本文基於 arXiv 全文（arXiv:2001.08361v1）撰寫；由於沒有後續的正式會議或期刊定稿版本，此預印本即為權威文本。
+This is an empirical study jointly conducted by OpenAI and Johns Hopkins University, released only as an arXiv preprint, and it did not go through any formal peer-review process. As a result, the venue tier below can only be marked as unknown on the evidence available. This note is based on the full arXiv text (arXiv:2001.08361v1); since there is no subsequent formal conference or journal camera-ready version, this preprint is the authoritative text.
 
 ## First Principles
 
-### 研究問題：把「規模」拆成三個可量測的軸
+### Research question: decomposing "scale" into three measurable axes
 
-本文要回答的核心問題是：一個自回歸 Transformer 語言模型在交叉熵損失（cross-entropy loss）上的表現，究竟由哪些因素決定、以及如何隨這些因素改變。作者把「規模」拆解成三個彼此獨立、都可精確量測的軸：非嵌入參數量（number of non-embedding parameters）$N$、資料集的 token 數 $D$、以及訓練所用的計算量（compute）$C$。所有實驗都在 WebText2 上以 1024 個 token 的上下文最佳化自回歸 log-likelihood，並以此損失（單位為 nats）作為唯一的主要量測指標。
+The core question this paper answers is: for an autoregressive Transformer language model, what determines its performance on cross-entropy loss, and how does that performance change with those factors. The authors decompose "scale" into three mutually independent, precisely measurable axes: the number of non-embedding parameters $N$, the number of tokens in the dataset $D$, and the compute used for training $C$. All experiments optimize the autoregressive log-likelihood on WebText2 with a context of 1024 tokens, and use this loss (in nats) as the sole primary measurement metric.
 
-作者刻意把詞嵌入與位置嵌入的參數排除在 $N$ 之外，因為他們發現只有在扣除嵌入參數後，不同深度的模型才會收斂到同一條趨勢線；若把嵌入計入總參數量，趨勢會被層數污染而變得模糊。這個「用非嵌入參數量描述規模」的選擇，是後面所有乾淨冪律（power law）能成立的前提，而不是事後的美化。
+The authors deliberately exclude the word-embedding and positional-embedding parameters from $N$, because they found that only after subtracting the embedding parameters do models of different depths converge onto the same trend line; if the embeddings are counted in the total parameter count, the trend is contaminated by the number of layers and becomes blurry. This choice of "describing scale by the non-embedding parameter count" is the premise for all the clean power laws that follow, not an after-the-fact beautification.
 
-### 三條基本冪律
+### Three basic power laws
 
-當表現只被三軸中的其中一軸瓶頸住時，測試損失對該軸都呈現冪律關係。這是全文的骨幹結論，對應下面三個式子（數值為 WebText2 上的擬合值）：
+When performance is bottlenecked by only one of the three axes, the test loss exhibits a power-law relationship with respect to that axis. This is the backbone conclusion of the whole paper, corresponding to the three expressions below (values are fits on WebText2):
 
 $$ L(N) = \left(\frac{N_c}{N}\right)^{\alpha_N}, \quad \alpha_N \approx 0.076, \quad N_c \approx 8.8 \times 10^{13} $$
 
@@ -31,15 +32,15 @@ $$ L(D) = \left(\frac{D_c}{D}\right)^{\alpha_D}, \quad \alpha_D \approx 0.095, \
 
 $$ L(C_{\min}) = \left(\frac{C_c^{\min}}{C_{\min}}\right)^{\alpha_C^{\min}}, \quad \alpha_C^{\min} \approx 0.050, \quad C_c^{\min} \approx 3.1 \times 10^{8} $$
 
-這些關係橫跨了 $C_{\min}$ 的八個數量級、$N$ 的六個數量級、以及 $D$ 的兩個以上數量級，而且對模型形狀（深度、寬度、注意力頭數）幾乎不敏感。指數的絕對值很小這件事本身很有意義：$\alpha_N \approx 0.076$ 代表把參數量翻倍，損失只會乘上 $2^{-0.076} \approx 0.95$，也就是每翻一倍只換到約 5% 的損失下降——規模帶來的是穩定但邊際遞減的回報。作者特別強調 $N_c, D_c, C_c$ 的絕對數值依賴於詞彙表大小與 tokenization，因此沒有基礎性的物理意義，真正可攜的是指數。
+These relationships span eight orders of magnitude in $C_{\min}$, six orders of magnitude in $N$, and more than two orders of magnitude in $D$, and they are almost insensitive to model shape (depth, width, number of attention heads). The fact that the exponents are small in absolute value is itself meaningful: $\alpha_N \approx 0.076$ means that doubling the parameter count multiplies the loss by only $2^{-0.076} \approx 0.95$, i.e., each doubling buys only about a 5% reduction in loss — scale yields steady but diminishing marginal returns. The authors specifically emphasize that the absolute values of $N_c, D_c, C_c$ depend on the vocabulary size and tokenization, so they have no fundamental physical meaning; what is truly portable are the exponents.
 
-### 從架構數清參數與計算量
+### Counting parameters and compute from the architecture
 
-要讓上面的 $N$ 與 $C$ 成為可計算的量，作者給出了 Transformer 的參數與計算量估算。在標準設定 $d_{\rm attn} = d_{\rm ff}/4 = d_{\rm model}$ 下，非嵌入參數量可近似為一個乾淨的閉式：
+To make the above $N$ and $C$ computable quantities, the authors provide estimates of the Transformer's parameters and compute. Under the standard setting $d_{\rm attn} = d_{\rm ff}/4 = d_{\rm model}$, the non-embedding parameter count can be approximated by a clean closed form:
 
 $$ N \approx 12\, n_{\rm layer}\, d_{\rm model}^2 $$
 
-而每個訓練 token 的非嵌入計算量被估計為前向約 $2N$、加上反向的兩倍，合計約 $C \approx 6N$ 浮點運算。下面這張表把每個運算單元的參數與前向 FLOPs 拆開，是上述兩個近似式的來源：
+And the non-embedding compute per training token is estimated as roughly $2N$ for the forward pass, plus twice that for the backward pass, totaling about $C \approx 6N$ floating-point operations. The table below breaks out the parameters and forward FLOPs of each computational unit, and is the source of the two approximations above:
 
 | Operation | Parameters | FLOPs per Token |
 |-|-|-|
@@ -48,29 +49,29 @@ $$ N \approx 12\, n_{\rm layer}\, d_{\rm model}^2 $$
 | Feedforward | $n_{\rm layer} 2 d_{\rm model} d_{\rm ff}$ | $2 n_{\rm layer} 2 d_{\rm model} d_{\rm ff}$ |
 | Total (Non-Embedding) | $N = 2 d_{\rm model} n_{\rm layer}(2 d_{\rm attn}+d_{\rm ff})$ | $C_{\rm forward} = 2N + 2 n_{\rm layer} n_{\rm ctx} d_{\rm attn}$ |
 
-計算量之所以能近似成純粹由 $N$ 決定（而忽略與上下文長度相關的項），是因為作者主要研究 $d_{\rm model} \gg n_{\rm ctx}/12$ 的模型，此時與上下文相關的注意力計算只佔總計算量的一小部分。
+The reason the compute can be approximated as being determined purely by $N$ (while ignoring the term related to context length) is that the authors primarily study models with $d_{\rm model} \gg n_{\rm ctx}/12$, where the context-dependent attention computation accounts for only a small fraction of the total compute.
 
-### 一條式子同時描述模型與資料規模
+### One expression describing both model and data scale jointly
 
-真正把兩個軸接起來的，是同時刻畫 $N$ 與 $D$ 依賴、並且直接預測過擬合程度的聯合式：
+What truly connects the two axes is the joint expression that simultaneously characterizes the dependence on $N$ and $D$ and directly predicts the degree of overfitting:
 
 $$ L(N, D) = \left[\left(\frac{N_c}{N}\right)^{\frac{\alpha_N}{\alpha_D}} + \frac{D_c}{D}\right]^{\alpha_D} $$
 
-這個形式不是隨便湊的，而是由三個原則約束出來：改變詞彙表只應對損失做整體縮放、固定一軸把另一軸推到無窮大時必須回到單軸律 $L(N)$ 或 $L(D)$、以及損失在 $D=\infty$ 附近應可用 $1/D$ 的整數冪級數展開。第三個原則（$1/D$ 展開）是三者中最具推測性的，作者自己也承認若沒有實證確認並不會太有把握，但它解釋了為何 $N$ 與 $D$ 在式中角色不對稱。對這個四參數式子的擬合結果如下表：
+This form is not arbitrarily concocted but is constrained by three principles: changing the vocabulary should only apply an overall scaling to the loss; fixing one axis and pushing the other to infinity must recover the single-axis law $L(N)$ or $L(D)$; and the loss should admit an integer-power series expansion in $1/D$ near $D=\infty$. The third principle (the $1/D$ expansion) is the most speculative of the three, and the authors themselves admit they would not be too confident about it without empirical confirmation, but it explains why $N$ and $D$ play asymmetric roles in the expression. The fitting results for this four-parameter expression are shown in the table below:
 
 | Parameter | $\alpha_N$ | $\alpha_D$ | $N_c$ | $D_c$ |
 |-|-|-|-|-|
 | Value | $0.076$ | $0.103$ | $6.4 \times 10^{13}$ | $1.8 \times 10^{13}$ |
 
-由 $\alpha_N/\alpha_D$ 可推得一條實用的擴充守則：為了在把模型放大時不落入過擬合，資料量只需以次線性的速度成長，$D \gtrsim (5 \times 10^3)\, N^{0.74}$。這也是「每把模型放大 8 倍、只需把資料放大約 5 倍」這句話的來源（因為 $8^{0.74} \approx 4.7$）。
+From $\alpha_N/\alpha_D$ one can derive a practical scaling rule: to avoid falling into overfitting as the model is enlarged, the amount of data need only grow sublinearly, $D \gtrsim (5 \times 10^3)\, N^{0.74}$. This is also the origin of the statement "every time you enlarge the model by 8×, you only need to enlarge the data by about 5×" (because $8^{0.74} \approx 4.7$).
 
-### 訓練動態與計算最優分配
+### Training dynamics and compute-optimal allocation
 
-把訓練步數也納入後，損失可用模型規模與（批次調整後的）步數 $S_{\min}$ 來描述：
+Once the number of training steps is also incorporated, the loss can be described in terms of model scale and the (batch-adjusted) number of steps $S_{\min}$:
 
 $$ L(N, S_{\min}) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{S_c}{S_{\min}}\right)^{\alpha_S}, \quad \alpha_S \approx 0.76,\ S_c \approx 2.1 \times 10^{3} $$
 
-再結合臨界批次大小（critical batch size）$B_{\rm crit}(L) = B_*/L^{1/\alpha_B}$（$\alpha_B \approx 0.21$），作者在固定計算預算下對 $N$ 求損失極小，得到最優分配應如何隨計算量成長。最關鍵、也最反直覺的結論是：計算最優訓練應該幾乎把所有新增算力都投到「更大的模型」上，而序列訓練步數幾乎不增加。這由下表的指數具體量化——$N_{\rm opt}$ 隨 $C_{\min}^{0.73}$ 快速成長，而步數 $S_{\min}$ 只隨 $C_{\min}^{0.03}$ 成長，慢到甚至可能與零指數相容：
+Combining this further with the critical batch size $B_{\rm crit}(L) = B_*/L^{1/\alpha_B}$ ($\alpha_B \approx 0.21$), the authors minimize the loss over $N$ under a fixed compute budget to obtain how the optimal allocation should grow with compute. The most crucial, and most counterintuitive, conclusion is: compute-optimal training should put almost all additional compute into "a larger model," while the number of sequential training steps hardly increases. This is quantified concretely by the exponents in the table below — $N_{\rm opt}$ grows rapidly as $C_{\min}^{0.73}$, while the number of steps $S_{\min}$ grows only as $C_{\min}^{0.03}$, slow enough to even be compatible with a zero exponent:
 
 | Compute-Efficient Value | Power Law | Scale |
 |-|-|-|
@@ -79,25 +80,25 @@ $$ L(N, S_{\min}) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{S_c}{S_{
 | $S_{\min} = S_e \cdot C_{\min}^{p_S}$ | $p_S = 0.03$ | $S_e = 5.4 \times 10^{3}$ steps |
 | $D_{\rm opt} = D_e \cdot C_{\min}^{p_D}$ | $p_D = 0.27$ | $D_e = 2 \times 10^{10}$ tokens |
 
-從 $L(N, S_{\min})$ 的解析求極小還可推出一個乾淨的訓練停止準則：計算最優的訓練應該在「比收斂損失高約 $\alpha_N/\alpha_S \approx 10\%$」的地方就停手，而不是訓練到收斂。這正式化了摘要裡「訓練非常大的模型、並在遠未收斂前就停止」這個實務指引。
+Analytically minimizing $L(N, S_{\min})$ also yields a clean training-stopping criterion: compute-optimal training should stop at a point "about $\alpha_N/\alpha_S \approx 10\%$ higher than the converged loss," rather than training to convergence. This formalizes the practical guidance in the abstract of "training very large models and stopping well short of convergence."
 
-### 一個具體的數值範例
+### A concrete numerical example
 
-以本文引用的 GPT-2 尺寸模型 $(n_{\rm layer}, d_{\rm model}) = (48, 1600)$ 為例走一遍。先用參數式估算非嵌入參數量：
+Let us walk through the GPT-2-sized model $(n_{\rm layer}, d_{\rm model}) = (48, 1600)$ cited in this paper. First, use the parameter expression to estimate the non-embedding parameter count:
 
 $$ N \approx 12 \times 48 \times 1600^2 = 1.47 \times 10^{9} \ \text{(non-embedding params)} $$
 
-代入單軸律 $L(N)$ 預測其在無限資料下的收斂損失：
+Substitute into the single-axis law $L(N)$ to predict its converged loss under infinite data:
 
 $$ L(N) = \left(\frac{8.8 \times 10^{13}}{1.47 \times 10^{9}}\right)^{0.076} = (5.97 \times 10^{4})^{0.076} \approx 2.3 \ \text{nats/token} $$
 
-接著用過擬合守則檢查資料是否足夠：$D \gtrsim 5 \times 10^3 \times (1.47 \times 10^9)^{0.74} \approx 3.0 \times 10^{10}$ tokens，也就是約 300 億 token。這正好解釋了為什麼 WebText2 的 22B token 對 $10^9$ 參數以下的模型幾乎不會過擬合，但對本文最大的模型會開始出現輕微過擬合——因為所需資料量剛好爬過了資料集規模。（以上代入與四則運算為本文作者的推導，非原論文逐字給出。）
+Next, use the overfitting rule to check whether the data is sufficient: $D \gtrsim 5 \times 10^3 \times (1.47 \times 10^9)^{0.74} \approx 3.0 \times 10^{10}$ tokens, i.e., about 30 billion tokens. This precisely explains why WebText2's 22B tokens almost never cause overfitting for models below $10^9$ parameters, but begin to exhibit slight overfitting for this paper's largest model — because the required amount of data has just crept past the dataset size. (The substitutions and arithmetic above are the derivation of this note's author, not given verbatim in the original paper.)
 
-下圖是本文的招牌圖：測試損失對計算量、資料量、參數量三者都呈現橫跨多個數量級的直線（對數-對數座標下），是「平滑冪律」這個核心主張最直接的視覺證據。
+The figure below is this paper's signature plot: the test loss is a straight line (in log-log coordinates) spanning multiple orders of magnitude with respect to compute, dataset size, and parameter count, providing the most direct visual evidence for the core claim of "smooth power laws."
 
-![測試損失對 compute、dataset size、parameters 皆為冪律的招牌圖](imgs/simple-power-laws.png)
+![Signature plot showing that test loss is a power law with respect to compute, dataset size, and parameters](imgs/simple-power-laws.png)
 
-最後，全文的擬合值可彙整成下表，作為所有預測的參數來源（數值皆依賴 tokenization）：
+Finally, the paper's fitted values can be consolidated into the table below, serving as the parameter source for all predictions (values all depend on tokenization):
 
 | Power Law | Scale |
 |-|-|
@@ -110,21 +111,21 @@ $$ L(N) = \left(\frac{8.8 \times 10^{13}}{1.47 \times 10^{9}}\right)^{0.076} = (
 
 ## 🧪 Critical Assessment
 
-### 把算力分配化約成可外推冪律的實用價值
+### The practical value of reducing compute allocation to an extrapolable power law
 
-這篇論文問的問題本身是紮實而非造出來的：在 2020 年，「把模型與資料放大到什麼程度、算力該如何分配」是一個真金白銀的工程決策，而當時業界多半靠直覺與硬體限制在做。把這個決策化約成幾條可外推的冪律，具有清楚的實用價值，後續 GPT-3 的尺寸選擇與 Chinchilla 的重新檢視都直接建立在這個框架上，足見問題的真實性。這一點上我認為沒有灌水成分。
+The question this paper asks is itself substantial rather than manufactured: in 2020, "to what extent should the model and data be scaled up, and how should compute be allocated" was a real-money engineering decision, and at the time the industry mostly made it by intuition and hardware limits. Reducing this decision to a few extrapolable power laws has clear practical value; the subsequent size choice of GPT-3 and Chinchilla's re-examination were both built directly on this framework, which attests to the reality of the question. On this point I see no padding.
 
-### 單一 WebText2 語料與純交叉熵指標的兩個缺口
+### Two gaps: a single WebText2 corpus and a pure cross-entropy metric
 
-作為一篇實證論文，它的內部消融相當充分：形狀無關性是靠固定 $N$、單獨掃描深度/寬度/頭數得到的；嵌入參數的取捨也有左右對照圖直接支持。但有幾個結構性侷限值得點名。第一，全部結論都建立在單一資料分布 WebText2 上，作者雖測了其他分布的遷移，卻沒有在不同語料上重新擬合指數，因此「指數與 tokenization 無關的可攜量」這個說法其實只是弱驗證，而非跨資料集的證明。第二，量測指標只有一種——上下文平均的交叉熵損失，完全沒有下游任務表現。損失平滑下降不代表任何具體能力平滑提升，作者自己在 Discussion 也承認「more is different」，這等於承認了核心量測與人們真正在意的能力之間存在未被橋接的鴻溝。
+As an empirical paper, its internal ablations are quite thorough: shape-invariance is obtained by fixing $N$ and separately sweeping depth/width/heads; the trade-off in embedding parameters is also directly supported by side-by-side comparison figures. But several structural limitations are worth naming. First, all conclusions are built on a single data distribution, WebText2; although the authors tested transfer to other distributions, they did not re-fit the exponents on different corpora, so the claim that "the exponents are a portable quantity independent of tokenization" is in fact only weakly verified, not a cross-dataset proof. Second, there is only one measurement metric — the context-averaged cross-entropy loss, with no downstream-task performance at all. A smooth decline in loss does not imply that any concrete capability improves smoothly; the authors themselves admit in the Discussion that "more is different," which amounts to conceding that there is an unbridged gap between the core measurement and the capabilities people actually care about.
 
-### 與 Hestness 相反的次線性資料守則，及 $1/D$ 展開的推測性
+### A sublinear data rule opposite to Hestness, and the speculative nature of the $1/D$ expansion
 
-冪律縮放本身在 2020 年之前並非全新——Hestness、Rosenfeld 等人都已報告過模型/資料規模與表現的冪律。本文誠實地在 Related Work 引用了這些工作，並指出關鍵差異：前人（如 Hestness）發現資料量需超線性成長於模型規模，而本文得到的是次線性成長，兩者結論方向相反。這個反向結論加上「把計算量納為第三軸並推導最優分配」的閉環，構成了實質的新增貢獻，我不認為這只是換名詞的重新包裝。不過需要保留的是，$L(N,D)$ 那個聯合式的第三原則（$1/D$ 整數冪展開）帶有相當的推測性，作者也自承理論支持較弱，因此該式的「必然性」被包裝得比證據所能支撐的更強一些。
+Power-law scaling itself was not brand new before 2020 — Hestness, Rosenfeld, and others had already reported power laws between model/data scale and performance. This paper honestly cites these works in Related Work and points out the key difference: prior work (such as Hestness) found that the amount of data needs to grow superlinearly with model scale, whereas this paper obtains sublinear growth, the two conclusions pointing in opposite directions. This reversed conclusion, together with the closed loop of "incorporating compute as a third axis and deriving the optimal allocation," constitutes a substantive incremental contribution, and I do not think this is merely a repackaging with new terms. What must be reserved, however, is that the third principle of the joint expression $L(N,D)$ (the integer-power expansion in $1/D$) carries considerable speculation, and the authors themselves concede the theoretical support is weaker, so the "inevitability" of that expression is packaged somewhat more strongly than the evidence can support.
 
-### 冪律必然失效的外推交點與「語言熵」詮釋的風險
+### The extrapolation crossing point where the power law must break down, and the risk of the "language entropy" interpretation
 
-最需要警惕的是，這套框架的「成功」幾乎是用它自己定義的量測（WebText2 交叉熵）來宣稱的——趨勢線漂亮，但那條線量的正是被最佳化的目標本身。真正的外推風險被作者自己揭露在「矛盾與猜想」一節：$L(C_{\min})$ 與 $L(D)$ 兩條外推線會在 $C^* \sim 10^4$ PF-days、$N^* \sim 10^{12}$ 附近相交而產生矛盾，意味著冪律必然在某處失效。作者把這個交點浪漫化為「自然語言熵的估計」，但也坦承交點位置對指數極度敏感，可上下浮動一個數量級。這是一個誠實但危險的猜想：把一個外推失效點重新詮釋成物理常數，本質上仍是未經證實的推斷。整體而言，論文的預測框架在其量測的內部區間內證據充分，但一旦跨出量測範圍或換到下游能力，其宣稱就從「已驗證」滑向「合理但未證實」，讀者不應把冪律當成無條件的定律來背。
+What most warrants caution is that this framework's "success" is almost claimed using its own defined measurement (WebText2 cross-entropy) — the trend line is beautiful, but what that line measures is precisely the very objective being optimized. The real extrapolation risk is disclosed by the authors themselves in the "contradictions and conjecture" section: the two extrapolation lines $L(C_{\min})$ and $L(D)$ cross and produce a contradiction near $C^* \sim 10^4$ PF-days and $N^* \sim 10^{12}$, implying that the power law must break down somewhere. The authors romanticize this crossing point as "an estimate of the entropy of natural language," but they also admit that the location of the crossing point is extremely sensitive to the exponents and can shift up or down by an order of magnitude. This is an honest but dangerous conjecture: reinterpreting an extrapolation-breakdown point as a physical constant is, in essence, still an unverified inference. Overall, the paper's predictive framework is well-supported by evidence within the internal interval it measures, but once one steps outside the measurement range or switches to downstream capabilities, its claims slide from "verified" toward "plausible but unproven," and readers should not memorize the power laws as unconditional laws.
 
 ## 🔗 Related notes
 

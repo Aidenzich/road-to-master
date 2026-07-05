@@ -6,35 +6,36 @@
 | Tags | #study |
 
 # Bert Summary
-這篇先以 [bert-extractive-summarizer](https://github.com/dmmiller612/bert-extractive-summarizer) 開始做一些相關的實驗
-有機會的話，對 summarizer 的相關論文進行研究，了解整個架構的SOP是什麼樣子
+> **English** | [繁體中文](./README.zh-TW.md)
+This note starts by running some related experiments with [bert-extractive-summarizer](https://github.com/dmmiller612/bert-extractive-summarizer).
+When there is an opportunity, study the papers related to the summarizer to understand what the SOP of the whole architecture looks like.
 
 ## Experiment Example
 - [My Playground](https://github.com/Aidenzich/helloBertSummary)
 
-- 我們使用摘要模型來對這篇[文章]((https://bc165870081.medium.com/%E6%99%82%E9%96%93%E5%BA%8F%E5%88%97%E7%9A%84ai%E4%BB%8B%E7%B4%B9-ff250cfc2ff9))進行摘要，以下是摘要的結果
+- We use the summarization model to summarize this [article]((https://bc165870081.medium.com/%E6%99%82%E9%96%93%E5%BA%8F%E5%88%97%E7%9A%84ai%E4%BB%8B%E7%B4%B9-ff250cfc2ff9)); the summary result is as follows
 
-  >當我們輸入一個時間序列：
-  >如果我們想知道這個序列的數值會如何變化，那麼這是一個回歸問題
-  如果想知道這一串序列代表的是A還是B，那麼則是一個分類問題。 首先要先製作許多的時間短序列
-  透過Sliding window這個技巧我們可以把一筆長長的時序資料變成許多筆短短的時序資料。 然後我們不斷重複每間隔一周就取兩周的資料，這種方法就叫做Sliding Windows。 Model-1: Zero-Rule model
-  我們想知道一個最天真的模型能夠得到什麼成績，這個模型叫做Zero-Rule Model，他永遠都認為y的值相當於訓練資料中y的平均值。( 我們用同樣用Zero-Rule model 和相同架構的LSTM model訓練並評估他們的分數，成果如下：
-  基本上在測試資料上的R2都比原來更低了，但mse是有縮小的。 根據實驗結果推測，Conv1D能表現得好是因為他能找到拐點出現的特徵，而LSTM表現不好是因為他的資料型態不太適合，我們把LSTM的輸入資料要的相關係數分別以矩陣和熱圖的方式呈現(Fig. 舉個例子，你只要每次都猜第14天的收盤價 = 第13天的收盤價，你也會有相當高的成績(Fig. 非常簡單的測試，沒有調懲罰項等等)
-  最實際的，還是重新處理資料
-  (ex: EDA、特徵工程)
-  目前我們只有使用收盤價，單純使用收盤價來預測收盤價其實資訊量是非常少的。 而深度學習不但能夠把輸入資料投影到一個非常高維的Space以找出回歸線，也能夠同時找出特徵來同時對資料做處理。
+  >When we input a time series:
+  >If we want to know how the values of this series will change, then this is a regression problem
+  If we want to know whether this series represents A or B, then it is a classification problem. First, we need to create many short time series
+  Using the Sliding window technique, we can turn one long piece of time-series data into many short pieces of time-series data. Then we keep repeating, taking two weeks of data every one-week interval; this method is called Sliding Windows. Model-1: Zero-Rule model
+  We want to know what score the most naive model can achieve. This model is called the Zero-Rule Model, and it always assumes that the value of y equals the average of y in the training data. ( We use the Zero-Rule model together with an LSTM model of the same architecture to train and evaluate their scores; the results are as follows:
+  Basically, the R2 on the test data is lower than before, but the mse has shrunk. Based on the experimental results, we infer that Conv1D performs well because it can find the features where inflection points appear, while LSTM performs poorly because its data type is not quite suitable. We present the correlation coefficients required for the LSTM's input data in the form of a matrix and a heatmap respectively (Fig. For example, if you just guess every time that the closing price on day 14 = the closing price on day 13, you will also get a fairly high score (Fig. A very simple test, without tuning penalty terms, etc.)
+  The most practical approach is still to reprocess the data
+  (ex: EDA, feature engineering)
+  Currently we only use the closing price; simply using the closing price to predict the closing price actually carries very little information. Deep learning can not only project the input data into a very high-dimensional Space to find the regression line, but can also simultaneously find features to process the data at the same time.
 
-- 實際閱讀起來確實是有 Get 到部分重點資訊，但有以下缺點：
-  - 部分資訊遺漏
-  - 語意不通順
-  - 段落互相插入
+- When actually reading it, we did Get some of the key information, but it has the following drawbacks:
+  - Part of the information is lost
+  - The semantics are not smooth
+  - Paragraphs are inserted into one another
 
-- 使用另一篇[新聞](https://www.bbc.com/zhongwen/trad/science-59993121)來看看效果
-    >虛擬世界提供各種沉浸式體驗
-    隨著元宇宙概念走紅，在虛擬世界買賣房地產也越來越熱門，甚至多次創下虛擬房地產交易金額新高，元宇宙炒房為何如此吸引人，又暗藏哪些玄機？ 最近，在虛擬現實平台「Decentraland」上的一塊虛擬房地產以240萬美元價值的加密貨幣成交，金額突破紀錄，再次引發人們對元宇宙炒房的熱烈關注，但專家警告花錢購買虛構的土地或房產小心血本無歸。 「Decentraland」是一個網絡虛擬空間，也就是所謂的元宇宙的其中之一，使用者可以在該平台上面購買虛擬土地，建造房子，裝修自己的房子，開設店面，也可買賣交易房地產，以虛擬化身在其中漫遊。 知名歌手林俊傑也在推特上表示，自己在「Decentraland」虛擬平台上面也擁有數字土地。 在非同質化代幣交易市場「OpenSea」平台上面，現在也有虛擬土地和虛擬房屋買賣。 虛擬房地產的價值已經出現上漲，2021年6月，數字不動產投資基金「Republic Realm」據報花費大約等同於90萬美元的價格在「Decentraland」購買了一批土地。 元宇宙炒房熱帶動價格上漲，現階段似乎只有企業和投資基金才有能力涉足，但並非所有元宇宙的不動產都得動輒上百萬美元，你也可以在一些虛擬遊戲上面建造自己的小小的家。
+- Use another piece of [news](https://www.bbc.com/zhongwen/trad/science-59993121) to see the effect
+    >The virtual world offers all kinds of immersive experiences
+    As the metaverse concept becomes popular, buying and selling real estate in the virtual world has become increasingly popular, and has even repeatedly set new highs in virtual real estate transaction amounts. Why is metaverse property speculation so attractive, and what mysteries does it hide? Recently, a piece of virtual real estate on the virtual reality platform "Decentraland" was sold for cryptocurrency worth 2.4 million US dollars, breaking the record for the amount and once again sparking intense attention to metaverse property speculation. However, experts warn that spending money to buy fictional land or property risks losing everything. "Decentraland" is an online virtual space, that is, one of the so-called metaverses. Users can buy virtual land on this platform, build houses, decorate their own houses, open storefronts, and also buy, sell, and trade real estate, roaming through it as a virtual avatar. The famous singer JJ Lin also stated on Twitter that he owns digital land on the "Decentraland" virtual platform. On the non-fungible token trading marketplace "OpenSea," there are now also virtual land and virtual houses for sale. The value of virtual real estate has already risen. In June 2021, the digital real estate investment fund "Republic Realm" reportedly spent an amount roughly equivalent to 900,000 US dollars to buy a batch of land in "Decentraland." The metaverse property speculation boom has driven up prices; at the current stage, it seems that only enterprises and investment funds have the ability to get involved, but not all metaverse real estate necessarily costs millions of dollars—you can also build your own little home in some virtual games.
     
 
 
 ## How to application ?
-1. 可以使用此摘要來快速萃取資訊，雖然資訊必然有所遺漏但能有效增加閱讀量
-2. 需要增多不同的文章長度設置不同的 ratio 與長度限制，才能讓摘要更精簡
+1. You can use this summary to quickly extract information; although some information is inevitably lost, it can effectively increase reading volume
+2. It is necessary to add different ratios and length limits for different article lengths, so that the summary can be more concise

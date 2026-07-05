@@ -1,4 +1,5 @@
 # xLSTM — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,67 +12,67 @@
 | Official Code | https://github.com/NX-AI/xlstm |
 | Venue Kind | paper |
 
-> 本篇為基於 arXiv 全文（`2405.04517`，2024-05-07 首版）的研究筆記。NeurIPS 2024 的正式版由 Semantic Scholar 的 publication venue 欄位交叉確認；截至 2026-07-03，該紀錄回報約 632 次引用（Semantic Scholar，可能隨時間變動）。
+> This is a research note based on the arXiv full text (`2405.04517`, first version 2024-05-07). The official NeurIPS 2024 version is cross-confirmed via Semantic Scholar's publication venue field; as of 2026-07-03, that record reports about 632 citations (Semantic Scholar, subject to change over time).
 
 ## First Principles
 
-### 從 constant error carousel 到三個致命限制
+### From the constant error carousel to three fatal limitations
 
-LSTM 的核心是 1990 年代提出的 constant error carousel（固定誤差旋轉木馬）與 gating（閘控）：cell state 以加法方式被更新，由 sigmoid 閘控制寫入與遺忘，藉此繞過 RNN 的梯度消失問題。作者主張 LSTM 有三個主要限制：(i) 無法修正已儲存的決策（storage decision），因為 sigmoid forget gate 難以在看到更相似向量時覆寫舊值；(ii) 儲存容量有限，資訊被壓縮進純量 cell state；(iii) 因為 memory mixing（hidden-hidden 連接）而無法平行化。xLSTM 的整篇論文就是要在保留 LSTM 精神的前提下逐一鬆綁這三點。
+The core of the LSTM is the constant error carousel and gating proposed in the 1990s: the cell state is updated additively, with sigmoid gates controlling writing and forgetting, thereby circumventing the vanishing-gradient problem of RNNs. The authors argue that the LSTM has three main limitations: (i) it cannot revise a stored decision (storage decision), because a sigmoid forget gate has difficulty overwriting an old value when a more similar vector appears; (ii) its storage capacity is limited, with information compressed into a scalar cell state; (iii) it cannot be parallelized because of memory mixing (hidden-hidden connections). The entire xLSTM paper aims to relax these three points one by one while preserving the spirit of the LSTM.
 
-原始 LSTM 的 cell state 與 hidden state 更新可寫成下式，其中 $f_t, i_t, o_t$ 為 sigmoid 閘、$z_t$ 為 cell input、$\psi$ 為壓縮函數：
+The cell state and hidden state updates of the original LSTM can be written as below, where $f_t, i_t, o_t$ are sigmoid gates, $z_t$ is the cell input, and $\psi$ is a squashing function:
 
 $$
 c_t = f_t \, c_{t-1} + i_t \, z_t, \qquad h_t = o_t \, \psi(c_t)
 $$
 
-### sLSTM：指數閘控（exponential gating）與純量記憶
+### sLSTM: exponential gating and scalar memory
 
-sLSTM 的第一項改動是把 input gate（以及可選的 forget gate）的激活函數從 sigmoid 換成 exponential（指數），讓閘值不再被壓在 $[0,1]$，因此模型能大幅放大新輸入、有效「覆寫」舊記憶——這正對應限制 (i)。指數會爆炸，所以作者額外引入一個 normalizer state $n_t$（累加 input gate 乘上所有後續 forget gate）把輸出正規化，並用一個 stabilizer state $m_t$（取對數域最大值）做數值穩定；論文證明這個穩定化不改變網路輸出與梯度。
+The first change in sLSTM is to swap the activation function of the input gate (and optionally the forget gate) from sigmoid to exponential, so that the gate value is no longer squeezed into $[0,1]$, and the model can therefore greatly amplify a new input and effectively "overwrite" old memory—this exactly addresses limitation (i). The exponential can explode, so the authors additionally introduce a normalizer state $n_t$ (accumulating the input gate multiplied by all subsequent forget gates) to normalize the output, and use a stabilizer state $m_t$ (taking the max in the log domain) for numerical stability; the paper proves that this stabilization does not change the network's output or gradients.
 
-sLSTM 的純量前向遞迴與正規化如下：
+The scalar forward recurrence and normalization of sLSTM are as follows:
 
 $$
 c_t = f_t \, c_{t-1} + i_t \, z_t, \quad n_t = f_t \, n_{t-1} + i_t, \quad \tilde{h}_t = c_t / n_t, \quad h_t = o_t \, \tilde{h}_t
 $$
 
-sLSTM 也保留多個 memory cell，並可切成多個 head：在同一個 head 內部透過 recurrent 矩陣 $R$ 做 memory mixing，但 head 之間不混合。作者強調，把 head 與指數閘控結合起來，構成了一種新的 memory mixing 形式，而這正是 sLSTM 相對於 SSM 與 linear attention 的關鍵差異點——後兩者沒有 memory mixing，因此無法做 state tracking。
+sLSTM also retains multiple memory cells and can be split into multiple heads: within the same head, memory mixing is done via a recurrent matrix $R$, but heads do not mix with each other. The authors emphasize that combining heads with exponential gating constitutes a new form of memory mixing, and this is precisely the key differentiating point of sLSTM relative to SSMs and linear attention—the latter two have no memory mixing and therefore cannot do state tracking.
 
-### mLSTM：矩陣記憶與 covariance 更新規則
+### mLSTM: matrix memory and the covariance update rule
 
-mLSTM 針對限制 (ii)：把純量 cell state $c \in \mathbb{R}$ 升級為矩陣記憶 $C \in \mathbb{R}^{d \times d}$，於是「檢索」變成一次矩陣乘法。借用 Transformer 的術語，每個時間步存入一對 key $k_t$ 與 value $v_t$，日後由 query $q_{t+\tau}$ 取回,這其實是 Bidirectional Associative Memory 的設定。存入採用 covariance（外積）更新規則 $C_t = C_{t-1} + v_t k_t^\top$；把它套進 LSTM 框架後，forget gate 就對應 decay rate、input gate 對應 learning rate、output gate 縮放取回的向量。
+mLSTM targets limitation (ii): it upgrades the scalar cell state $c \in \mathbb{R}$ to a matrix memory $C \in \mathbb{R}^{d \times d}$, so that "retrieval" becomes a single matrix multiplication. Borrowing Transformer terminology, at each time step a pair of key $k_t$ and value $v_t$ is stored, to be later retrieved by a query $q_{t+\tau}$; this is in fact the setup of Bidirectional Associative Memory. Storing uses the covariance (outer-product) update rule $C_t = C_{t-1} + v_t k_t^\top$; after fitting it into the LSTM framework, the forget gate corresponds to the decay rate, the input gate to the learning rate, and the output gate scales the retrieved vector.
 
-矩陣記憶的更新與檢索（含 normalizer state $n_t$ 與下界為 1 的分母）可寫成：
+The update and retrieval of the matrix memory (with the normalizer state $n_t$ and a denominator lower-bounded by 1) can be written as:
 
 $$
 C_t = f_t \, C_{t-1} + i_t \, v_t k_t^\top, \quad n_t = f_t \, n_{t-1} + i_t \, k_t, \quad \tilde{h}_t = \frac{C_t \, q_t}{\max\{\,|n_t^\top q_t|,\; 1\,\}}
 $$
 
-因為 mLSTM 拿掉了 memory mixing（沒有 hidden-hidden 連接），這條遞迴可以被改寫成一個平行版本，訓練時像 attention 一樣沿序列平行計算；代價是每步都要處理 $d \times d$ 的矩陣，計算量大，但這些矩陣運算不含參數且能在 GPU 上平行，牆鐘時間的額外負擔有限。
+Because mLSTM removes memory mixing (no hidden-hidden connections), this recurrence can be rewritten into a parallel version, computed in parallel along the sequence during training like attention; the cost is that a $d \times d$ matrix must be processed at every step, which is computationally heavy, but these matrix operations contain no parameters and can be parallelized on the GPU, so the extra wall-clock overhead is limited.
 
-### xLSTM 區塊與 xLSTM[a:b] 架構
+### The xLSTM block and the xLSTM[a:b] architecture
 
-兩種 cell 各自被包進不同的殘差區塊：sLSTM 用 post up-projection block（像 Transformer：先在原空間非線性摘要過去，再投影到高維、非線性、投回），mLSTM 用 pre up-projection block（像 SSM：先投到高維再摘要，因為高維空間裡矩陣記憶容量更大）；設計動機引用 Cover 定理——高維空間中非線性嵌入的樣式更容易被線性分開。整體架構就是把這些區塊以 pre-LayerNorm 殘差方式堆疊。論文用 xLSTM[$a$:$b$] 表示 mLSTM 與 sLSTM 區塊的比例：例如 xLSTM[7:1] 代表每八個區塊有七個 mLSTM、一個 sLSTM；For a common total block number of 48, this translates to 6 個 sLSTM 區塊與 42 個 mLSTM 區塊。
+The two kinds of cells are each wrapped into different residual blocks: sLSTM uses a post up-projection block (like a Transformer: first nonlinearly summarize the past in the original space, then project to a higher dimension, apply nonlinearity, and project back), while mLSTM uses a pre up-projection block (like an SSM: first project to a higher dimension and then summarize, because the matrix memory has larger capacity in a high-dimensional space); the design motivation cites Cover's theorem—patterns nonlinearly embedded in a high-dimensional space are more easily separated linearly. The overall architecture simply stacks these blocks in a pre-LayerNorm residual fashion. The paper uses xLSTM[$a$:$b$] to denote the ratio of mLSTM to sLSTM blocks: for example, xLSTM[7:1] means seven mLSTM and one sLSTM per eight blocks; for a common total block number of 48, this translates to 6 sLSTM blocks and 42 mLSTM blocks.
 
-### 一次「LSTM → xLSTM」的具體推演
+### A concrete walkthrough of "LSTM → xLSTM"
 
-理解 xLSTM 各元件貢獻的最好方式，是看作者在 15B token SlimPajama 上把一個 vanilla LSTM 逐步 morph 成 xLSTM 的消融：從最原始的多層 LSTM 出發，依序加上 ResNet backbone、up-projection backbone、指數閘控、矩陣記憶，觀察 validation perplexity（越低越好）如何一路下降。
+The best way to understand the contribution of each xLSTM component is to look at the authors' ablation on 15B-token SlimPajama, where they progressively morph a vanilla LSTM into xLSTM: starting from the most primitive multi-layer LSTM, they successively add a ResNet backbone, an up-projection backbone, exponential gating, and matrix memory, observing how the validation perplexity (lower is better) drops all the way down.
 
-| 模型階段 | 指數閘控 | 矩陣記憶 | #Params (M) | SlimPajama (15B) ppl ↓ |
+| Model stage | Exponential gating | Matrix memory | #Params (M) | SlimPajama (15B) ppl ↓ |
 |-|-|-|-|-|
-| Vanilla 多層 LSTM | ✗ | ✗ | 607.8 | 2417.86 |
+| Vanilla multi-layer LSTM | ✗ | ✗ | 607.8 | 2417.86 |
 | + ResNet backbone | ✗ | ✗ | 506.1 | 35.46 |
 | + up-projection backbone | ✗ | ✗ | 505.9 | 26.01 |
-| xLSTM[0:1]（加指數閘控） | ✓ | ✗ | 427.3 | 17.70 |
-| xLSTM[7:1]（再加矩陣記憶） | ✓ | ✓ | 408.4 | 13.48 |
+| xLSTM[0:1] (add exponential gating) | ✓ | ✗ | 427.3 | 17.70 |
+| xLSTM[7:1] (also add matrix memory) | ✓ | ✓ | 408.4 | 13.48 |
 
-這條軌跡把故事講得很清楚：光是把一個約 6 億參數的裸 LSTM 放進殘差 backbone，perplexity 就從 2417.86 崩落到 35.46（裸 LSTM 這種規模幾乎訓不動）；up-projection 再降到 26.01；換上指數閘控（此時已是純 sLSTM 的 xLSTM[0:1]）跳到 17.70；最後補上 mLSTM 的矩陣記憶得到 13.48。作者據此把主要增益歸因於指數閘控與矩陣記憶兩者，而不是單一元件——這也是全文最有說服力的一張表。
+This trajectory tells the story very clearly: merely placing a bare LSTM of about 600M parameters into a residual backbone drops the perplexity from 2417.86 to 35.46 (a bare LSTM of this scale is essentially untrainable); the up-projection further lowers it to 26.01; switching to exponential gating (at this point it is already the pure-sLSTM xLSTM[0:1]) jumps it to 17.70; and finally adding mLSTM's matrix memory gives 13.48. On this basis the authors attribute the main gains to both exponential gating and matrix memory, rather than to a single component—this is also the most persuasive table in the whole paper.
 
-### 主要語言模型結果
+### Main language modeling results
 
-在同樣的 15B token 設定下，作者拿 xLSTM 對打各家 350M 級模型（皆對齊 GPT-3 350M 的維度）。下表節錄各類別代表的 validation perplexity：
+Under the same 15B-token setting, the authors pit xLSTM against various 350M-class models (all aligned to the dimensions of GPT-3 350M). The table below excerpts the validation perplexity of representatives from each category:
 
-| 模型（類別） | #Params (M) | SlimPajama (15B) ppl ↓ |
+| Model (category) | #Params (M) | SlimPajama (15B) ppl ↓ |
 |-|-|-|
 | Llama (Transformer) | 407 | 14.25 |
 | Mamba (SSM) | 423 | 13.70 |
@@ -80,39 +81,39 @@ $$
 | **xLSTM[1:0]** | 409 | **13.43** |
 | xLSTM[7:1] | 408 | 13.48 |
 
-在這張表裡 xLSTM outperforms all existing methods in validation perplexity，其中純 mLSTM 的 xLSTM[1:0] 以 13.43 拿下全場最佳，略勝 Mamba 的 13.70 與 Llama 的 14.25。接著作者把資料放大 20 倍、訓練 300B token，並在 125M–1.3B 四種規模上比較 xLSTM、Llama、Mamba、RWKV-4。以下節錄 1.3B 規模的驗證困惑度與下游任務：
+In this table xLSTM outperforms all existing methods in validation perplexity, with the pure-mLSTM xLSTM[1:0] taking the overall best at 13.43, slightly beating Mamba's 13.70 and Llama's 14.25. The authors then scale the data up 20-fold, training 300B tokens, and compare xLSTM, Llama, Mamba, and RWKV-4 across four scales from 125M to 1.3B. The following excerpts the validation perplexity and downstream tasks at the 1.3B scale:
 
-| 模型 (1.3B) | #Params (M) | SlimPajama ppl ↓ | LAMBADA acc ↑ | HellaSwag acc ↑ | 平均 acc ↑ |
+| Model (1.3B) | #Params (M) | SlimPajama ppl ↓ | LAMBADA acc ↑ | HellaSwag acc ↑ | Avg. acc ↑ |
 |-|-|-|-|-|-|
 | RWKV-4 | 1515.2 | 9.83 | 49.78 | 56.20 | 54.78 |
 | Llama | 1420.4 | 9.44 | 57.44 | 57.81 | 56.99 |
 | Mamba | 1475.3 | 9.14 | 55.64 | 60.45 | 58.41 |
 | **xLSTM[1:0]** | 1422.6 | **8.89** | 57.83 | 60.91 | 58.48 |
 
-在 1.3B 上 xLSTM[1:0] 的驗證困惑度 8.89 仍最低。更細緻的證據來自 PALOMA 的 571 個文本領域：作者回報 xLSTM[1:0] 在 568 out of 571（99.5%）的領域上困惑度低於 Mamba、在 85.1% 的領域低於 Llama、在 99.8% 的領域低於 RWKV-4。此外，訓練在 context 2048、測到 16384 的長度外推實驗中 xLSTM 的困惑度維持穩定，而其 recurrent 特性讓生成時間隨序列線性增長、可用比 Llama 更大的 batch 而取得更高吞吐。
+At 1.3B, xLSTM[1:0]'s validation perplexity of 8.89 is still the lowest. Finer-grained evidence comes from PALOMA's 571 text domains: the authors report that xLSTM[1:0] has lower perplexity than Mamba on 568 out of 571 (99.5%) domains, lower than Llama on 85.1% of domains, and lower than RWKV-4 on 99.8% of domains. In addition, in length-extrapolation experiments trained at context 2048 and tested up to 16384, xLSTM's perplexity stays stable, and its recurrent nature makes generation time grow linearly with the sequence, allowing a larger batch than Llama and thus higher throughput.
 
 ## 🧪 Critical Assessment
 
-### 線性時間序列模型追趕 Transformer 是真實需求
+### Linear-time sequence models catching up with Transformers is a real need
 
-論文提出的問題本身是真實的：在 Transformer 的二次複雜度成為長序列與推論成本瓶頸的當下，How far do we get in language modeling 這種「線性時間、常數記憶的序列模型能否追上 Transformer」的追問，與 SSM/RWKV 一整條研究線同源，並非人造需求。合理的判讀是，這是一個有實際工程價值的問題，且 xLSTM 提供了一個「把 LSTM 現代化」而非另起爐灶的角度，這一點有其獨立意義。
+The problem the paper poses is itself real: at a time when the quadratic complexity of Transformers has become a bottleneck for long sequences and inference cost, the question of "how far do we get in language modeling" with linear-time, constant-memory sequence models that can catch up with Transformers shares the same lineage as the whole SSM/RWKV research line, and is not a manufactured need. The reasonable reading is that this is a problem with genuine engineering value, and that xLSTM offers an angle of "modernizing the LSTM" rather than starting from scratch, which has its own independent significance.
 
-### 廣泛基線之下，單一語料與 1.3B 上限削弱外部效度
+### Under broad baselines, a single corpus and a 1.3B ceiling weaken external validity
 
-基線覆蓋面相當廣（Transformer、SSM、多代 RWKV、GLA、HGRN2、RetNet 等），LSTM→xLSTM 的逐步消融也做得漂亮，這是強項。值得懷疑的是外部效度：所有語言模型結果都建立在單一語料 SlimPajama 上（125M, 350M, 760M, 1.3B），最大只到 1.3B，且主要度量高度集中在 validation perplexity。以困惑度為主軸、規模停在 1.3B，讓「能與最先進 Transformer 抗衡」的宣稱在真正的 LLM 尺度上仍屬外推而非實證。
+The baseline coverage is quite broad (Transformer, SSM, multiple RWKV generations, GLA, HGRN2, RetNet, etc.), and the step-by-step LSTM→xLSTM ablation is nicely done—this is a strength. What is questionable is the external validity: all language modeling results are built on a single corpus, SlimPajama (125M, 350M, 760M, 1.3B), the maximum reaches only 1.3B, and the main metric is heavily concentrated on validation perplexity. With perplexity as the main axis and scale stopping at 1.3B, the claim of "being able to rival the most advanced Transformers" remains an extrapolation rather than empirical evidence at true LLM scale.
 
-### mLSTM 與線性注意力同源，sLSTM 的 memory mixing 才是區辨點
+### mLSTM shares a lineage with linear attention; sLSTM's memory mixing is the differentiator
 
-需要誠實區分兩塊。mLSTM 的矩陣記憶與外積更新並非全新：論文自己就寫明 The covariance update rule is equivalent to Fast Weight Programmers，與 linear attention、Retention、RWKV-5/6 共享同一數學骨架，這部分較接近把既有機制重新編排並補上指數閘控與正規化。真正較難在其他線性模型中找到對應物的，是 sLSTM 帶 head 的 memory mixing 所宣稱的 state tracking 能力——這是 xLSTM 敘事中最具區辨性的貢獻，也是它與 SSM 拉開概念差距之處。
+Two parts need to be honestly distinguished. mLSTM's matrix memory and outer-product update are not entirely new: the paper itself states that the covariance update rule is equivalent to Fast Weight Programmers, and it shares the same mathematical skeleton with linear attention, Retention, and RWKV-5/6; this part is closer to rearranging existing mechanisms and adding exponential gating and normalization. What is genuinely harder to find a counterpart for in other linear models is the state-tracking capability claimed by sLSTM's head-based memory mixing—this is the most differentiating contribution in the xLSTM narrative, and where it opens a conceptual gap from SSMs.
 
-### 形式語言實驗圍繞 sLSTM 的強項設計
+### The formal-language experiments are designed around sLSTM's strengths
 
-形式語言（formal language）實驗需要保留戒心：作者展示 Transformer 與 SSM cannot solve, e.g. regular grammars like the parity task，而具 memory mixing 的 sLSTM 可以。這個結論方向雖與既有理論一致，但基準本身正好挑在「需要 memory mixing」的任務族上，等於是圍繞自家 sLSTM 的強項來定義題目；它證明的是「有 memory mixing 比沒有好」，而未必等同於在主流下游任務上的普遍優勢。
+The formal language experiments call for some caution: the authors show that Transformers and SSMs cannot solve, e.g. regular grammars like the parity task, whereas the sLSTM with memory mixing can. Although the direction of this conclusion is consistent with existing theory, the benchmark itself is picked precisely on the family of tasks that "require memory mixing," which amounts to defining the problem around their own sLSTM's strengths; what it proves is that "having memory mixing is better than not," which is not necessarily equivalent to a general advantage on mainstream downstream tasks.
 
-### 1.3B 以下成立，但 kernel 未最佳化使大規模部署仍未證
+### Holds below 1.3B, but unoptimized kernels leave large-scale deployment unproven
 
-在 1.3B 以下、以困惑度衡量的範圍內，「把 LSTM 擴展到能與 Transformer/SSM 抗衡」大致成立；但論文並未宣稱問題已完全解決。作者在 Limitations 明言 CUDA kernel 尚未最佳化、mLSTM 約比 FlashAttention 慢 4 倍，且坦承 we did neither fully optimize the architecture nor the hyperparameters，並預期 an extensive optimization process is needed for xLSTM to reach its full potential。因此就真實世界部署而言，xLSTM 目前更像是一個有力的存在性證明，能否在 7B 以上規模、以下游品質與實際吞吐同時勝出，仍屬未被證明。
+Within the range below 1.3B measured by perplexity, "extending the LSTM to rival Transformers/SSMs" roughly holds; but the paper does not claim the problem is fully solved. In the Limitations the authors state plainly that the CUDA kernel is not yet optimized and mLSTM is about 4 times slower than FlashAttention, and admit that we did neither fully optimize the architecture nor the hyperparameters, expecting that an extensive optimization process is needed for xLSTM to reach its full potential. Therefore, as for real-world deployment, xLSTM currently looks more like a strong existence proof, and whether it can win simultaneously on downstream quality and actual throughput at scales above 7B remains unproven.
 
 ## 🔗 Related notes
 
-- [Attention Is All You Need](../AttentionIsAllYouNeed/) — xLSTM 全篇對標的 Transformer 基線與 self-attention 起點。
+- [Attention Is All You Need](../AttentionIsAllYouNeed/) — the Transformer baseline and self-attention starting point that xLSTM benchmarks against throughout.
