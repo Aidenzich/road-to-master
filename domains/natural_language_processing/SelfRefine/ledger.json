@@ -1,0 +1,333 @@
+{
+  "note_path": "domains/natural_language_processing/SelfRefine/README.md",
+  "domain": "natural_language_processing",
+  "topic": "SelfRefine",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-03T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "SELF-REFINE: Iterative Refinement with Self-Feedback",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Self-Refine: Iterative Refinement with Self-Feedback"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "NeurIPS 2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://dblp.org/search/publ/api?q=Self-Refine+Iterative+Refinement+Self-Feedback",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "NeurIPS"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://export.arxiv.org/api/query?search_query=id:2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "2023-03-30"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Aman Madaan, Niket Tandon, Prakhar Gupta",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://export.arxiv.org/api/query?search_query=id:2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Aman Madaan"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://selfrefine.info/",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "selfrefine.info"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://dblp.org/search/publ/api?q=Self-Refine+Iterative+Refinement+Self-Feedback",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "NeurIPS"
+    },
+    {
+      "claim_id": "fig-overview",
+      "claim_text": "同一個模型 M 生成輸出、對自己的輸出產生回饋、再依回饋修正",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/self-refine-overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2303.17651/assets/x1.png",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "starts by generating an output and passing it back to the same model"
+    },
+    {
+      "claim_id": "body-1",
+      "claim_text": "用「同一個」LLM 同時扮演生成者、回饋者與修正者三種角色",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "uses a single \\llm as the generator, refiner and the feedback provider"
+    },
+    {
+      "claim_id": "body-2",
+      "claim_text": "唯一的監督訊號就藏在 few-shot 範例裡",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "It relies only on supervision present in the few-shot examples."
+    },
+    {
+      "claim_id": "body-eq1",
+      "claim_text": "y_0 = \\mathcal{M}(p_{gen}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "y_0 = \\mathcal{M}\\left(\\pgen \\| x\\right)"
+    },
+    {
+      "claim_id": "body-3",
+      "claim_text": "回饋必須「具體且可執行」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "write feedback that is actionable and specific"
+    },
+    {
+      "claim_id": "body-eq2",
+      "claim_text": "fb_t = \\mathcal{M}(p_{fb}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "fb_t = \\mathcal{M}\\left(\\pfb \\| x \\| y_t\\right)"
+    },
+    {
+      "claim_id": "body-4",
+      "claim_text": "把歷來所有的輸出與回饋整串接到提示後面",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "we retain the history of previous feedback and outputs by appending them to the prompt"
+    },
+    {
+      "claim_id": "body-eq3",
+      "claim_text": "y_{t+1} = \\mathcal{M}(p_{refine}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "y_{t+1} = \\mathcal{M}\\left(\\prefine \\| x \\| y_t \\| fb_t\\right)"
+    },
+    {
+      "claim_id": "body-5",
+      "claim_text": "每個任務最多迭代 4 次",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "up to a maximum of 4 iterations."
+    },
+    {
+      "claim_id": "body-6",
+      "claim_text": "平均任務表現絕對提升約 20%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "improving by $\\sim$20\\% absolute on average in task performance"
+    },
+    {
+      "claim_id": "body-tab1",
+      "claim_text": "27.3 | 36.0 (↑8.7)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "27.3 & \\textbf{36.0} ($\\uparrow$8.7)"
+    },
+    {
+      "claim_id": "body-tab1-gsm",
+      "claim_text": "GPT-4 是 92.9 到 93.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "92.9 & \\textbf{93.1} ($\\uparrow$0.2)"
+    },
+    {
+      "claim_id": "body-7",
+      "claim_text": "GPT-4 的偏好分數從 25.4 一路拉到 74.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "\\gptf preference score improve by 49.2\\% -- from 25.4\\% to 74.6\\%"
+    },
+    {
+      "claim_id": "body-7-gsm",
+      "claim_text": "ChatGPT 對 94% 的實例都給出",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "feedback for 94\\% instances is 'everything looks good'"
+    },
+    {
+      "claim_id": "body-code1",
+      "claim_text": "best_price = (amount + 199) // 200 * 380",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "best_price = (amount + 199) // 200 * 380"
+    },
+    {
+      "claim_id": "body-8",
+      "claim_text": "把最佳化比例從 27.3% 提到 36.0%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "reducing the time complexity to $\\mathcal{O}(amount*coins)$"
+    },
+    {
+      "claim_id": "body-code2",
+      "claim_text": "dp = [float('inf')] * (amount + 1)",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-2",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "dp = [float('inf')] * (amount + 1)"
+    },
+    {
+      "claim_id": "body-9",
+      "claim_text": "平均而言輸出品質隨迭代次數增加而提升",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "the quality of the output improves as the number of iterations increases"
+    },
+    {
+      "claim_id": "body-tab2",
+      "claim_text": "22.0 | 27.0 | 27.9 | 28.8",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "22.0 & 27.0 & 27.9 & \\textbf{28.8"
+    },
+    {
+      "claim_id": "body-10",
+      "claim_text": "每多一輪的邊際改善逐漸縮小，呈現明顯的報酬遞減",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "the marginal improvement naturally decreases with more iterations"
+    },
+    {
+      "claim_id": "crit-1-basis",
+      "claim_text": "GPT-4 在對話回應的 Base 只有 25.4",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "25.4 & \\textbf{74.6} ($\\uparrow$49.2)"
+    },
+    {
+      "claim_id": "crit-1-infer",
+      "claim_text": "Self-Refine 真正擅長的是「打磨風格與覆蓋度」而非「修正事實或邏輯錯誤」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-2-basis",
+      "claim_text": "情感反轉在無回饋時直接歸零",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "and the task fails without feedback"
+    },
+    {
+      "claim_id": "crit-3-basis",
+      "claim_text": "論文雖報了與人類 68–82% 的相關度",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "high correlation (82\\% for \\sentxfer, 68\\% for \\acrogen, and 71\\% for \\dialgen)"
+    },
+    {
+      "claim_id": "crit-3-doubt",
+      "claim_text": "評審與被評者高度同源，存在自我偏好的循環風險",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-4-basis",
+      "claim_text": "迭代精修在此之前已有不少工作",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "Iterative refinement typically involves training a refinement model"
+    },
+    {
+      "claim_id": "crit-4-infer",
+      "claim_text": "更像是把既有想法在大模型時代重新驗證與簡化，而非全新的機制",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-5-basis",
+      "claim_text": "縮寫生成、20–30 個關鍵詞的 Constrained Generation）是作者自己新造的",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2303.17651",
+      "retrieved_at": "2026-07-03T00:00:00+00:00",
+      "quoted_snippet": "we introduce two new tasks: Acronym Generation"
+    },
+    {
+      "claim_id": "crit-5-doubt",
+      "claim_text": "當評測基準是圍繞著方法本身的強項來定義時，數字的說服力要打折扣",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-5-website",
+      "claim_text": "屬於前景宣稱而非已被驗證的結果",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
