@@ -1,4 +1,5 @@
 # LLaVA-Med — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -13,34 +14,34 @@
 
 ## First Principles
 
-通用領域的大型多模態模型（large multimodal model, LMM）如 LLaVA 依賴網路上的一般影像—文字配對訓練，面對生物醫學影像時往往表現得像門外漢（layperson），會拒答、給出錯誤回應甚至整段幻覺。LLaVA-Med 的核心命題就是：用可負擔的成本，把一個現成的通用 LMM 適配（adapt）成能對生物醫學影像做開放式問答的對話助手，而不是從頭訓練或做傳統的分類式 VQA。
+General-domain large multimodal models (LMMs) such as LLaVA are trained on generic web image-text pairs, and when facing biomedical images they often behave like a layperson — refusing to answer, giving wrong responses, or even hallucinating entire passages. LLaVA-Med's core thesis is exactly this: to adapt an off-the-shelf general LMM into a conversational assistant capable of open-ended question answering over biomedical images at an affordable cost, rather than training from scratch or doing traditional classification-style VQA.
 
-整個方法的關鍵不是新網路，而是一條資料引擎。作者從 PubMed Central 萃取的大規模圖說資料集 PMC-15M（1500 萬組生物醫學影像—文字配對）取樣，再用 language-only GPT-4 只根據文字（圖說 caption 以及原文中提及該圖的句子 citances）自我生成（self-instruct）指令跟隨資料。GPT-4 全程看不到影像，只被要求用「彷彿看得到圖」的語氣產生多輪問答，因此整條流程零人工標註。
+The key of the whole method is not a new network but a data engine. The authors sample from PMC-15M — a large-scale figure-caption dataset (15 million biomedical image-text pairs) extracted from PubMed Central — and then use language-only GPT-4 to self-instruct instruction-following data based solely on the text (the figure caption plus the sentences in the source article that mention the figure, i.e. citances). GPT-4 never sees the image throughout, and is only asked to produce multi-turn Q&A in a tone "as if it could see the figure," so the entire pipeline requires zero human annotation.
 
-第一階段用的概念對齊資料，是把 600K 從 PMC-15M 取樣的影像—文字對，用最樸素的擴充法轉成指令：指令只要求「描述這張圖」，而目標輸出就是原始的 caption。依 caption 長度在「簡短描述」與「詳細描述」兩組問句之間切換，以 30 詞為分界（PMC-15M 中約 25% 的 caption 少於 30 詞）。這一階段只涵蓋單一任務（影像描述），目的在鋪滿生物醫學概念的覆蓋面。
+The concept-alignment data used in the first stage turns 600K image-text pairs sampled from PMC-15M into instructions using the most naive expansion: the instruction only asks to "describe this image," and the target output is the original caption. It switches between a "concise description" and a "detailed description" set of prompts by caption length, using 30 words as the cutoff (about 25% of PMC-15M captions have fewer than 30 words). This stage covers only a single task (image description), aiming to blanket the coverage of biomedical concepts.
 
-第二階段用的指令微調資料，則先篩掉多子圖、只保留單一子圖的影像，再從 CXR（胸部 X 光）、CT、MRI、histopathology、gross pathology 這五種最常見模態取樣 60K 組，用 GPT-4 生成多輪問答，並把 PubMed 原文中提及該圖的句子（inline mentions, IM）當作額外脈絡。作者刻意做了三個版本——10K、60K、60K-IM——以消融資料生成策略對下游模型的影響。
+The instruction-tuning data used in the second stage first filters out multi-subfigure images and keeps only single-subfigure ones, then samples 60K pairs from the five most common modalities — CXR (chest X-ray), CT, MRI, histopathology, gross pathology — uses GPT-4 to generate multi-turn Q&A, and treats the sentences that mention the figure in the source PubMed article (inline mentions, IM) as additional context. The authors deliberately make three versions — 10K, 60K, 60K-IM — to ablate the impact of the data generation strategy on the downstream model.
 
-每一筆對齊樣本被組織成單輪的指令跟隨格式，其中 $\Xmat_{\texttt{q}}$ 是取樣到的描述指令、$\Xmat_{\texttt{v}}$ 是影像、$\Xmat_{\texttt{c}}$ 是作為目標輸出的 caption：
+Each alignment sample is organized into a single-turn instruction-following format, where $\Xmat_{\texttt{q}}$ is the sampled description instruction, $\Xmat_{\texttt{v}}$ is the image, and $\Xmat_{\texttt{c}}$ is the caption used as the target output:
 
 ```
 Human : X_q  X_v  <STOP>\n
 Assistant : X_c  <STOP>\n
 ```
 
-模型結構直接沿用 LLaVA：一個視覺編碼器、一個線性投影層、一個語言模型。訓練採兩階段課程學習（curriculum learning）。Stage 1（生物醫學概念特徵對齊）同時凍結視覺編碼器與語言模型，只更新投影矩陣，把大量新的生物醫學視覺概念對齊到語言模型既有的詞嵌入；Stage 2（端到端指令微調）只凍結視覺編碼器，同時更新投影層與語言模型的權重，讓模型學會開放式對話語義。作者把這個過程類比成一個外行人逐步被訓練成專業助手。
+The model architecture directly follows LLaVA: a vision encoder, a linear projection layer, and a language model. Training uses a two-stage curriculum learning. Stage 1 (biomedical concept feature alignment) freezes both the vision encoder and the language model and updates only the projection matrix, aligning a large number of new biomedical visual concepts to the language model's existing word embeddings; Stage 2 (end-to-end instruction tuning) freezes only the vision encoder and updates both the projection layer and the language model weights, letting the model learn open-ended conversational semantics. The authors analogize this process to a layperson gradually being trained into a professional assistant.
 
-![圖 3：LLaVA-Med 兩階段課程學習訓練流程示意](imgs/training_pipeline.png)
+![Figure 3: schematic of LLaVA-Med's two-stage curriculum-learning training pipeline](imgs/training_pipeline.png)
 
-這套配方主打「可負擔」：Stage 1 與 Stage 2 分別約 7 與 8 小時、合計不到 15 小時，跑在 8 張 40G A100 GPU 上，這也是標題「in One Day」的由來。作者提供了各階段、各 epoch 的實際耗時，讓使用者能自行做成本—品質取捨：
+This recipe emphasizes "affordability": Stage 1 and Stage 2 take about 7 and 8 hours respectively, totaling under 15 hours, running on 8× 40G A100 GPUs, which is the origin of the title "in One Day." The authors provide the actual wall-clock time for each stage and epoch, letting users make their own cost-quality trade-offs:
 
-| 階段 / epoch | Stage 1 (1 ep) | Stage 1 (3 ep) | Stage 2 10K (1 ep) | Stage 2 10K (3 ep) | Stage 2 60K (1 ep) | Stage 2 60K (3 ep) |
+| Stage / epoch | Stage 1 (1 ep) | Stage 1 (3 ep) | Stage 2 10K (1 ep) | Stage 2 10K (3 ep) | Stage 2 60K (1 ep) | Stage 2 60K (3 ep) |
 |-|-|-|-|-|-|-|
-| 時間（小時） | 6.8 | 19.4 | 0.6 | 1.8 | 2.6 | 8.0 |
+| Time (hours) | 6.8 | 19.4 | 0.6 | 1.8 | 2.6 | 8.0 |
 
-評估分成兩條軸線。第一條是開放式視覺對話：作者構建 193 題全新問題（143 題 conversation 加 50 題 detailed description），用 language-only GPT-4 當裁判，對候選模型與 GPT-4 參考答案在有用性、相關性、正確性、細節程度上評分，再以 GPT-4 的參考分數正規化算出相對分數（relative score）。下表是各設定在這 193 題上的整體相對分數：
+Evaluation is split into two axes. The first is open-ended visual conversation: the authors construct 193 brand-new questions (143 conversation plus 50 detailed description), use language-only GPT-4 as a judge to score candidate models and the GPT-4 reference answers on helpfulness, relevance, accuracy, and level of detail, and then compute a relative score normalized by GPT-4's reference score. The table below gives the overall relative scores on these 193 questions for each setting:
 
-| 模型設定 | Conversation | Description | Overall |
+| Model setting | Conversation | Description | Overall |
 |-|-|-|-|
 | LLaVA | 39.4 | 26.2 | 36.1 |
 | LLaVA-Med Stage 1 | 22.6 | 25.2 | 23.3 |
@@ -48,34 +49,34 @@ Assistant : X_c  <STOP>\n
 | LLaVA-Med 60K | 53.7 | 36.9 | 49.4 |
 | LLaVA-Med 60K-IM | 55.1 | 36.4 | 50.2 |
 
-走一遍實際數字更能看清課程學習的作用：通用 LLaVA 的整體相對分數是 36.1；只做 Stage 1 反而掉到 23.3，因為單一的影像描述指令讓模型喪失跟隨多樣指令的能力；補上 Stage 2 指令資料後，10K→60K→60K-IM 分別回升到 39.9、49.4、50.2，最佳的 60K-IM 版本達到 GPT-4 參考上限的 50.2%。這條曲線同時說明兩件事：Stage 1 單獨不足以當聊天機器人，而指令資料量與 inline mentions 都對品質有正貢獻。
+Walking through the actual numbers makes the effect of curriculum learning clearer: general LLaVA has an overall relative score of 36.1; doing only Stage 1 actually drops to 23.3, because the single image-description instruction makes the model lose the ability to follow diverse instructions; after adding the Stage 2 instruction data, 10K→60K→60K-IM rise back to 39.9, 49.4, 50.2 respectively, with the best 60K-IM version reaching 50.2% of the GPT-4 reference ceiling. This curve illustrates two things at once: Stage 1 alone is insufficient to be a chatbot, and both instruction-data volume and inline mentions contribute positively to quality.
 
-第二條軸線是三個既有的生物醫學 VQA 基準：VQA-RAD、SLAKE、PathVQA。封閉式問題報 accuracy、開放式問題報 recall（因為 LLaVA-Med 以自由文字生成作答，而非從候選集挑選）。下表節錄下游微調後與過往 supervised SoTA 的比較（closed-set accuracy）：
+The second axis is three existing biomedical VQA benchmarks: VQA-RAD, SLAKE, PathVQA. Closed-set questions report accuracy and open-set questions report recall (because LLaVA-Med answers by free-text generation rather than selecting from a candidate set). The table below excerpts the comparison against prior supervised SoTA after downstream fine-tuning (closed-set accuracy):
 
-| 方法 | VQA-RAD Closed | SLAKE Closed | PathVQA Closed |
+| Method | VQA-RAD Closed | SLAKE Closed | PathVQA Closed |
 |-|-|-|-|
 | LLaVA | 65.07 | 63.22 | 63.20 |
 | LLaVA-Med (From LLaVA) | 84.19 | 85.34 | 91.21 |
 | LLaVA-Med (BioMed CLIP) | 83.09 | 86.78 | 91.09 |
 | M2I2 | 83.50 | 91.10 | 88.00 |
 
-經下游微調後，LLaVA-Med 在 VQA-RAD 與 PathVQA 的封閉式問題上刷新了 supervised SoTA（VQA-RAD closed 84.19、PathVQA closed 91.21），驗證了只要指令夠明確（例如是非題），模型就能可靠地依指令完成生物醫學任務。
+After downstream fine-tuning, LLaVA-Med sets new supervised SoTA on the closed-set questions of VQA-RAD and PathVQA (VQA-RAD closed 84.19, PathVQA closed 91.21), verifying that as long as the instruction is precise enough (e.g. a yes/no question), the model can reliably complete biomedical tasks by following the instruction.
 
-但在開放式問題上，LLaVA-Med 只在 SLAKE 上取得 SoTA，在其餘資料集上的表現受限、甚至落後既有方法；作者把原因歸給開放式生物醫學問題在不限定候選答案時本就語意模糊。這個誠實的自陳，正好標示出這條路徑的邊界。
+But on open-set questions, LLaVA-Med only achieves SoTA on SLAKE and is limited or even lags existing methods on the other datasets; the authors attribute the reason to open-ended biomedical questions being inherently semantically ambiguous when the candidate answers are not restricted. This honest self-assessment marks precisely the boundary of this line of approach.
 
 ## 🧪 Critical Assessment
 
-### 醫學影像上的幻覺是安全風險，不只是品質瑕疵
-問題本身是真的：通用 LMM 在醫學影像上會像門外漢般幻覺，這在臨床脈絡下不只是品質瑕疵，而是安全風險。作者在結論也坦承 LLaVA-Med 仍受幻覺與淺層推理（weak in-depth reasoning）所限。把「領域適配」而非「更大模型」當成核心命題，對高價值但資料稀缺的垂直領域是合理且務實的切入點。
+### Hallucination on medical images is a safety risk, not just a quality flaw
+The problem itself is real: general LMMs hallucinate like a layperson on medical images, which in a clinical context is not just a quality flaw but a safety risk. The authors also admit in the conclusion that LLaVA-Med is still limited by hallucination and weak in-depth reasoning. Taking "domain adaptation" rather than "a larger model" as the core thesis is a reasonable and pragmatic entry point for high-value but data-scarce vertical domains.
 
-### GPT-4 既是出題者也是閱卷者：循環評估的風險
-消融相當紮實：Table 3(b) 系統性地掃過 Stage 1/2 與下游微調的 epoch 數、7B vs 13B 語言模型、CLIP vs BioMedCLIP 視覺編碼器，並附上 running time 供成本—品質取捨。真正的隱憂在指標：聊天品質的主指標是 GPT-4 自評的 relative score，而訓練資料也由 GPT-4 生成——同一個模型家族既當出題者又當閱卷者，存在循環評估（circular evaluation）的偏誤風險，數字漂亮未必等於獨立的臨床效度。
+### GPT-4 is both examiner and grader: the risk of circular evaluation
+The ablation is quite solid: Table 3(b) systematically sweeps the number of epochs for Stage 1/2 and downstream fine-tuning, 7B vs 13B language models, and CLIP vs BioMedCLIP vision encoders, and attaches running time for cost-quality trade-offs. The real concern lies in the metric: the main metric for chat quality is a GPT-4 self-assessed relative score, while the training data is also generated by GPT-4 — the same model family is both examiner and grader, which carries the bias risk of circular evaluation, and a pretty number does not necessarily equal independent clinical validity.
 
-### 新意在「圖說→指令」的資料配方與兩階段課程，而非架構
-就元件而言，LLaVA-Med 幾乎全用既有積木：LLaVA 架構、GPT-4 self-instruct、PMC-15M 資料、可選的 Vicuna 或 BioMedCLIP 初始化。真正的新意集中在「圖說→指令」的資料生成配方與兩階段課程，較接近把一套成熟配方成功遷移到高價值垂直領域，而非架構層級的創新。持平地說，其資料集與流程的開源、以及低到「一天內」的訓練成本本身，就是有實用價值的貢獻，不宜只以「重組」一筆帶過。
+### The novelty lies in the "caption→instruction" data recipe and the two-stage curriculum, not the architecture
+In terms of components, LLaVA-Med almost entirely uses existing building blocks: the LLaVA architecture, GPT-4 self-instruct, PMC-15M data, and optional Vicuna or BioMedCLIP initialization. The real novelty concentrates in the "caption→instruction" data generation recipe and the two-stage curriculum, closer to successfully transferring a mature recipe to a high-value vertical domain than to an architecture-level innovation. In fairness, open-sourcing its dataset and pipeline, together with the training cost being as low as "within one day," is itself a contribution of practical value and should not be dismissed as mere "recombination."
 
-### 封閉式刷新 SoTA、開放式仍落後：能力邊界與 193 題基準的自我耦合
-「解決了嗎」必須分開看。封閉式 VQA 刷新 SoTA，本質是把是非/選擇題用生成式模型答對；而更貼近真實臨床提問的開放式問題，LLaVA-Med 反而多半落後既有方法，顯示開放式生物醫學理解遠未被解決。此外，193 題的視覺對話基準是作者用與訓練資料同一條 self-instruct 管線生成的，基準的定義與模型的強項高度耦合，且 GPT-4 參考答案吃到 golden caption 與 inline mentions、並非對影像的真實理解，使聊天分數更像內部一致性而非臨床效度。評估也未涉及真實部署、標註者一致性或安全稽核。因此本文更適合被理解為一個可負擔的領域適配「配方與資料資產」，而非臨床可用的成品系統。
+### Closed-set sets new SoTA, open-set still lags: the capability boundary and the self-coupling of the 193-question benchmark
+"Is it solved" must be examined separately. Closed-set VQA sets new SoTA, which in essence is answering yes/no and multiple-choice questions correctly with a generative model; whereas on open-set questions, which are closer to real clinical inquiries, LLaVA-Med mostly lags existing methods, showing that open-ended biomedical understanding is far from solved. Moreover, the 193-question visual conversation benchmark is generated by the authors with the same self-instruct pipeline as the training data, so the benchmark's definition is highly coupled to the model's strengths, and the GPT-4 reference answers consume the golden caption and inline mentions rather than a true understanding of the image, making the chat scores more like internal consistency than clinical validity. The evaluation also does not touch real deployment, annotator agreement, or safety audits. Therefore this paper is better understood as an affordable domain-adaptation "recipe and data asset" than a clinically usable finished system.
 
 ## 🔗 Related notes
 

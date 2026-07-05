@@ -53,6 +53,16 @@ CA_HEADING_RE = re.compile(r"^##\s+\U0001F9EA\s+Critical Assessment\b")
 RELATED_HEADING_RE = re.compile(r"^##\s+\U0001F517\s+Related notes\b")
 LEVEL2_RE = re.compile(r"^##\s+\S")
 
+# Bilingual convention (EN-default README.md + verbatim README.zh-TW.md, shared ledger.json):
+# the mandated language-switcher blockquote is the first line under the H1 in BOTH files, in
+# either direction. It is chrome, not first-principles body prose, so `_has_body_content`
+# skips it (else section-order reds on a correct conversion). Matches both switcher directions.
+LANGUAGE_SWITCHER_RE = re.compile(
+    r"^>\s*(?:\*\*English\*\*|\[English\]\(\./README\.md\))\s*\|\s*"
+    r"(?:\[繁體中文\]\(\./README\.zh-TW\.md\)|\*\*繁體中文\*\*)\s*$"
+)
+ZH_TW_README = "README.zh-TW.md"
+
 # Secret detectors (regex set: AWS / GitHub / PEM / generic api-key assignment).
 SECRET_PATTERNS = [
     ("aws-access-key", re.compile(r"AKIA[0-9A-Z]{16}")),
@@ -494,8 +504,28 @@ def _has_body_content(lines):
             continue
         if s.startswith("# "):
             continue
+        if LANGUAGE_SWITCHER_RE.match(s):
+            continue
         return True
     return False
+
+
+def _coverage_lines(lines, note_dir):
+    """Return the lines whose body/critical prose the ledger's `note-section:*` targets were
+    authored against. Under the bilingual convention README.md is a faithful English
+    translation while the original Traditional-Chinese paragraphs live verbatim in
+    README.zh-TW.md; the ledger's positional body-*/critical-* snippets were quoted from the
+    Chinese, so when that sibling exists we read coverage prose from it (validating against the
+    source-language prose is more faithful, not a workaround). Academic Context table-cell
+    coverage is language-neutral and keeps using `lines`."""
+    zh = os.path.join(note_dir, ZH_TW_README)
+    if os.path.isfile(zh):
+        try:
+            with open(zh, "r", encoding="utf-8") as fh:
+                return fh.read().splitlines()
+        except OSError:
+            return lines
+    return lines
 
 
 def _venue_kind(lines):
@@ -634,8 +664,9 @@ def _gate_ledger(res, lines, ledger, entries, note_text, note_dir):
                 "provenance: %s)"
                 % (field, want, _entry_ids(unsourced_value_matches))
             )
-    missing_cov.extend(_body_claim_coverage_gaps(lines, entries))
-    missing_cov.extend(_critical_assessment_claim_coverage_gaps(lines, entries))
+    cov_lines = _coverage_lines(lines, note_dir)
+    missing_cov.extend(_body_claim_coverage_gaps(cov_lines, entries))
+    missing_cov.extend(_critical_assessment_claim_coverage_gaps(cov_lines, entries))
     res.record(
         "ledger:coverage",
         len(missing_cov) == 0,
