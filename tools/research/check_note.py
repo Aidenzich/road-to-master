@@ -53,15 +53,14 @@ CA_HEADING_RE = re.compile(r"^##\s+\U0001F9EA\s+Critical Assessment\b")
 RELATED_HEADING_RE = re.compile(r"^##\s+\U0001F517\s+Related notes\b")
 LEVEL2_RE = re.compile(r"^##\s+\S")
 
-# Bilingual convention: the sibling filename holding the original Traditional-Chinese note
-# once README.md becomes the English default, and the language-switcher blockquote that must
-# be the first line under the H1 in BOTH files. The switcher is navigation chrome, not
-# first-principles body prose, so it must not trip the section-order "body before Academic
-# Context" check. Matches either direction of the switcher line.
-ZH_TW_README = "README.zh-TW.md"
+# Repo bilingual convention (EN-default `README.md` + `README.zh-TW.md` variant sharing one
+# `ledger.json`): the first line under the H1 in BOTH files is a language switcher blockquote,
+# e.g. `> **English** | [繁體中文](./README.zh-TW.md)` or `> [English](./README.md) | **繁體中文**`.
+# This is navigation chrome, not first-principles note body prose, so the structure gate must
+# not count it as content appearing before the Academic Context section.
 LANGUAGE_SWITCHER_RE = re.compile(
     r"^>\s*(?:\*\*English\*\*|\[English\]\([^)]*\))\s*\|\s*"
-    r"(?:\[繁體中文\]\([^)]*\)|\*\*繁體中文\*\*)\s*$"
+    r"(?:\*\*繁體中文\*\*|\[繁體中文\]\([^)]*\))\s*$"
 )
 
 # Secret detectors (regex set: AWS / GitHub / PEM / generic api-key assignment).
@@ -506,30 +505,10 @@ def _has_body_content(lines):
         if s.startswith("# "):
             continue
         if LANGUAGE_SWITCHER_RE.match(s):
-            continue  # bilingual language-switcher chrome, not first-principles body prose
+            # Bilingual-convention navigation chrome, not first-principles body prose.
+            continue
         return True
     return False
-
-
-def _coverage_lines(lines, note_dir):
-    """Lines to validate ledger coverage against.
-
-    The ledger's positional `note-section:body-*`/`critical-*` claim snippets were authored
-    against the note's original Traditional-Chinese prose. Under the bilingual convention that
-    original text lives verbatim in README.zh-TW.md while README.md holds a faithful English
-    translation, so coverage must be checked against the zh-TW sibling when it exists —
-    validating the exact paragraphs the ledger quotes is MORE faithful, not a workaround.
-    Notes with no zh-TW sibling (the overwhelming majority) fall through to the passed-in
-    README.md lines unchanged, so this is behavior-neutral for them.
-    """
-    sibling = os.path.join(note_dir, ZH_TW_README)
-    if os.path.isfile(sibling):
-        try:
-            with open(sibling, "r", encoding="utf-8") as fh:
-                return fh.read().splitlines()
-        except (OSError, UnicodeDecodeError):
-            return lines
-    return lines
 
 
 def _venue_kind(lines):
@@ -632,11 +611,33 @@ def _gate_schema(res, ledger):
     )
 
 
+def _coverage_lines(lines, note_dir):
+    """Return the note variant whose language matches the ledger, for coverage matching.
+
+    Under the repo bilingual convention (EN-default `README.md` + `README.zh-TW.md` variant
+    sharing one machine-readable `ledger.json`), the ledger's `quoted_snippet`/`claim_text`
+    are authored against the SOURCE (Traditional-Chinese) prose — and its positional
+    `note-section:body-*`/`critical-*` targets enumerate the source paragraphs. When a
+    `README.zh-TW.md` sibling exists, coverage is therefore validated against it, so a faithful
+    English translation is not falsely flagged as uncovered. This does NOT weaken the gate: a
+    ledger row whose snippet appears in neither the note's prose still fails, and every other
+    structural gate (academic-context, section-order, critical-assessment, substance, …) still
+    runs against the English `README.md`. Notes without a zh-TW sibling are unaffected.
+    """
+    sibling = os.path.join(note_dir, "README.zh-TW.md")
+    if os.path.isfile(sibling):
+        try:
+            with open(sibling, "r", encoding="utf-8") as fh:
+                return fh.read().splitlines()
+        except (OSError, UnicodeDecodeError):
+            return lines
+    return lines
+
+
 def _gate_ledger(res, lines, ledger, entries, note_text, note_dir):
-    # Coverage is validated against the original-language prose the ledger was authored from
-    # (README.zh-TW.md when the note is bilingual; otherwise README.md itself). Academic
-    # Context table cells are language-neutral (labels/titles/authors/numbers/URLs identical
-    # in both files), so routing them through cov_lines too is behavior-neutral.
+    # Coverage (Academic Context cells + body/critical claim units) is validated against the
+    # note variant matching the ledger's language; see `_coverage_lines`. Every other check in
+    # this gate that reasons about the default note stays on the English `lines`.
     cov_lines = _coverage_lines(lines, note_dir)
     rows = parse_academic_context_table(cov_lines)[1]
     entries_by_target = {}
