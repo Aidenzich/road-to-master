@@ -1,0 +1,234 @@
+{
+  "note_path": "domains/natural_language_processing/FineTuning-vs-ICL-vs-RAG/README.md",
+  "domain": "natural_language_processing",
+  "topic": "FineTuning-vs-ICL-vs-RAG",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-05T00:20:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "When to fine-tune, when to use in-context learning, and when to use RAG: what the empirical evidence supports about their trade-offs",
+      "kind": "reasonable-inference",
+      "target": "table-cell:title",
+      "source_url": "https://github.com/Aidenzich/road-to-master/issues/55",
+      "retrieved_at": "2026-07-05T00:20:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "survey",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://github.com/Aidenzich/road-to-master/issues/55",
+      "retrieved_at": "2026-07-05T00:20:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-gain",
+      "claim_text": "relative accuracy gain for each knowledge-injection method, RAG gain consistently exceeds FT across the three models",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/knowledge_injection_gain.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2312.05934/assets/media/peformance_gain.png",
+      "retrieved_at": "2026-07-05T00:14:00Z",
+      "quoted_snippet": "The relative accuracy gain"
+    },
+    {
+      "claim_id": "sources-table",
+      "claim_text": "Comparing Knowledge Injection in LLMs",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2312.05934",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "Comparing Knowledge Injection in LLMs"
+    },
+    {
+      "claim_id": "sources-intro",
+      "claim_text": "preprint，正式會議版本用字可能微幅不同",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "framing-knowledge-vs-behavior",
+      "claim_text": "你要注入的是知識還是行為",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "ovadia-ft-weak",
+      "claim_text": "LLMs struggle to learn new factual information through unsupervised fine-tuning",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2312.05934",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "LLMs struggle to learn new factual information through unsupervised fine-tuning"
+    },
+    {
+      "claim_id": "ovadia-current-events-numbers",
+      "claim_text": "base model 0.481、加上 RAG 躍升到 0.875",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2312.05934",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "0.481 & \\textbf{0.875} & 0.504 & 0.588"
+    },
+    {
+      "claim_id": "ovadia-repeat",
+      "claim_text": "the knowledge must be repeated in numerous ways",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2312.05934",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "the knowledge must be repeated in numerous ways"
+    },
+    {
+      "claim_id": "ovadia-limitation-unsup",
+      "claim_text": "as opposed to instruction-tuning or RL-based methods",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2312.05934",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "as opposed to instruction-tuning or RL-based methods"
+    },
+    {
+      "claim_id": "agri-6pp-cumulative",
+      "claim_text": "accuracy increase of over 6 p.p. when fine-tuning the model and this is cumulative with RAG, which increases accuracy by 5 p.p. further",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2401.08406",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "accuracy increase of over 6 p.p. when fine-tuning the model and this is cumulative with RAG, which increases accuracy by 5 p.p. further"
+    },
+    {
+      "claim_id": "agri-47-72",
+      "claim_text": "answer similarity 從 47% 拉到 72%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2401.08406",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "answer similarity from 47\\% to 72\\%"
+    },
+    {
+      "claim_id": "mosbach-ft-ood",
+      "claim_text": "fine-tuned language models can in fact generalize well out-of-domain",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2305.16938",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "in fact generalize well out-of-domain"
+    },
+    {
+      "claim_id": "mosbach-similar-variance",
+      "claim_text": "both approaches generalize similarly; they exhibit large variation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2305.16938",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "both approaches generalize similarly; they exhibit large variation"
+    },
+    {
+      "claim_id": "mosbach-icl-large-models",
+      "claim_text": "ICL requires large models to work in contrast to FT, which works well even with small models",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2305.16938",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "ICL requires large models to work in contrast to FT, which works well even with small models"
+    },
+    {
+      "claim_id": "raft-distractor",
+      "claim_text": "train the model to ignore those documents that don't help in answering the question",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.10131",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "train the model to ignore those documents that don't help in answering the question"
+    },
+    {
+      "claim_id": "raft-main-numbers",
+      "claim_text": "73.30 / 35.28 / 74.00 / 84.95 / 86.86",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.10131",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "35.28 & \\textbf{74.00}"
+    },
+    {
+      "claim_id": "raft-dsf-rag-not-always",
+      "claim_text": "introducing RAG to a domain-specifically fine-tuned (DSF) model doesn't invariably lead to better outcomes",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.10131",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "introducing RAG to a domain-specifically fine-tuned (DSF) model doesn't invariably lead to better outcomes"
+    },
+    {
+      "claim_id": "raft-dsf-huggingface-drop",
+      "claim_text": "61.06，直接加 RAG（DSF+RAG）反而掉到 42.59",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2403.10131",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "42.59 & 82.80 & 60.29"
+    },
+    {
+      "claim_id": "comparison-table",
+      "claim_text": "In-context learning",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-comparability",
+      "claim_text": "這句話的外部效度是有邊界的",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-benchmark",
+      "claim_text": "指標的單一化仍讓",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-external-validity",
+      "claim_text": "把這些 pass 值直接套到今天的模型是一種未經驗證的外推",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "mosbach-poorly-understood",
+      "claim_text": "these methods are still poorly understood",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2305.16938",
+      "retrieved_at": "2026-07-05T00:12:00Z",
+      "quoted_snippet": "these methods are still poorly understood"
+    },
+    {
+      "claim_id": "critical-unanswered",
+      "claim_text": "屬於尚未被證成、甚至可疑的框架",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
