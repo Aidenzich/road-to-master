@@ -1,0 +1,288 @@
+{
+  "note_path": "domains/natural_language_processing/VectorDatabaseComparison/README.md",
+  "domain": "natural_language_processing",
+  "topic": "VectorDatabaseComparison",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-05T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "t-title",
+      "claim_text": "Vector Database Comparison: does GitHub issue #62's feature table still hold",
+      "kind": "reasonable-inference",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Recall-QPS (1/s) tradeoff - up and to the right is better"
+    },
+    {
+      "claim_id": "t-venuekind",
+      "claim_text": "survey：跨來源比較而非單篇論文摘要",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "the performance of in-memory approximate nearest neighbor algorithms"
+    },
+    {
+      "claim_id": "bt1-sources",
+      "claim_text": "S1 為 ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms（arXiv:1807.05614）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "ANN-Benchmarks: A Benchmarking Tool for Approximate Nearest Neighbor Algorithms"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "所有網路來源的擷取日為 2026-07-05；S1/S2 為 arXiv preprint 全文，正式版可能略有差異",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "所有網路來源的擷取日為 2026-07-05"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "中立學術 benchmark 把橫軸畫成 recall、縱軸畫成 QPS，每個引擎是一條曲線而非一個點",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Recall-QPS (1/s) tradeoff - up and to the right is better"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "NeurIPS'21 競賽在固定 QPS 下比 recall，Track 1 表頭寫 Recall/AP achieved at 10000 QPS on Azure F32v2 VM with 32 vCPUs",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2205.03763",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Recall/AP achieved at 10000 QPS on Azure F32v2 VM with 32 vCPUs"
+    },
+    {
+      "claim_id": "bp3b",
+      "claim_text": "另有一欄直接叫 Querries per second at 90% recall",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2205.03763",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Querries per second at 90\\% recall"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "S1 量的是 in-memory 單機 library，每個演算法 is run in an isolated Docker container",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "is run in an isolated Docker container"
+    },
+    {
+      "claim_id": "bp4b",
+      "claim_text": "S1 把 NYTimes 記為 234791/10000 筆、256 維、Euclidean，與 seed 的 nyt-256-angular 約 29 萬向量錯位",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/1807.05614",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\\textsf{NYTimes} & 234\\,791 / 10\\,000 & 256 & Euclidean"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "看一個把三件套標齊的實測",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "r6id.4xlarge machine instances, which have 16 vCPUs and 128 GB"
+    },
+    {
+      "claim_id": "bt2-metrics",
+      "claim_text": "471.57 QPS",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "471.57 queries per second"
+    },
+    {
+      "claim_id": "bt2b-metrics",
+      "claim_text": "60.42 ms",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "p95 latency (36.73 ms vs. 60.42 ms)"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "沒有全域贏家",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "11.4x more throughput than Qdrant"
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "Qdrant 自家 benchmark 的結論句是 highest RPS and lowest latencies in almost all the scenarios",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://qdrant.tech/benchmarks/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "highest RPS and lowest latencies in almost all the scenarios"
+    },
+    {
+      "claim_id": "bp7b",
+      "claim_text": "VectorDBBench README 逐字自承 sponsored by Zilliz",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://github.com/zilliztech/VectorDBBench",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "sponsored by Zilliz"
+    },
+    {
+      "claim_id": "bt3-flip",
+      "claim_text": "BSD-3-Clause",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://api.github.com/repos/weaviate/weaviate",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"spdx_id\":\"BSD-3-Clause\""
+    },
+    {
+      "claim_id": "bt3b-flip",
+      "claim_text": "從來不用 HNSW",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://www.pinecone.io/how-pinecone-works/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "does not use Hierarchical Navigable Small World (HNSW)"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "Elastic 2024-08 宣布新增 AGPL，且明言 adding another option, and not removing anything",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "adding another option, and not removing anything"
+    },
+    {
+      "claim_id": "bp8b",
+      "claim_text": "AGPL 是 an OSI approved license，故 Elasticsearch 重新可稱開源",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://www.elastic.co/blog/elasticsearch-is-open-source-again",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "AGPL, an OSI approved license"
+    },
+    {
+      "claim_id": "bp8c",
+      "claim_text": "pgvector 的 LICENSE 是 PostgreSQL License 而非 Apache",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://raw.githubusercontent.com/pgvector/pgvector/master/LICENSE",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Permission to use, copy, modify, and distribute this software"
+    },
+    {
+      "claim_id": "bp8d",
+      "claim_text": "Milvus star 從 seed 的 23k 漲到實測 45073",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://api.github.com/repos/milvus-io/milvus",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"stargazers_count\":45073"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "Pinecone 官方安全文件逐字寫 Pinecone uses role-based access controls (RBAC) to manage access to resources",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://docs.pinecone.io/guides/production/security-overview",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Pinecone uses role-based access controls (RBAC) to manage access to resources"
+    },
+    {
+      "claim_id": "bp9b",
+      "claim_text": "Qdrant 官方 1.9 版公告以 granular access control using JSON Web Tokens (JWT) 鋪陳 RBAC",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://qdrant.tech/blog/qdrant-1.9.x/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "granular access control using JSON Web Tokens (JWT)"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "2026 的 hybrid = 稠密向量與 BM25 兩路並跑再融合，權威定義為 vector search and a keyword search in parallel 交給 RRF",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "Reciprocal Rank Fusion (RRF), which combines and ranks the objects into a single list"
+    },
+    {
+      "claim_id": "bp10b",
+      "claim_text": "hybrid 指兩路檢索並跑 vector search and a keyword search in parallel，與 scalar filtering 是兩件事",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://weaviate.io/blog/hybrid-search-explained",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "vector search and a keyword search in parallel"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "Pinecone 官方逐字強調自己 does not use Hierarchical Navigable Small World (HNSW)，改用 serverless 下依 slab 大小挑選的專有索引",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://www.pinecone.io/how-pinecone-works/",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "does not use Hierarchical Navigable Small World (HNSW)"
+    },
+    {
+      "claim_id": "bp11b",
+      "claim_text": "各家早已分岔，Milvus/Weaviate/Elasticsearch 各有 HNSW/IVF/DiskANN/flat 等多種 base index，seed 整欄漏掉 quantization",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "現代的索引比較應該把 base graph 演算法與 quantization 變體分成兩軸"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "issue #62 的粗欄大致可用，但把效能寫成單一 QPS 數字在方法論上站不住，是量錯了維度",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "它把效能寫成單一 qps 數字，這在方法論上就站不住"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "S1/S2/TigerData 三者實驗設定互不相容、不能並列成一張表，且廠商 benchmark 幾乎都自家贏",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "本稽核用到的量化來源，實驗設定互不相容"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "seed 最大的錯是欄位設計而非某格填錯，重填數字修不好，得換維度",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "它最大的錯不是某格填錯，而是欄位設計"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "這張表只能給選型方向、不能給排名；唯一能關閉排名的方法是在自己的 dataset、固定 recall、同一台機器上實測",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "任何現成表格都答不了"
+    }
+  ]
+}
