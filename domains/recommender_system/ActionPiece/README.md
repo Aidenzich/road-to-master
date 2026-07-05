@@ -1,5 +1,7 @@
 # ActionPiece — Research Note
 
+> **English** | [繁體中文](./README.zh-TW.md)
+
 ## 📇 Academic Context
 
 | Field | Value |
@@ -11,92 +13,92 @@
 | Official Code | https://github.com/google-deepmind/action_piece |
 | Venue Kind | paper |
 
-作者來自 University of California, San Diego 與 Google DeepMind（第一作者 Yupeng Hou 於 Google DeepMind 擔任 student researcher 期間完成本工作）。論文 LaTeX 原始碼以 `\usepackage[accepted]{icml2025}` 標記為 ICML 2025 已接受論文。以下所有數值與引文均以 arXiv `2502.13581` 的 LaTeX 原始碼為準（camera-ready 版本可能略有差異）。
+The authors are affiliated with University of California, San Diego and Google DeepMind (the first author, Yupeng Hou, completed this work while a student researcher at Google DeepMind). The paper's LaTeX source is marked as an accepted ICML 2025 paper via `\usepackage[accepted]{icml2025}`. All figures and quotations below follow the LaTeX source of arXiv `2502.13581` (the camera-ready version may differ slightly).
 
 ## First Principles
 
-### 問題:為什麼「同一個 action」不該永遠對應同一組 token
+### Problem: why the "same action" should not always map to the same set of tokens
 
-生成式推薦(generative recommendation, GR)把使用者的互動序列切成離散 token,再讓一個自回歸模型(如 T5 encoder-decoder)逐一生成 token,最後把生成的 token 解析回推薦物品。它的好處是 token 共用一個「不隨物品池大小成長」的緊湊詞彙表,因此在記憶體與擴展性上優於傳統為每個物品維護一列 embedding 的作法。
+Generative recommendation (GR) slices a user's interaction sequence into discrete tokens, then lets an autoregressive model (such as a T5 encoder-decoder) generate tokens one by one, and finally parses the generated tokens back into recommended items. Its advantage is that the tokens share a compact vocabulary that "does not grow with the size of the item pool", which makes it superior to the traditional approach of maintaining one embedding row per item in terms of memory and scalability.
 
-論文指出既有 GR 方法的共同缺陷:**每個 action 都被獨立地 tokenize**,同一個 action(例如買了同一件商品)在任何序列裡都被指派到相同的固定 token,完全不看上下文。作者的類比很清楚:語言模型早期的 word-level tokenization 也是上下文無關的,而現代 LLM 幾乎都改用 BPE、Unigram 這類上下文感知(context-aware)的子詞切分,讓同一個詞根依鄰近上下文切成不同 token。ActionPiece 想做的,就是把這一步搬到 action 序列上,成為第一個上下文感知的 action 序列 tokenizer。
+The paper points out a common flaw of existing GR methods: **every action is tokenized independently**. The same action (e.g. buying the same product) is assigned to the same fixed token in any sequence, entirely ignoring context. The authors' analogy is clear: early language models' word-level tokenization was also context-independent, whereas modern LLMs almost all switched to context-aware subword segmentation such as BPE and Unigram, letting the same word root be split into different tokens depending on the surrounding context. What ActionPiece sets out to do is to bring this step to action sequences, becoming the first context-aware action-sequence tokenizer.
 
-真正的技術難點在於:文字天生是一維字元序列,但一個 action 關聯的特徵(類別、品牌、價格……)是一個**無序集合(unordered set)**。所以整個演算法必須跑在「集合的序列(sequence of sets)」上,而不是一維序列上。
+The real technical difficulty is this: text is inherently a one-dimensional character sequence, but the features associated with an action (category, brand, price, …) form an **unordered set**. So the entire algorithm has to run on a "sequence of sets", not on a one-dimensional sequence.
 
-### 把 action 表示成特徵集合的序列
+### Representing an action as a sequence of feature sets
 
-給定使用者歷史 $S=\{i_1,\dots,i_t\}$,把每個物品 $i_j$ 換成它的特徵集合 $\mathcal{A}_j$(每個物品 $m$ 個特徵,第 $k$ 個特徵記為 $f_{j,k}\in\mathcal{F}_k$),整段輸入就變成一個依時間排序的集合序列 $S'=\{\mathcal{A}_1,\dots,\mathcal{A}_t\}$。集合**內部**無序,但集合**之間**有時間序。Tokenizer 要輸出 token 序列 $C=\{c_1,\dots,c_l\}$,其中 token 數 $l$ 通常大於 action 數 $t$。用無序集合(而非 RQ-VAE 產生的有序 semantic ID)有兩個好處:不必為特徵指定順序、且能自然容納 category / brand / price 這類一般離散與數值特徵。
+Given a user history $S=\{i_1,\dots,i_t\}$, replace each item $i_j$ with its feature set $\mathcal{A}_j$ (each item has $m$ features, the $k$-th feature denoted $f_{j,k}\in\mathcal{F}_k$), and the whole input becomes a time-ordered sequence of sets $S'=\{\mathcal{A}_1,\dots,\mathcal{A}_t\}$. The **inside** of a set is unordered, but there is a temporal order **between** sets. The tokenizer must output a token sequence $C=\{c_1,\dots,c_l\}$, where the number of tokens $l$ is usually larger than the number of actions $t$. Using unordered sets (rather than the ordered semantic IDs produced by RQ-VAE) has two benefits: no need to assign an order to features, and it can naturally accommodate general discrete and numerical features such as category / brand / price.
 
-### 詞彙建構:對「集合序列」做加權版 BPE
+### Vocabulary construction: a weighted BPE over "sequences of sets"
 
-ActionPiece 沿用 BPE 的 bottom-up 精神:初始詞彙 $\mathcal{V}_0$ 讓每個 token 代表「一個單一特徵的集合」,然後反覆執行 count → update,每輪把最常共現的一對 token 合併成新 token,直到詞彙量達到目標 $Q$。
+ActionPiece follows the bottom-up spirit of BPE: the initial vocabulary $\mathcal{V}_0$ lets each token represent "a set of a single feature", and then repeatedly runs count → update, each round merging the most frequently co-occurring pair of tokens into a new token, until the vocabulary size reaches the target $Q$.
 
-關鍵差別在 **count 這一步要考慮集合結構**。集合序列裡有兩種共現:(1) 兩個 token 在同一個集合內、(2) 兩個 token 在相鄰的兩個集合裡。作者不像文字 BPE 那樣把每對 token 等權計數,而是用一個「隨機把集合攤平成一維序列後,兩 token 相鄰的期望機率」來定義權重。對同一集合內的兩個 token:
+The key difference is that **the count step must account for the set structure**. There are two kinds of co-occurrence in a sequence of sets: (1) two tokens within the same set, and (2) two tokens in two adjacent sets. Rather than counting each token pair with equal weight as text BPE does, the authors define the weight via "the expected probability that two tokens are adjacent after randomly flattening the sets into a one-dimensional sequence". For two tokens within the same set:
 
 $$P(c_1, c_2) = \frac{|\mathcal{A}_i| - 1}{\tbinom{|\mathcal{A}_i|}{2}} = \frac{2}{|\mathcal{A}_i|}, \quad c_1, c_2 \in \mathcal{A}_i$$
 
-對相鄰兩集合的 token:
+For tokens across two adjacent sets:
 
 $$P(c_1, c_3) = \frac{1}{|\mathcal{A}_i| \times |\mathcal{A}_{i+1}|}, \quad c_1 \in \mathcal{A}_i,\; c_3 \in \mathcal{A}_{i+1}$$
 
-![ActionPiece 詞彙建構時的加權共現計數示意(左集合 4 個 token、右集合 3 個 token;集合內配對 ⟨○,○⟩、⟨□,□⟩ 與跨集合配對 ⟨○,□⟩ 使用不同權重)](imgs/weight.png)
+![Illustration of the weighted co-occurrence counting during ActionPiece vocabulary construction (left set has 4 tokens, right set has 3 tokens; intra-set pairs ⟨○,○⟩, ⟨□,□⟩ and cross-set pairs ⟨○,□⟩ use different weights)](imgs/weight.png)
 
-**update 這一步的資料結構是全篇最工程的部分**。合併同一集合內的 token 很直接;但合併「跨相鄰集合」的 token 時,新 token 該放進哪個集合並不明確。作者用雙向鏈結串列維護每條序列,並引入「中間節點(intermediate node)」專門存放橫跨多個 action 的 token:兩個 action 節點的 token 合併時,在兩者之間插入一個中間節點承接新 token;action 節點與既有中間節點合併時,新 token 直接取代中間節點裡的舊 token。此規則保證任兩個 action 節點之間至多一個中間節點、且每個中間節點至多一個 token,計算共現權重時把中間節點當作大小為 1 的集合處理。
+**The update step's data structure is the most engineering-heavy part of the whole paper.** Merging tokens within the same set is straightforward; but when merging tokens "across adjacent sets", it is not obvious which set the new token should be placed into. The authors maintain each sequence with a doubly linked list and introduce an "intermediate node" specifically to hold tokens that span multiple actions: when the tokens of two action nodes are merged, an intermediate node is inserted between them to carry the new token; when an action node is merged with an existing intermediate node, the new token directly replaces the old token in the intermediate node. This rule guarantees at most one intermediate node between any two action nodes, and at most one token per intermediate node, and when computing co-occurrence weights the intermediate node is treated as a set of size 1.
 
-樸素地每輪重掃全語料的複雜度是 $O(QNLm^2)$;作者用倒排索引(把 token pair 映射到含它的序列)加上帶 lazy-update 的全域 heap,只增量更新受影響的部分,把複雜度降到 $O(\log Q \log H \cdot NLm^2)$,其中 $H=O(NLm)$ 為 heap 最大長度。
+Naively rescanning the whole corpus each round has complexity $O(QNLm^2)$; the authors use an inverted index (mapping a token pair to the sequences containing it) plus a global heap with lazy-update to incrementally update only the affected parts, reducing the complexity to $O(\log Q \log H \cdot NLm^2)$, where $H=O(NLm)$ is the maximum heap length.
 
-### Segmentation:用集合置換正則化(SPR)避免只用到少數 token
+### Segmentation: use set permutation regularization (SPR) to avoid using only a few tokens
 
-有了詞彙,還要把原始序列切(segment)成對應 token。若直接沿用建詞彙時的貪婪固定順序合併,作者觀察到會產生偏差——只有一部分 token 被頻繁使用。為此提出 **set permutation regularization (SPR)**:對每個集合隨機生成一個排列、當成一維序列,再把所有排列串接後用傳統 BPE segmentation 切分。不同排列會切出「語義相同但 token 序列不同」的多個版本,訓練時每個 epoch 重切一次當作資料增強,推論時對同一輸入切 $q$ 次、把 $q$ 份排序結果的分數平均做集成(inference-time ensembling)。
+Once the vocabulary is available, the original sequence still has to be segmented into the corresponding tokens. If one directly reuses the greedy fixed-order merging from vocabulary construction, the authors observe that this produces a bias — only a subset of tokens ends up being frequently used. To address this they propose **set permutation regularization (SPR)**: for each set, randomly generate a permutation, treat it as a one-dimensional sequence, then concatenate all permutations and segment them with traditional BPE segmentation. Different permutations produce multiple versions that are "semantically identical but have different token sequences"; at training time the sequence is re-segmented once per epoch as data augmentation, and at inference time the same input is segmented $q$ times and the scores of the $q$ ordered results are averaged as an ensemble (inference-time ensembling).
 
-下表(論文 Table 3)把 BPE 與 ActionPiece 的差異並列,可看出 ActionPiece 本質上是「把 BPE 從一維 byte 序列搬到特徵集合序列」並補上跨集合合併與 SPR:
+The table below (paper Table 3) juxtaposes the differences between BPE and ActionPiece, showing that ActionPiece is essentially "moving BPE from a one-dimensional byte sequence to a feature-set sequence" plus cross-set merging and SPR:
 
 | Aspect | BPE | ActionPiece |
 |-|-|-|
-| Data Type | text sequences | action(無序特徵集合)序列 |
+| Data Type | text sequences | sequences of actions (unordered feature sets) |
 | Token | a byte sequence | a feature set |
-| Merging Unit | 相鄰 byte pair | 集合內 或 相鄰集合間的特徵對 |
-| Co-occurrence Weighting | raw frequency | 機率加權(上方兩式) |
-| Segmentation | 貪婪固定順序合併 | set permutation regularization |
-| Intermediate Structures | N/A | 跨 action 合併用的中間節點 |
+| Merging Unit | adjacent byte pair | feature pair within a set or between adjacent sets |
+| Co-occurrence Weighting | raw frequency | probability weighting (the two formulas above) |
+| Segmentation | greedy fixed-order merging | set permutation regularization |
+| Intermediate Structures | N/A | intermediate nodes for cross-action merges |
 
-### 一個帶真實數字的具體例子
+### A concrete example with real numbers
 
-以 Beauty 資料集為例,每個物品的特徵是用 OPQ 量化出的 4 個 code 再加 1 個防衝突的識別 code,共 $m=5$ 個特徵——正好對應論文 case study 中「每個物品由五個特徵構成」的設定。把這 5 個特徵當一個集合,建詞彙時:
+Take the Beauty dataset as an example: each item's features are 4 codes quantized by OPQ plus 1 anti-collision identifier code, for $m=5$ features in total — exactly matching the "each item is composed of five features" setup in the paper's case study. Treating these 5 features as one set, during vocabulary construction:
 
-- 集合**內部**任一對特徵每次共現貢獻的權重是 $P=\tfrac{2}{|\mathcal{A}|}=\tfrac{2}{5}=0.4$;
-- 若前後兩個物品都是 5 個特徵,**跨集合**任一對特徵的權重是 $P=\tfrac{1}{5\times 5}=0.04$。
+- The weight contributed each time any pair of features **within** the set co-occurs is $P=\tfrac{2}{|\mathcal{A}|}=\tfrac{2}{5}=0.4$;
+- If both the preceding and following items have 5 features, the weight of any **cross-set** pair of features is $P=\tfrac{1}{5\times 5}=0.04$.
 
-也就是說,同一物品內的特徵配對,權重是跨物品配對的 **10 倍**。這正是「加權計數」的設計意圖:先把「同一件商品內部反覆同現的特徵組合」壓成一個 token,再讓較稀有的跨商品組合去捕捉真正的上下文訊號。經過合併,一個 token 可能對應到:某物品的部分特徵、單一特徵、某物品的全部特徵、或橫跨多個物品的特徵——論文 case study 中 token `14844` 對應 T-shirt 的特徵 `747` 與 `923`,而 token `⟨19,895⟩` 則同時包含 socks 的特徵 `1100` 與 shorts 的特徵 `560`、`943`,示範了「同一 action 依鄰近上下文被切成不同 token」。
+That is, the weight of a feature pair within the same item is **10 times** that of a cross-item pair. This is precisely the design intent of "weighted counting": first compress "the feature combinations that recur repeatedly within the same product" into one token, then let the rarer cross-product combinations capture the truly contextual signal. After merging, one token may correspond to: part of an item's features, a single feature, all of an item's features, or features spanning multiple items — in the paper's case study, token `14844` corresponds to the T-shirt features `747` and `923`, while token `⟨19,895⟩` simultaneously contains the socks feature `1100` and the shorts features `560`, `943`, demonstrating that "the same action is split into different tokens depending on the neighboring context".
 
-![ActionPiece tokenization 的 case study:同一段 action 序列在不同置換下切出語義相同但 token 不同的兩種結果,並標註四種 token 類型](imgs/case.png)
+![Case study of ActionPiece tokenization: the same action sequence is segmented under different permutations into two results that are semantically identical but have different tokens, with the four token types annotated](imgs/case.png)
 
-推薦效果上,以 Beauty 的 NDCG@10 為例:ActionPiece 為 0.0424,而該欄最強的 baseline(P5-CID,0.0400)的相對提升即 $(0.0424-0.0400)/0.0400 = 6.00\%$,與論文 Improv. 欄一致。整體而言 ActionPiece 在三個資料集的 NDCG@10 相對最佳 baseline 提升 6.00% 到 12.82%。模型端沿用 TIGER 式的 T5 encoder-decoder:4 層、6 個 head(每個 head 維度 64)、token embedding 維度 128、FFN 維度 1024,對 Sports/Beauty 約 4.46M 非嵌入參數;詞彙量固定 40k、推論集成 $q=5$、beam size 50。
+In terms of recommendation performance, taking NDCG@10 on Beauty as an example: ActionPiece scores 0.0424, and the relative improvement over the strongest baseline in that column (P5-CID, 0.0400) is $(0.0424-0.0400)/0.0400 = 6.00\%$, consistent with the paper's Improv. column. Overall, ActionPiece improves NDCG@10 relative to the best baseline by 6.00% to 12.82% across the three datasets. On the model side it follows the TIGER-style T5 encoder-decoder: 4 layers, 6 heads (each head of dimension 64), token embedding dimension 128, FFN dimension 1024, about 4.46M non-embedding parameters for Sports/Beauty; the vocabulary size is fixed at 40k, inference ensembling $q=5$, beam size 50.
 
 ## 🧪 Critical Assessment
 
-### 問題是否真實,重要性有多高
+### Is the problem real, and how important is it
 
-「既有 action tokenizer 都上下文無關」這個觀察是準確且可驗證的:論文 Table 1 逐一點名 VQ-Rec、TIGER、HSTU、SPM-SID 等都在 Contextual 欄打叉,與 LLM 從 word-level 走向 subword 的歷史類比也相當貼切。問題本身成立。但要注意「重要性」與「效果幅度」是兩回事:三個資料集全部來自 Amazon Reviews(Sports/Beauty/CDs),物品數 12k–64k、序列平均長度 8–15,屬於學術基準的偏小規模;論文結論裡把方法外推到「audio modeling、sequential decision-making、time series」目前只是 future work 的宣稱,沒有任何實驗支撐,讀者不宜把它當成已證實的通用性。
+The observation that "existing action tokenizers are all context-independent" is accurate and verifiable: the paper's Table 1 names VQ-Rec, TIGER, HSTU, SPM-SID, etc. one by one as marked with a cross in the Contextual column, and the historical analogy to LLMs moving from word-level to subword is quite apt. The problem itself holds. But note that "importance" and "magnitude of effect" are two different things: all three datasets come from Amazon Reviews (Sports/Beauty/CDs), with 12k–64k items and average sequence lengths of 8–15, belonging to the smaller-scale academic benchmarks; the paper's conclusion extrapolating the method to "audio modeling, sequential decision-making, time series" is at present only a future-work claim with no experimental support, and readers should not take it as an established generality.
 
-### Baseline、消融、資料與指標是否充分
+### Are the baselines, ablations, data and metrics sufficient
 
-方法論的嚴謹度整體不錯:baseline 橫跨 ID-based、feature+ID、generative 三類共十個方法,跑五個隨機種子並回報標準差,消融同時檢驗了詞彙量、context-aware、加權計數、SPR 訓練/推論拆分。特別值得肯定的是為了預先反駁「提升只是詞彙變大」,作者刻意把 TIGER 的詞彙從 192 一路調到 66k,顯示更大詞彙的 TIGER(49k、66k)反而更差。
+The methodological rigor is overall decent: the baselines span three categories — ID-based, feature+ID, and generative — for ten methods in total, run over five random seeds with reported standard deviations, and the ablation simultaneously examines vocabulary size, context-awareness, weighted counting, and the SPR training/inference split. Particularly commendable is that, to preemptively refute "the improvement is just from a larger vocabulary", the authors deliberately tuned TIGER's vocabulary all the way from 192 to 66k, showing that a larger-vocabulary TIGER (49k, 66k) is instead worse.
 
-但有兩個公平性缺口值得指出。其一,除 ActionPiece 外的多數 baseline 由作者自行重現,唯獨 LMIndexer 直接引用原論文數字,且它在 CDs 全欄與若干 R@10 欄位是 `---`(未收斂/缺值),無法與其他方法對齊比較。其二,也是更關鍵的一點:**ActionPiece 的推論用了 $q=5$ 份切分做集成,等於 5 倍前向計算,而 baseline 都是單次推論**。論文用「置換在 CPU 上非同步、增廣版本可跨裝置平行」來論證延遲相當,但這掩蓋不了 FLOPs 是 5 倍的事實;把「單次推論的 baseline」與「5 次集成的本方法」直接並列,headline 的提升裡有多少來自更好的 tokenization、多少來自純粹的測試期集成,並沒有被完全拆乾淨。消融 (3.1)(只在推論用 SPR)掉到 Sports 0.0192、(3.3)(TIGER+SPR)也沒起色,確實佐證了「SPR 要搭配上下文感知詞彙才有用」,但這仍不等於證明在**相同推論預算**下 ActionPiece 勝過 baseline。
+But there are two fairness gaps worth pointing out. First, apart from ActionPiece, most baselines were reproduced by the authors themselves, except LMIndexer which directly cites the original paper's numbers, and it is `---` (non-converged/missing) for the entire CDs column and several R@10 columns, making it impossible to align and compare with the other methods. Second, and more critically: **ActionPiece's inference uses $q=5$ segmentations for the ensemble, equivalent to 5× the forward computation, whereas all baselines use single-pass inference**. The paper argues that latency is comparable via "permutation runs asynchronously on CPU, and the augmented versions can be parallelized across devices", but this cannot mask the fact that the FLOPs are 5×; directly juxtaposing "single-pass-inference baselines" with "5-fold-ensemble our method" means the headline improvement is not fully disentangled between how much comes from better tokenization and how much comes from pure test-time ensembling. Ablation (3.1) (SPR only at inference) drops to Sports 0.0192, and (3.3) (TIGER+SPR) shows no gain either, which indeed corroborates that "SPR is only useful together with a context-aware vocabulary", but this still does not amount to proving that ActionPiece beats the baselines under the **same inference budget**.
 
-### 從 BPE 到集合序列:是真創新還是包裝
+### From BPE to sequences of sets: real innovation or repackaging
 
-老實說,ActionPiece 的核心就是「把 BPE 搬到特徵集合序列上」,論文 Table 3 自己也是這樣並列的。真正原創的成分有三塊:跨集合合併所需的中間節點資料結構、依集合大小的機率加權計數、以及 SPR。其中 SPR 看來是提升的主要來源——消融顯示拿掉 SPR(退回樸素 segmentation)或只在單邊使用都會明顯掉分,而 SPR 帶來的 token 利用率從 56.89% 升到第一個 epoch 的 87.01%(附錄進一步稱到第 5 個 epoch 達 95.33%)。這是紮實的工程貢獻,但也意味著「上下文感知 tokenization」這個標題賣點,和「靠置換增強+集成把 token 用好」這個真正的效能引擎,在論文敘事裡是被綁在一起講的;若把 SPR 看成一種資料增強/集成技巧,它與「上下文感知」的因果歸屬其實部分交纏。
+Honestly, the core of ActionPiece is "moving BPE onto feature-set sequences", and the paper's Table 3 itself juxtaposes it this way. There are three genuinely original components: the intermediate-node data structure required for cross-set merging, the set-size-dependent probability-weighted counting, and SPR. Among these, SPR appears to be the main source of improvement — the ablation shows that removing SPR (reverting to naive segmentation) or using it on only one side clearly drops the score, and SPR raises token utilization from 56.89% to 87.01% in the first epoch (the appendix further states it reaches 95.33% by the 5th epoch). This is a solid engineering contribution, but it also means that the headline selling point "context-aware tokenization" and the true performance engine "using permutation augmentation + ensembling to make good use of tokens" are bundled together in the paper's narrative; if SPR is viewed as a data-augmentation/ensembling trick, its causal attribution relative to "context-awareness" is in fact partly entangled.
 
-### 自訂基準與是否真正解決問題
+### Custom benchmarks and whether the problem is truly solved
 
-作者主動引入了規模較大的 CDs(互動量約為 Sports 的 4 倍)來測擴展性,Sports/Beauty 則沿用社群標準基準,這降低了「挑對自己有利的資料集」的疑慮,是誠實的一面。但有一個容易被忽略的設定差異:ActionPiece 用 OPQ 量化出 4 code(+1 識別 code),TIGER/SPM-SID 用 RQ 的 3 code(+1 識別 code),不同方法的底層特徵表示並不完全一致,這種量化方式的差異可能對結果構成潛在干擾,論文雖聲明「為公平比較統一成 4 code」,但 RQ 與 OPQ 的本質差異仍在。此外「Improv.」欄所對比的「最強 baseline」並非逐格一致——例如 Sports R@5 欄,P5-CID(0.0287)其實高於被標為次佳(underline)的 SPM-SID(0.0280),而該欄 +12.86% 的提升是相對 0.0280 算出的;這不影響 ActionPiece 為當欄最佳的結論,但顯示「相對最強 baseline」的敘述在個別格子上並不精確,讀者引用提升幅度時應回表核對。整體而言,在其設定的離線 Amazon 基準上「上下文無關 tokenization 是次優的」這個假說得到了支持;但「在真實、大規模、線上場景是否成立」則完全沒有被觸及——沒有工業級資料、沒有線上 A/B、5 倍推論成本對線上部署的影響也未量化。
+The authors proactively introduced the larger CDs dataset (about 4× the interaction volume of Sports) to test scalability, while Sports/Beauty follow community-standard benchmarks, which reduces the concern of "picking datasets favorable to oneself" and is an honest aspect. But there is an easily overlooked setup difference: ActionPiece uses OPQ to quantize 4 codes (+1 identifier code), while TIGER/SPM-SID use RQ's 3 codes (+1 identifier code); the underlying feature representations of the different methods are not entirely consistent, and this difference in quantization method may constitute a potential confounder for the results — although the paper states "unified to 4 codes for a fair comparison", the essential difference between RQ and OPQ remains. In addition, the "strongest baseline" compared in the "Improv." column is not consistent cell by cell — for example in the Sports R@5 column, P5-CID (0.0287) is actually higher than SPM-SID (0.0280) which is marked as second-best (underlined), and the +12.86% improvement in that column is computed relative to 0.0280; this does not affect the conclusion that ActionPiece is best in that column, but it shows that the narrative of "the relative strongest baseline" is not precise on individual cells, and readers should cross-check against the table when citing improvement magnitudes. Overall, on its own offline Amazon benchmarks the hypothesis "context-independent tokenization is suboptimal" is supported; but "whether it holds in real, large-scale, online scenarios" is not touched at all — there are no industrial-scale data, no online A/B tests, and the impact of the 5× inference cost on online deployment is not quantified either.
 
-![NDCG@10(↑)與正規化序列長度 NSL(↓)隨詞彙量的變化,顯示效能/序列長度/記憶體的取捨](imgs/vocab_size.png)
+![NDCG@10 (↑) and normalized sequence length NSL (↓) as a function of vocabulary size, showing the trade-off between performance / sequence length / memory](imgs/vocab_size.png)
 
 ## 🔗 Related notes
 
-- [SASRec](../SASRec/) — 本文 ID-based baseline 之一,自注意力序列推薦的代表。
-- [S3Rec](../S3Rec/) — 本文 feature-enhanced baseline,利用自監督預訓練關聯物品特徵與 ID。
-- [BERT4Rec](../Bert4Rec/) — 本文 ID-based baseline,雙向 Transformer 序列推薦。
+- [SASRec](../SASRec/) — one of this paper's ID-based baselines, a representative of self-attention sequential recommendation.
+- [S3Rec](../S3Rec/) — this paper's feature-enhanced baseline, using self-supervised pre-training to associate item features with IDs.
+- [BERT4Rec](../Bert4Rec/) — this paper's ID-based baseline, bidirectional Transformer sequential recommendation.

@@ -7,8 +7,7 @@
 
 # Contrastive Learning with Bidirectional Transformers for Sequential Recommendation
 
-> **English** | [繁體中文](./README.zh-TW.md)
-
+> [English](./README.md) | **繁體中文**
 | Title | Venue | Year | Code |
 |-|-|-|-|
 | [Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/pdf/2208.03895.pdf) | CIKM | ['22](https://www.cikm2022.org/papers-posters) | [code](https://github.com/hw-du/CBiT/tree/master.) |
@@ -25,7 +24,7 @@
 
 ### Multi-Pair Contrastive Learning
 - **1. The Simple One-Pair Instance**
-Normally, given a batch of sequences $\{S_u\}^N_{u=1}$ with batch size $N$, a pair of hidden representations $H^x_u$, $H^y_u$ stemming from the same original sequence $S_u$ are brought together as a pair of positive samples while the other $2(N -1 )$ hidden representations from the same batch are considered negative samples.
+Normally, given a batch of sequences $\{S_u\}^N_{u=1}$ with batch size $N$, a pair of hidden representations $H^x_u$, $H^y_u$ stemming(詞幹) from the same original sequence $S_u$ are brought together as a pair of positive samples while the other $2(N -1 )$ hidden representations from the same batch are considered negative samples.
 - **2. Extrapolation.**
     - Simply using one pair of positive samples for contrastive learning does not suffice to fully exploit the great potential of bidirectional Transformers:
         - the difference between one pair of positive samples might be diminutive, so the model could hardly learn anything useful with these easy positive samples
@@ -46,11 +45,11 @@ Normally, given a batch of sequences $\{S_u\}^N_{u=1}$ with batch size $N$, a pa
 |  | Unidirectional Transformers | Bidirectional Transformers |
 |-|-|-|
 | The difference in the attention mechanisms | Use the `attention mask` to **hide** future items, which creates a `shifted version of the same sequence` | Can see items from `both sides`, which is beneficial for capturing more `fine-grained behaviorial patterns`. |
-| Average Attention Weights | | The heat-map of average attention weights is `diagonal` because of such causality attention masking. |
+| Average Attention Weights | | The heat-map of average attention weights is `diagonal` because of such causality(因果關係) attention masking. |
 | Training Objectives | The next-item prediction because the model learns to process sequence information from left to right. | The cloze task using an additional mask token because the model learns to process sequence information from both sides. |
 
 - As we can see in Figure 4c and 4d, attention in the 2-th head tends to attend on the mask token, which indicates that the model is sensitive to the cloze task.
-- In the experiments find out that `bidirectional Transformers` can **only** outperform unidirectional Transformers by a `large margin on`  condition that the `slide window technique` is adopted, which indicates the necessity of using the slide window technique in bidirectional Transformers.
+- In the experiments find out that `bidirectional Transformers` can **only** outperform unidirectional Transformers by a `large margin on(大幅優於)`  condition that the `slide window technique` is adopted, which indicates the necessity of using the slide window technique in bidirectional Transformers.
 
 ### Performance Comparison
 ![exp](./assets/performance.png)

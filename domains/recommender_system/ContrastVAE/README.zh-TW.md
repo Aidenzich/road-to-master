@@ -7,8 +7,7 @@
 
 # ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation
 
-> **English** | [繁體中文](./README.zh-TW.md)
-
+> [English](./README.md) | **繁體中文**
 | Title | Venue | Year | Code |
 |-|-|-|-|
 | [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/pdf/2209.00456.pdf) | CIKM | '22 | [✓](https://github.com/YuWang-1024/ContrastVAE) |
@@ -37,11 +36,11 @@ Using the original sequence's **`origin view`** and **`augmented view`** to VAE,
 
 ## First. Introduction of the Background 
 `Sequential Recommendation (SR)` has attracted increasing attention due to its ability to **model the temporal dependencies** in `users’ clicking histories`, which can help better understand user behaviors and intentions. 
-Recent research *justifies* the *promising* ability of self-attention models in characterizing the temporal dependencies on real-world sequential recommendation tasks.
+Recent research *justifies(證明)* the *promising(有希望)* ability of self-attention models in characterizing the temporal dependencies on real-world sequential recommendation tasks.
 
 | Model | Definition |
 |-|-|
-| [SASRec](../SASRec/) | SASRec is a *pioneering* work adopting the self-attention mechanism to learn transition patterns in item sequences |
+| [SASRec](../SASRec/) | SASRec is a *pioneering(開創性)* work adopting the self-attention mechanism to learn transition patterns in item sequences |
 | [TiSASRec](../TiSASRec/) | TiSASRec is a time-interval aware version of SASRec |
 | [BERT4Rec](../Bert4Rec/) | BERT4Rec extends it as a bi-directional encoder to predict the next item |
 
@@ -55,7 +54,7 @@ Despite their great representation power, both the **`Uncertainty problem`** and
 | **`Uncertainty Problem`** | Due to the rigorous assumption of sequential dependencies, which may be destroyed by unobserved factors in real-world scenarios. | For music recommendations, the genre of music that a user listens may vary according to different circumstances. Nevertheless, those factors are unknown and cannot be fully revealed in sequential patterns |
 | **`Sparsity Issue`** | Sparsity Issue is a long-existing and not yet a well-solved problem in recommender systems | Supposing that a user only interacts with a few items, current methods are unable to learn high-quality representations of the sequences, thus failing to characterize sequential dependencies  |
 
-- Moreover, the `sparsity issue` **increases** the deficiency of uncertainty in sequential recommendation. More concretely, if a user has fewer historical interactions, those uncertain factors are of higher dominance over sequential patterns. However, these 2 issues are seldom studied simultaneously.
+- Moreover, the `sparsity issue` **increases** the deficiency(不足) of uncertainty in sequential recommendation. More concretely, if a user has fewer historical interactions, those uncertain factors are of higher dominance over sequential patterns. However, these 2 issues are seldom studied simultaneously.
 
 ## Third. The second Supporting paragraphs of background
 > Proposing method which can solve the identified problem mentioned in the first supporting paragraphs
