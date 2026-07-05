@@ -1,4 +1,5 @@
 # Self-Refine — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,37 +12,37 @@
 | Official Code | https://selfrefine.info/ |
 | Venue Kind | paper |
 
-> 本文基於 arXiv 預印本 `2303.17651v2` 撰寫，正式版收錄於 NeurIPS 2023；相機修訂版（camera-ready）之細節可能與預印本略有差異。所有數值與引文均以預印本 LaTeX 原始碼為準。
+> This note is based on the arXiv preprint `2303.17651v2`, with the formal version included in NeurIPS 2023; details of the camera-ready version may differ slightly from the preprint. All numbers and citations follow the preprint LaTeX source.
 
 ## First Principles
 
-Self-Refine 想解決的問題是：即使是 GPT-4 這類強語言模型（LLM），第一次生成的輸出往往不是最好的，尤其在多目標（如對話回應）或目標難以形式化（如提升程式可讀性）的任務上。過去的迭代修正多半要訓練一個額外的修正模型或依賴外部獎勵模型，需要大量標註或監督資料。Self-Refine 的核心想法是：用「同一個」LLM 同時扮演生成者、回饋者與修正者三種角色，不做任何額外訓練、不需監督資料、也不用強化學習，只靠測試階段的迭代自我回饋與修正就把輸出改好。
+The problem Self-Refine seeks to solve is: even for strong language models (LLMs) like GPT-4, the first generated output is often not the best, especially on tasks with multiple objectives (such as dialogue responses) or objectives that are hard to formalize (such as improving code readability). Past iterative correction mostly required training an additional correction model or relying on an external reward model, requiring large amounts of annotation or supervised data. Self-Refine's core idea is: use "the same" LLM to simultaneously play the three roles of generator, feedback provider, and refiner, without any additional training, without supervised data, and without reinforcement learning, improving the output relying solely on iterative self-feedback and refinement at the test stage.
 
-![Self-Refine 高層流程：同一個模型 M 生成輸出、對自己的輸出產生回饋、再依回饋修正，回饋與修正交替直到停止條件成立](imgs/self-refine-overview.png)
+![Self-Refine high-level flow: the same model M generates an output, produces feedback on its own output, and then refines according to the feedback, with feedback and refinement alternating until the stopping condition holds](imgs/self-refine-overview.png)
 
-上圖是方法的高層示意：給定輸入後，模型先產生一版輸出並把它送回同一個模型取得回饋，回饋再送回模型去修正前一版草稿，回饋與修正兩步反覆執行直到觸發停止條件，整個過程不涉及任何人工協助。
+The figure above is a high-level illustration of the method: given an input, the model first produces a version of output and sends it back to the same model to obtain feedback, the feedback is then sent back to the model to refine the previous draft, and the two steps of feedback and refinement are executed repeatedly until a stopping condition is triggered, with the entire process involving no human assistance.
 
-方法只依賴三個 few-shot 提示：初始生成提示 $p_{gen}$、回饋提示 $p_{fb}$、以及修正提示 $p_{refine}$。這三個提示各自以少量 in-context 範例，讓同一個基礎模型分別具備生成、回饋與修正的能力，因此整體是「supervision-free」的——唯一的監督訊號就藏在 few-shot 範例裡。第一步是初始生成：給定輸入 $x$、提示 $p_{gen}$ 與模型 $\mathcal{M}$，模型產生初始輸出 $y_0$。
+The method relies on only three few-shot prompts: the initial generation prompt $p_{gen}$, the feedback prompt $p_{fb}$, and the refinement prompt $p_{refine}$. These three prompts each use a small number of in-context examples to give the same base model the abilities to generate, provide feedback, and refine respectively, so the whole thing is "supervision-free" — the only supervision signal is hidden in the few-shot examples. The first step is initial generation: given input $x$, prompt $p_{gen}$, and model $\mathcal{M}$, the model produces the initial output $y_0$.
 
 $$
 y_0 = \mathcal{M}(p_{gen} \| x)
 $$
 
-第二步是回饋。同一個模型 $\mathcal{M}$ 依回饋提示 $p_{fb}$ 對自己剛才的輸出 $y_t$ 產生回饋 $fb_t$。關鍵在於回饋必須「具體且可執行」（actionable and specific）：可執行指回饋要包含一個很可能改善輸出的具體動作，具體指回饋要指出輸出中該修改的確切片段。例如在程式最佳化裡，回饋會同時點出效率、可讀性等多個面向，並直接指名 for 迴圈這種要改的地方。
+The second step is feedback. The same model $\mathcal{M}$ produces feedback $fb_t$ on its own just-produced output $y_t$ according to the feedback prompt $p_{fb}$. The key is that the feedback must be "actionable and specific": actionable means the feedback should contain a concrete action that is likely to improve the output, and specific means the feedback should point out the exact segment of the output to modify. For example, in code optimization, the feedback would simultaneously point out multiple aspects such as efficiency and readability, and directly name the specific place to change, such as a for loop.
 
 $$
 fb_t = \mathcal{M}(p_{fb} \| x \| y_t)
 $$
 
-第三步是修正：模型依回饋把最近一版輸出改寫成新的一版。為了讓模型記得過去幾輪的嘗試、避免重蹈覆轍，實作上並不是只餵最新的 $(y_t, fb_t)$，而是把歷來所有的輸出與回饋整串接到提示後面，讓模型從過去的錯誤中學習。因此修正步驟實際上是保留完整歷史的形式。
+The third step is refinement: the model rewrites the most recent version of the output into a new version according to the feedback. To make the model remember the attempts of the past few rounds and avoid repeating the same mistakes, in the implementation it is not fed only the latest $(y_t, fb_t)$; instead, all past outputs and feedback are concatenated onto the prompt, so that the model learns from past mistakes. Therefore the refinement step is in fact a form that preserves the full history.
 
 $$
 y_{t+1} = \mathcal{M}(p_{refine} \| x \| y_0 \| fb_0 \| \cdots \| y_t \| fb_t)
 $$
 
-回饋與修正兩步交替，直到停止條件 $\mathrm{stop}(fb_t, t)$ 成立：條件可以是跑到指定的迭代步數，也可以是從回饋中抽出一個停止指標（例如一個純量分數）。論文的實驗設定裡，每個任務最多迭代 4 次，並對所有設定都用 temperature 0.7 的貪婪解碼；為了讓不同模型的比較一致，即使是 ChatGPT、GPT-4 這類擅長指令的模型，回饋與修正也一律以 few-shot 提示實作。
+The two steps of feedback and refinement alternate until the stopping condition $\mathrm{stop}(fb_t, t)$ holds: the condition can be reaching a specified number of iteration steps, or extracting a stopping indicator (such as a scalar score) from the feedback. In the paper's experimental setup, each task is iterated at most 4 times, and greedy decoding with temperature 0.7 is used for all settings; to keep the comparison across different models consistent, even for instruction-adept models like ChatGPT and GPT-4, feedback and refinement are uniformly implemented with few-shot prompts.
 
-論文在 7 個涵蓋自然語言與原始碼生成的多樣任務上評測 Self-Refine，基礎模型用 GPT-3.5（`text-davinci-003`）、ChatGPT（`gpt-3.5-turbo`）與 GPT-4，程式任務另外測了 Codex（`code-davinci-002`）。所有任務都以「同一個基礎模型但不做回饋-修正迭代」作為對照，摘要宣稱在所有評測任務上，Self-Refine 的輸出在人類與自動指標下都優於傳統單步生成，平均任務表現絕對提升約 20%。下表是三個主力模型在 7 個任務上的主結果。
+The paper evaluates Self-Refine on 7 diverse tasks spanning natural language and source-code generation, with GPT-3.5 (`text-davinci-003`), ChatGPT (`gpt-3.5-turbo`), and GPT-4 as base models, and Codex (`code-davinci-002`) additionally tested for code tasks. All tasks use "the same base model but without feedback-refinement iteration" as the control, and the abstract claims that across all evaluated tasks, Self-Refine's outputs are preferred over conventional single-step generation under both human and automatic metrics, with an average absolute improvement in task performance of about 20%. The table below shows the main results of the three main models on the 7 tasks.
 
 | Task | GPT-3.5 Base | GPT-3.5 +SR | ChatGPT Base | ChatGPT +SR | GPT-4 Base | GPT-4 +SR |
 |-|-|-|-|-|-|-|
@@ -53,14 +54,14 @@ $$
 | Acronym Generation | 41.6 | 56.4 (↑14.8) | 27.2 | 37.2 (↑10.0) | 30.4 | 56.0 (↑25.6) |
 | Constrained Generation | 28.0 | 37.0 (↑9.0) | 44.0 | 67.0 (↑23.0) | 15.0 | 45.0 (↑30.0) |
 
-主結果讀起來有兩個明顯的樣態。偏好類任務（對話回應、情感反轉、縮寫生成）的增益最大，例如對話回應任務裡 GPT-4 的偏好分數從 25.4 一路拉到 74.6，絕對提升 49.2。相對地，數學推理 GSM8K 幾乎沒有提升（GPT-4 是 92.9 到 93.1），論文自己解釋原因是模型難以判斷推理鏈有沒有錯——一條看起來通順的推理鏈會騙過模型讓它覺得「everything looks good」，實測 ChatGPT 對 94% 的實例都給出「一切看起來沒問題」的回饋，於是根本沒有東西可修。
+The main results read with two obvious patterns. Preference-type tasks (dialogue response, sentiment reversal, acronym generation) have the largest gains; for example, in the dialogue response task GPT-4's preference score is pulled all the way from 25.4 to 74.6, an absolute improvement of 49.2. In contrast, math reasoning GSM8K has almost no improvement (GPT-4 goes from 92.9 to 93.1), and the paper's own explanation for the cause is that the model struggles to judge whether a reasoning chain has errors — a seemingly fluent reasoning chain fools the model into thinking "everything looks good"; empirically ChatGPT gives "everything looks fine" feedback for 94% of instances, so there is simply nothing to refine.
 
-### 一次具體的前向修正：把暴力解改成動態規劃
+### One concrete forward refinement: turning a brute-force solution into dynamic programming
 
-以程式最佳化任務中的一個真實例子走一遍。輸入是一支要湊出某金額的暴力解程式，`pie` 基線幾乎原封不動地照抄了慢版邏輯，用六層巢狀迴圈枚舉所有硬幣組合，只改了讀輸入的部分，完全沒有把效率改好，初始版本大致長這樣。
+Let us walk through a real example from the code optimization task. The input is a program with a brute-force solution that needs to make up a certain amount; the `pie` baseline copies the slow-version logic almost verbatim, using six nested loops to enumerate all coin combinations, only changing the input-reading part, without improving efficiency at all; the initial version roughly looks like this.
 
 ```python
-# 慢版：六層巢狀迴圈枚舉
+# Slow version: six nested loops enumerating
 def solve(amount):
   best_price = (amount + 199) // 200 * 380
   for a in range(amount // 200 + 1):
@@ -72,10 +73,10 @@ def solve(amount):
   return best_price
 ```
 
-Self-Refine 先產生回饋，診斷出「這段程式很慢，因為它用六層巢狀迴圈去枚舉所有付款的硬幣組合」，並建議改用更有效率的做法。模型接著依這條回饋把程式改寫成動態規劃解，把時間複雜度降到 $\mathcal{O}(amount*coins)$。這正對應主結果裡 GPT-4 在 Code Optimization 上把最佳化比例從 27.3% 提到 36.0% 的那 8.7 個百分點。改寫後的程式如下。
+Self-Refine first produces feedback, diagnosing that "this program is very slow because it uses six nested loops to enumerate all coin combinations for payment," and suggests switching to a more efficient approach. The model then rewrites the program into a dynamic programming solution according to this feedback, reducing the time complexity to $\mathcal{O}(amount*coins)$. This corresponds precisely to the 8.7 percentage points by which GPT-4 raises the optimization rate on Code Optimization from 27.3% to 36.0% in the main results. The rewritten program is as follows.
 
 ```python
-# 快版：動態規劃
+# Fast version: dynamic programming
 def solve(amount):
   coins = [200, 300]
   prices = [380, 550]
@@ -87,7 +88,7 @@ def solve(amount):
   return dp[amount]
 ```
 
-多輪迭代到底有沒有用？論文把每一輪迭代後的分數攤開來看，平均而言輸出品質隨迭代次數增加而提升。下表是三個任務逐輪（$y_0$ 到 $y_3$，跨三個模型平均）的分數。
+Do multiple rounds of iteration actually help? The paper lays out the scores after each round of iteration, and on average output quality improves as the number of iterations increases. The table below shows the round-by-round scores for three tasks ($y_0$ to $y_3$, averaged across three models).
 
 | Task | $y_0$ | $y_1$ | $y_2$ | $y_3$ |
 |-|-|-|-|-|
@@ -95,28 +96,28 @@ def solve(amount):
 | Sentiment Reversal | 33.9 | 34.9 | 36.1 | 36.8 |
 | Constrained Generation | 29.0 | 40.3 | 46.7 | 49.7 |
 
-從表可看出增益主要集中在前一兩輪：Code Optimization 從 22.0 爬到 28.8，Constrained Generation 從 29.0 爬到 49.7，但每多一輪的邊際改善逐漸縮小，呈現明顯的報酬遞減。論文也提醒在多面向回饋的任務（如縮寫生成）品質不一定單調上升，因此改用對各品質面向打數值分數的方式，來在迭代中挑出較平衡的輸出。
+From the table one can see that the gains are mainly concentrated in the first one or two rounds: Code Optimization climbs from 22.0 to 28.8, Constrained Generation climbs from 29.0 to 49.7, but the marginal improvement of each additional round gradually shrinks, exhibiting clear diminishing returns. The paper also cautions that on tasks with multi-aspect feedback (such as acronym generation) quality does not necessarily increase monotonically, so it switches to assigning numerical scores to each quality aspect in order to select the more balanced output during iteration.
 
 ## 🧪 Critical Assessment
 
-### 增益集中在低基準的開放式任務，可驗證任務幾乎歸零
+### Gains concentrate in low-baseline open-ended tasks, and are almost zero on verifiable tasks
 
-「LLM 第一次生成不是最佳、可用自我回饋改善」是個真實且有價值的問題，而且 Self-Refine 完全不需訓練、只靠測試階段提示就能套到任何強模型上，這種即插即用的特性讓它在工程上很有吸引力。不過要注意，論文最亮眼的增益幾乎都落在「偏好類、開放式」任務上，這類任務的初始基準分數本來就偏低（例如 GPT-4 在對話回應的 Base 只有 25.4），改善空間天然很大；一旦任務有明確、可驗證的正確性（如 GSM8K），增益就趨近於零。這暗示 Self-Refine 真正擅長的是「打磨風格與覆蓋度」而非「修正事實或邏輯錯誤」。
+"An LLM's first generation is not optimal and can be improved with self-feedback" is a real and valuable problem, and Self-Refine requires no training at all, applicable to any strong model relying solely on test-stage prompts, and this plug-and-play property makes it very attractive from an engineering standpoint. Note, however, that the paper's most striking gains almost all fall on "preference-type, open-ended" tasks, and the initial baseline scores of such tasks are inherently low (for example, GPT-4's Base on dialogue response is only 25.4), so the room for improvement is naturally large; once a task has clear, verifiable correctness (such as GSM8K), the gain approaches zero. This suggests that what Self-Refine is truly good at is "polishing style and coverage" rather than "correcting factual or logical errors."
 
-### 消融紮實，但 GPT-4 既當評審又當被評者的循環風險
+### The ablations are solid, but there is a loop risk of GPT-4 being both judge and judged
 
-消融設計是這篇的強項：作者用「Self-Refine 回饋 vs. 泛用回饋 vs. 無回饋」證明具體可執行的回饋才是關鍵（情感反轉在無回饋時直接歸零），也用 1-vs-$k$ 取樣對照排除了「只是多生幾個候選」的解釋，這些都比只報主結果紮實。
+The ablation design is the strength of this paper: the authors use "Self-Refine feedback vs. generic feedback vs. no feedback" to prove that concrete, actionable feedback is the key (sentiment reversal drops straight to zero without feedback), and use a 1-vs-$k$ sampling comparison to rule out the explanation of "just generating a few more candidates"; these are all more solid than only reporting the main results.
 
-但指標本身有可疑之處。多個任務沒有自動指標，改用 GPT-4 當人類偏好的代理來評分，而被評的輸出本身又常是 GPT-4 生成與修正的——評審與被評者高度同源，存在自我偏好的循環風險；論文雖報了與人類 68–82% 的相關度，但那也代表約兩三成的分歧被 GPT-4 評分掩蓋掉了。此外偏好類任務的人類 A/B 只在輸出的一個子集上做，樣本代表性未完全交代。
+But the metric itself has questionable aspects. Several tasks have no automatic metric and instead use GPT-4 as a proxy for human preference to score, while the outputs being evaluated are themselves often generated and refined by GPT-4 — the judge and the judged are highly homologous, and there is a loop risk of self-preference; although the paper reports a 68–82% correlation with humans, that also means about a quarter to a third of the disagreements are masked by the GPT-4 scoring. Moreover, the human A/B for preference-type tasks is done only on a subset of the outputs, and the representativeness of the sample is not fully explained.
 
-### 新意在「凍結模型純提示即可跑通迴圈」，而非迭代精修本身
+### The novelty lies in "running the loop with pure prompting on a frozen model," not in iterative refinement itself
 
-「產生→回饋→修正」的迭代精修在此之前已有不少工作（論文自己引用了 PEER、Self-Correction 等），Self-Refine 的真正新意不在概念，而在於證明「不需任何額外訓練、單一凍結模型、純靠 few-shot 提示」就能把這個迴圈跑起來並在強模型上見效。這是有價值的實證貢獻，但它更像是把既有想法在大模型時代重新驗證與簡化，而非全新的機制；把它當成一個強基線或提示技巧來理解，會比當成一個新模型更貼切。
+Iterative refinement of "generate → feedback → refine" already had quite a few prior works (the paper itself cites PEER, Self-Correction, etc.), and Self-Refine's true novelty lies not in the concept but in proving that "without any additional training, a single frozen model, relying purely on few-shot prompts" can run this loop and see effects on strong models. This is a valuable empirical contribution, but it is more like re-verifying and simplifying an existing idea in the era of large models, rather than a brand-new mechanism; understanding it as a strong baseline or a prompting technique is more apt than treating it as a new model.
 
-### 兩個自造任務貢獻了最大增益，網站生成僅為質性示範
+### Two self-created tasks contributed the largest gains, and website generation is only a qualitative demonstration
 
-值得警惕的是，7 個任務裡有兩個（縮寫生成、20–30 個關鍵詞的 Constrained Generation）是作者自己新造的，而 Self-Refine 在這兩個新任務上的增益又特別大——當評測基準是圍繞著方法本身的強項來定義時，數字的說服力要打折扣。作者把 Constrained Generation 的高增益歸因於「第一次容易漏掉概念、之後可以補」，這其實也說明該任務天生對迭代補救特別友善。真實世界關聯方面，論文用網站生成的案例展示了泛化潛力，方向誘人，但那只是質性示範、沒有量化評測，屬於前景宣稱而非已被驗證的結果。綜合來看，本文並非沒有材料弱點，其結論在「開放式、低基準」任務上成立得最穩，在有客觀正確性的任務上則相當有限。
+What warrants caution is that among the 7 tasks, two (acronym generation and the 20–30-keyword Constrained Generation) are newly created by the authors themselves, and Self-Refine's gains on these two new tasks are especially large — when the evaluation benchmark is defined around the method's own strengths, the persuasiveness of the numbers must be discounted. The authors attribute the high gain of Constrained Generation to "it is easy to miss concepts the first time and one can fill them in afterward," which in fact also shows that the task is inherently especially friendly to iterative remediation. In terms of real-world relevance, the paper uses a website-generation case to demonstrate generalization potential, an alluring direction, but that is only a qualitative demonstration with no quantitative evaluation, belonging to a prospect claim rather than a verified result. Taken together, this paper is not without material weaknesses; its conclusions hold most robustly on "open-ended, low-baseline" tasks, and are quite limited on tasks with objective correctness.
 
 ## 🔗 Related notes
 
-<!-- 目前沒有可安全解析的相關筆記；保留標題，暫不連結。 -->
+<!-- There are currently no relatable notes that can be safely parsed; the heading is kept, without linking for now. -->

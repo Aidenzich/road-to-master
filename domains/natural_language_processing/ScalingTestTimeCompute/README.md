@@ -1,4 +1,5 @@
 # Scaling LLM Test-Time Compute Optimally — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,110 +12,110 @@
 | Official Code | unknown |
 | Venue Kind | paper |
 
-> 本文為 arXiv 預印本 `2408.03314`（UC Berkeley 與 Google DeepMind），camera-ready 若有版本差異以正式發表為準；venue tier 因缺乏可引用的排名來源而標記為 `unknown`。
+> This is the arXiv preprint `2408.03314` (UC Berkeley and Google DeepMind); if the camera-ready version differs, the formally published version takes precedence; the venue tier is marked `unknown` due to the lack of a citable ranking source.
 
-## 核心問題與兩條擴充軸
+## Core question and the two scaling axes
 
-這篇論文問的是一個很具體的問題：如果讓一個 LLM 在推論階段（test time）花費固定但不算少的額外計算，它在困難題目上的表現能提升多少？作者把「花更多推論計算」拆成兩個彼此獨立的機制來研究：其一是對著一個過程式驗證器（process-based verifier reward model）做搜尋，其二是在給定提示下，讓模型於測試時「適應性地」改寫自己對答案的分佈。兩種機制的有效性都強烈取決於題目難度，這個觀察推動了一個「compute-optimal」的擴充策略：依每一題來分配推論計算。相對於 best-of-N 基線，這個策略把推論計算的效率提升了 4 倍以上；而在 FLOPs 對齊的比較下，對於小模型已有非零成功率的題目，測試時計算甚至能勝過一個約 14 倍大的模型。
+This paper asks a very concrete question: if we let an LLM spend a fixed but non-trivial amount of extra compute at inference (test time), how much can its performance improve on hard problems? The authors decompose "spending more inference compute" into two mutually independent mechanisms to study: one is searching against a process-based verifier reward model, and the other is letting the model "adaptively" revise its own distribution over answers at test time given the prompt. The effectiveness of both mechanisms depends strongly on problem difficulty, an observation that motivates a "compute-optimal" scaling strategy: allocating inference compute on a per-problem basis. Relative to a best-of-N baseline, this strategy improves the efficiency of inference compute by more than 4×; and in a FLOPs-matched comparison, for problems on which a small model already has a non-zero success rate, test-time compute can even outperform a model about 14× larger.
 
-![compute-optimal 對 revisions 與 search 的整體結果（上：revisions）](imgs/summary_revisions.png)
+![Overall results of compute-optimal for revisions and search (top: revisions)](imgs/summary_revisions.png)
 
-![compute-optimal 對 revisions 與 search 的整體結果（下：PRM search）](imgs/summary_search.png)
+![Overall results of compute-optimal for revisions and search (bottom: PRM search)](imgs/summary_search.png)
 
-### 統一視角：提議者（proposer）與驗證器（verifier）
+### A unified view: the proposer and the verifier
 
-作者先把所有測試時計算方法統一成「在測試時、依提示，適應性地修改模型輸出分佈」這件事，並指出只有兩個旋鈕：一是在輸入層，用額外 token 擴充提示讓模型改變條件分佈（也就是修改 proposal distribution）；二是在輸出層，先取樣多個候選、再用事後的 verifier 或 scorer 對這些候選動手術。作者把這個過程類比為 MCMC 取樣：用一個簡單的 proposal distribution 搭配一個 score function，去逼近一個複雜的目標分佈。修改提議分佈與使用驗證器，構成本研究的兩條獨立座標軸。
+The authors first unify all test-time compute methods into the single act of "adaptively modifying the model's output distribution at test time, conditioned on the prompt," and point out that there are only two knobs: one is at the input level, using extra tokens to augment the prompt so the model changes its conditional distribution (i.e., modifying the proposal distribution); the other is at the output level, first sampling multiple candidates and then operating on those candidates with a post-hoc verifier or scorer. The authors draw an analogy to MCMC sampling: using a simple proposal distribution together with a score function to approximate a complex target distribution. Modifying the proposal distribution and using a verifier constitute the two independent coordinate axes of this study.
 
-有了這個統一視角，作者把「最有效地使用測試時計算」形式化為一個對超參數 $\theta$ 的最佳化問題。令 $\operatorname{Target}(\theta, N, q)$ 為模型在提示 $q$、測試時超參數 $\theta$、預算 $N$ 下對輸出 token 的分佈，目標是選出讓正確率最大化的 $\theta$：
+With this unified view, the authors formalize "using test-time compute most effectively" as an optimization problem over the hyperparameter $\theta$. Let $\operatorname{Target}(\theta, N, q)$ be the model's distribution over output tokens for prompt $q$, test-time hyperparameter $\theta$, and budget $N$; the goal is to select the $\theta$ that maximizes the accuracy:
 
 $$
 \theta^{*}_{q,a^*(q)}(N) = \operatorname{argmax}_{\theta} \left( \mathbb{E}_{y \sim \operatorname{Target}(\theta, N, q)} \left[ \mathbbm{1}_{y = y^*(q)} \right] \right)
 $$
 
-其中 $y^*(q)$ 是 $q$ 的正解。這個式子本身無法直接解，作者的關鍵近似是：把最佳超參數表示成題目「難度」的函數。難度被當成一個充分統計量（sufficient statistic），只要能估出一題的難度，就能查表選出該難度下驗證集上表現最好的策略，再套用到測試集。
+where $y^*(q)$ is the correct answer to $q$. This expression itself cannot be solved directly, and the authors' key approximation is to express the optimal hyperparameter as a function of problem "difficulty." Difficulty is treated as a sufficient statistic: as long as one can estimate a problem's difficulty, one can look up and select the strategy that performs best on the validation set for that difficulty, and then apply it to the test set.
 
-難度的定義沿用 Lightman 等人的做法，並以基礎 LLM 為參照：對測試集每一題，用 2048 個樣本估計模型的 pass@1 率，再依此把題目分到五個難度分位。作者區分兩種難度：oracle difficulty 使用真值正確性檢查來分箱，model-predicted difficulty 則改用一個學習到的驗證器對同樣 2048 個樣本的平均最終答案分數來分箱——後者不需要知道答案，才可能在部署時使用，代價是分箱本身也要花一次推論計算。
+The definition of difficulty follows the approach of Lightman et al. and uses the base LLM as a reference: for each problem in the test set, the model's pass@1 rate is estimated using 2048 samples, and problems are binned into five difficulty quantiles accordingly. The authors distinguish two kinds of difficulty: oracle difficulty bins using a ground-truth correctness check, while model-predicted difficulty instead bins using the average final-answer score of a learned verifier over the same 2048 samples — the latter does not require knowing the answer and therefore can be used at deployment, at the cost that the binning itself also requires one round of inference compute.
 
-### 驗證器軸：PRM 與三種搜尋
+### The verifier axis: PRM and three kinds of search
 
-作者發現直接沿用 Lightman 等人釋出的 PRM800k 人工標註資料訓練 PRM，對他們的 PaLM 2 模型效果不佳（連 best-of-N 都能輕易鑽漏洞），推測是 GPT-4 生成樣本與 PaLM 2 之間的分佈偏移所致；因此改採 Math-Shepherd 的無人工標註做法，用每一步往後做 Monte Carlo rollout 得到的 per-step 正確性估計來監督 PRM，其 per-step 預測相當於基礎模型取樣策略的 reward-to-go 值估計。在聚合上，step-wise 取「最後一步」的分數當作整條解答的分數（而非取最小或連乘），inter-answer 則採用 best-of-N weighted——把相同最終答案的驗證器分數加總，選總和最大者。
+The authors found that directly reusing the PRM800k human-annotated data released by Lightman et al. to train a PRM works poorly for their PaLM 2 model (even best-of-N can easily exploit loopholes), which they attribute to a distribution shift between the GPT-4-generated samples and PaLM 2; they therefore switch to the annotation-free approach of Math-Shepherd, supervising the PRM using per-step correctness estimates obtained from a Monte Carlo rollout forward from each step, whose per-step prediction is equivalent to an estimate of the reward-to-go value of the base model's sampling policy. For aggregation, the step-wise score takes the score of "the last step" as the score of the entire solution (rather than taking the minimum or the product), while inter-answer aggregation uses best-of-N weighted — summing the verifier scores of identical final answers and selecting the one with the largest sum.
 
-![三種對 PRM 搜尋的方法示意（best-of-N、beam search、lookahead search）](imgs/search_methods.png)
+![Illustration of the three methods for PRM search (best-of-N, beam search, lookahead search)](imgs/search_methods.png)
 
-作者比較三種對 PRM 的搜尋方式：best-of-N weighted 獨立取樣 N 條完整解答再選最佳；beam search 逐步搜尋 PRM 的 per-step 預測；lookahead search 則在 beam search 的每一步多往前模擬 k 步、用 rollout 末端的 PRM 分數來評分該步，因此 beam search 可視為 $k=0$ 的 lookahead 特例，也可視為去掉探索隨機性、只做利用的 MCTS。beam search 的核心迴圈可寫成：
+The authors compare three ways of searching against the PRM: best-of-N weighted samples N complete solutions independently and then selects the best; beam search searches step by step over the PRM's per-step predictions; lookahead search additionally simulates k steps forward at each step of beam search, using the PRM score at the end of the rollout to score that step, so beam search can be viewed as the lookahead special case with $k=0$, and can also be viewed as MCTS with the exploration randomness removed, doing only exploitation. The core loop of beam search can be written as:
 
 ```
-給定 beam 數 N、beam 寬度 M：
-  1. 取樣 N 個「第一步」候選
-  2. 用 PRM 的 per-step reward-to-go 估計為每個候選步評分
-  3. 保留分數最高的前 N/M 個步
-  4. 從每個保留候選再各取樣 M 個「下一步」，得到 N/M × M = N 個前綴
-  重複 2–4，直到解答結束或達到 40 輪 beam 擴張為止
-最後對 N 個最終答案候選套 best-of-N weighted 選出答案
+Given beam count N, beam width M:
+  1. Sample N "first step" candidates
+  2. Score each candidate step using the PRM's per-step reward-to-go estimate
+  3. Keep the top N/M highest-scoring steps
+  4. From each kept candidate, sample M "next steps" each, obtaining N/M × M = N prefixes
+  Repeat 2–4 until the solution ends or 40 rounds of beam expansion are reached
+Finally apply best-of-N weighted over the N final-answer candidates to select the answer
 ```
 
-為了公平比較不同搜尋法的生成預算，作者把一次「生成」定義為從基礎 LLM 取樣一條答案；best-of-N 與 beam search 的預算就是 N，而 lookahead search 因為每步多模擬 k 步，成本被定義為 $N \times (k+1)$ 個樣本。結果顯示：在小生成預算時 beam search 明顯優於 best-of-N，但預算放大後優勢消失、甚至掉到 best-of-N 之下；lookahead search 在相同生成預算下普遍最差，因為模擬 rollout 吃掉了額外計算。作者把報酬遞減歸因於對 PRM 預測的過度利用（over-optimization），例如搜尋會誘導模型在解答末端產生低資訊的重複步、或壓出只有一兩步的過短解。依難度分箱後可看到：在簡單題（第 1、2 級）beam search 隨預算增加反而退步，顯示它在放大驗證器的假特徵；在中等難度（第 3、4 級）beam search 穩定勝過 best-of-N；最難的第 5 級則沒有任何方法有實質進展。
+To fairly compare the generation budget across different search methods, the authors define one "generation" as sampling a single answer from the base LLM; the budget for best-of-N and beam search is N, while for lookahead search, because each step additionally simulates k steps, the cost is defined as $N \times (k+1)$ samples. The results show: at small generation budgets, beam search clearly outperforms best-of-N, but as the budget is scaled up the advantage disappears and even drops below best-of-N; lookahead search is generally the worst at the same generation budget, because the simulated rollouts consume extra compute. The authors attribute the diminishing returns to over-optimization of the PRM's predictions — for example, search can induce the model to produce low-information repeated steps at the end of the solution, or to squeeze out overly short solutions of only one or two steps. After binning by difficulty, one can see: on easy problems (levels 1 and 2), beam search regresses as the budget increases, indicating that it is amplifying spurious features of the verifier; on medium difficulty (levels 3 and 4), beam search stably beats best-of-N; and on the hardest level 5, no method makes substantive progress.
 
-![compute-optimal 搜尋對 best-of-N 基線（可用約 4 倍更少計算）](imgs/compute_optimal_search.png)
+![Compute-optimal search vs. the best-of-N baseline (can use about 4× less compute)](imgs/compute_optimal_search.png)
 
-把「每個難度分箱挑最佳搜尋策略」串起來，就得到搜尋的 compute-optimal 曲線。在低生成預算區間，無論用 oracle 還是 predicted 難度，compute-optimal 擴充能以最多 4 倍更少的測試時計算（例如 16 對 64 次生成）幾乎追平 best-of-N；在更高預算區間，predicted 難度的部分優勢會縮小，但 oracle 分箱仍能持續改善，顯示適應性分配計算確有增益。
+Stitching together "picking the best search strategy for each difficulty bin" yields the compute-optimal curve for search. In the low-generation-budget regime, whether using oracle or predicted difficulty, compute-optimal scaling can nearly match best-of-N with up to 4× less test-time compute (e.g., 16 vs. 64 generations); in the higher-budget regime, part of the advantage of predicted difficulty shrinks, but oracle binning can still keep improving, showing that adaptively allocating compute does provide gains.
 
-### 提議分佈軸：序列式改寫（revisions）
+### The proposal-distribution axis: sequential revisions
 
-![平行取樣（best-of-N）對序列式改寫（revisions）的示意](imgs/parallel_vs_sequential.png)
+![Illustration of parallel sampling (best-of-N) vs. sequential revisions](imgs/parallel_vs_sequential.png)
 
-單純提示現成 LLM 去自我糾錯，在數學推理上幾乎無效，因此作者依 Qu 等人的配方微調出一個會逐步改寫自己答案的 revision model。訓練資料的產生方式是：對每題平行取樣 64 條回應，再事後拼裝成多輪軌跡——把每個正解與一串前面的錯誤答案配對放進 context，錯誤答案數目在 0 到 4 之間均勻取樣，並用字元編輯距離挑選與正解相關的錯誤答案，讓模型學會隱含地找出並修正 in-context 例子裡的錯誤。推論時有個分佈偏移問題：模型只在「context 全是錯誤答案」上訓練，但測試時 context 可能出現正解，導致約 38% 原本正確的答案在下一次改寫被改錯，因此需要用序列式多數決或驗證器選擇來挑出整條改寫序列中最好的答案。
+Simply prompting an off-the-shelf LLM to self-correct is almost ineffective on mathematical reasoning, so the authors fine-tune a revision model that revises its own answer step by step, following the recipe of Qu et al. The training data is produced as follows: for each problem, 64 responses are sampled in parallel, then post-hoc assembled into multi-turn trajectories — pairing each correct answer with a string of preceding incorrect answers placed in the context, with the number of incorrect answers sampled uniformly between 0 and 4, and using character edit distance to select incorrect answers related to the correct answer, so that the model learns to implicitly find and fix the errors in the in-context examples. At inference there is a distribution-shift problem: the model is trained only on "contexts that are all incorrect answers," but at test time the context may contain a correct answer, causing about 38% of originally correct answers to be revised into wrong ones on the next revision; therefore one needs to use sequential majority voting or verifier selection to pick the best answer across the entire revision sequence.
 
-作者主張序列式與平行式各有互補的性質：平行取樣像全域搜尋，能覆蓋多種不同的高階解法；序列式改寫像局部精修，適合已大致走對方向的答案。因此在固定生成預算下掃描「序列/平行」比例，會存在一個讓正確率最大的理想比例，而這個理想比例隨題目難度改變：簡單題最好把預算全押在序列式改寫，較難的題則要在序列與平行之間取一個平衡比例。
+The authors argue that sequential and parallel have complementary properties: parallel sampling is like a global search, able to cover many different high-level solution approaches; sequential revision is like local refinement, suited to answers that are already roughly on the right track. Therefore, under a fixed generation budget, sweeping the "sequential/parallel" ratio yields an ideal ratio that maximizes accuracy, and this ideal ratio changes with problem difficulty: for easy problems it is best to put the entire budget into sequential revisions, while for harder problems one needs to strike a balanced ratio between sequential and parallel.
 
-![compute-optimal revisions 對 best-of-N（可用約 4 倍更少計算）](imgs/compute_optimal_revisions.png)
+![Compute-optimal revisions vs. best-of-N (can use about 4× less compute)](imgs/compute_optimal_revisions.png)
 
-依難度分箱挑選最佳序列/平行比例，就得到 revisions 的 compute-optimal 策略。在較高生成預算時，純平行取樣會趨於飽和，而 compute-optimal 擴充仍持續改善；無論 oracle 或 predicted 難度，它都能以最多 4 倍更少的測試時計算（例如 64 對 256 個樣本）勝過 best-of-N 基線。
+Selecting the best sequential/parallel ratio per difficulty bin yields the compute-optimal strategy for revisions. At higher generation budgets, pure parallel sampling tends to saturate, while compute-optimal scaling keeps improving; whether using oracle or predicted difficulty, it can beat the best-of-N baseline with up to 4× less test-time compute (e.g., 64 vs. 256 samples).
 
-### 把測試時計算與預訓練計算對換
+### Exchanging test-time compute for pretraining compute
 
-作者接著問一個資源配置問題：若一個模型以 $X$ FLOPs 預訓練、預期跑 $Y$ FLOPs 推論，現在要把總 FLOPs 乘上 $M$ 倍，這些額外預算該投入預訓練還是測試時計算？他們沿用常見近似，預訓練用 $X = 6ND_{\text{pretrain}}$、推論用 $Y = 2ND_{\text{inference}}$：
+The authors then ask a resource-allocation question: if a model is pretrained with $X$ FLOPs and expected to run $Y$ FLOPs of inference, and we now want to multiply the total FLOPs by a factor $M$, should this extra budget go into pretraining or test-time compute? They use the common approximation, with pretraining $X = 6ND_{\text{pretrain}}$ and inference $Y = 2ND_{\text{inference}}$:
 
 $$
 X = 6 N D_{\text{pretrain}}, \qquad Y = 2 N D_{\text{inference}}
 $$
 
-其中 $N$ 是參數量，$D_{\text{pretrain}}$、$D_{\text{inference}}$ 分別是預訓練與推論的 token 數。把參數乘以 $M$ 會讓預訓練與推論的 FLOPs 同時乘上 $M$。若改用小模型加測試時計算來對齊這筆 FLOPs，小模型的推論計算可以放大 $M + 3 \left(\frac{D_{\text{pretrain}}}{D_{\text{inference}}}\right)(M-1)$ 倍。這個倍率取決於比值，作者定義 $R = \frac{D_{\text{inference}}}{D_{\text{pretrain}}}$：大規模生產常有 $R \gg 1$（推論 token 遠多於預訓練），而許多自我改進管線則是 $R \ll 1$。
+where $N$ is the parameter count, and $D_{\text{pretrain}}$, $D_{\text{inference}}$ are the numbers of tokens for pretraining and inference respectively. Multiplying the parameters by $M$ multiplies both the pretraining and inference FLOPs by $M$. If instead one uses a small model plus test-time compute to match this amount of FLOPs, the small model's inference compute can be scaled up by a factor of $M + 3 \left(\frac{D_{\text{pretrain}}}{D_{\text{inference}}}\right)(M-1)$. This factor depends on the ratio, and the authors define $R = \frac{D_{\text{inference}}}{D_{\text{pretrain}}}$: large-scale production often has $R \gg 1$ (far more inference tokens than pretraining), while many self-improvement pipelines have $R \ll 1$.
 
-![預訓練與測試時計算在 FLOPs 對齊下的取捨](imgs/pretrain_exchange.png)
+![The trade-off between pretraining and test-time compute under FLOPs matching](imgs/pretrain_exchange.png)
 
-作者用 $\sim14$ 倍的參數放大做對照，並挑三個 $R$ 值：0.16（$R \ll 1$）、0.79（$R \sim 1$）、22（$R \gg 1$）。結論是：若只會遇到很難的題（第 4/5 級）或推論負載高（$R$ 大），把預算投入預訓練較划算；若題目多屬簡單到中等（第 1/2/3、有時第 4 級）或推論需求低（如自我改進），測試時計算較划算。也就是說兩者並非 1 比 1 可對換。
+The authors use a $\sim14×$ parameter scaling as the comparison, and pick three $R$ values: 0.16 ($R \ll 1$), 0.79 ($R \sim 1$), and 22 ($R \gg 1$). The conclusion is: if one will only encounter very hard problems (levels 4/5) or the inference load is high ($R$ large), it is more cost-effective to invest the budget in pretraining; if the problems are mostly easy to medium (levels 1/2/3, sometimes level 4) or the inference demand is low (such as self-improvement), test-time compute is more cost-effective. That is, the two are not exchangeable 1-to-1.
 
-### 一個帶入真實數字的走查
+### A walk-through with real numbers
 
-以 beam search 為例，取生成預算 $N=64$、beam 寬度 $M=4$：先取樣 64 個第一步候選，用 PRM 評分後保留分數最高的 $N/M = 16$ 個，再從每個保留候選各取樣 $M=4$ 個下一步，得到 $16 \times 4 = 64$ 個前綴，如此循環最多 40 輪，最後對 64 個最終答案候選套 best-of-N weighted。搜尋的 compute-optimal 效益「4 倍」正是指：適應性分配下，用 16 次生成就能追平 best-of-N 需要 64 次生成的水準。
+Take beam search as an example, with generation budget $N=64$ and beam width $M=4$: first sample 64 first-step candidates, score them with the PRM, and keep the top $N/M = 16$ highest-scoring; then from each kept candidate sample $M=4$ next steps each, obtaining $16 \times 4 = 64$ prefixes, cycling like this for up to 40 rounds, and finally apply best-of-N weighted over the 64 final-answer candidates. The "4×" compute-optimal benefit of search refers precisely to this: under adaptive allocation, 16 generations suffice to match the level that best-of-N needs 64 generations to reach.
 
-把 FLOPs 對換倍率代入 $M=14$，可算出下表（此處數值為本文據論文公式 $M + 3(D_{\text{pretrain}}/D_{\text{inference}})(M-1)$ 推導，非論文直接給出）：
+Substituting $M=14$ into the FLOPs-exchange factor, one can compute the table below (the values here are derived by this note from the paper's formula $M + 3(D_{\text{pretrain}}/D_{\text{inference}})(M-1)$, not given directly in the paper):
 
-| 情境 | $R = D_{\text{inference}}/D_{\text{pretrain}}$ | 小模型推論可放大倍率 |
+| Scenario | $R = D_{\text{inference}}/D_{\text{pretrain}}$ | Factor by which small-model inference can scale |
 |-|-|-|
-| 自我改進（推論少） | 0.16 | $14 + 3 \times 6.25 \times 13 \approx 258$ |
-| 均衡 | 0.79 | $14 + 3 \times 1.27 \times 13 \approx 63$ |
-| 大規模生產（推論多） | 22 | $14 + 3 \times 0.045 \times 13 \approx 16$ |
+| Self-improvement (little inference) | 0.16 | $14 + 3 \times 6.25 \times 13 \approx 258$ |
+| Balanced | 0.79 | $14 + 3 \times 1.27 \times 13 \approx 63$ |
+| Large-scale production (much inference) | 22 | $14 + 3 \times 0.045 \times 13 \approx 16$ |
 
-這張表把論文的直覺量化了：在 $R \ll 1$ 時，小模型能動用約 258 倍於原本的推論計算來對齊 14 倍大模型的 FLOPs，這麼大的測試時預算足以讓 compute-optimal 策略在多數難度上取勝；但在 $R \gg 1$ 時只剩約 16 倍推論預算，測試時計算的邊際效益不足以彌補參數放大，於是預訓練勝出。這正解釋了為何論文強調兩種計算「並非可自由對換」，且結論會隨部署情境（$R$）而反轉。
+This table quantifies the paper's intuition: when $R \ll 1$, a small model can employ about 258× its original inference compute to match the FLOPs of a 14×-larger model, and such a large test-time budget is enough for the compute-optimal strategy to win on most difficulties; but when $R \gg 1$, only about 16× inference budget remains, and the marginal benefit of test-time compute is insufficient to make up for parameter scaling, so pretraining wins. This precisely explains why the paper emphasizes that the two kinds of compute are "not freely exchangeable," and that the conclusion reverses with the deployment scenario ($R$).
 
 ## 🧪 Critical Assessment
 
-### FLOPs 該花在預訓練還是推論——一個誠實面對負面結果的動機
+### Should FLOPs go to pretraining or inference — a motivation that honestly confronts negative results
 
-「該把 FLOPs 花在預訓練還是推論」是一個對部署有直接影響的真問題：若小模型加測試時計算能頂替大模型，就能把資料中心級 LLM 換成裝置端小模型，也給出一條減少人類監督的自我改進路徑。論文對這個動機的論證是紮實的，而且它誠實地把「測試時計算並非萬能」寫進結論——最難的第 5 級題目所有方法都沒有實質進展，這種不迴避負面結果的態度提升了可信度。
+"Should FLOPs be spent on pretraining or inference" is a real question with direct impact on deployment: if a small model plus test-time compute can substitute for a large model, one could replace a data-center-scale LLM with an on-device small model, and it also offers a path to reduce human supervision via self-improvement. The paper's argument for this motivation is solid, and it honestly writes "test-time compute is not a panacea" into the conclusion — no method makes substantive progress on the hardest level 5 problems, and this refusal to dodge negative results improves credibility.
 
-### 單一資料集、單一模型，以及被藏進難度估計的計算成本
+### A single dataset, a single model, and the compute cost hidden inside difficulty estimation
 
-方法面的消融相對完整：搜尋與改寫都做了難度分箱、序列/平行比例掃描、oracle 對 predicted 難度的對照，附錄還比較了 PRM 的聚合策略與 PRM 對 ORM。但評估的外部效度是明顯的軟肋——全篇只在單一資料集 MATH、單一基礎模型 PaLM 2-S*（Codey）上得到結論，作者自己也只說「相信」findings 能遷移到相近模型，這是一個未被實驗驗證的推斷，難以斷定 4 倍與 14 倍在其他家族模型或其他推理任務上是否成立。此外，難度分箱需要每題 2048 個樣本，連 model-predicted 版本也承認在生產環境成本高昂，等於把一部分「測試時計算」花在了估難度上卻未計入主要比較，這使得宣稱的效率增益在實務上可能被高估。
+The methodological ablations are relatively complete: both search and revision have difficulty binning, sequential/parallel ratio sweeps, and oracle-vs-predicted difficulty comparisons, and the appendix additionally compares PRM aggregation strategies and PRM vs. ORM. But the external validity of the evaluation is an obvious soft spot — the entire paper draws conclusions only on a single dataset MATH and a single base model PaLM 2-S* (Codey), and the authors themselves only say they "believe" the findings can transfer to comparable models, which is an unexperimentally-verified inference, making it hard to determine whether the 4× and 14× hold on other model families or other reasoning tasks. Moreover, difficulty binning requires 2048 samples per problem, and even the model-predicted version admits it is costly in production, which means part of the "test-time compute" is spent on estimating difficulty but is not counted into the main comparison, which may cause the claimed efficiency gains to be overstated in practice.
 
-### 舊元件、新框架，與由方法自身難度定義所界定的基準
+### Old components, a new framework, and a benchmark bounded by the method's own difficulty definition
 
-平心而論，論文用到的元件多半來自既有工作：PRM 來自 Lightman／Math-Shepherd，beam／lookahead search 是 BFS-V 與 MCTS 的變體，revision 配方沿用 Qu 等人，FLOPs 近似來自 Chinchilla 線。真正的新貢獻是「以題目難度為充分統計量、按題適應性分配計算」這個統一框架與其系統性的量測，而非任一單獨演算法。這裡值得警惕的一點是評測設計偏向自家方法：難度分箱正是以「這個基礎模型的 pass@1」定義的，compute-optimal 的增益也是在同一套難度定義下、對驗證集選最佳、再到測試集量得——這種「基準由方法自身特性所界定」的設定，容易讓 4 倍增益看起來比在中立、外生的難度標準下更漂亮。
+To be fair, the components the paper uses mostly come from existing work: the PRM comes from Lightman / Math-Shepherd, beam / lookahead search are variants of BFS-V and MCTS, the revision recipe follows Qu et al., and the FLOPs approximation comes from the Chinchilla line. The truly new contribution is the unified framework of "using problem difficulty as a sufficient statistic and adaptively allocating compute per problem" and its systematic measurement, rather than any single algorithm. One point that warrants caution here is that the evaluation design is biased toward the authors' own method: difficulty binning is defined precisely by "this base model's pass@1," and the compute-optimal gains are also measured under the same difficulty definition, selecting the best on the validation set and then measuring on the test set — this setting where "the benchmark is bounded by the method's own characteristics" makes it easy for the 4× gain to look prettier than it would under a neutral, exogenous difficulty standard.
 
-### 「can be」是必要的限定詞：受限承諾與難度估計成本這道未解關卡
+### "can be" is a necessary qualifier: a constrained promise and the unsolved hurdle of difficulty-estimation cost
 
-我認為論文兌現的是一個受限版本的承諾，而非全稱命題。它證明的是：在特定條件（易到中等難度、低推論負載 $R$）下，簡單的測試時方法就能勝過預訓練放大；但它同時證明了反面——高難度或高 $R$ 時預訓練仍較優，兩者不可 1 比 1 對換。因此標題那句「can be More Effective than Scaling Model Parameters」中的 “can be” 是必要的限定詞，若被讀成普遍結論則會誤導。就真實世界關聯而言，最關鍵的未解問題是難度估計的成本：目前的做法需要昂貴的取樣，若無法用便宜方式即時判斷難度，compute-optimal 策略在線上部署的實際效益仍是存疑的，作者也把這點列為未來工作。
+I believe the paper delivers a constrained version of its promise, not a universal claim. What it proves is: under specific conditions (easy-to-medium difficulty, low inference load $R$), simple test-time methods can beat pretraining scaling; but it simultaneously proves the reverse — at high difficulty or high $R$, pretraining is still better, and the two cannot be exchanged 1-to-1. Therefore the "can be" in the title's phrase "can be More Effective than Scaling Model Parameters" is a necessary qualifier, and reading it as a general conclusion would be misleading. In terms of real-world relevance, the most crucial unsolved problem is the cost of difficulty estimation: the current approach requires expensive sampling, and if difficulty cannot be judged in real time cheaply, the actual benefit of the compute-optimal strategy in online deployment remains questionable, a point the authors also list as future work.
 
 ## 🔗 Related notes

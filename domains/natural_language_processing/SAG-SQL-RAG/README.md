@@ -1,92 +1,93 @@
-# SAG：用 SQL join 在 query-time 動態組出 hyperedge 的檢索架構 — Research Note
+# SAG: A Retrieval Architecture that Dynamically Assembles Hyperedges at Query-Time via SQL join — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
 | Field | Value |
 |-|-|
 | Title | SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges |
-| Venue | arXiv preprint（以 ICLR 2026 投稿格式排版；同儕審查狀態 unknown） |
+| Venue | arXiv preprint (typeset in ICLR 2026 submission format; peer-review status unknown) |
 | Year | 2026 |
-| Authors | Yuchao Wu, Junqin Li, XingCheng Liang, Yongjie Chen, Yinghao Liang, Linyuan Mo, Guanxian Li（Zleap AI） |
+| Authors | Yuchao Wu, Junqin Li, XingCheng Liang, Yongjie Chen, Yinghao Liang, Linyuan Mo, Guanxian Li (Zleap AI) |
 | Official Code | https://github.com/Zleap-AI/SAG-Benchmark |
 | Venue Kind | paper |
 
-> 本註記基於 arXiv 預印本（arXiv:2606.15971）撰寫；正式會議版（若被接收）內容可能有所調整。文中數值與引文以預印本 LaTeX 原始檔為準。
+> This note is based on the arXiv preprint (arXiv:2606.15971); the content of the formal conference version (if accepted) may be adjusted. The values and citations in the text are authoritative per the preprint LaTeX source files.
 
-## 為什麼要在 RAG 裡「補結構」
+## Why "Add Structure" in RAG
 
-主流 RAG 走的是 chunk → 向量 → top-k 相似度召回，這條路在單跳開放問答很穩，但一旦查詢需要跨多份文件把證據串成一條推理鏈，純語意相似度就開始漏。像 MuSiQue 這種每一跳都不可略過（non-skippable）的多跳題，中繼證據本身跟原始查詢往往沒有直接語意重疊，向量相似度排不上來。GraphRAG、HippoRAG 這類做法改用離線知識圖譜把實體關係顯式化，但三元組抽取、實體合併、關係正規化每一步都會累積誤差，而且圖一旦要隨資料演進維護，成本可能比建圖還高。作者點出一個更關鍵的矛盾：這些離線精心設計的結構，到了 query-time 常常又退化成節點或摘要層級的 flat 相似度比對，離線結構與線上召回之間存在系統性脫節。
+Mainstream RAG follows the chunk → vector → top-k similarity recall path. This path is stable on single-hop open QA, but once a query needs to chain evidence across multiple documents into a reasoning chain, pure semantic similarity starts to leak. On multi-hop problems like MuSiQue, where every hop is non-skippable, the intermediate evidence itself often has no direct semantic overlap with the original query, so vector similarity fails to rank it high. Approaches like GraphRAG and HippoRAG instead use offline knowledge graphs to make entity relations explicit, but triple extraction, entity merging, and relation normalization each accumulate error, and once the graph must be maintained as the data evolves, the cost can be higher than building the graph in the first place. The authors point out a more critical contradiction: these carefully offline-designed structures, at query-time, often degrade back into node-level or summary-level flat similarity comparison, so there is a systematic disconnect between the offline structure and the online recall.
 
-SAG 的主張是：對於帶結構約束、需要多跳關聯的查詢，檢索既不該全交給 dense similarity，也不該綁在離線預建的 static graph 上。它把每個 chunk 轉成「一個語意完整的 event ＋ 一組充當索引點的 entity」，這組 event–entity 本身就定義了一條潛在的 hyperedge；真正的結構不在離線建好，而是在 query-time 用 SQL join 把共享 entity 的 events 動態串起來。因為 hyperedge 是圍繞當前查詢即時實例化的，系統不依賴 static graph、不需要全域重算，天然支援 append-only 增量寫入。
+SAG's argument is: for queries with structural constraints that require multi-hop association, retrieval should neither be handed entirely to dense similarity nor bound to an offline pre-built static graph. It turns each chunk into "a semantically complete event plus a set of entities serving as index points," and this event–entity set itself defines a latent hyperedge; the real structure is not built offline, but rather at query-time using SQL join to dynamically string together events that share entities. Because the hyperedge is instantiated on the fly around the current query, the system does not depend on a static graph, needs no global recomputation, and naturally supports append-only incremental writes.
 
-![三種 RAG 範式的流程與能力比較：NaiveRAG、GraphRAG、SAG](imgs/paradigm-comparison.png)
+![Comparison of the workflows and capabilities of three RAG paradigms: NaiveRAG, GraphRAG, SAG](imgs/paradigm-comparison.png)
 
-## 核心設計：event-entity 索引與 latent hyperedge
+## Core Design: event-entity index and latent hyperedge
 
-離線階段，每個 chunk 被抽成一個 event 與一組 entity，並「平行」寫入 SQL、向量索引與全文索引三處。**Event** 是 chunk 核心內容的精簡陳述，一個 chunk 對應一個 event，刻意不再拆成多個獨立三元組，藉此避開三元組抽取固有的語意碎裂問題。**Entity** 不承載完整語意，只當索引與擴展的接點，共分 time、location、person、organization、group、topic、work、product、action、metric、label 十一類。一個 event 連到多個 entity，就構成一條 latent hyperedge。
+In the offline stage, each chunk is extracted into an event and a set of entities, and written "in parallel" to three places: SQL, the vector index, and the full-text index. An **Event** is a concise statement of the chunk's core content; one chunk corresponds to one event, deliberately not split further into multiple independent triples, thereby avoiding the semantic fragmentation inherent in triple extraction. An **Entity** does not carry full semantics; it only serves as the connection point for indexing and expansion, and is divided into eleven categories: time, location, person, organization, group, topic, work, product, action, metric, label. One event connecting to multiple entities constitutes a latent hyperedge.
 
-值得注意的是，作者刻意不上完整的實體消歧系統：entity 只做字串正規化與 SQL 去重，不做實體合併。這是一個明確的取捨——放棄跨文件連結密度，換來 chunk 可獨立、可並發處理，以支援增量寫入。這也讓 SAG 的索引層不是重量級知識圖譜，而是一層輕量、可追加的語意索引。
+Notably, the authors deliberately do not adopt a full entity-disambiguation system: entities only undergo string normalization and SQL deduplication, without entity merging. This is an explicit trade-off—giving up cross-document link density in exchange for chunks being independent and concurrently processable, so as to support incremental writes. This also makes SAG's index layer not a heavyweight knowledge graph, but a lightweight, appendable semantic index layer.
 
-![SAG 架構總覽：離線抽 event/entity 寫入 SQL＋向量；線上 seed 召回 → 擴展 → 壓縮候選後選取](imgs/sag-architecture.png)
+![SAG architecture overview: offline extract event/entity written to SQL + vector; online seed recall → expansion → select after compressing candidates](imgs/sag-architecture.png)
 
-## 線上三步：seed 召回 → query-time 擴展 → 雙路輸出
+## Online Three Steps: seed recall → query-time expansion → dual-path output
 
-線上檢索是「SQL 管確定性過濾與 join、向量管語意擴展、LLM 只在少數高價值決策點介入」的分工。第一步 **seed retrieval** 走兩條平行路徑：Path A 由 LLM 從查詢抽出種子 entity，對 entity 向量索引做相似度召回（預設門檻 0.9）擴出近義 entity，再用 SQL join 撈出所有掛在這些 entity 上的 events；Path B 直接用 query 向量在 event 索引上召回、保留相似度超過門檻 τ（預設 0.4）的 events。兩路聯集成初始候選集：
+Online retrieval is a division of labor where "SQL handles deterministic filtering and joins, vectors handle semantic expansion, and the LLM only intervenes at a few high-value decision points." The first step, **seed retrieval**, follows two parallel paths: Path A has the LLM extract seed entities from the query, does similarity recall over the entity vector index (default threshold 0.9) to expand out near-synonym entities, then uses SQL join to fetch all events hanging on these entities; Path B directly uses the query vector to recall over the event index, retaining events whose similarity exceeds the threshold τ (default 0.4). The two paths union into the initial candidate set:
 
 $$
 \mathcal{E}_R = \mathcal{E}_R^{\text{entity}} \cup \mathcal{E}_R^{\text{direct}}
 $$
 
-第二步 **query-time expansion** 是整套機制的核心。從 $\mathcal{E}_R$ 出發，用反向 SQL join 抽出與種子 events 相連、但尚未探索的 entity（即 entity frontier），再以這些 frontier entity 當橋樑撈出新 events，一跳一跳擴大候選池。作者特別強調：這一步只靠 SQL join，多跳擴展就是資料庫裡的關聯式 join，不是 PageRank、也不是圖推理。擴展最多跑 H 跳（預設 H=1），把新增 events 記為 $\mathcal{E}_E$，候選池為：
+The second step, **query-time expansion**, is the core of the whole mechanism. Starting from $\mathcal{E}_R$, a reverse SQL join extracts entities that are connected to the seed events but not yet explored (i.e., the entity frontier), and then these frontier entities are used as bridges to fetch new events, expanding the candidate pool hop by hop. The authors particularly emphasize: this step relies only on SQL join, and multi-hop expansion is just relational joins in the database, not PageRank, nor graph reasoning. Expansion runs at most H hops (default H=1), records the newly added events as $\mathcal{E}_E$, and the candidate pool is:
 
 $$
 \mathcal{E}_{\text{cand}} = \mathcal{E}_R \cup \mathcal{E}_E
 $$
 
-第三步，先對 $\mathcal{E}_{\text{cand}}$ 按 query 向量相似度粗排、留下 top $K_{\text{cand}}$（預設 100）得到 $\hat{\mathcal{E}}$，再走雙路輸出：結構路由 LLM 對 $\hat{\mathcal{E}}$ 重排選出 top $K_{\text{event}}$ 個 event 並映回原 chunk；語意路直接用 query 向量在 chunk 索引取 top $K_{\text{direct}}$；兩路合併去重後回傳 top $K_{\text{out}}$（預設 10，其中 event 路與 direct 路各 5）作為最終證據。整條鏈路可完整審計，任一環節為空都能直接定位失敗位置：
+In the third step, $\mathcal{E}_{\text{cand}}$ is first coarsely ranked by query vector similarity, keeping the top $K_{\text{cand}}$ (default 100) to obtain $\hat{\mathcal{E}}$, then follows a dual-path output: the structural path has the LLM rerank $\hat{\mathcal{E}}$ to select the top $K_{\text{event}}$ events and map them back to the original chunks; the semantic path directly uses the query vector to take the top $K_{\text{direct}}$ over the chunk index; the two paths are merged and deduplicated, then the top $K_{\text{out}}$ (default 10, of which the event path and direct path contribute 5 each) is returned as the final evidence. The entire chain is fully auditable, and if any link is empty the failure location can be directly pinpointed:
 
 $$
 q \rightarrow \mathcal{U}_q \rightarrow \hat{\mathcal{U}}_q \rightarrow \mathcal{E}_R \rightarrow \mathcal{E}_{\text{cand}} \rightarrow \hat{\mathcal{E}} \rightarrow \mathcal{C}_{\text{out}}
 $$
 
-## 一次具體檢索的走查
+## A Walkthrough of a Concrete Retrieval
 
-以論文自己的例子「Which project did the CTO of the company that acquired Company B later join?」走一遍：LLM 先從查詢抽出 entity $\{\text{Company B}, \text{CTO}\}$，經 entity 向量做別名擴展後，SQL join 連到「Company A acquired Company B」這類 event；接著沿共享 entity（Company A）反查、再往前 join 一跳（H=1）撈出「某人加入 Project C」的 event，把對應原始 chunk 排進輸出。這裡的關鍵是量級對照 MuSiQue 的實際設定：語料 11,656 個 passages、抽樣 1,000 題，seed 召回預算 $K_{\text{seed}}=50$、entity frontier 剪枝預算 50、送進 LLM 的候選 $K_{\text{cand}}=100$，最後只回 10 個 chunk。消融數字把「擴展到底補了什麼」講得很清楚：關掉擴展（H=0）時 MuSiQue 的 Recall@5 從 80.0% 掉到 69.4%，但 Recall@1 幾乎不動（36.2% 對 35.7%）。這說明擴展補的不是「把已在池中的候選排得更好」，而是「把向量召回根本撈不到的中繼證據」放進來——這些沿共享 entity 進來的 event 跟 query 沒有直接語意重疊，所以排不上 top-1，卻正是多跳鏈上的關鍵中繼。
+Let us walk through the paper's own example "Which project did the CTO of the company that acquired Company B later join?": the LLM first extracts the entities $\{\text{Company B}, \text{CTO}\}$ from the query, expands aliases via the entity vectors, and SQL join connects to an event like "Company A acquired Company B"; then, following the shared entity (Company A), it looks back and joins forward one more hop (H=1) to fetch the event "someone joined Project C," and ranks the corresponding original chunk into the output. The key here is the magnitude comparison against MuSiQue's actual settings: a corpus of 11,656 passages, 1,000 sampled problems, a seed recall budget $K_{\text{seed}}=50$, an entity frontier pruning budget of 50, candidates sent to the LLM $K_{\text{cand}}=100$, and finally only 10 chunks returned. The ablation numbers make it very clear "what exactly the expansion adds": with expansion turned off (H=0), MuSiQue's Recall@5 drops from 80.0% to 69.4%, but Recall@1 barely moves (36.2% vs 35.7%). This shows that what the expansion adds is not "ranking candidates already in the pool better," but "bringing in intermediate evidence that vector recall simply cannot fetch"—these events entering via shared entities have no direct semantic overlap with the query, so they cannot rank top-1, yet they are exactly the key intermediaries on the multi-hop chain.
 
-## 實驗結果與消融
+## Experimental Results and Ablation
 
-主結果在 HotpotQA、2WikiMultiHop、MuSiQue 三個標準多跳 benchmark 上、統一底層配置（BGE-Large-EN-v1.5 ＋ Qwen3.6-Flash）跟主要對手 HippoRAG 2 對打。SAG 平均 Recall@2/5 為 79.3%/88.2%，比 HippoRAG 2 的 68.2%/83.3% 高 11.1/4.9 個百分點，9 項 Recall@K 指標拿下 8 項最佳；唯一落後的是 2Wiki 的 Recall@5（88.0% 對 90.4%）。
+The main results pit SAG against the main competitor HippoRAG 2 on three standard multi-hop benchmarks—HotpotQA, 2WikiMultiHop, MuSiQue—under a unified underlying configuration (BGE-Large-EN-v1.5 + Qwen3.6-Flash). SAG's average Recall@2/5 is 79.3%/88.2%, 11.1/4.9 percentage points higher than HippoRAG 2's 68.2%/83.3%, taking 8 of 9 Recall@K metrics as the best; the only one it trails is 2Wiki's Recall@5 (88.0% vs 90.4%).
 
-| Method（統一配置） | MuSiQue R@2/5 | 2Wiki R@2/5 | HotpotQA R@2/5 | Avg R@2/5 |
+| Method (unified configuration) | MuSiQue R@2/5 | 2Wiki R@2/5 | HotpotQA R@2/5 | Avg R@2/5 |
 |-|-|-|-|-|
-| BGE-Large-EN-v1.5（純向量） | 41.6 / 56.2 | 61.6 / 69.0 | 76.0 / 88.8 | 59.7 / 71.3 |
+| BGE-Large-EN-v1.5 (pure vector) | 41.6 / 56.2 | 61.6 / 69.0 | 76.0 / 88.8 | 59.7 / 71.3 |
 | HippoRAG 2 | 49.5 / 65.1 | 76.6 / **90.4** | 78.4 / 94.4 | 68.2 / 83.3 |
-| **SAG（本文）** | **64.1 / 80.0** | **82.3** / 88.0 | **91.6 / 96.5** | **79.3 / 88.2** |
+| **SAG (this paper)** | **64.1 / 80.0** | **82.3** / 88.0 | **91.6 / 96.5** | **79.3 / 88.2** |
 
-優勢最明顯的是推理鏈最長的 MuSiQue：SAG 的 Recall@5 為 80.0%，對 HippoRAG 2 的 65.1%，Recall@2 差距更大（64.1% 對 49.5%）。作者把這歸因於機制差異——SAG 用 SQL join 沿共享 entity 確定性擴展，每跳路徑顯式可追溯；HippoRAG 2 靠 Personalized PageRank 在全域圖上傳播分數，遠端節點在阻尼下衰減、噪聲節點的干擾隨跳數複合放大。消融把貢獻拆得很細（都在 MuSiQue 上）：
+The advantage is most pronounced on MuSiQue, which has the longest reasoning chain: SAG's Recall@5 is 80.0% vs HippoRAG 2's 65.1%, and the Recall@2 gap is even larger (64.1% vs 49.5%). The authors attribute this to a mechanistic difference—SAG uses SQL join to deterministically expand along shared entities, with each hop's path explicitly traceable; HippoRAG 2 relies on Personalized PageRank to propagate scores over a global graph, where distant nodes decay under damping and interference from noise nodes compounds and amplifies with hop count. The ablation breaks down the contributions in fine detail (all on MuSiQue):
 
-| 消融（MuSiQue，變動單一變數） | Recall@5 |
+| Ablation (MuSiQue, varying a single variable) | Recall@5 |
 |-|-|
-| 完整 SAG（baseline） | **80.0** |
-| 三元組表示取代 hyperedge | 77.1 |
-| 關掉 query-time 擴展（H=0） | 69.4 |
-| LLM 換成輕量 Qwen3-Reranker-0.6B | 62.2 |
-| 只走語意路（$K_{\text{event}}=0$，純向量選 chunk） | 56.2 |
+| Full SAG (baseline) | **80.0** |
+| Triple representation replacing hyperedge | 77.1 |
+| Turn off query-time expansion (H=0) | 69.4 |
+| Replace the LLM with the lightweight Qwen3-Reranker-0.6B | 62.2 |
+| Semantic path only ($K_{\text{event}}=0$, pure vector chunk selection) | 56.2 |
 
-這張表的讀法是：把 LLM 精排換成輕量 reranker 掉最多（80.0→62.2，−17.8 個百分點），因為逐一獨立打分的 reranker 無法判斷「哪一組 event 合起來才構成完整推理鏈」；而 hyperedge 相對三元組只多 2.9 個百分點（77.1→80.0）——作者誠實地把主要增益歸給 pipeline 架構（相對同表示的三元組仍領先 12 個百分點），而非 hyperedge 表示本身。
+The way to read this table: replacing the LLM reranker with a lightweight reranker drops the most (80.0→62.2, −17.8 percentage points), because a reranker that scores items independently one by one cannot judge "which set of events together constitutes a complete reasoning chain"; whereas the hyperedge is only 2.9 percentage points ahead of triples (77.1→80.0)—the authors honestly attribute the main gain to the pipeline architecture (still 12 percentage points ahead of triples with the same representation), rather than to the hyperedge representation itself.
 
-送進 LLM 精排的候選數 $K_{\text{cand}}$ 也做了邊際收益分析：候選從 50 增到 100 時 MuSiQue Recall@5 由 76.1% 明顯拉到 80.0%，但再往上到 200、500 只換來 80.9%、81.8% 的微幅提升，Token 成本卻從 20.0M 一路暴增到 76.4M。收益在 100 之後迅速走平，這正是預設取 $K_{\text{cand}}=100$ 的依據——它落在召回與 LLM 呼叫成本的性價比拐點上。
+A marginal-benefit analysis was also done on the number of candidates $K_{\text{cand}}$ sent to the LLM for reranking: increasing candidates from 50 to 100 markedly raises MuSiQue Recall@5 from 76.1% to 80.0%, but going further to 200 and 500 only yields marginal improvements to 80.9% and 81.8%, while token cost surges from 20.0M all the way to 76.4M. The benefit flattens rapidly after 100, which is exactly the basis for the default $K_{\text{cand}}=100$—it sits at the cost-performance inflection point between recall and LLM call cost.
 
-![候選 event 數與 Token 成本的權衡：Recall@5 在 100 個候選後邊際收益迅速遞減，而 Token 成本仍近似線性上升，故預設 K_cand=100。圖中標註為論文原圖數值（76.12/80.04/80.92/81.82%），與消融表四捨五入到一位小數的 76.1/80.0/80.9/81.8% 一致。](imgs/token_marginal_benefit.png)
+![Trade-off between the number of candidate events and token cost: Recall@5's marginal benefit diminishes rapidly after 100 candidates, while token cost still rises approximately linearly, hence the default K_cand=100. The annotations in the figure are the original figure values from the paper (76.12/80.04/80.92/81.82%), consistent with the ablation table's values rounded to one decimal place, 76.1/80.0/80.9/81.8%.](imgs/token_marginal_benefit.png)
 
-對 embedding 品質的敏感度則用另一組對照凸顯：換上更強的 NV-Embed-v2 時，SAG 與 HippoRAG 2 的 MuSiQue Recall@5 分別是 81.7% 與 74.6%；換回較弱的 BGE-Large-EN-v1.5，SAG 幾乎不動（81.7%→80.0%，−1.7），HippoRAG 2 卻掉近 10 個百分點（74.6%→65.1%，−9.5）。作者以此論證：HippoRAG 2 的 PageRank 沿傳播路徑逐跳放大 embedding 誤差，而 SAG 的結構增益來自基於精確字串比對的 SQL join，對 embedding 品質天生較不敏感。
+The sensitivity to embedding quality is highlighted with another comparison: with the stronger NV-Embed-v2, SAG's and HippoRAG 2's MuSiQue Recall@5 are 81.7% and 74.6% respectively; switching back to the weaker BGE-Large-EN-v1.5, SAG barely moves (81.7%→80.0%, −1.7), whereas HippoRAG 2 drops nearly 10 percentage points (74.6%→65.1%, −9.5). The authors use this to argue: HippoRAG 2's PageRank amplifies embedding error hop by hop along the propagation path, whereas SAG's structural gain comes from SQL join based on exact string matching, which is inherently less sensitive to embedding quality.
 
-## 從程式碼看機制
+## Looking at the Mechanism from the Code
 
-官方倉庫 `Zleap-AI/SAG-Benchmark` 的實作與論文敘述吻合：`event_entity` 是一張帶唯一鍵的多對多關聯表（即 hyperedge 的落地），而所謂「多跳擴展」在程式裡就是一段 `select(...).join(...)` 的關聯式查詢，與論文「不是 PageRank」的說法一致；config 裡直接向量召回門檻 0.4、擴展跳數 1 兩個預設也與論文相符。
+The implementation in the official repository `Zleap-AI/SAG-Benchmark` matches the paper's description: `event_entity` is a many-to-many relation table with a unique key (i.e., the materialization of the hyperedge), and the so-called "multi-hop expansion" is, in the code, a `select(...).join(...)` relational query, consistent with the paper's statement that it "is not PageRank"; the two defaults in the config, a direct vector recall threshold of 0.4 and an expansion hop count of 1, also match the paper.
 
 ```python
-# Zleap-AI/SAG-Benchmark, pipeline/modules/search/step5_strategies.py L91-104（靜態檢視）
+# Zleap-AI/SAG-Benchmark, pipeline/modules/search/step5_strategies.py L91-104 (static inspection)
 stmt = select(EventEntity.event_id).where(
     EventEntity.entity_id.in_(entity_ids)
 ).distinct()
@@ -98,21 +99,21 @@ if source_config_ids:
 
 ## 🧪 Critical Assessment
 
-### 問題是真的，但「結構退化成相似度」的診斷比新機制更有價值
-多跳檢索裡中繼證據與查詢缺乏直接語意重疊，是一個真實且被 benchmark 設計（MuSiQue 的反事實過濾）刻意逼出來的困難，並非人造問題。作者對既有 graph-RAG「離線精心建構、線上卻退化成 flat 相似度」的診斷，本身就是一個有洞察力的觀察。SAG 把結構組織「內嵌到檢索執行本身（SQL join）」而非事後套用，這個切入角度是站得住腳的。
+### The problem is real, but the diagnosis of "structure degrading into similarity" is more valuable than the new mechanism
+In multi-hop retrieval, the lack of direct semantic overlap between intermediate evidence and the query is a real difficulty deliberately forced out by benchmark design (MuSiQue's counterfactual filtering), not an artificial problem. The authors' diagnosis of existing graph-RAG—"carefully built offline, yet degrading online into flat similarity"—is itself an insightful observation. SAG embeds structural organization "into the retrieval execution itself (SQL join)" rather than applying it after the fact, and this angle of attack is defensible.
 
-### baseline 只有一個 HippoRAG 2，主結果的說服力被稀釋
-統一配置下的直接對手只有 HippoRAG 2 一個，GraphRAG、SiReRAG、StructRAG、LightRAG 等在 Related Work 大篇幅點名的方法都沒有進主表同配置對打，其餘只有取自文獻的 7B embedding 數字作背景參考（且標星號、非同配置）。這使「8/9 最佳」的宣稱其實是「相對單一 graph baseline 的 8/9」。消融雖然做得細緻且變數控制清楚（值得肯定），但主結果的橫向廣度不足，讀者難以判斷 SAG 是勝過整個 structure-augmented 家族，還是只勝過 PageRank 這一支。
+### With only one baseline, HippoRAG 2, the persuasiveness of the main results is diluted
+Under the unified configuration, the only direct competitor is HippoRAG 2; the methods named extensively in Related Work—GraphRAG, SiReRAG, StructRAG, LightRAG, etc.—do not enter the main table for a same-configuration face-off, and the rest are only 7B embedding numbers taken from the literature for background reference (and are starred, non-same-configuration). This makes the "best on 8/9" claim actually "8/9 relative to a single graph baseline." Although the ablation is done meticulously with clear variable control (which deserves credit), the horizontal breadth of the main results is insufficient, and the reader cannot judge whether SAG beats the entire structure-augmented family or only beats the PageRank branch.
 
-### 指標選擇對自己有利，作者也承認這一點
-主指標 Recall@K 採 any-hit（top-K 內命中至少一條支持證據即算成功），作者自己就指出這「傾向高估」多跳表現、並非推理鏈完整覆蓋的嚴格保證。在強調「每跳不可略過」的 MuSiQue 上，用 any-hit 當主指標與其敘事之間存在張力：真正能證明多跳能力的應是「整條鏈是否被完整召回」，而非「鏈上任一點被碰到」。這不是事後把靶心畫在箭落點上（benchmark 與指標都是既有的、非作者自定義），但確實是在既有選項裡挑了一個對結構化召回較寬容的評分口徑。
+### The metric choice favors itself, and the authors acknowledge this
+The main metric Recall@K uses any-hit (a success if at least one supporting evidence is hit within the top-K), which the authors themselves point out "tends to overestimate" multi-hop performance and is not a strict guarantee of complete reasoning-chain coverage. On MuSiQue, which emphasizes that "every hop is non-skippable," there is tension between using any-hit as the main metric and its narrative: what truly proves multi-hop capability should be "whether the whole chain is completely recalled," not "whether any point on the chain is touched." This is not drawing the bullseye around where the arrow landed after the fact (both the benchmark and the metric are pre-existing, not author-defined), but it is indeed picking, among the existing options, a scoring criterion that is more lenient toward structured recall.
 
-### 新穎性偏「重新分配責任」而非單一新元件，且工程依賴是隱性成本
-作者自陳 SAG 的設計原則是把責任在 pipeline 上重新分配，而非用更強的模組取代標準 RAG——這是誠實的定位，但也意味著新穎性更接近系統重組。消融也印證：hyperedge 表示相對三元組僅多 2.9 個百分點，主要增益來自 pipeline 架構，換言之「hyperedge」這個賣點的邊際貢獻其實不大。此外，宣稱的「億級部署、秒級延遲」依賴 MySQL＋Elasticsearch 這套既有基礎設施，其運維與 join 效能成本並未在論文中量化，容易被低估。
+### The novelty leans toward "reallocating responsibility" rather than a single new component, and the engineering dependency is a hidden cost
+The authors self-report that SAG's design principle is to reallocate responsibility across the pipeline, rather than replacing standard RAG with a stronger module—this is an honest positioning, but it also means the novelty is closer to systems reorganization. The ablation confirms this: the hyperedge representation is only 2.9 percentage points ahead of triples, and the main gain comes from the pipeline architecture; in other words, the marginal contribution of the "hyperedge" selling point is actually small. Moreover, the claimed "billion-scale deployment, second-level latency" depends on the existing infrastructure of MySQL + Elasticsearch, whose operations and join-performance costs are not quantified in the paper and are easily underestimated.
 
-### 真實世界相關性強，但仍有作者已標記的系統性弱點
-在 2WikiMultiHop 上 Recall@5 落後 HippoRAG 2，作者歸因於固定剪枝預算（entity frontier 50）會把低頻橋接 entity 過早截斷，而 PageRank 的全域傳播反而能觸及這些低頻節點——這是一個被誠實揭露的系統性盲點，而非隨機波動。加上門檻與預算皆為 dev set 上經驗設定、entity 不做消歧會削弱跨文件連結密度，這些都指向：SAG 在「頭部命中」很強，但「尾部召回」與參數可攜性仍是未定之數，真實部署時多半需要重新調參。
+### Real-world relevance is strong, but there remain systematic weaknesses the authors have flagged
+On 2WikiMultiHop, Recall@5 trails HippoRAG 2, which the authors attribute to the fixed pruning budget (entity frontier 50) truncating low-frequency bridging entities too early, whereas PageRank's global propagation can instead reach these low-frequency nodes—this is an honestly disclosed systematic blind spot, not random fluctuation. Adding that the thresholds and budgets are all empirically set on the dev set, and that not disambiguating entities weakens cross-document link density, these all point to: SAG is very strong on "head hits" but "tail recall" and parameter portability remain uncertain, and real deployment will mostly need re-tuning.
 
 ## 🔗 Related notes
 
-<!-- 目前 domains/natural_language_processing/ 下無可安全解析的直接相關 note，保留標題、留空。 -->
+<!-- Currently there is no directly relevant note under domains/natural_language_processing/ that can be safely resolved; the heading is retained and left empty. -->

@@ -1,4 +1,5 @@
 # The Illusion of Thinking — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,107 +12,107 @@
 | Official Code | unknown |
 | Venue Kind | paper |
 
-> 說明：本筆記依 arXiv 預印本 `2506.06941`（v1）撰寫。作者群任職於 Apple，正式發表場域（peer-review venue）目前無可引用來源，故 Venue 記為 `unknown`；引用計數在無可靠 API 記錄下亦不臆測。圖表因無 PDF 圖形抽取後端且 ar5iv 未成功渲染（回傳空殼頁面），故本筆記以文字為主，figures unavailable (no extraction backend)。
+> Note: This note is based on the arXiv preprint `2506.06941` (v1). The authors are affiliated with Apple; there is currently no citable source for a formal publication venue (a peer-review venue), so Venue is recorded as `unknown`; the citation count is not speculated on either, in the absence of a reliable API record. Because there is no PDF figure-extraction backend and ar5iv did not render successfully (returning a shell page), this note is text-focused, figures unavailable (no extraction backend).
 
 ## First Principles
 
-### 這篇論文到底在質疑什麼
+### What exactly is this paper questioning
 
-近一年出現一批所謂的「大型推理模型」（Large Reasoning Models, LRMs）——OpenAI o1/o3、DeepSeek-R1、Claude 3.7 Sonnet (Thinking)、Gemini Thinking——它們的共通特徵是：在給出答案前，會先產生一長串「思考」（long Chain-of-Thought，含自我反省 self-reflection）。這些模型在 MATH、AIME 等數學/程式基準上分數更高，於是業界普遍把「會思考」當成邁向更通用智慧的證據。
+Over the past year a batch of so-called "Large Reasoning Models" (LRMs) has appeared — OpenAI o1/o3, DeepSeek-R1, Claude 3.7 Sonnet (Thinking), Gemini Thinking — whose common feature is that, before giving an answer, they first produce a long stretch of "thinking" (a long Chain-of-Thought, including self-reflection). These models score higher on math/programming benchmarks such as MATH and AIME, so the industry commonly treats "able to think" as evidence of progress toward more general intelligence.
 
-這篇論文的核心質疑是：**現有的評測範式看不出這些模型到底是不是真的在推理**。理由有兩點。第一，數學與程式基準有資料污染（data contamination）問題——題目很可能已經在訓練資料裡。作者自己就觀察到一個反常現象：人類在 AIME25 上的表現比 AIME24 好（代表 AIME25 較簡單），但模型在 AIME25 上反而更差，這種「較簡單卻更差」的落差，指向新基準較少被污染、舊基準可能被記憶。第二，這些基準只看最終答案對不對，完全不檢視中間那串「思考」本身的結構與品質。
+This paper's core question is: **the existing evaluation paradigm cannot tell whether these models are actually reasoning.** There are two reasons. First, math and programming benchmarks have a data contamination problem — the problems are very likely already in the training data. The authors themselves observe an anomalous phenomenon: humans perform better on AIME25 than on AIME24 (indicating AIME25 is easier), yet models perform worse on AIME25; this "easier but worse" gap points to the newer benchmark being less contaminated while the older benchmark may have been memorized. Second, these benchmarks only look at whether the final answer is right and completely ignore the structure and quality of the intermediate stretch of "thinking" itself.
 
-作者的解法不是提出新基準，而是把四個**可控謎題環境**（controllable puzzle environments）當成實驗工具：它們能在保持核心邏輯不變的前提下，精細地、單調地調整「組合複雜度」（compositional complexity），並且每一步都能用模擬器（simulator）精確判對錯——不只判最終答案，還能判「思考」裡每一個中途解。
+The authors' solution is not to propose a new benchmark, but to use four **controllable puzzle environments** as experimental tools: they can finely and monotonically adjust "compositional complexity" while keeping the core logic unchanged, and every step can be precisely judged right or wrong by a simulator — not just the final answer, but every intermediate solution within the "thinking."
 
-### 四個謎題與複雜度的數學控制
+### The four puzzles and the mathematical control of complexity
 
-複雜度由單一整數 $N$ 控制，且每個謎題的最短解長度是 $N$ 的閉式函數，這是整套實驗的量尺：
+Complexity is controlled by a single integer $N$, and the shortest-solution length of each puzzle is a closed-form function of $N$; this is the yardstick of the whole set of experiments:
 
-- **河內塔（Tower of Hanoi）**：三根柱、$N$ 個大小不同的圓盤，最短移動數為
+- **Tower of Hanoi**: three pegs, $N$ disks of different sizes, with a shortest move count of
 
 $$
 M_{\text{Hanoi}}(N) = 2^{N} - 1
 $$
 
-  呈指數成長。評分只看每一步是否合法、是否到達目標狀態，不要求最優。
-- **跳棋交換（Checker Jumping）**：一維排列 $2N$ 顆紅藍棋子加一個空位，最短移動數為 $(N+1)^2 - 1$（二次成長，例如 $N=4$ 需 24 步）。
-- **過河（River Crossing）**：$N$ 對「委託人／代理人」要渡河，船容量 $k$，約束是任一委託人不能在自己代理人缺席時與別的代理人同處。$N=2,3$ 用 $k=2$，更大用 $k=3$。
-- **積木世界（Blocks World）**：把積木從初始堆疊重排成指定目標堆疊，只能動每堆最頂端的積木。
+  which grows exponentially. Scoring only looks at whether each step is legal and whether the goal state is reached; it does not require optimality.
+- **Checker Jumping**: a one-dimensional arrangement of $2N$ red and blue checkers plus one empty slot, with a shortest move count of $(N+1)^2 - 1$ (quadratic growth, e.g. $N=4$ requires 24 steps).
+- **River Crossing**: $N$ "actor/agent" pairs must cross the river, boat capacity $k$, with the constraint that no actor can be with another agent while their own agent is absent. $N=2,3$ use $k=2$, and larger use $k=3$.
+- **Blocks World**: rearrange blocks from an initial stacking into a specified goal stacking, and only the topmost block of each stack can be moved.
 
-作者刻意在文中指出：這四種成長率（指數、二次、近線性）**不能拿來跨謎題比較難度**，因為對模型而言真正的難度取決於訓練資料分佈，而非漸進計算複雜度；因此分析主要在「同一謎題內」隨 $N$ 追蹤行為。
+The authors deliberately point out in the text that these four growth rates (exponential, quadratic, near-linear) **cannot be used to compare difficulty across puzzles**, because for the model the true difficulty depends on the training-data distribution rather than asymptotic computational complexity; therefore the analysis mainly tracks behavior "within the same puzzle" as $N$ varies.
 
-### 實驗設定
+### Experimental setup
 
-主力比較的是「同一骨幹的思考／非思考配對」：Claude 3.7 Sonnet（開／關 extended thinking）與 DeepSeek（R1 vs. V3）。選這些是因為它們會吐出思考軌跡（o 系列不會）。Claude 給 64k token 的最大生成預算、DeepSeek 系列在本地伺服器同樣設 64k、temperature 預設 1.0；每個謎題／每個複雜度層級跑 25 個樣本，並過濾掉不符指定格式的回應。純粹看最終準確率時另加入 o3-mini（medium／high 兩檔）。
+The main comparison is "thinking/non-thinking pairs of the same backbone": Claude 3.7 Sonnet (extended thinking on/off) and DeepSeek (R1 vs. V3). These are chosen because they emit thinking traces (the o series does not). Claude is given a maximum generation budget of 64k tokens, the DeepSeek series is likewise set to 64k on a local server, and temperature defaults to 1.0; 25 samples are run per puzzle / per complexity level, and responses that do not conform to the specified format are filtered out. When looking purely at final accuracy, o3-mini (medium/high, two settings) is additionally included.
 
-### 三個複雜度區間
+### Three complexity regimes
 
-把思考模型與其非思考對照組放在**相同推理 token 預算**下比較（pass@k），得到一個和數學基準不同的三段式行為：
+Comparing thinking models with their non-thinking counterparts under **the same reasoning token budget** (pass@k) yields a three-stage behavior different from math benchmarks:
 
-| 複雜度區間 | 誰勝出 | 現象 |
+| Complexity regime | Who wins | Phenomenon |
 |-|-|-|
-| 低（low） | 非思考模型 | 標準 LLM 準確率相當甚至更好，且 token 更省；思考模型「想太多」 |
-| 中（medium） | 思考模型 | 長 CoT 的優勢開始顯現，配對間差距拉大 |
-| 高（high） | 都輸 | 兩者準確率都崩到接近零；思考模型只是把崩潰點往後延，最終撞上同一堵牆 |
+| Low | Non-thinking models | Standard LLM accuracy is comparable or even better, and more token-efficient; thinking models "overthink" |
+| Medium | Thinking models | The advantage of long CoT begins to show, and the gap between pairs widens |
+| High | Both lose | Both accuracies collapse to near zero; thinking models merely push the collapse point back, and ultimately hit the same wall |
 
-關鍵不是「思考模型比較好」，而是「好壞取決於複雜度」——在低複雜度區，思考反而是負擔。
+The key is not "thinking models are better," but "good or bad depends on complexity" — in the low-complexity regime, thinking is actually a burden.
 
-### 崩潰，以及那個反直覺的 token 曲線
+### Collapse, and that counter-intuitive token curve
 
-在五個思考模型（o3-mini medium/high、DeepSeek-R1、R1-Distill-Qwen-32B、Claude 3.7 Sonnet Thinking）上，準確率都隨 $N$ 遞減，直到超過某個模型特定的門檻後**塌陷到近乎零**（accuracy collapse）。
+On five thinking models (o3-mini medium/high, DeepSeek-R1, R1-Distill-Qwen-32B, Claude 3.7 Sonnet Thinking), accuracy decreases with $N$ until, beyond a certain model-specific threshold, it **collapses to near zero** (accuracy collapse).
 
-真正反直覺的是思考 token 的用量：模型一開始會隨複雜度增加而**增加**思考 token，但一旦逼近那個崩潰門檻，卻反過來**減少**推理努力——即使它離 64k 的生成上限還很遠、預算綽綽有餘。這個「該更努力時反而放棄」的縮減，在 o3-mini 上最明顯、在 Claude 3.7 Sonnet Thinking 上較輕微，被作者視為一種內在的推理時（inference-time）擴展極限。
+What is truly counter-intuitive is the usage of thinking tokens: the model initially **increases** thinking tokens as complexity rises, but once it approaches that collapse threshold it conversely **reduces** reasoning effort — even though it is still far from the 64k generation ceiling and has budget to spare. This "giving up right when it should try harder" reduction is most pronounced on o3-mini and milder on Claude 3.7 Sonnet Thinking, and is regarded by the authors as an intrinsic inference-time scaling limit.
 
-### 「思考」內部發生了什麼
+### What happens inside the "thinking"
 
-作者用模擬器把 Claude 3.7 Sonnet Thinking 思考軌跡裡的每一個**中途解**抽出來，記錄它在軌跡中的相對位置（用 `cl100k_base` tokenizer 對思考長度正規化）與對錯，得到三種與複雜度相關的模式：
+Using the simulator, the authors extract every **intermediate solution** from Claude 3.7 Sonnet Thinking's thinking traces, recording its relative position in the trace (normalized to the thinking length using the `cl100k_base` tokenizer) and whether it is correct, obtaining three complexity-related patterns:
 
-- **簡單題**：模型常常「早早就找到正確解」，卻繼續往下探索錯誤解——正確解分佈偏前、錯誤解分佈偏後，這正是文獻所稱的 overthinking（過度思考），純屬浪費算力。
-- **中等題**：趨勢反轉，模型先探索一堆錯誤解，較晚才碰到正確解。
-- **高複雜度**：進入崩潰模式，思考裡完全找不到正確解，並且固著（fixate）在某個早期錯誤解上，把剩下的 token 預算全部浪費掉。
+- **Easy problems**: the model often "finds the correct solution early on" but keeps exploring wrong solutions afterward — the correct solutions are distributed toward the front and the wrong ones toward the back, which is exactly what the literature calls overthinking, pure waste of compute.
+- **Medium problems**: the trend reverses; the model first explores a bunch of wrong solutions and only later hits the correct one.
+- **High complexity**: it enters collapse mode, where no correct solution can be found in the thinking at all, and it fixates on some early wrong solution, wasting the entire remaining token budget.
 
-### 更尖銳的一擊：給了演算法也沒用
+### A sharper blow: even giving it the algorithm does not help
 
-最能說明「思考是幻覺」的實驗在此：作者直接把河內塔的**遞迴解法演算法寫進 prompt**，模型只需要「照著執行」而非「自己想出來」。照理說，執行一個已知演算法所需的運算量，遠小於搜尋+驗證出一個解。結果——效能幾乎沒有提升，崩潰點還在幾乎相同的 $N$。作者又擔心這只是因為河內塔的遞迴解「太有名、已被背下來」，於是換到較不知名、更早崩潰的跳棋交換重做，結論一致：**給了步驟照抄都做不到**。這把問題從「不會規劃」進一步推向「連照著邏輯步驟執行都不穩」。
+Here is the experiment that best illustrates "thinking is an illusion": the authors directly write **the recursive solution algorithm for Tower of Hanoi into the prompt**, so the model only needs to "execute it" rather than "figure it out itself." In principle, the amount of computation needed to execute a known algorithm is far less than to search for and verify a solution. The result — performance barely improves, and the collapse point is still at almost the same $N$. The authors then worry that this is only because Hanoi's recursive solution is "too famous, already memorized," so they redo it on the less well-known and earlier-collapsing Checker Jumping, reaching a consistent conclusion: **it cannot even copy the steps it was given.** This pushes the problem from "cannot plan" further toward "cannot even reliably execute logical steps step by step."
 
-同時，失敗行為還是**非單調**的：在河內塔上，模型有時在 $N=12$ 時第 50 步之前就出錯，卻能在 $N=10$ 撐過 100 步以上；跨謎題更誇張——它能在河內塔做到約 100 步無誤，卻在過河 $N=3$（僅 11 步的解）第 4 步就錯。這種不一致指向模型是在套「學過的解分佈」，而非執行一個穩定的演算法。
+At the same time, the failure behavior is still **non-monotonic**: on Tower of Hanoi, the model sometimes errs before step 50 at $N=12$, yet can survive over 100 steps at $N=10$; across puzzles it is even more extreme — it can do about 100 steps without error on Tower of Hanoi, yet errs at step 4 on River Crossing $N=3$ (a solution of only 11 steps). This inconsistency points to the model applying a "learned solution distribution" rather than executing a stable algorithm.
 
-### 一個帶真實數字的走查（河內塔）
+### A walkthrough with real numbers (Tower of Hanoi)
 
-用論文給模型的實際格式走一遍，把上述現象量化。輸出格式是移動清單 `moves = [[disk id, from peg, to peg], ...]`，peg 以 0 為索引。以 $N=3$ 為例，初始狀態 `[[3, 2, 1], [], []]`，一組合法解正好是 $2^3-1=7$ 步：
+Walking through the actual format given to the model in the paper quantifies the phenomena above. The output format is a move list `moves = [[disk id, from peg, to peg], ...]`, with pegs 0-indexed. Take $N=3$ as an example; the initial state is `[[3, 2, 1], [], []]`, and one legal solution is exactly $2^3-1=7$ steps:
 
 ```
 moves = [[1, 0, 2], [2, 0, 1], [1, 2, 1], [3, 0, 2],
          [1, 1, 0], [2, 1, 2], [1, 0, 2]]
 ```
 
-現在把 $N$ 往上推，觀察同一個 Claude 3.7 Sonnet Thinking：
+Now push $N$ upward and observe the same Claude 3.7 Sonnet Thinking:
 
-- $N=5$：最短解 $2^5-1 = 31$ 步，模型接近完美準確率。
-- $N=8$：最短解 $2^8-1 = 255$ 步。模型崩潰。而且不是「做到 255 步才錯」——**第一個錯誤大約落在第 40 步（約全解的 15%）**，此時距 64k token 上限還很遠。也就是說，模型不是被輸出長度卡住，而是在解才展開 15% 時就已經走岔並固著。
-- $N=10$：最短解約 $10^3$ 步，第一個錯誤約在第 100 步（約 10%）。
+- $N=5$: shortest solution $2^5-1 = 31$ steps, the model reaches near-perfect accuracy.
+- $N=8$: shortest solution $2^8-1 = 255$ steps. The model collapses. And it is not "erring only at step 255" — **the first error falls at around step 40 (about 15% of the full solution)**, at which point it is still far from the 64k token ceiling. That is, the model is not stuck on output length; it has already gone astray and fixated when the solution has only unfolded 15%.
+- $N=10$: shortest solution about $10^3$ steps, the first error at around step 100 (about 10%).
 
-對照 DeepSeek-R1 更能看出「崩潰不是取樣雜訊」：在河內塔，temperature 0（貪婪解碼）時 $N=8$ 就崩潰；開取樣反而在 $N=8$ 保住 18.2% 準確率、把崩潰延到 $N=9$。積木世界更戲劇化：temperature 0 在 $N=4$ 崩潰，開取樣在 $N=4$ 保有 44.1% 準確率、崩潰延到 $N=30$。若崩潰是「長序列取樣容易出錯」造成的，取樣應該讓事情更糟，實際卻相反——所以取樣不是主因。
+Comparing against DeepSeek-R1 makes it even clearer that "collapse is not sampling noise": on Tower of Hanoi, at temperature 0 (greedy decoding) it collapses at $N=8$; turning on sampling instead keeps 18.2% accuracy at $N=8$ and pushes the collapse to $N=9$. Blocks World is even more dramatic: at temperature 0 it collapses at $N=4$, while turning on sampling keeps 44.1% accuracy at $N=4$ and pushes the collapse to $N=30$. If collapse were caused by "long sequences being error-prone to sample," sampling should make things worse, but in fact it is the opposite — so sampling is not the main cause.
 
-把這串數字連起來，論文的標題就有了具體意義：一個 255 步、規則完全確定、演算法眾所皆知的河內塔，模型在解出 15% 後就垮掉，即使把演算法直接餵給它也一樣。它產生的那一大串「思考」看起來像在推理，但無法轉化為對一個固定程序的可靠執行——這就是「思考的幻覺」。
+Stringing these numbers together gives the paper's title concrete meaning: a 255-step Tower of Hanoi with completely determined rules and a universally known algorithm, on which the model falls apart after solving 15%, even when the algorithm is fed directly to it. The large stretch of "thinking" it produces looks like reasoning, but cannot be converted into reliable execution of a fixed procedure — this is the "illusion of thinking."
 
 ## 🧪 Critical Assessment
 
-### 問題是真的，但「幻覺」這個框架下得比證據強
+### The problem is real, but the "illusion" framing is set stronger than the evidence
 
-「現有推理基準有污染、且只看最終答案」是扎實且重要的問題，AIME24/25 的反轉觀察是有說服力的佐證。可控謎題確實補上了「逐步可驗證」這一塊，這部分我認為站得住腳。但論文從「模型在這些謎題上會崩潰」跳到「LRM 的推理是一種幻覺／不具泛化推理能力」，這個推論比手上的證據要大。崩潰只證明了「在這一類長程、狀態追蹤密集的組合任務上會失效」，不等於「所謂的思考普遍是假的」。標題本身是很強的修辭。
+"Existing reasoning benchmarks are contaminated, and only look at the final answer" is a solid and important problem, and the AIME24/25 reversal observation is persuasive supporting evidence. The controllable puzzles do indeed fill in the "step-by-step verifiable" piece, and I think this part holds up. But the paper jumps from "the model collapses on these puzzles" to "LRM reasoning is an illusion / lacks generalizable reasoning ability," and this inference is bigger than the evidence in hand. Collapse only proves "it fails on this class of long-horizon, state-tracking-intensive combinatorial tasks," which is not the same as "so-called thinking is generally fake." The title itself is very strong rhetoric.
 
-### 基線、消融與指標的取捨
+### The trade-offs in baselines, ablations, and metrics
 
-正面看，思考／非思考同骨幹配對（Claude 開關、R1/V3）是恰當的對照；temperature 0 的取樣消融、以及把 $N>12$ 移出河內塔以排除 context limit 疑慮，都是負責任的處理，附錄也正面回應了「是不是被 context 長度卡住」「是不是取樣造成」「是不是只有河內塔特例」等批評。可疑之處在評分指標：河內塔要求**逐步全對**才算成功，一個 255 步的解只要有一步錯就算全錯。這對「指數長度輸出」是相當嚴苛的全有全無標準，準確率的「崩潰」有一部分是這個 0/1 指標放大出來的——若改看「首次錯誤前的正確步數」，圖像會平緩許多（作者其實也報告了首錯位置，但主敘事仍用崩潰）。
+On the positive side, the thinking/non-thinking same-backbone pairing (Claude on/off, R1/V3) is an appropriate control; the temperature-0 sampling ablation, and moving $N>12$ out of Tower of Hanoi to rule out context-limit concerns, are responsible treatments, and the appendix also directly responds to criticisms such as "is it stuck on context length," "is it caused by sampling," and "is it only a Tower of Hanoi special case." The dubious part is the scoring metric: Tower of Hanoi requires **every step to be correct** to count as success, and a 255-step solution counts as entirely wrong if even one step is wrong. This is a rather harsh all-or-nothing standard for "exponential-length output," and part of the accuracy "collapse" is amplified by this 0/1 metric — if one instead looks at "the number of correct steps before the first error," the picture would be much smoother (the authors do report the first-error position, but the main narrative still uses collapse).
 
-### 這是新發現，還是把已知現象重新包裝
+### Is this a new finding, or a repackaging of known phenomena
 
-overthinking 現象、pass@k 上思考與非思考收斂，都是已被引用的既有觀察；本文的增量在於「用可控複雜度把這些現象組織成三區間、並量化思考內部中途解的位置」。這是有價值的重新組織，但要留意一個「自己畫靶」的風險：謎題環境與複雜度量尺都由作者定義，而評測結論（會崩潰）恰好落在這套自定義量尺的極端區。作者自己也承認，$N$ 對模型的真實難度取決於訓練分佈而非漸進複雜度——這等於承認「複雜度」這條 x 軸的語意並不乾淨，跨謎題甚至同謎題不同 $N$ 的難度都未必可比。
+The overthinking phenomenon and the convergence of thinking and non-thinking on pass@k are both already-cited existing observations; this paper's increment lies in "using controllable complexity to organize these phenomena into three regimes, and quantifying the position of intermediate solutions inside the thinking." This is a valuable reorganization, but one should watch out for a "drawing one's own target" risk: the puzzle environments and complexity yardstick are all defined by the authors, and the evaluation conclusion (that it collapses) happens to fall in the extreme region of this self-defined yardstick. The authors themselves also acknowledge that $N$'s true difficulty to the model depends on the training distribution rather than asymptotic complexity — which is tantamount to admitting that the semantics of the "complexity" x-axis are not clean, and that difficulty across puzzles, or even at different $N$ within the same puzzle, is not necessarily comparable.
 
-### 宣稱的問題真的被「解決」了嗎，以及現實相關性
+### Was the claimed problem really "solved," and its real-world relevance
 
-這是一篇診斷性論文，不提出解法，所以「解決」談不上；它的價值在於指出限制。但要小心把結論外推到真實任務：作者在 Limitations 誠實地承認，謎題只是推理任務的一個狹窄切片，多數實驗依賴對閉源模型的黑箱 API，無法做機制層面的分析，且確定性模擬器假設「推理可被逐步完美驗證」，在開放式領域未必成立。此外「給了演算法也不改善」的實驗只在河內塔與跳棋兩個謎題做過，樣本偏窄。因此我的判讀是：這篇論文成功地**證偽了「LRM 能可靠執行長程確定性程序」這個較強的主張**，但不足以支撐「推理整體是幻覺」這個更大的標語；作為對業界過度樂觀敘事的一記警鐘，它的貢獻是真實的，把它讀成「推理模型沒用」則是過度延伸。
+This is a diagnostic paper that offers no solution, so "solving" is out of the question; its value lies in pointing out limitations. But one must be careful about extrapolating the conclusions to real tasks: in Limitations the authors honestly acknowledge that puzzles are only a narrow slice of reasoning tasks, that most experiments rely on black-box APIs to closed-source models and cannot do mechanism-level analysis, and that the deterministic-simulator assumption that "reasoning can be perfectly verified step by step" does not necessarily hold in open-ended domains. Moreover, the "even giving the algorithm does not improve it" experiment was only done on the two puzzles Tower of Hanoi and Checker Jumping, a rather narrow sample. My reading, therefore, is: this paper successfully **falsifies the stronger claim that "LRMs can reliably execute long-horizon deterministic procedures,"** but is not enough to support the bigger slogan that "reasoning as a whole is an illusion"; as a wake-up call against the industry's overly optimistic narrative, its contribution is real, while reading it as "reasoning models are useless" is an over-extension.
 
 ## 🔗 Related notes
 

@@ -1,4 +1,5 @@
-# 溫度參數與 LLM 創造力（Is Temperature the Creativity Parameter of Large Language Models?）— Research Note
+# Temperature and LLM Creativity (Is Temperature the Creativity Parameter of Large Language Models?) — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,97 +12,97 @@
 | Official Code | https://github.com/maxpeeperkorn/creativity-parameter |
 | Venue Kind | paper |
 
-> 說明：本文為 arXiv 預印本 `2405.00492v1`（發表於 International Conference on Computational Creativity, ICCC'24）之全文分析；數值與引文皆取自該版本的 LaTeX 原始碼，正式會議版可能有細微差異。
+> Note: This is a full-text analysis of the arXiv preprint `2405.00492v1` (presented at the International Conference on Computational Creativity, ICCC'24); the figures and quotations are all taken from the LaTeX source of that version, and the official conference version may differ slightly.
 
 ## First Principles
 
-### 這篇論文在質疑什麼
+### What this paper is questioning
 
-一個在實務上被廣泛複述的說法是：溫度（temperature）就是大型語言模型（LLM）的「創造力參數」，調高溫度就能讓模型更有創意。本文的核心工作，是用一個「敘事生成」（narrative generation）任務直接檢驗這個主張——在固定模型、固定提示（prompt）、固定其餘所有參數的前提下，只讓溫度變動，觀察它是否真的驅動創造力。作者刻意不把創造力當成單一維度，而是拆成敘事生成的四個必要條件：新穎性（novelty）、典型性（typicality）、凝聚性（cohesion）與連貫性（coherence）。
+A claim widely repeated in practice is that temperature is the "creativity parameter" of large language models (LLMs), and that turning up the temperature makes the model more creative. The core work of this paper is to test this claim directly with a "narrative generation" task—holding the model, the prompt, and all other parameters fixed, letting only temperature vary, and observing whether it truly drives creativity. The authors deliberately refuse to treat creativity as a single dimension, instead decomposing it into four necessary conditions for narrative generation: novelty, typicality, cohesion, and coherence.
 
-作者的立場很明確：隨機性本身無法等同創造力。若噪音就是創造力，那最有趣的產物將會是純噪音，這顯然荒謬；創造力牽涉社會互動、溝通、獨立性等難以量化的面向，不是「產出更多樣」就能宣稱達成。先前雖有研究在「發散聯想任務」（divergent association task）上觀察到高溫對創造力有有限的正面效果，但那類研究並未控制提示等其他因素的干擾。
+The authors' position is clear: randomness in itself cannot be equated with creativity. If noise were creativity, then the most interesting product would be pure noise, which is plainly absurd; creativity involves hard-to-quantify facets such as social interaction, communication, and independence, and cannot be claimed merely by "producing more variety." Although prior work observed a limited positive effect of high temperature on creativity in the "divergent association task," such studies did not control for confounds like the prompt.
 
-### 溫度如何改變 softmax 分佈
+### How temperature reshapes the softmax distribution
 
-溫度 $t$ 是一個作用在 softmax 上的超參數，用來調節取樣過程的隨機性。它把網路輸出的 logits 除以 $t$ 之後再做指數正規化，重新分配機率質量：
+Temperature $t$ is a hyperparameter acting on the softmax, used to modulate the randomness of the sampling process. It divides the network's output logits by $t$ and then applies exponential normalization, redistributing the probability mass:
 
 $$
 \mathrm{softmax}(\mathbf{z})_i = \frac{\exp(z_i / t)}{\sum_{j}^{n} \exp(z_j / t)}, \quad \mathbf{z} \in \mathbb{R}^n
 $$
 
-當 $t > 1$ 時，高機率被壓低、低機率被抬高，分佈被「攤平」，熵與困惑度（perplexity）上升，輸出更隨機；$t < 1$ 則相反，分佈更尖銳。實務上 $t$ 通常落在 $[0, 2]$ 區間，而 $t = 0$ 等同貪婪取樣（greedy sampling），也就是每一步都取機率最高的 token。
+When $t > 1$, high probabilities are suppressed and low probabilities are raised, the distribution is "flattened," entropy and perplexity rise, and the output becomes more random; $t < 1$ is the opposite, sharpening the distribution. In practice $t$ usually falls in the interval $[0, 2]$, and $t = 0$ is equivalent to greedy sampling, i.e., taking the highest-probability token at every step.
 
-### exemplar：以貪婪樣本作為評估基準
+### exemplar: using the greedy sample as an evaluation baseline
 
-要在「隨機性越大越難比較」的困境下做評估，需要一個穩定的參照點。作者借用認知科學中的原型理論（prototype theory）與範例理論（exemplar theory），提出把貪婪樣本（greedy sample）當成該情境的參照物，稱之為 exemplar object。在幾何式的概念空間（conceptual spaces）觀點下，最典型的物件與同類其他物件的平均距離最短；若溫度真是創造力參數，那麼隨溫度升高，輸出應該要能「探索」到嵌入空間中離 exemplar 更遠的區域。這個「相對於 exemplar 的位移」就是全文評估的骨幹。
+To perform evaluation under the difficulty that "the greater the randomness, the harder it is to compare," one needs a stable reference point. The authors borrow prototype theory and exemplar theory from cognitive science, proposing to use the greedy sample as the reference object for the setting, calling it the exemplar object. Under a geometric conceptual spaces view, the most typical object has the shortest average distance to the other objects of its kind; if temperature really is the creativity parameter, then as temperature rises the output should be able to "explore" regions of the embedding space farther from the exemplar. This "displacement relative to the exemplar" is the backbone of the paper's evaluation.
 
-### 固定情境的實驗設定
+### The fixed-setting experimental design
 
-所有故事都由指令微調過的 `Llama 2-Chat` 70B 生成；作者選它是因為開源、可完全存取權重與架構，能把溫度以外的干擾降到最低（相對地，GPT-3.5/GPT-4 因不透明而被排除）。為了塞進可用硬體，模型以 `llama.cpp` 的 `Q6_K` 設定做 6-bit 量化，作者引用文獻主張此舉品質損失極小。提示刻意設計得極簡且中性——`[INST]Write a story.[/INST]Here it is:`——並在回應開頭補上固定前綴，避免 70B 模型習慣性地加入大量寒暄而污染後續故事。解碼端設定 top-$k$ = 50 並關閉其他解碼策略；限制候選 token 是必要的，否則在高溫下文本品質會迅速崩壞。
+All stories are generated by the instruction-tuned `Llama 2-Chat` 70B; the authors chose it because it is open-source, with full access to weights and architecture, allowing confounds other than temperature to be minimized (by contrast, GPT-3.5/GPT-4 are excluded due to their opacity). To fit within the available hardware, the model is 6-bit quantized using `llama.cpp`'s `Q6_K` setting, and the authors cite the literature to argue that this incurs minimal quality loss. The prompt is deliberately designed to be extremely minimal and neutral—`[INST]Write a story.[/INST]Here it is:`—with a fixed prefix appended to the start of the response, to prevent the 70B model from habitually adding a lot of pleasantries that would contaminate the subsequent story. On the decoding side they set top-$k$ = 50 and disable other decoding strategies; restricting the candidate tokens is necessary, otherwise the text quality would rapidly collapse at high temperatures.
 
-### 計算分析：多樣性是否隨溫度增加
+### Computational analysis: does diversity increase with temperature
 
-第一部分是純計算分析，不評估故事創造力，只檢驗「高溫是否讓模型觸及機率分佈或嵌入空間中更遠的切片」。作者在 7 個溫度值 $t \in \{.001, .334, .667, 1.0, 1.334, 1.667, 2.0\}$ 上各生成 100 篇故事。指標有三：語意層的餘弦相似度（cosine similarity，故事嵌入 vs. exemplar）、詞彙層的正規化編輯距離（normalised edit distance），以及用主成分分析（PCA）把嵌入投影到二維觀察分佈；同時也報告困惑度作為模型自評的品質參考。
+The first part is a purely computational analysis that does not evaluate the creativity of stories, only testing "whether high temperature makes the model reach farther slices of the probability distribution or the embedding space." The authors generate 100 stories each at 7 temperature values $t \in \{.001, .334, .667, 1.0, 1.334, 1.667, 2.0\}$. There are three metrics: cosine similarity at the semantic level (story embedding vs. exemplar), normalised edit distance at the lexical level, and using principal component analysis (PCA) to project the embeddings into two dimensions to observe the distribution; perplexity is also reported as a model-internal quality reference.
 
-![每個溫度下故事困惑度的分佈](imgs/comp_eval_perplexity_write.png)
+![Distribution of story perplexity at each temperature](imgs/comp_eval_perplexity_write.png)
 
-![故事與 exemplar 的餘弦相似度隨溫度變化](imgs/comp_eval_cossim_write.png)
+![Cosine similarity between stories and the exemplar as a function of temperature](imgs/comp_eval_cossim_write.png)
 
-![故事與 exemplar 的正規化編輯距離隨溫度變化](imgs/comp_eval_normeditdist_write.png)
+![Normalised edit distance between stories and the exemplar as a function of temperature](imgs/comp_eval_normeditdist_write.png)
 
-結果出乎「創造力參數」主張的預期：分佈圖顯示模型在高溫下並未產生更多樣的輸出，高溫只是「增加了產生多樣性的機會」，而非必要條件。餘弦相似度僅呈現微弱的負向趨勢，且各溫度值的輸出範圍高度重疊——語意上，高溫輸出並沒有比低溫輸出離 exemplar 遠多少。編輯距離則顯示，在較低溫度區間（$.334 < t < 1.0$）就已對多樣性產生即時效果，而 $t > 1.0$ 之後多樣性未必再增加。
+The results run counter to the expectation of the "creativity parameter" claim: the distribution plots show that the model does not produce more diverse output at high temperature; high temperature only "increases the chance of producing diversity," rather than being a necessary condition. Cosine similarity shows only a weak negative trend, and the output ranges of the various temperature values overlap heavily—semantically, high-temperature output is not much farther from the exemplar than low-temperature output. Edit distance shows that in the lower-temperature interval ($.334 < t < 1.0$) there is already an immediate effect on diversity, whereas beyond $t > 1.0$ diversity does not necessarily increase further.
 
-![7 個溫度下 100 篇故事嵌入的 PCA 投影，$\bigstar$ 標示 exemplar](imgs/pca_embeddings_per_temperature.png)
+![PCA projection of the embeddings of 100 stories at 7 temperatures, with $\bigstar$ marking the exemplar](imgs/pca_embeddings_per_temperature.png)
 
-不過作者也承認一個現實面的觀察：在真實應用中我們只會抽有限樣本，此時 PCA 圖確實顯示高溫下有一點「探索」的痕跡，也就是溫度提高了「較快碰到新穎輸出」的機率。另外 exemplar 一致地落在投影邊緣，且生成過程相對 exemplar 似乎朝某個特定方向移動——這給了原型/範例理論這個評估框架一些佐證。
+However, the authors also acknowledge a practical observation: in real applications we only draw a limited sample, and in that case the PCA plot does show a trace of "exploration" at high temperature, that is, temperature raises the probability of "hitting a novel output sooner." In addition, the exemplar consistently falls at the edge of the projection, and the generation process seems to move in a particular direction relative to the exemplar—this lends some support to the prototype/exemplar theory as an evaluation framework.
 
-### 人類評估：四個創造力條件
+### Human evaluation: the four creativity conditions
 
-計算分析看不出故事的「意義」，因此作者設計了人類評估實驗。他們招募 36 名參與者，對每個溫度值隨機生成 5 篇至少 300 token 的獨特故事;但在最低溫 $t = .001$ 下，模型除了 exemplar 只能再生成一篇獨特故事，因此評估語料總共 31 篇。每位參與者評 5 篇，用四個五點量表：新穎性與典型性是「相對於 exemplar」比較，凝聚性與連貫性則就故事本身評分。要注意連貫性的量表方向相反——分數越低代表越連貫。
+The computational analysis cannot see the "meaning" of a story, so the authors designed a human evaluation experiment. They recruited 36 participants and, for each temperature value, randomly generated 5 unique stories of at least 300 tokens; but at the lowest temperature $t = .001$, the model could generate only one unique story besides the exemplar, so the evaluation corpus totals 31 stories. Each participant rates 5 stories using four five-point scales: novelty and typicality are compared "relative to the exemplar," while cohesion and coherence are scored on the story itself. Note that the coherence scale is reversed in direction—a lower score means more coherent.
 
-統計上，作者用線性混合效應模型（linear mixed-effects models）控制「故事被指派給不同評分者」的隨機效應，並以 Cronbach's $\alpha$ 檢驗評分者間信度;效果方向由斜率估計 $\hat{\beta}$ 判斷，強度則用同時涵蓋固定與隨機效應的條件 $R^2_c$ 衡量，另報告只算固定效應的邊際 $R^2_m$。
+Statistically, the authors use linear mixed-effects models to control for the random effect that "stories are assigned to different raters," and use Cronbach's $\alpha$ to test inter-rater reliability; the direction of an effect is judged from the slope estimate $\hat{\beta}$, while its strength is measured by the conditional $R^2_c$ that covers both fixed and random effects, with the marginal $R^2_m$ (fixed effects only) also reported.
 
-### 一個具體的數字例子
+### A concrete numerical example
 
-先看溫度對 softmax 的機械效果（此為我們構造的示意數值，非論文數據）：假設某步的三個候選 logits 為 $\mathbf{z} = (2, 1, 0)$。在 $t = 0.5$ 時機率約為 $(0.87, 0.12, 0.02)$，幾乎鎖定最高分 token；在 $t = 1$ 時約 $(0.67, 0.24, 0.09)$；在 $t = 2$ 時攤平為約 $(0.51, 0.31, 0.19)$——低機率 token 被抬升近 10 倍，這正是高溫「增加隨機性」的來源。
+First consider the mechanical effect of temperature on the softmax (these are illustrative values we constructed, not data from the paper): suppose the three candidate logits at some step are $\mathbf{z} = (2, 1, 0)$. At $t = 0.5$ the probabilities are about $(0.87, 0.12, 0.02)$, almost locking in the top-scoring token; at $t = 1$ about $(0.67, 0.24, 0.09)$; at $t = 2$ they flatten to about $(0.51, 0.31, 0.19)$—the low-probability token is raised nearly 10-fold, which is precisely the source of high temperature's "increased randomness."
 
-再看論文的頭條實驗數字。人類評估的描述統計如下（值取自論文 Table 1）：
+Now consider the paper's headline experimental figures. The descriptive statistics for the human evaluation are as follows (values taken from the paper's Table 1):
 
-| 條件 | 平均 | 標準差 | Cronbach's α |
+| Condition | Mean | Std. Dev. | Cronbach's α |
 |-|-|-|-|
 | Novelty | 3.12 | 1.17 | 0.547 |
 | Typicality | 3.20 | 0.987 | 0.664 |
 | Cohesion | 3.69 | 0.959 | 0.596 |
-| Coherence（越低越連貫）| 2.13 | 1.17 | 0.749 |
+| Coherence (lower is more coherent) | 2.13 | 1.17 | 0.749 |
 
-核心的相關性分析則整理於下表（值取自論文 Table 2，$\hat{\beta}\pm$SE 與 $R^2_c$）：
+The core correlation analysis is summarized in the table below (values taken from the paper's Table 2, $\hat{\beta}\pm$SE and $R^2_c$):
 
-| 應變量 | 對 Temperature | 對 Perplexity | 對 Cosine Sim. | 對 Norm. Edit Dist. |
+| Dependent variable | vs. Temperature | vs. Perplexity | vs. Cosine Sim. | vs. Norm. Edit Dist. |
 |-|-|-|-|-|
 | Novelty | 0.308 ± 0.138 (*) ; R²c=0.385 | 0.730 ± 0.273 (**) | −1.08 ± 0.913 | 2.01 ± 0.731 (**) |
 | Typicality | −0.095 ± 0.118 | −0.205 ± 0.237 | −0.987 ± 0.771 | −0.662 ± 0.632 |
 | Cohesion | −0.181 ± 0.112 | −0.183 ± 0.226 | 2.09 ± 0.716 (**) | −0.663 ± 0.608 |
 | Coherence | 0.240 ± 0.122 (*) ; R²c=0.646 | 0.194 ± 0.251 | 1.03 ± 0.788 | 0.750 ± 0.664 |
 
-走一遍這張表的敘事：溫度對新穎性有弱的正相關（$\hat{\beta} = .308$, SE $= .138$, $R^2_c = .385$, $p < .05$），對連貫性有顯著效果（$\hat{\beta} = .240$, $R^2_c = .646$，因量表方向相反，正號代表高溫「更不連貫」）——這正是作者所說的新穎性與連貫性之間的取捨。兩條斜率都很淺，代表變化率低、效果其實很小。而平均 $\alpha = .639$，略低於一般可接受門檻 .7，只能算「有一定程度的一致」。至於典型性與凝聚性，對溫度都沒有顯著關係。有趣的是計算指標與人評的關聯：困惑度對新穎性有弱到中等的正相關（$\hat{\beta} = .730$），編輯距離對新穎性亦然（$\hat{\beta} = 2.01$），而餘弦相似度對凝聚性有正效果（$\hat{\beta} = 2.09$）——暗示離 exemplar 越遠的故事越可能失去凝聚性。
+Walking through the narrative of this table: temperature has a weak positive correlation with novelty ($\hat{\beta} = .308$, SE $= .138$, $R^2_c = .385$, $p < .05$), and a significant effect on coherence ($\hat{\beta} = .240$, $R^2_c = .646$; because the scale is reversed in direction, a positive sign means high temperature is "less coherent")—this is exactly the novelty–coherence trade-off the authors describe. Both slopes are very shallow, meaning the rate of change is low and the effect is in fact very small. And the mean $\alpha = .639$, slightly below the generally acceptable threshold of .7, can only count as "somewhat consistent." As for typicality and cohesion, neither has a significant relationship with temperature. Interestingly, on the association between computational metrics and human ratings: perplexity has a weak-to-moderate positive correlation with novelty ($\hat{\beta} = .730$), edit distance likewise with novelty ($\hat{\beta} = 2.01$), and cosine similarity has a positive effect on cohesion ($\hat{\beta} = 2.09$)—suggesting that stories farther from the exemplar are more likely to lose cohesion.
 
 ## 🧪 Critical Assessment
 
-### 一個被反覆複述卻少被嚴格檢驗的說法
+### A claim repeated over and over yet seldom rigorously tested
 
-「溫度＝創造力參數」確實是一個在工程實務與科普敘述中被反覆複述、卻鮮少被嚴格檢驗的說法，因此本文鎖定的問題是真實且有價值的。作者把「創造力」操作化為敘事生成的四個必要條件，並堅持隨機性不等於創造力，這個框架比多數只看「輸出多樣性」的討論更扎實。值得肯定的是，論文的結論相當克制——它並非宣稱溫度與創造力毫無關係，而是主張其影響「遠比『創造力參數』一詞暗示的更細微、更微弱」，這種不誇大的定位讓結論更可信。
+"Temperature = creativity parameter" is indeed a claim repeated over and over in engineering practice and popular-science narratives, yet rarely rigorously tested, so the problem this paper targets is real and valuable. The authors operationalize "creativity" as the four necessary conditions of narrative generation, and insist that randomness is not equivalent to creativity—a framework more solid than most discussions that look only at "output diversity." It is worth commending that the paper's conclusion is quite restrained—it does not claim that temperature has no relation to creativity at all, but rather argues that its influence is "far more subtle and weaker than the term 'creativity parameter' implies," and this non-exaggerated positioning makes the conclusion more credible.
 
-### 31 篇語料、單一提示與 α=.639 撐得起弱效果嗎
+### Can 31 stories, a single prompt, and α=.639 support a weak effect
 
-這是本文最脆弱的地方，作者自己也大方承認。人類評估只有 36 名參與者、每個溫度僅 5 篇故事、總計 31 篇語料，樣本量偏小；而信度 $\alpha = .639$ 未達 .7，意味著評分者之間的分歧本身就相當可觀，建立在其上的弱效果（斜率 .308、.240）是否穩健值得存疑。更關鍵的是「單一提示」設計：整個研究只用了一個 `Write a story.` 提示與它的 exemplar，作者也坦言無法得知 5 篇是否為足夠且具代表性的樣本。因此嚴格說，這些相關係數只支持「在這個特定模型、這個特定提示下」的結論，能否外推到其他情境是未經驗證的。此外，把凝聚性/連貫性與新穎性/典型性視為互相獨立的維度也有張力——作者承認凝聚性與連貫性其實會影響對新穎性與典型性的判斷，只是宣稱在分析中未觀察到問題，這比較像是事後說明而非事前控制。
+This is the paper's most fragile point, which the authors themselves generously acknowledge. The human evaluation has only 36 participants, only 5 stories per temperature, and 31 stories of corpus in total, a rather small sample size; and the reliability $\alpha = .639$ falls short of .7, meaning the disagreement among raters is itself quite considerable, and whether the weak effects built on top of it (slopes .308, .240) are robust is questionable. More crucially there is the "single prompt" design: the entire study used only one `Write a story.` prompt and its exemplar, and the authors also frankly admit they cannot know whether 5 stories constitute a sufficient and representative sample. Strictly speaking, then, these correlation coefficients only support conclusions "for this specific model, with this specific prompt," and whether they extrapolate to other settings is unverified. Moreover, treating cohesion/coherence and novelty/typicality as mutually independent dimensions is also in tension—the authors acknowledge that cohesion and coherence in fact influence the judgment of novelty and typicality, merely claiming that no problem was observed in the analysis, which reads more like a post hoc explanation than an a priori control.
 
-### 貪婪樣本作為原型：切入點的原創性與其概念性侷限
+### The greedy sample as prototype: the originality of the angle and its conceptual limitations
 
-真正的新意不在指標（餘弦相似度、編輯距離、PCA、混合效應模型都是現成工具），而在「以貪婪樣本作為 exemplar／原型、並用相對於它的位移來評估」這個框架。這個切入點確實把認知科學的原型/範例理論嫁接到 LLM 評估上，具備一定原創性;但它目前仍偏概念性——exemplar 落在投影邊緣、生成朝特定方向移動這兩個觀察雖有趣，卻只是定性描述，作者自己也把「這個框架能否推廣到不同領域、提示與模型」列為待驗證的未來工作。換句話說，方法框架的價值目前更多是「提出一個值得深究的視角」，而非「已被證成的評估協定」。
+The real novelty is not in the metrics (cosine similarity, edit distance, PCA, and mixed-effects models are all off-the-shelf tools), but in the framework of "using the greedy sample as exemplar/prototype and evaluating via displacement relative to it." This angle does graft cognitive science's prototype/exemplar theory onto LLM evaluation, and has a certain originality; but it remains conceptual for now—the two observations that the exemplar falls at the edge of the projection and that generation moves in a particular direction, while interesting, are only qualitative descriptions, and the authors themselves list "whether this framework generalizes to different domains, prompts, and models" as future work yet to be verified. In other words, the value of the methodological framework is currently more about "proposing a perspective worth deeper study" than "an already-validated evaluation protocol."
 
-### 戳破迷思之後：自訂標準的循環性與過度解讀的風險
+### After puncturing the myth: the circularity of self-defined criteria and the risk of over-interpretation
 
-從「回答原始問題」的角度看，本文達成了它設定的目標：它給出了「溫度不是那個能全面開啟創造力的旋鈕」這個負面但有說服力的證據。但若問「LLM 創造力該如何度量與提升」，這篇論文並未解決，它自己也把答案推給三個未來方向：建立可規模化的創造力基準、設計專為創造用途的解碼策略、以及探測模型中的隱含資訊。這裡有一個需要點名的張力：作者批評別人依賴心理學測驗或從其他任務「順帶推論」創造力，但本文自己所依據的「四個必要條件」同樣是由作者自行界定、且圍繞其方法的敏感面向來設計評估的——這使得結論在某種程度上是相對於作者自訂標準而成立，而非相對於一個社群公認的創造力基準。就現實意義而言，「調高溫度就更有創意」這個迷思值得被戳破，對實務調參有直接的導正價值；但由於單模型、單提示、小樣本的限制，把本文當成「溫度對創造力無用」的定論會是過度解讀——較穩妥的讀法是：在受控的最小案例中，溫度對創造力的作用既弱且有代價。
+From the angle of "answering the original question," this paper achieves the goal it set: it provides the negative but persuasive evidence that "temperature is not the knob that comprehensively unlocks creativity." But if one asks "how should LLM creativity be measured and improved," this paper does not solve it, and it itself defers the answer to three future directions: building scalable creativity benchmarks, designing decoding strategies purpose-built for creative uses, and probing the implicit information within models. There is a tension here worth naming: the authors criticize others for relying on psychological tests or "incidentally inferring" creativity from other tasks, yet the "four necessary conditions" the paper itself relies on are likewise defined by the authors themselves, with the evaluation designed around the sensitive facets of their method—which makes the conclusion, to some extent, hold relative to the authors' self-defined criteria rather than relative to a community-recognized creativity benchmark. In practical terms, the myth that "turning up the temperature makes it more creative" deserves to be punctured, and has direct corrective value for practical parameter tuning; but given the limitations of a single model, single prompt, and small sample, treating this paper as a definitive verdict that "temperature is useless for creativity" would be an over-interpretation—a more prudent reading is: in a controlled minimal case, temperature's effect on creativity is both weak and comes at a cost.
 
 ## 🔗 Related notes
 

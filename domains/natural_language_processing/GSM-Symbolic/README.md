@@ -1,4 +1,5 @@
 # GSM-Symbolic — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,19 +12,19 @@
 | Official Code | https://github.com/apple/ml-gsm-symbolic |
 | Venue Kind | paper |
 
-> 本文基於 arXiv 預印本 `2410.05229`（LaTeX 原始碼，含 `\iclrfinalcopy` 標記）撰寫，並經 OpenReview（forum `AjXkRZIvjB`）交叉確認為 ICLR 2025 正式接收版本。引用數在撰寫當下因 Semantic Scholar API 回傳 429 而標記為 `unavailable`。
+> This note is based on the arXiv preprint `2410.05229` (LaTeX source, including the `\iclrfinalcopy` marker), and was cross-confirmed via OpenReview (forum `AjXkRZIvjB`) as the officially accepted ICLR 2025 version. The citation count is marked `unavailable` because the Semantic Scholar API returned a 429 at the time of writing.
 
 ## First Principles
 
-### 這篇論文真正在問的問題
+### The question this paper is really asking
 
-GSM8K 是評估 LLM「小學數學推理」能力最流行的基準之一，包含 7473 個訓練題與 1319 個測試題。它的問題在於：它只提供**單一分數**、題目集是**固定且靜態**的，而且因為太過流行，測試題很可能已經滲進各家模型的訓練資料（data contamination）。當一個模型在 GSM8K 上拿到 95% 時，我們無法分辨這是「會推理」還是「背過類似題目」。
+GSM8K is one of the most popular benchmarks for evaluating an LLM's "grade-school math reasoning" ability, containing 7,473 training problems and 1,319 test problems. Its problem is that it provides only a **single score**, its problem set is **fixed and static**, and because it is so popular, its test problems have very likely leaked into the training data of various models (data contamination). When a model scores 95% on GSM8K, we cannot tell whether this is "able to reason" or "has memorized similar problems."
 
-作者的核心主張是：**與其把 LLM 的數學能力看成一個點估計（single-point accuracy），不如把它看成一個分布（distribution）**。如果模型真的在做形式推理（formal reasoning），那麼把同一題的名字與數字換掉、但保持推理步驟完全不變，準確率應該幾乎不動；反之若準確率出現明顯變異，就暗示模型做的比較像是把題目對應到訓練資料中「看過的相似樣板」的模式比對（pattern-matching）。
+The authors' core claim is: **rather than viewing an LLM's math ability as a point estimate (single-point accuracy), we should view it as a distribution.** If a model is really doing formal reasoning, then swapping out the names and numbers of the same problem while keeping the reasoning steps completely unchanged should barely move accuracy; conversely, if accuracy shows clear variance, it suggests the model is doing something more like pattern-matching that maps a problem to "similar templates it has seen" in the training data.
 
-### 資料生成引擎：符號樣板（symbolic templates）
+### The data generation engine: symbolic templates
 
-GSM-Symbolic 的做法不是再收集題目，而是把 GSM8K **測試集裡的 100 個題目**改寫成可解析的符號樣板。每個樣板定義三件事：變數、變數的定義域（domain）、以及保證題目與答案都成立的條件（conditions）。以論文 Figure 1 的積木題為例，樣板長這樣：
+GSM-Symbolic's approach is not to collect more problems, but to rewrite **100 problems from the GSM8K test set** into parseable symbolic templates. Each template defines three things: the variables, the domain of each variable, and the conditions that guarantee both the problem and the answer hold. Taking the building-blocks problem from the paper's Figure 1 as an example, the template looks like this:
 
 ```text
 When {name} watches her {family}, she gets out a variety of toys ...
@@ -46,68 +47,68 @@ How many bouncy balls came in the tube?
 - x + y + z + ans == total
 ```
 
-`ans` 就是答案（要買的彈力球數）。條件 `x + y + z + ans == total` 保證每次隨機抽樣出的實例都自洽。作者刻意讓數值範圍**貼近原始 GSM8K 的範圍**，理由很關鍵：他們要測的是**邏輯推理**而非**大數字算術**，附錄的消融實驗確認了在這些範圍內模型的算術正確率仍維持穩定，所以準確率下降不能被推給「數字變大算不動」。
+`ans` is the answer (the number of bouncy balls to buy). The condition `x + y + z + ans == total` guarantees that every randomly sampled instance is self-consistent. The authors deliberately keep the numeric ranges **close to those of the original GSM8K**, and the reason is crucial: what they want to test is **logical reasoning**, not **large-number arithmetic**. Ablation experiments in the appendix confirm that within these ranges the models' arithmetic accuracy remains stable, so the drop in accuracy cannot be attributed to "the numbers got bigger and became uncomputable."
 
-樣板品質靠多層檢查把關：自動檢查（原始變數值不得出現在樣板中、原始值需滿足所有條件、最終答案需與原題一致）、每個樣板人工檢視 10 個隨機樣本、以及在所有模型評估完後要求**至少兩個模型答對每一題**，否則該題再送人工複審。
+Template quality is guarded by multiple layers of checking: automatic checks (the original variable values must not appear in the template, the original values must satisfy all conditions, and the final answer must match the original problem), a manual review of 10 random samples per template, and — after all models have been evaluated — a requirement that **at least two models answer each problem correctly**, otherwise that problem is sent for further manual review.
 
-### 一個具體的前向例子：從樣板到一次評估
+### A concrete forward example: from template to one evaluation
 
-把上面的樣板用原始 GSM8K 的值代回，就得到 Figure 1 左邊的題目。設彈力球數為 $T$，題目給了 $31+8+9+T = 62$，於是
+Substituting the original GSM8K values back into the template above gives the problem on the left of Figure 1. Let the number of bouncy balls be $T$; the problem gives $31+8+9+T = 62$, so
 
 $$T = 62 - (31 + 8 + 9) = 62 - 48 = 14.$$
 
-這條算式只需要「把已知量相加、再用總數相減」兩步。GSM-Symbolic 做的就是把 $31,8,9,62$ 這幾個常數換成 `range(...)` 抽樣、把名字換成 `sample(names)`，其餘敘事與解題步驟一字不改，然後用**同一個樣板生成 50 個實例**。整份研究用 100 個樣板 × 每樣板 50 個樣本 = 5000 題，等價於**50 份各 100 題的資料集**，對 25 個模型（超過 20 個 2B–27B 開源模型，加上 GPT-4o-mini、GPT-4o、o1-mini、o1-preview）跑近 500 組評估，統一用 8-shot CoT、greedy decoding。
+This computation requires only two steps: "add up the known quantities, then subtract from the total." What GSM-Symbolic does is replace the constants $31,8,9,62$ with `range(...)` sampling and replace the names with `sample(names)`, leaving the rest of the narrative and solution steps unchanged, and then **generate 50 instances from the same template**. The whole study uses 100 templates × 50 samples per template = 5,000 problems, equivalent to **50 datasets of 100 problems each**, running nearly 500 evaluations across 25 models (over 20 open-source models of 2B–27B, plus GPT-4o-mini, GPT-4o, o1-mini, o1-preview), all using 8-shot CoT and greedy decoding.
 
-### 四個由淺入深的發現
+### Four findings, from shallow to deep
 
-**(1) 同一題的不同實例，準確率是一個有變異的分布。** 在 50 份資料集上，每個模型的準確率都有不可忽視的變異：Gemma2-9B 最好與最差之間差超過 12 個百分點，Phi-3.5-mini 約 15 個百分點。更耐人尋味的是，模型在「當初拿來當樣板的那 100 道原始 GSM8K 題」上的準確率，往往落在 GSM-Symbolic 分布的**右側**（25 個模型中有 21 個如此），統計上這種偏移發生機率很低，作者把它讀成**資料污染**的訊號——原始測試題可能已進入訓練集，造成樂觀偏誤。
+**(1) Across different instances of the same problem, accuracy is a distribution with variance.** Across the 50 datasets, every model's accuracy has non-negligible variance: for Gemma2-9B the gap between best and worst exceeds 12 percentage points, and for Phi-3.5-mini it is about 15 percentage points. More intriguingly, a model's accuracy on "the 100 original GSM8K problems that were used as templates" tends to fall on the **right side** of the GSM-Symbolic distribution (21 out of 25 models are like this); statistically such a shift is very unlikely, and the authors read it as a signal of **data contamination** — the original test problems may already have entered the training set, producing an optimistic bias.
 
-![GSM8K → GSM-Symbolic 的準確率下降（各模型）](imgs/symbolic-drop.png)
+![Accuracy drop from GSM8K → GSM-Symbolic (by model)](imgs/symbolic-drop.png)
 
-上圖是每個模型從 GSM8K 換到 GSM-Symbolic 的準確率變化。可以看到污染嫌疑最重的老模型（如 Mistral-7B-it-v0.1 掉 9.2、Gemma2-2b 掉 7.4）下降最多，而 o1-mini、GPT-4o 幾乎不動（只掉 0.x）。
+The figure above shows each model's change in accuracy going from GSM8K to GSM-Symbolic. You can see that the older models most suspected of contamination (such as Mistral-7B-it-v0.1 dropping 9.2, Gemma2-2b dropping 7.4) drop the most, while o1-mini and GPT-4o barely move (dropping only 0.x).
 
-**(2) 對名字穩健，對數字敏感。** 拆解「改什麼」的影響後發現：只改**專有名詞**（人名、地名、食物）時，分布仍貼近原始 GSM8K 的中心；一旦改**數值**，分布明顯左移、變異加大；兩者同改則更嚴重。作者的評語很尖銳：連只換名字都會讓準確率抖動，這是一個「真的懂數學的小學生」不該出現的現象。
+**(2) Robust to names, sensitive to numbers.** Decomposing the effect of "what is changed" reveals: when only **proper nouns** are changed (people's names, places, foods), the distribution still stays close to the center of the original GSM8K; once **numeric values** are changed, the distribution shifts clearly to the left with larger variance; changing both is worse still. The authors' comment is sharp: even swapping only names causes accuracy to jitter, a phenomenon that should not occur for "a grade-schooler who truly understands math."
 
-**(3) 難度一升，準確率崩得比線性還快。** 以 GSM-Symbolic 為基準，移除一個子句得到 M1、加一或兩個子句得到 P1、P2。所有模型的分布都一致地隨難度左移且變異變大，而且**下降速率隨難度加快**。以 Mathstral-7B 為例：
+**(3) As difficulty rises, accuracy collapses faster than linearly.** Using GSM-Symbolic as the baseline, removing one clause gives M1, and adding one or two clauses gives P1 and P2. All models' distributions consistently shift left and grow more variable as difficulty rises, and **the rate of decline accelerates with difficulty**. Take Mathstral-7B as an example:
 
-| 難度 | M1 | Symbolic | P1 | P2 | NoOp |
+| Difficulty | M1 | Symbolic | P1 | P2 | NoOp |
 |-|-|-|-|-|-|
-| 準確率 (%) | 82.9 | 74.0 | 57.4 | 35.5 | 20.4 |
+| Accuracy (%) | 82.9 | 74.0 | 57.4 | 35.5 | 20.4 |
 
-推理步數大致隨子句線性增加，但準確率掉得比線性更快——這與「模型在做模式比對、搜尋難度隨題目複雜度爆炸」的假設一致，而不像在執行穩定的形式推理。
+The number of reasoning steps increases roughly linearly with the number of clauses, but accuracy drops faster than linearly — this is consistent with the hypothesis that "the model is doing pattern-matching, and search difficulty explodes with problem complexity," rather than executing stable formal reasoning.
 
-**(4) GSM-NoOp：一句無關但看似相關的話就能讓模型崩盤。** 這是全文最有殺傷力的實驗。作者在題目裡加入**語意上看似相關、但對計算完全無作用**的子句（No-Op），例如經典的奇異果題：
+**(4) GSM-NoOp: one irrelevant but seemingly-relevant sentence can make the model collapse.** This is the most devastating experiment in the paper. The authors add to the problem a clause that is **semantically seemingly relevant but has no effect on the computation** (No-Op), for example the classic kiwi problem:
 
-> Oliver 週五摘 44 顆奇異果，週六摘 58 顆，週日摘週五的兩倍（$2\times 44 = 88$），**但其中五顆比平均小一點**。Oliver 一共有幾顆奇異果？
+> On Friday Oliver picks 44 kiwis, on Saturday 58, and on Sunday twice as many as Friday ($2\times 44 = 88$), **but five of them are a bit smaller than average**. How many kiwis does Oliver have in total?
 
-正解應忽略「五顆比較小」這句廢話，答案是 $44+58+88 = 190$。但 o1-mini 與 Llama3-8B 都**盲目地把「五顆較小」轉成一個減法**，算出 $88-5=83$、總和 $185$。模型傾向把每個名詞子句都機械地轉成運算，甚至把「折扣」一律讀成「乘法」，顯示它們並沒有真的理解概念、只是在套用訓練資料中「這種句型 → 這種運算」的對應。
+The correct approach should ignore the useless sentence "five are smaller," giving the answer $44+58+88 = 190$. But both o1-mini and Llama3-8B **blindly turn "five are smaller" into a subtraction**, computing $88-5=83$ for a total of $185$. The models tend to mechanically turn every noun clause into an operation, even uniformly reading "discount" as "multiplication," showing that they do not truly understand the concepts and are merely applying a "this sentence pattern → this operation" mapping from the training data.
 
-![GSM8K → GSM-NoOp 的準確率下降（各模型）](imgs/noop-drop.png)
+![Accuracy drop from GSM8K → GSM-NoOp (by model)](imgs/noop-drop.png)
 
-結果是災難性的下降：Phi-3-mini 掉超過 65%（本文摘要「up to 65%」即由此而來），連 o1-preview 也掉了 17.5 個百分點。更關鍵的是這個下降**無法用 few-shot 救回**：即使在 prompt 裡塞 8 個「同一題、已示範要忽略無關資訊」的示例（NoOp-Symb），或塞 8 個「不同題但都含 No-Op」的示例（NoOp-NoOp），準確率大多仍停在原水準的標準差之內。作者據此主張，這不是靠 in-context 示例或微調就能補起來的表面問題，而是推理機制本身的缺陷。
+The result is a catastrophic drop: Phi-3-mini drops more than 65% (the "up to 65%" in this paper's abstract comes from here), and even o1-preview drops 17.5 percentage points. More critically, this drop **cannot be recovered with few-shot**: even stuffing the prompt with 8 examples of "the same problem, already demonstrating that irrelevant information should be ignored" (NoOp-Symb), or 8 examples of "different problems that all contain a No-Op" (NoOp-NoOp), most of the accuracies still stay within a standard deviation of the original level. On this basis the authors argue that this is not a surface problem that can be patched with in-context examples or fine-tuning, but a defect in the reasoning mechanism itself.
 
-綜合四點，作者的結論是：LLM 的數學「推理」更像是精緻的機率式模式比對，而非真正的形式邏輯推理。
+Combining the four points, the authors' conclusion is: an LLM's mathematical "reasoning" is more like sophisticated probabilistic pattern-matching than genuine formal logical reasoning.
 
 ## 🧪 Critical Assessment
 
-### 問題是真的、且切中評估方法論的痛點
+### The problem is real, and it hits a sore point of evaluation methodology
 
-「GSM8K 的單點準確率不可靠、且有污染風險」是社群公認的真問題，本文把它從口號變成可操作的量測：用符號樣板把一題展開成一個分布，並用「原始題落在分布右側」當作污染的統計指紋，這個設計乾淨且有說服力。把數值範圍鎖在原始 GSM8K 範圍、並用附錄消融排除「算術過載」這個顯而易見的替代解釋，是負責任的實驗控制。NoOp 這個操作化更是漂亮：它把「模型是否真的理解題意」變成一個可重現、可量化的探針。
+"GSM8K's single-point accuracy is unreliable and carries contamination risk" is a genuine problem recognized by the community, and this paper turns it from a slogan into an operational measurement: using symbolic templates to expand one problem into a distribution, and using "the original problem falls on the right side of the distribution" as a statistical fingerprint of contamination — this design is clean and persuasive. Locking the numeric ranges to those of the original GSM8K, and using appendix ablations to rule out the obvious alternative explanation of "arithmetic overload," is responsible experimental control. The NoOp operationalization is even more elegant: it turns "does the model really understand the problem" into a reproducible, quantifiable probe.
 
-### 基準、消融與指標的充分性——以及幾個該打折的地方
+### The adequacy of benchmarks, ablations, and metrics — and a few places that deserve a discount
 
-樣板規模其實不大：只有 **100 個樣板**，全部取自 GSM8K 測試集，因此整份研究的「多樣性」是縱向的（同題 50 個實例）而非橫向的（題型仍侷限在小學四則運算敘事題）。這意味著結論嚴格來說是關於「GSM8K 這一類題目」的穩健性，外推到更廣的數學推理需要謹慎。品質把關中的「至少兩個模型要答對每題，否則人工複審」也帶一點循環性：它用模型群的共識來定義題目合法性，可能悄悄剔除掉一些其實合理、但多數模型都答錯的難題，從而讓保留下來的題庫略偏向模型友善的分布。NoOp 子句「五顆比較小」是否**真的**與答案無關，某種程度上是人為裁定的；對人類讀者而言，這類句子在自然語境下往往也帶有「是不是要我扣掉」的歧義，因此把模型的失敗完全歸因於「不理解概念」，可能高估了效果、低估了題目本身的語用模糊性。
+The template scale is actually not large: only **100 templates**, all drawn from the GSM8K test set, so the "diversity" of the whole study is longitudinal (50 instances of the same problem) rather than horizontal (the problem types are still confined to grade-school four-operation narrative problems). This means the conclusions, strictly speaking, are about the robustness of "problems of the GSM8K kind," and extrapolating to broader mathematical reasoning requires caution. The quality-control rule "at least two models must answer each problem correctly, otherwise manual review" also carries a bit of circularity: it uses the consensus of the model pool to define problem validity, which may quietly cull some hard problems that are actually reasonable but that most models get wrong, thereby biasing the retained problem set slightly toward a model-friendly distribution. Whether the NoOp clause "five are smaller" is **really** irrelevant to the answer is to some extent a human judgment call; for human readers, in natural contexts such sentences often carry the ambiguity of "am I supposed to subtract this?", so attributing the model's failure entirely to "not understanding the concept" may overestimate the effect and underestimate the pragmatic ambiguity of the problem itself.
 
-### 這是新方法，還是把既有想法換個包裝？
+### Is this a new method, or an existing idea repackaged?
 
-符號樣板與擾動評估並非本文首創：GSM-IC 早就用「無關脈絡」測過干擾、GSM-Plus 造過 GSM8K 變體、GSM1K 對照風格找系統性過擬合、也有 MATH 的 functional 變體。本文自己也誠實地列出這些前作。真正的增量在於三點：把評估明確地**分布化**、用**符號樣板**取得可控難度、以及 NoOp 這個特別鋒利的探針；這些組合起來確實比任一前作更成體系。但要留意兩個「把靶畫在自己箭旁」的風險。其一，基準是由作者圍繞「要暴露 LLM 弱點」而設計的，NoOp 子句被刻意寫得容易誤導，因此「模型會崩」某種程度上是被設計出來的預期結果，而非中立抽樣下的自然發現。其二，摘要主打的 **「up to 65%」是最壞情況的取值**（Phi-3-mini 這個小模型），而同一張圖上最強的 o1-preview 只掉 17.5%——用最大跌幅當標題，會讓整體印象比「面向前沿模型的真實風險」更悲觀。
+Symbolic templates and perturbation-based evaluation are not the first of their kind in this paper: GSM-IC long ago tested distraction with "irrelevant context," GSM-Plus created GSM8K variants, GSM1K used a control style to find systematic overfitting, and there are also functional variants of MATH. The paper itself honestly lists these prior works. The real increment lies in three points: making evaluation explicitly **distributional**, using **symbolic templates** to obtain controllable difficulty, and the NoOp probe that is especially sharp; combined, these are indeed more systematic than any single prior work. But two "drawing the target next to your own arrow" risks should be noted. First, the benchmark was designed by the authors around "exposing LLM weaknesses," and the NoOp clauses are deliberately written to be misleading, so "the model will collapse" is to some extent a designed-in expected result rather than a natural finding under neutral sampling. Second, the abstract's headline **"up to 65%" is a worst-case value** (the small model Phi-3-mini), while the strongest model on the same figure, o1-preview, drops only 17.5% — using the maximum drop as the headline makes the overall impression more pessimistic than "the real risk for frontier models."
 
-### 宣稱的問題真的被「解決」了嗎？對現實世界又有多相關？
+### Has the claimed problem really been "solved"? And how relevant is it to the real world?
 
-需要區分兩件事：本文**診斷**得很成功，但它並沒有、也未宣稱要**解決**「讓 LLM 穩健推理」。作為診斷，最強的反例其實藏在自己的資料裡：能力越強的模型退化越小（o1 系列在難度與 NoOp 上都遠比小模型穩），這使得「LLM 不具備形式推理」這個全稱結論站得有點勉強——資料同樣支持一個較弱、也較可能的解讀：**當前多數模型的推理穩健性隨規模與訓練品質而改善，而非本質上不可能**。事實上，把行為層面的退化直接等同於「內部沒有推理」是一種歸因跳躍：換數字/加子句同時也改變了題面的表層分布，退化可能來自 prompt 格式敏感度或分布外泛化不足，未必是「完全沒有推理」。就現實相關性而言，本文最大的貢獻是給出一套**會隨模型變強而自動變難的動態評估協議**，這點價值長青；但「所有 SOTA 模型都脆弱」這句話有其時效性——後續（含 2026 年前沿模型）的追蹤已顯示這道題正被逐步攻克，因此本文更該被讀成「某一時間切片上的穩健性下限與一套量測工具」，而非對 LLM 推理能力的永久判決。
+Two things need to be distinguished: this paper **diagnoses** very successfully, but it does not — and does not claim to — **solve** "making LLMs reason robustly." As a diagnosis, its strongest counterexample is actually hidden in its own data: the more capable the model, the smaller the degradation (the o1 series is far more stable than small models on both difficulty and NoOp), which makes the universal conclusion "LLMs lack formal reasoning" stand on somewhat shaky ground — the data equally supports a weaker and more likely reading: **the reasoning robustness of most current models improves with scale and training quality, rather than being fundamentally impossible.** In fact, directly equating behavioral degradation with "no reasoning inside" is an attribution leap: swapping numbers / adding clauses also changes the surface distribution of the problem statement, so degradation may come from prompt-format sensitivity or insufficient out-of-distribution generalization, and not necessarily "no reasoning at all." As for real-world relevance, the paper's greatest contribution is providing a **dynamic evaluation protocol that automatically becomes harder as models get stronger**, and this value is evergreen; but the statement "all SOTA models are fragile" has a shelf life — subsequent tracking (including frontier models before 2026) has shown that this problem is gradually being conquered, so this paper should be read as "a robustness lower bound at one time-slice plus a measurement tool," rather than a permanent verdict on LLM reasoning ability.
 
-整體而言，這是一篇診斷扎實、工具價值高、但在因果歸因與標題敘事上略為越界的論文：它證明了 GSM8K 單點準確率的不可靠與模型對無關資訊的敏感，卻把「行為脆弱」過度上綱為「不具備形式推理」。
+Overall, this is a paper with solid diagnosis and high tool value, but that slightly oversteps in causal attribution and headline narrative: it proves the unreliability of GSM8K's single-point accuracy and the models' sensitivity to irrelevant information, yet over-generalizes "behavioral fragility" into "lacking formal reasoning."
 
 ## 🔗 Related notes
 
-<!-- 目前 NLP 網域下無可安全解析的直接相關筆記，保留標題待後續補上。 -->
+<!-- There are currently no directly related notes that can be safely resolved under the NLP domain; the heading is kept as a placeholder to be filled in later. -->

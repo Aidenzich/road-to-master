@@ -1,4 +1,5 @@
 # Byte Latent Transformer — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,73 +12,73 @@
 | Official Code | https://github.com/facebookresearch/blt |
 | Venue Kind | tech-report |
 
-> 說明：本文基於 arXiv 預印本 `2412.09871`（FAIR at Meta 技術報告，`fairmeta` 排版）撰寫，正式會議之 camera-ready 版本可能與此有差異；本文所有數值與引文均取自預印本 LaTeX 原始檔。venue 分級（tier）此處標為 `unknown`，因為 ledger 中沒有可引用的排名來源。
+> Note: This note is based on the arXiv preprint `2412.09871` (FAIR at Meta technical report, `fairmeta` typesetting); the camera-ready version of the official conference may differ from this; all numbers and quotations in this note are taken from the preprint's LaTeX source. The venue tier is marked `unknown` here, because there is no citable ranking source in the ledger.
 
 ## First Principles
 
-### 問題：tokenization 是唯一沒有被端到端學習的環節
+### The Problem: Tokenization Is the Only Stage Not Learned End-to-End
 
-現代大型語言模型（LLM）幾乎全程都是端到端訓練，唯一的例外是 tokenization —— 一個把 byte 序列用啟發式規則（heuristic）壓縮成固定詞表（fixed vocabulary）的前處理步驟。這個靜態詞表帶來幾個結構性副作用：對領域／模態（domain/modality）敏感、對輸入雜訊（input noise）脆弱、缺乏拼寫層級（orthographic）知識、以及多語言的不公平（multilingual inequity）。過去大家仍離不開 tokenization，是因為直接在 raw bytes 上訓練 LLM 的序列太長、規模化時計算成本過高。
+Modern large language models (LLMs) are trained almost entirely end-to-end, with the sole exception of tokenization—a preprocessing step that compresses a byte sequence into a fixed vocabulary using heuristic rules. This static vocabulary brings several structural side effects: sensitivity to domain/modality, fragility to input noise, lack of orthographic knowledge, and multilingual inequity. The reason people still could not do without tokenization is that training an LLM directly on raw bytes produces sequences that are too long, with prohibitive compute cost at scale.
 
-Byte Latent Transformer（BLT）主張：與其讓每個 token 都吃到相同的計算量，不如讓模型「在需要的地方才動用算力」。它把 bytes 動態切成大小可變的 **patch**，patch 才是主要的計算單位；切分的依據是下一個 byte 的預測熵（entropy），資料越複雜的地方才分配越多算力與模型容量。作者提出這是第一個把 byte-level 模型做 FLOP-controlled 規模化研究、一路推到 8B 參數與 4T 訓練 bytes 的工作，並宣稱首次在規模上追平以 tokenization 為基礎的模型。
+The Byte Latent Transformer (BLT) argues: rather than making every token consume the same amount of compute, it is better to let the model "deploy compute only where it is needed." It dynamically splits bytes into variable-size **patches**, and the patch is the primary unit of computation; the split is based on the prediction entropy of the next byte, allocating more compute and model capacity only where the data is more complex. The authors claim this is the first work to conduct a FLOP-controlled scaling study of byte-level models, pushing all the way to 8B parameters and 4T training bytes, and claim to match tokenization-based models at scale for the first time.
 
-### Patch 與 token 的根本差異
+### The Fundamental Difference Between Patch and Token
 
-「token」指的是訓練前就從有限詞表選出的 byte 群組；「patch」則是沒有固定詞表、動態切出的 byte 群組。關鍵區別在於：使用 token 時，模型無法直接存取底層的 byte 特徵；而 patch 保留了對 byte 資訊的存取。更重要的是它重新定義了「詞表大小 vs. 計算量」的取捨：在標準 LLM 中，把詞表變大等於平均 token 變長、模型步數變少，但最後的輸出投影層維度也跟著暴增。論文舉例，Llama 3 為了把平均 token 從 3.7 bytes 提升到 4.4 bytes，付出的代價是把 embedding table 相對 Llama 2 放大 4 倍。BLT 因為沒有固定詞表，可以任意加大 patch size 而不受這個 embedding 膨脹的牽制。
+A "token" refers to a group of bytes selected from a finite vocabulary before training; a "patch" is a group of bytes split out dynamically, without a fixed vocabulary. The key distinction is: when using tokens, the model cannot directly access the underlying byte features; whereas patches retain access to byte information. More importantly, it redefines the "vocabulary size vs. compute" trade-off: in a standard LLM, enlarging the vocabulary means longer average tokens and fewer model steps, but the dimension of the final output projection layer also explodes. The paper gives the example that, to raise the average token from 3.7 bytes to 4.4 bytes, Llama 3 paid the cost of enlarging the embedding table 4× relative to Llama 2. Because BLT has no fixed vocabulary, it can freely enlarge the patch size without being constrained by this embedding inflation.
 
-論文比較了幾種把 bytes 分組成 patch 的方案（下圖）：固定每 k 個 byte 切一刀的 strided patching（如 MegaByte）、BPE tokenizer、以空白（space-like bytes）切分（SpaceByte），以及本文的 entropy patching。由於每個 patch 都要跑一次昂貴的 global transformer step，**patch 的數量直接決定了主要的 FLOP 開銷**，因此「平均 patch 大小（patch size）」是決定訓練與推論成本的主因。
+The paper compares several schemes for grouping bytes into patches (figure below): strided patching that cuts every k bytes (such as MegaByte), the BPE tokenizer, splitting by space-like bytes (SpaceByte), and this paper's entropy patching. Because each patch requires one expensive global transformer step, **the number of patches directly determines the primary FLOP overhead**, so the "average patch size" is the main factor determining training and inference cost.
 
-![各種 patching 方案的比較](imgs/patching_types.png)
+![Comparison of various patching schemes](imgs/patching_types.png)
 
-### Entropy patching：用小型 byte LM 的下一 byte 熵來切分
+### Entropy Patching: Splitting by the Next-Byte Entropy of a Small Byte LM
 
-BLT 不用「遇到空白就切」這種規則，而是資料驅動地找出「高不確定性」的下一 byte 位置。作者先在 BLT 的訓練資料上訓練一個小型 byte-level 自回歸語言模型，計算其在 byte 詞表 $\mathcal{V}$ 上對下一 byte 的分布 $p_e$，並取其熵：
+BLT does not use a rule like "split whenever you hit a space," but instead finds "high-uncertainty" next-byte positions in a data-driven way. The authors first train a small byte-level autoregressive language model on BLT's training data, compute its distribution $p_e$ over the next byte on the byte vocabulary $\mathcal{V}$, and take its entropy:
 
 $$H(x_i) = \sum_{v \in \mathcal{V}} p_{e}(x_i=v \mid \pmb{x}_{<i}) \log p_{e}(x_i=v \mid \pmb{x}_{<i})$$
 
-有了每個 byte 的熵，就有兩種找 patch 邊界的判準：一是熵超過全域門檻（global threshold）$\theta_g$，二是熵相對前一個 byte 的躍升超過門檻 $\theta_r$（近似單調約束，approximate monotonic constraint）：
+With the entropy of each byte, there are two criteria for finding patch boundaries: one is entropy exceeding a global threshold $\theta_g$, and the other is the jump in entropy relative to the previous byte exceeding a threshold $\theta_r$ (an approximate monotonic constraint):
 
 $$\text{Global:}\quad H(x_t) > \theta_g \qquad\qquad \text{Monotonic:}\quad H(x_t) - H(x_{t-1}) > \theta_r$$
 
-這個小 entropy 模型在實驗中是一個 100M 參數、14 層、hidden 512、滑動視窗（sliding window）512 bytes 的 transformer；當 receptive field 夠小時，它甚至可以編碼成一個高效的查表（lookup table）。門檻 $\theta_g$ 則反推自「想要的平均 patch size」，因此 patch size 在 BLT 中是一個可以自由選定的旋鈕。
+This small entropy model in the experiments is a 100M-parameter, 14-layer transformer with hidden 512 and a sliding window of 512 bytes; when the receptive field is small enough, it can even be encoded as an efficient lookup table. The threshold $\theta_g$ is derived backward from the "desired average patch size," so patch size is a knob that can be freely chosen in BLT.
 
-一個關鍵的正確性性質是 **incremental patching**：生成時模型必須在還沒看到後續 bytes 的情況下，就決定當前位置是不是 patch 邊界（因為這決定要不要動用 global transformer）。形式化地說，切分函數 $f_p$ 必須滿足下式，也就是對前綴的切分不能被未來 bytes 改變：
+A key correctness property is **incremental patching**: at generation time the model must decide whether the current position is a patch boundary without having seen the subsequent bytes (because this determines whether to invoke the global transformer). Formally, the splitting function $f_p$ must satisfy the following, that is, the splitting of a prefix cannot be changed by future bytes:
 
 $$f_p(\pmb{x}_{<i}) = f_p(\pmb{x})_{<i}$$
 
-BPE 不滿足這個性質——同樣的前綴會因為後續內容不同而被切得不一樣——這正是 entropy patching 相對 tokenization 在推論一致性上的優勢。
+BPE does not satisfy this property—the same prefix will be split differently depending on the subsequent content—which is precisely entropy patching's advantage over tokenization in inference consistency.
 
-### 三段式架構：兩個輕量 local 模型夾一個重量級 global 模型
+### A Three-Stage Architecture: Two Lightweight Local Models Sandwiching One Heavyweight Global Model
 
-![BLT 由 Local Encoder、Latent Transformer、Local Decoder 三個模組組成](imgs/blt_architecture.png)
+![BLT consists of three modules: Local Encoder, Latent Transformer, and Local Decoder](imgs/blt_architecture.png)
 
-BLT 由三個 transformer 區塊組成：一個大型的 global **Latent Transformer**（自回歸、跑在 patch 表徵上、用 block-causal attention），以及兩個輕量的 byte-level local 模型（$l_{\mathcal{E}} \ll l_{\mathcal{G}}$、$l_{\mathcal{D}} \ll l_{\mathcal{G}}$）。Local Encoder 把 byte 序列編碼成 patch 表徵，Local Decoder 再把 patch 表徵解回 raw bytes。global 模型消耗絕大部分的 FLOP，因此「何時才動用它」就是控制算力分配的旋鈕。
+BLT consists of three transformer blocks: a large global **Latent Transformer** (autoregressive, running on patch representations, using block-causal attention), and two lightweight byte-level local models ($l_{\mathcal{E}} \ll l_{\mathcal{G}}$, $l_{\mathcal{D}} \ll l_{\mathcal{G}}$). The Local Encoder encodes the byte sequence into patch representations, and the Local Decoder decodes the patch representations back into raw bytes. The global model consumes the vast majority of the FLOPs, so "when to invoke it" is the knob that controls compute allocation.
 
-Local Encoder 在每個 byte embedding 上還會疊加 **hash n-gram embeddings**：對每個位置 $i$ 取 $n \in \{3,4,5,6,7,8\}$ 的 byte-gram，用 rolling polynomial hash 映到固定大小的 embedding table 後相加。BLT 各模型都用 500,000 個 hash、單一 hash 函數。增強後的 embedding 為：
+The Local Encoder also adds **hash n-gram embeddings** on top of each byte embedding: for each position $i$ it takes byte-grams of $n \in \{3,4,5,6,7,8\}$, maps them via a rolling polynomial hash into a fixed-size embedding table, and sums them. Each BLT model uses 500,000 hashes and a single hash function. The augmented embedding is:
 
 $$e_i = x_i + \sum_{n=3}^{8} E_{n}^{hash}(\text{Hash}(g_{i,n}))$$
 
-byte 與 patch 之間的資訊流靠 **cross-attention** 打通：Encoder 端以 patch 表徵為 query、byte 表徵為 key/value 把 bytes 池化成 patch；Decoder 端則角色對調，以 byte 表徵為 query、patch 表徵為 key/value 把 patch「解 patch（unpatching）」回 bytes。每個 query patch 只 attend 到屬於自己那個 patch 的 bytes。
+The information flow between bytes and patches is bridged by **cross-attention**: on the Encoder side, patch representations serve as the query and byte representations as the key/value to pool bytes into patches; on the Decoder side the roles are swapped, with byte representations as the query and patch representations as the key/value to "unpatch" patches back into bytes. Each query patch only attends to the bytes belonging to its own patch.
 
-### 評測用的度量：Bits-Per-Byte
+### The Evaluation Metric: Bits-Per-Byte
 
-因為 perplexity 只在固定 tokenizer 下才有意義，要公平比較 byte-level 與 token-level 模型，論文沿用先前工作改報 **Bits-Per-Byte（BPB）**，即把整段資料的交叉熵損失以總 byte 數與常數正規化，得到一個與 tokenizer 無關的困惑度：
+Because perplexity is only meaningful under a fixed tokenizer, to fairly compare byte-level and token-level models the paper follows prior work in instead reporting **Bits-Per-Byte (BPB)**, that is, normalizing the cross-entropy loss over the entire data by the total byte count and a constant, yielding a tokenizer-independent perplexity:
 
 $$\text{BPB}(x) = \frac{\mathcal{L}_{CE}(\pmb{x})}{\ln(2)\cdot n_{\text{bytes}}}$$
 
-FLOP 估計上，論文沿用 Chinchilla 的 transformer FLOP 公式，但把輸入 embedding 層視為高效查表、當作 0-FLOP 操作，並假設反向傳播的 FLOP 是前向的兩倍。
+For FLOP estimation, the paper follows Chinchilla's transformer FLOP formula, but treats the input embedding layer as an efficient lookup, counting it as a 0-FLOP operation, and assumes the FLOPs of backpropagation are twice those of the forward pass.
 
-### 一個具體的前向流程（用論文的真實數字）
+### A Concrete Forward Pass (Using the Paper's Real Numbers)
 
-以論文 Figure 4 的例句 `Daenerys Targaryen is in Game of Thrones, a fantasy epic by George R.R. Martin.` 為例，走一遍 entropy patching：小 entropy 模型逐 byte 算出 $H(x_i)$，凡是 $H(x_i)$ 超過紅線 $\theta_g$ 的 byte 就開一個新 patch。在 `George R.R. Martin` 這個命名實體裡，`G` 與 `e` 的熵超過 $\theta_g$，於是 `G` 自成一個單 byte 的 patch，`e` 開啟一個較大的 patch——因為接下來熵一路走低（名字後半很好猜），整個實體剩餘部分不再產生新 patch。直覺上，難預測的字首拿到一次昂貴的 global step，好猜的字尾則被便宜地打包。
+Taking the example sentence from the paper's Figure 4, `Daenerys Targaryen is in Game of Thrones, a fantasy epic by George R.R. Martin.`, walk through entropy patching: the small entropy model computes $H(x_i)$ byte by byte, and any byte whose $H(x_i)$ exceeds the red line $\theta_g$ opens a new patch. Within the named entity `George R.R. Martin`, the entropy of `G` and `e` exceeds $\theta_g$, so `G` becomes a single-byte patch of its own and `e` opens a larger patch—because the entropy then falls all the way down (the second half of the name is easy to guess), the rest of the entity produces no new patches. Intuitively, a hard-to-predict prefix gets one expensive global step, while an easy-to-guess suffix is packed cheaply.
 
-![例句逐 byte 的熵與 patch 邊界](imgs/entropy_patching.png)
+![The byte-by-byte entropy and patch boundaries of the example sentence](imgs/entropy_patching.png)
 
-再看架構層面的算力帳（8B 設定，來自附錄 Table 8）：Local Encoder 只有 1 層、$h_{\mathcal{E}}=1280$、約 20M 參數；global Latent Transformer 有 32 層、$h_{\mathcal{G}}=4096$、約 6.4B 參數；Local Decoder 6 層、$h_{\mathcal{D}}=1280$、約 120M 參數；cross-attention 用 20 個 head、$k=4$。在 BLT-1T 上平均 patch size 約 4.5 bytes，所以對一段 16k bytes 的 context，昂貴的 global 模型只跑約 $16000/4.5 \approx 3556$ 步，而不是對每個 byte 各跑一步。真正的效率槓桿在於：把 patch size 從 4.5 拉到 8，global step 幾乎砍半，就換來論文宣稱的近 50% 推論 FLOP 節省；而 local 模型的參數量從 400M 放大到 8B 時只約略翻倍，所以放大 patch 幾乎只影響 global transformer 的 FLOP，不影響 byte-level 模組。
+Now look at the compute ledger at the architecture level (8B setting, from Appendix Table 8): the Local Encoder has only 1 layer, $h_{\mathcal{E}}=1280$, about 20M parameters; the global Latent Transformer has 32 layers, $h_{\mathcal{G}}=4096$, about 6.4B parameters; the Local Decoder has 6 layers, $h_{\mathcal{D}}=1280$, about 120M parameters; cross-attention uses 20 heads and $k=4$. On BLT-1T the average patch size is about 4.5 bytes, so for a 16k-byte context the expensive global model runs only about $16000/4.5 \approx 3556$ steps, rather than one step per byte. The real efficiency lever is: pulling the patch size from 4.5 to 8 nearly halves the global steps, buying the near-50% inference FLOP savings the paper claims; and when the local models grow from 400M to 8B they only roughly double, so enlarging the patch affects almost only the global transformer's FLOPs, not the byte-level modules.
 
-### 頭條結果
+### Headline Results
 
-在 BLT-1T 資料上、以相同 FLOP 預算訓練的三個 8B 模型比較如下（Table 1，準確率越高越好）：
+The comparison of three 8B models trained on BLT-1T data under the same FLOP budget is as follows (Table 1, higher accuracy is better):
 
 | Task | Llama 3 (BPE) | BLT-Space | BLT-Entropy |
 |-|-|-|-|
@@ -91,51 +92,51 @@ FLOP 估計上，論文沿用 Chinchilla 的 transformer FLOP 公式，但把輸
 | Average | 60.0 | 58.0 | **61.1** |
 | Bytes/Patch | 4.4 | **6.1** | 4.5 |
 
-BLT-Entropy 在 7 項中有 4 項勝過同資料量的 Llama 3，平均 61.1 對 60.0；而 BLT-Space 雖然平均略輸，卻靠 6.1 bytes 的更大 patch 換到顯著的推論 FLOP 節省。作者把 BLT-Entropy 的優勢歸因於（1）動態 patching 更會用訓練算力、（2）直接建模 byte 層級資訊。
+BLT-Entropy beats the same-data-volume Llama 3 on 4 of 7 tasks, averaging 61.1 vs 60.0; and although BLT-Space is slightly behind on average, it trades its larger 6.1-byte patch for significant inference FLOP savings. The authors attribute BLT-Entropy's advantage to (1) dynamic patching using training compute more effectively and (2) directly modeling byte-level information.
 
-在字元層級（character-level）任務上，byte 建模的優勢更明顯（Table 2 節選，8B 模型）：
+On character-level tasks, the advantage of byte modeling is even more pronounced (excerpt from Table 2, 8B models):
 
 | Task | Llama 3 (1T) | Llama 3.1 (16T) | BLT (1T) |
 |-|-|-|-|
-| HellaSwag 加噪平均 | 56.9 | 64.3 | **64.3** |
-| CUTE（總分） | 27.5 | 20.0 | **54.1** |
+| HellaSwag noised average | 56.9 | 64.3 | **64.3** |
+| CUTE (total) | 27.5 | 20.0 | **54.1** |
 | CUTE - Spelling | 1.1 | – | **99.9** |
 
-BLT 在 CUTE 這個字元理解 benchmark 上比兩個 BPE Llama 3 模型高出 25 分以上，拼寫（spelling）任務甚至到 99.9%——而且它只用了 Llama 3.1 的 1/16 資料量。作者據此論證：字元層級資訊對 BPE 模型來說「很難單靠更多資料學到」。此外，把 global transformer 用預訓練好的 Llama 3.1 權重初始化、以 1/10 學習率微調（論文稱為「byte-ify」蒸餾），能在僅 220B tokens 下把 MMLU 從 BLT 從頭訓練的 25.2 拉到 63.7，逼近原生 Llama 3.1。
+BLT is over 25 points higher than the two BPE Llama 3 models on the CUTE character-understanding benchmark, and the spelling task even reaches 99.9%—and it uses only 1/16 of Llama 3.1's data volume. On this basis the authors argue that character-level information is "hard to learn for BPE models by more data alone." In addition, initializing the global transformer with pretrained Llama 3.1 weights and fine-tuning at 1/10 the learning rate (the paper calls it "byte-ify" distillation) can, with only 220B tokens, raise MMLU from the 25.2 of BLT trained from scratch to 63.7, approaching native Llama 3.1.
 
-### Patch 比 token 更會 scale：固定推論預算下的新維度
+### Patches Scale Better Than Tokens: A New Dimension Under a Fixed Inference Budget
 
-BLT 最核心的主張是它解鎖了一個新的 scaling 軸：**在固定推論 FLOP 預算下同時放大模型與 patch size**。下表（Table 3）是固定推論 scaling 研究用的模型配對——每一列的 inference FLOPs/byte 相同：
+BLT's most central claim is that it unlocks a new scaling axis: **simultaneously enlarging the model and the patch size under a fixed inference FLOP budget**. The table below (Table 3) is the model pairing used in the fixed-inference scaling study—each row has the same inference FLOPs/byte:
 
-| Llama 2 | Llama 3 | Entropy ps=6 | Entropy ps=8 | Inference FLOPs | 交叉點 (Bytes) |
+| Llama 2 | Llama 3 | Entropy ps=6 | Entropy ps=8 | Inference FLOPs | Crossover (Bytes) |
 |-|-|-|-|-|-|
 | 470m | 450m | 610m (1.2x) | 760m (1.6x) | 3.1E8 | 150B |
 | 3.6B | 3.9B | 5.2B (1.3x) | 6.6B (1.7x) | 2.1E9 | 1T |
 
-因為更長的 patch 平均省下算力，這些算力可以拿去把 global latent transformer 養得更大（因為它跑得更少次）。BPE 模型在訓練預算很小時較好，但很快就被 BLT 超過——交叉點只落在 compute-optimal 點稍微之後（大 FLOP 級距下從 3x 收斂到約 2.5x）。作者強調，8B 這種被訓練到遠超 compute-optimal（例如 Llama 3.1 多訓兩個數量級資料）的模型，正是這個「多花一次性預訓練、換固定推論預算下更好模型」策略的理想場景。
+Because longer patches save compute on average, this compute can be used to grow the global latent transformer larger (because it runs fewer times). BPE models are better when the training budget is very small, but are soon overtaken by BLT—the crossover point falls just slightly after the compute-optimal point (converging from 3x down to about 2.5x at large FLOP scales). The authors emphasize that 8B-scale models trained far beyond compute-optimal (for example, Llama 3.1 trained on two orders of magnitude more data) are exactly the ideal scenario for this strategy of "paying a one-time pretraining cost in exchange for a better model under a fixed inference budget."
 
 ## 🧪 Critical Assessment
 
-### 問題是真的，還是被 tokenizer 綁架出來的假議題
+### Is the Problem Real, or a Pseudo-Issue Manufactured by the Tokenizer
 
-tokenization 的痛點——多語言不公平、對雜訊脆弱、拼寫無知——是有文獻支撐的真問題，不是硬湊出來的。BLT 在 CUTE 上 54.1 對 27.5 的差距，以及加噪 HellaSwag 上平均約 8 分的優勢，確實把「byte 直通」的價值量化了出來。但要誠實指出：這些字元任務本來就是 tokenizer 的結構性盲點，byte 模型贏在這裡幾乎是定義上的必然；它更像是「證明 byte 模型沒有這個先天缺陷」，而非「byte 模型全面更強」。真正硬的知識與推理任務（MMLU、Arc-C）上，BLT 其實是小輸或持平的。
+The pain points of tokenization—multilingual inequity, fragility to noise, orthographic ignorance—are real problems supported by the literature, not contrived. BLT's gap of 54.1 vs 27.5 on CUTE, and its roughly 8-point average advantage on noised HellaSwag, do quantify the value of "direct byte access." But we must honestly point out: these character tasks are inherently the structural blind spots of the tokenizer, and a byte model winning here is almost a definitional inevitability; it is more like "proving the byte model does not have this innate defect" than "the byte model is stronger across the board." On the genuinely hard knowledge and reasoning tasks (MMLU, Arc-C), BLT actually loses slightly or ties.
 
-### baseline、消融與資料是否撐得起「追平 Llama 3」的宣稱
+### Do the Baselines, Ablations, and Data Support the Claim of "Matching Llama 3"
 
-實驗設計相當克制且對自己不利：作者刻意讓每個 batch 的 byte 數在期望上相同、縮短大 patch 模型的序列長度，避免 BLT 靠更長 context 佔便宜，這點值得肯定。消融也涵蓋了 entropy 模型大小、cross-attention 位置、n-gram hash 詞表大小、local 層數等主要設計選擇。但「追平 Llama 3」建立在一個借來的假設上：BLT 直接沿用 Llama 3 為 BPE transformer 算出的 compute-optimal（參數／資料比）與最佳步數。論文自己在 Limitations 承認，這個 scaling law 是給 BPE transformer 算的，對 BLT 可能導致次佳的配置——也就是說目前的 BLT 很可能還沒被放在自己的最佳操作點上，這是把兩者對比時一個未被消化掉的變因。
+The experimental design is quite restrained and self-disadvantaging: the authors deliberately make the byte count of each batch equal in expectation, shortening the sequence length of large-patch models, avoiding BLT gaining an advantage from a longer context, which is commendable. The ablations also cover the main design choices such as entropy-model size, cross-attention position, n-gram hash vocabulary size, and number of local layers. But "matching Llama 3" is built on a borrowed assumption: BLT directly reuses the compute-optimal (parameter/data ratio) and optimal step count that Llama 3 computed for a BPE transformer. The paper itself admits in Limitations that this scaling law was computed for a BPE transformer and may lead to a suboptimal configuration for BLT—that is, the current BLT is very likely not yet placed at its own optimal operating point, which is an undigested confounder when comparing the two.
 
-### 是新架構，還是既有零件的工程重組
+### Is It a New Architecture, or an Engineering Recombination of Existing Parts
 
-BLT 的個別零件多半有前身：static patching 來自 MegaByte、space patching 來自 SpaceByte、entropy／boundary-predictor 式的動態切分在 Nawrot 等人早有雛形、cross-attention pooling 明說是沿用 Perceiver。真正的新意在於「把 entropy patching + hash n-gram + 雙向 cross-attention 組起來，並第一次在 FLOP-controlled、8B/4T 規模上追平 SOTA tokenizer 模型」。這是扎實的規模化貢獻，但要小心把「第一個在此規模做到」誤讀成「方法本身全新」。
+BLT's individual parts mostly have predecessors: static patching comes from MegaByte, space patching from SpaceByte, entropy/boundary-predictor-style dynamic splitting had early prototypes in Nawrot et al., and cross-attention pooling is explicitly stated to follow Perceiver. The real novelty lies in "assembling entropy patching + hash n-gram + bidirectional cross-attention, and for the first time matching SOTA tokenizer models at a FLOP-controlled, 8B/4T scale." This is a solid scaling contribution, but one should be careful not to misread "first to achieve it at this scale" as "the method itself is wholly new."
 
-### 「patches scale better」的評測是否圍繞自身強項而設計
+### Is the "Patches Scale Better" Evaluation Designed Around Its Own Strengths
 
-固定推論 scaling 的結論高度依賴 FLOP 這個理論代理指標，而非真實 wall-clock。論文自己在 Limitations 坦承，現有函式庫是為 tokenizer transformer 高度最佳化的，BLT 用到 FlexAttention 等非標準層，實際牆鐘時間「可能尚未與 tokenizer 模型平起平坐」。因此「patch size 8 省近 50% 推論 FLOP」是一個理論上限，讀者不該直接當成 1.9 倍的實測加速。此外，crossover 點、patch size 的選擇、以及推論時把 entropy 門檻從 0.6 臨時調到 0.1 來換 CUTE 分數，都帶有「benchmark 由作者圍繞自身方法強項定義」的味道——BLT-Entropy 在 Table 1 的優勢有一部分來自這個推論時的門檻調整，而非純粹的架構勝出。
+The conclusion of fixed-inference scaling relies heavily on FLOP as a theoretical proxy metric, rather than real wall-clock. The paper itself admits in Limitations that existing libraries are highly optimized for tokenizer transformers, and that BLT uses non-standard layers such as FlexAttention, so the actual wall-clock time "may not yet be on par with tokenizer models." Therefore "patch size 8 saves near-50% inference FLOP" is a theoretical upper bound, and the reader should not directly treat it as a measured 1.9× speedup. In addition, the crossover point, the choice of patch size, and temporarily adjusting the entropy threshold from 0.6 to 0.1 at inference time to gain CUTE scores all carry a flavor of "the benchmark being defined by the authors around their own method's strengths"—part of BLT-Entropy's advantage in Table 1 comes from this inference-time threshold adjustment, rather than a pure architectural win.
 
-### 宣稱的問題真的解決了嗎、對真實世界有多大意義
+### Is the Claimed Problem Really Solved, and How Much Does It Matter in the Real World
 
-在「不用固定詞表也能規模化到 8B/4T 並追平 Llama 3」這個命題上，論文提供了目前最有力的證據，這是實質進展。但「解決」要打折：需要額外訓練並在推論時常駐一個 entropy 模型、依賴一堆尚未被 BLT 專屬 scaling law 驗證過的超參數、且缺乏牆鐘效率的證據。對真實世界的即時意義，最務實的其實是 byte-ify 蒸餾——把已經花大錢訓好的 Llama 3.1 轉成 BLT，用 220B tokens 就把 MMLU 拉到 63.7，這條路避開了從頭 byte 訓練的成本，可能比從零訓練的 BLT 更快落地。
+On the proposition of "scaling to 8B/4T and matching Llama 3 without a fixed vocabulary," the paper provides the strongest evidence to date, which is substantial progress. But "solved" must be discounted: it requires additionally training and keeping an entropy model resident at inference time, relies on a pile of hyperparameters not yet validated by a BLT-specific scaling law, and lacks evidence of wall-clock efficiency. The most practical immediate real-world significance is actually byte-ify distillation—converting the already expensively trained Llama 3.1 into BLT, raising MMLU to 63.7 with just 220B tokens; this route avoids the cost of byte training from scratch and may reach deployment faster than a BLT trained from zero.
 
 ## 🔗 Related notes
 
-- [Byte-Level BPE (BBPE)](../tokenizer/ByteLevelBPE/) — BLT 想取代的固定詞表 tokenization 路線的代表。
+- [Byte-Level BPE (BBPE)](../tokenizer/ByteLevelBPE/) — A representative of the fixed-vocabulary tokenization line that BLT aims to replace.
