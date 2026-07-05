@@ -6,8 +6,8 @@ This folder contains some general AI training techniques.
 |-|-|-|-|-|
 | [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](http://proceedings.mlr.press/v37/ioffe15.html) | ICML | '15 | [✓](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm2d.html) | [✓](./batch_norm/) |
 | [Dropout: A Simple Way to Prevent Neural Networks from Overfitting]() | JMLR | '14 | - | [✓](./dropout/) |
-| [A Literature Survey on Domain Adaptation of Statistical Classifiers](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)| - | '08 | - | [✓](./domain_adaptation_survey/)|
-| [shapiq: Shapley Interactions for Machine Learning](https://arxiv.org/abs/2410.01649) | NeurIPS | '24 | [✓](https://github.com/mmschlk/shapiq) | [✓](./shapiq/) |
+| [A Literature Survey on Domain Adaptation of Statistical Classifiers](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)| - | '08 | - | [EN](./domain_adaptation_survey/) · [中文](./domain_adaptation_survey/README.zh-TW.md)|
+| [shapiq: Shapley Interactions for Machine Learning](https://arxiv.org/abs/2410.01649) | NeurIPS | '24 | [✓](https://github.com/mmschlk/shapiq) | [EN](./shapiq/) · [中文](./shapiq/README.zh-TW.md) |
 
 ## Notes
 | Title | Review |

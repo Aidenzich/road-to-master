@@ -1,32 +1,34 @@
 # Optimizer
-在機器學習（特別是深度學習）中，「優化器」(Optimizer) 扮演著至關重要的角色。
+> **English** | [繁體中文](./README.zh-TW.md)
 
-### 什麼是優化器？
+In machine learning (especially deep learning), the "optimizer" plays a crucial role.
 
-簡單來說，優化器是一種**演算法**或**機制**，其**唯一目的**就是**更新**神經網路的參數（即權重 $W$ 和偏差 $b$），以**最小化「損失函數」(Loss Function)**。
+### What is an optimizer?
+
+In simple terms, an optimizer is an **algorithm** or **mechanism** whose **sole purpose** is to **update** the parameters of a neural network (i.e. the weights $W$ and biases $b$) in order to **minimize the "loss function"**.
 
 
-### 核心概念詳解
-1.  **目標：最小化損失 (Loss)**
-    * **損失函數 (Loss Function)：** 就像是模型的「考卷計分器」。它會衡量模型目前的預測結果與「正確答案」之間的**差距**。差距越大，損失值 (Loss) 就越高。
-    * **優化器的目標：** 就是要找到一組**最好的參數**（$W$ 和 $b$），讓這個「損失值」盡可能地**降到最低**。
-2.  **方法：如何更新參數？**
-    * **梯度 (Gradient)：** 這是優化器最重要的工具。梯度會告訴模型：「如果你想讓損失降低，你應該朝哪個方向調整你的參數？」梯度指向的是損失**上升最快**的方向。
-    * **更新規則：** 優化器會取得這個梯度，然後**反向操作**（即「梯度下降」, Gradient Descent）。它會沿著梯度**相反**的方向，去小幅調整模型的參數。
-    * **學習率 (Learning Rate)：** 這就像是調整的「步伐大小」。步伐太大，可能會錯過最低點；步伐太小，學習速度又會太慢。
+### Core Concepts Explained
+1.  **Goal: minimize the loss (Loss)**
+    * **Loss Function:** like the model's "exam grader". It measures the **gap** between the model's current prediction and the "correct answer". The larger the gap, the higher the loss value (Loss).
+    * **The optimizer's goal:** to find a set of **best parameters** ($W$ and $b$) that drive this "loss value" as **low** as possible.
+2.  **Method: how to update the parameters?**
+    * **Gradient:** this is the optimizer's most important tool. The gradient tells the model: "If you want to reduce the loss, in which direction should you adjust your parameters?" The gradient points in the direction in which the loss **increases fastest**.
+    * **Update rule:** the optimizer takes this gradient and then **operates in reverse** (i.e. "gradient descent"). It makes a small adjustment to the model's parameters along the direction **opposite** to the gradient.
+    * **Learning Rate:** this is like the "step size" of the adjustment. Too large a step may overshoot the minimum; too small a step makes learning too slow.
 
-3.  **一個簡單的比喻：矇眼下山**
-    * **你 (模型)：** 站在一座大山（損失函數的地形）上，你的眼睛被矇住了。
-    * **你的位置 (參數)：** 你目前在山上的位置。
-    * **山谷 (最低點)：** 你的目標，即損失 (Loss) 最小的地方。
-    * **你的腳 (梯度)：** 你用腳去感受四周的「坡度」（即梯度），找出哪個方向是「最陡峭的下坡路」。
-    * **優化器 (Optimizer)：** 就是你**決定如何下山**的「策略」。
-    * **學習率 (Learning Rate)：** 你決定**每一步要跨多大**。
+3.  **A simple analogy: descending a mountain blindfolded**
+    * **You (the model):** standing on a large mountain (the terrain of the loss function), with your eyes blindfolded.
+    * **Your position (parameters):** where you currently stand on the mountain.
+    * **The valley (the minimum):** your goal, i.e. the place where the loss (Loss) is smallest.
+    * **Your feet (the gradient):** you use your feet to feel the "slope" around you (i.e. the gradient), figuring out which direction is the "steepest downhill path".
+    * **The optimizer:** it is the "strategy" by which you **decide how to descend**.
+    * **The learning rate:** how big **each step** you decide to take.
 
-### 為什麼有這麼多種優化器？
-* **SGD (標準梯度下降)：** 只是單純地跟著當前的坡度走。如果遇到平坦的區域（梯度為 0），它可能就停下來了。
-* **Momentum (動量)：** 就像一顆滾下山的球。它不僅考慮當前的坡度，還會**累積過去的速度（動量）**。這能幫助它衝過平地區域，並更快地到達山谷。
-* **Adam：** 是一種**自適應** (Adaptive) 策略。它會為**每個參數**都保留一個獨立的學習率（步伐大小），並且還會像 Momentum 一樣累積動量。
+### Why are there so many kinds of optimizers?
+* **SGD (Standard Gradient Descent):** simply follows the current slope. If it hits a flat region (gradient of 0), it may just stop there.
+* **Momentum:** like a ball rolling down the mountain. It considers not only the current slope but also **accumulates past velocity (momentum)**. This helps it charge through flat regions and reach the valley faster.
+* **Adam:** an **adaptive** strategy. It keeps a separate learning rate (step size) for **each parameter**, and also accumulates momentum like Momentum does.
 
-**總結：**
-優化器就是負責「**如何學習**」的那個核心演算法。它透過不斷查看「考卷分數」（損失），並使用「梯度」（下坡方向），來逐步調整模型的參數，最終找到能考最高分（損失最低）的那組參數。
+**Summary:**
+The optimizer is the core algorithm responsible for "**how to learn**". By continually looking at the "exam score" (loss) and using the "gradient" (downhill direction), it gradually adjusts the model's parameters to eventually find the set of parameters that scores highest (lowest loss).

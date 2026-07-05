@@ -1,84 +1,85 @@
 # L1 and L2 Regularization
+> **English** | [繁體中文](./README.zh-TW.md)
 
-L1 與 L2 的名稱源自於數學中的 **$L^p$ 空間 (Lebesgue space)**。「L」是為了紀念法國數學家勒貝格 (Henri Lebesgue)，而數字「1」與「2」則代表其通式中參數 $p$ 的具體數值。
+The names L1 and L2 come from the **$L^p$ space (Lebesgue space)** in mathematics. "L" honors the French mathematician Henri Lebesgue, while the numbers "1" and "2" denote the specific values of the parameter $p$ in its general form.
 
-以下是更詳細的數學背景說明：
+Below is a more detailed explanation of the mathematical background:
 
-在線性代數中，我們使用 $L^p$ Norm (或稱 $p$-norm) 來定義一個向量的「長度」或「大小」。$L^p$ Norm 的數學通式定義如下：
+In linear algebra, we use the $L^p$ Norm (also called the $p$-norm) to define the "length" or "size" of a vector. The general mathematical form of the $L^p$ Norm is defined as follows:
 
 $$||x||_{\color{cyan}{p}} = \left( \sum_{i=1}^{n} |x_i|^{\color{cyan}{p}} \right)^{\frac{1}{\color{cyan}{p}}}$$
 
-其中：
-* $x$ 是一個包含 $n$ 個元素的向量。
-* $x_i$ 代表向量 $x$ 中的第 $i$ 個元素。
-* $\color{cyan}{p}$ 是一個用來控制 Norm 類型的參數。
+where:
+* $x$ is a vector containing $n$ elements.
+* $x_i$ denotes the $i$-th element of the vector $x$.
+* $\color{cyan}{p}$ is a parameter that controls the type of Norm.
 
-只要改變 $p$ 的值，就會得到不同的 Norm：
+Simply by changing the value of $p$, you get different Norms:
 
-* **當 $p=1$ (L1 Norm):** 將 1 代入通式，公式變成計算所有元素絕對值的 1 次方和，然後再開 1 次方根。這就是為什麼它叫做 L1。
-* **當 $p=2$ (L2 Norm):** 將 2 代入通式，公式變成計算所有元素絕對值的平方和（2 次方），然後再開平方根（2 次方根）。這就是為什麼它叫做 L2。
+* **When $p=1$ (L1 Norm):** substituting 1 into the general form, the formula becomes the sum of the 1st powers of the absolute values of all elements, then taking the 1st root. This is why it is called L1.
+* **When $p=2$ (L2 Norm):** substituting 2 into the general form, the formula becomes the sum of the squares (2nd powers) of the absolute values of all elements, then taking the square root (2nd root). This is why it is called L2.
 
-**延伸概念：**
-理解了這個命名邏輯後，就可以知道這個家族其實還有其他成員：
-* **$L^0$ Norm:** 雖然在數學嚴格定義上不完全算是一個 Norm，但在機器學習中常被用來指代向量中「非零元素的總個數」。
-* **$L^\infty$ Norm (L-infinity):** 當 $p$ 趨近於無限大時，公式的結果會收斂為向量中「絕對值最大的那個元素」。
+**Extended concept:**
+Once you understand this naming logic, you realize that this family actually has other members:
+* **$L^0$ Norm:** although strictly speaking it is not entirely a Norm by the mathematical definition, in machine learning it is often used to refer to the "total number of non-zero elements" in a vector.
+* **$L^\infty$ Norm (L-infinity):** as $p$ approaches infinity, the result of the formula converges to "the element with the largest absolute value" in the vector.
 
 ---
 
-L1 和 L2 的主要目的都是**防止模型過度擬合 (Overfitting)**。它們透過在損失函數 (Loss Function) 中加入一個「懲罰項」(Penalty Term) 來**限制參數 W 的大小**。
+The main purpose of both L1 and L2 is to **prevent the model from overfitting**. They do so by adding a "Penalty Term" to the loss function to **constrain the magnitude of the parameters W**.
 
-## 為什麼限制 W 就能防止過度擬合？
+## Why does constraining W prevent overfitting?
 
-一個「過度擬合」的模型，往往是因為它對訓練資料中的雜訊（noise）過於敏感。這在數學上通常表現為**參數 W 的值非常大**。
+An "overfitted" model is often overly sensitive to noise in the training data. Mathematically this usually manifests as **very large values of the parameters W**.
 
-> **想像一個情境：**
-> 假設 $y = w_1 x_1 + w_2 x_2$。
-> 如果模型過度擬合 $x_1$，它可能會學到一個非常大的 $w_1$（比如 $w_1 = 1000$）。
-> 這意味著 $x_1$ 只要有 0.01 的微小變動， $y$ 就會劇烈變化 10。
-> 這種「劇烈變化」就是「不平滑」的表現。
+> **Imagine a scenario:**
+> Suppose $y = w_1 x_1 + w_2 x_2$.
+> If the model overfits $x_1$, it may learn a very large $w_1$ (say $w_1 = 1000$).
+> This means that a tiny change of 0.01 in $x_1$ causes $y$ to change drastically by 10.
+> This kind of "drastic change" is the manifestation of "non-smoothness".
 
-L1 和 L2 懲罰「過大的 W」。通過限制 W 的值，模型被迫變得「遲鈍」一些，不能對單一特徵反應過度。這使得模型的決策邊界（Decision Boundary）或它所代表的函數**更「平滑」、更「簡單」**，從而有更好的泛化能力 (Generalization)。
-
-
-
-## 1. L2 正規化 (Ridge Regression)：「圓滑」曲線
-
-L2 懲罰的是**權重的平方和**。
-
-* **懲罰項：** $\lambda ||\mathbf{w}||_2^2 = \lambda \sum w_i^2$
-* **它的做法：** L2 傾向於讓**所有**的參數 $w_i$ 都 **「小一點」**，但**不傾向於讓它們變為 0**。
-* **效果：**
-    * 這被稱為「權重衰減」(Weight Decay)，因為它會把所有 W 的值都往 0 的方向拉。
-    * 它會讓參數值W更平均地分佈。
-    * 這非常符合您說的「圓滑」：**它讓模型的決策邊界更平滑**，不會有太「尖銳」的轉折。
-
-## 2. L1 正規化 (Lasso Regression)：帶來「稀疏性」
-
-L1 懲罰的是**權重的絕對值總和**。
-
-* **懲罰項：** $\lambda ||\mathbf{w}||_1 = \lambda \sum |w_i|$
-* **它的做法：** L1 在把參數 $w_i$ 推向 0 的過程中，**非常容易將許多 $w_i$ 直接變成 0**。
-* **效果：**
-    * 這會產生「稀疏矩陣」(Sparse Matrix)，也就是 W 向量中有很多 0。
-    * 這等於是**自動進行了特徵選取 (Feature Selection)**。如果 $w_i$ 變成 0，就等於模型認為第 $i$ 個特徵 ($x_i$) 根本不重要，可以直接丟棄。
-    * 所以 L1 簡化模型的方式不是「圓滑」，而是**「刪減」**。
+L1 and L2 penalize "overly large W". By constraining the values of W, the model is forced to become somewhat "dull" and cannot overreact to a single feature. This makes the model's decision boundary, or the function it represents, **"smoother" and "simpler"**, thereby achieving better generalization.
 
 
-## 視覺化呈現
 
-L2 是在做「圓滑」（讓模型更平滑、更簡單）。而 L1 則是透過「稀疏性」（移除不重要的特徵）來簡化模型。
+## 1. L2 Regularization (Ridge Regression): The "Smooth" Curve
 
-我們可以透過以下圖例來了解 L1, L2 具體的運作方式，常見的損失函數在 3維空間($W_1$, $W_2$, $Loss$)的呈現如下：
+L2 penalizes the **sum of the squares of the weights**.
+
+* **Penalty term:** $\lambda ||\mathbf{w}||_2^2 = \lambda \sum w_i^2$
+* **What it does:** L2 tends to make **all** parameters $w_i$ **"a bit smaller"**, but **does not tend to make them become 0**.
+* **Effect:**
+    * This is called "Weight Decay", because it pulls all W values toward 0.
+    * It makes the parameter values W distribute more evenly.
+    * This fits the "smooth" idea perfectly: **it makes the model's decision boundary smoother**, without overly "sharp" turns.
+
+## 2. L1 Regularization (Lasso Regression): Bringing "Sparsity"
+
+L1 penalizes the **sum of the absolute values of the weights**.
+
+* **Penalty term:** $\lambda ||\mathbf{w}||_1 = \lambda \sum |w_i|$
+* **What it does:** in the process of pushing the parameters $w_i$ toward 0, L1 **very easily turns many $w_i$ directly into 0**.
+* **Effect:**
+    * This produces a "Sparse Matrix", i.e. a W vector with many 0s.
+    * This amounts to **automatically performing Feature Selection**. If $w_i$ becomes 0, it means the model considers the $i$-th feature ($x_i$) unimportant and can be discarded directly.
+    * So the way L1 simplifies the model is not "smoothing", but **"pruning"**.
+
+
+## Visualization
+
+L2 does "smoothing" (making the model smoother and simpler), whereas L1 simplifies the model through "sparsity" (removing unimportant features).
+
+We can understand the concrete workings of L1 and L2 through the following illustrations. A common loss function is presented in 3D space ($W_1$, $W_2$, $Loss$) as follows:
 ![alt text](imgs/1_sJaq79557XxTOucSTKJEwA@2x.jpg)
 
-我們假定存在一個 Loss 值最低的過擬合點 $\theta_{opt}$ (谷底), 這時, 我們的「漣漪」（橢圓等高線）從谷底開始擴散。
-它一定會在某個時刻「接觸」到圖中顏色區域的邊界。
-第一個接觸點（相切點），就是我們的最佳解(圖中綠點)，這是正規化起作用了的典型情況。
+Suppose there exists an overfitting point $\theta_{opt}$ (the bottom of the valley) with the lowest Loss value. At this point, our "ripples" (elliptical contour lines) spread out from the valley bottom.
+At some moment they must "touch" the boundary of the colored region in the figure.
+The first contact point (the tangent point) is our optimal solution (the green dot in the figure); this is the typical situation where regularization takes effect.
 
 ![alt text](imgs/1__EZjUXI05ZDoCW6qGjxOFA.png)
 
-圖中的顏色區域的大小不是天生固定的，而是由超參數(Hyperparameter)決定的。
-$\lambda$ 越大，藍色區域越小，模型參數被更強烈的拉向 `0`. 相反，模型可以「跑得更遠」去接近「原始損失的谷底」（橢圓中心）。
+The size of the colored region in the figure is not inherently fixed, but is determined by the hyperparameter.
+The larger $\lambda$ is, the smaller the blue region, and the more strongly the model parameters are pulled toward `0`. Conversely, the model can "run farther" to approach the "valley bottom of the original loss" (the center of the ellipse).
 
 ## Pytorch Example
 ```python
@@ -97,12 +98,12 @@ optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
 
 ## Wrap Up
 
-| 特性 | L2 (Ridge) | L1 (Lasso) |
+| Characteristic | L2 (Ridge) | L1 (Lasso) |
 | :--- | :--- | :--- |
-| **懲罰項** | 權重的**平方**和 ($\sum w_i^2$) | 權重的**絕對值**和 ($\sum |w_i|$) |
-| **對 W 的影響** | 使 W **趨近**於 0 (但通常不等於 0) | 使**許多** W **等於** 0 |
-| **主要效果** | 權重衰減、**平滑**決策邊界 | **稀疏性**、特徵選取 |
-| **比喻** | 讓所有特徵都出「一點力」 | 只挑出「最有力」的幾個特徵 |
+| **Penalty term** | sum of the **squares** of the weights ($\sum w_i^2$) | sum of the **absolute values** of the weights ($\sum |w_i|$) |
+| **Effect on W** | drives W **toward** 0 (but usually not equal to 0) | makes **many** W **equal to** 0 |
+| **Main effect** | weight decay, **smoothing** the decision boundary | **sparsity**, feature selection |
+| **Analogy** | let every feature contribute "a little effort" | pick out only the few "most powerful" features |
 
 
 ## Reference

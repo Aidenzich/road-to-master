@@ -1,35 +1,36 @@
 # Derivative of Softmax (Jacobian Matrix) when i = j
+> **English** | [繁體中文](./README.zh-TW.md)
 
 $$
 \frac{\partial y_i}{\partial x_i} = y_i (1 - y_i)
 $$
 
-## 推導過程
-### 1\. Softmax 公式
+## Derivation
+### 1\. Softmax Formula
 $$
 y_i = \frac{e^{x_i}}{\sum_{k} e^{x_k}} = \frac{e^{x_i}}{\textcolor{cyan}{\Sigma}}
 $$
-為方便呈現，我們用 $\Sigma$ 代表 $\sum_{k} e^{x_k}$
+For convenience, we use $\Sigma$ to denote $\sum_{k} e^{x_k}$
 
-### 2\. 使用除法法則
-我們要對 $x_i$ 求導數。回憶微積分公式： 
+### 2\. Using the Quotient Rule
+We want to differentiate with respect to $x_i$. Recall the calculus formula:
 $$
 (\frac{u}{v})' = \frac{u'v - uv'}{v^2}
 $$
 
-代入：
-* 分子 $u = e^{x_i}$
-* 分母 $v = \Sigma$
+Substituting:
+* Numerator $u = e^{x_i}$
+* Denominator $v = \Sigma$
 
-### 3\. 開始微分
-針對 $x_i$ 微分：
-1.  **分子的微分 ($u'$)：**
+### 3\. Start Differentiating
+Differentiating with respect to $x_i$:
+1.  **Derivative of the numerator ($u'$):**
     $$\frac{\partial}{\partial x_i}(e^{x_i}) = e^{x_i}$$
-2.  **分母的微分 ($v'$)：**
+2.  **Derivative of the denominator ($v'$):**
     $$\frac{\partial}{\partial x_i}(\Sigma) = \frac{\partial}{\partial x_i}(e^{x_1} + ... + e^{x_i} + ...) = e^{x_i}$$
-    *(注意：分母雖然是一堆東西相加，但除了 $e^{x_i}$ 這項之外，其他項對 $x_i$ 來說都是常數，微分後為 0)*
+    *(Note: although the denominator is a sum of many terms, every term other than $e^{x_i}$ is a constant with respect to $x_i$, so its derivative is 0.)*
 
-### 4\. 套入公式計算
+### 4\. Plugging into the Formula
 $$
 \frac{\partial y_i}{\partial x_i} = \frac{(\textcolor{cyan}{e^{x_i}})(\Sigma) - (\textcolor{cyan}{e^{x_i}})(e^{x_i})}{\Sigma^2}
 $$
@@ -42,30 +43,30 @@ $$
 = \frac{e^{x_i}}{\textcolor{cyan}{\Sigma}} \cdot \frac{\Sigma - e^{x_i}}{\textcolor{cyan}\Sigma}
 $$
 
-### 5\. 替換回 $y_i$
+### 5\. Substituting $y_i$ Back
 $$
 = \textcolor{yellow}{\frac{e^{x_i}}{\Sigma}} \cdot \textcolor{magenta}{\frac{\Sigma - e^{x_i}}{\Sigma}}
 $$
-* 第一部分 $\frac{e^{x_i}}{\Sigma}$ 就是 **$y_i$**。
-* 第二部分 $\frac{\Sigma - e^{x_i}}{\Sigma} = 1 - \frac{e^{x_i}}{\Sigma}$，也就是 **$1 - y_i$**。
+* The first part $\frac{e^{x_i}}{\Sigma}$ is exactly **$y_i$**.
+* The second part $\frac{\Sigma - e^{x_i}}{\Sigma} = 1 - \frac{e^{x_i}}{\Sigma}$, which is **$1 - y_i$**.
 
-所以得到最終公式：
+So we obtain the final formula:
 $$
 \frac{\partial y_i}{\partial x_i} = y_i (1 - y_i)
 $$
 
 
 
-### 補充：這個公式的物理意義 (為什麼會飽和？)
+### Supplement: The Physical Meaning of This Formula (Why Does It Saturate?)
 
-這個導數公式 $y_i(1-y_i)$ 是一個開口向下的拋物線：
+This derivative formula $y_i(1-y_i)$ is a downward-opening parabola:
 
-1.  **當 $y_i = 0.5$ 時：**
-    梯度 $= 0.5 \times (1 - 0.5) = 0.25$ (這是梯度的最大值，更新最快)。
-2.  **當 $y_i$ 接近 1 時 (例如 0.99)：**
-    梯度 $= 0.99 \times 0.01 = 0.0099$ (梯度非常小)。
-3.  **當 $y_i$ 接近 0 時 (例如 0.01)：**
-    梯度 $= 0.01 \times 0.99 = 0.0099$ (梯度非常小)。
+1.  **When $y_i = 0.5$:**
+    Gradient $= 0.5 \times (1 - 0.5) = 0.25$ (this is the maximum value of the gradient, updates fastest).
+2.  **When $y_i$ is close to 1 (e.g. 0.99):**
+    Gradient $= 0.99 \times 0.01 = 0.0099$ (the gradient is very small).
+3.  **When $y_i$ is close to 0 (e.g. 0.01):**
+    Gradient $= 0.01 \times 0.99 = 0.0099$ (the gradient is very small).
 
-**這證明了：**
-如果你的輸入 $x_i$ 太大，導致輸出 $y_i$ 變成極端的 0 或 1，**梯度就會自動變成 0**。這就是為什麼我們必須做 Scaling，把數值拉回中間，讓 $y_i$ 盡量不要太早衝到 0 或 1 的位置。
+**This proves that:**
+If your input $x_i$ is too large, causing the output $y_i$ to become an extreme 0 or 1, **the gradient automatically becomes 0**. This is why we must do Scaling, pulling the values back toward the middle so that $y_i$ does not rush to the 0 or 1 position too early.
