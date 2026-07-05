@@ -1,4 +1,5 @@
-# DiT：以 Transformer 為骨幹的可擴展擴散模型 — Research Note
+# DiT: Scalable Diffusion Models with a Transformer Backbone — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,55 +12,55 @@
 | Official Code | https://github.com/facebookresearch/DiT |
 | Venue Kind | paper |
 
-本文（下稱 DiT）處理一個具體且長期被忽略的架構問題：自 DDPM 以來，影像擴散模型幾乎一律沿用卷積式的 U-Net 作為去噪骨幹，而 Transformer 雖已橫掃語言與視覺辨識，卻遲遲未進入擴散模型的主幹。作者（UC Berkeley 的 William Peebles 與 NYU 的 Saining Xie，工作於 Meta AI FAIR 期間完成）主張 U-Net 的歸納偏好（inductive bias）並非擴散模型效能的關鍵，並以純 Transformer 骨幹在 class-conditional ImageNet 256×256 上取得 2.27 的 state-of-the-art FID。本文以 ICCV 2023 oral 發表，官方程式碼與模型權重由 Meta（facebookresearch/DiT）釋出。
+This paper (hereafter DiT) tackles a concrete and long-overlooked architectural question: ever since DDPM, image diffusion models have almost universally used a convolutional U-Net as the denoising backbone, while the Transformer — despite having swept through language and visual recognition — has been slow to enter the backbone of diffusion models. The authors (William Peebles of UC Berkeley and Saining Xie of NYU, with the work completed during their time at Meta AI FAIR) argue that the inductive bias of the U-Net is not the key to diffusion-model performance, and with a pure Transformer backbone achieve a state-of-the-art FID of 2.27 on class-conditional ImageNet 256×256. The paper was published as an ICCV 2023 oral, and the official code and model weights are released by Meta (facebookresearch/DiT).
 
 ## First Principles
 
-### 從 U-Net 到 Transformer：問題設定與潛空間策略
+### From U-Net to Transformer: Problem Setup and the Latent-Space Strategy
 
-DiT 的核心主張很直接：把擴散模型常用的 U-Net 骨幹換成一個直接在潛空間 patch 上運作的 Transformer。作者刻意盡量忠於標準 Transformer / ViT 設計，以便繼承其可擴展性（scaling）性質，並把「網路複雜度 vs 樣本品質」當作研究主軸——複雜度以理論 Gflops 量測，品質以 FID 量測。
+DiT's core claim is very direct: replacing the commonly-used U-Net backbone with a Transformer that operates directly on latent-space patches. The authors deliberately stay as faithful as possible to the standard Transformer / ViT design in order to inherit its scaling properties, and take "network complexity vs. sample quality" as the research axis — complexity measured in theoretical Gflops, quality measured in FID.
 
-為了讓運算可負擔，DiT 建立在 Latent Diffusion Models（LDM）框架上：先用一個凍結的 VAE 編碼器 $E$ 把影像壓成較小的空間表徵 $z = E(x)$，擴散過程在 $z$ 上進行，取樣完再用解碼器 $x = D(z)$ 還原。本文所用的 VAE 直接取自 Stable Diffusion，其編碼器有 8 倍下採樣（a downsample factor of 8）：一張 $256\times256\times3$ 的影像會被壓成 $32\times32\times4$ 的潛表徵。這一步把像素空間的高解析度負擔轉嫁給輕量的 VAE，讓 Transformer 只需處理 $32\times32$ 這種小網格。
+To make computation affordable, DiT builds on the Latent Diffusion Models (LDM) framework: a frozen VAE encoder $E$ first compresses the image into a smaller spatial representation $z = E(x)$, the diffusion process runs on $z$, and after sampling the decoder $x = D(z)$ reconstructs the image. The VAE used here is taken directly from Stable Diffusion. The VAE encoder has a downsample factor of 8: a $256\times256\times3$ image is compressed into a $32\times32\times4$ latent. This step shifts the high-resolution burden of pixel space onto the lightweight VAE, so the Transformer only has to handle a small $32\times32$ grid.
 
-擴散本身沿用 DDPM 的標準公式。前向加噪過程對真實資料 $x_0$ 逐步加入高斯噪聲：
+Diffusion itself follows the standard DDPM formulation. The forward noising process gradually adds Gaussian noise to real data $x_0$:
 
 $$
 q(x_t|x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1 - \bar{\alpha}_t)\mathbf{I})
 $$
 
-網路 $\epsilon_\theta$ 被訓練來預測所加的噪聲，主損失是預測噪聲與真實噪聲之間的均方誤差：
+The network $\epsilon_\theta$ is trained to predict the added noise, and the main loss is the mean squared error between the predicted noise and the true noise:
 
 $$
 \mathcal{L}_{simple}(\theta) = ||\epsilon_\theta(x_t) - \epsilon_t||_2^2
 $$
 
-DiT 同時沿用 Nichol & Dhariwal 的做法，額外以完整的變分下界訓練可學習的協方差 $\Sigma_\theta$。條件生成則靠 classifier-free guidance：訓練時隨機把類別 $c$ 換成一個學到的 null 嵌入 $\emptyset$，取樣時把輸出往「有條件」方向外推
+DiT also follows Nichol & Dhariwal in additionally training a learnable covariance $\Sigma_\theta$ with the full variational lower bound. Conditional generation relies on classifier-free guidance: during training the class $c$ is randomly replaced with a learned null embedding $\emptyset$, and at sampling time the output is extrapolated in the "conditional" direction
 
 $$
 \hat{\epsilon}_\theta(x_t, c) = \epsilon_\theta(x_t,\emptyset) + s \cdot (\epsilon_\theta(x_t, c) - \epsilon_\theta(x_t, \emptyset))
 $$
 
-其中 $s>1$ 為 guidance 尺度，$s=1$ 即回到一般取樣。這條公式在後面的 SOTA 數字裡是關鍵——沒有 guidance 時 DiT-XL/2 的 FID 只有 9.62，加上 $s=1.5$ 的 guidance 後才降到 2.27。
+where $s>1$ is the guidance scale, and $s=1$ recovers ordinary sampling. This formula is key to the SOTA numbers later on — without guidance the FID of DiT-XL/2 is only 9.62, and only after adding $s=1.5$ guidance does it drop to 2.27.
 
-### Patchify：把潛表徵切成 token 序列
+### Patchify: Cutting the Latent into a Token Sequence
 
-![DiT 的輸入規格：patchify](imgs/patchify.png)
+![DiT's input specification: patchify](imgs/patchify.png)
 
-DiT 的第一層是 patchify：把形狀 $I\times I \times C$ 的潛表徵，用 $p\times p$ 的 patch 線性嵌入成一段長度為 $T = (I/p)^2$、每個 token 維度為 $d$ 的序列，再加上標準 ViT 的 sine-cosine 頻率位置編碼。patch 大小 $p$ 是決定序列長度的關鍵超參數：把 $p$ 減半會讓 $T$ 變成四倍，因此至少讓 Transformer 的總 Gflops 變成四倍；但 $p$ 幾乎不影響參數量。作者把 $p \in \{2,4,8\}$ 納入設計空間，這正是「同樣參數量、不同運算量」得以被獨立研究的機制。
+DiT's first layer is patchify: it linearly embeds a latent of shape $I\times I \times C$ using $p\times p$ patches into a sequence of length $T = (I/p)^2$ with per-token dimension $d$, then adds the standard ViT sine-cosine frequency positional encoding. The patch size $p$ is the key hyperparameter determining sequence length: halving $p$ quadruples $T$, and thus at least quadruples the Transformer's total Gflops; but $p$ has almost no effect on the parameter count. The authors include $p \in \{2,4,8\}$ in the design space, which is precisely the mechanism that lets "same parameter count, different compute" be studied independently.
 
-### 四種條件注入方式：為何 adaLN-Zero 勝出
+### Four Ways to Inject the Condition: Why adaLN-Zero Wins
 
-![DiT 區塊設計與條件注入](imgs/architecture.png)
+![DiT block design and conditioning injection](imgs/architecture.png)
 
-擴散模型需要把噪聲時間步 $t$ 與類別 $c$ 注入骨幹。作者比較了四種 Transformer 區塊：（1）in-context——把 $t$、$c$ 當成兩個額外 token 接在序列後；（2）cross-attention——在自注意力後多加一層對 $t$、$c$ 的交叉注意力，約增加 15% Gflops；（3）adaptive layer norm（adaLN）——不直接學縮放與平移，而是從 $t$、$c$ 的嵌入和回歸出 layer norm 的 $\gamma$、$\beta$；（4）adaLN-Zero——在 adaLN 之上，再回歸一組作用於殘差連接前的縮放參數 $\alpha$，並把該 MLP 初始化為輸出零向量，使整個 DiT 區塊初始為恆等函數（identity function）。
+Diffusion models need to inject the noise timestep $t$ and the class $c$ into the backbone. The authors compare four Transformer blocks: (1) in-context — append $t$ and $c$ as two extra tokens to the sequence; (2) cross-attention — add a layer of cross-attention over $t$ and $c$ after the self-attention, adding about 15% Gflops; (3) adaptive layer norm (adaLN) — instead of learning the scale and shift directly, regress the layer-norm $\gamma$ and $\beta$ from the embedding sum of $t$ and $c$; (4) adaLN-Zero — on top of adaLN, additionally regress a set of scaling parameters $\alpha$ applied before the residual connection, and initialize that MLP to output the zero vector, so this initializes the full DiT block as the identity function.
 
-![四種條件策略的 FID 比較](imgs/conditioning.png)
+![FID comparison of the four conditioning strategies](imgs/conditioning.png)
 
-實驗結果很明確：adaLN-Zero 在所有訓練階段都優於 cross-attention 與 in-context，且是最省算力的一種（在 XL/2 上 adaLN-Zero 只要 118.6 Gflops，cross-attention 卻要 137.6 Gflops）。在 400K 訓練步時，adaLN-Zero 的 FID 幾乎是 in-context 的一半，而恆等初始化本身也很重要——adaLN-Zero 明顯勝過未做零初始化的 vanilla adaLN。因此全文其餘部分一律採用 adaLN-Zero。這是本文少數真正的架構性發現：條件注入方式的選擇，對最終品質的影響大到足以左右結論。
+The experimental result is clear: The adaLN-Zero block yields lower FID than both cross-attention and in-context at every stage of training, and it is also the most compute-efficient (on XL/2, adaLN-Zero takes only 118.6 Gflops, while cross-attention takes 137.6 Gflops). At 400K training steps, adaLN-Zero's FID is nearly half that of in-context, and the identity initialization itself matters too — adaLN-Zero clearly beats a vanilla adaLN without zero initialization. The rest of the paper therefore uses adaLN-Zero throughout. This is one of the paper's few truly architectural findings: the choice of how to inject the condition affects final quality enough to sway the conclusion.
 
-### 模型尺寸與解碼頭
+### Model Sizes and the Decoding Head
 
-作者沿用 ViT 的配置慣例，聯合縮放層數 $N$、隱藏維度 $d$ 與注意力頭數，定義四個規模：
+The authors follow ViT's configuration convention, jointly scaling the number of layers $N$, the hidden dimension $d$, and the number of attention heads, defining four scales:
 
 | Model | Layers $N$ | Hidden size $d$ | Heads | Gflops ($I$=32, $p$=4) |
 |-|-|-|-|-|
@@ -68,11 +69,11 @@ DiT 的第一層是 patchify：把形狀 $I\times I \times C$ 的潛表徵，用
 | DiT-L | 24 | 1024 | 16 | 19.7 |
 | DiT-XL | 28 | 1152 | 16 | 29.1 |
 
-四個配置涵蓋 0.3 到 118.6 Gflops 的範圍。經過最後一個 DiT 區塊後，解碼頭是一個標準線性層：先做（adaLN 版的）最後 layer norm，再把每個 token 線性解碼成 $p \times p \times 2C$ 的張量——一半通道是預測噪聲、一半是預測對角協方差，最後重排回原始空間佈局。
+The four configurations span a range from 0.3 to 118.6 Gflops. After the last DiT block, the decoding head is a standard linear layer: it first applies a (adaLN-version) final layer norm, then linearly decodes each token into a $p \times p \times 2C$ tensor — half the channels are the predicted noise and half are the predicted diagonal covariance — and finally rearranges back to the original spatial layout.
 
-### 一次具體的前向傳遞（DiT-XL/2，256×256）
+### One Concrete Forward Pass (DiT-XL/2, 256×256)
 
-以下用論文的真實數字走一遍最強模型的前向路徑：
+The following walks through the forward path of the strongest model using the paper's real numbers:
 
 ```text
 輸入影像            256 × 256 × 3
@@ -90,21 +91,21 @@ token 序列          T = (32/2)^2 = 256 個 token，每個維度 d=1152
 結果                FID-50K = 2.27（ImageNet 256×256，SOTA）
 ```
 
-同一個 XL/2 架構搬到 512×512 時，輸入潛表徵變成 $64\times64\times4$，patch 大小仍為 2，於是序列長度變成 1024 個 token、單次前向 524.6 Gflops；即便如此，它仍遠比像素空間的 U-Net 省算力（ADM 用 1983 Gflops、ADM-U 用 2813 Gflops）。
+When the same XL/2 architecture is moved to 512×512, the input latent becomes $64\times64\times4$, the patch size is still 2, so the sequence length becomes 1024 tokens and a single forward pass is 524.6 Gflops; even so, it is still far more compute-efficient than a pixel-space U-Net (ADM uses 1983 Gflops, ADM-U uses 2813 Gflops).
 
-### 可擴展性：Gflops 才是關鍵，而非參數量
+### Scalability: Gflops, Not Parameter Count, Is the Key
 
-![左：不同 Gflops 的 FID；右：DiT-XL/2 對比先前 U-Net 模型](imgs/bubbles.png)
+![Left: FID at different Gflops; Right: DiT-XL/2 vs. previous U-Net models](imgs/bubbles.png)
 
-本文最重要的實證結論是：DiT 的樣本品質由 Gflops 決定，而非參數量。作者掃過 4 個規模 × 3 個 patch 大小共 12 個模型，發現「加深加寬」與「縮小 patch（增加 token 數）」都能穩定降低 FID。特別是固定模型規模、只縮小 patch 時，總參數量幾乎不變（甚至略減），單純是 Gflops 上升，FID 卻顯著下降——這說明參數量無法唯一決定品質。
+The most important empirical conclusion of this paper is: DiT's sample quality is determined by Gflops, not by parameter count. The authors sweep 4 scales × 3 patch sizes, 12 models in total, and find that both "going deeper and wider" and "shrinking the patch (increasing the token count)" steadily lower FID. In particular, when the model scale is fixed and only the patch is shrunk, the total parameter count barely changes (it even decreases slightly); it is purely Gflops that rise, yet FID drops significantly — showing that parameter count cannot uniquely determine quality.
 
-![Transformer Gflops 與 FID-50K 高度相關](imgs/gflops_fid.png)
+![Transformer Gflops are strongly correlated with FID-50K](imgs/gflops_fid.png)
 
-把 12 個模型在 400K 步的 FID-50K 對 Gflops 作圖，可見很強的負相關：Gflops 相近的不同配置（例如 DiT-S/2 與 DiT-B/4）得到相近的 FID。作者據此主張「增加模型算力」是改善 DiT 的關鍵因素。他們也另外指出，增加「取樣時」算力（更多取樣步數）無法補償「模型算力」的不足——小模型即使取樣步數遠多於大模型，FID 仍追不上。
+Plotting the 400K-step FID-50K of the 12 models against Gflops shows a strong negative correlation: different configurations with similar Gflops (e.g. DiT-S/2 and DiT-B/4) get similar FID. From this the authors argue that "increasing model compute" is the key factor for improving DiT. They also note separately that increasing "sampling-time" compute (more sampling steps) cannot compensate for insufficient "model compute" — a small model, even with far more sampling steps than a large one, still cannot catch up in FID.
 
-![固定 patch 或固定規模時，放大 DiT 都改善 FID](imgs/scaling.png)
+![Whether fixing the patch or fixing the scale, scaling up DiT improves FID](imgs/scaling.png)
 
-在最終的 SOTA 比較上，DiT-XL/2 持續訓練到 7M 步後，加上 $s=1.5$ 的 classifier-free guidance，把先前由 LDM 保持的 3.60 FID 紀錄推進到 2.27，並在 Inception Score、Recall 等次要指標上也表現優異；在 512×512 上也把 ADM 的 3.85 改善到 3.04。下表為 256×256 的主要對照：
+In the final SOTA comparison, after DiT-XL/2 is trained all the way to 7M steps and combined with $s=1.5$ classifier-free guidance, it pushes the 3.60 FID record previously held by LDM forward to 2.27, and also performs excellently on secondary metrics such as Inception Score and Recall; on 512×512 it also improves ADM's 3.85 to 3.04. The table below is the main comparison at 256×256:
 
 | Model | FID↓ | IS↑ | Precision↑ | Recall↑ |
 |-|-|-|-|-|
@@ -115,21 +116,21 @@ token 序列          T = (32/2)^2 = 256 個 token，每個維度 d=1152
 
 ## 🧪 Critical Assessment
 
-### 問題是否真實、是否重要
+### Is the Problem Real and Important
 
-「U-Net 是否為擴散模型的必要條件」是一個貨真價實、可證偽的科學問題，而非人為包裝的假議題。在本文之前，整個社群預設 U-Net 不可或缺，DiT 用嚴謹的對照實驗把這個預設打破，並提供一組乾淨的縮放基線，對後續研究（Stable Diffusion 3、Sora、PixArt 等皆採用 DiT 系骨幹）確有實質影響。這一點上，本文的重要性經得起時間檢驗。
+"Whether the U-Net is a necessary condition for diffusion models" is a genuine, falsifiable scientific question, not an artificially packaged pseudo-issue. Before this paper, the whole community assumed the U-Net was indispensable; DiT breaks this assumption with rigorous controlled experiments and provides a clean set of scaling baselines, which has had a real impact on subsequent research (Stable Diffusion 3, Sora, PixArt, etc. all adopt DiT-style backbones). On this point, the paper's importance stands the test of time.
 
-### 基線、消融與量測是否充分
+### Are the Baselines, Ablations, and Measurements Sufficient
 
-實驗設計相當扎實：條件注入的四選一消融、12 個模型的規模 × patch 雙軸掃描、以及「模型算力 vs 取樣算力」的交叉比較，都直接支撐其主張；並刻意使用 ADM 的官方 TensorFlow FID 評測套件以確保可比性。但仍有值得保留之處。其一，FID 對實作細節極度敏感，而 DiT 是 JAX/TPU 實作、比較對象多為 PyTorch/GPU 實作，跨框架的絕對數字比較天然帶有噪聲；作者雖統一評測套件，仍無法完全消除此類差異。其二，adaLN-Zero 雖被宣稱「最佳」，但四種區塊的參數量並不相同（in-context 449M、cross-attention 598M、adaLN 600M、adaLN-Zero 675M），因此「adaLN-Zero 較好」與「adaLN-Zero 剛好參數也較多」在此消融中並未被完全解耦，這與本文主軸「參數量不重要、Gflops 才重要」之間存在一絲張力。
+The experimental design is quite solid: the four-way ablation of conditioning injection, the scale × patch two-axis sweep of 12 models, and the cross-comparison of "model compute vs. sampling compute" all directly support its claims; and it deliberately uses ADM's official TensorFlow FID evaluation suite to ensure comparability. But there are still points worth reserving. First, FID is extremely sensitive to implementation details, and DiT is a JAX/TPU implementation while its comparison targets are mostly PyTorch/GPU implementations, so cross-framework absolute-number comparisons inherently carry noise; although the authors unify the evaluation suite, they still cannot fully eliminate such differences. Second, although adaLN-Zero is claimed to be "best", the four blocks do not have the same parameter count (in-context 449M, cross-attention 598M, adaLN 600M, adaLN-Zero 675M), so "adaLN-Zero is better" and "adaLN-Zero just happens to also have more parameters" are not fully disentangled in this ablation, which sits in some tension with the paper's main thesis that "parameter count doesn't matter, Gflops do".
 
-### 這是新方法還是既有元件的重組
+### Is This a New Method or a Recombination of Existing Components
 
-平心而論，DiT 幾乎不含全新的數學元件：ViT 的 patchify、DDPM 的訓練目標、LDM 的潛空間、FiLM/adaLN 的條件注入、classifier-free guidance——全都是既有技術。本文的貢獻在於「證明這個組合可行且可擴展」，而非發明新機制。這是一種價值明確但屬於系統性、實證性的貢獻。需要留意的是，其「可擴展性」結論是在自己定義的 Gflops 座標軸與 ImageNet class-conditional 這個特定基準上成立的；把複雜度定義為 Gflops，本身就對「參數效率高、但 Gflops 高」的 Transformer 較有利，論證帶有一定程度的自我選定框架色彩。
+To be fair, DiT contains almost no brand-new mathematical component: ViT's patchify, DDPM's training objective, LDM's latent space, FiLM/adaLN conditioning injection, classifier-free guidance — all are existing techniques. The paper's contribution lies in "proving that this combination is feasible and scalable", not in inventing a new mechanism. This is a contribution of clear value but of a systematic, empirical kind. It should be noted that its "scalability" conclusion holds on its own defined Gflops axis and on the specific benchmark of class-conditional ImageNet; defining complexity as Gflops itself favors Transformers, which are parameter-efficient but Gflops-heavy, so the argument carries a certain degree of self-selected framing.
 
-### 宣稱的問題是否真的被解決、是否有現實意義
+### Is the Claimed Problem Really Solved, and Does It Have Real-World Significance
 
-作者宣稱的「U-Net 並非必要」在其實驗範圍內確實被證立，且後續產業採用也提供了強力的外部驗證。但也應誠實指出本文未涵蓋的部分：全部結論僅來自 class-conditional ImageNet 的兩個解析度，並未觸及文生圖（text-to-image）這個擴散模型最主要的現實應用；作者自己也只把 text-to-image 列為 future work。此外，DiT-XL/2 在 TPU v3-256 上以約 5.7 iterations/second 訓練並跑到 7M 步，其可擴展性是以可觀的算力為代價換來的——「大模型更省算力」是在達到同一 FID 的相對意義下成立，並不意味絕對成本低廉。因此更精確的結論是：在有足夠算力的前提下，Transformer 是比 U-Net 更值得投資的擴散骨幹，而非「擴散模型變便宜了」。
+The authors' claim that "the U-Net is not necessary" is indeed established within their experimental scope, and subsequent industry adoption provides strong external validation. But one should also honestly point out what the paper does not cover: all conclusions come only from two resolutions of class-conditional ImageNet, and do not touch text-to-image, the most important real-world application of diffusion models; the authors themselves list text-to-image only as future work. Moreover, DiT-XL/2 trains at roughly 5.7 iterations/second on a TPU v3-256 and runs to 7M steps, so its scalability is bought at the cost of considerable compute — "a larger model is more compute-efficient" holds in the relative sense of reaching the same FID, and does not mean the absolute cost is cheap. A more precise conclusion is therefore: given sufficient compute, the Transformer is a more worthwhile diffusion backbone to invest in than the U-Net, rather than "diffusion models have become cheap".
 
 ## 🔗 Related notes
 
