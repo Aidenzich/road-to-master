@@ -1,0 +1,459 @@
+{
+  "note_path": "domains/computer_vision/ImageGenerators-Generalist-Vision/README.md",
+  "domain": "computer_vision",
+  "topic": "ImageGenerators-Generalist-Vision",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-05T10:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Image Generators are Generalist Vision Learners",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Image Generators are Generalist Vision Learners"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv preprint",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "2604.20329"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "2604.20329"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Valentin Gabeur, Shangbang Long, Songyou Peng, Paul Voigtlaender",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Valentin Gabeur"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "tech-report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "leadership sponsors"
+    },
+    {
+      "claim_id": "fig-colorcube",
+      "claim_text": "The depth-to-RGB false-color mapping is a bijection between metric distances and RGB, built by curving depth then interpolating along the color cube edges.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_color_cube.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "our bijection between scalar metric distances"
+    },
+    {
+      "claim_id": "fig-kinkakuji-in",
+      "claim_text": "Input smartphone photo taken at Kinkaku-Ji for the in-the-wild depth test.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_kinkakuji_in.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Photo taken at Kinkaku-Ji"
+    },
+    {
+      "claim_id": "fig-kinkakuji-pred",
+      "claim_text": "Vision Banana depth output at Kinkaku-Ji; marked point decodes to 13.71 meters.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_kinkakuji_pred.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "is decoded to be $13.71$ meters"
+    },
+    {
+      "claim_id": "fig-normal-lotus",
+      "claim_text": "Lotus-2 surface normal output from its Hugging-Face demo, used as the comparison baseline.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/normal_lotus2.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Results of Lotus-2 are obtained using its Hugging-Face demo"
+    },
+    {
+      "claim_id": "fig-normal-vb",
+      "claim_text": "Vision Banana surface normal output with higher fidelity and finer detail.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/normal_visionbanana.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Vision Banana consistently produces surface normal maps with significantly higher fidelity and finer granular details"
+    },
+    {
+      "claim_id": "body-p1",
+      "claim_text": "Nano Banana Pro",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "built by instruction-tuning \\textit{Nano Banana Pro} (NBP)"
+    },
+    {
+      "claim_id": "body-p2",
+      "claim_text": "By parameterizing the output space of vision tasks as RGB images",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "By parameterizing the output space of vision tasks as RGB images"
+    },
+    {
+      "claim_id": "body-p3",
+      "claim_text": "Mixing the vision data at a low ratio serves as a lightweight instruction-tuning strategy",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Mixing the vision data at a low ratio serves as a lightweight instruction-tuning strategy"
+    },
+    {
+      "claim_id": "body-p4",
+      "claim_text": "power transform",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "power transform of \\citet{barron2025power}"
+    },
+    {
+      "claim_id": "body-e1",
+      "claim_text": "f(d, \\lambda, c)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "f(d, \\power, c) = 1 -"
+    },
+    {
+      "claim_id": "body-p5",
+      "claim_text": "we use zero real-world depth data",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "we use zero real-world depth data"
+    },
+    {
+      "claim_id": "body-p6",
+      "claim_text": "13.71",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "is decoded to be $13.71$ meters"
+    },
+    {
+      "claim_id": "body-p-map",
+      "claim_text": "12.87",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "which turns out to be 12.87 meters"
+    },
+    {
+      "claim_id": "body-p7",
+      "claim_text": "surface normal",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "the visualization of surface normals is intrinsically aligned with the RGB color space"
+    },
+    {
+      "claim_id": "body-e2",
+      "claim_text": "R=\\mathrm{trunc}((1-x)/2)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "$R=trunc( (1-x)/2, min=0, max=1)\\times 255$"
+    },
+    {
+      "claim_id": "body-p8",
+      "claim_text": "Gemini 3.1 Flash-Lite",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "The SA-Co/Gold benchmark consists of 168k Image-NP pairs, where a large majority are negative queries"
+    },
+    {
+      "claim_id": "body-decoder",
+      "claim_text": "這套後處理有五個階段",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "we design a multi-stage connected component grouping algorithm"
+    },
+    {
+      "claim_id": "body-t1",
+      "claim_text": "0.882",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "average $\\delta_1$ accuracy of 0.882"
+    },
+    {
+      "claim_id": "body-t1-refcocog",
+      "claim_text": "73.8 vs 73.4 (SAM3 Agent)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "RefCOCOg UMD val (cIoU $\\uparrow$) & \\textbf{\\color{win_green}73.8} & 73.4 (\\textit{SAM3 Agent})"
+    },
+    {
+      "claim_id": "body-t1-reasonseg",
+      "claim_text": "79.3 vs 77.0 (SAM3 Agent)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "ReasonSeg val (gIoU $\\uparrow$) & \\textbf{\\color{win_green} 79.3} & 77.0 (\\textit{SAM3 Agent})"
+    },
+    {
+      "claim_id": "body-t1-owlv2",
+      "claim_text": "SA-Co/Gold 47.5 vs 24.6 (OWLv2)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "SA-Co/Gold ($cgF_1$ $\\uparrow$) & \\textbf{\\color{win_green} 47.5} & 24.6 (\\textit{OWLv2})"
+    },
+    {
+      "claim_id": "body-t1-segman",
+      "claim_text": "Cityscapes SegMan-L 84.2 (non-zero-shot expert)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "SegMan-L~\\citep{fu2025segman} & \\color{gray}84.2"
+    },
+    {
+      "claim_id": "body-t1-unik3d",
+      "claim_text": "6-dataset average delta1: UniK3D 0.823 vs Vision Banana 0.882",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "\\textit{partial}* & \\textit{partial}* & 0.715 & 0.823 & 0.802 & \\textbf{\\color{win_green}0.882}"
+    },
+    {
+      "claim_id": "body-t1-normal-avg",
+      "claim_text": "Surface normal 4-dataset avg 18.928 vs 19.642 (Lotus-2)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Surface normal estimation: average of 4 datasets (mean angle error $\\downarrow$) & \\textbf{\\color{win_green} 18.928} & 19.642 (\\textit{Lotus-2})"
+    },
+    {
+      "claim_id": "body-t1-gen-t2i",
+      "claim_text": "GenAI-Bench win rate 53.5% vs 46.5% (Nano Banana Pro)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "GenAI-Bench (win rate against the other $\\uparrow$) & \\textbf{\\color{win_green} 53.5\\%} & $46.5\\%$ (\\textit{Nano Banana Pro})"
+    },
+    {
+      "claim_id": "body-t1-gen-edit",
+      "claim_text": "ImgEdit editing win rate 47.8% vs 52.2% (Nano Banana Pro)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "Image editing: ImgEdit (win rate against the other $\\uparrow$) & $47.8\\%$ & \\textbf{\\color{win_green} 52.2\\%} (\\textit{Nano Banana Pro})"
+    },
+    {
+      "claim_id": "body-p9",
+      "claim_text": "outperforms SAM 3 by",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "outperforms SAM 3 by $4.7$ points in mIoU"
+    },
+    {
+      "claim_id": "body-p10",
+      "claim_text": "在沙粒與殼面紋理上呈現明顯更高頻的細節",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-normal-indoor",
+      "claim_text": "Surface normal 室內平均 mean error：Vision Banana 15.549 領先 Lotus-2 的 16.558",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "15.549"
+    },
+    {
+      "claim_id": "body-normal-outdoor",
+      "claim_text": "戶外 VKitti mean error：Vision Banana 29.063 略差於 Lotus-2 的 28.894",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "29.063"
+    },
+    {
+      "claim_id": "body-refseg-mechanism",
+      "claim_text": "在圖中做 OCR 定位",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-refseg-caveat",
+      "claim_text": "論文沒有給出量化的 OCR-分割成功率",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-kinkakuji-map",
+      "claim_text": "Google Maps 量測金閣寺拍攝點到目標水平距離為 12.87 公尺，作為野外深度測試的實測基準。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/depth_kinkakuji_map.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "measures the actual distance using Google Map, which turns out to be 12.87 meters"
+    },
+    {
+      "claim_id": "fig-refseg-in",
+      "claim_text": "指代分割輸入為中英雙語菜單照片，用以測試多語言文字內容的理解。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/refseg5_in.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "text on the menu in Chinese and English"
+    },
+    {
+      "claim_id": "fig-refseg-out",
+      "claim_text": "指代分割輸出：Vision Banana 依提示只把中英文廚師名字塗成青色、背景全黑。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/refseg5_out.jpg",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "The chef's names in both Chinese and English are rendered as cyan color"
+    },
+    {
+      "claim_id": "crit-p1",
+      "claim_text": "這個因果歸屬是全篇最弱的一環",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-p2",
+      "claim_text": "zero-shot",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-p3-a",
+      "claim_text": "0.929 vs 0.918",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "on which it was evaluated ($0.929$ v.s. $0.918$)"
+    },
+    {
+      "claim_id": "crit-p3-b",
+      "claim_text": "nuScenes",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "0.840 & 0.820 & 0.643"
+    },
+    {
+      "claim_id": "crit-p3-c",
+      "claim_text": "把外掛 LLM 的貢獻算進",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "utilize Gemini 2.5 Pro to translate the reasoning query"
+    },
+    {
+      "claim_id": "crit-p4-a",
+      "claim_text": "still lags behind the SAM 3 specialist",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "still lags behind the SAM 3 specialist"
+    },
+    {
+      "claim_id": "crit-saco-detail",
+      "claim_text": "SA-Co/Gold 三指標：Vision Banana+Gemini 47.5/0.84/56.0，非 zero-shot 的 SAM 3 為 54.1/0.82/66.1，僅 IL_MCC 略勝",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "56.0"
+    },
+    {
+      "claim_id": "crit-p4-b",
+      "claim_text": "影像編輯的 47.8% 其實低於基準線",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "win rates of 53.5\\% and 47.8\\%"
+    },
+    {
+      "claim_id": "crit-p5-a",
+      "claim_text": "we are not the first to encode vision outputs as RGB",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "we are not the first to encode vision outputs as RGB"
+    },
+    {
+      "claim_id": "crit-p5-b",
+      "claim_text": "incurs a significantly higher computational overhead than running lightweight specialist models",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2604.20329",
+      "retrieved_at": "2026-07-05T09:25:23Z",
+      "quoted_snippet": "incurs a significantly higher computational overhead than running lightweight specialist models"
+    }
+  ]
+}

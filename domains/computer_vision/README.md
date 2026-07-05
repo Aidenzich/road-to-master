@@ -13,3 +13,4 @@
 | [CoDi: Conditional Diffusion Distillation for Higher-Fidelity and Faster Image Generation](https://arxiv.org/abs/2310.01407) | CVPR | '24 |  | [EN](./CoDi/) · [中文](./CoDi/README.zh-TW.md) |
 | [Segment Anything](https://arxiv.org/abs/2304.02643) | ICCV | '23 | [✓](https://github.com/facebookresearch/segment-anything) | [EN](./Segment_Anything/) · [中文](./Segment_Anything/README.zh-TW.md) |
 | Wan 2.2 Architecture Technical Note |  |  |  | [EN](./wan/) · [中文](./wan/README.zh-TW.md) |
+| [Image Generators are Generalist Vision Learners](https://arxiv.org/abs/2604.20329) | arXiv | '26 |  | [中文](./ImageGenerators-Generalist-Vision/) |
