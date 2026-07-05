@@ -1,4 +1,5 @@
 # Bigger is not Always Better: Scaling Properties of Latent Diffusion Models — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,21 +12,21 @@
 | Official Code | unknown |
 | Venue Kind | paper |
 
-> 說明：本文為 arXiv 2404.01367 之全文（TMLR 已接受版，LaTeX source 內 `\usepackage[accepted]{tmlr}`、`\def\year{2024}`、OpenReview `forum?id=0u7pWfjri5`）。作者群橫跨 Johns Hopkins、Texas A&M 與 Google，主體實驗於 Google 內部資料與 TPUv5 完成。
+> Note: this note covers the full text of arXiv 2404.01367 (the TMLR-accepted version — the LaTeX source carries `\usepackage[accepted]{tmlr}`, `\def\year{2024}`, and OpenReview `forum?id=0u7pWfjri5`). The authors span Johns Hopkins, Texas A&M, and Google, with the main experiments run on Google-internal data and TPUv5.
 
 ## First Principles
 
-### 這篇論文到底在問什麼
+### What is this paper actually asking
 
-擴散模型（diffusion model）的致命傷是**取樣效率（sampling efficiency）**：一張圖要跑很多步去噪才會清晰，總成本 = 取樣步數 × 每步成本。過去加速的兩條路線分別針對這兩個因子——設計更快的網路架構壓低「每步成本」、設計更好的取樣器（sampler）壓低「步數」。這篇論文指出第三個被忽略的變數：**模型大小本身**。它問的是一個很實務的問題：**在固定的推論預算（inference budget）下，我該用大模型還是小模型？**
+The Achilles' heel of the diffusion model is **sampling efficiency**: an image must be run through many denoising steps before it becomes sharp, so the total cost of sampling is the product of sampling steps and the cost of each step. The two past lines of acceleration targeted these two factors respectively — designing faster network architectures to drive down the "cost per step", and designing better samplers to drive down the "number of steps". This paper points to a third, overlooked variable: **model size itself**. The question it asks is a very practical one: **under a fixed inference budget, should I use a large model or a small one?**
 
-作者的答案顛覆直覺，也就是標題「Bigger is not Always Better」：在受限的取樣預算下，較小的模型反而常常贏過較大的模型。
+The authors' answer is counterintuitive, and it is exactly the title "Bigger is not Always Better": under a constrained sampling budget, smaller models frequently outperform their larger equivalents.
 
-### 實驗設定：把 Stable Diffusion 當標尺往下縮
+### Experimental setup: scaling Stable Diffusion downward as a yardstick
 
-論文以 `866M` 的 Stable Diffusion v1.5 為基準，只改動去噪 U-Net residual block 的基礎通道數 $c$，並讓整體維持 $[c, 2c, 4c, 4c]$ 的比例，其餘架構元件不動，藉此得到一個從 `39M` 到 `5B` 共 12 個模型的家族。所有模型都在約 6 億張經美學過濾（aesthetically-filtered）的內部 text-to-image 資料（WebLI）上，以 batch size 2048、learning rate 1e-4、訓練 500K steps 從頭訓練。這種「只縮通道、其他不變」的設計，讓不同大小之間的比較是乾淨的受控變因（controlled scaling）。
+The paper takes the `866M` Stable Diffusion v1.5 as its baseline, changing only the base channel count $c$ of the denoising U-Net residual blocks while keeping the overall $[c, 2c, 4c, 4c]$ ratio and leaving every other architectural component untouched, thereby obtaining a family of 12 models spanning `39M` to `5B`. All models are trained from scratch on roughly 600M aesthetically-filtered internal text-to-image data (WebLI), with batch size 2048, learning rate 1e-4, for 500K steps. This "scale the channels only, keep everything else fixed" design makes the comparison across sizes a clean controlled scaling.
 
-Table 1 是全篇的骨幹，它同時給出架構規格與 50 步 DDIM（CFG=7.5）下於 COCO-2014 驗證集（30k 樣本）量測的 pretraining 品質：
+Table 1 is the backbone of the whole paper: it gives both the architecture specifications and the pretraining quality measured on the COCO-2014 validation set with 30k samples under 50-step DDIM (CFG=7.5):
 
 | Params | 39M | 83M | 145M | 223M | 318M | 430M | 558M | 704M | 866M | 2B | 5B |
 |-|-|-|-|-|-|-|-|-|-|-|-|
@@ -35,59 +36,58 @@ Table 1 是全篇的骨幹，它同時給出架構規格與 50 步 DDIM（CFG=7.
 | FID ↓ | 25.30 | 24.30 | 24.18 | 23.76 | 22.83 | 22.35 | 22.15 | 21.82 | 21.55 | 20.98 | 20.14 |
 | CLIP ↑ | 0.305 | 0.308 | 0.310 | 0.310 | 0.311 | 0.312 | 0.312 | 0.312 | 0.312 | 0.312 | 0.314 |
 
-有一個容易誤會的地方值得先釐清：這裡的 GFLOPS、成本與參數量**只計算 latent 空間裡的去噪 U-Net**，不含 `1.4B` 的 text encoder 與 `250M` 的 latent encoder/decoder。所以「39M 模型」指的是去噪網路 39M，實際部署時仍背著固定的 encoder/decoder 開銷——這點在解讀「小模型多省」時要放在心上。
+There is one easily-misread point worth clearing up first: the GFLOPS, cost, and parameter counts here count **only the denoising U-Net in latent space**, and exclude the `1.4B` text encoder and the `250M` latent encoder/decoder. So the "39M model" refers to a 39M denoising network; at actual deployment it still carries a fixed encoder/decoder overhead — this must be kept in mind when interpreting "how much a small model saves".
 
-從 Table 1 單看 pretraining，結論其實是「越大越好」：50 步滿預算下 FID 從 39M 的 25.30 單調下降到 5B 的 20.14（39M 是唯一的例外離群點），而 CLIP 早在 ~0.312 就飽和。下面三張 50 步 DDIM 的 text-to-image 結果也印證越大細節越好：
+Reading Table 1 for pretraining alone, the conclusion is in fact "bigger is better": at the full 50-step budget, FID drops monotonically from 25.30 at 39M to 20.14 at 5B (39M being the only outlier exception), while CLIP saturates early at ~0.312. The three 50-step DDIM text-to-image results below likewise confirm that bigger means better detail:
 
 | 39M | 866M | 2B |
 |-|-|-|
-| ![39M 模型 50 步結果](imgs/t2i_39M.jpg) | ![866M 模型 50 步結果](imgs/t2i_866M.jpg) | ![2B 模型 50 步結果](imgs/t2i_2B.jpg) |
+| ![39M model 50-step result](imgs/t2i_39M.jpg) | ![866M model 50-step result](imgs/t2i_866M.jpg) | ![2B model 50-step result](imgs/t2i_2B.jpg) |
 
-那「小模型更好」是怎麼冒出來的？關鍵在於把 x 軸從「參數量」換成「**取樣成本（sampling cost）= normalized cost × sampling steps**」。
+So how does "the smaller model is better" emerge? The key lies in swapping the x-axis from "parameter count" to "**sampling cost (normalized cost $\times$ sampling steps)**".
 
-### 核心機制：固定預算下的取樣成本換算（worked example）
+### Core mechanism: converting sampling cost under a fixed budget (worked example)
 
-定義取樣成本 $\text{cost} = (\text{Norm. Cost}) \times (\text{steps})$。給定一個固定預算，每個模型能負擔的步數不同：小模型每步便宜，就能多跑幾步；大模型每步貴，同樣預算下只能跑很少步。
+Define the sampling cost $\text{cost} = (\text{Norm. Cost}) \times (\text{steps})$ — that is, the sampling cost (normalized cost $\times$ sampling steps). Given a fixed budget, each model can afford a different number of steps: a small model is cheap per step, so it can run several more steps; a large model is expensive per step, so under the same budget it can only run very few steps.
 
-以論文 Fig. 7（`analyze_inference_costs`）明確點名的**固定預算 cost = 3** 為例，用 Table 1 的 Norm. Cost 逐一換算各模型在此預算下可跑的步數：
+Taking the **fixed budget cost = 3** that the paper's Fig. 7 (`analyze_inference_costs`) explicitly names as an example, using the Norm. Cost from Table 1 to convert one by one the number of steps each model can run under this budget:
 
-- `866M`（Norm. Cost 1.00）：$3 / 1.00 = 3$ 步 —— 只有 3 步，去噪嚴重不足，影像糊。
-- `318M`（Norm. Cost 0.40）：$3 / 0.40 \approx 7$ 步。
-- `145M`（Norm. Cost 0.20）：$3 / 0.20 = 15$ 步。
-- `83M`（Norm. Cost 0.13）：$3 / 0.13 \approx 23$ 步 —— 步數充足，能把去噪軌跡跑到接近收斂。
+- `866M` (Norm. Cost 1.00): $3 / 1.00 = 3$ steps — only 3 steps, denoising is severely insufficient, the image is blurry.
+- `318M` (Norm. Cost 0.40): $3 / 0.40 \approx 7$ steps.
+- `145M` (Norm. Cost 0.20): $3 / 0.20 = 15$ steps.
+- `83M` (Norm. Cost 0.13): $3 / 0.13 \approx 23$ steps — the steps are ample, enough to run the denoising trajectory to near convergence.
 
-論文的觀察是：在 cost = 3 時，**`83M` 模型拿到所有模型中最好的 FID**。直覺上，取樣品質是「模型容量」與「去噪步數是否足夠」的乘積效應；在小預算區間，步數不足對大模型的傷害，遠大於容量不足對小模型的傷害，於是小模型勝出。反過來，當預算放寬（步數對大模型也夠用了），容量優勢才會浮現，大模型重新領先並在細節生成上超車。這就是標題所謂 bigger is not *always* better——是「在受限預算下」不是。
+The paper's observation is: at cost = 3, the `83M` model achieves the best FID among all models. Intuitively, sampling quality is the product effect of "model capacity" and "whether the denoising steps are sufficient"; in the small-budget regime, the harm of insufficient steps to a large model far outweighs the harm of insufficient capacity to a small model, so the small model wins. Conversely, when the budget is loosened (steps become sufficient for the large model too), the capacity advantage surfaces, and the large model regains the lead and overtakes on detail generation. This is what the title means by bigger is not *always* better — it is "under a constrained budget", not otherwise.
 
-論文進一步用一系列軸驗證這個 scaling sampling-efficiency 的穩健性：
+The paper further validates the robustness of this scaling sampling-efficiency along a series of axes:
+1. **Sampler-agnostic**: replacing DDIM with the stochastic DDPM or the higher-order DPM-Solver++, the trend that smaller models are more economical under the same sampling cost holds in every case (DPM-Solver++ is tested only at ≤20 steps because its design is unsuitable beyond 20 steps).
+2. **Holds for downstream tasks (at low step counts)**: on 4× real-world super-resolution, when steps ≤ 20 the small model is still more economical; but past 20 steps, the large model is instead more efficient.
+3. **Still holds after distillation**: using conditional consistency distillation to distill each model into a 4-step sampler, distillation brings roughly a $5\times$ consistent speedup to every model and improves FID across the board; but at a sampling cost ≈ 8, **the undistilled 83M small model can still match the distilled 866M large model** — showing that distillation does not overturn the scaling trend.
 
-1. **取樣器無關**：把 DDIM 換成隨機的 DDPM 或高階的 DPM-Solver++，小模型在同一取樣成本下更省的趨勢都成立（DPM-Solver++ 因設計不適合超過 20 步，只測 ≤20 步）。
-2. **下游任務（少步數時）成立**：在 4× 真實世界超解析度（real-world super-resolution）上，當步數 ≤ 20 時小模型仍較省；但步數 > 20 後，大模型反而更有效率。
-3. **蒸餾後仍成立**：以 conditional consistency distillation 把各模型蒸餾成 4 步取樣，蒸餾對每個模型都帶來約 $5\times$ 的一致加速並全面改善 FID；但在 sampling cost ≈ 8 時，**未蒸餾的 83M 小模型仍能追平已蒸餾的 866M 大模型**——顯示蒸餾並未推翻 scaling 趨勢。
-
-同時，有一條與效率結論方向相反、但同樣重要的發現：**下游品質由 pretraining 決定**。在超解析度上，FID 主要受模型大小驅動而非 finetuning 的訓練量，小模型即使多訓練也補不齊大模型 pretraining 帶來的品質差距（Fig. 4 顯示大 SR 模型即使短暫 finetune 也勝過小模型）。所以本文並非鼓吹「一律用小模型」，而是把選擇條件化在「你的推論預算落在哪一段」以及「你要的是低步數快取樣還是最終極致品質」。
+At the same time, there is a finding pointing in the opposite direction from the efficiency conclusion but equally important: **downstream quality is determined by pretraining**. On super-resolution, FID is driven mainly by model size rather than the amount of finetuning training; a small model, even with more training, cannot make up the quality gap that a large model's pretraining brings (Fig. 4 shows that a large SR model wins over a small one even with only a brief finetune). So this paper is not advocating "always use a small model", but conditions the choice on "which segment your inference budget falls in" and "whether you want low-step fast sampling or ultimate final quality".
 
 ## 🧪 Critical Assessment
 
-### 取樣延遲是真痛點，12 個受控模型的稀缺資料本身即是貢獻
+### Sampling latency is a real pain point, and the scarce data of 12 controlled models is itself a contribution
 
-取樣效率確實是擴散模型落地的真痛點，論文動機（行動裝置上 50 步 DDIM 延遲過高）站得住腳。而「模型大小 × 取樣預算」這個交互作用，過去的加速研究（改架構、改取樣器、蒸餾）確實較少正面處理，切入點是實在的。更難得的是，作者從頭訓練了 12 個 39M–5B 的模型，這種規模的受控實驗一般團隊做不起（需要 TPU 叢集、數週與數十萬美元成本），資料點的稀缺性本身就是貢獻。
+Sampling efficiency is indeed a real pain point for deploying diffusion models, and the paper's motivation (50-step DDIM latency being too high on mobile devices) stands up. And the interaction of "model size × sampling budget" has indeed been rarely addressed head-on by past acceleration research (changing architecture, changing sampler, distillation), so the entry point is genuine. More rare still, the authors trained 12 models from scratch spanning 39M–5B; controlled experiments of this scale are beyond most teams (requiring TPU clusters, weeks, and hundreds of thousands of dollars of cost), and the scarcity of the data points is itself a contribution.
 
-### FID 是唯一裁判，成本又只算 U-Net 而略過 1.4B text encoder 與 250M autoencoder
+### FID is the sole judge, and cost counts only the U-Net while omitting the 1.4B text encoder and 250M autoencoder
 
-受控 scaling（只改通道數）是乾淨的設計，取樣器（DDIM/DDPM/DPM-Solver++）與蒸餾兩條 robustness 軸也補得誠實。但有三個結構性弱點需要點名。其一，**指標幾乎全靠 FID**：作者自己在 limitations 承認因為變體超過 1000 種而放棄人評（human evaluation），並坦言 FID 與視覺品質可能背離。整篇「小模型更省」的結論本質上是「小模型在 FID 上更省」，而 FID 對取樣多樣性/模糊度的敏感方式，恰好可能系統性地偏袒步數足、較平滑的小模型輸出，這個潛在偏差沒有被獨立指標交叉檢驗。其二，**成本定義只算去噪 U-Net**，把固定的 1.4B text encoder 與 250M autoencoder 開銷排除在 normalized cost 之外；在真實端到端延遲裡，這塊固定開銷會稀釋小模型「便宜」的相對優勢，論文的 cost 軸因此對小模型偏樂觀。其三，資料與模型皆為 Google 內部、未釋出程式碼，外部無法重現這 12 個模型或驗證 Table 1 的數字。
+Controlled scaling (changing only the channel count) is a clean design, and the two robustness axes of samplers (DDIM/DDPM/DPM-Solver++) and distillation are supplemented honestly. But there are three structural weaknesses to name. First, **the metric relies almost entirely on FID**: the authors themselves admit in the limitations that because there were over 1000 variants they gave up human evaluation, and candidly acknowledge that FID may diverge from visual quality. The whole "small models are more economical" conclusion is essentially "small models are more economical on FID", and the way FID is sensitive to sampling diversity/blurriness may just so happen to systematically favor the smoother small-model outputs with ample steps; this potential bias is not cross-checked by an independent metric. Second, **the cost definition counts only the denoising U-Net**, excluding the fixed 1.4B text encoder and 250M autoencoder overhead from the normalized cost; in real end-to-end latency, this fixed overhead dilutes the relative "cheapness" advantage of small models, so the paper's cost axis is optimistic for small models. Third, the data and models are all Google-internal with no released code, so outsiders cannot reproduce these 12 models or verify the numbers in Table 1.
 
-### 「越大越好」是既有的預訓練結論，成本軸上的反轉才是真正的新意
+### "Bigger is better" is an existing pretraining conclusion; the reversal on the cost axis is the real novelty
 
-需要保持清醒：Nichol et al. 早已指出擴散模型「越大越好」，而 LLM 的 scaling law 文獻（Kaplan、Hoffmann 等）也早就在講 compute-optimal 的取捨。本文的 pretraining 部分（Table 1、Fig. 3）基本是在重述「越大 FID 越低」。真正的新意集中在把 x 軸換成「取樣成本」後浮現的反轉現象，以及它在取樣器/下游/蒸餾三軸的一致性。這是一個有價值但相對侷限的觀察——它更接近「一個穩健的實證規律」，而非可外推的定量 scaling law（論文並未給出可預測最佳模型大小的閉式關係）。
+One must stay clear-headed: Nichol et al. long ago pointed out that diffusion models get "bigger is better", and the LLM scaling-law literature (Kaplan, Hoffmann, etc.) has long discussed the compute-optimal tradeoff. The pretraining part of this paper (Table 1, Fig. 3) is basically restating "bigger means lower FID". The real novelty concentrates in the reversal phenomenon that emerges once the x-axis is swapped for "sampling cost", and its consistency across the three axes of sampler/downstream/distillation. This is a valuable but relatively limited observation — it is closer to "a robust empirical regularity" than to an extrapolable quantitative scaling law (the paper gives no closed-form relation that can predict the optimal model size).
 
-### 反轉點只在自訂的 normalized-cost 與 FID-only 座標下才成立
+### The reversal point holds only under the custom normalized-cost and FID-only coordinates
 
-有一個需要警惕的地方：最亮眼的結論（cost=3 時 83M 最佳、cost≈8 時 83M 追平蒸餾 866M）都是在作者自訂的 normalized-cost 座標、且以 FID 為唯一裁判下成立的。換個成本定義（納入 encoder/decoder）、換個品質指標（人評或多樣性指標），反轉點很可能位移甚至消失。論文也誠實地把普適性收斂到「僅對本文研究的 SD v1.5 U-Net 家族成立」，明言 transformer backbone（DiT/SiT/MM-DiT）與 cascaded 模型（Imagen3、Stable Cascade）未驗證——這是恰當的自我設限，但也意味著結論的適用面比標題的普遍口吻要窄。
+There is a point to be wary of: the most striking conclusions (83M best at cost=3, 83M matching the distilled 866M at cost≈8) all hold under the authors' custom normalized-cost coordinate and with FID as the sole judge. Change the cost definition (include encoder/decoder), change the quality metric (human evaluation or a diversity metric), and the reversal point may well shift or even vanish. The paper also honestly narrows the generality to "holds only for the SD v1.5 U-Net family studied in this work", explicitly stating that transformer backbones (DiT/SiT/MM-DiT) and cascaded models (Imagen3, Stable Cascade) are unverified — this is an appropriate self-limitation, but it also means the applicable scope of the conclusion is narrower than the universal tone of the title.
 
-### 作為低預算部署的選型指引可用，但缺乏端到端延遲與定量選型的驗證
+### Usable as a selection guide for low-budget deployment, but lacking end-to-end latency and quantitative-selection validation
 
-作為「決策指引」它是有用的：若你的部署卡在低步數/低預算區間，優先選較小模型是有實證支撐的合理策略，且此結論對取樣器與蒸餾都穩健。但它沒有解決「如何在給定硬體與品質門檻下自動選出最佳模型大小」的定量問題，也未在端到端真實延遲、真實指標下驗證優勢的量級。因此我的判斷是：這是一份紮實、誠實、但結論條件化且指標單一的實證研究，價值在於提出並穩健化一個反直覺規律，而非提供可外推的 scaling 定律。它沒有無病呻吟，但也不宜被讀成「小模型全面更好」。
+As a "decision guide" it is useful: if your deployment is stuck in the low-step/low-budget regime, prioritizing a smaller model is a reasonable strategy with empirical support, and this conclusion is robust to both sampler and distillation. But it does not solve the quantitative problem of "how to automatically select the optimal model size under a given hardware and quality threshold", nor does it validate the magnitude of the advantage under end-to-end real latency and real metrics. So my judgment is: this is a solid, honest, but conclusion-conditional and metric-single empirical study, whose value lies in proposing and robustifying a counterintuitive regularity, rather than providing an extrapolable scaling law. It does not moan without cause, but neither should it be read as "small models are better across the board".
 
 ## 🔗 Related notes
 
-- [DDPM, Denoising Diffusion Probabilistic Models](../diffusion/) — 本文取樣效率討論所依賴的去噪擴散基礎與 DDPM/DDIM 取樣器。
+- [DDPM, Denoising Diffusion Probabilistic Models](../diffusion/) — the denoising-diffusion foundation and the DDPM/DDIM samplers on which this paper's sampling-efficiency discussion depends.

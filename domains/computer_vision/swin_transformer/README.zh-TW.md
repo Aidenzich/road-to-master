@@ -6,7 +6,7 @@
 | Tags | #study |
 
 # Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 | Title | Venue | Year | Code |
 |-|-|-|-|
 | [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030) | ICCV | '21 | [✓](https://github.com/microsoft/Swin-Transformer) |
@@ -32,7 +32,7 @@ This hierarchical architecture has the flexibility to model at various scales an
 
 ### Shifted Window
 ![shifted_window](./assets/shifted_window.png)
-A key design element of Swin Transformer is its shift of the window partition between consecutive self-attention layers. 
+A key design element of Swin Transformer is its shift of the window partition between consecutive(連續的) self-attention layers. 
 Earlier `sliding window based self-attention` approaches suffer from low latency on general hardware due to diffrent `key` sets for different `query` pixels, therefore, Swin-T let all query patches within a window share the same `key` set, which facilitates memroy access in hardware. The experiments show that the proposed `shifted window` has the followning advantages when compared with `sliding windows` :
 - much lower latency
 - yet is similar in modeling power
@@ -43,7 +43,7 @@ An issue with shifted window partitioning is that it will result in **more windo
 
 So, this paper proposed a method name `Efficient Batch Computition Approach`
 ![efficient_batch_computition_approach](./assets/efficient_batch_computation_approach.png)
-- `cyclic-shifting` toward the `top-left` direction. After the shift, a `batched window` may be composed of several sub-windows that **are not adjacent** in the feature map.
+- `cyclic-shifting` toward the `top-left` direction. After the shift, a `batched window` may be composed of several sub-windows that **are not adjacent(鄰近的)** in the feature map.
     - Therefore, we have to use `masking mechanism` to **limit** `self-attention computation` to within each `sub-window`
 
 ## Masking mechanism

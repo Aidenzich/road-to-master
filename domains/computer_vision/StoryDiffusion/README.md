@@ -1,4 +1,5 @@
 # StoryDiffusion — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -11,45 +12,45 @@
 | Official Code | https://github.com/HVision-NKU/StoryDiffusion |
 | Venue Kind | paper |
 
-> 本篇筆記基於 arXiv 預印本 `2405.01434v1` 的全文與作者釋出的官方程式碼撰寫；論文正式發表於 NeurIPS 2024（Spotlight），camera-ready 版本的細節可能與預印本略有出入。
+> This note is written based on the full text of the arXiv preprint `2405.01434v1` and the official code released by the authors; the paper was formally published at NeurIPS 2024 (Spotlight), and details in the camera-ready version may differ slightly from the preprint.
 
 ## First Principles
 
-StoryDiffusion 想解決的是一個很具體的痛點：用擴散模型（diffusion model）畫一則「故事」時，同一個角色跨越好幾張圖必須長得一樣——臉、髮型、衣著都要一致，否則就不成故事。論文把這個需求拆成兩件事來做：第一階段用一個免訓練（training-free）的注意力改造，讓「一批」圖之間互相看得到彼此，藉此收斂出一致的角色；第二階段再用一個在語意空間做運動預測的模組，把這些一致的圖串成過場影片。整體方法分為這兩個階段，第一階段以 Consistent Self-Attention 生成主體一致的圖像，第二階段則把這些圖像轉為過場影片。
+StoryDiffusion aims to solve a very concrete pain point: when using a diffusion model to draw a "story," the same character must look identical across several images—face, hairstyle, and clothing all have to stay consistent, otherwise it does not hold together as a story. The paper decomposes this requirement into two parts: the first stage uses a training-free modification of attention that lets a "batch" of images see one another, so as to converge on a consistent character; the second stage then uses a module that predicts motion in the semantic space to string these consistent images into transition videos. Our method can be divided into two stages: the first stage generates subject-consistent images with Consistent Self-Attention, and the second stage turns these images into transition videos.
 
-![StoryDiffusion 第一階段：把 Consistent Self-Attention 插入預訓練 T2I 擴散模型，對一個 batch 內的多張圖建立連結](imgs/pipeline_csa.png)
+![Stage one of StoryDiffusion: inserting Consistent Self-Attention into a pretrained T2I diffusion model, which builds connections among multiple images in a batch for subject consistency](imgs/pipeline_csa.png)
 
-### 為什麼從 self-attention 下手
+### Why start from self-attention
 
-作者的核心動機來自一個觀察：self-attention 是決定生成內容整體結構最關鍵的模組之一，而且注意力權重是「輸入相依」（input-dependent）的——既然權重由輸入的 token 決定，只要在計算注意力時「餵進」參考圖的 token，理論上就能把參考圖的一致性帶進來，而不必重新訓練或微調模型。這是整個方法之所以能 zero-shot 的立論基礎：如果能用一張參考圖去引導 self-attention 的計算，兩張圖之間的一致性就會顯著提升。
+The authors' core motivation comes from an observation: self-attention is one of the most important modules that determine the overall structure of the generated content, and its attention weights are "input-dependent"—since the weights are determined by the input tokens, as long as the tokens of a reference image are "fed in" when computing attention, in principle the consistency of the reference image can be carried over without retraining or fine-tuning the model. This is the founding argument for why the whole method can be zero-shot: if a reference image can be used to guide the computation of self-attention, the consistency between the two images will improve significantly.
 
-相對地，論文把既有做法當作反例來對照。IP-Adapter 這類以整張參考圖為條件的方法，因為引導太強，會反過來壓縮文字 prompt 對生成內容的可控性；而 InstantID、PhotoMaker 這類 ID 保存方法雖然守得住身份，卻不保證衣著與場景一致。StoryDiffusion 的目標是「同時」守住身份與衣著的一致，又盡量保留文字可控性。
+Conversely, the paper contrasts existing approaches as counterexamples. Methods like IP-Adapter, which condition on an entire reference image, guide too strongly, so the controllability over the generated content of the text prompts is reduced; while ID-preservation methods like InstantID and PhotoMaker, although they hold onto identity, do not guarantee consistency of clothing and scene. StoryDiffusion's goal is to hold onto both identity and clothing consistency "at the same time," while preserving text controllability as much as possible.
 
-### Consistent Self-Attention 的形式化
+### Formalization of Consistent Self-Attention
 
-給定一個 batch 的影像特徵 $\mathcal{I} \in \mathbb{R}^{B \times N \times C}$，其中 $B$、$N$、$C$ 分別是 batch size、每張圖的 token 數與通道數。定義注意力函數 $\operatorname{Attention}(X_q, X_k, X_v)$。原始 self-attention 是在每張圖自己的特徵 $I_i$ 內獨立計算的：
+Given a batch of image features $\mathcal{I} \in \mathbb{R}^{B \times N \times C}$, where $B$, $N$, $C$ are the batch size, the number of tokens per image, and the number of channels respectively. Define a function $\operatorname{Attention} ( X_k, X_q, X_v )$ to calculate self-attention. The original self-attention is computed independently within each image's own features $I_i$:
 
 $$
 O_i = \operatorname{Attention}\left(Q_i, K_i, V_i\right).
 $$
 
-Consistent Self-Attention 的做法是：對第 $i$ 張圖，先從 batch 內「其他」圖的特徵隨機抽樣一批 token $S_i$：
+The approach of Consistent Self-Attention is: for the $i$-th image, it first samples some tokens $S_i$ from other image features in the batch randomly:
 
 $$
 S_i = \operatorname{RandSample}\left(I_1, I_2, ..., I_{i-1}, I_{i+1}, ..., I_{B-1}, I_{B}\right),
 $$
 
-再把抽到的 $S_i$ 與本圖特徵 $I_i$ 拼成一組新的 token $P_i$，對 $P_i$ 做線性投影得到新的 key $K_{Pi}$ 與 value $V_{Pi}$，而 query 仍維持本圖原本的 $Q_i$ 不變。最後計算：
+then we pair the sampled tokens $S_i$ with the image's own features $I_i$ into a new set of tokens $P_i$, apply a linear projection to $P_i$ to obtain new keys $K_{Pi}$ and values $V_{Pi}$, while the query still keeps the image's original $Q_i$ unchanged. Finally it computes:
 
 $$
 O_i = \operatorname{Attention}\left(Q_i, K_{Pi}, V_{Pi}\right).
 $$
 
-三條式子擺在一起，關鍵差異只有一處：key/value 的來源池從「本圖 $N$ 個 token」擴大成「本圖 + 抽樣自其他圖的 token」，而 query 完全沒動。因為 $Q$-$K$-$V$ 投影權重是沿用原模型的，沒有新增任何參數，所以整套操作免訓練、可熱插拔（hot-pluggable）。直覺上，這樣的跨圖互動會推動模型在生成過程中讓角色的臉、衣著等特徵彼此收斂。
+Placing the three equations side by side, the key difference is in only one place: the source pool of key/value expands from "the $N$ tokens of the image itself" to "the image itself + tokens sampled from other images," while the query is not touched at all. Because the $Q$-$K$-$V$ projection weights are inherited from the original model, without adding any parameters, no extra training is required and the whole operation is hot-pluggable. Intuitively, such cross-image interaction pushes the model, during generation, to make the character's face, clothing, and other features converge toward one another.
 
-### 用 tile 與 sliding window 撐住長故事
+### Sustaining long stories with tile and sliding window
 
-論文附上 Algorithm 1 的偽碼，補上了工程上兩個現實考量：一是用 `tile_size` 把 token 切塊處理，避免一次算全部造成 GPU 記憶體爆掉；二是沿時間維度滑動 tile，讓峰值記憶體不再隨故事文字長度線性成長，因此可以生成長故事。
+The paper attaches the pseudocode of Algorithm 1, adding two practical engineering considerations: one is to use `tile_size` to process tokens in chunks, avoiding a GPU memory blow-up from computing everything at once; the other is to slide the tile along the temporal dimension, which removes the peak memory consumption's dependency on the input text length, so that long stories can be generated.
 
 ```python
 def ConsistentSelfAttention(images_features, sampling_rate, tile_size):
@@ -69,55 +70,55 @@ def ConsistentSelfAttention(images_features, sampling_rate, tile_size):
   return output
 ```
 
-值得對照的是官方程式碼怎麼落實這個「RandSample」。在 `utils/gradio_utils.py` 的 `cal_attn_mask_xl` 中，抽樣其實是用一個布林遮罩實現的：`bool_matrix1024 = torch.rand((1, total_length * 1024)) < sa32`，也就是對「整個 batch 攤平後」的 token 逐一以機率 `sa32` 做 Bernoulli 取樣，被留下的 token 才會參與該解析度的注意力。換句話說，論文式 (2) 的隨機抽樣，在實作上等價於一張隨機的注意力遮罩，`sa32` / `sa64` 就是不同解析度下的取樣率。`app.py` 的 `SpatialAttnProcessor2_0` 還加了一個時間表排程：`cur_step < 5` 的前幾步完全走原始 self-attention（`__call2__`），之後才有機率切換到一致化路徑（`__call1__`），且套用一致化的機率門檻在第 20 步前後由 `1-0.3` 收緊到 `1-0.1`，讓一致性在去噪後期更強地介入。
+It is worth contrasting how the official code implements this "RandSample." In `cal_attn_mask_xl` of `utils/gradio_utils.py`, sampling is actually implemented with a boolean mask: `bool_matrix1024 = torch.rand((1, total_length * 1024),device = device,dtype = dtype) < sa32`, that is, over "the whole batch flattened," each token is Bernoulli-sampled with probability `sa32`, and only the retained tokens participate in the attention at that resolution. In other words, the random sampling of the paper's Eq. (2) is, in implementation, equivalent to a random attention mask, and `sa32` / `sa64` are exactly the sampling rates at different resolutions. The `SpatialAttnProcessor2_0` in `app.py` also adds a schedule over time: the first few steps of `cur_step < 5` go entirely through the original self-attention (`__call2__`), and only afterward is there a probability of switching to the consistent path (`__call1__`), and the probability threshold for applying consistency tightens from `1-0.3` to `1-0.1` around step 20, letting consistency intervene more strongly in the later stages of denoising.
 
-### 一個具體的前向例子
+### A concrete forward example
 
-把數字帶進去會更清楚。假設要畫一則 5 格漫畫（官方程式碼裡對應 `id_length=4`、`total_length=id_length+1=5`）。在 SDXL 生成 1024×1024 圖時，U-Net 某個下採樣階段的特徵圖是 32×32，也就是每張圖 $N = 32\times32 = 1024$ 個 token（程式碼以 `(height//32)*(width//32)` 判斷這個解析度）。
+Plugging in the numbers makes it clearer. Suppose we want to draw a 5-panel comic (in the official code this corresponds to `id_length=4`, `total_length=id_length+1=5`). When generating a 1024×1024 image on SDXL, the feature map at a certain downsampling stage of the U-Net is 32×32, i.e., each image has $N = 32\times32 = 1024$ tokens (the code decides this resolution via `(height//32)*(width//32)`, and note that `self.total_length = id_length + 1`).
 
-- **標準 self-attention**：第 $i$ 格的 query（1024 個 token）只能對自己的 1024 個 key/value 做注意力，注意力矩陣是 $1024\times1024$，五格之間毫無資訊往來，於是各畫各的、角色飄移。
-- **Consistent Self-Attention**：把 5 格攤平成 $5\times1024 = 5120$ 個 token 的池子，以取樣率 0.5 的 Bernoulli 遮罩留下約 $0.5\times5120 \approx 2560$ 個可見 token 當作 key/value。於是第 $i$ 格的 query 除了看自己的 1024 個 token，還看得到另外四格抽樣出來的 token——別格的臉部與衣著 token 被引入計算，把本格往共同的角色外觀拉。因為只擴大了 key/value 池、query 與投影權重都沒變，這一切都不需要訓練。
+- **Standard self-attention**: the query of the $i$-th panel (1024 tokens) can only attend to its own 1024 key/value, the attention matrix is $1024\times1024$, there is no information exchange among the five panels, and so each is drawn on its own and the character drifts.
+- **Consistent Self-Attention**: flatten the 5 panels into a pool of $5\times1024 = 5120$ tokens, and with a Bernoulli mask at sampling rate 0.5 retain about $0.5\times5120 \approx 2560$ visible tokens as key/value (in code `token_KV = concat([sampled_tokens, tile_features], dim=1)`). Thus the query of the $i$-th panel, besides seeing its own 1024 tokens, can also see tokens sampled from the other four panels—the face and clothing tokens of other panels are introduced into the computation, pulling this panel toward a common character appearance. Because only the key/value pool is enlarged while the query and projection weights are unchanged, none of this requires training.
 
-論文的消融顯示這個取樣率不能太低：取樣率 0.3 時第三欄的圖已守不住主體一致性，較高的取樣率才守得住；實務上預設把取樣率設為 0.5，以對擴散過程造成最小干擾同時維持一致性。
+The paper's ablation shows that this sampling rate cannot be too low: at a sampling rate of 0.3 the images in the third column already fail to hold onto subject consistency, and a higher sampling rate holds it better; in practice we set the sampling rate to 0.5 by default, to cause the least disturbance to the diffusion process while maintaining consistency.
 
-![消融實驗：(a) 不同取樣率對一致性的影響；(b) 引入外部 ID 控制](imgs/ablation.png)
+![Ablation study: (a) the impact of different sampling rates on consistency; (b) introducing external ID control](imgs/ablation.png)
 
-### Semantic Motion Predictor：在語意空間預測運動
+### Semantic Motion Predictor: predicting motion in the semantic space
 
-第二階段要把相鄰兩張一致圖之間補出中間幀，變成過場影片。論文先指出既有方法（SEINE、SparseCtrl）的問題：它們只靠時間模組在影像 latent 空間逐一空間位置獨立地預測中間內容，缺乏對空間資訊的整體考量，因此當首尾兩幀差異很大（例如角色大幅移動）時就接不穩、產生崩壞的中間幀。
+The second stage needs to fill in intermediate frames between two adjacent consistent images, turning them into a transition video. The paper first points out the problem of existing methods (SEINE, SparseCtrl): they rely solely on a temporal module to predict the intermediate content independently at each spatial position in the image latent space, lacking an overall consideration of spatial information, so when the first and last frames differ greatly (e.g., the character moves substantially) the transition fails to connect stably and produces collapsed intermediate frames.
 
-![StoryDiffusion 第二階段：把條件圖編碼進語意空間預測過場 embedding，再由影片擴散模型當解碼器](imgs/pipeline_smp.png)
+![Stage two of StoryDiffusion: encode the conditional images into the image semantic space to predict transition embeddings, and then use the video diffusion model as the decoder](imgs/pipeline_smp.png)
 
-Semantic Motion Predictor 的對策是把預測搬到「影像語意空間」做。給定起始幀 $F_s$ 與結束幀 $F_e$，先用一個編碼器 $E$（論文用預訓練的 CLIP image encoder，取其 zero-shot 能力）壓成語意向量：
+The countermeasure of the Semantic Motion Predictor is to move the prediction into the "image semantic space." Given a start frame $F_s$ and an end frame $F_e$, we utilize a pre-trained CLIP image encoder as $E$ (exploiting its zero-shot capability) to compress them into semantic vectors:
 
 $$
 K_s, K_e = E\left(F_s, F_e\right).
 $$
 
-接著在語意空間先對 $K_s$、$K_e$ 做線性插值，展開成長度為 $L$ 的序列 $K_1, K_2, ..., K_L$，再送進一串 transformer 區塊 $B$ 預測過場幀：
+Next, in the semantic space, first apply linear interpolation to expand the two frames $K_s$, $K_e$ into a sequence of length $L$, $K_1, K_2, ..., K_L$, then feed it into a series of transformer blocks $B$ to predict the transition frames:
 
 $$
 P_1, P_2, ..., P_l = B\left(K_1, K_2, ..., K_L\right).
 $$
 
-最後把這些語意 embedding 當成控制訊號、以影片擴散模型當解碼器：對每個影片幀特徵 $V_i$，把文字 embedding $T$ 與預測的語意 embedding $P_i$ 串接後投影成 key/value 餵進 cross-attention：
+Finally, these semantic embeddings are used as control signals, with the video diffusion model as the decoder: for each video frame feature $V_i$, the text embedding $T$ and the predicted semantic embedding $P_i$ are concatenated and projected into key/value fed into cross-attention:
 
 $$
 V_i = \mathrm{CrossAttention}\left(V_i, \operatorname{concat}(T, P_i), \operatorname{concat}(T, P_i)\right),
 $$
 
-並以預測影片與 ground truth 之間的 MSE 為訓練損失 $Loss = \mathrm{MSE}(G, O)$。具體規格上，這個預測器用 OpenCLIP ViT-H-14 當編碼器、以 AnimateDiff V2 的 motion module 為時間模組初始權重，含 8 層 transformer、hidden 維度 1024、12 個注意力頭，學習率 1e-4，在 Webvid10M 上以 8 張 A100 訓練 100k 次迭代。
+and the MSE between the predicted video and the ground truth is used as the training loss $Loss = \mathrm{MSE}(G, O)$. In terms of concrete specifications, this predictor uses OpenCLIP ViT-H-14 as the encoder, initializes the temporal module weights from the motion module of AnimateDiff V2, and contains 8 transformer layers, with a hidden dimension of 1024 and 12 attention heads, a learning rate of 1e-4, trained on Webvid10M for 100k iterations on 8 A100 GPUs.
 
-### 實驗數據
+### Experimental data
 
-一致圖像生成上，論文用 GPT-4 生成 20 個角色 prompt 與 100 個活動 prompt 交叉組合成測試集，在 Stable Diffusion XL 上與 IP-Adapter、PhotoMaker 對比，全部用 50 步 DDIM 取樣、classifier-free guidance 5.0。以 CLIP 分數量測文字對齊與角色一致：
+For consistent image generation, the paper uses GPT-4 to generate 20 character prompts and 100 activity prompts, cross-combined into a test set, and compares against IP-Adapter and PhotoMaker on Stable Diffusion XL, all using 50-step DDIM sampling, and the classifier-free guidance score is consistently set to 5.0. CLIP scores are used to measure text alignment and character consistency:
 
 | Metric | IP-Adapter | Photo Maker | StoryDiffusion (ours) |
 |-|-|-|-|
 | Text-Image Similarity | 0.6129 | 0.6541 | **0.6586** |
 | Character Similarity | 0.8802 | 0.8924 | **0.8950** |
 
-過場影片生成上，隨機抽約 1000 支影片為測試集，與 SEINE、SparseCtrl 對比四個指標：
+For transition video generation, about 1000 videos are randomly sampled as the test set, compared against SEINE and SparseCtrl on four metrics:
 
 | Methods | LPIPS-*first* (↓) | LPIPS-*frames* (↓) | CLIPSIM-*first* (↑) | CLIPSIM-*frames* (↑) |
 |-|-|-|-|-|
@@ -125,33 +126,33 @@ $$
 | SparseCtrl | 0.4913 | 0.1768 | 0.9032 | 0.9756 |
 | Ours | **0.3794** | **0.1635** | **0.9606** | **0.9870** |
 
-此外還有 30 人、每人 50 題的 user study：一致圖像生成上使用者偏好 StoryDiffusion 的比例為 72.8%（IP-Adapter 10.4%、PhotoMaker 16.8%）；過場影片生成上為 82%（SEINE 11.6%、SparseCtrl 6.4%）。
+In addition, there is a user study with 30 participants, each answering 50 questions: for consistent image generation the proportion of users who prefer StoryDiffusion is 72.8% (IP-Adapter 10.4%, PhotoMaker 16.8%); for transition video generation it is 82% (SEINE 11.6%, SparseCtrl 6.4%).
 
 ## 🧪 Critical Assessment
 
-### 跨圖角色一致是把 T2I 推向漫畫與分鏡時的真痛點
+### Cross-image character consistency is the real pain point when pushing T2I toward comics and storyboards
 
-「跨圖角色一致」確實是把 T2I 模型推向漫畫、繪本、分鏡等實際應用時的真痛點，這一點無須刻意抬舉也站得住：既有的 IP-Adapter 會犧牲文字可控性、PhotoMaker 會漏掉衣著一致，都是使用者實際會踩到的坑。更值得肯定的是，方法選了一條「免訓練、可插拔」的低成本路線，對只有推論資源的人特別友善。這個定位是這篇工作最扎實的價值所在。
+"Cross-image character consistency" is indeed the real pain point when pushing T2I models toward practical applications like comics, picture books, and storyboards, and this holds up without any need to overstate it: the existing IP-Adapter sacrifices text controllability, and PhotoMaker misses clothing consistency—both are pitfalls users actually hit. Even more commendable is that the method chose a low-cost route that is "training-free and pluggable," which is especially friendly to people who only have inference resources. This positioning is the most solid value of this work.
 
-### 用 CLIP 當一致性裁判的偏差與 0.003 量級的差距
+### The bias of using CLIP as a consistency judge and the 0.003-magnitude gap
 
-這是我認為最需要打折的部分。一致圖像生成的量化只比了 IP-Adapter 與 PhotoMaker 兩個基線，而且兩個核心指標 Text-Image Similarity 與 Character Similarity **都是用 CLIP 分數算的**——注意 Character Similarity 量的是「角色圖之間的 CLIP 相似度」，而 CLIP embedding 本來就偏向抓語意/風格而非細粒度身份，用它當「一致性」的裁判，天生對「讓多張圖看起來相似」的方法有利。更關鍵的是，StoryDiffusion 在 Character Similarity 上只贏 PhotoMaker 0.8950 對 0.8924（差 0.0026）、Text-Image Similarity 贏 0.6586 對 0.6541（差 0.0045），差距落在幾乎可忽略的量級，論文卻沒有給任何顯著性檢定或多次執行的變異數。單看這張表，很難說是壓倒性勝出。
+This is the part I think most deserves a discount. The quantitative evaluation of consistent image generation only compares against the two baselines IP-Adapter and PhotoMaker, and moreover the two core metrics Text-Image Similarity and Character Similarity **are both computed using CLIP scores**—note that character similarity, which measures the CLIP Scores of the character images, and a CLIP embedding is inherently biased toward capturing semantics/style rather than fine-grained identity; using it as a judge of "consistency" is inherently favorable to methods that "make multiple images look similar." More critically, StoryDiffusion beats PhotoMaker on Character Similarity by only 0.8950 vs 0.8924 (a difference of 0.0026), and on Text-Image Similarity by 0.6586 vs 0.6541 (a difference of 0.0045), gaps that fall into an almost negligible magnitude, yet the paper gives no significance test or variance over multiple runs. Looking at this table alone, it is hard to call it an overwhelming win.
 
-### 取樣率消融只掃兩點，排程與 tile_size 無對應消融
+### The sampling-rate ablation sweeps only two points, with no matching ablation for the schedule or tile_size
 
-消融也偏薄：取樣率只掃了 0.3 與「較高值」兩檔，最後直接宣稱 0.5 是最佳，但沒有 0.4、0.6、0.7 的曲線，「0.5 為最佳」比較像經驗選點而非掃描結論；`tile_size`、以及程式碼裡那個「前 5 步走原始注意力、後期收緊門檻」的排程都沒有對應消融，讀者無從判斷這些設計各自貢獻多少。
+The ablation is also thin: the sampling rate only sweeps two settings, 0.3 and "a higher value" (a sampling rate of 0.3 could not maintain subject consistency), and then directly claims 0.5 is optimal, but there is no curve for 0.4, 0.6, 0.7, so "0.5 is optimal" looks more like an empirically chosen point than a conclusion from a sweep; `tile_size`, and that "first 5 steps go through the original attention, later tighten the threshold" schedule in the code, have no matching ablation, so the reader has no way to judge how much each of these designs contributes.
 
-### CSA 與既有跨圖/跨幀 KV 共享的關係
+### The relationship of CSA to existing cross-image/cross-frame KV sharing
 
-要誠實地問：Consistent Self-Attention 到底新在哪裡。它本質上是把 self-attention 的 key/value 從單圖擴展到 batch 內多圖——這種「跨圖/跨幀共享 KV」的想法在影片與參考生成領域（例如各種 reference/extended attention）並不算全新，論文的貢獻更多在於「用最省的方式（隨機抽樣 + 沿用權重 + 免訓練）把它用在 storytelling 這個場景並做通」。這是紮實的工程整合與場景落地，但把它敘述成一種全新的注意力機制，稍微高估了機制層面的新穎性。Semantic Motion Predictor 同理，是「CLIP 語意編碼 + transformer 內插 + IP-Adapter 式 cross-attention 解碼」三個現成積木的組合。
+One must ask honestly: what exactly is new about Consistent Self-Attention. In essence it extends the key/value of self-attention from a single image to multiple images within a batch (The sampled tokens share the same set of projection weights as the image's own tokens)—this idea of "cross-image/cross-frame KV sharing" is not entirely new in the video and reference-generation fields (e.g., various reference/extended attention), and the paper's contribution lies more in "getting it to work in the storytelling scenario in the most economical way (random sampling + inherited weights + training-free)." This is solid engineering integration and scenario deployment, but narrating it as a brand-new attention mechanism slightly overstates the novelty at the mechanism level. The Semantic Motion Predictor is likewise a combination of three off-the-shelf building blocks: "CLIP semantic encoding + transformer interpolation + IP-Adapter-style cross-attention decoding."
 
-### 自建 prompt 集與 user study 壓倒性偏好的落差
+### The gap between the self-built prompt set and the overwhelming user-study preference
 
-測試 prompt 由作者用 GPT-4 自行生成、測試影片自行抽樣，沒有採用社群公認的公開基準，評測集實質上是圍繞方法自身情境所定義的，缺少第三方可複現的固定基準來對齊。加上唯一的「人類判準」是 user study，而 72.8% / 82% 這種壓倒性偏好與量化指標上僅 0.003 量級的差距形成強烈反差——這反差本身就提示：CLIP 指標可能量不出人眼真正在意的一致性，或者 user study 的呈現方式（例如挑選展示樣本）放大了差距。兩者都指向「評測設計偏向有利於本方法」的疑慮，論文並未正面處理。
+The test prompts are self-built—we use GPT-4 to generate twenty character prompts and one hundred activity prompts—generated by the authors themselves, and the test videos are self-sampled, without adopting a publicly recognized community benchmark; the evaluation set is essentially defined around the method's own scenario, lacking a fixed benchmark that is third-party reproducible for alignment. Add to this that the only "human criterion" is a user study, and the overwhelming preference of 72.8% / 82% forms a stark contrast with the mere 0.003-magnitude gap on the quantitative metrics—this contrast itself hints: either the CLIP metrics may fail to measure the consistency that human eyes really care about, or the presentation of the user study (e.g., cherry-picking display samples) magnified the gap. Both point to the concern that "the evaluation design is biased in favor of this method," which the paper does not address head-on.
 
-### 落地價值扎實，但一致性只守到臉與大件衣著
+### The deployment value is solid, but consistency is only held at the level of the face and large garments
 
-務實地看，方法確實在「可插拔、對既有 SD1.5/SDXL 生態零門檻」這點上有很強的真實世界關聯，官方程式碼與 Gradio demo 也降低了落地門檻，這是它能被社群廣泛採用的實際原因。但「問題被解決」要打個折：論文自陳的限制已點出兩個硬傷——細節（如領帶等小配件）仍會不一致、需要更細的 prompt 補救；而長影片因為缺乏全域資訊交換，sliding window 只是權宜，並非為長影片而設計。一致性守在「臉與大件衣著」層級是可信的，但守到「逐一細節」則尚未被證成。
+Pragmatically, the method indeed has strong real-world relevance in being "pluggable, with zero barrier to the existing SD1.5/SDXL ecosystem," and the official code and Gradio demo also lower the barrier to deployment, which is the practical reason it can be widely adopted by the community. But "the problem is solved" needs a discount: the limitations the paper itself states already point out two hard issues—details (such as small accessories like a tie) can still be inconsistent, requiring finer prompts to remedy; and long videos, lacking global information exchange, use the sliding window only as a stopgap, and our method is not designed specifically for long video generation. It is credible that consistency holds at the "face and large garments" level, but holding it down to "every fine detail" has not yet been established.
 
 ## 🔗 Related notes
 
