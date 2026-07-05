@@ -1,97 +1,99 @@
-# MMoE 與多目標推薦系統 (Multi-Task Learning)
+# MMoE and Multi-Objective Recommender Systems (Multi-Task Learning)
 
-> 針對影片推薦系統中，如何同時優化多個目標 (如 CTR、完播率、按讚、分享)，以及 MMoE (Multi-gate Mixture-of-Experts) 的核心架構解析。
+> **English** | [繁體中文](./README.zh-TW.md)
 
----
-
-## 1. 為什麼影片推薦需要多目標學習 (Multi-Task Learning, MTL)？
-
-在影片推薦場景中，使用單一目標 (例如只預測點擊率 CTR) 容易導致「標題黨」問題，損害使用者長期體驗。為了全面評估推薦品質，系統通常需同時預測多個目標：
-- **CTR (Click-Through Rate)**：使用者是否點擊影片。
-- **CVR (Conversion Rate) / Watch Time**：點擊後是否完整觀看，或是觀看時長長短。
-- **Engagement (互動)**：是否按讚、收藏、分享、留言。
-
-這些任務之間可能存在**衝突** (例如：騙點擊的影片觀看時長很短；偏門冷知識影片觀看時長長但點閱率低)，這就是多目標學習中常見的**蹺蹺板現象 (Seesaw Phenomenon)**：優化了 A 任務，卻導致 B 任務效能下降。
+> An analysis of how, in video recommender systems, to optimize multiple objectives simultaneously (such as CTR, completion rate, likes, shares), and of the core architecture of MMoE (Multi-gate Mixture-of-Experts).
 
 ---
 
-## 2. 傳統 Shared-Bottom 架構的問題
+## 1. Why does video recommendation need multi-task learning (MTL)?
 
-在 MMoE 出現之前，業界常使用 **Shared-Bottom** 架構：
-- 底層使用相同的幾層神經網路 (Shared Bottom) 提取共用特徵。
-- 頂層為每個任務分出獨立的 Task Tower 進行預測。
-- **缺點**：如果多個任務之間的相關性較低（甚至是互斥的），Shared-Bottom 會因為不同任務傳遞下來的梯度方向衝突 (Gradient Conflict)，導致底層特徵抽取器無法學到好的特徵，進而引發蹺蹺板現象。
+In the video recommendation scenario, using a single objective (for example only predicting click-through rate, CTR) easily leads to the "clickbait" problem, harming users' long-term experience. To evaluate recommendation quality comprehensively, the system usually needs to predict multiple objectives simultaneously:
+- **CTR (Click-Through Rate)**: whether the user clicks the video.
+- **CVR (Conversion Rate) / Watch Time**: whether, after clicking, the user watches it completely, or how long the watch time is.
+- **Engagement (interaction)**: whether the user likes, favorites, shares, or comments.
+
+There may be **conflict** between these tasks (for example: clickbait videos have very short watch time; niche trivia videos have long watch time but low click-through rate), and this is the **seesaw phenomenon** common in multi-task learning: optimizing task A instead causes task B's performance to drop.
 
 ---
 
-## 3. MMoE (Multi-gate Mixture-of-Experts) 核心突破
+## 2. Problems of the traditional Shared-Bottom architecture
+
+Before MMoE appeared, the industry often used the **Shared-Bottom** architecture:
+- The lower layers use the same few layers of neural network (Shared Bottom) to extract shared features.
+- The upper layers branch out into an independent Task Tower per task for prediction.
+- **Drawback**: if the correlation between multiple tasks is low (or even mutually exclusive), Shared-Bottom, because of the conflicting gradient directions passed down from the different tasks (Gradient Conflict), causes the bottom feature extractor to be unable to learn good features, thereby triggering the seesaw phenomenon.
+
+---
+
+## 3. The core breakthrough of MMoE (Multi-gate Mixture-of-Experts)
 ![alt text](imgs/image.png)
 
-> [!IMPORTANT] 【MMoE 的精髓】
-> MMoE 透過引入「專家網路 (Experts)」與「門控網路 (Gates)」，取代了傳統的 Shared-Bottom，讓不同任務能「動態且選擇性地」組合底層特徵。
+> [!IMPORTANT] 【The essence of MMoE】
+> By introducing "expert networks (Experts)" and "gating networks (Gates)", MMoE replaces the traditional Shared-Bottom, allowing different tasks to combine bottom features "dynamically and selectively".
 
-要深刻理解 MMoE，必須釐清以下三個核心組件的真正定位：
+To deeply understand MMoE, one must clarify the true role of the following three core components:
 
-### 1. Task Tower (任務塔) —— 真正有 Loss function 的地方
-- **定位**：**這才是整個模型真正產生 Loss (損失函數) 並發起回傳梯度的源頭。**
-- 每個任務都有自己獨立的 Task Tower（例如一個算 CTR Loss，一個算 Watch Time Loss）。
-- 整個 MMoE 架構的學習，是由各個 Task Tower 的 Loss 往下 Backpropagation (反向傳播) 來驅動的。
+### 1. Task Tower —— the place that really has a loss function
+- **Role**: **This is where the whole model truly produces the loss (loss function) and initiates gradient backpropagation.**
+- Each task has its own independent Task Tower (for example, one computes CTR Loss, one computes Watch Time Loss).
+- The learning of the whole MMoE architecture is driven by the Loss of each Task Tower flowing downward via Backpropagation.
 
-### 2. Experts (專家網路) —— 只是「特徵提供器」
-- **定位**：Expert 本身**沒有**專屬的 Loss function！它們絕對不是在做最終決策。
-- 它們的作用僅僅是將原始輸入 (Input) 轉換成多個高階的 Dense 特徵空間。
-- 為什麼叫 Expert？因為在多個 Task Tower 的梯度共同拉扯 (優化) 下，不同的 Expert 會自動分化，隱式地學會捕捉不同面向的模式（例如 Expert A 可能對視覺特徵敏感，Expert B 對時間序列特徵敏感）。
+### 2. Experts (expert networks) —— merely "feature providers"
+- **Role**: An Expert itself does **not** have a dedicated loss function! They are absolutely not making the final decision.
+- Their only function is to transform the raw input (Input) into multiple high-level dense feature spaces.
+- Why are they called Experts? Because under the joint pull (optimization) of the gradients of multiple Task Towers, different Experts automatically differentiate and implicitly learn to capture patterns of different aspects (for example, Expert A might be sensitive to visual features, Expert B to time-series features).
 
-### 3. Gate (門控網路) —— 「特徵權重分配器」
-- **定位**：為「每個任務」配置一個專屬的 Gate。
-- Gate 的輸入同樣是原始資料向量，輸出則是一個 Softmax 權重向量。
-- **作用**：針對當前輸入的這筆資料 (User-Video Pair)，Gate 決定該任務要從哪幾個 Expert 那裡「拿多少比例的特徵」。
-- 例如：預測「按讚」的 Gate 發現這筆資料需要注重 Expert C 的表徵，就會給 Expert C 較高的權重，將各 Expert 的輸出做加權總和後，送入「按讚」的 Task Tower 進行預測。
+### 3. Gate (gating network) —— "feature-weight allocator"
+- **Role**: Configure a dedicated Gate for "each task".
+- The input of a Gate is likewise the raw data vector, and its output is a Softmax weight vector.
+- **Function**: For the current input piece of data (User-Video Pair), the Gate decides "how large a proportion of features" the task should take from which Experts.
+- For example: the Gate predicting "likes" finds that this piece of data needs to focus on Expert C's representation, so it gives Expert C a higher weight, takes a weighted sum of the outputs of all the Experts, and feeds it into the "likes" Task Tower for prediction.
 
 ---
 
-## 4. MMoE 如何解決蹺蹺板現象？
+## 4. How does MMoE solve the seesaw phenomenon?
 
-> [!TIP] 【追問與亮點】
-> **Q: MMoE 為什麼不怕任務衝突？**
-> **A**: 在 Shared-Bottom 中，所有任務的梯度都強迫在同一個網路中妥協；但在 MMoE 中，如果 CTR 任務和 Watch Time 任務所需特徵衝突，這兩個任務的 Gate 會自動把權重分配給**不同的 Experts**。
+> [!TIP] 【Follow-up question and highlight】
+> **Q: Why is MMoE not afraid of task conflict?**
+> **A**: In Shared-Bottom, the gradients of all tasks are forced to compromise within the same network; but in MMoE, if the CTR task and the Watch Time task require conflicting features, the Gates of these two tasks automatically allocate the weights to **different Experts**.
 > 
-> 也就是說，MMoE 實現了**「特徵層面的軟性隔離 (Soft Routing)」**。高度相關的任務可以共享相同的 Experts；互斥的任務則透過 Gate 各自挑選不同的 Experts，互不干擾。這樣既能利用 MTL 帶來的大數據泛化優勢，又能避免梯度衝突導致的效能下降。
+> That is to say, MMoE achieves **"soft isolation at the feature level (Soft Routing)"**. Highly correlated tasks can share the same Experts; mutually exclusive tasks each pick different Experts through their Gates, without interfering with one another. This way it can both leverage the big-data generalization advantage brought by MTL and avoid the performance drop caused by gradient conflict.
 
 ---
 
-## 5. 多任務結果融合 (Score Fusion) —— 如何把不同 Task Tower 的結果變成最終排序分數？
+## 5. Multi-task result fusion (Score Fusion) —— how to turn the results of different Task Towers into a final ranking score?
 
-雖然 MMoE 幫我們針對各個任務（例如 CTR, CVR, 完播率, 互動率）都訓練出優秀的專屬神經網路結構 (Task Tower)，但最終推薦給使用者時，系統只能根據「一個排序列表」來展示。因此進入最後排序 (Ranking) 階段，需要把不同 Task Tower 輸出的預測值融合為單一排序分數 (Final Ranking Score)。
+Although MMoE helps us train an excellent dedicated neural-network structure (Task Tower) for each task (for example CTR, CVR, completion rate, interaction rate), when finally recommending to the user, the system can only present based on "a single ranked list". Therefore, entering the final ranking stage, one needs to fuse the predicted values output by the different Task Towers into a single ranking score (Final Ranking Score).
 
-業界常見的融合方式有以下幾種：
+Common fusion methods in the industry include the following:
 
-### 1. 乘法融合 (Multiplicative / Log-Linear Fusion)：業界最主流
-利用指數加權相乘，不同任務的重要性透過指數超參數來進行調控：
+### 1. Multiplicative / Log-Linear Fusion: the most mainstream in industry
+Using exponentially weighted multiplication, the importance of different tasks is regulated through exponential hyperparameters:
 $$ \text{Final Score} = (\text{pCTR})^{\alpha} \times (\text{pCVR})^{\beta} \times (\text{pWatchTime})^{\gamma} \times (\text{pLike})^{\delta} $$
 
-- **優點**：
-  - 具有「一票否決權」的特性（只要其中一個關鍵指標接近 0，總分就會很低）。
-  - 可以快速且直接地調控線上業務目標（例如最近需要衝按讚數，就直接調大 $\delta$）。
+- **Advantages**:
+  - Has a "one-vote veto" property (as long as one of the key metrics is close to 0, the total score becomes very low).
+  - Can quickly and directly regulate online business objectives (for example, if there is a recent need to boost the number of likes, just increase $\delta$).
 
-### 2. 加法融合 (Linear Combination)
-給予不同預測目標對應的權重直接相加：
+### 2. Additive Fusion (Linear Combination)
+Directly add up the different prediction targets given their corresponding weights:
 $$ \text{Final Score} = w_1 \times \text{pCTR} + w_2 \times \text{pCVR} + w_3 \times \text{pWatchTime} + \dots $$
 
-- **缺點與注意事項**：
-   各個任務預測機率的絕對值大小差異通常極大（例如點閱率可能 5%，但點讚率只有 0.1%），直接相加會導致大機率的目標強勢掩蓋小機率目標。因此若要用加法，通常需要先對各自分數進行正規化 (Normalization / Calibration) 後再相加。
+- **Drawbacks and caveats**:
+   The absolute magnitudes of the predicted probabilities of the various tasks usually differ enormously (for example, click-through rate might be 5%, but like rate is only 0.1%), and adding them directly causes the large-probability target to overwhelmingly mask the small-probability target. Therefore, if one wants to use addition, one usually needs to first normalize (Normalization / Calibration) each score before adding them up.
 
-### 3. 以期望價值直接相乘 (Expected Value)
-在電商或某些嚴格定義收益的場景中，直接利用概率計算期望價值：
-- 電商場景：$\text{eCPM} = \text{pCTR} \times \text{pCVR} \times \text{Price} \times 1000$
-- 影片場景：將預測觀看時長作為價值乘積，例如 $\text{pCTR} \times \text{E(WatchTime)}$
+### 3. Multiplying directly by expected value (Expected Value)
+In e-commerce or certain scenarios where revenue is strictly defined, directly use probabilities to compute expected value:
+- E-commerce scenario: $\text{eCPM} = \text{pCTR} \times \text{pCVR} \times \text{Price} \times 1000$
+- Video scenario: use the predicted watch time as a value factor, for example $\text{pCTR} \times \text{E(WatchTime)}$
 
-### 4. 模型自動融合 (L2 Ranker)
-與其依靠人工制定規則，乾脆把這些 Task Tower 的輸出（機率或 logits）當作「特徵」，再餵給一個輕量級的模型（例如小型神經網路或 Tree-based 模型 XGBoost 等）進行二次排序。
+### 4. Automatic model fusion (L2 Ranker)
+Rather than relying on manually crafted rules, simply take the outputs (probabilities or logits) of these Task Towers as "features", and feed them to a lightweight model (for example a small neural network or a tree-based model such as XGBoost) for a second-stage ranking.
 
-> [!TIP] 【進階追問】
-> **Q: 在多目標 Score Fusion 的乘法公式中，權重 $\alpha, \beta, \gamma$ 是怎麼決定的？**
+> [!TIP] 【Advanced follow-up】
+> **Q: In the multiplicative formula for multi-objective Score Fusion, how are the weights $\alpha, \beta, \gamma$ determined?**
 > **A**: 
-> 1. **初期階段**：主要靠業務經驗（看重什麼就調高什麼），或是透過 Grid Search 掃描參數。
-> 2. **上線階段**：大量依賴線上 **A/B Testing** 來觀察不同權重組合對北極星指標的影響。
-> 3. **進階階段**：引入自動化參數搜尋機制，例如利用貝氏最佳化 (Bayesian Optimization) 或進化演算法自動不斷尋找最佳的融合權重，減少人工調參的成本。
+> 1. **Early stage**: mainly rely on business experience (increase whatever you care about), or scan parameters via Grid Search.
+> 2. **Launch stage**: heavily rely on online **A/B Testing** to observe the impact of different weight combinations on the North Star metric.
+> 3. **Advanced stage**: introduce automated parameter-search mechanisms, for example using Bayesian Optimization or evolutionary algorithms to automatically and continuously search for the best fusion weights, reducing the cost of manual tuning.
