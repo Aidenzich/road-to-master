@@ -1,4 +1,5 @@
 # TimesFM — Research Note
+> **English** | [繁體中文](./README.zh-TW.md)
 
 ## 📇 Academic Context
 
@@ -13,62 +14,62 @@
 
 ## First Principles
 
-TimesFM 想回答一個很直接的問題：既然 NLP 用一個大型預訓練模型就能對沒看過的任務做 zero-shot 推論，時間序列能不能也有一個「開箱即用」的基礎模型（foundation model），面對從沒見過的資料集，不做任何微調就給出接近專門訓練模型的預測？作者的答案是可以，而且只用約 200M 參數、約 O(100B) 個時間點的預訓練資料就辦到，遠小於當代 LLM 的規模。
+TimesFM sets out to answer a very direct question: since NLP can do zero-shot inference on unseen tasks with a single large pre-trained model, can time series also have an "out-of-the-box" foundation model that, facing a never-seen dataset, gives predictions close to a specially trained model without any fine-tuning? The authors' answer is yes, and they achieve it with only about 200M parameters and about O(100B) time points of pre-training data — far smaller than the scale of contemporary LLMs.
 
-形式上，任務是學一個函數，把長度為 $L$ 的歷史 context $\mathbf{y}_{1:L}$ 映射到未來 $H$ 步的預測 $\hat{\mathbf{y}}_{L+1:L+H}$。因為要訓練「單一」通用模型，訓練期間不能依賴任何資料集專屬的靜態或動態 covariate，模型只能吃時間序列自己的過去值：
+Formally, the task is to learn a function that maps a history context $\mathbf{y}_{1:L}$ of length $L$ to a forecast $\hat{\mathbf{y}}_{L+1:L+H}$ of the next $H$ steps. Because a "single" general model is to be trained, training cannot rely on any dataset-specific static or dynamic covariate, and the model can only consume the time series' own past values:
 
 $$
 f:\ \mathbf{y}_{1:L}\ \longrightarrow\ \hat{\mathbf{y}}_{L+1:L+H}
 $$
 
-### 為什麼是「patched decoder-only」
+### Why "patched decoder-only"
 
-整個架構由四個設計原則撐起來。第一是 patching：把時間序列切成不重疊的區段（patch），每個 patch 就像語言模型裡的一個 token，這個作法沿用自長期預測工作 PatchTST。好處是送進 transformer 的 token 數量被 patch 長度整除地縮小，推論更快。第二是 decoder-only：和 PatchTST 用 encoder-decoder 不同，TimesFM 在給定一串 input patch 後，被訓練成用「過去所有 patch」去預測下一個 patch，這讓模型能在看過不同數量的 input patch 之後都能往下預測，天然支援可變 context 長度。
+The entire architecture is held up by four design principles. First is patching: cut the time series into non-overlapping segments (patches), where each patch is like a token in a language model — a practice inherited from the long-term forecasting work PatchTST. The benefit is that the number of tokens fed into the transformer is reduced by a factor of the patch length, making inference faster. Second is decoder-only: unlike PatchTST, which uses an encoder-decoder, TimesFM, given a sequence of input patches, is trained to predict the next patch from "all past patches," which lets the model keep forecasting after seeing any number of input patches, naturally supporting variable context lengths.
 
-第三個、也是和 LLM 最不一樣的一點：output patch 可以比 input patch 長。長期預測的經驗是「一次直接吐出整個 horizon」比逐步 auto-regressive 解碼更準，但 zero-shot 場景下 horizon 未知，無法一次吐完。作者的折衷是讓一個 output token 直接預測一段比較長的未來（例如 input patch 長 32、output patch 長 128），這樣自迴歸步數就少很多。第四是 patch masking：若天真地用固定 patch，模型只會對「patch 長度整數倍」的 context 學得好，所以訓練時對每條序列隨機遮蔽最前面一段，讓模型看遍從 1 到最大長度的所有 context 長度。
+The third, and the point that differs most from LLMs: the output patch can be longer than the input patch. Experience in long-term forecasting is that "emitting the whole horizon at once" is more accurate than step-by-step auto-regressive decoding, but in the zero-shot setting the horizon is unknown and cannot be emitted all at once. The authors' compromise is to let one output token directly predict a relatively long stretch of the future (for example, input patch length 32, output patch length 128), which greatly reduces the number of auto-regressive steps. Fourth is patch masking: if fixed patches were used naively, the model would only learn well on contexts that are "integer multiples of the patch length," so during training a leading segment of each series is randomly masked, letting the model see every context length from 1 up to the maximum.
 
-![TimesFM 架構圖：input patch 經 Residual Block 投影成 token，加上位置編碼後送入 num_layers 層因果自注意力 transformer，每個 output token 再經 Residual Block 映射成長度 output_patch_len 的預測。](imgs/architecture.png)
+![TimesFM architecture: input patches are projected into tokens by a Residual Block, and after adding positional encoding are fed into a num_layers-layer causal self-attention transformer; each output token is then mapped by a Residual Block into a prediction of length output_patch_len.](imgs/architecture.png)
 
-### 三個 Residual Block 與因果 transformer
+### Three Residual Blocks and the causal transformer
 
-輸入層先把 $\mathbf{y}_{1:L}$ 依 `input_patch_len`（記為 $p$）切成 patch，第 $j$ 個 patch 是 $\tilde{\mathbf{y}}_j=\mathbf{y}_{p(j-1)+1:pj}$，同時附一個 binary padding mask $\tilde{\mathbf{m}}_j$（1 代表該點應被忽略）。每個 patch 經一個帶單層隱藏與 skip connection 的 MLP（Residual Block）投影成 `model_dim` 維向量，再加上 sinusoidal 位置編碼，得到第 $j$ 個 token：
+The input layer first cuts $\mathbf{y}_{1:L}$ into patches according to `input_patch_len` (denoted $p$); the $j$-th patch is $\tilde{\mathbf{y}}_j=\mathbf{y}_{p(j-1)+1:pj}$, accompanied by a binary padding mask $\tilde{\mathbf{m}}_j$ (1 means the point should be ignored). Each patch is projected by an MLP with a single hidden layer and a skip connection (a Residual Block) into a `model_dim`-dimensional vector, and after adding a sinusoidal positional encoding, gives the $j$-th token:
 
 $$
 \mathbf{t}_j=\mathrm{InputResidualBlock}\big(\tilde{\mathbf{y}}_j\odot(1-\tilde{\mathbf{m}}_j)\big)+\mathrm{PE}_j
 $$
 
-這些 token 送進 `num_layers` 層標準 transformer，每層是多頭因果自注意力（causal self-attention）接 FFN，第 $j$ 個 output token 只能注意到序列中它之前（含自己）的 token。輸出層再用另一個 Residual Block 把每個 output token $\mathbf{o}_j$ 映射成緊接其後、長度為 `output_patch_len`（記為 $h$）的預測；也就是把 $\mathbf{y}_{1:pj}$ 全部編碼進 $\mathbf{o}_j$，用它預測後面 $h$ 個點：
+These tokens are fed into a `num_layers`-layer standard transformer, where each layer is multi-head causal self-attention followed by an FFN, and the $j$-th output token can only attend to the tokens before it (including itself) in the sequence. The output layer then uses another Residual Block to map each output token $\mathbf{o}_j$ into the prediction that immediately follows it, of length `output_patch_len` (denoted $h$); that is, all of $\mathbf{y}_{1:pj}$ is encoded into $\mathbf{o}_j$, which is used to predict the next $h$ points:
 
 $$
 \hat{\mathbf{y}}_{pj+1:pj+h}=\mathrm{OutputResidualBlock}(\mathbf{o}_j)
 $$
 
-因為本文只做 point forecasting，訓練損失就是所有 patch 位置的 MSE 平均（下式的 $N=\lfloor L/p\rfloor$ 是 token 數）；若要做機率預測，只要換成多個分位數頭或最大概似損失即可，作者把它留給後續工作：
+Because this paper only does point forecasting, the training loss is the average MSE over all patch positions (where $N=\lfloor L/p\rfloor$ in the equation below is the number of tokens); for probabilistic forecasting, one only needs to switch to multiple quantile heads or a maximum-likelihood loss, which the authors leave to future work:
 
 $$
 \mathrm{TrainLoss}=\frac{1}{N}\sum_{j=1}^{N}\mathrm{MSE}\big(\hat{\mathbf{y}}_{pj+1:pj+h},\ \mathbf{y}_{pj+1:pj+h}\big)
 $$
 
-訓練時遮罩的取樣很巧妙：對每條序列抽一個 $r\in[0,p-1]$，把最前面 $r$ 個點設為 masked。用論文自己的例子，最大 context 512、$p=32$、若 $r=4$，則第一個 output token 被優化成「看過 $28=32-4$ 個點後」去預測，第二個 token 是「看過 $28+32$ 個點後」，以此類推；掃過所有可能的 $r$，模型就覆蓋了 1 到 512 的所有 context 長度。
+The sampling of the mask during training is clever: for each series draw an $r\in[0,p-1]$ and set the first $r$ points as masked. Using the paper's own example, with a maximum context of 512, $p=32$, and $r=4$, the first output token is optimized to predict "after seeing $28=32-4$ points," the second token "after seeing $28+32$ points," and so on; sweeping over all possible $r$, the model covers every context length from 1 to 512.
 
-### 走一次真實的前向：ETT zero-shot
+### Walking through a real forward pass: ETT zero-shot
 
-用論文主力設定（`model_dim=1280`、20 層、16 頭、$p=32$、$h=128$）跑一次 ETT 的 zero-shot 任務，形狀變化如下：
+Running one ETT zero-shot task with the paper's main setting (`model_dim=1280`, 20 layers, 16 heads, $p=32$, $h=128$), the shape changes are as follows:
 
 ```text
 context L = 512, input_patch_len p = 32
-  → 切成 N = floor(512/32) = 16 個 input patch，每個含 32 個時間點
-  → 每個 patch 經 InputResidualBlock → 1280 維 token，+ 位置編碼
-  → 16 個 token 送進 20 層因果 transformer（16 頭，FFN 隱藏維 = 1280）
-  → 得到 16 個 output token o_1..o_16
-  → o_16 經 OutputResidualBlock → 預測 y_513..y_640（output_patch_len = 128 個點）
+  → split into N = floor(512/32) = 16 input patches, each holding 32 time points
+  → each patch through InputResidualBlock → 1280-dim token, + positional encoding
+  → 16 tokens fed into 20-layer causal transformer (16 heads, FFN hidden dim = 1280)
+  → obtain 16 output tokens o_1..o_16
+  → o_16 through OutputResidualBlock → predict y_513..y_640 (output_patch_len = 128 points)
 
-任務要 horizon = 96：直接取 o_16 輸出的前 96 個點，一次前向、零次自迴歸。
-任務要 horizon = 512：先出 513..640，再把預測接回輸入，共需 ceil(512/128)=4 次自迴歸；
-  若 output_patch_len 只有 32，同一任務要 16 次自迴歸。
+horizon = 96 task: directly take the first 96 points output by o_16, one forward pass, zero auto-regression.
+horizon = 512 task: first emit 513..640, then feed the prediction back into the input, needing ceil(512/128)=4 auto-regression steps in total;
+  if output_patch_len were only 32, the same task would need 16 auto-regression steps.
 ```
 
-值得注意的是，正規化用的是 reversible instance normalization 的「標準化」部分：以 context 中第一個 input patch 的均值與標準差來縮放整條 context，因為 zero-shot 下無法像原始 RevIN 那樣學習仿射參數。下表是三種尺寸的超參數，注意 200M 模型的 `model_dim` 是 1280、20 層，`output_patch_len`（128）刻意比 `input_patch_len`（32）長：
+It is worth noting that normalization uses the "standardization" part of reversible instance normalization: the entire context is scaled by the mean and standard deviation of the first input patch in the context, because in the zero-shot setting the affine parameters cannot be learned as in the original RevIN. The table below lists the hyperparameters for the three sizes; note that the 200M model has `model_dim` 1280 and 20 layers, and `output_patch_len` (128) is deliberately longer than `input_patch_len` (32):
 
 | Size | num_layers | model_dims | output_patch_len | input_patch_len | num_heads | dropout |
 |-|-|-|-|-|-|-|
@@ -76,9 +77,9 @@ context L = 512, input_patch_len p = 32
 | 70M | 10 | 1024 | 128 | 32 | 16 | 0.2 |
 | 17M | 10 | 512 | 128 | 32 | 16 | 0.2 |
 
-### 資料引擎：真正的貢獻在這裡
+### The data engine: the real contribution is here
 
-模型不大，但預訓練語料是整篇工作的關鍵。作者用三大來源湊出量與多樣性：Google Trends（約 22k 個熱門查詢、2007–2022 的搜尋熱度，含時/日/週/月粒度）、Wiki Pageviews（2012–2023 的頁面瀏覽量，清理聚合後約 300B 個時間點，是語料主體），以及合成資料（ARMA 過程、正餘弦季節、含轉折點的趨勢、階梯函數的加性組合，共 3M 條、每條長 2048）。訓練時取樣比例是 80% 真實資料、20% 合成資料，真實資料再對「時/次時、日、週、月」四組給相同權重，避免高頻粒度淹沒低頻。下表節選語料組成，說明 Wiki 一項就佔了絕大多數時間點：
+The model is not large, but the pre-training corpus is the key to the whole work. The authors piece together volume and diversity from three major sources: Google Trends (about 22k popular queries, search interest from 2007–2022, at hourly/daily/weekly/monthly granularity), Wiki Pageviews (page views from 2012–2023, about 300B time points after cleaning and aggregation, the bulk of the corpus), and synthetic data (an additive combination of ARMA processes, sine-cosine seasonality, trends with change points, and step functions; 3M series in total, each of length 2048). The training sampling ratio is 80% real data and 20% synthetic data, and the real data is given equal weight across the four groups "hourly/sub-hourly, daily, weekly, monthly," to keep the high-frequency granularities from drowning out the low-frequency ones. The table below excerpts the corpus composition, showing that Wiki alone accounts for the vast majority of time points:
 
 | Dataset | Granularity | # Time series | # Time points |
 |-|-|-|-|
@@ -88,41 +89,41 @@ context L = 512, input_patch_len p = 32
 | Trends daily | Daily | 22,435 | 122,921,365 |
 | M4 monthly | Monthly | 48,000 | 10,382,411 |
 
-最大 context 長度依粒度而定：一般用 512，週資料因序列不夠長只用 256，月或更粗粒度用 64。整個 200M 模型在 16 核 TPUv5e 上跑 1.5M 次迭代（global batch 4096）約需 2 天。
+The maximum context length depends on the granularity: 512 in general, 256 for weekly data because the series are not long enough, and 64 for monthly or coarser granularities. Training the entire 200M model for 1.5M iterations (global batch 4096) on 16 TPUv5e cores takes about 2 days.
 
-### 效果與消融
+### Results and ablations
 
-在三組刻意排除於預訓練之外的公開基準上做 zero-shot 評估。以 ETT 長期預測（horizon 96 與 192、context 512，共 8 個任務）的平均 MAE 來看，TimesFM(ZS) 為 0.36，和監督式最強的 PatchTST（0.37）幾乎打平，其餘被專門訓練過的方法都明顯較差：
+Zero-shot evaluation is done on three groups of public benchmarks deliberately excluded from pre-training. In terms of the average MAE on ETT long-term forecasting (horizons 96 and 192, context 512, 8 tasks in total), TimesFM(ZS) is 0.36, nearly tied with the strongest supervised method PatchTST (0.37), while the rest of the specially trained methods are all clearly worse:
 
 | Method | llmtime(ZS) | PatchTST | PatchTST(ZS) | FEDFormer | AutoFormer | Informer | TimesFM(ZS) |
 |-|-|-|-|-|-|-|-|
 | ETT Avg MAE | 0.45 | 0.37 | 0.35 | 0.53 | 0.53 | 0.99 | 0.36 |
 
-在 Monash 檔案（18 個資料集）上，論文以「除以 naive baseline 後取幾何平均」的 scaled MAE 彙總，TimesFM(ZS) 得 0.6846，略優於 N-BEATS 的 0.7005 而成為榜首，並比 zero-shot 的 llmtime（0.9715）好超過 25%。消融方面，三個實驗支持核心設計：把模型從 17M 放大到 70M、200M 時，Monash 上的 scaled MAE 隨 FLOPS 單調下降（下左圖）；把 `output_patch_len` 從 8 加到 128（512 步 ETT 預測任務）時平均 MAE 單調下降（下右圖），印證「長 output patch 減少自迴歸步數」確有幫助；`input_patch_len` 則在 16、32 附近最好，太大太小都變差，且 $p=32$ 訓練速度約為 $p=16$ 的兩倍，故選 32。
+On the Monash archive (18 datasets), the paper aggregates with a scaled MAE that "divides by a naive baseline and takes the geometric mean," and TimesFM(ZS) scores 0.6846, slightly ahead of N-BEATS's 0.7005 to top the ranking, and over 25% better than zero-shot llmtime (0.9715). On the ablation side, three experiments support the core design: as the model is scaled from 17M to 70M and 200M, the scaled MAE on Monash decreases monotonically with FLOPS (lower-left figure); as `output_patch_len` is increased from 8 to 128 (on the 512-step ETT forecasting task), the average MAE decreases monotonically (lower-right figure), confirming that "a long output patch reducing the number of auto-regression steps" does help; `input_patch_len` is best around 16 and 32 and worsens if too large or too small, and $p=32$ trains about twice as fast as $p=16$, so 32 is chosen.
 
-![左：Monash scaled MAE(GM) 隨 FLOPS 在 17M/70M/200M 三種尺寸上單調下降。](imgs/scaling_flops.png)
+![Left: Monash scaled MAE(GM) decreases monotonically with FLOPS across the three sizes 17M/70M/200M.](imgs/scaling_flops.png)
 
-![右：512 步 ETT 預測任務下，平均 MAE 隨 output_patch_len 由 8 增至 128 單調下降。](imgs/output_patch_len.png)
+![Right: on the 512-step ETT forecasting task, the average MAE decreases monotonically as output_patch_len increases from 8 to 128.](imgs/output_patch_len.png)
 
-合成資料的消融也很有說服力：拿掉合成資料後，Monash 上因為含較多被真實語料低估的粒度（季、年、10 分鐘）而變差，ETT 上則對粒度充足的小時級 ETTh 幾乎沒差，但對 15 分鐘的 ETTm 明顯退步——說明合成資料主要在補足「代表性不足的頻率」。此外作者也提到，這種從零、只用時間序列訓練的基礎模型，能以遠低於 GPT-3／LLaMA-2 的成本得到更好的 zero-shot 表現。
+The ablation on synthetic data is also persuasive: after removing synthetic data, performance on Monash worsens because it contains more granularities under-represented by the real corpus (quarterly, yearly, 10-minute), while on ETT there is almost no difference for the hourly-level ETTh where granularity is plentiful, but a clear regression for the 15-minute ETTm — showing that synthetic data mainly fills in "under-represented frequencies." The authors also mention that such a from-scratch foundation model trained only on time series can obtain better zero-shot performance at a cost far below GPT-3 / LLaMA-2.
 
 ## 🧪 Critical Assessment
 
-### 問題本身是真需求，但「zero-shot」的定義被放寬了
+### The problem is a genuine need, but the definition of "zero-shot" is relaxed
 
-「單一預訓練模型、開箱即用地跨領域預測」確實是產業真痛點：省去每個資料集重新訓練與調參的負擔。這個動機無可挑剔，模型也確實只有 200M、可開源，落地門檻低。但要小心「zero-shot」在論文裡並非全然乾淨：在 Monash 的部分資料集上，作者承認會做「context 長度的推論期調校」（在 32、64 與最大長度間，用訓練尾段的驗證指標挑最好的一個）。這雖然被辯護為「多數 Monash 深度學習 baseline 本就用不同 context 長度」，但它已經是一種以驗證集為準的超參數選擇，把它完全算作 zero-shot 會高估開箱即用的成色。
+"A single pre-trained model doing out-of-the-box cross-domain forecasting" is indeed a real industry pain point: it saves the burden of retraining and tuning for every dataset. This motivation is impeccable, and the model is indeed only 200M, open-sourceable, with a low barrier to deployment. But one must be careful that "zero-shot" in the paper is not entirely clean: on some Monash datasets, the authors admit to doing "inference-time tuning of the context length" (choosing the best among 32, 64, and the maximum length using the validation metric on the tail of training). Although this is defended as "most Monash deep-learning baselines already use different context lengths," it is already a validation-set-based hyperparameter choice, and counting it fully as zero-shot overstates the true out-of-the-box quality.
 
-### baseline 與彙總方式都對自己有利
+### Both the baselines and the aggregation favor the authors
 
-評測設計有兩處值得質疑。其一是彙總指標的選擇：主圖用幾何平均（GM）宣稱 TimesFM 是 Monash 榜首，但論文附錄的算術平均（AM）版本裡，TimesFM 只是「與榜首 N-BEATS 在誤差範圍內接近」而非最佳——換一種同樣合理的彙總法，領先就消失了，這正是把基準定義在對自己有利之處的典型風險。其二是 baseline 的時效：llmtime 這條 zero-shot 對照因 OpenAI 停用 GPT-3 而改用 GPT-3.5-Turbo，模型已不同；且在 Darts 上作者自己承認 llmtime 有資料汙染的可能。這些都讓「贏過 zero-shot 對手」的力道打折。
+Two points in the evaluation design are questionable. First, the choice of aggregation metric: the main figure uses the geometric mean (GM) to claim TimesFM tops Monash, but in the arithmetic mean (AM) version in the paper's appendix, TimesFM is merely "close to the top-ranked N-BEATS within the error range" rather than the best — switch to an equally reasonable aggregation and the lead vanishes, which is exactly the typical risk of defining the benchmark where it is favorable to oneself. Second, the currency of the baselines: the llmtime zero-shot comparison switched to GPT-3.5-Turbo because OpenAI deprecated GPT-3, so the model is already different; and on Darts the authors themselves admit llmtime may suffer data contamination. These all discount the force of "beating zero-shot rivals."
 
-### 架構新意有限，貢獻其實在資料與規模
+### The architectural novelty is limited; the contribution really lies in data and scale
 
-若逐項拆解，patching 來自 PatchTST、decoder-only 來自 LLM、residual block 來自 TiDE，真正原創的主要是「output patch 比 input patch 長」這個折衷，以及支撐訓練的資料引擎。論文自己的 PatchTST(ZS) 消融反而透露了一個尷尬事實：在 context 固定為 512 的 ETT 上，用同一套語料預訓練的 PatchTST(ZS) 平均 MAE 是 0.35，還略勝 TimesFM 的 0.36——這暗示在 context 充足時，架構差異其實不大，TimesFM 的真正優勢是「能適應可變、較短的 context」而非注意力堆疊本身更強。把它理解為「一個為 zero-shot 預測而生的資料與訓練配方」，比理解為「一種更強的網路」更貼切。
+Breaking it down item by item, patching comes from PatchTST, decoder-only from LLMs, and the residual block from TiDE; what is truly original is mainly the "output patch longer than input patch" compromise, together with the data engine that underpins training. The paper's own PatchTST(ZS) ablation in fact reveals an awkward fact: on ETT with context fixed at 512, PatchTST(ZS) pre-trained on the same corpus has an average MAE of 0.35, still slightly beating TimesFM's 0.36 — suggesting that when context is plentiful the architectural difference is actually small, and TimesFM's real advantage is "being able to adapt to variable, shorter contexts" rather than the attention stack itself being stronger. It is more apt to understand it as "a data and training recipe born for zero-shot forecasting" than as "a stronger network."
 
-### 「解決了嗎」：接近而非超越，且盲點明確
+### "Is it solved?": approaching rather than surpassing, with clear blind spots
 
-就宣稱的目標（zero-shot 逼近監督式 SOTA）而言，證據大致成立：ETT 上與 PatchTST 打平、Monash 上與 N-BEATS 同級。但「接近」不等於「超越」，而且在只有 8 條單序列的 Darts 上，TimesFM 的 GM(0.5767) 反而輸給 ARIMA(0.5219) 與 llmtime(0.4882)，顯示在資料稀少、季節性單純時，經典統計法仍具競爭力。更根本的盲點是模型只做單變量 point forecasting：沒有 covariate、沒有機率輸出、沒有不確定性區間，而這些恰是零售、能源等真實預測場景最需要的。作者把機率化與 covariate 都列為未來工作，因此可以說它證明了「時間序列基礎模型可行」，但距離「可直接取代生產級預測管線」仍有不小距離——這是一個扎實且誠實的可行性證明，而非終點。
+As for the claimed goal (zero-shot approaching supervised SOTA), the evidence largely holds: tied with PatchTST on ETT and on par with N-BEATS on Monash. But "approaching" is not "surpassing," and on Darts with only 8 single series, TimesFM's GM (0.5767) actually loses to ARIMA (0.5219) and llmtime (0.4882), showing that when data is scarce and seasonality is simple, classical statistical methods remain competitive. A more fundamental blind spot is that the model only does univariate point forecasting: no covariates, no probabilistic output, no uncertainty intervals — precisely what real forecasting scenarios like retail and energy need most. The authors list both probabilistic modeling and covariates as future work, so it can be said to have proven that "a time-series foundation model is feasible," but it is still a fair distance from "directly replacing a production-grade forecasting pipeline" — this is a solid and honest feasibility proof, not an endpoint.
 
 ## 🔗 Related notes
 
