@@ -5,7 +5,7 @@
 | Author | [@Aiden](https://github.com/Aidenzich) |
 | Tags | #study |
 # DeepScalper: A Risk-Aware Reinforcement Learning Framework to Capture Fleeting Intraday Trading Opportunities
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 
 ## Abstract
 - `Reinforcement learning (RL)` techniques have shown great success in many challenging quantitative trading tasks, such as portfolio management and algorithmic trading. 
@@ -29,7 +29,7 @@ Through extensive experiments on real-world market data spanning over three year
 
 
 ## Volcabulary
-- scalper [s \cal \per] a reseller of tickets etc.; a ticket tout
-- multi-modality multiple modalities
-- risk-aware auxiliary [aug \xi \li \ary] task risk-aware auxiliary task
-- extensive wide-ranging
+- scalper [s \cal \per] 倒賣（戲票等）的人，黃牛
+- multi-modality 多模態
+- risk-aware auxiliary [aug \xi \li \ary] task 風險覺察輔助任務
+- extensive 廣泛的
