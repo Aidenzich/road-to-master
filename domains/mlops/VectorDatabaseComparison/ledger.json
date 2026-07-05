@@ -1,6 +1,6 @@
 {
-  "note_path": "domains/natural_language_processing/VectorDatabaseComparison/README.md",
-  "domain": "natural_language_processing",
+  "note_path": "domains/mlops/VectorDatabaseComparison/README.md",
+  "domain": "mlops",
   "topic": "VectorDatabaseComparison",
   "no_untrusted_code_executed": true,
   "generated_at": "2026-07-05T00:00:00Z",
@@ -195,6 +195,15 @@
       "quoted_snippet": "\"stargazers_count\":45073"
     },
     {
+      "claim_id": "bp8e",
+      "claim_text": "pgvector star 從 seed 的 6k 漲到實測 22069",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://api.github.com/repos/pgvector/pgvector",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "\"stargazers_count\":22069"
+    },
+    {
       "claim_id": "bp9",
       "claim_text": "Pinecone 官方安全文件逐字寫 Pinecone uses role-based access controls (RBAC) to manage access to resources",
       "kind": "evidence-supported",
@@ -247,6 +256,24 @@
       "source_url": null,
       "retrieved_at": null,
       "quoted_snippet": "現代的索引比較應該把 base graph 演算法與 quantization 變體分成兩軸"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "Pinecone serverless 把儲存與計算分離，索引主體 stored in distributed object storage that provides virtually unlimited scalability and high availability，是 2023 seed 缺席的一整類產品",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://docs.pinecone.io/guides/get-started/database-architecture",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "stored in distributed object storage that provides virtually unlimited scalability and high availability"
+    },
+    {
+      "claim_id": "bp13",
+      "claim_text": "disk-first 索引：pgvectorscale adds StreamingDiskANN implemented in Rust，並配 Statistical Binary Quantization (SBQ)，把圖索引落盤並壓縮",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://www.tigerdata.com/blog/pgvector-vs-qdrant",
+      "retrieved_at": "2026-07-05T00:00:00Z",
+      "quoted_snippet": "pgvectorscale adds StreamingDiskANN implemented in Rust"
     },
     {
       "claim_id": "cp1",
