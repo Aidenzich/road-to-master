@@ -6,7 +6,7 @@
 | Tags | #study |
 
 # A Literature Survey on Domain Adaptation of Statistical Classifiers
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 
 [paper](http://www.mysmu.edu/faculty/jingjiang/papers/da_survey.pdf)
 ## The Goal of this survey
@@ -28,7 +28,7 @@
 
 ## 2. Notations 
 - **Source domain**
-    >We refer to the training domain where labeled data is abundant as the source domain.
+    >We refer to the training domain where labeled data is abundant(豐富) as the source domain.
 - **Target domain**
     >The test domain where labeled data is not available or very little as the target domain.
 
@@ -81,7 +81,7 @@
     - While when $D_t,l$ is available, we refer to the problem as <font color=green>supervised domain adapatation</font>.
 
 ## 3. Instance Weighting
-> One general approach to addressing the domain adaptation problem is to **assign instance-dependent weights to the loss function when minimizing the expected loss over the distribution of data**.
+> One general approach to addressing(解決) the domain adaptation problem is to **assign instance-dependent weights to the loss function when minimizing the expected loss over the distribution of data**.
 
 ### Why instance weighting may help?
 - Review the [empirical risk mininmization](https://zh.wikipedia.org/wiki/%E7%BB%8F%E9%AA%8C%E9%A3%8E%E9%99%A9%E6%9C%80%E5%B0%8F%E5%8C%96) framework (Vapnik, 1999)** for standard supervised learning.
@@ -172,7 +172,7 @@ $$
 - 2. derive $P_t(y|x)$ using $P_s(Y)$ and $P_t(Y)$
 - not directly model $P(Y|X)$:
     - e.g. naive Bayes classifiers and support vector machines
-    - If $P(Y|X)$ can be obtained through <font color=red>careful calibration</font> the same trick can be applied.
+    - If $P(Y|X)$ can be obtained through <font color=red>careful calibration</font>(校驗) the same trick can be applied.
     - Chan and Ng (2006) applied this method to the domain adaptation problem in word sense disambiguation (WSD) using naive Bayes classifiers.
 - In Practice:
     - <font color=orange>needs to know the class distribution in the target domain</font> in order to apply the methods described above

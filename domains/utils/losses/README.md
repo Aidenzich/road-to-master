@@ -1,80 +1,80 @@
 # Loss Functions
+> **English** | [繁體中文](./README.zh-TW.md)
 
-> Loss Function 的核心目標就是「最小化模型對現實的驚訝程度」。當資訊成本降到最低時，模型預測的分布與實際分布就達成了完美的對齊，不確定性差距（資訊損失）也就消失了。
-> 「資訊成本」（又稱自資訊 Self-information 或 驚訝度 Surprise）物理意義非常直覺：它衡量一個事件發生時，帶給你多少「新訊息」或「不確定性的消除」。  訓練模型，就是要把『意外』變成『理所當然』的過程。
+> The core goal of a loss function is to "minimize the model's degree of surprise at reality". When the information cost is driven to its minimum, the distribution predicted by the model achieves perfect alignment with the actual distribution, and the uncertainty gap (information loss) disappears.
+> The physical meaning of "information cost" (also called self-information or Surprise) is very intuitive: it measures how much "new information" or "reduction of uncertainty" an event brings when it occurs. Training a model is the process of turning the "unexpected" into the "matter of course".
 
-## Log 與 Loss Functions: 資訊成本的度量衡
+## Log and Loss Functions: The Metric of Information Cost
 
-在機器學習中，$\log$ 函數的核心作用是將 **機率**（模型預測的信心值）轉換為**資訊成本**（損失函數的處罰分）。這種轉換使得誤差得以累加、梯度運算更穩定，且在數學上等價於最大似然估計（MLE）。
-
----
-
-## 1. 為什麼損失函數離不開 $\log$？
-
-$\log$ 扮演了「計分員」的角色，將機率空間對映到成本空間：
-* **物理直覺**：$\log$ 將「獨立機率的乘法」轉換為「資訊量的加法」。
-* **優化優勢**：解決數值下溢（Numerical Underflow）問題，並提供更穩定的梯度（避免 Sigmoid/Softmax 的飽和區導致梯度消失）。
-* **處罰邏輯**：
-    - 當預測機率 $Q \to 1$ 時，$-\log Q \to 0$（無處罰）
-    - 當 $Q \to 0$ 時，$-\log Q \to \infty$（極大處罰）。
+In machine learning, the core role of the $\log$ function is to convert **probability** (the confidence value the model predicts) into **information cost** (the penalty score of the loss function). This conversion makes errors additive, makes gradient computation more stable, and is mathematically equivalent to maximum likelihood estimation (MLE).
 
 ---
 
-## 2. 核心損失函數公式剖析
+## 1. Why can't loss functions live without $\log$?
 
-### A. Cross Entropy (交叉熵) — 加權驚訝度
-用於分類任務，衡量模型預測分布與真實標籤的差異。
+$\log$ plays the role of the "scorekeeper", mapping the probability space onto the cost space:
+* **Physical intuition**: $\log$ turns the "multiplication of independent probabilities" into the "addition of information content".
+* **Optimization advantage**: it solves the numerical underflow problem, and provides more stable gradients (avoiding the vanishing gradient caused by the saturation region of Sigmoid/Softmax).
+* **Penalty logic**:
+    - When the predicted probability $Q \to 1$, $-\log Q \to 0$ (no penalty)
+    - When $Q \to 0$, $-\log Q \to \infty$ (extremely large penalty).
+
+---
+
+## 2. Dissecting the Core Loss-Function Formulas
+
+### A. Cross Entropy — Weighted Surprise
+Used for classification tasks, measuring the difference between the model's predicted distribution and the true label.
 $$H(P, Q) = -\sum P(x) \log Q(x)$$
-* **$\log Q(x)$**：模型預測的資訊成本（驚訝度）。
-* **$P(x)$**：真實標籤作為權重，只計算「真實發生類別」的成本。
-* $\log Q(x)$ **物理意義**：當 $P(x)$ 發生時，你使用預測分佈 $Q(x)$ (即模型的機率分布)來描述這個事件所需要支付的「資訊成本」（或稱作「驚訝程度」）。
+* **$\log Q(x)$**: the information cost (surprise) predicted by the model.
+* **$P(x)$**: the true label serving as a weight, so that only the cost of the "class that actually occurs" is counted.
+* **Physical meaning of $\log Q(x)$**: when $P(x)$ occurs, the "information cost" (or "degree of surprise") you must pay to describe this event using the predicted distribution $Q(x)$ (i.e. the model's probability distribution).
 
-### B. Binary Cross Entropy / NCE — 是非題的成本
-用於二元分類或大規模負採樣。
+### B. Binary Cross Entropy / NCE — The Cost of a True/False Question
+Used for binary classification or large-scale negative sampling.
 $$\mathcal{L} = - [ y \log(\hat{y}) + (1-y) \log(1-\hat{y}) ]$$
-* **$\log(\hat{y})$**：模型預測「真貨為真」的成本。
-* **$\log(1-\hat{y})$**：模型預測「假貨為假」的成本。
-* **兩者皆是對模型預測取 $\log$。**
+* **$\log(\hat{y})$**: the cost of the model predicting "the real thing is real".
+* **$\log(1-\hat{y})$**: the cost of the model predicting "the fake thing is fake".
+* **Both take the $\log$ of the model's prediction.**
 
-### C. InfoNCE — 正樣本對的特徵對齊成本
-用於對比學習（如 CLIP, SimCLR），核心邏輯是在特徵空間中「拉近相關對、推開無關項」。
+### C. InfoNCE — The Feature-Alignment Cost of Positive Sample Pairs
+Used for contrastive learning (such as CLIP, SimCLR); the core logic is to "pull related pairs closer and push unrelated items apart" in the feature space.
 
 $$ \mathcal{L}_{InfoNCE} = -\log \frac{\exp(sim(q, k_+) / \tau)}{\sum_{i=0}^{K} \exp(sim(q, k_i) / \tau)} $$
 
-* **$q$**: 查詢向量 (Anchor)。
-* **$k_+$**: 正樣本 (Positive key)，與 $q$ 互為對應關係。
-* **$k_i$**: 樣本集合，包含 1 個正樣本與 $K$ 個負樣本。
-* **$\tau$ (溫度參數)**：調節分佈的平滑度。$\tau$ 越小，`exp` 的放大效果越極端，模型會更關注那些「最像正樣本」的困難負樣本 (Hard Negatives)。
+* **$q$**: the query vector (Anchor).
+* **$k_+$**: the positive sample (positive key), corresponding to $q$.
+* **$k_i$**: the sample set, containing 1 positive sample and $K$ negative samples.
+* **$\tau$ (temperature parameter)**: adjusts the smoothness of the distribution. The smaller $\tau$ is, the more extreme the amplification effect of `exp`, and the more the model focuses on those hard negatives that "most resemble the positive sample".
 
-#### 指數函數 `exp` 的物理意義
-為什麼不直接用相似度分數，而要取 `exp`？
-* **非負權重轉換**：相似度（如 Cosine）可能為負，但機率必須為正。`exp` 將分數映射至 $(0, \infty)$，確保分母加總具有物理意義。
-* **特徵放大鏡**：`exp` 是非線性增長。這意味著模型會**不成比例地**獎勵高相似度項，並對「不夠像」的正樣本施加強大的拉力。
-* **玻爾茲曼分佈 (Boltzmann Distribution)**：此公式與統計力學一致。相似度可看作「負能量」，系統傾向於讓正樣本處於低能量（高機率）狀態。
+#### The Physical Meaning of the Exponential Function `exp`
+Why not use the similarity score directly, but take `exp` instead?
+* **Non-negative weight conversion**: similarity (such as Cosine) may be negative, but a probability must be positive. `exp` maps the score to $(0, \infty)$, ensuring the denominator sum has physical meaning.
+* **Feature magnifier**: `exp` grows nonlinearly. This means the model **disproportionately** rewards high-similarity items, and exerts a strong pull on positive samples that are "not similar enough".
+* **Boltzmann Distribution**: this formula is consistent with statistical mechanics. Similarity can be viewed as "negative energy", and the system tends to place positive samples in a low-energy (high-probability) state.
 
-| exp 的功能 | 解決的問題 | 帶來的優勢 |
+| Function of exp | Problem solved | Advantage brought |
 | :--- | :--- | :--- |
-| 映射至正數 | 相似度可能為負值 | 滿足機率公理，計算穩定 |
-| 指數放大 | 負樣本區分度不足 | 自動關注 Hard Negatives，訓練更強 |
-| 與 log 抵消 | 求導公式過於複雜 | 產生 Q−P 殘差，優化路徑清晰 |
+| Map to positive numbers | Similarity may be negative | Satisfies probability axioms, stable computation |
+| Exponential amplification | Insufficient discrimination of negatives | Automatically focuses on Hard Negatives, stronger training |
+| Cancels with log | Derivative formula too complex | Produces a Q−P residual, clear optimization path |
 
 
-#### InfoNCE 的核心
-* **本質**：這是一個 **$K+1$ 類別的 Cross Entropy**。
-* **記憶法**：`exp` 負責「把差距拉開」，`log` 負責「把拉開的差距量回來」。
-* **最終目標**：將「自己人 ($k_+$)」從「路人甲乙丙 ($k_i$)」中精準識別出來。
+#### The Core of InfoNCE
+* **Essence**: this is a **$K+1$-class Cross Entropy**.
+* **Mnemonic**: `exp` is responsible for "widening the gap", and `log` is responsible for "measuring the widened gap back".
+* **Final goal**: to precisely identify "our own ($k_+$)" out of "the bystanders ($k_i$)".
 
-## 3. 快速對照表
+## 3. Quick Comparison Table
 
-| 損失函數 | $\log$ 作用對象 | 物理意義 | 適用場景 |
+| Loss Function | Target of $\log$ | Physical Meaning | Applicable Scenario |
 | :--- | :--- | :--- | :--- |
-| **Cross Entropy** | 預測機率 $Q$ | 真實標籤下的平均通訊成本 | 一般分類 (Softmax) |
-| **NCE** | 真假辨識機率 | 區分數據與噪聲的二元成本 | 大規模類別 (如 Word2Vec) |
-| **InfoNCE** | 相似度歸一化值 | 在負樣本干擾下認出正樣本的成本 | 自監督學習、特徵表示 |
-| **MSE** | 無 $\log$ (隱含在 $e$ 的指數中) | 歐幾里得空間的物理距離 | 回歸、數值預測 |
+| **Cross Entropy** | predicted probability $Q$ | average communication cost under the true label | general classification (Softmax) |
+| **NCE** | true/false discrimination probability | binary cost of distinguishing data from noise | large-scale classes (e.g. Word2Vec) |
+| **InfoNCE** | normalized similarity value | cost of recognizing the positive sample amid negative-sample interference | self-supervised learning, feature representation |
+| **MSE** | no $\log$ (implicit in the exponent of $e$) | physical distance in Euclidean space | regression, numerical prediction |
 
 ---
 
-## 4. 關鍵結論：如何記住它？
-> **所有的 $\log$ 都是在對「模型預測 ($Q$)」進行評分。標籤 ($P$) 則是決定「哪部分的評分」會被記入最終的帳單。**
-
+## 4. Key Takeaway: How to Remember It?
+> **Every $\log$ is scoring the "model prediction ($Q$)". The label ($P$) then decides "which part of the score" is recorded on the final bill.**
