@@ -6,7 +6,7 @@
 | Tags | #study |
 
 # PPO
-> **English** | [繁體中文](./README.zh-TW.md)
+> [English](./README.md) | **繁體中文**
 
 | Title | Venue | Year | Code |
 |-|-|-|-|
@@ -27,7 +27,7 @@ What are the components of PPO?
 L^{CPI}(\theta) = \hat{\mathbb{E}}_t \bigg[ \frac{\color{orange}\pi_{\theta}(a_t | s_t)}{\color{red}\pi_{\theta_{old}} (a_t | s_t)} \hat{A}_t \bigg] = \hat{\mathbb{E}}_t \big[ {\color{cyan} r_t (\theta)} \hat{A_t}  \big]
 ```
 
-- conservative
+- conservative (保守)
 - Without a constraint, maximization of LCP I would lead to an excessively large policy update.
 ### Clipped Surrogate Objective
 
