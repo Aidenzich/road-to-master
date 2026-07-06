@@ -68,7 +68,7 @@ PW-MCC = 1.9756 / 2 = 0.988
 
 ### 為什麼 TopK 能達到高一致性：從 spark condition 到 identifiability
 
-論文的理論骨幹是稀疏字典學習的 **spark condition**：若字典 $\mathbf{A}$ 對 $k$-sparse 向量是單射，則稀疏表示唯一。援引 Hillar & Sommer 的結果，任兩個都滿足 spark condition、且在足夠涵蓋的資料上達到零重建誤差的字典，必然在排列與縮放下一致（$\mathbf{A}'=\mathbf{A}\mathbf{P}\mathbf{D}$）。TopK SAE 因為以 $\operatorname{TopK}_k$ 強制**恰好 $k$-sparse**、逼近零重建、並透過 round-trip 性質誘導 spark condition，三者同時成立時，任兩個 TopK SAE 學到的字典必**identical up to permutation and scaling**。這就是「TopK 比 ReLU/Standard 更一致」在理論上的來源。
+論文的理論骨幹是稀疏字典學習的 **spark condition**：若字典 $\mathbf{A}$ 對 $k$-sparse 向量是單射，則稀疏表示唯一。援引 Hillar & Sommer 的結果，任兩個都滿足 spark condition、且在足夠涵蓋的資料上達到零重建誤差的字典，必然在排列與縮放下一致（$\mathbf{A}'=\mathbf{A}\mathbf{P}\mathbf{D}$）。TopK SAE 因為以 $\mathrm{TopK}_k$ 強制**恰好 $k$-sparse**、逼近零重建、並透過 round-trip 性質誘導 spark condition，三者同時成立時，任兩個 TopK SAE 學到的字典必**identical up to permutation and scaling**。這就是「TopK 比 ReLU/Standard 更一致」在理論上的來源。
 
 這也解釋了為何選對 $k$ 很關鍵：在 matched regime（$d_{\text{gt}}=d_{\text{sae}}=40$、真值稀疏度 $s=8$）掃描 $k$ 時，字典還原品質恰在 $k=s=8$ 達峰，且對誤設呈**非對稱**——低估 $k$ 比高估更傷。
 
