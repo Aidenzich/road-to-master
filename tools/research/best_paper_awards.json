@@ -2,7 +2,8 @@
   "_meta": {
     "description": "Curated official Best/Outstanding Paper awards per conference edition year. Used by top_papers.py as the fallback 'best' signal when citation-based ranking is credibility-degraded (recent years / incomplete venue tagging). Every conference-year block carries the primary source_url it was verified against; entries are the conference's MAIN paper awards (best/outstanding + officially named runner-ups / honorable mentions), not student/test-of-time/demo tracks.",
     "verified_at": "2026-07-06",
-    "maintenance": "Append new editions after each conference announces awards; always verify against the official page and record it as source_url."
+    "maintenance": "Append new editions after each conference announces awards; always verify against the official page and record it as source_url.",
+    "trust": "Curated, not scraped. Entries may be researched with LLM assistance, so the source_url on every conference-year block is the trust anchor: open it and verify once, then the block is a static human-verified fact file. Never trust or add an entry without its official source_url."
   },
   "2025": {
     "neurips": {

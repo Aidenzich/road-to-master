@@ -12,6 +12,24 @@ low request rates).
   - citations: raw citation count. Most objective, but favors older papers
     within a year window and reference-magnet paper types.
 
+Trust boundary — what is deterministic and what is curated:
+  - The CITATION RANKING half is fully deterministic and LLM-free: raw
+    Semantic Scholar API numbers, deterministic sort, reproducible run to
+    run. Its error sources are the database itself (venue-tagging lag,
+    year-of-first-publication semantics), never a model judgment, and the
+    DEGRADED flag states when it cannot be trusted.
+  - The AWARDS half is deterministic at RUN time (the script only reads
+    best_paper_awards.json) but the dataset is CURATED: entries are
+    researched from official award pages, historically with LLM
+    assistance. The trust anchor is the mandatory source_url on every
+    conference-year block — verify it once by hand (a few minutes per
+    year) and the dataset is thereafter a static, human-verified fact
+    file with no residual LLM dependency. Do not trust an entry whose
+    source_url you have not opened; do not add entries without one.
+  - Deliberately NOT a scraper: six official sites with divergent,
+    yearly-changing layouts would fail silently. A once-a-year manual
+    append with a source_url fails loudly and is auditable.
+
 Known caveats (inherent to the source, not bugs):
   - S2's `year` is the FIRST publication year (often the arXiv preprint),
     not the conference edition year. A paper posted to arXiv in 2023 but
