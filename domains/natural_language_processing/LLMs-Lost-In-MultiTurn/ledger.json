@@ -1,0 +1,444 @@
+{
+  "note_path": "domains/natural_language_processing/LLMs-Lost-In-MultiTurn/README.md",
+  "domain": "natural_language_processing",
+  "topic": "LLMs-Lost-In-MultiTurn",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-06T03:45:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "LLMs Get Lost In Multi-Turn Conversation",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "LLMs Get Lost In Multi-Turn Conversation"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ICLR 2026 (Outstanding Paper Award)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://blog.iclr.cc/2026/04/23/announcing-the-iclr-2026-outstanding-papers/",
+      "retrieved_at": "2026-07-06T03:35:00+00:00",
+      "quoted_snippet": "Outstanding Paper"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://blog.iclr.cc/2026/04/23/announcing-the-iclr-2026-outstanding-papers/",
+      "retrieved_at": "2026-07-06T03:35:00+00:00",
+      "quoted_snippet": "ICLR 2026"
+    },
+    {
+      "claim_id": "ac-authors-names",
+      "claim_text": "Philippe Laban, Hiroaki Hayashi, Yingbo Zhou, Jennifer Neville",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "Philippe Laban"
+    },
+    {
+      "claim_id": "ac-authors-affil",
+      "claim_text": "Microsoft Research / Salesforce Research",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "Microsoft Research"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/microsoft/lost_in_conversation",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "github.com/Microsoft/lost_in_conversation"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://blog.iclr.cc/2026/04/23/announcing-the-iclr-2026-outstanding-papers/",
+      "retrieved_at": "2026-07-06T03:35:00+00:00",
+      "quoted_snippet": "Outstanding Paper"
+    },
+
+    {
+      "claim_id": "body-1-drop39",
+      "claim_text": "核心發現是：15 個受測模型在多輪、underspecified 的對話中平均退化 39%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "an average drop of 39"
+    },
+    {
+      "claim_id": "body-2-shard",
+      "claim_text": "每個 shard 只帶入一項資訊，合起來剛好等於原指令",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "each introducing a single element from the original instruction"
+    },
+    {
+      "claim_id": "body-3-properties",
+      "claim_text": "P4 最大化切分（盡量拆成最多、最小的 shard）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "typically requires 1-3 minutes per instruction"
+    },
+    {
+      "claim_id": "body-4-simulator",
+      "claim_text": "user simulator 本身也是一個 LLM，具體是低成本的 GPT-4o-mini",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "specifically, GPT-4o-mini"
+    },
+    {
+      "claim_id": "body-4-strategies",
+      "claim_text": "Strategy Classifier 歸入七種策略之一（clarification、refusal、hedging、interrogation、discussion、missing、answer attempt）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "processes the assistant's response into one of seven possible response strategies"
+    },
+    {
+      "claim_id": "body-4-termination",
+      "claim_text": "模擬在滿足任一條件時結束：(1) Task Evaluator 判定某次 answer attempt 正確，或 (2) 新一輪開始時 user simulator 已無 shard 可揭露",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "The conversation ends if one of two conditions is met: (1) the task-evaluator assesses that an assistant answer attempt is correct, or (2) if at the start of a new turn, the user simulator has run out of shards to reveal in the conversation."
+    },
+    {
+      "claim_id": "body-5-inspection",
+      "claim_text": "而真正「對 assistant 不利」的錯誤更少於 2%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "disfavored the assistant model in less than 2"
+    },
+    {
+      "claim_id": "body-6-metrics",
+      "claim_text": "論文對每題跑 N=10 次模擬",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "90th percentile score"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "\\mathrm{percentile}_{90}(S)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "operatorname{percentile}_{90}(S)"
+    },
+    {
+      "claim_id": "body-7-boxplot",
+      "claim_text": "$U_{10}^{90}$ 則是「最好與最差之間差多少」（box 的高度）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "the height of the upper whisker of the box plot represents aptitude"
+    },
+    {
+      "claim_id": "body-8-scale",
+      "claim_text": "共 600 條指令、15 個 LLM、每組合跑 N=10，總計超過 200,000 場模擬",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "totaling more than 200,000 simulated conversations"
+    },
+    {
+      "claim_id": "body-8-concat",
+      "claim_text": "Concat 的表現平均是 Full 的 95.1%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "averaging 95.1"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "97.4 → 68.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "68.1"
+    },
+    {
+      "claim_id": "body-9-strong",
+      "claim_text": "更強的模型並沒有比較不會迷路",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "longer than non-reasoning LLMs"
+    },
+    {
+      "claim_id": "body-10-aptitude16",
+      "claim_text": "aptitude 平均只掉 16%（不顯著）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "an average drop of 16"
+    },
+    {
+      "claim_id": "body-10-unrel112",
+      "claim_text": "unreliability 平均暴增 112%（超過翻倍）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "an average increase of 112"
+    },
+    {
+      "claim_id": "body-11-premature",
+      "claim_text": "在對話前 20% 就首次作答的平均分只有 30.9",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "score of 30.9, less than half of the 64.4"
+    },
+    {
+      "claim_id": "body-11-bloat",
+      "claim_text": "Sharded 設定平均也比 Full 長 27% 的字元數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "27\\% more characters"
+    },
+    {
+      "claim_id": "body-11-middle",
+      "claim_text": "等於把長文本的「lost in the middle」現象搬到了多輪對話",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "loss-in-middle-turns"
+    },
+    {
+      "claim_id": "body-12-correct",
+      "claim_text": "受測模型是 Llama-3.1-8B，正確答案是 85,000 卡路里",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "The correct answer to the instruction is 85,000 calories"
+    },
+    {
+      "claim_id": "body-12-extracted",
+      "claim_text": "只回傳了 Mini Blueberry Muffin 這一項的小計、被抽出為 45,000，判為 Score = 0",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-13-snowball",
+      "claim_text": "也只能把 Full→Sharded 的退化補回約 15–20%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "performance deterioration by 15-20"
+    },
+    {
+      "claim_id": "body-13-temperature",
+      "claim_text": "在多輪互動裡，調低生成溫度無助於提升系統可靠度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "is ineffective in improving system reliability"
+    },
+
+    {
+      "claim_id": "crit-1-34pct",
+      "claim_text": "論文引用的先前研究也指出使用者只有約 34% 的時候會一次講清全部需求",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "reveal the entirety of the instruction in 34"
+    },
+    {
+      "claim_id": "crit-1-underestimate",
+      "claim_text": "這也代表 39% 這個數字是在一個對模型相對友善的沙盒裡量到的",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-2-fourtasks",
+      "claim_text": "它只涵蓋 Code、Database、Math、Actions 四個可自動判對錯的任務",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "We inspected conversations for four tasks: Actions, Code, Math and Database"
+    },
+    {
+      "claim_id": "crit-2-bias",
+      "claim_text": "對同門的 OpenAI assistant 是否更友善、對其他家是否更刁難，論文並未拆開來檢驗",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-3-decomp",
+      "claim_text": "退化主要來自可靠度而非能力，且強模型並不因此免疫",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "drops in performance are explained by small drops in aptitude and large drops in reliability"
+    },
+    {
+      "claim_id": "crit-3-p90",
+      "claim_text": "所以這個拆解比較適合當成質性框架，而非可跨論文比較的精確配比",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-4-translation",
+      "claim_text": "Translation 任務不退化的反例則很有說服力地界定了適用範圍",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "exhibit degradation in performance in the"
+    },
+    {
+      "claim_id": "crit-4-narrow",
+      "claim_text": "樣本遠小於主實驗的 15 模型 × 6 任務",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-5-agent",
+      "claim_text": "把多輪能力外包給 agent 框架（單輪拼裝）會高估模型",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T03:26:45+00:00",
+      "quoted_snippet": "might be limiting, and we argue LLMs should natively"
+    },
+    {
+      "claim_id": "crit-5-diagnosis",
+      "claim_text": "它精準地量出並刻畫了問題，但沒有提出能真正修復的方法，測到的補救全都失敗",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+
+    {
+      "claim_id": "fig-teaser",
+      "claim_text": "單輪 vs 多輪：能力幾乎持平、不可靠度暴增（Figure 1）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/teaser_aptitude_vs_unreliability.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2505.06120/assets/x1.png",
+      "retrieved_at": "2026-07-06T03:30:00+00:00",
+      "quoted_snippet": "we simulate single- and multi-turn conversations for six generation tasks"
+    },
+    {
+      "claim_id": "fig-boxplots",
+      "claim_text": "Full / Concat / Sharded 三種設定的 box-plot，黃色 Sharded 的箱體明顯拉長（Figure 6b）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/boxplots_full_concat_sharded.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2505.06120/assets/x6.png",
+      "retrieved_at": "2026-07-06T03:30:00+00:00",
+      "quoted_snippet": "Observed Model Degradations"
+    },
+    {
+      "claim_id": "fig-example",
+      "claim_text": "Llama-3.1-8B 在 Math 任務的六輪對話，最後只算了藍莓瑪芬、抽出 45,000、得 0 分（Figure 11）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/example_math_conversation.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2505.06120/assets/x12.png",
+      "retrieved_at": "2026-07-06T03:30:00+00:00",
+      "quoted_snippet": "Example simulated multi-turn conversation for the Math task"
+    },
+    {
+      "claim_id": "fig-simulator",
+      "claim_text": "三方模擬流程：User Simulator 每輪揭露 ≤1 個 shard，Strategy Classifier 與 Answer Extractor 處理受測 Assistant（紅框）的回應後交由 Task Evaluator 評分（Figure 3）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/simulator_diagram_three_party.png",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T12:00:00+00:00",
+      "quoted_snippet": "Sharded Conversation Simulation Diagram. The subject for the simulation is highlighted in red."
+    },
+    {
+      "claim_id": "fig-aptitude-schematic",
+      "claim_text": "以 box-plot 說明 aptitude 與 unreliability：A^90 為 P90 端點、U_10^90 為 P90 與 P10 的間距。圖由上而下三個堆疊面板，每個面板都把藍色 Full 箱線圖連到黃色 Sharded 箱線圖，並在圖上標註 A、U 值：純能力下降（上，A 95→65、U 維持 25）、純可靠度下降（中，A 維持 95、U 25→65）或兩者兼有（下，A 95→80、U 25→40）（Figure 6a）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/aptitude_unreliability_schematic.png",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T12:00:00+00:00",
+      "quoted_snippet": "Visualizing Aptitude and Unreliability."
+    },
+    {
+      "claim_id": "body-recap-table",
+      "claim_text": "GPT-4o-mini Full/Sharded/Recap/Snowball = 86.8/50.4/66.5/61.8；GPT-4o = 93.0/59.1/76.6/65.3；Snowball 拉高 Sharded +11.4、+6.2 個絕對百分點",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T12:00:00+00:00",
+      "quoted_snippet": "86.8 & \\ccol{FDF6F6} 84.4 & \\ccol{E58484} 50.4 & \\ccol{F0B7B7} 66.5 & \\ccol{ECA6A6} 61.8"
+    },
+    {
+      "claim_id": "body-inspection-discrepancy",
+      "claim_text": "正文寫檢查了 200 場模擬對話，但對應表格的 caption 卻寫 100 場，這處數字前後不一致",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T12:00:00+00:00",
+      "quoted_snippet": "Results of the inspection of 100 simulated sharded conversations across four tasks"
+    },
+    {
+      "claim_id": "body-inspection-200",
+      "claim_text": "正文稱檢查了 200 場模擬 sharded 對話",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2505.06120",
+      "retrieved_at": "2026-07-06T12:00:00+00:00",
+      "quoted_snippet": "we performed an inspection of 200 simulated \\shardedt conversations"
+    }
+  ]
+}
