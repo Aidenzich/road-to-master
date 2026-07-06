@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs](https://arxiv.org/abs/2505.20254) | arXiv | '25 | [✓](https://github.com/xiangchensong/sae-feature-consistency) | [EN](./SAE-Feature-Consistency/) · [中文](./SAE-Feature-Consistency/README.zh-TW.md) |
 | LLM 訓練階段/類型綜述 (What each training stage actually changes) | survey | '21–'23 | - | [EN](./LLM-Training-Types/) · [中文](./LLM-Training-Types/README.zh-TW.md) |
 | [Fine-tuning vs In-context Learning vs RAG — a survey](https://github.com/Aidenzich/road-to-master/issues/55) | survey | '26 | - | [EN](./FineTuning-vs-ICL-vs-RAG/) · [中文](./FineTuning-vs-ICL-vs-RAG/README.zh-TW.md) |
 | [SAG: SQL-Retrieval Augmented Generation with Query-Time Dynamic Hyperedges](https://arxiv.org/abs/2606.15971) | arXiv | '26 | [✓](https://github.com/Zleap-AI/SAG-Benchmark) | [EN](./SAG-SQL-RAG/) · [中文](./SAG-SQL-RAG/README.zh-TW.md) |
