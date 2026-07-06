@@ -38,8 +38,8 @@
 
 $$
 \overline{P} = \frac{1}{N}\sum_{i=1}^{N} S_i, \qquad
-A^{90} = \operatorname{percentile}_{90}(S), \qquad
-U_{10}^{90} = \operatorname{percentile}_{90}(S) - \operatorname{percentile}_{10}(S)
+A^{90} = \mathrm{percentile}_{90}(S), \qquad
+U_{10}^{90} = \mathrm{percentile}_{90}(S) - \mathrm{percentile}_{10}(S)
 $$
 
 ![以 box-plot 說明 aptitude 與 unreliability：$A^{90}$ 為 P90 端點、$U_{10}^{90}$ 為 P90 與 P10 的間距。圖由上而下三個堆疊面板，每個面板都把藍色 Full 箱線圖連到黃色 Sharded 箱線圖，並在圖上標註 $A$、$U$ 值：純能力下降（上，$A$ 95→65、$U$ 維持 25）、純可靠度下降（中，$A$ 維持 95、$U$ 25→65）或兩者兼有（下，$A$ 95→80、$U$ 25→40）（Figure 6a）](imgs/aptitude_unreliability_schematic.png)

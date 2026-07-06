@@ -38,8 +38,8 @@ Because an LLM at T=1.0 produces different responses to the same state, the pape
 
 $$
 \overline{P} = \frac{1}{N}\sum_{i=1}^{N} S_i, \qquad
-A^{90} = \operatorname{percentile}_{90}(S), \qquad
-U_{10}^{90} = \operatorname{percentile}_{90}(S) - \operatorname{percentile}_{10}(S)
+A^{90} = \mathrm{percentile}_{90}(S), \qquad
+U_{10}^{90} = \mathrm{percentile}_{90}(S) - \mathrm{percentile}_{10}(S)
 $$
 
 ![Box-plots illustrating aptitude and unreliability: $A^{90}$ is the P90 endpoint, $U_{10}^{90}$ is the gap between P90 and P10. The figure has three stacked panels top to bottom, each connecting a blue Full box-plot to a yellow Sharded box-plot and annotating the $A$ and $U$ values on the image: pure aptitude loss (top, $A$ 95→65, $U$ stays 25), pure reliability loss (middle, $A$ stays 95, $U$ 25→65), or both (bottom, $A$ 95→80, $U$ 25→40) (Figure 6a)](imgs/aptitude_unreliability_schematic.png)
