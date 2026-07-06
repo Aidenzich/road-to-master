@@ -143,7 +143,7 @@
     },
     {
       "claim_id": "body-eq-1",
-      "claim_text": "\\operatorname{percentile}_{90}(S)",
+      "claim_text": "\\mathrm{percentile}_{90}(S)",
       "kind": "evidence-supported",
       "target": "note-section:body-equation-1",
       "source_url": "https://arxiv.org/abs/2505.06120",
