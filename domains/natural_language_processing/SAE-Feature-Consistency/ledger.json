@@ -1,0 +1,423 @@
+{
+  "note_path": "domains/natural_language_processing/SAE-Feature-Consistency/README.md",
+  "domain": "natural_language_processing",
+  "topic": "SAE-Feature-Consistency",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-06T02:10:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "2505.20254",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "2505.20254"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "neurips_2025"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Xiangchen Song",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "Xiangchen Song"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/xiangchensong/sae-feature-consistency",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "https://github.com/xiangchensong/sae-feature-consistency"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "This position paper argues"
+    },
+    {
+      "claim_id": "body-1-position",
+      "claim_text": "position paper",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "position paper argues that mechanistic interpretability should prioritize feature consistency"
+    },
+    {
+      "claim_id": "body-2-overlap30",
+      "claim_text": "30%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "overlap sometimes as low as 30\\% for Standard SAEs"
+    },
+    {
+      "claim_id": "body-3-overcomplete",
+      "claim_text": "overcomplete",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "establishes an overcomplete dictionary"
+    },
+    {
+      "claim_id": "body-eq1-loss",
+      "claim_text": "\\lambda S(\\mathbf{f}(\\mathbf{x}))",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "\\lambda S(\\mathbf{f}(\\mathbf{x}))"
+    },
+    {
+      "claim_id": "body-4-strong-consistency",
+      "claim_text": "Strong Feature Consistency",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "align up to a permutation and individual non-zero scaling factors"
+    },
+    {
+      "claim_id": "body-5-matching",
+      "claim_text": "一對一配對",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "set of all possible one-to-one matchings"
+    },
+    {
+      "claim_id": "body-eq2-mcc",
+      "claim_text": "\\frac{|\\langle \\mathbf{a}_{i}, \\mathbf{b}_{j} \\rangle|}{\\|\\mathbf{a}_{i}\\|_2 \\|\\mathbf{b}_{j}\\|_2}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "\\frac{|\\langle \\mathbf{a}_{i}, \\mathbf{b}_{j} \\rangle|}{\\|\\mathbf{a}_{i}\\|_2 \\|\\mathbf{b}_{j}\\|_2}"
+    },
+    {
+      "claim_id": "body-6-hungarian",
+      "claim_text": "Hungarian algorithm",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "typically found using the Hungarian algorithm"
+    },
+    {
+      "claim_id": "body-code1-workedexample",
+      "claim_text": "0.988",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "\\frac{|\\langle \\mathbf{a}_{i}, \\mathbf{b}_{j} \\rangle|}{\\|\\mathbf{a}_{i}\\|_2 \\|\\mathbf{b}_{j}\\|_2}"
+    },
+    {
+      "claim_id": "body-7-worked-conclusion",
+      "claim_text": "0.988",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-7",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "The optimal matching $M^*$ that achieves this maximum is typically found using the Hungarian algorithm"
+    },
+    {
+      "claim_id": "body-8-spark",
+      "claim_text": "spark condition",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "any two TopK SAEs trained on the same data must learn dictionaries that are identical up to permutation and scaling"
+    },
+    {
+      "claim_id": "body-9b-kselect",
+      "claim_text": "k=s=8",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "Performance peaks at $k = s = 8$, with underestimating $k$ being more harmful than overestimating it"
+    },
+    {
+      "claim_id": "body-9-matched97",
+      "claim_text": "0.97 vs 0.63",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "TopK SAE is significantly better than Standard SAE (0.97 vs 0.63) in terms of GT-MCC"
+    },
+    {
+      "claim_id": "body-9-redundant77",
+      "claim_text": "0.77",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "run-to-run consistency is often significantly lower (PW-MCC $0.77$)"
+    },
+    {
+      "claim_id": "body-10-alloc-powerlaw",
+      "claim_text": "1.4",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "empirically find $\\allocExp \\approx 1.4$"
+    },
+    {
+      "claim_id": "fig-cluster-rank",
+      "claim_text": "cluster frequency-dependent GT-MCC",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cluster-rank-mcc.png",
+      "source_url": "https://arxiv.org/pdf/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "cluster frequency-dependent GT-MCC (red line, left y-axis) and SAE feature allocation"
+    },
+    {
+      "claim_id": "fig-freq-similarity",
+      "claim_text": "Min activation frequency between matched feature pairs vs. pairwise similarity",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/freq-vs-similarity.png",
+      "source_url": "https://arxiv.org/pdf/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "Min activation frequency between matched feature pairs vs. pairwise similarity"
+    },
+    {
+      "claim_id": "body-11-pythia",
+      "claim_text": "Pythia-160M",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "We train SAEs on Pythia-160M model"
+    },
+    {
+      "claim_id": "body-11-topk80",
+      "claim_text": "0.80",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "TopK SAEs achieving PW-MCC $\\approx 0.80$"
+    },
+    {
+      "claim_id": "body-table1-rare",
+      "claim_text": "0.514",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "0.514 $\\pm$ 0.280"
+    },
+    {
+      "claim_id": "body-table1-frequent",
+      "claim_text": "0.964",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "0.964 $\\pm$ 0.087"
+    },
+    {
+      "claim_id": "body-12-gptscore",
+      "claim_text": "8.28",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "0.5795--0.9999 & 13,640 & 8.28"
+    },
+    {
+      "claim_id": "body-table2-low",
+      "claim_text": "1.71",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "0.0654--0.1128 & 34 & 1.71"
+    },
+    {
+      "claim_id": "body-table2-high",
+      "claim_text": "8.28",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "0.5795--0.9999 & 13,640 & 8.28"
+    },
+    {
+      "claim_id": "fig-mcc-contributions",
+      "claim_text": "TopK, Standard, Gated, and JumpReLU SAEs",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mcc-contributions.png",
+      "source_url": "https://arxiv.org/pdf/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "PW-MCC contribution by feature activation frequency for TopK, Standard, Gated, and JumpReLU SAEs"
+    },
+    {
+      "claim_id": "body-13-arch-compare",
+      "claim_text": "BatchTopK",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T01:48:58+00:00",
+      "quoted_snippet": "TopK and BatchTopK SAEs achieved the highest PW-MCC scores"
+    },
+    {
+      "claim_id": "body-14-appendix-scan",
+      "claim_text": "0.8181",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "TopK SAEs achieved the highest overall performance with a PW-MCC of 0.8181 using a target $k$ of 20"
+    },
+    {
+      "claim_id": "fig-combined-mcc-redundant",
+      "claim_text": "redundant regime GT-MCC ~0.95 vs PW-MCC ~0.77",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/combined_mcc_redundant.png",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "Redundant regime with high GT-MCC but lower PW-MCC due to selection ambiguity"
+    },
+    {
+      "claim_id": "fig-combined-mcc-compressive",
+      "claim_text": "compressive regime GT-MCC ~0.75 and PW-MCC ~0.60",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/combined_mcc_compressive.png",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "Compressive regime with lower GT-MCC and PW-MCC"
+    },
+    {
+      "claim_id": "fig-token-zipfian",
+      "claim_text": "1M-token Zipfian long tail in real data",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/token_zipfian_c4_train_camera_ready.png",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "showing the Zipfian distribution in real data, with a long and sparse tail"
+    },
+    {
+      "claim_id": "fig-mcc-vs-k",
+      "claim_text": "GT-MCC peaks at k=s=8, asymmetric around optimum",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mcc_vs_k.png",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "Performance peaks at $k = s = 8$, with underestimating $k$ being more harmful than overestimating it"
+    },
+    {
+      "claim_id": "fig-cosine-decay-160",
+      "claim_text": "redundant regime cosine similarity stays high past rank d_gt=40",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cosine_decay_160.png",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "Similarity decays very slowly, remaining high well past rank $d_{gt}=40$"
+    },
+    {
+      "claim_id": "crit-1-problem-real",
+      "claim_text": "30%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "overlap sometimes as low as 30\\% for Standard SAEs"
+    },
+    {
+      "claim_id": "crit-2-080-relative",
+      "claim_text": "0.514",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "0.514 $\\pm$ 0.280"
+    },
+    {
+      "claim_id": "crit-3b-cosinedecay",
+      "claim_text": "selection ambiguity",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "creating selection ambiguity despite high feature quality"
+    },
+    {
+      "claim_id": "crit-3-paper-abs-def",
+      "claim_text": "特徵指向相反方向仍應視為方向一致",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2505.20254",
+      "retrieved_at": "2026-07-06T02:10:00+00:00",
+      "quoted_snippet": "the use of the absolute value in MCC accounts for feature sign"
+    },
+    {
+      "claim_id": "crit-3-code-signed-example",
+      "claim_text": "examples/dictionary_learning/utils.py",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sae-consistency-20260706/.loop-manager/paper-cache/sae-feature-consistency/code-clone/examples/dictionary_learning/utils.py:130-136",
+      "retrieved_at": "2026-07-06T10:30:00+00:00",
+      "quoted_snippet": "cost_matrix = 1 - np.matmul(A_1, A_2.T)\n\n    # Solve the assignment problem using Hungarian algorithm\n    row_ind, col_ind = linear_sum_assignment(cost_matrix)\n\n    # Calculate the MCC\n    mcc = 1 - cost_matrix[row_ind, col_ind].sum() / len(row_ind)"
+    },
+    {
+      "claim_id": "crit-3-code-signed-synthetic",
+      "claim_text": "synthetic/utils.py",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-sae-consistency-20260706/.loop-manager/paper-cache/sae-feature-consistency/code-clone/synthetic/utils.py:239-245",
+      "retrieved_at": "2026-07-06T10:30:00+00:00",
+      "quoted_snippet": "cost_matrix = 1 - np.matmul(A, A_est.T)\n\n    # Solve the assignment problem using Hungarian algorithm\n    row_ind, col_ind = linear_sum_assignment(cost_matrix)\n\n    # Calculate the MCC\n    mcc = 1 - cost_matrix[row_ind, col_ind].sum() / len(row_ind)"
+    },
+    {
+      "claim_id": "crit-4-circularity",
+      "claim_text": "model organism",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "we develop and analyze a synthetic model organism"
+    },
+    {
+      "claim_id": "crit-5-coverage-thin",
+      "claim_text": "Gemma-2-2B",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "results for Gemma-2-2B are provided in"
+    }
+  ]
+}
