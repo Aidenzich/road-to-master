@@ -1,0 +1,137 @@
+{
+  "_meta": {
+    "description": "Curated official Best/Outstanding Paper awards per conference edition year. Used by top_papers.py as the fallback 'best' signal when citation-based ranking is credibility-degraded (recent years / incomplete venue tagging). Every conference-year block carries the primary source_url it was verified against; entries are the conference's MAIN paper awards (best/outstanding + officially named runner-ups / honorable mentions), not student/test-of-time/demo tracks.",
+    "verified_at": "2026-07-06",
+    "maintenance": "Append new editions after each conference announces awards; always verify against the official page and record it as source_url."
+  },
+  "2025": {
+    "neurips": {
+      "source_url": "https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/",
+      "papers": [
+        {"title": "Gated Attention for Large Language Models: Non-linearity, Sparsity, and Attention-Sink-Free", "first_author": "Zihan Qiu", "award": "Best Paper"},
+        {"title": "1000 Layer Networks for Self-Supervised RL: Scaling Depth Can Enable New Goal-Reaching Capabilities", "first_author": "Kevin Wang", "award": "Best Paper"},
+        {"title": "Why Diffusion Models Don't Memorize: The Role of Implicit Dynamical Regularization in Training", "first_author": "Tony Bonnaire", "award": "Best Paper"},
+        {"title": "Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)", "first_author": "Liwei Jiang", "award": "Best Paper (Datasets & Benchmarks Track)"},
+        {"title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?", "first_author": "Yang Yue", "award": "Best Paper Runner-up"},
+        {"title": "Optimal Mistake Bounds for Transductive Online Learning", "first_author": "Zachary Chase", "award": "Best Paper Runner-up"},
+        {"title": "Superposition Yields Robust Neural Scaling", "first_author": "Yizhou Liu", "award": "Best Paper Runner-up"}
+      ]
+    },
+    "icml": {
+      "source_url": "https://icml.cc/virtual/2025/awards_detail",
+      "papers": [
+        {"title": "Roll the dice & look before you leap: Going beyond the creative limits of next-token prediction", "first_author": "Vaishnavh Nagarajan", "award": "Outstanding Paper"},
+        {"title": "CollabLLM: From Passive Responders to Active Collaborators", "first_author": "Shirley Wu", "award": "Outstanding Paper"},
+        {"title": "Conformal Prediction as Bayesian Quadrature", "first_author": "Jake Snell", "award": "Outstanding Paper"},
+        {"title": "The Value of Prediction in Identifying the Worst-Off", "first_author": "Unai Fischer Abaigar", "award": "Outstanding Paper"},
+        {"title": "Score Matching with Missing Data", "first_author": "Josh Givens", "award": "Outstanding Paper"},
+        {"title": "Train for the Worst, Plan for the Best: Understanding Token Ordering in Masked Diffusions", "first_author": "Jaeyeon Kim", "award": "Outstanding Paper"}
+      ]
+    },
+    "iclr": {
+      "source_url": "https://blog.iclr.cc/2025/04/22/announcing-the-outstanding-paper-awards-at-iclr-2025/",
+      "papers": [
+        {"title": "Safety Alignment Should be Made More Than Just a Few Tokens Deep", "first_author": "Xiangyu Qi", "award": "Outstanding Paper"},
+        {"title": "Learning Dynamics of LLM Finetuning", "first_author": "Yi Ren", "award": "Outstanding Paper"},
+        {"title": "AlphaEdit: Null-Space Constrained Model Editing for Language Models", "first_author": "Junfeng Fang", "award": "Outstanding Paper"},
+        {"title": "Data Shapley in One Training Run", "first_author": "Jiachen T. Wang", "award": "Honorable Mention"},
+        {"title": "SAM 2: Segment Anything in Images and Videos", "first_author": "Nikhila Ravi", "award": "Honorable Mention"},
+        {"title": "Faster Cascades via Speculative Decoding", "first_author": "Harikrishna Narasimhan", "award": "Honorable Mention"}
+      ]
+    },
+    "cvpr": {
+      "source_url": "https://cvpr.thecvf.com/Conferences/2025/News/Awards_Press",
+      "papers": [
+        {"title": "VGGT: Visual Geometry Grounded Transformer", "first_author": "Jianyuan Wang", "award": "Best Paper"},
+        {"title": "MegaSaM: Accurate, Fast and Robust Structure and Motion from Casual Dynamic Videos", "first_author": "Zhengqi Li", "award": "Best Paper Honorable Mention"},
+        {"title": "Navigation World Models", "first_author": "Amir Bar", "award": "Best Paper Honorable Mention"},
+        {"title": "Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Vision-Language Models", "first_author": "Matt Deitke", "award": "Best Paper Honorable Mention"},
+        {"title": "3D Student Splatting and Scooping", "first_author": "Jialin Zhu", "award": "Best Paper Honorable Mention"}
+      ]
+    },
+    "acl": {
+      "source_url": "https://2025.aclweb.org/program/awards/",
+      "papers": [
+        {"title": "A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive", "first_author": "Sarath Sivaprasad", "award": "Best Paper"},
+        {"title": "Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs", "first_author": "Angelina Wang", "award": "Best Paper"},
+        {"title": "Language Models Resist Alignment: Evidence From Data Compression", "first_author": "Jiaming Ji", "award": "Best Paper"},
+        {"title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention", "first_author": "Jingyang Yuan", "award": "Best Paper"}
+      ]
+    },
+    "aaai": {
+      "source_url": "https://aaai.org/about-aaai/aaai-awards/aaai-conference-paper-awards-and-recognition/",
+      "papers": [
+        {"title": "Every Bit Helps: Achieving the Optimal Distortion with a Few Queries", "first_author": "Soroush Ebadian", "award": "Outstanding Paper"},
+        {"title": "Efficient Rectification of Neuro-Symbolic Reasoning Inconsistencies by Abductive Reflection", "first_author": "Wen-Chao Hu", "award": "Outstanding Paper"},
+        {"title": "Revelations: A Decidable Class of POMDPs with Omega-Regular Objectives", "first_author": "Marius Belly", "award": "Outstanding Paper"},
+        {"title": "DivShift: Exploring Domain-Specific Distribution Shifts in Large-Scale, Volunteer-Collected Biodiversity Datasets", "first_author": "Elena Sierra", "award": "Outstanding Paper (AI for Social Impact Track)"}
+      ]
+    }
+  },
+  "2024": {
+    "neurips": {
+      "source_url": "https://blog.neurips.cc/2024/12/10/announcing-the-neurips-2024-best-paper-awards/",
+      "papers": [
+        {"title": "Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction", "first_author": "Keyu Tian", "arxiv": "2404.02905", "award": "Best Paper (Main Track)"},
+        {"title": "Stochastic Taylor Derivative Estimator: Efficient amortization for arbitrary differential operators", "first_author": "Zekun Shi", "award": "Best Paper (Main Track)"},
+        {"title": "Not All Tokens Are What You Need for Pretraining", "first_author": "Zhenghao Lin", "arxiv": "2404.07965", "award": "Best Paper Runner-up (Main Track)"},
+        {"title": "Guiding a Diffusion Model with a Bad Version of Itself", "first_author": "Tero Karras", "arxiv": "2406.02507", "award": "Best Paper Runner-up (Main Track)"},
+        {"title": "The PRISM Alignment Dataset: What Participatory, Representative and Individualised Human Feedback Reveals About the Subjective and Multicultural Alignment of Large Language Models", "first_author": "Hannah Rose Kirk", "arxiv": "2404.16019", "award": "Best Paper (Datasets & Benchmarks Track)"}
+      ]
+    },
+    "icml": {
+      "source_url": "https://icml.cc/virtual/2024/awards_detail",
+      "papers": [
+        {"title": "Stealing part of a production language model", "first_author": "Nicholas Carlini", "arxiv": "2403.06634", "award": "Best Paper"},
+        {"title": "Genie: Generative Interactive Environments", "first_author": "Jake Bruce", "arxiv": "2402.15391", "award": "Best Paper"},
+        {"title": "Debating with More Persuasive LLMs Leads to More Truthful Answers", "first_author": "Akbir Khan", "arxiv": "2402.06782", "award": "Best Paper"},
+        {"title": "VideoPoet: A Large Language Model for Zero-Shot Video Generation", "first_author": "Dan Kondratyuk", "arxiv": "2312.14125", "award": "Best Paper"},
+        {"title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis", "first_author": "Patrick Esser", "arxiv": "2403.03206", "award": "Best Paper"},
+        {"title": "Information Complexity of Stochastic Convex Optimization: Applications to Generalization, Memorization, and Tracing", "first_author": "Idan Attias", "award": "Best Paper"},
+        {"title": "Position: Measure Dataset Diversity, Don't Just Claim It", "first_author": "Dora Zhao", "award": "Best Paper"},
+        {"title": "Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution", "first_author": "Aaron Lou", "award": "Best Paper"},
+        {"title": "Probabilistic Inference in Language Models via Twisted Sequential Monte Carlo", "first_author": "Stephen Zhao", "award": "Best Paper"},
+        {"title": "Position: Considerations for Differentially Private Learning with Large-Scale Public Pretraining", "first_author": "Florian Tramèr", "award": "Best Paper"}
+      ]
+    },
+    "iclr": {
+      "source_url": "https://blog.iclr.cc/2024/05/06/iclr-2024-outstanding-paper-awards/",
+      "papers": [
+        {"title": "Generalization in diffusion models arises from geometry-adaptive harmonic representations", "first_author": "Zahra Kadkhodaie", "arxiv": "2310.02557", "award": "Outstanding Paper"},
+        {"title": "Learning Interactive Real-World Simulators", "first_author": "Sherry Yang", "award": "Outstanding Paper"},
+        {"title": "Never Train from Scratch: Fair Comparison of Long-Sequence Models Requires Data-Driven Priors", "first_author": "Ido Amos", "arxiv": "2310.02980", "award": "Outstanding Paper"},
+        {"title": "Protein Discovery with Discrete Walk-Jump Sampling", "first_author": "Nathan C. Frey", "arxiv": "2306.12360", "award": "Outstanding Paper"},
+        {"title": "Vision Transformers Need Registers", "first_author": "Timothée Darcet", "arxiv": "2309.16588", "award": "Outstanding Paper"}
+      ]
+    },
+    "cvpr": {
+      "source_url": "https://cvpr.thecvf.com/Conferences/2024/News/Awards",
+      "papers": [
+        {"title": "Generative Image Dynamics", "first_author": "Zhengqi Li", "arxiv": "2309.07906", "award": "Best Paper"},
+        {"title": "Rich Human Feedback for Text-to-Image Generation", "first_author": "Youwei Liang", "arxiv": "2312.10240", "award": "Best Paper"},
+        {"title": "EventPS: Real-Time Photometric Stereo Using an Event Camera", "first_author": "Bohan Yu", "award": "Best Paper Honorable Mention (Runner-Up)"},
+        {"title": "pixelSplat: 3D Gaussian Splats from Image Pairs for Scalable Generalizable 3D Reconstruction", "first_author": "David Charatan", "award": "Best Paper Honorable Mention (Runner-Up)"}
+      ]
+    },
+    "acl": {
+      "source_url": "https://2024.aclweb.org/program/best_papers/",
+      "papers": [
+        {"title": "Mission: Impossible Language Models", "first_author": "Julie Kallini", "arxiv": "2401.06416", "award": "Best Paper"},
+        {"title": "Semisupervised Neural Proto-Language Reconstruction", "first_author": "Liang Lu", "award": "Best Paper"},
+        {"title": "Why are Sensitive Functions Hard for Transformers?", "first_author": "Michael Hahn", "arxiv": "2402.09963", "award": "Best Paper"},
+        {"title": "Deciphering Oracle Bone Language with Diffusion Models", "first_author": "Haisu Guan", "award": "Best Paper"},
+        {"title": "Aya Model: An Instruction Finetuned Open-Access Multilingual Language Model", "first_author": "Ahmet Üstün", "arxiv": "2402.07827", "award": "Best Paper"},
+        {"title": "Natural Language Satisfiability: Exploring the Problem Distribution and Evaluating Transformer-based Language Models", "first_author": "Tharindu Madusanka", "award": "Best Paper"},
+        {"title": "Causal Estimation of Memorisation Profiles", "first_author": "Pietro Lesci", "award": "Best Paper"}
+      ]
+    },
+    "aaai": {
+      "source_url": "https://aaai.org/about-aaai/aaai-awards/aaai-conference-paper-awards-and-recognition/",
+      "papers": [
+        {"title": "GxVAEs: Two Joint VAEs Generate Hit Molecules from Gene Expression Profiles", "first_author": "Chen Li", "award": "Outstanding Paper"},
+        {"title": "Reliable Conflictive Multi-view Learning", "first_author": "Cai Xu", "award": "Outstanding Paper"},
+        {"title": "Proportional Aggregation of Preferences for Sequential Decision Making", "first_author": "Nikhil Chandak", "award": "Outstanding Paper"}
+      ]
+    }
+  }
+}
