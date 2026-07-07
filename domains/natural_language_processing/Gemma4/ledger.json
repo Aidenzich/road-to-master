@@ -1,0 +1,450 @@
+{
+  "note_path": "domains/natural_language_processing/Gemma4/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Gemma4",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-07T15:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Gemma 4 Technical Report",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "Gemma 4 Technical Report"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv:2607.02770",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "2607.02770"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "as of June 19, 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Gemma Team, Google DeepMind",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "Gemma Team, Google DeepMind"
+    },
+    {
+      "claim_id": "ac-kind",
+      "claim_text": "tech-report",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "Gemma 4 Technical Report"
+    },
+    {
+      "claim_id": "b-p1",
+      "claim_text": "核心賣點不是單一新演算法",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "open-weight, natively multimodal language models"
+    },
+    {
+      "claim_id": "b-p2",
+      "claim_text": "3.8B active / 26B total 的 MoE 變體",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "3.8B activated and 26B total parameters"
+    },
+    {
+      "claim_id": "b-t1",
+      "claim_text": "24,500M | 430M",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "3.8B activated and 26B total parameters"
+    },
+    {
+      "claim_id": "b-p3",
+      "claim_text": "在 5B 與 8B total 參數下分別達到 2.3B 與 4.5B effective",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "2.3B and 4.5B effective out of 5B and 8B total"
+    },
+    {
+      "claim_id": "b-p4",
+      "claim_text": "local-to-global 比例為 5:1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "4-to-1 local attention blocks for"
+    },
+    {
+      "claim_id": "b-e1",
+      "claim_text": "\\text{values} = \\text{keys}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "\\text{values} = \\text{keys}"
+    },
+    {
+      "claim_id": "b-p5",
+      "claim_text": "把 global KV cache 佔用「最多」降低 37.5%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "reducing the global KV cache by 37.5\\%"
+    },
+    {
+      "claim_id": "b-p6",
+      "claim_text": "用一個 35M 參數的單一大 matmul 取代 550M 的 vision encoder",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "replaces the 550M vision encoder by a single large matmul (35M parameters)"
+    },
+    {
+      "claim_id": "b-p7",
+      "claim_text": "305M 的 USM conformer 編碼器被「完全丟棄」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "305M USM-based conformer encoder is"
+    },
+    {
+      "claim_id": "b-p8",
+      "claim_text": "模型可在回答前先輸出一段 reasoning trace",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "outputting a reasoning trace before the response"
+    },
+    {
+      "claim_id": "b-p9",
+      "claim_text": "model dim 在 E2B/E4B 為 256、在 26B-A4B/31B 為 1024",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "model dimension 256 for E2B and E4B, 1024 for 26B-A4B and 31B"
+    },
+    {
+      "claim_id": "b-e2",
+      "claim_text": "d \\times 262{,}000 \\rightarrow d \\times 4096",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "reduced from $d\\times 262,000$ to $d\\times 4096$"
+    },
+    {
+      "claim_id": "b-p10",
+      "claim_text": "on-disk 佔用從 Gemma 3n 的 390 MB 壓到 87 MB(78% 縮減)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "from 390\\,MB in Gemma 3n to~87\\,MB"
+    },
+    {
+      "claim_id": "b-p21",
+      "claim_text": "150M vision encoder 以 W8A8 換到 2 倍的 forward-pass 記憶體縮減(400 MB → 200 MB)",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "from 400 MB to 200 MB"
+    },
+    {
+      "claim_id": "b-p11",
+      "claim_text": "只能取 70、140、280、560、1120",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "70,140, 280, 560"
+    },
+    {
+      "claim_id": "b-c1",
+      "claim_text": "BicubicResize(I, H_target, W_target)",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "m \\gets k \\cdot p"
+    },
+    {
+      "claim_id": "b-p12",
+      "claim_text": "`patch_size=16`、`pooling_kernel_size=3`、`max_soft_tokens=10`",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "max\\_soft\\_tokens=10"
+    },
+    {
+      "claim_id": "b-e3",
+      "claim_text": "m = k \\cdot p = 3 \\times 16 = 48",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "m \\gets k \\cdot p"
+    },
+    {
+      "claim_id": "b-e4",
+      "claim_text": "T = N_{\\max} \\cdot m^2 = 10 \\times 48^2 = 23040",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "T \\gets N_{\\max} \\cdot m^2"
+    },
+    {
+      "claim_id": "b-p13",
+      "claim_text": "最後只剩 72 / 9 = 8 個 soft token",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "the resulting 8 soft tokens"
+    },
+    {
+      "claim_id": "b-p14",
+      "claim_text": "相對前代 Gemma 3 27B(non-thinking)有大幅領先",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "All models are in thinking mode unless explicitly stated"
+    },
+    {
+      "claim_id": "b-t2",
+      "claim_text": "AIME 2026(no tools) | 89.2 | 37.5 | 20.8",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "89.2 & 88.3 & 77.5 & 42.5 & 37.5 && 20.8"
+    },
+    {
+      "claim_id": "b-t3",
+      "claim_text": "MMLU Pro | 85.2 | 60.0 | 67.6",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "85.2 & 82.6 & 77.2 & 69.4 & 60.0 && 67.6"
+    },
+    {
+      "claim_id": "b-t4",
+      "claim_text": "LiveCodeBench v6 | 80.0 | 44.0 | 29.1",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "80.0 & 77.1 & 72.0 & 52.0 & 44.0 && 29.1"
+    },
+    {
+      "claim_id": "b-t5",
+      "claim_text": "Codeforces (Elo) | 2150 | 633 | 110",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "2150 & 1718 & 1659 & 940 & 633 && 110"
+    },
+    {
+      "claim_id": "b-t6",
+      "claim_text": "GPQA Diamond | 84.3 | 43.4 | 42.4",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "84.3 & 82.3 & 78.8 & 58.6 & 43.4 && 42.4"
+    },
+    {
+      "claim_id": "b-p15",
+      "claim_text": "Gemma 4 31B 拿到 1451 Elo",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "\\textbf{1451}"
+    },
+    {
+      "claim_id": "b-p15b",
+      "claim_text": "全榜第 43、dense open 模型第一",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "Gemma 4 31B is the leading dense open model on the leaderboard"
+    },
+    {
+      "claim_id": "b-a1",
+      "claim_text": "26B-A4B 為 1438",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "\\textbf{1438}"
+    },
+    {
+      "claim_id": "b-a2",
+      "claim_text": "遠高於 Gemma 3 27B 的 1366",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "Gemma 3 27B         & 1366"
+    },
+    {
+      "claim_id": "b-p16",
+      "claim_text": "E2B/E4B 有 305M audio + 150M vision encoder,26B-A4B/31B 只有 550M vision encoder(無音訊),12B 則走 encoder-free 投影",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "305M & 150M"
+    },
+    {
+      "claim_id": "b-p17",
+      "claim_text": "RULER 128k 上 31B 達 96.4、Gemma 3 27B 僅 66.0",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "128k & 96.4 & 89.8 & 91.2 & 86.6 & 70.4 && 66.0"
+    },
+    {
+      "claim_id": "b-p18",
+      "claim_text": "E4B 在 CoVoST 翻譯平均 38.2 勝過 Gemma 3n E4B 的 34.7",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "21.9 & 38.2"
+    },
+    {
+      "claim_id": "b-p19",
+      "claim_text": "FLEURS ASR 的平均 WER 也從 Gemma 3n E4B 的 0.085 降到 Gemma 4 E4B 的 0.075",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "0.136 & 0.075"
+    },
+    {
+      "claim_id": "b-p20",
+      "claim_text": "Gemma 3n E4B 的 FLEURS ASR 平均 WER 為 0.085",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "0.203 & 0.085"
+    },
+    {
+      "claim_id": "b-fig1",
+      "claim_text": "以 cross-attention 直接讀取主模型不同深度的特徵層",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "cross-attends to the KVs of the main model (Figure~\\ref{fig:mtp}), thus eliminating the need for MTP prefill"
+    },
+    {
+      "claim_id": "b-fig2",
+      "claim_text": "對應 2×4 個 pooled patch 與 72 個 16px patch,最終壓成 8 個 soft token",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "2 $\\times$ 4 pooled patches (each of size $48\\text{px}^2$)"
+    },
+    {
+      "claim_id": "fig-mtp",
+      "claim_text": "MTP drafter 注意力結構示意(論文 Figure 1)",
+      "kind": "paper-claim",
+      "target": "figure:imgs/mtp_gemma_4.png",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "The autoregressive MTP drafter (blue blocks on the right) is fed activations and KV cache from the main model"
+    },
+    {
+      "claim_id": "fig-resize",
+      "claim_text": "影像可變長寬比縮放與切塊範例(論文 Figure 2)",
+      "kind": "paper-claim",
+      "target": "figure:imgs/varasp_varres_resize.png",
+      "source_url": "https://arxiv.org/abs/2607.02770",
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "The image is thus first resized to 2 $\\times$ 4 pooled patches (each of size $48\\text{px}^2$)"
+    },
+    {
+      "claim_id": "c-p1",
+      "claim_text": "在論文裡有兩處互相打架的歸因",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "effectively reducing the global KV cache by 37.5\\%"
+    },
+    {
+      "claim_id": "c-p2",
+      "claim_text": "有一部分其實是 thinking / non-thinking 的落差",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "All models are in thinking mode unless explicitly stated"
+    },
+    {
+      "claim_id": "c-p3",
+      "claim_text": "pre-training 只說「similar to Gemma 3」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "We follow a similar pre-training as Gemma~3"
+    },
+    {
+      "claim_id": "c-p4",
+      "claim_text": "整段沒有任何 benchmark 名稱、數字或表格",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "we saw major improvements in every category of content safety"
+    },
+    {
+      "claim_id": "c-p5",
+      "claim_text": "建立在 effective-parameter 口徑上",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T14:54:30Z",
+      "quoted_snippet": "roughly matches Gemma 3 27B performance with 10x less parameters"
+    }
+  ]
+}
