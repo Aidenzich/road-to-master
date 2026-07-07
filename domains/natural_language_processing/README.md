@@ -10,6 +10,7 @@
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
 | [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) | ICLR | '26 | [✓](https://github.com/microsoft/lost_in_conversation) | [EN](./LLMs-Lost-In-MultiTurn/) · [中文](./LLMs-Lost-In-MultiTurn/README.zh-TW.md) |
+| [SCURank: Ranking Multiple Candidate Summaries with Summary Content Units for Enhanced Summarization](https://aclanthology.org/2026.findings-acl.1941/) | ACL Findings | '26 | [✓](https://github.com/IKMLab/SCURank) | [EN](./SCURank/) · [中文](./SCURank/README.zh-TW.md) |
 | [Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs](https://arxiv.org/abs/2505.20254) | arXiv | '25 | [✓](https://github.com/xiangchensong/sae-feature-consistency) | [EN](./SAE-Feature-Consistency/) · [中文](./SAE-Feature-Consistency/README.zh-TW.md) |
 | LLM 訓練階段/類型綜述 (What each training stage actually changes) | survey | '21–'23 | - | [EN](./LLM-Training-Types/) · [中文](./LLM-Training-Types/README.zh-TW.md) |
 | [Fine-tuning vs In-context Learning vs RAG — a survey](https://github.com/Aidenzich/road-to-master/issues/55) | survey | '26 | - | [EN](./FineTuning-vs-ICL-vs-RAG/) · [中文](./FineTuning-vs-ICL-vs-RAG/README.zh-TW.md) |
