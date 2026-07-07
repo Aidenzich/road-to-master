@@ -1,0 +1,513 @@
+{
+  "note_path": "domains/natural_language_processing/WhenRetrievalDoesntHelp/README.md",
+  "domain": "natural_language_processing",
+  "topic": "WhenRetrievalDoesntHelp",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-07T08:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "When Retrieval Doesn't Help: A Large-Scale Study of Biomedical RAG",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:32:00Z",
+      "quoted_snippet": "When Retrieval Doesn't Help: A Large-Scale Study of Biomedical RAG"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "BioNLP Workshop at ACL 2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:32:00Z",
+      "quoted_snippet": "accepted to BioNLP Workshop at ACL 2026"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:32:00Z",
+      "quoted_snippet": "accepted to BioNLP Workshop at ACL 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Erfan Nourbakhsh, Rocky Slavin, Ke Yang, Anthony Rios",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Erfan Nourbakhsh, Rocky Slavin, Ke Yang"
+    },
+    {
+      "claim_id": "ac-authors-aff",
+      "claim_text": "The University of Texas at San Antonio",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "The University of Texas at San Antonio"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/erfan-nourbakhsh/BioMedicalRAG",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "https://github.com/erfan-nourbakhsh/BioMedicalRAG"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:32:00Z",
+      "quoted_snippet": "accepted to BioNLP Workshop at ACL 2026"
+    },
+    {
+      "claim_id": "bp1",
+      "claim_text": "檢索能讓生醫 QA 準確率相對 chain-of-thought 提示最多提升達 18%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "improves biomedical QA accuracy by as much as 18\\%"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "大多聚焦在大型專有或 70B 級模型（GPT-3.5、GPT-4、Mixtral-8×7B、Llama2-70B）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "largely focused on large proprietary or 70B-scale models"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "每一個實驗條件都是 (retriever, corpus, query dataset) 的三元組",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "We compare four retrieval methods, BM25, TF-IDF, MedCPT, and Hybrid RRF"
+    },
+    {
+      "claim_id": "bt1",
+      "claim_text": "Qwen2.5-7B, Llama-3.1-8B, Mistral-7B, Llama-3.1-70B, Qwen2.5-72B",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "five open-weight instruction-tuned models spanning 7B to 72B parameters"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "LLaMA-3.1-8B 不檢索時 ROUGE-L 為 21.65，換上 BioASQ/PubMed corpus 後跳到 27.43",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA-3.1-8B improves from 21.65 to 27.43 ROUGE-L"
+    },
+    {
+      "claim_id": "bp4b",
+      "claim_text": "相對 baseline 的最大檢索增益只剩 1.18 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "the maximum retrieval benefit over no-retrieval is 1.18 points"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "以最省事的 RRF（Reciprocal Rank Fusion）為例，它不需訓練，只把 BM25 與 MedCPT 兩份排序清單按名次融合",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "combines the BM25 and MedCPT ranked lists using Reciprocal Rank Fusion"
+    },
+    {
+      "claim_id": "be1",
+      "claim_text": "\\frac{1}{k + r_i(d)}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "\\frac{1}{k{+}r}"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "它在封閉題準確率上也沒有系統性地贏過純詞彙的 BM25",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "does not systematically outperform lexical BM25"
+    },
+    {
+      "claim_id": "bp6b",
+      "claim_text": "所有檢索條件都固定取 top-$k=5$ 篇文件接到提示詞前面",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "we retrieve the top $k{=}5$ documents"
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "open-ended ROUGE-L 平均對照，就能看到增益的量級",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "the maximum retrieval benefit over no-retrieval is 1.18 points"
+    },
+    {
+      "claim_id": "bt2",
+      "claim_text": "LLaMA-3.1-8B | 13.06 | 14.24 | +1.18",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "13.06 baseline vs.\\ 14.24 with BioASQ"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "Qwen2.5-72B 完全不檢索的 85.6，就已經比任何 7B 模型的最佳檢索設定高出超過 2 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "exceeds the best retrieval configuration of any 7B model by over 2 points"
+    },
+    {
+      "claim_id": "bp8b",
+      "claim_text": "Mistral-7B 從不檢索的 75.7 一路掉到各語料的 68.6–72.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Mistral-7B drops from 75.7 to 68.6--72.3"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "用 LLM-as-a-judge 判斷檢索脈絡是否足以答題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "we use an LLM-as-a-judge framework to determine whether the retrieved context contains enough information"
+    },
+    {
+      "claim_id": "bp9b",
+      "claim_text": "挑出 100 題「所有檢索方法都取回了被判為相關脈絡」的題目來比",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "select 100 questions where all retrieval methods retrieved context judged to be relevant"
+    },
+    {
+      "claim_id": "bt3-clean",
+      "claim_text": "LLaMA-3.1-70B | 0.410 | 0.660 | 0.260",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA3.1-70B improves substantially with BM25 retrieval"
+    },
+    {
+      "claim_id": "bt3-noisy",
+      "claim_text": "0.660 | 0.260",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA3.1-70B decreases from 0.660 to 0.260 under BM25"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "「取回正確證據」並不等於「用得到證據」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "retrieving relevant evidence alone is not enough to guarantee better performance"
+    },
+    {
+      "claim_id": "bp10b",
+      "claim_text": "只要在相關證據中再混入 20 篇無關文件",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "When we add 20 unrelated documents to the retrieved evidence"
+    },
+    {
+      "claim_id": "bp10c",
+      "claim_text": "真正的瓶頸是模型「使用證據」的能力，而非「找到證據」的能力",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "many models still struggle to correctly use and reason over the retrieved information"
+    },
+    {
+      "claim_id": "fig-topk",
+      "claim_text": "Open-ended ROUGE-L 隨 top-k",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/top-k-rougel.png",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "ROUGE-L changes by less than 0.2 points between $k{=}5$ and $k{=}50$"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "open-ended ROUGE-L 在 $k=5$ 之後就進入平台",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "performance reaches a plateau by $k{=}5$"
+    },
+    {
+      "claim_id": "bp11b",
+      "claim_text": "在 $k\\geq25$ 只剩 51.22%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Mistral-7B declines steadily after $k{=}3$, reaching 51.22\\% at $k{\\geq}25$"
+    },
+    {
+      "claim_id": "fig-topk-close",
+      "claim_text": "封閉題準確率隨 top-k 的長條圖：Llama-3.1-8B 在 k=5 達 72.83% 後於 k>=25 下滑，Mistral-7B 自 k=3 起下滑至 k>=25 約 51.22%，Qwen2.5-7B 與 Llama-3.1-70B 在 k>=25 最佳",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/topk-close-accuracy.png",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA-3.1-8B peaks at $k{=}5$ (72.83\\%) before declining, while Qwen2.5-7B and LLaMA-3.1-70B reach their best performance at $k{\\geq}25$. Mistral-7B declines steadily after $k{=}3$, reaching 51.22\\% at $k{\\geq}25$"
+    },
+    {
+      "claim_id": "fig-topk-open-metrics",
+      "claim_text": "其餘五個 open-ended 指標（BERTScore、METEOR、BLEU、ROUGE-2、ROUGE-1）隨 top-k 亦一致呈現平台，k=5 之後於任何指標任何模型皆無可量測增益",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/topk-open-metrics.png",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "additional passages beyond $k{=}5$ provide no measurable benefit in any metric for any model"
+    },
+    {
+      "claim_id": "bp11c",
+      "claim_text": "其餘五個 open-ended 指標也隨 top-k 一致呈現平台，k=5 之後在任何指標任何模型皆無可量測增益",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "additional passages beyond $k{=}5$ provide no measurable benefit in any metric for any model"
+    },
+    {
+      "claim_id": "fig-fewshot",
+      "claim_text": "Open-ended ROUGE-L 隨 shot 數變化",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/few-shot-rougel.png",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "accuracy collapses from 82.89\\% (1-shot) to 10.06\\% (10-shot)"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "LLaMA-3.1-8B 的封閉題準確率從 82.89%（1-shot）崩到 10.06%（10-shot）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "accuracy collapses from 82.89\\% (1-shot) to 10.06\\% (10-shot)"
+    },
+    {
+      "claim_id": "bp12b",
+      "claim_text": "3-shot 是 open-ended 的甜蜜點",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "3-shot prompting is the sweet spot"
+    },
+    {
+      "claim_id": "cp1",
+      "claim_text": "n-gram 重疊本來就是弱訊號",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "though our experiments do not directly measure evidence utilization or grounding"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "當 corpus 與 reference 高度同源時，檢索到的摘要與標準答案會共享大量詞彙",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "the BioASQ/PubMed corpus consistently provides the strongest lift"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "這是一個合理但尚未被直接量測的推論，而非已被證實的因果",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "current models, especially smaller ones, do not consistently make effective use of retrieved evidence"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "全文沒有回報任何重複實驗的變異數或顯著性檢定",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "greedy decoding and a maximum of 300 newly generated tokens"
+    },
+    {
+      "claim_id": "cp5",
+      "claim_text": "正確的結論不是「生醫 RAG 沒用」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "do not include proprietary frontier systems"
+    },
+    {
+      "claim_id": "cp5b",
+      "claim_text": "也刻意不碰 adaptive retrieval、重排序、迭代檢索或任務特化 chunking",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "does not explore more complex retrieval strategies such as adaptive retrieval, document re-ranking"
+    },
+    {
+      "claim_id": "bp4c",
+      "claim_text": "BioASQ 這一欄裡最大的單點跳升落在 LLaMA-3.1-70B（21.93 → 28.98，+7.05）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "& w/o RAG & 21.93 & 13.18 & \\textbf{17.19} & 14.61 & \\textbf{18.35} & 9.07 & 5.23 & 14.22 \\\\\\cmidrule(lr){3-10} & BioASQ & \\textbf{28.98}"
+    },
+    {
+      "claim_id": "bt2-70B",
+      "claim_text": "LLaMA-3.1-70B | 14.22 | 14.66 | +0.44",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "& 5.23 & 14.22 \\\\\\cmidrule(lr){3-10} & BioASQ & \\textbf{28.98} & 13.10 & 15.95 & 14.03 & 15.71 & 9.13 & 5.73 & \\textbf{14.66}"
+    },
+    {
+      "claim_id": "bt2-mistral",
+      "claim_text": "Mistral-7B | 13.64 | 14.44 | +0.80",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "& 5.82 & 13.64 \\\\\\cmidrule(lr){3-10} & BioASQ & \\textbf{26.55} & 13.49 & 15.50 & 12.78 & 16.81 & 9.39 & 6.57 & \\textbf{14.44}"
+    },
+    {
+      "claim_id": "bt2-qwen7",
+      "claim_text": "Qwen2.5-7B | 12.91 | 13.56 | +0.65",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "& 5.41 & 12.91 \\\\\\cmidrule(lr){3-10} & BioASQ & \\textbf{23.93} & 12.46 & 15.59 & 12.41 & \\textbf{16.29} & 8.54 & 5.69 & \\textbf{13.56}"
+    },
+    {
+      "claim_id": "bt2-qwen72",
+      "claim_text": "Qwen2.5-72B | 13.56 | 13.91 | +0.35",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "& 5.47 & 13.56 \\\\\\cmidrule(lr){3-10} & BioASQ & \\textbf{24.52} & 12.83 & 15.83 & 12.21 & 17.38 & 8.97 & 5.61 & \\textbf{13.91}"
+    },
+    {
+      "claim_id": "bt3c-8B",
+      "claim_text": "LLaMA-3.1-8B | 0.410 (w/o RAG) | 0.580 (BM25 clean)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA3.1-8B  & 0.410 & 0.580 & 0.540 & 0.440 & 0.530"
+    },
+    {
+      "claim_id": "bt3c-mistral",
+      "claim_text": "Mistral-7B | 0.460 (w/o RAG) | 0.510 (BM25 clean)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Mistral-7B   & 0.460 & 0.510 & 0.490 & 0.390 & 0.530"
+    },
+    {
+      "claim_id": "bt3c-qwen7",
+      "claim_text": "Qwen2.5-7B | 0.410 (w/o RAG) | 0.380 (BM25 clean)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Qwen2.5-7B   & 0.410 & 0.380 & 0.400 & 0.360 & 0.390"
+    },
+    {
+      "claim_id": "bt3c-qwen72",
+      "claim_text": "Qwen2.5-72B | 0.380 (w/o RAG) | 0.350 (BM25 clean)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Qwen2.5-72B  & 0.380 & 0.350 & 0.350 & 0.360 & 0.380"
+    },
+    {
+      "claim_id": "bt3n-8B",
+      "claim_text": "LLaMA-3.1-8B | 0.300 (BM25 noisy)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "LLaMA3.1-8B  & 0.410 & 0.300 & 0.250 & 0.300 & 0.240"
+    },
+    {
+      "claim_id": "bt3n-mistral",
+      "claim_text": "Mistral-7B | 0.310 (BM25 noisy)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Mistral-7B   & 0.460 & 0.310 & 0.330 & 0.350 & 0.340"
+    },
+    {
+      "claim_id": "bt3n-qwen7",
+      "claim_text": "Qwen2.5-7B | 0.310 (BM25 noisy)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Qwen2.5-7B   & 0.410 & 0.310 & 0.260 & 0.290 & 0.250"
+    },
+    {
+      "claim_id": "bt3n-qwen72",
+      "claim_text": "Qwen2.5-72B | 0.250 (BM25 noisy)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2606.04127",
+      "retrieved_at": "2026-07-07T07:29:49Z",
+      "quoted_snippet": "Qwen2.5-72B  & 0.380 & 0.250 & 0.240 & 0.280 & 0.230"
+    }
+  ]
+}
