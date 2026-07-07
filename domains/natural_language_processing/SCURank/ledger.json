@@ -1,0 +1,423 @@
+{
+  "note_path": "domains/natural_language_processing/SCURank/README.md",
+  "domain": "natural_language_processing",
+  "topic": "SCURank",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-07T07:50:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "SCURank: Ranking Multiple Candidate Summaries with Summary Content Units for Enhanced Summarization",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T07:43:12Z",
+      "quoted_snippet": "SCURank: Ranking Multiple Candidate Summaries with Summary Content Units for Enhanced Summarization"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "Findings of the Association for Computational Linguistics: ACL 2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T07:43:12Z",
+      "quoted_snippet": "Findings of the Association for Computational Linguistics: ACL 2026"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T07:43:12Z",
+      "quoted_snippet": "2026/7"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Bo-Jyun Wang, Ying-Jia Lin, Hung-Yu Kao",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T07:43:12Z",
+      "quoted_snippet": "Bo-Jyun Wang"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/IKMLab/SCURank",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "https://github.com/IKMLab/SCURank"
+    },
+    {
+      "claim_id": "cell-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "In this paper, we introduce"
+    },
+    {
+      "claim_id": "body-1",
+      "claim_text": "小模型的品質好壞，高度取決於 ranking 這一步能不能可靠地把「資訊量高」的摘要排在前面",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "the quality of the ranking function is critical for effective contrastive learning"
+    },
+    {
+      "claim_id": "body-2",
+      "claim_text": "已有研究顯示 LLM 在文字比較與候選排序上並不穩定、對輸入順序敏感",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "LLMs remain unreliable and inconsistent in text comparison and candidate ranking"
+    },
+    {
+      "claim_id": "body-3",
+      "claim_text": "整個排序過程分成三步：抽取（extraction）、聚合（aggregation）、評分（scoring）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we draw upon the concept of Summary Content Units"
+    },
+    {
+      "claim_id": "body-4",
+      "claim_text": "實作上以 gpt-4o-mini 作為抽取器",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "We use gpt-4o-mini"
+    },
+    {
+      "claim_id": "body-5",
+      "claim_text": "會因摘要資訊量不同而變動",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "denoted as $m_i$, varies"
+    },
+    {
+      "claim_id": "body-6",
+      "claim_text": "實作上 HDBSCAN 的 min cluster size 與 min samples 同設為 2，cluster selection epsilon 設為 0.15",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we set the minimum cluster size and the minimum samples size jointly"
+    },
+    {
+      "claim_id": "body-7",
+      "claim_text": "作者把總分除以摘要 token 數的平方根",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we divide all scores by the square root of the number of tokens"
+    },
+    {
+      "claim_id": "body-8",
+      "claim_text": "整個機制裡 LLM 只負責抽取 SCU，不做比較，因此天然避開了 LLM 排序的順序敏感問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "the framework avoids the unreliability associated with LLM-based comparison"
+    },
+    {
+      "claim_id": "body-9",
+      "claim_text": "以下 scu 數與群集大小為說明用的示意數值",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we divide all scores by the square root of the number of tokens"
+    },
+    {
+      "claim_id": "body-10",
+      "claim_text": "得到與長度相關性最低的 0.1316",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "achieves the lowest correlation (0.1316)"
+    },
+    {
+      "claim_id": "body-11",
+      "claim_text": "先用 10,000 篇 GPT-3.5 摘要做 MLE warm-up",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "warm-up training using maximum likelihood estimation (MLE) was conducted with 10,000 GPT-3.5 summaries"
+    },
+    {
+      "claim_id": "body-12",
+      "claim_text": "CNN/DailyMail 54 篇、XSum 53 篇",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "54 articles from the CNN/DailyMail dataset and 53 articles from the XSum dataset"
+    },
+    {
+      "claim_id": "body-13",
+      "claim_text": "除了 LLMs-9 的 BLEURT 之外的所有指標都拿到最佳",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "achieving the highest scores in all metrics, except BLEURT in the LLMs-9 dataset"
+    },
+    {
+      "claim_id": "body-14",
+      "claim_text": "0.846",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "Krippendorff's $\\alpha$ of 0.846"
+    },
+    {
+      "claim_id": "body-15",
+      "claim_text": "各隨機抽 30 篇",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "randomly sampled 30 articles"
+    },
+    {
+      "claim_id": "body-16",
+      "claim_text": "Completeness 在 CNN 與 XSum 都達到高度顯著（p<0.01）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "highly significant improvements ($p < 0.01$) in \\textit{Completeness}"
+    },
+    {
+      "claim_id": "eq-1",
+      "claim_text": "= \\mathrm{SCUExt}(s_i)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "= \\mathrm{SCUExt}(s_i)"
+    },
+    {
+      "claim_id": "eq-2",
+      "claim_text": "\\phi(u_{i,j}) = \\lVert C^k \\rVert",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "\\phi(u_{i,j}) = \\|C^k\\|"
+    },
+    {
+      "claim_id": "eq-3",
+      "claim_text": "\\Phi_\\mathrm{lp}(s_i) = \\frac{\\Phi(s_i)}{\\sqrt{\\lVert s_i \\rVert}}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "\\Phi_\\mathrm{lp}(s_i) = \\frac{\\Phi(s_i)}{\\sqrt{\\|s_i\\|}}"
+    },
+    {
+      "claim_id": "tab-1",
+      "claim_text": "4.63",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-table-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we divide all scores by the square root of the number of tokens"
+    },
+    {
+      "claim_id": "tab-2",
+      "claim_text": "44.8",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "44.8"
+    },
+    {
+      "claim_id": "tab-3",
+      "claim_text": "66.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "66.1"
+    },
+    {
+      "claim_id": "fig-overview",
+      "claim_text": "Overview of our training framework",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/overview.png",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "Overview of our training framework"
+    },
+    {
+      "claim_id": "fig-human",
+      "claim_text": "Human evaluation results comparing distilled models",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/human_comparison.png",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "Human evaluation results comparing distilled models trained with SCURank and GPTRank"
+    },
+    {
+      "claim_id": "crit-1",
+      "claim_text": "論文並未報告這筆額外的計算與 API 開銷，也未和 GPTRank 做等成本比較",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "LLMs remain unreliable and inconsistent in text comparison and candidate ranking"
+    },
+    {
+      "claim_id": "crit-2",
+      "claim_text": "在主打的 CNN/DailyMail LLMs-9 設定下，SCURank 相對 GPTRank 只有 ROUGE-1 勉強達顯著（p=0.043），其餘自動指標都未達統計顯著",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "LLMs-9 & 0.043* & 0.317 & 0.311 & 0.448 & 0.255 & 0.699"
+    },
+    {
+      "claim_id": "crit-3",
+      "claim_text": "真正屬於本文的創新，是「把 SCU 跨候選聚合、以群集大小當共識權重",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "we adopt the concept of SGUs from"
+    },
+    {
+      "claim_id": "crit-4",
+      "claim_text": "「排序更穩定」與「蒸餾出的模型更好」之間的因果連結較弱",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-07T07:44:00Z",
+      "quoted_snippet": "Krippendorff's $\\alpha$ of 0.846"
+    },
+    {
+      "claim_id": "body-17",
+      "claim_text": "在 CNN/DailyMail 上，SCURank 以 66.7% 勝率壓過 GPTRank 的 13.3%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:10:00Z",
+      "quoted_snippet": "CNN: SCURank 66.7% / Tie 20.0% / GPTRank 13.3%"
+    },
+    {
+      "claim_id": "body-18",
+      "claim_text": "XSum 更明顯，Grok-4 給到 79.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:10:00Z",
+      "quoted_snippet": "Grok:   win 79.2% / tie 15.1% / loss 5.7%"
+    },
+    {
+      "claim_id": "body-19-bartscore",
+      "claim_text": "XSum 的 BARTScore 這一欄 SCURank 並未進入前二",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:10:00Z",
+      "quoted_snippet": "\\textbf{-2.47}"
+    },
+    {
+      "claim_id": "fig-human-preference",
+      "claim_text": "Pairwise preference: CNN 66.7/20.0/13.3, XSum 40.0/40.0/20.0",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/human_preference.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:10:00Z",
+      "quoted_snippet": "XSum: SCURank 40.0% / Tie 40.0% / GPTRank 20.0%"
+    },
+    {
+      "claim_id": "fig-llm-judges",
+      "claim_text": "Win-tie-loss rates evaluated by three LLM judges: Claude-4-sonnet, Gemini-2.5-pro, Grok 4",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/llm_evaluation.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:10:00Z",
+      "quoted_snippet": "Win-tie-loss rates between distilled models trained with SCURank and GPTRank, evaluated by three LLM judges: Claude-4-sonnet, Gemini-2.5-pro, and Grok 4."
+    },
+    {
+      "claim_id": "stab-gptrank",
+      "claim_text": "GPTRank 在輸入順序固定時的自我一致性其實很高（Kendall's τ 76.8、Krippendorff's α 96.4）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-stability",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "GPTRank & 76.8 & 78.4 & 78.4 & 96.4"
+    },
+    {
+      "claim_id": "stab-gptrank-star",
+      "claim_text": "一旦把摘要順序打亂（GPTRank*），τ 崩到 16.7、α 崩到 3.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-stability",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "GPTRank* & 16.7 & 22.4 & 22.4 & 3.0"
+    },
+    {
+      "claim_id": "length-penalty-noreg",
+      "claim_text": "不做正規化（強正相關 0.3666）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-lengthpenalty",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "Sum ($|c|$) & 0.3666 & -0.1394 & \\textbf{0.1316} & 0.2931"
+    },
+    {
+      "claim_id": "xsum-bartscore-2nd",
+      "claim_text": "次佳是 BERTScore ranking（-2.52）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "\\underline{-2.52}\\textsubscript{$\\pm$0.06}"
+    },
+    {
+      "claim_id": "xsum-bartscore-scurank",
+      "claim_text": "SCURank 為 -2.54",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2604.19185",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "-2.54\\textsubscript{$\\pm$0.02}"
+    },
+    {
+      "claim_id": "llm-judge-cnn-low",
+      "claim_text": "CNN/DailyMail 的偏好率約 53.7%（下界）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "Claude: win 53.7% / tie 27.8% / loss 18.5%"
+    },
+    {
+      "claim_id": "llm-judge-cnn-high",
+      "claim_text": "CNN/DailyMail 的偏好率約 61.1%（上界）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1941/",
+      "retrieved_at": "2026-07-07T16:25:00Z",
+      "quoted_snippet": "Gemini: win 61.1% / tie 25.9% / loss 13.0%"
+    }
+  ]
+}
