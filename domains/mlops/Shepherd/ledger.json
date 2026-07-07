@@ -1,0 +1,409 @@
+{
+  "note_path": "domains/mlops/Shepherd/README.md",
+  "domain": "mlops",
+  "topic": "Shepherd",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-08T00:30:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Shepherd: Enabling Programmable Meta-Agents via Reversible Agentic Execution Traces",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Enabling Programmable Meta-Agents via Reversible Agentic Execution Traces"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "2605.10913"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Simon Yu, Derek Chong, Ananjan Nandi, Dilara Soylu, Jiuding Sun, Christopher D. Manning, Weiyan Shi",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Simon Yu"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/shepherd-agents/shepherd",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/shepherd-agents/shepherd",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "https://github.com/shepherd-agents/shepherd"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "Venue Kind: paper (arXiv preprint 2605.10913)",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "2605.10913"
+    },
+
+    {
+      "claim_id": "fig-live",
+      "claim_text": "CooperBench runtime supervision: pair pass rate coop 28.8% to Opus 54.7%, near solo 57.2%; hatched overlay is meta-agent overhead.",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/live-supervision-cooperbench.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x2.png",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Runtime supervision experiments on CooperBench"
+    },
+    {
+      "claim_id": "fig-cro",
+      "claim_text": "LiveCodeBench: CRO reaches higher held-out test pass-rate at lower optimization wall-clock than baseline/GEPA/MetaHarness.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/cro-livecodebench.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x3.png",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "held-out test pass-rate versus optimization wall-clock"
+    },
+
+    {
+      "claim_id": "bp1",
+      "claim_text": "當我們想在它「之上」再放一個 agent 來監督、除錯、最佳化或訓練它時",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "higher-order agents that operate over other agents"
+    },
+    {
+      "claim_id": "bp2",
+      "claim_text": "Shepherd 的主張是把「一個 agent 的執行」變成**一等物件**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "an agent's execution is itself a"
+    },
+    {
+      "claim_id": "bp3",
+      "claim_text": "Shepherd 把四個東西提升為一等物件",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Fork execution state"
+    },
+    {
+      "claim_id": "bp4",
+      "claim_text": "執行歷史被存成一張 content-addressed、Git-like 的 commit graph",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "persistent Git-like commit graph"
+    },
+    {
+      "claim_id": "bc1",
+      "claim_text": "shepherd checkout -b <child-branch>",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "shepherd checkout -b"
+    },
+    {
+      "claim_id": "bp5",
+      "claim_text": "一個 effect 分成兩筆事件:agent 送出動作時的 **intent**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "when the worker issues the action, and an"
+    },
+    {
+      "claim_id": "bp6",
+      "claim_text": "每個 effect 帶一個 **reversibility tier**",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Every effect carries a reversibility tier"
+    },
+    {
+      "claim_id": "bc2",
+      "claim_text": "COMPENSABLE = auto()",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-code-2",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-shepherd-collab-20260708/.loop-manager/code-clone/shepherd/packages/core/src/shepherd_core/types.py",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "COMPENSABLE = auto()  # Requires compensation action (send correction email)"
+    },
+    {
+      "claim_id": "bp7",
+      "claim_text": "filesystem 寫入這類 AUTO 效果原生可回滾",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "compensable effects roll back through user-supplied compensation handlers"
+    },
+    {
+      "claim_id": "bp8",
+      "claim_text": "Shepherd 的 `fork` 是在既有 filesystem 上疊一層 copy-on-write",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "creates a new copy-on-write layer on top of the existing filesystem"
+    },
+    {
+      "claim_id": "btable1",
+      "claim_text": "134 ms",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "134 ms"
+    },
+    {
+      "claim_id": "bp9",
+      "claim_text": "不論 image 從 42 MB 到 5.8 GB,fork 都維持在 134–143 ms",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "regardless of image size"
+    },
+    {
+      "claim_id": "bp10",
+      "claim_text": "框架宣稱 replay 時「重用超過 95% 的 KV cache」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "the provider's prompt cache resolves it without invalidation"
+    },
+    {
+      "claim_id": "bp11",
+      "claim_text": "實際 savings% 的平均只有約 70%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Savings climb sharply"
+    },
+    {
+      "claim_id": "bp12",
+      "claim_text": "無監督的 coop baseline 只有 28.8% pair pass,solo 天花板 57.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "coop baseline lands at {28.8\\%} pair pass rate, reproducing CooperBench's documented coordination penalty against the solo ceiling of {57.2\\%}"
+    },
+    {
+      "claim_id": "bp13",
+      "claim_text": "solo 每對 28.4 min,coop 19.8 min",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "per pair on average"
+    },
+    {
+      "claim_id": "bp14",
+      "claim_text": "在「該 edit 首個會被影響到的 commit」fork parent 的 trace,只重跑之後的 suffix",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "at the first commit that would be affected by the edit and replays the suffix"
+    },
+    {
+      "claim_id": "bp15",
+      "claim_text": "CRO 於四個拿到最佳 test(HoVer 79.4、MATH 80.0、LiveCodeBench 51.0、TB2.0 35.2)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "obtains the best performance on four of five datasets"
+    },
+    {
+      "claim_id": "bp16",
+      "claim_text": "Qwen3.5-35B-A3B 從 Flat GRPO 的 34.2% 升到 39.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "points respectively"
+    },
+    {
+      "claim_id": "bp17",
+      "claim_text": "Core-0/Core-A 等 fragment)用 Lean 機械化證明",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "Machine execution extends traces by appending records"
+    },
+
+    {
+      "claim_id": "cp1",
+      "claim_text": "CooperBench 記錄了並行 coding agent 協調不良、甚至不如單 agent 的「curse of coordination」",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "parallel coding agents coordinate poorly enough that they succeed less often than a single agent"
+    },
+    {
+      "claim_id": "cp2",
+      "claim_text": "監督者每 5 秒才被呼叫一次,而且看到的是**壓縮後的快照**",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "the trailing 25 tool-call summaries"
+    },
+    {
+      "claim_id": "cp3",
+      "claim_text": "沒有做能把「介入正確」與「單純多塞了一個更強的模型進 loop」分離開來的消融",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "We treat this as a proof of existence"
+    },
+    {
+      "claim_id": "cp4",
+      "claim_text": "被重用的是**共享 prefix** 的 kv cache,不是整段對話",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "the only cost paid by the meta-agent is the executed suffix"
+    },
+    {
+      "claim_id": "cp5",
+      "claim_text": "proof envelope **不**驗證 Python 控制流、model 輸出、prompt-cache 狀態",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "The proof envelope does not verify arbitrary Python"
+    },
+    {
+      "claim_id": "cp6",
+      "claim_text": "Shepherd 讓「錯了可以便宜地回滾」,但沒有讓「事前知道這步是對的」",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": null,
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "at the first commit that would be affected by the edit and replays the suffix"
+    },
+    {
+      "claim_id": "cp7",
+      "claim_text": "對短任務,meta-agent 的 token 成本可能超過 worker 本身",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "the meta-agent's token cost can exceed the worker's"
+    },
+    {
+      "claim_id": "cp8",
+      "claim_text": "摘要與 intro 大量使用**相對百分比**(27.5%、12.8%),而其絕對增益是 +11 分與 +4 分",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-8",
+      "source_url": null,
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "obtains the best performance on four of five datasets"
+    },
+    {
+      "claim_id": "cp9",
+      "claim_text": "生產 Python 執行預設是 `runtime_only`(不帶證明)",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:30:00Z",
+      "quoted_snippet": "The fallback is therefore usable for small repositories but unsuitable for large ones"
+    },
+
+    {
+      "claim_id": "btable374",
+      "claim_text": "在 5.8 GB image 上,fork 對 full-rootfs copy 的加速由 Table 2 相除為 53,462 / 143 ≈ 374×;論文正文把此值寫成 192×,與其自身 Table 2 不一致。",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:52:00Z",
+      "quoted_snippet": "53{,}462 ms & 25{,}943 ms"
+    },
+    {
+      "claim_id": "bp-cro-reuse-prose",
+      "claim_text": "冷啟時貼近 0%、之後才攤還爬升",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:52:00Z",
+      "quoted_snippet": "cold first proposer session of every dataset"
+    },
+    {
+      "claim_id": "bp-tree-caveat-prose",
+      "claim_text": "兩條曲線的分離帶並不寬",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:52:00Z",
+      "quoted_snippet": "robustness across model families and benchmarks at scale"
+    },
+    {
+      "claim_id": "fig-cro-reuse",
+      "claim_text": "CRO 在 LiveCodeBench 上的逐 session 計算重用率非單調:session 1 與 session 6 貼近約 1% 的冷啟,中間攤還爬升,最高約 62%(圖 x4,已開圖核對,並對映 aid.tex:1538 冷啟限制)。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cro-computation-reuse.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x4.png",
+      "retrieved_at": "2026-07-08T00:50:00Z",
+      "quoted_snippet": "Computation reuse on LiveCodeBench with \\cbo{}"
+    },
+    {
+      "claim_id": "fig-traj-compress",
+      "claim_text": "跨兩個 worker 家族與兩個 benchmark,68–82% 的成功軌跡可被進一步壓縮,平均長度大致砍半(圖 x5;壓縮率見 aid.tex:1932-1934)。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/trajectory-compression.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x5.png",
+      "retrieved_at": "2026-07-08T00:50:00Z",
+      "quoted_snippet": "Trajectory compression across two worker model families and two benchmarks"
+    },
+    {
+      "claim_id": "btraj-lengths",
+      "claim_text": "成功軌跡中有 68–82% 能被進一步壓縮,平均長度大致砍半",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2605.10913v3",
+      "retrieved_at": "2026-07-08T00:52:00Z",
+      "quoted_snippet": "drops from 21.4 to 8.9 model calls (Sonnet) and from 19.0 to 8.8 (GPT-5.4 high) on SWE-Bench~Verified, and from 15.8 to 7.1 and 11.4 to 5.2 on Terminal-Bench~v2.0"
+    },
+    {
+      "claim_id": "fig-tree-heldout",
+      "claim_text": "Endless Terminals 未見測試集上,Tree-GRPO 在兩個基座都爬升並穩定在比 Flat GRPO 更高的獎勵(圖 x17,已開圖核對)。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/tree-grpo-heldout-reward.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x17.png",
+      "retrieved_at": "2026-07-08T00:50:00Z",
+      "quoted_snippet": "Tree-GRPO climbs to and stabilises at a higher held-out reward than Flat GRPO on both base models"
+    },
+    {
+      "claim_id": "fig-tree-train",
+      "claim_text": "訓練期原始獎勵上,Tree-GRPO(K=4)早期與 Flat GRPO 交錯、部分區間(Qwen 約 step 5–45、Nemotron 約 step 20–55)甚至一度更低,約 step 50–60 後才穩定拉開,並在兩個基座上都以更高獎勵收尾。論文原圖 caption 稱『at every rollout step 都更高』,經開圖核對與早期交錯不符,本筆記採實際可見趨勢。",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/tree-grpo-train-reward.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2605.10913/assets/x18.png",
+      "retrieved_at": "2026-07-08T00:50:00Z",
+      "quoted_snippet": "Tree-GRPO ($K{=}4$, teal) reaches higher reward than Flat GRPO (red) at every rollout step"
+    }
+  ]
+}
