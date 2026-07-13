@@ -1,0 +1,387 @@
+{
+ "note_path": "domains/natural_language_processing/PharoCodeCompletion/README.md",
+ "domain": "natural_language_processing",
+ "topic": "PharoCodeCompletion",
+ "no_untrusted_code_executed": true,
+ "generated_at": "2026-07-13T04:00:00Z",
+ "entries": [
+  {
+   "claim_id": "ac-title",
+   "claim_text": "Teaching LLMs a Low-Resource Language: Enhancing Code Completion in Pharo",
+   "kind": "evidence-supported",
+   "target": "table-cell:title",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Teaching LLMs a Low-Resource Language"
+  },
+  {
+   "claim_id": "ac-year",
+   "claim_text": "2026",
+   "kind": "evidence-supported",
+   "target": "table-cell:year",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "year = {2026}"
+  },
+  {
+   "claim_id": "ac-authors",
+   "claim_text": "Kilian Kier, Alessandro Giagnorio, Omar AbedelKader, Oleksandr Zaitsev, Robert Peharz, Romain Robbes, Gabriele Bavota, Stéphane Ducasse",
+   "kind": "evidence-supported",
+   "target": "table-cell:authors",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Kilian Kier"
+  },
+  {
+   "claim_id": "ac-code",
+   "claim_text": "https://doi.org/10.5281/zenodo.18833238",
+   "kind": "paper-claim",
+   "target": "table-cell:official-code",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "10.5281/zenodo.18833238"
+  },
+  {
+   "claim_id": "ac-venue-kind",
+   "claim_text": "paper",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue-kind",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "IEEEtran"
+  },
+  {
+   "claim_id": "body-prose-1",
+   "claim_text": "Python 在 GitHub 上有約 26M 個公開 repo",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-1",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "26M public repositories"
+  },
+  {
+   "claim_id": "body-prose-2",
+   "claim_text": "Tonel 檔案格式混合了程式碼與 metadata",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "it mixes code and its metadata"
+  },
+  {
+   "claim_id": "body-code-1",
+   "claim_text": "#name : 'ClassName',",
+   "kind": "paper-claim",
+   "target": "note-section:body-code-1",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "#name : 'ClassName',"
+  },
+  {
+   "claim_id": "body-prose-3",
+   "claim_text": "上半的 `Class { ... }` 是宣告 metadata，下半才是實際 method",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-3",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": "General structure of a Tonel file"
+  },
+  {
+   "claim_id": "body-prose-4",
+   "claim_text": "控制流程如 `if`、`while` 不是語法關鍵字，而是普通的 method",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-4",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "are not part of the syntax but are simple methods"
+  },
+  {
+   "claim_id": "body-prose-5",
+   "claim_text": "因為目標是能在開發者機器上跑、滿足即時延遲的 in-IDE 補全",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-5",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "in-IDE code completion---rather than offline code generation---that operates under strict latency constraints"
+  },
+  {
+   "claim_id": "body-prose-6",
+   "claim_text": "降到 415 個 repo",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "reduced the number of repositories from 748 to 415"
+  },
+  {
+   "claim_id": "body-prose-7",
+   "claim_text": "隨機挑一個含 3–10 個 token 的 AST 節點來遮罩",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-7",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "randomly mask an AST node containing between 3 and 10 tokens"
+  },
+  {
+   "claim_id": "body-prose-8",
+   "claim_text": "最終 fine-tuning 資料集為 **324,725** 筆",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-8",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "final training dataset for fine-tuning contains 324,725 instances"
+  },
+  {
+   "claim_id": "body-prose-9",
+   "claim_text": "Qwen2.5 Coder Base（0.5B / 1.5B / 3B / 7B）與 Mellum-base（4B）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-9",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Qwen2.5 Coder Base \\cite{Hui24a} (0.5B, 1.5B, 3B, and 7B parameters) and Mellum-base"
+  },
+  {
+   "claim_id": "body-prose-10",
+   "claim_text": "把 HumanEval+ 的 164 題用 GPT-4o 初譯成 Pharo",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-10",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "we obtained 164 \\pharo tasks from the original Python benchmark"
+  },
+  {
+   "claim_id": "body-table-1",
+   "claim_text": "HumanEval+ AST-aware | 2,274",
+   "kind": "paper-claim",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "HumanEval+ AST-aware   &  2{,}274"
+  },
+  {
+   "claim_id": "body-prose-11",
+   "claim_text": "base checkpoint 的 `pass@1` 為 71.48%，經 pre-training + fine-tuning（SFT）後升到 **83.73%（+12.25）**",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-11",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "increases from 71.48\\% for the base model to 83.73\\% for the \\SFT version (+12.25\\%)"
+  },
+  {
+   "claim_id": "body-prose-12",
+   "claim_text": "base 模型的失敗有 65.6% 是語法錯誤",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-12",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "65.6\\%) due to syntax errors"
+  },
+  {
+   "claim_id": "body-prose-13",
+   "claim_text": "method-level（`pass@1`，節錄）",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-13",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": "pass@1"
+  },
+  {
+   "claim_id": "body-table-2",
+   "claim_text": "89.04",
+   "kind": "paper-claim",
+   "target": "note-section:body-table-2",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "89.04"
+  },
+  {
+   "claim_id": "body-prose-14",
+   "claim_text": "特化的 3B / 7B 不只**超過** Qwen3 Coder 480B（後者參數約多 60–320 倍",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-14",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "320$\\times$ more parameters"
+  },
+  {
+   "claim_id": "body-prose-15",
+   "claim_text": "ChrF 從 60.05% 升到 75.96%（+15.91）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "ChrF increases from 60.05\\% to 75.96\\%"
+  },
+  {
+   "claim_id": "body-prose-15b",
+   "claim_text": "random methods 在 48 個 model-metric 比較中有 37 個優於 class/package 簽章，但始終不如 impacted methods",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "the \\textit{random methods} strategy outperforms the \\textit{class / package signatures} ones in 37 out of 48 cases, but it is always less effective than the \\textit{impacted methods} strategy"
+  },
+  {
+   "claim_id": "body-prose-16",
+   "claim_text": "記憶體從 14.19 GiB 降到 4.36 GiB（約 −70%）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "from 14.19 GiB to 4.36 GiB"
+  },
+  {
+   "claim_id": "body-prose-17",
+   "claim_text": "從 22 個測試 repo 的 488 個開發者 commit 挖出改動，共 2,185 個任務",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "we collect 488 commits performed by developers in public GitHub repositories"
+  },
+  {
+   "claim_id": "body-prose-17b",
+   "claim_text": "repo-level benchmark 共 2,185 個 repository-level completion 任務（每個 context 策略下各評測一次）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "resulted in 2{,}185 repository-level completion tasks evaluated under each context policy"
+  },
+  {
+   "claim_id": "body-prose-6b",
+   "claim_text": "從 415 個 subject repo 共抽出 387,159 個 Pharo method",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "we extracted a total of 387{,}159 \\pharo methods from the 415 subject repositories"
+  },
+  {
+   "claim_id": "body-prose-18",
+   "claim_text": "從 22 個測試 repo 挖 commit",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "We mine commits from the 22 test repositories collected"
+  },
+  {
+   "claim_id": "critical-prose-1",
+   "claim_text": "這個「勝出」**只發生在 r-AST 與 repo-level**",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-1",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "the large models have the edge on the AST-aware benchmark"
+  },
+  {
+   "claim_id": "critical-prose-2",
+   "claim_text": "repo-level 完全沒有可執行測試",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-2",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "the repository-level evaluation lacks executable test cases"
+  },
+  {
+   "claim_id": "critical-prose-3",
+   "claim_text": "沒有 fine-tuning-only 的對照",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-3",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "a fine-tuned-only baseline could have provided an additional point of comparison"
+  },
+  {
+   "claim_id": "critical-prose-4",
+   "claim_text": "本文真正的貢獻偏向**工程整合與領域落地**",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "The effort involved in this significantly exceeded the effort in training the models themselves"
+  },
+  {
+   "claim_id": "critical-prose-5",
+   "claim_text": "所有評測都是「遮罩—補回」的模擬",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-5",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "it remains a simulation of editing behavior rather than a live IDE study"
+  },
+  {
+   "claim_id": "ledger-repo-crystalbleu-numbers",
+   "claim_text": "repo-level CrystalBLEU 從 35.96% 升到 58.99%（+23.03）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "CrystalBLEU increases from 35.96\\% to 58.99\\%"
+  },
+  {
+   "claim_id": "ledger-claude-repo-scores",
+   "claim_text": "Claude 4.5 Sonnet 在 impacted methods 下 repo-level ChrF 83.02%、CrystalBLEU 70.52%",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "achieving a ChrF score of 83.02\\% and CrystalBLEU of 70.52\\%"
+  },
+  {
+   "claim_id": "ledger-latency-7b-m3",
+   "claim_text": "量化 7B 在 M3 Max CPU 延遲約 1.33 秒",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Qwen 2.5 Coder 7B - SFT (4-bit) & 4.36 GiB & $1.332$"
+  },
+  {
+   "claim_id": "ledger-latency-7b-gpu",
+   "claim_text": "量化 7B 在 RX 7800XT GPU 延遲約 0.53 秒",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "4.36 GiB & $0.534$"
+  },
+  {
+   "claim_id": "ledger-latency-3b-m4",
+   "claim_text": "未量化 3B 在 M4 Max 延遲約 0.62 秒",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Qwen 2.5 Coder 3B - SFT & 5.75 GiB & $0.620$"
+  },
+  {
+   "claim_id": "ledger-latency-3b-m3",
+   "claim_text": "未量化 3B 在 M3 Max 延遲約 0.73 秒",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Qwen 2.5 Coder 3B - SFT & 5.75 GiB & $0.725$"
+  },
+  {
+   "claim_id": "ledger-quant-pass1-drop",
+   "claim_text": "量化後 method-level pass@1 平均只掉 0.61%",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "the pass@1 metric decreased by 0.61\\%, on average"
+  },
+  {
+   "claim_id": "ledger-lowresource-lang-counts",
+   "claim_text": "過去被視為 low-resource 的 Lua（620k）、Julia（85k）、Racket（23k）repo 數",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/abs/2607.04939",
+   "retrieved_at": "2026-07-13T03:13:34Z",
+   "quoted_snippet": "Lua (620k public repositories on GitHub), Julia (85k), and Racket (23k)"
+  }
+ ]
+}
