@@ -1,0 +1,468 @@
+{
+  "note_path": "domains/vision_language/LingBot-VLA-2.0/README.md",
+  "domain": "vision_language",
+  "topic": "LingBot-VLA-2.0",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-13T03:13:34+00:00",
+  "entries": [
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "laboratory benchmarks and real-world deployment",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "laboratory benchmarks and real-world deployment"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "around 60,000 hours",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "around 60,000 hours"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "GM-100 dual-arm manipulation benchmark",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "GM-100 dual-arm manipulation benchmark"
+    },
+    {
+      "claim_id": "cell-title",
+      "claim_text": "From Foundation to Application: Improving VLA Models in Practice",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "From Foundation to Application:"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "arXiv 預印本（未經同儕審查）",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "arXiv preprint"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "2026"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Wei Wu, Fangjing Wang, Fan Lu, He Sun, Shi Liu, Yunnan Wang, Yibin Yan, Yong Wang, Shuailei Ma, Xinyang Wang, Yibin Liu, Shuai Yang, Tianxiang Zhou, Kejia Zhang, Lei Zhou, Cheng Su, Nan Xue, Bin Tan, Han Zhang, Youchao Zhang, Fei Liao, Xing Zhu, Yujun Shen, Kecheng Zheng",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "Wei Wu"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/robbyant/lingbot-vla-v2",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/robbyant/lingbot-vla-v2",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "https://github.com/robbyant/lingbot-vla-v2"
+    },
+    {
+      "claim_id": "cell-vkind",
+      "claim_text": "tech-report",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "In this report"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "In this report",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "In this report"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "擴展動作空間，讓模型能控制頭、腰、移動底盤與靈巧手",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "expanded action space"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "50,000 hours of robot trajectories",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "50,000 hours of robot trajectories"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "20 embodiments",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "20 embodiments"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "機器人操作資料表中的代表性 embodiment 與 Total DoF：Franka 8、AgileX 14、AgiBot G1 20、Astribot S1 25、Fourier GR-2 32。",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "Astribot S1"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "10,000 小時的 egocentric 人類影片",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "10,000 hours of egocentric human videos"
+    },
+    {
+      "claim_id": "body-prose-6-raw",
+      "claim_text": "原始收集約 90,000 hours 的機器人資料（過濾前），涵蓋 20 個 embodiment",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6-raw",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "approximately 90,000 hours"
+    },
+    {
+      "claim_id": "body-prose-8-raw",
+      "claim_text": "egocentric 人類影片池過濾前約 20,000 hours",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8-raw",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "approximately 20,000 hours"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "55-dimensional canonical vector",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "55-dimensional canonical vector"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "作為訓練期動作表徵的未來手部軌跡 world-to-camera 轉換。",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "\\mathbf{T}_{C_t \\leftarrow W}"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "token-level loss-free MoE",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "token-level loss-free MoE"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "MoE 層輸出：shared expert 加上經縮放的 routed experts 加權總和。",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "E_{\\ell,j}^{(r)}(u_{\\ell,t})"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "受 DeepSeek-V3 啟發的 auxiliary-loss-free strategy",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "auxiliary-loss-free strategy inspired by DeepSeek-V3"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "以 TopK 從加偏置的 affinity 中選出的 routed-expert 集合。",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "\\mathrm{TopK}"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "training loss",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "training loss"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "dual-query distillation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "dual-query distillation"
+    },
+    {
+      "claim_id": "body-equation-4",
+      "claim_text": "以 L1 將當前／未來 query 對齊到 LingBot-Depth token 的深度蒸餾目標。",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "\\mathrm{Proj}_{depth}(\\mathbf{Q}_t)"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "DINO-Video",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "DINO-Video"
+    },
+    {
+      "claim_id": "body-equation-5",
+      "claim_text": "以平方 Frobenius norm 將 query 對齊到 DINO-Video patch feature 的影片蒸餾目標。",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "\\mathrm{Proj}_{video}(\\mathbf{Q}_t)"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "block-wise causal temporal attention",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "block-wise causal temporal attention"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "LARYBench 結果：DINO-Video 在 Composite Robot 71.97、RoboCOIN 0.20、AgiBotWorld-Beta 0.19 上最佳；Composite Human 80.21，相較 V-JEPA 2 的 80.35。",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "71.97"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "相對 LingBot-VLA-1.0 從 67.5 / 60.0 提升到 100.0 / 100.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "improves over LingBot-VLA-1.0 from 67.5 / 60.0 to 100.0 / 100.0"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "雙臂 GM-100（Agilex）整體平均：GR00T N1.7 36.3/17.8、pi_0.5 59.1/32.2、LingBot-VLA-1.0 58.2/30.0、LingBot-VLA-2.0 66.2/34.4。",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "66.2"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "比 LingBot-VLA-1.0 高出 8.0 / 4.4 個百分點",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "surpassing LingBot-VLA-1.0 by 8.0"
+    },
+    {
+      "claim_id": "body-prose-18",
+      "claim_text": "relative joint actions 明顯優於 absolute joint actions",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "relative joint actions substantially outperform absolute"
+    },
+    {
+      "claim_id": "body-prose-19",
+      "claim_text": "相對目標把動作尺度壓到約絕對目標的三分之一",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "substantially reduces the action scale compared with"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "實驗室與真實部署的落差",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "主結果有外部基線（雙臂主表列 GR00T N1.7/pi_0.5/1.0/2.0，長程移動與 pi_0.5 對照），但三大貢獻無逐項消融；雙臂各任務 success rate 皆以 10 個百分點為間距，與每任務 10 次試驗相容但論文未明載次數；長程移動每個任務-設定對為 15 independent trials",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "15 independent trials"
+    },
+    {
+      "claim_id": "mobile-table-results",
+      "claim_text": "長程移動操作表（progress/success %）：Astribot S1 冰箱分類 ID 77.1/60.0、OOD 37.0/13.3；Cobot Magic-ARX X5 爐台清潔 ID 84.3/66.7、OOD 67.5/40.0；pi_0.5 是唯一對照基線",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "& In-domain & 84.3 / 66.7 & 79.9 / 60.0 \\\\"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "OOD 設定把機器人初始位置在前後左右各 ±10 cm 擾動；冰箱分類任務另把兩顆水果與水瓶換成未見過的物件類別",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "the robot initial position is perturbed within ±10 cm along the forward, backward, left, and right directions"
+    },
+    {
+      "claim_id": "fig-moe-loss",
+      "claim_text": "MoE 對 Dense 的等算力對比圖：左為 pre-training training loss、右為 GM-100 validation action error，兩軸皆為代理指標而非成功率。[evidence: evidence/fig_moe_loss.tex（圖環境）+ evidence/fig_moe_loss.png（渲染快照），source/3_method.tex:264-269]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/moe_vs_dense_loss.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "Comparable active-parameter scaling comparison between Dense model and MoE model using training loss on pre-training data and validation action error on GM-100 tasks."
+    },
+    {
+      "claim_id": "fig-gm100-ablation",
+      "claim_text": "GM-100 四個真機任務的四組動作表徵消融長條圖（Action target/space/Normalization/Loss，陰影欄為四任務平均）。[evidence: evidence/fig_gm100_ablation.tex（圖環境）+ evidence/fig_gm100_ablation.png（渲染快照），source/4_experiments.tex:345-350]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/gm100_ablation_barplot.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "Results on the four GM-100 real-robot tasks."
+    },
+    {
+      "claim_id": "fig-action-norm",
+      "claim_text": "相對目標把 14 維手臂 action std 壓到約絕對目標三分之一（比值 0.31x-0.37x），MinMax/Q01-Q99/MeanStd 正規化下 relQpos 標準差為 0.15/0.32/0.95。[evidence: evidence/fig_action_norm.tex（圖環境）+ evidence/fig_action_norm.png（渲染快照），source/4_experiments.tex:367-372]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/action_target_norm_stats.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "Left: \\texttt{relQpos} substantially reduces the action scale compared with \\texttt{absQpos}. Right: normalization changes the effective dynamic range"
+    },
+    {
+      "claim_id": "fig-mobile-subtask",
+      "claim_text": "長程移動基準逐子任務平均完成分數（%，15 trials），ID 與 OOD 並排；逐子任務表現有起伏（非單調遞減），整體以最右 Avg. 欄呈現 ID 與 OOD 的差距。[evidence: evidence/fig_mobile_subtask.tex（圖環境）+ evidence/fig_mobile_subtask.png（渲染快照），source/4_experiments.tex:235-240]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mobile_subtask_id_ood.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "Bars report the mean subtask completion score (\\%) across 15 trials under both in-domain (ID) and out-of-distribution (OOD) settings."
+    },
+    {
+      "claim_id": "fig-vis-distill",
+      "claim_text": "predictive dynamics 蒸餾的唯一定性證據：當前與未來影格的深度、DINO-Video-PCA 預測對照真值。[evidence: evidence/fig_vis_distillation.tex（圖環境）+ evidence/fig_vis_distillation.png（渲染快照），source/4_experiments.tex:398-403]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/distillation_perception_vis.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T07:40:00+00:00",
+      "quoted_snippet": "\\textbf{Left}:  depth/DINO-Video-PCA ground truth and prediction for current image."
+    },
+    {
+      "claim_id": "body-prose-18-gap",
+      "claim_text": "論文用一個「分佈對齊 gap」（各維度中位數與 IQR 相對 pooled 分佈的差距，愈小代表該任務動作分佈愈接近整體）來解釋這個任務相依：Barcode Scan 上 joint 的 gap 0.68 遠小於 EEF 的 1.73，對應 joint 勝出；Squeeze Ketchup 反過來 EEF gap 0.96 小於 joint 的 1.59，對應 EEF 勝出。但作者自己也承認這只解釋了一部分——Scoop Rice 上 EEF 的 gap 較大卻仍較好，說明「分佈對齊只是部分原因，不是全部」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T13:20:00+00:00",
+      "quoted_snippet": "with a gap of $0.68$ versus $1.73$, consistent with the large performance advantage of joint actions ($58.7$ vs. $24.0$)"
+    },
+    {
+      "claim_id": "body-prose-20",
+      "claim_text": "論文對子任務標註做了逐動作統計，結果高度傾斜：Manipulation 類幾乎完全由 move 主導（frequency 46.21%、占總標註時間 58.2%、平均單次 10.4s）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T13:20:00+00:00",
+      "quoted_snippet": "Per-action statistics of the subtask annotations: duration composition, \\emph{frequency} (fraction of all subtasks), \\emph{total time} (fraction of the total annotated time), and \\emph{mean duration}."
+    },
+    {
+      "claim_id": "fig-subtask-duration",
+      "claim_text": "子任務標註逐動作統計圖：move frequency 46.21%、total time 58.2%、mean 10.4s；transit frequency 42.48%（move+transit 約占 89% 次數）；精細操作為長尾（cut 0.03%、stir 0.07%），且單次耗時最長（cut 35.6s、fold 32.4s、unfold 26.8s）。[evidence: evidence/fig_subtask_duration.tex（圖環境）+ evidence/fig_subtask_duration.png（渲染快照），source/3_method.tex:171-176]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/subtask_duration_stats.png",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T13:20:00+00:00",
+      "quoted_snippet": "Per-action statistics of the subtask annotations: duration composition, \\emph{frequency} (fraction of all subtasks), \\emph{total time} (fraction of the total annotated time), and \\emph{mean duration}."
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "gains are not uniform",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "gains are not uniform"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "新穎性主要在於整合：dual-query distillation 受近期研究啟發",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "inspired by recent works"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "GM-100 (The Great March 100) 形式上是第三方基準；兩份作者名單以本任務快取來源可直接核對的唯一同名者只有本文 Project Lead Kecheng Zheng（亦見於 GM-100 被引作者列 main.bbl:178），更廣泛的重疊無法由快取來源證實",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T03:13:34+00:00",
+      "quoted_snippet": "Kecheng Zheng"
+    },
+    {
+      "claim_id": "critical-prose-5-scoring",
+      "claim_text": "progress score 的部分分/步驟配權是 GM-100 基準本身的評分標準（每個任務拆成細粒度步驟、各步配一個部分分，如 Push Ball into Box 拆成 30/70），論文記為既有基準設計而非本文作者臨時自訂；配權的跨團隊共識依據來源未交代。[evidence: evidence/gm100_scoring.tex，source/4_experiments.tex:6-7,86-89,138-139]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.06403",
+      "retrieved_at": "2026-07-13T13:20:00+00:00",
+      "quoted_snippet": "summarizes the scoring criteria for a subset of GM-100 benchmark tasks. Each task is decomposed into a sequence of fine-grained manipulation steps, and a partial score is assigned to each step according to task completion."
+    }
+  ]
+}
