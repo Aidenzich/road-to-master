@@ -14,6 +14,12 @@
 
 > This note is written against the arXiv preprint `2607.03451` (July 2026 version); the formal published version (if any) may differ. All experimental numbers in the text are quoted from that preprint. The paper uses the GPT-5.4 / GPT-5.5 family as the models under test and GitHub Copilot as the optimizer, but records no snapshot / version dates for these models nor the version and configuration of Copilot (see Critical Assessment). All figures in this note were transcoded from the vector PDFs bundled with the e-print.
 
+## Introduction
+
+Skill optimization tries to improve an autonomous agent without changing its frozen base model: it repeatedly edits the Markdown skill that guides planning and tool use. Existing approaches wrap those edits in increasingly elaborate reflection pools, update schedules, and rejection memories. SkillOpt-Lite asks a narrower question: what is the smallest closed-loop pipeline whose components are still justified by theory or by measured necessity?
+
+Its answer is to treat rollout trajectories as ordinary files. A coding agent explores those files with native filesystem tools, extracts failure patterns shared across tasks, makes a minimal skill edit, and keeps the candidate only when it passes an independent validation gate. The paper measures this simplification against full SkillOpt across six benchmarks—SearchQA, Spreadsheet, ALFWorld, LiveMath, OfficeQA, and DocVQA—using benchmark scores and best-validation-so-far curves over ten SkillOpt-Lite batches; it then evaluates the same file-centric loop as HarnessOpt on SpreadsheetBench. The headline numbers are useful orientation, but their statistical and comparison limits are examined separately below.
+
 ## First Principles
 
 ![Original Figure 1a macro capability radar (averaged across all model scales): SkillOpt-Lite (blue) envelops SkillOpt (red) and the Init skill (grey dashed) along axes such as Spreadsheet 69.7 vs 57.1, ALFWorld 95.8 vs 93.4, LiveMath 63.5 vs 44.3, DocVQA 89.3 vs 87.6; only on SearchQA is blue 73.4 slightly below red 73.5, the two nearly tied. This is a macro view averaged across scales, which smooths away the single-point-without-error-bars and split-change problems flagged below in the Critical Assessment](imgs/fig1a_radar_macro_average.png)

@@ -14,6 +14,12 @@
 
 > 本筆記依據 arXiv 預印本 `2607.03451`（July 2026 版）撰寫，正式發表版本（若有）可能與此不同。文中所有實驗數字均引自該預印本；論文以 GPT-5.4 / GPT-5.5 系列為受測模型、GitHub Copilot 為優化器，但未記錄這些模型的 snapshot／版本日期或 Copilot 的版本與設定（詳見 Critical Assessment）。本筆記的圖片皆由 e-print 隨附的向量 PDF 轉檔而來。
 
+## Introduction
+
+Skill optimization 想在不更動凍結底層模型的前提下改善 autonomous agent：反覆改寫引導規劃與工具使用的 Markdown 技能。既有方法在改寫外層疊上愈來愈複雜的反思池、更新排程與拒絕記憶；SkillOpt-Lite 則把問題收窄成：一條元件皆能由理論或實測必要性辯護的閉環技能優化管線，最小可以剩下什麼？
+
+它的答案是把 rollout 軌跡當成一般檔案：coding agent 用原生檔案系統工具探索軌跡、萃取跨任務共通失敗、做最小技能修改，再以獨立驗證閘門決定是否保留候選版本。論文用 SearchQA、Spreadsheet、ALFWorld、LiveMath、OfficeQA、DocVQA 六個 benchmark 對照完整 SkillOpt，以 benchmark 分數與十個 SkillOpt-Lite batch 的「至今最佳驗證分數」曲線衡量簡化後的效果，最後再於 SpreadsheetBench 評估同一套檔案中心迴圈擴成 HarnessOpt 的結果。這些頭條數字先提供閱讀座標，其統計與比較限制則留到下方另行檢驗。
+
 ## First Principles
 
 ![原文 Figure 1a 宏觀能力雷達圖（跨所有模型規模平均）：SkillOpt-Lite（藍）在 Spreadsheet 69.7 vs 57.1、ALFWorld 95.8 vs 93.4、LiveMath 63.5 vs 44.3、DocVQA 89.3 vs 87.6 等軸向包住 SkillOpt（紅）與 Init skill（灰虛線），唯 SearchQA 藍 73.4 略低於紅 73.5、兩者幾乎並列；此為跨規模平均的宏觀視圖，會平滑掉下方 Critical Assessment 指出的單點無誤差棒與切分改動問題](imgs/fig1a_radar_macro_average.png)
