@@ -1,0 +1,423 @@
+{
+  "note_path": "domains/reinforcement_learning/SkillOpt-Lite/README.md",
+  "domain": "reinforcement_learning",
+  "topic": "SkillOpt-Lite",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-13T03:20:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv (preprint)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "arxiv.org/abs/2607.03451"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "July, 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Yifei Shen, Bo Li, Xinjie Zhang",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "Yifei Shen"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "https://github.com/EvolvingLMMs-Lab/SkillOpt-Lite"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "tech-report",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "microsoft-tech-report"
+    },
+    {
+      "claim_id": "intro-problem",
+      "claim_text": "既有方法在改寫外層疊上愈來愈複雜的反思池、更新排程與拒絕記憶",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "existing methods rely on complex pipelines. This leaves a fundamental question unaddressed: What constitutes a minimal viable pipeline for skill optimization"
+    },
+    {
+      "claim_id": "intro-method",
+      "claim_text": "把 rollout 軌跡當成一般檔案",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "operates directly on the disk via an autonomous debugging loop consisting solely of trajectory exploration, consensus mining, and validation gating"
+    },
+    {
+      "claim_id": "intro-evaluation-benchmarks",
+      "claim_text": "SearchQA、Spreadsheet、ALFWorld、LiveMath、OfficeQA、DocVQA 六個 benchmark",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "utilizing SearchQA~\\cite{dunn2017searchqa}, Spreadsheet~\\cite{ma2024spreadsheetbench}, ALFWorld~\\cite{shridhar2020alfworld}, LiveMath~\\cite{he2026livemathematicianbench}, DocVQA~\\cite{mathew2021docvqa}, and OfficeQA~\\cite{opsahl2026officeqa}"
+    },
+    {
+      "claim_id": "intro-evaluation-horizon",
+      "claim_text": "十個 SkillOpt-Lite batch 的「至今最佳驗證分數」曲線",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "SkillOpt-Lite is evaluated strictly over 10 batches"
+    },
+    {
+      "claim_id": "intro-harnessopt-evaluation",
+      "claim_text": "於 SpreadsheetBench 評估同一套檔案中心迴圈擴成 HarnessOpt 的結果",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "focus our evaluation on \\texttt{SpreadsheetBench} as a representative and challenging case study to analyze the efficacy of \\textbf{HarnessOpt}"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "一個 LLM agent 的實戰能力不只來自底層模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "an agent's real-world capability is determined not solely by its base Large Language Model"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "f(s) = \\mathbb{E}_{z \\sim \\mathcal{D}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "f(s) = \\mathbb{E}_{z \\sim \\mathcal{D}}[R(H(M, z, s))]"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "無法解析求得",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "the gradient $\\nabla_s f$ is analytically intractable"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "把近年各家 skill-optimization 方法逐一映射回古典零階優化算子",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "existing heuristics utilize components analogous to the classical ZO toolbox"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "batch $B_m{=}8$",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "Iterative reflection mini-batching with size $B_m=8$"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "技能優化其實比較像",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "classical ZO relies on blind numerical perturbations"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "論文用演算法穩定度（Expected On-Average Stability）給出泛化誤差界",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "this generalization gap can be tightly bounded via the lens of Expected On-Average Stability"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "\\epsilon(\\mathcal{S}) \\le \\hat{\\epsilon}_D(\\mathcal{S})",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "\\epsilon(\\mathcal{S}) \\le \\hat{\\epsilon}_D(\\mathcal{S})"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "就會膨脹、泛化崩潰",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "the stability coefficient $\\beta_{\\exp}$ increases, leading to generalization collapse"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "一旦引入與訓練集嚴格不相交的驗證集",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "once a disjoint validation set is introduced, the stability coefficient $\\beta_{\\exp}$ is completely removed"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "\\epsilon(\\mathcal{S}_{\\text{val}}) \\le \\hat{\\epsilon}_{\\text{val}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "\\epsilon(\\mathcal{S}_{\\text{val}}) \\le \\hat{\\epsilon}_{\\text{val}}(\\mathcal{S}_{\\text{val}})"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "論文順帶批評，Reflexion 完全沒有動態驗證",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "compromise the validation bound by executing their gates"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "在 LiveMath 與 DocVQA 上，竟然贏過跑滿 4 個 epoch 的完整 SkillOpt",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "single-batch unvalidated agent configuration outperformed the baseline SkillOpt framework even after the latter underwent four full epochs"
+    },
+    {
+      "claim_id": "body-prose-11b",
+      "claim_text": "但在 Spreadsheet 上反而掉到初始基準以下",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "on the Spreadsheet benchmark, the optimized skill degraded below its initial baseline"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "SkillOpt-Lite 砍掉 mini-batch reflection pooling",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "we remove complex batch-level merging, text-based learning rate scheduling, and historical rejected-edit buffers"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "才覆寫 best_skill.md",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "it permanently overwrites the production skill file on disk, designated as \\texttt{best\\_skill.md}"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "開發者一行 slash command 即可觸發",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "/skillopt-loop rounds=10 batchsize=40 target=gpt5.4-nano"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "這就是論文所稱的「capability inversion（能力反轉）」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "outperforming the much larger \\texttt{GPT5.5} model running under a basic harness"
+    },
+    {
+      "claim_id": "body-prose-14b",
+      "claim_text": "HarnessOpt 只改 harness（w.o. skill）就跳到 **0.7651**，技能與 harness 同時優化（w. skill）達 **0.7758**",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "\\textbf{HarnessOpt w. skill} & \\textbf{0.7758}"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "自動攔截並套用 `retry reasoning=low` 的 fallback 策略讓模型脫困",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "applied a fallback policy (\\texttt{retry reasoning=low})"
+    },
+    {
+      "claim_id": "body-prose-15b",
+      "claim_text": "所有改動可 `git reset` 回滾並用環境變數 toggle 包起來",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "All code edits are fully reversible via \\texttt{git reset}"
+    },
+    {
+      "claim_id": "body-prose-15c",
+      "claim_text": "驗證前先過編譯與 `N=5` 冒煙測試",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "a compile check and an early smoke test ($N=5$)"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "既有標準結果的套用",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "a standard model selection bound over $m$ validation samples"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "正式實驗卻**沒有跟其中任何一個直接比**",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "We employ identical optimizer models for both SkillOpt and SkillOpt-Lite"
+    },
+    {
+      "claim_id": "critical-prose-2b",
+      "claim_text": "作者自己承認 LiveMath 與 OfficeQA「只有 10–20 個驗證樣本、驗證變異數很高」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "LiveMath and OfficeQA contain only 10 to 20 validation instances, resulting in high validation variance"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "作者把 LiveMath 與 OfficeQA 的 train:val:test 從 `2:1:7` 改成 `2:2:6`",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "we adjust the train-validation-test split for these two benchmarks from $2:1:7$ to $2:2:6$"
+    },
+    {
+      "claim_id": "critical-prose-3d",
+      "claim_text": "論文自稱遵循 SkillOpt 既有評測協定，且兩種方法共用相同 optimizer 設定與同一調整後切分，故改切分是偏離其宣稱對齊的舊協定，而非表內兩側各跑一套切分",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "Our experimental configuration follows the evaluation protocols established in SkillOpt"
+    },
+    {
+      "claim_id": "critical-prose-3b",
+      "claim_text": "GPT-4o 的 LiveMath 從初始 25.9 被 SkillOpt-Lite 拉到 58.8（+32.9），此增益來源更像切分改動或答案抽取修正而非技能本身",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "\\textbf{58.8}\\gain{32.9}"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "一旦條件對齊——兩者都上 HarnessOpt——GPT-5.5 是 0.8577，仍穩穩高於 nano 的 0.7758",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "\\textbf{HarnessOpt w. skill} & \\textbf{0.7758} & \\textbf{0.8256} & \\textbf{0.8505} & \\textbf{0.8577}"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "卻沒有記錄任何一個模型的 snapshot 或版本日期；優化器 GitHub Copilot 也只給了名稱，沒有版本、設定或呼叫參數",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "We employ identical optimizer models for both SkillOpt and SkillOpt-Lite, with GitHub Copilot deployed as the baseline coding agent."
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "對具體分數（尤其 LiveMath 的巨幅跳升與 capability inversion）保留懷疑",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": null,
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "single-batch unvalidated agent configuration outperformed the baseline SkillOpt framework even after the latter underwent four full epochs"
+    },
+    {
+      "claim_id": "fig-1a-radar",
+      "claim_text": "圖 1a 宏觀能力雷達圖：SkillOpt-Lite（藍）在多數軸向包住 SkillOpt（紅），SearchQA 兩者幾乎並列",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1a_radar_macro_average.png",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "The radar plot illustrates the macro-level capability comparison averaged across all evaluated model scales"
+    },
+    {
+      "claim_id": "fig-2-pilot",
+      "claim_text": "圖 2 pilot：單批未驗證 Copilot 在 LiveMath/DocVQA 勝過 4-epoch SkillOpt，SpreadSheet 藍柱 15.3 低於初始 29.9",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_pilot_copilot_vs_skillopt.png",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "Empirical evaluation of single-batch coding agent exploration versus multi-epoch skill optimization"
+    },
+    {
+      "claim_id": "fig-3b-pipeline",
+      "claim_text": "圖 3b SkillOpt-Lite 管線示意：軌跡各存成檔案，優化器讀檔改技能，經 Validation gate（Accept→S_{t+1}／Reject→edit-history log），已無 mini-batch pooling／slow-update damping／rejected-edit buffer",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3b_pipeline_lite.png",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "eliminates mini-batch reflection pooling, slow update damping, and historical rejection buffers"
+    },
+    {
+      "claim_id": "fig-4-convergence",
+      "claim_text": "圖 4 收斂曲線：論文只主張 SkillOpt-Lite（藍方點）在最後一步等於或高於 SkillOpt（紅圓點），並在特定面板起步更陡；圖中 SearchQA-GPT-5.4 面板藍線 step 1–9 低於紅線僅 step 10 追平，故不支持全程逐步優勢。曲線呈粗大階梯狀、面板間 y 軸尺度差異大（僅取定性上下位序與階梯形狀，未逐一核對 y 軸刻度數值）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig4_convergence_skillopt_vs_lite.png",
+      "source_url": "https://arxiv.org/abs/2607.03451",
+      "retrieved_at": "2026-07-13T03:14:05Z",
+      "quoted_snippet": "SkillOpt-Lite consistently establishes an equal or elevated performance ceiling by the final optimization step"
+    }
+  ]
+}
