@@ -63,7 +63,10 @@ MAST 把 14 個 failure mode 對應到 MAS 執行的三個階段（Pre-Execution
 | FC3 | 3.2 No or incomplete verification | 8.20% |
 | FC3 | 3.3 Incorrect verification | 9.10% |
 
-三大類各自對應一條核心洞見。FC1 主張 MAS failure is not merely a function of challenges in the underlying model：同一顆底層模型下，好的系統設計就能帶來增益。FC2 主張只靠 context 或通訊協定不夠，真正缺的是 agent 的「social reasoning」——即使同框架內用自然語言溝通仍會壞，反映的是 theory of mind 式的崩解（agent 無法正確推測對方的資訊需求）。FC3 主張需要 multi-level verification：只在最後一關做低階檢查並不足夠。
+三大類各自對應一條核心洞見。
+1. FC1 主張 MAS failure is not merely a function of challenges in the underlying model：<mark>同一顆底層模型下，好的系統設計就能帶來增益</mark>。
+2. FC2 主張只靠 context 或通訊協定不夠，真正缺的是 agent 的「social reasoning」—— <mark>即使同框架內用自然語言溝通仍會壞，反映的是 theory of mind 式的崩解（agent 無法正確推測對方的資訊需求）</mark>。
+3. FC3 主張需要 multi-level verification：<mark>只在最後一關做低階檢查並不足夠</mark>。
 
 論文用一段 AppWorld 的真實 trace 把 FC2 的抽象論述落地（FM-2.4 Information Withholding）：Phone Agent 沒有把 API 的關鍵需求——username 欄位其實要填電話號碼——回報給 Supervisor Agent，而 Supervisor 也沒有主動追問澄清；結果 Phone Agent 照舊以錯誤的 email 格式（而非 API 要求的電話號碼）當作 username 去呼叫 `apis.phone.login(...)`，回傳 `{"message": "Invalid credentials"}`，登入反覆失敗直到任務崩掉。壞掉的不是通訊管道（雙方一直在用自然語言對話），而是雙向的資訊推測——這正是 social reasoning 缺失的具體樣貌。
 
