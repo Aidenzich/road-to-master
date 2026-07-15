@@ -385,18 +385,36 @@
     },
     {
       "claim_id": "critical-prose-6",
+      "claim_text": "scaffold loop 讓 frontier meta-LLM 讀完整軌跡後改寫程式碼、prompt、檔案 schema 與記憶 action surface",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T08:00:00Z",
+      "quoted_snippet": "the meta-LLM analyzes full trajectories and iteratively optimizes the agent's memory scaffold"
+    },
+    {
+      "claim_id": "critical-prose-7",
+      "claim_text": "AutoMem 比較的是自己的 file-system-memory v0 與 sliding-window context baseline，不是成熟的 retrieval stack",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T08:00:00Z",
+      "quoted_snippet": "a sliding window of $16$-step recent observations with/without chain-of-thought"
+    },
+    {
+      "claim_id": "critical-prose-8",
       "claim_text": "驅動兩個迴圈的 meta-LLM 是 Claude Opus 4.6 / 4.7 配 `--effort max`",
       "kind": "reasonable-inference",
-      "target": "note-section:critical-prose-6",
+      "target": "note-section:critical-prose-8",
       "source_url": "https://arxiv.org/abs/2607.01224",
       "retrieved_at": "2026-07-15T02:24:51Z",
       "quoted_snippet": "The scaffold optimizer (Outer-loop~\\#1) and the training engine (Outer-loop~\\#2) call Claude Opus~4.6 \\& Opus~4.7 respectively as the meta-LLM."
     },
     {
-      "claim_id": "critical-prose-7",
+      "claim_id": "critical-prose-9",
       "claim_text": "記憶是 **episodic**（每 episode 從零開始，不跨 episode 持久化）",
       "kind": "reasonable-inference",
-      "target": "note-section:critical-prose-7",
+      "target": "note-section:critical-prose-9",
       "source_url": "https://arxiv.org/abs/2607.01224",
       "retrieved_at": "2026-07-15T02:24:51Z",
       "quoted_snippet": "the memory we study is \\textit{episodic}: the file system starts fresh at the beginning of each episode"
