@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [AutoMem: Automated Learning of Memory as a Cognitive Skill](https://arxiv.org/abs/2607.01224) | arXiv | '26 | [✓](https://github.com/autoLearnMem/AutoMem) | [EN](./AutoMem/) · [中文](./AutoMem/README.zh-TW.md) |
 | [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) | ICLR | '26 | [✓](https://github.com/microsoft/lost_in_conversation) | [EN](./LLMs-Lost-In-MultiTurn/) · [中文](./LLMs-Lost-In-MultiTurn/README.zh-TW.md) |
 | [SCURank: Ranking Multiple Candidate Summaries with Summary Content Units for Enhanced Summarization](https://aclanthology.org/2026.findings-acl.1941/) | ACL Findings | '26 | [✓](https://github.com/IKMLab/SCURank) | [EN](./SCURank/) · [中文](./SCURank/README.zh-TW.md) |
 | [When Retrieval Doesn't Help: A Large-Scale Study of Biomedical RAG](https://arxiv.org/abs/2606.04127) | BioNLP (ACL) | '26 | [✓](https://github.com/erfan-nourbakhsh/BioMedicalRAG) | [EN](./WhenRetrievalDoesntHelp/) · [中文](./WhenRetrievalDoesntHelp/README.zh-TW.md) |
