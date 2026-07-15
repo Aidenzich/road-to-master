@@ -149,6 +149,22 @@ AutoMem 比較的是自己的 file-system-memory v0 與 sliding-window context b
 - **對照的公平性與侷限**：所謂「小模型追平大模型」的比較並不同場競技——當作對照的 Claude 與 Gemini 取自 BALROG 的 vanilla 設定，並未配上這套量身打造的記憶系統；而且決定 scaffold 好壞的接受門檻，用的竟然和最終測試同一組 eval seeds，留有對評估集過擬合的空間。
 - **價值在離線部署**：真正做診斷與改寫的是最頂尖的 frontier meta-LLM（Claude Opus 4.6/4.7），小模型只是離線被優化後享受成果。實務上可用大模型當「教練」離線調校、部署時只跑 32B 省成本，但這不等於小模型能自主追平大模型。
 
+## 個人小結
+這篇論文的 controlled Qwen baseline 確實只有：
+- 最近 16 steps 的 sliding window；
+- sliding window + CoT。
+
+沒有基礎的 BM25、RAG、vector/hybrid retrieval、MemGPT、structured state等 memory baseline。v0 雖然有 file-system memory，但那是 AutoMem 自己的方法起點，不是另一個成熟記憶系統的對照。
+更關鍵的是，Appendix 明列 scaffold 改了大量 task policy，不只是 memory：
+- Crafter：預載 crafting tree、survival/placement rules、22-item achievement checklist，甚至在 craft/place 前直接阻擋不可能的 action。
+- MiniHack：提供 per-task rule sheet、依 tile／任務做特化解析、看到樓梯就下 directive。
+- NetHack：預填主目標與安全規則，靠近下樓梯就給高優先級「下樓」指令。
+
+「不改 task-action model weights」在字面上是真的；但「只優化記憶、沒有改 task-action behavior」很誤導。它沒改權重，卻明顯改了會如何採取 task action 的 prompt、rules、guardrails 與自動 hints。
+這不是嚴謹的 memory-method comparison；更像強 meta-LLM 對三個遊戲做 task-aware agent-harness optimization，然後拿優化後的系統去比幾乎沒有 external memory 的 baseline。
+用這組實驗去證明 memory control 本身比成熟 Memory 好，證據非常不足，作為「記憶」而言，並沒多少實用價值。
+
+
 ## 🔗 Related notes
 
 - [Reflexion](../Reflexion/) — 同樣讓 agent 靠自我反思跨 episode 改進，但用語言反思而非可訓練的記憶技能；AutoMem 在 related work 中將其歸為 embodied-agent 範式的對照。
