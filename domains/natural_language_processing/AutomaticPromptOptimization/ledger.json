@@ -1,0 +1,390 @@
+{
+  "note_path": "domains/natural_language_processing/AutomaticPromptOptimization/README.md",
+  "domain": "natural_language_processing",
+  "topic": "AutomaticPromptOptimization",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-15T00:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Automatic Prompt Optimization with \"Gradient Descent\" and Beam Search",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Automatic Prompt Optimization with"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "EMNLP 2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "\\usepackage{EMNLP2023}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "EMNLP2023"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Reid Pryzant, Dan Iter, Jerry Li, Yin Tat Lee, Chenguang Zhu, Michael Zeng (Microsoft Azure AI)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Reid Pryzant, Dan Iter, Jerry Li, Yin Tat Lee, Chenguang Zhu, Michael Zeng"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/microsoft/LMOps/tree/main/prompt_optimization",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "https://github.com/microsoft/LMOps/tree/main/prompt_optimization"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "\\usepackage{EMNLP2023}"
+    },
+
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "prompt 至今仍靠人手以反覆試錯的方式寫成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Writing prompts in natural language remains a manual trial-and-error process requiring significant human effort"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "核心點子是把數值梯度下降「翻譯」成一場文字的蘇格拉底式對話",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "mirroring the steps of gradient descent within a text-based Socratic dialogue"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "每個任務隨機取 50 筆做開發、150 筆做測試",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "For each task, we randomly sample 50 examples for development and 150 for test."
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "p^{*} = \\arg\\max_{p \\in \\mathcal{L}} \\; m(p, \\mathcal{D}_{te})",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "argmax_{p\\in \\mathcal{L}}"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "是任意度量函數（本文用 F1）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "all prompts $p$ are drawn from the space of coherent natural language"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "give {num_feedbacks} reasons why the prompt could",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "give {num_feedbacks} reasons why the prompt could"
+    },
+    {
+      "claim_id": "body-code-2",
+      "claim_text": "Based on the above information, I wrote",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-2",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Based on the above information, I wrote"
+    },
+    {
+      "claim_id": "body-code-3",
+      "claim_text": "B0 <- {p0}",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-3",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "B_0 \\leftarrow \\{p_0\\}"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "`Expand(p)` 才是把「文字梯度下降」落地的地方",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Evaluate prompt $p$ on minibatch $\\mathcal{D}_{mini}$ and collect errors"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "論文把這件事對應到 bandit 理論裡的 best-arm identification 問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "the well-studied problem of best arm identification in bandit optimization"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "Q_t(p) + c \\sqrt{\\frac{\\log t}{N_t(p)}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Q_t(p) + c \\sqrt{\\frac{\\log t}{N_t(p)}}"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "$c$ 是探索係數（實驗全設 2.0）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "we set the exploration parameter $c$ to 2.0 for all experiments"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "n_t = \\left\\lceil \\frac{1}{0.5 + \\sum_{i=2}^{T} 1/i}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "n_t = \\left \\lceil{\\frac{1}{0.5 + \\sum_{i=2}^{T} 1 / i}"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "理論上 Successive Rejects 對 best-arm identification 是可證明最優的，但論文的實測結果卻相反",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "provably optimal for best arm identification"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "初始 prompt $p_0$ 是工程師隨手寫的一句",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "our initial prompts $p_0$ were written by professional Machine Learning engineers in one quick pass"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "minibatch 大小 $|\\mathcal{D}_{mini}|=64$、beam 寬度",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "minibatch size of $\\vert \\mathcal{D}_{mini} \\vert = 64$, beam size $b=4$, and ran the algorithm for 6 optimization steps"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "平均而言 ProTeGi 超出 MC 與 RL 各 3.9% 與 8.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "ProTeGi improved over the MC and RL baselines by a significant 3.9\\% and 8.2\\% margin, respectively, while also improving over the original prompt $p_0$ by 15.3\\% and AutoGPT by 15.2\\%"
+    },
+    {
+      "claim_id": "body-beam-ablation-1",
+      "claim_text": "Jailbreak 0.85 對 0.80/0.82、Liar 0.67 對 0.63/0.63、Sarcasm 0.88 對 0.87/0.85",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Beam (ProTeGi)    &    \\textbf{0.85}      &   \\textbf{0.67}    &  \\textbf{0.88}  \\\\"
+    },
+    {
+      "claim_id": "body-bandit-1",
+      "claim_text": "50-per-prompt 的 Jailbreak，UCB 0.85 對 SR 0.82、SH 0.80",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "UCB   &   \\textbf{0.83}                 &   \\textbf{0.66}         & \\textbf{0.85}               & 0.66         \\\\"
+    },
+    {
+      "claim_id": "body-basemodels-1",
+      "claim_text": "GPT-4 在 Jailbreak 上最高（0.88）；Sarcasm 上 GPT-4 與 ChatGPT 並列最高（同為 0.86）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "GPT-4        & \\textbf{0.86}   & \\textbf{0.88}"
+    },
+    {
+      "claim_id": "body-basemodels-2",
+      "claim_text": "RLHF 調過的模型大幅超越 GPT-3，對比之下 GPT-3 僅有 0.73／0.55",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "The RLHF-tuned models dramatically outperform GPT-3, with GPT-4 offering the best performance"
+    },
+    {
+      "claim_id": "body-sr-T-def",
+      "claim_text": "原文在公式附近只明確定義了 $B$，公式裡的 $T$ 並未在該處給出定義",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "where $B$ is the total query budget"
+    },
+
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "把最好的個案數字放進摘要標題、把平均值藏在正文",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "improving over the original prompt $p_0$ by 15.3\\%"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "每個任務只用 150 筆測試、3 次試驗平均",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "limited and preliminary case study"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "Jailbreak 正是作者自己提出工作定義、並自行建立的任務——論文明說「We define jailbreak attack as...」，這個 452 筆多語資料集帶有人工標註（human-annotated）的標籤（論文未交代標註者身分）",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "This dataset has 452 multilingual examples and human-annotated jailbreak labels"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "方法的真正新意是把「LLM 生成的批評」當成有方向的梯度",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "rely on a task-specific or directionless local search over the space of prompts without meaningful semantic direction"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "所有任務大約在第 3 步就達到高點",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "all datasets peaked at around 3 steps"
+    },
+    {
+      "claim_id": "critical-variance-1",
+      "claim_text": "ProTeGi 雖然平均較好，變異卻可能更高（例如 Ethos 的 SE 0.003 對 MC 的 0.001）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "\\multicolumn{1}{l|}{Ethos}     & \\textbf{0.95}       & 0.003       & 0.94      & \\textbf{0.001}      \\\\"
+    },
+    {
+      "claim_id": "critical-variance-2",
+      "claim_text": "變異數表用與主結果不同的評估協定：每個候選只跑 6 次 query、每個變體重複 12 次試驗，回報 Accuracy 與 SE",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "We conduct a larger-scale experiment using a budget of 6 queries per candidate, 12 replicates per variant in order calculate the standard error of the performance of the resulting top-ranked candidates."
+    },
+    {
+      "claim_id": "critical-curve-readout-1",
+      "claim_text": "Ethos 從第 3 步約 0.965 降到第 7 步約 0.942、Sarcasm 從第 3 步約 0.877 降到第 6 步約 0.857（肉眼讀圖近似）",
+      "kind": "reasonable-inference",
+      "target": "figure:imgs/learning-curves.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2305.03495/assets/curves.png",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Test performance (F1) verses number of optimization steps"
+    },
+    {
+      "claim_id": "critical-runtime-1",
+      "claim_text": "作者在 Limitations 明說，即使查詢預算不大，一次最佳化因大量 API 呼叫（含每輪 beam 候選的完整評估）常會跑超過 1 小時",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "which can push the runtime of the optimization program past 1 hour even with a small query budget"
+    },
+    {
+      "claim_id": "critical-margin-1",
+      "claim_text": "論文把這些數字統稱為「margin」，並未在該段說明是絕對百分點還是相對百分比",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2305.03495",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "3.9\\% and 8.2\\% margin, respectively"
+    },
+
+    {
+      "claim_id": "figure-overview",
+      "claim_text": "ProTeGi 的一次最佳化步驟總覽",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/overview.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2305.03495/assets/front.png",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Overview of the proposed Prompt Optimization with Textual Gradients (ProTeGi)"
+    },
+    {
+      "claim_id": "figure-gd-tree",
+      "claim_text": "模仿梯度下降的文字對話樹",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/gradient-dialogue-tree.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2305.03495/assets/gd.png",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "The text dialogue tree we use to mimic gradient descent and overcome the discrete optimization barrier"
+    },
+    {
+      "claim_id": "figure-main-result",
+      "claim_text": "四個任務上 F1 對每個候選的評估預算的曲線",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/main-result.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2305.03495/assets/mainfig.png",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Test performance (F1) vs API query budget per prompt candidate"
+    },
+    {
+      "claim_id": "figure-learning-curves",
+      "claim_text": "四個任務上 F1 對最佳化步數的學習曲線",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/learning-curves.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2305.03495/assets/curves.png",
+      "retrieved_at": "2026-07-15T00:00:00+00:00",
+      "quoted_snippet": "Test performance (F1) verses number of optimization steps"
+    }
+  ]
+}
