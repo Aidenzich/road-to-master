@@ -1,0 +1,405 @@
+{
+  "note_path": "domains/natural_language_processing/AutoMem/README.md",
+  "domain": "natural_language_processing",
+  "topic": "AutoMem",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-15T03:00:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Automated Learning of Memory as a Cognitive Skill"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "arXiv preprint (2607.01224v1)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "arXiv preprint: de-anonymized, authors shown"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Submitted on 1 Jul 2026"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Shengguang Wu, Hao Zhu, Yuhui Zhang, Xiaohan Wang, Serena Yeung-Levy (Stanford University)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Shengguang Wu \\quad Hao Zhu \\quad Yuhui Zhang \\quad Xiaohan Wang \\quad Serena Yeung-Levy"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/autoLearnMem/AutoMem",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "https://github.com/autoLearnMem/AutoMem"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "neurips_2026"
+    },
+    {
+      "claim_id": "fig-teaser",
+      "claim_text": "AutoMem 記憶技能優化的整體成效",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/teaser.png",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "progressively improves performance through \\textit{memory scaffold optimization}"
+    },
+    {
+      "claim_id": "fig-method",
+      "claim_text": "AutoMem 概觀：兩個自動化外層迴圈優化一個共用的內層 agent",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/method.png",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Two automated outer loops optimize a shared inner-loop agent that uses the file system as its memory."
+    },
+    {
+      "claim_id": "fig-memevol",
+      "claim_text": "NetHack 記憶檔演化",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mem_filesystem_evol.png",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Scaffold optimization replaces this with a coordinate-keyed \\texttt{<|UPSERT\\_MAP|>} deduplication format"
+    },
+    {
+      "claim_id": "fig-scaffold-bars",
+      "claim_text": "scaffold 優化對遊戲與記憶行為的影響",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/scaffold_analysis_bars.png",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/fig_scaffold_stats.tex",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "redundant writes drop sharply ($-$68 to $-$83\\%)"
+    },
+    {
+      "claim_id": "fig-qual-crafter",
+      "claim_text": "Crafter 三階段代表性 episode：v0 只收集木材（9%）、演化 scaffold 合成石製工具/建熔爐/採鐵礦（55%）、再訓練 specialist 兼顧進食（59%）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/qual_crafter.png",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/fig_qualitative.tex",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "the base agent only gathers wood; the evolved scaffold crafts stone tools, builds a furnace, and mines iron; and the trained specialist reaches that same crafting tier while also feeding itself ($9\\to55\\to59\\%$ progression)"
+    },
+    {
+      "claim_id": "fig-qual-minihack",
+      "claim_text": "MiniHack Corridor-R3 三階段代表性 episode：v0 與演化 scaffold 均到不了樓梯（0%/0%），再訓練 specialist 穿過走廊解出任務（100%）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/qual_minihack.png",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/fig_qualitative.tex",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "neither the base nor the evolved scaffold reaches the staircase, whereas the trained specialist solves the task ($0\\to0\\to100\\%$)"
+    },
+    {
+      "claim_id": "fig-qual-nle",
+      "claim_text": "NetHack 三階段代表性 episode（單局值）：v0 死於 experience level 1（0%）、演化 scaffold 存活上千步達 level 2（1.85%）、再訓練 specialist 達 level 4（2.42%）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/qual_nle.png",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/fig_qualitative.tex",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "the base agent dies at experience level~1 within a few hundred steps; the evolved scaffold survives thousands of steps and reaches experience level~2; and the trained specialist survives far longer and reaches experience level~4 ($0\\to1.85\\to2.42\\%$ progression)"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "和前面主表的跨 episode 聚合平均（Crafter 10、MiniHack 40、NetHack 5 局）是兩回事",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "traces, for each environment, a representative episode at each optimization stage"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "演化後的 scaffold 把地圖與物品欄整理到足以合成石製工具、建造熔爐、開採鐵礦",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "the evolved scaffold crafts stone tools, builds a furnace, and mines iron"
+    },
+    {
+      "claim_id": "body-prose-18",
+      "claim_text": "演化後 scaffold 探索得更遠但仍耗盡 step 上限、到不了樓梯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "both the base and the evolved scaffold exhaust the step budget without reaching it"
+    },
+    {
+      "claim_id": "body-prose-19",
+      "claim_text": "角色等級 1→2→4 的階梯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T11:30:00Z",
+      "quoted_snippet": "the trained specialist survives far longer and reaches experience level~4"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "大型語言模型的 context window 就是它的工作記憶",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "context window plays the role of working memory, \\emph{i.e.,} a fixed-size buffer that bounds what the model can attend to at once"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "記憶管理本身是一種可以訓練的技能",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "memory management is an active, trainable skill"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "論文主張記憶技能沿兩個軸進步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "This memory skill improves along two axes: the \\textbf{\\textit{structure}} that supports it (prompts, file schemas, action vocabulary)"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "如何衡量成功？作者選了三個程序生成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "optimizing memory alone---without modifying the model's task-action weights---the full \\methodname{} framework yields ${\\sim}2\\times$--$4\\times$ gains over the base agent"
+    },
+    {
+      "claim_id": "body-prose-4b",
+      "claim_text": "按 v0 到完整 AutoMem 逐環境重算，Crafter、MiniHack、NetHack 分別為 2.05×、4.00×、4.40×",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-4",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/table_main.tex",
+      "retrieved_at": "2026-07-15T11:00:00Z",
+      "quoted_snippet": "memory-as-file-system, \\texttt{v0}      & 25.00 \\pms{5.50} &  7.50 \\pms{4.16} & 0.42 \\pms{0.37}"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "內層迴圈就是一顆 LLM agent 跑一個 episode，配一個磁碟上的目錄當外部記憶",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "equipped with a directory of files on disk that serves as its external memory"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "agent 決定要不要記錄環境對上一動作的回應",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "the agent decides whether and how to record the environment's response to the previous action"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "論文把兩個迴圈統一成一個熟悉的機器學習形式",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "mirrors the familiar structure of machine learning"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\theta_{\\text{struct}} \\leftarrow \\theta_{\\text{struct}} + \\nabla L_{\\text{struct}}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "in the first loop $\\theta$ is the agent scaffold and $\\nabla L$ is a code revision, while in the second, $\\theta$ is the dedicated memory model weights"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "只有平均 progression 嚴格超過前一版才保留",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "A revision is accepted only if its average progression on the same fixed eval seeds strictly exceeds the previous iteration's."
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "挑哪些回應值得強化，而非當 teacher 生成新答案",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "the meta-LLM's role is to select which responses to reinforce---it thus acts as a \\textbf{\\textit{filter}} on the model's own behavior rather than as a \\textbf{\\textit{teacher}} generating new responses."
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "它的權重從未被 finetune 碰過",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "the base model's competence at producing well-formatted world actions is fully preserved"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "引入一個 `<|UPSERT_MAP|>` 操作，改成座標鍵去重",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "The optimizer introduces a dedicated \\texttt{<|UPSERT\\_MAP|>} operation that replaces append-based map logging with coordinate-keyed deduplication"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "138 字元降到 6 字元，減少 95%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "its per-step growth falls from 138 to 6 characters, a 95\\% reduction."
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "frontier 數字取自 BALROG 排行榜",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Frontier numbers are taken from the BALROG leaderboard~\\citep{paglieri2024balrog}; baseline rows for \\qwen{} use the same BALROG harness"
+    },
+    {
+      "claim_id": "body-prose-13b",
+      "claim_text": "該 sliding-window baseline 只保留最近 16 步的 observation，可搭配或不搭配 chain-of-thought",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13b",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T11:00:00Z",
+      "quoted_snippet": "under the BALROG harness with basic context-management methods: a sliding window of $16$-step recent observations with/without chain-of-thought"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "+ memory training（loop #2） | **51.36 ± 3.81** | **30.00 ± 7.25** | **1.85 ± 0.44**",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/table_main.tex",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "\\textbf{51.36} \\pms{3.81} & \\textbf{30.00} \\pms{7.25} & \\textbf{1.85} \\pms{0.44}"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "Crafter 25.0→47.27（×1.89）、MiniHack 7.5→27.5（×3.67）、NetHack 0.42→1.57（×3.74）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/fig_scaffold_stats.tex",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Crafter 25.0\\%$\\to$47.27\\% ($\\times$1.89), MiniHack 7.5\\%$\\to$27.5\\% ($\\times$3.67), NetHack 0.42\\%$\\to$1.57\\% ($\\times$3.74)"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "Crafter 0.84→0.39（−54%）、MiniHack 2.89→0.82（−72%）、NetHack 4.66→1.31（−72%）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/automem/evidence/table_training_search.tex",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Crafter $0.84\\to0.39$ ($-$54\\%), MiniHack $2.89\\to0.82$ ($-$72\\%), and NetHack $4.66\\to1.31$ ($-$72\\%)."
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "NetHack 的 $10^4$–$10^5$ 步 episode 確實遠超任何 context window",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "with 200+ actions and $10^4$--$10^5$ steps per episode"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "Gemini/Claude 的數字取自 BALROG 排行榜的「vanilla」設定",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "bring the 32B open-weight model to the performance level of frontier proprietary systems"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "每個數字都在固定的 10 個 eval seeds `[42..51]` 上評估",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "We report mean and standard error over a fixed list of 10 seeds, $[42, 43, \\ldots, 51]$"
+    },
+    {
+      "claim_id": "critical-prose-3b",
+      "claim_text": "實際評估 episode 數依環境而異——Crafter 10、MiniHack 40（8 個 task 各跑 5）、NetHack 5",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T10:42:00Z",
+      "quoted_snippet": "paired with per-environment episode counts: 10 episodes for Crafter, 5 per task for MiniHack ($5 \\times 8 = 40$ episodes), and 5 for NetHack, matching the BALROG defaults."
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "所謂「追到 frontier」在 NetHack 上是 1.85% 對 2.0–2.6%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "comparable to Claude-Opus-4.5 (Crafter/MiniHack/NetHack: 49.5/27.5/2.0)"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "scaffold 優化的接受門檻用的是同一組 eval seeds",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "Seeds are drawn randomly and explicitly disjoint from the 10 evaluation seeds $[42, \\ldots, 51]$, so no train/eval seed contamination is possible."
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "驅動兩個迴圈的 meta-LLM 是 Claude Opus 4.6 / 4.7 配 `--effort max`",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "The scaffold optimizer (Outer-loop~\\#1) and the training engine (Outer-loop~\\#2) call Claude Opus~4.6 \\& Opus~4.7 respectively as the meta-LLM."
+    },
+    {
+      "claim_id": "critical-prose-7",
+      "claim_text": "記憶是 **episodic**（每 episode 從零開始，不跨 episode 持久化）",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.01224",
+      "retrieved_at": "2026-07-15T02:24:51Z",
+      "quoted_snippet": "the memory we study is \\textit{episodic}: the file system starts fresh at the beginning of each episode"
+    }
+  ]
+}
