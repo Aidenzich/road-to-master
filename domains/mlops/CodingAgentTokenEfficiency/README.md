@@ -6,31 +6,31 @@
 
 | Field | Value |
 |-|-|
-| Title | Projects and papers claiming to save 20~40% tokens for coding agents like Claude Code / Codex: mechanisms, costs, and user evidence |
+| Title | Projects and papers claiming to save 20\~40% tokens for coding agents like Claude Code / Codex: mechanisms, costs, and user evidence |
 | Venue Kind | survey (a market audit across 11 representative projects + 30-odd peripheral tools/papers) |
 | Year | 2026 |
 | Survey date | 2026-07-16 (all web sources retrieved on the same date unless noted) |
 | Method | read-only audit: citations only from pages actually opened and read (official blogs / arXiv full text / GitHub API / HN Algolia / Reddit archive API / static clone); every load-bearing claim ran at least one refutation search; no downloaded code was executed |
 
-> This note is not a single-paper summary but a market-audit survey. The audit target is the *claim itself* that a tool "saves 20~40% tokens for coding agents." **Every vendor number is treated first as an unverified seed**; whenever it conflicts with a primary source, the primary source wins. Each claim is interrogated with "what is being measured, under what workload, and against which baseline?"
+> This note is not a single-paper summary but a market-audit survey. The audit target is the *claim itself* that a tool "saves 20\~40% tokens for coding agents." **Every vendor number is treated first as an unverified seed**; whenever it conflicts with a primary source, the primary source wins. Each claim is interrogated with "what is being measured, under what workload, and against which baseline?"
 
 ---
 
 ## One-Sentence Conclusion
 
-> **The "20~40% saving" band is itself credible — but it is the residual left after each vendor's 60~95% marketing number is discounted by independent measurement, not any vendor's original claim.** Risk varies enormously across mechanisms: output-side trimming and lazy loading are nearly lossless; token-level pruning (LLMLingua style) is a disaster for coding; retrieval-instead-of-whole-file is the right direction but implementation quality often eats the theoretical gains.
+> **The "20\~40% saving" band is itself credible — but it is the residual left after each vendor's 60\~95% marketing number is discounted by independent measurement, not any vendor's original claim.** Risk varies enormously across mechanisms: output-side trimming and lazy loading are nearly lossless; token-level pruning (LLMLingua style) is a disaster for coding; retrieval-instead-of-whole-file is the right direction but implementation quality often eats the theoretical gains.
 
-One comparison says it best: the only **neutral, same-task, same-machine** cross-test (ComputingForGeeks, baseline 284,473 tokens) measured a batch of tools that self-claim 60~95% savings at **0~43%**:
+One comparison says it best: the only **neutral, same-task, same-machine** cross-test (ComputingForGeeks, baseline 284,473 tokens) measured a batch of tools that self-claim 60\~95% savings at **0\~43%**:
 
 | Tool | Self-claimed | Neutral cross-test |
 |-|-|-|
 | token-savior | −80% | **43%** |
 | caveman | 65% | **38% / 37%** |
 | ooples token-optimizer-mcp | 95%+ | **23%** |
-| RTK | 60~90% | **0%** (no saving at all when output is clean) |
+| RTK | 60\~90% | **0%** (no saving at all when output is clean) |
 | code-review-graph | — | **5%** (on small repos it is 0.7x — actually more expensive) |
 
-Users' impression of "20~40%" lines up with independent measurement — not with the vendor headlines (60~95%).
+Users' impression of "20\~40%" lines up with independent measurement — not with the vendor headlines (60\~95%).
 
 ---
 
@@ -47,7 +47,7 @@ The three questions this audit answers:
 | Question | Conclusion |
 |-|-|
 | **Q1 Mechanism** | Five mechanism classes: ① token-level prompt compression ② semantic/symbol retrieval replacing whole-file reads ③ context middleware / long-term memory ④ output-side diff-edit ⑤ model routing / caching proxy. See "Mechanism Taxonomy". |
-| **Q2 Cost** | Huge variation, and tierable (see risk table below). Key finding: token-level perplexity (a measure of how "surprised" the model is by a span of text) pruning breaks coding identifiers/values/syntax (post-compression AST (Abstract Syntax Tree) validity is only **0.29%**); whereas **line-level task-aware pruning** (SWE-Pruner) achieves −23~38% tokens on the full SWE-bench Verified while success rate **rises** by 1.2~1.4 percentage points (pts). |
+| **Q2 Cost** | Huge variation, and tierable (see risk table below). Key finding: token-level perplexity (a measure of how "surprised" the model is by a span of text) pruning breaks coding identifiers/values/syntax (post-compression AST (Abstract Syntax Tree) validity is only **0.29%**); whereas **line-level task-aware pruning** (SWE-Pruner) achieves −23\~38% tokens on the full SWE-bench Verified while success rate **rises** by 1.2\~1.4 percentage points (pts). |
 | **Q3 User evidence** | Heavily corroborates the Q2 suspicion: Serena "hits context limits faster than without it" + silently corrupts code; claude-context index desync "never able to search"; mem0 stores mutually contradictory memories; Claude Code's own /compact is the single largest source of "amnesia after compression" complaints. |
 
 ---
@@ -71,12 +71,12 @@ The master table at a glance. **Mechanism**: A=token-level compression, B=retrie
 
 | Project | Mechanism | Claimed saving (measurement basis) | Evidence strength | Capability risk | Negative user signal |
 |-|-|-|-|-|-|
-| SWE-Pruner | A (line-level) | 23~54% token (agent total tokens, success rate rises) | 🟢 single-team, zero replication | 🟡 | none found (but small deployment base) |
+| SWE-Pruner | A (line-level) | 23\~54% token (agent total tokens, success rate rises) | 🟢 single-team, zero replication | 🟡 | none found (but small deployment base) |
 | Aider (repo-map + diff) | B+D | claims no % (repo-map is an overhead) | 🟢 most honest of all | 🟢 diff (strong models) / 🟡 repo-map | yes: #752 budget overshoot 16x, SEARCH-REPLACE failure cluster |
-| claude-context | B | ~40% (30-question localization) | 🟡 n=30, weak model | 🟡 | yes: index desync #145/#226/#232 |
+| claude-context | B | \~40% (30-question localization) | 🟡 n=30, weak model | 🟡 | yes: index desync #145/#226/#232 |
 | LLMLingua family | A (token-level) | up to 20x (input tokens, CoT tasks) | 🟡 official narrow / punctured on coding by independent evidence | 🔴 (coding) | yes: #89 error rate +18pts, #136 collapses to 0.02 |
 | mem0 | C | >90% (vs replaying full history) | 🟡 highly disputed | 🟡 | yes: #5867 contradictory memories |
-| Anthropic official features | C/D/E | 84% / 14~70% / 85% / 98.7% (internal) | 🟡 internal-only, mechanism transparent | 🟢 | few; only /compact draws many "amnesia" complaints |
+| Anthropic official features | C/D/E | 84% / 14\~70% / 85% / 98.7% (internal) | 🟡 internal-only, mechanism transparent | 🟢 | few; only /compact draws many "amnesia" complaints |
 | RouteLLM | E | 85% cost saving + retains 95% (no coding) | 🟡 in-domain / collapses OOD | 🔴 (agentic) | strong academic refutation, no notable repo complaints |
 | Serena | B | no number (community rumor of 70%, no source found) | 🔴 explicitly refuses testing, LLM self-grades | 🟡 | yes: Reddit "actually uses more", #1529 silent code corruption |
 | SuperClaude | C | 70%→30-50% (zero methodology) | 🔴 | ⚫ | yes: #286 framework itself eats 43.8k context |
@@ -84,9 +84,9 @@ The master table at a glance. **Mechanism**: A=token-level compression, B=retrie
 | token-savior | B/C/D | −80% self-claimed → neutral 43% | 🔴 self-made tsbench | 🟡 no rigorous capability test | — |
 | caveman | D (forces telegraphic output) | 65% self-claimed → neutral 38% | 🔴 self-test | 🟢 neutral test "same answers"; but terse workloads may net-increase | — |
 | ooples token-optimizer-mcp | B/D | 95%+ self-claimed → neutral 23% | 🔴 zero methodology | 🟡 untested | — |
-| RTK | D (compresses noisy output) | 60~90% self-claimed → neutral 0% | 🔴 self-test | 🟢 only compresses noise, low risk | — |
+| RTK | D (compresses noisy output) | 60\~90% self-claimed → neutral 0% | 🔴 self-test | 🟢 only compresses noise, low risk | — |
 | code-review-graph | B (graph retrieval) | neutral 5% (small repos 0.7x — more expensive) | 🔴 | 🟡 untested | — |
-| Others (claude-mem, Headroom, etc.) | C/D | 10x, ~50% (self-claimed) | 🔴 self-test | 🟡 | yes: claude-mem #618 token bloat |
+| Others (claude-mem, Headroom, etc.) | C/D | 10x, \~50% (self-claimed) | 🔴 self-test | 🟡 | yes: claude-mem #618 token bloat |
 
 ---
 
@@ -106,7 +106,7 @@ Replace "stuffing the whole file into context" with precise retrieval.
 
 - **Serena MCP** (26.5k★): symbol-level retrieval via LSP (Language Server Protocol, the standard interface an IDE uses to get symbols/definitions/references); tools use a symbol name path (`MyClass/my_method`) instead of reading the whole file.
   - Code: `FindSymbolTool` (`src/serena/tools/symbol_tools.py:132`, whose `include_body` param is annotated "Use judiciously"), `GetSymbolsOverviewTool` (`:36`), `ReplaceSymbolBodyTool` (`:571`).
-  - **The real example from its own eval**: `get_symbols_overview` returns ~2.5KB JSON per call vs Grep's ~3KB; the official phrasing for the saving is *"saves ~1 call and some context window tokens per navigation"* — far smaller than the community-rumored "70% saving" (that 70% has no traceable source).
+  - **The real example from its own eval**: `get_symbols_overview` returns \~2.5KB JSON per call vs Grep's \~3KB; the official phrasing for the saving is *"saves \~1 call and some context window tokens per navigation"* — far smaller than the community-rumored "70% saving" (that 70% has no traceable source).
 - **claude-context** (Zilliz, 12.1k★): AST-aware chunking → embedding → Milvus vector DB → hybrid retrieval.
   - **The only "in principle reproducible" vendor measurement** (repo `evaluation/README.md`): 30 SWE-bench Verified retrieval subtasks, GPT-4o-mini, tokens 73,373 → 44,449 (**−39.4%**), F1 (harmonic mean of precision and recall; higher = better at finding the right file) 0.40 vs 0.40 unchanged. This is the entire experimental basis for the marketing line "Cut Token Waste by 40%".
   - Weaknesses: n=30, restricted to 2-file changes, uses the weak model that benefits most from retrieval, tests only file localization (F1=0.40 means both groups have a >50% chance of picking the wrong file).
@@ -123,7 +123,7 @@ Replace "stuffing the whole file into context" with precise retrieval.
 ### ④ Context middleware / long-term memory
 
 - **mem0** (arXiv 2504.19413): extracts salient facts across sessions into a vector DB, replacing replay of the full dialogue history. Claims "saves more than 90% token cost".
-  - **Measurement trap**: the >90% is vs the baseline of "replaying 16k~26k tokens of full history every time" — token saving is guaranteed by the mechanism; the entire dispute is about accuracy (see "User Evidence").
+  - **Measurement trap**: the >90% is vs the baseline of "replaying 16k\~26k tokens of full history every time" — token saving is guaranteed by the mechanism; the entire dispute is about accuracy (see "User Evidence").
 - **SuperClaude** (23.6k★): a "behavior framework" that injects markdown instruction files into context. The v1 README claimed "70% reduction"; the current version walks it back to "30-50% fewer tokens" — **both generations have zero methodology**.
 - **Anthropic official**: context editing + memory tool (claims 84% @ 100-turn web search), Tool Search Tool (85% saving on input-side tool definitions). All numbers are internal and unreplicated, but the mechanism is transparent.
 
@@ -180,12 +180,12 @@ All citations below carry an issue number/link and are traceable. Each is classi
 
 ### Aside: Claude Code /compact is everyone's baseline of comparison, and is itself the largest body of negative evidence
 
-- **#10006**: "every auto-compact, it loses every detail". **#13919**: skills stop working after compaction, task time goes from "~1 hour" to "5-6+ hours". Engineer's report: "definitely dumber after compaction, doesn't know what files it was just looking at".
+- **#10006**: "every auto-compact, it loses every detail". **#13919**: skills stop working after compaction, task time goes from "\~1 hour" to "5-6+ hours". Engineer's report: "definitely dumber after compaction, doesn't know what files it was just looking at".
 - Classification: CLAUDE.md/skills not being re-injected is an **engineering bug** (partly fixed in the current version); the summary dropping mid-task decisions/file lists is **mechanistic lossy compression**.
 
 ### Balance: the retrieval direction also has positive independent evidence
 
-- **Cursor's official A/B** (2025-11): same model, semantic search vs grep-only, on average **12.5% higher accuracy** (6.5%~23.5%); large-codebase code retention +2.6%. — refutes the extreme reading that "retrieval necessarily makes a coding agent dumber".
+- **Cursor's official A/B** (2025-11): same model, semantic search vs grep-only, on average **12.5% higher accuracy** (6.5%\~23.5%); large-codebase code retention +2.6%. — refutes the extreme reading that "retrieval necessarily makes a coding agent dumber".
 - But contrast Claude Code's official stance: "Claude Code currently doesn't use RAG (Retrieval-Augmented Generation, retrieve vectors first then feed the snippets to the model); in our testing agentic search outperformed RAG for the way people use Code".
 
 ---

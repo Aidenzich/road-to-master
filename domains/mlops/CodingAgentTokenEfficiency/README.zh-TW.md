@@ -6,31 +6,31 @@
 
 | Field | Value |
 |-|-|
-| Title | 號稱為 Claude Code / Codex 等 coding agent 節省 20~40% token 的專案與論文:手段、代價、使用者實證 |
+| Title | 號稱為 Claude Code / Codex 等 coding agent 節省 20\~40% token 的專案與論文:手段、代價、使用者實證 |
 | Venue Kind | survey(跨 11 個代表性專案 + 30 餘個周邊工具/論文的市場稽核) |
 | Year | 2026 |
 | 調查日期 | 2026-07-16(所有網路來源抓取日期相同,除另註) |
 | 方法 | read-only 稽核:引文只取自實際開啟讀過的頁面(官方 blog / arXiv 全文 / GitHub API / HN Algolia / Reddit 存檔 API / 靜態 clone);每個承重宣稱至少跑一次反證搜尋;未執行任何下載程式碼 |
 
-> 這則筆記不是單篇論文摘要,而是一則市場稽核 survey。稽核對象是「為 coding agent 省 20~40% token」這類宣稱本身。**所有廠商數字一律先當成未驗證的 seed**,凡與一手來源衝突,一手來源勝出;每個宣稱都追問「量的是什麼、什麼工作負載、baseline 是誰」。
+> 這則筆記不是單篇論文摘要,而是一則市場稽核 survey。稽核對象是「為 coding agent 省 20\~40% token」這類宣稱本身。**所有廠商數字一律先當成未驗證的 seed**,凡與一手來源衝突,一手來源勝出;每個宣稱都追問「量的是什麼、什麼工作負載、baseline 是誰」。
 
 ---
 
 ## 一句話結論
 
-> **「省 20~40%」這個帶寬本身可信,但它是各家 60~95% 行銷數字被獨立量測打折後的殘值,而不是任何一家的原始宣稱。** 手段的風險差異極大:輸出側精簡與延遲載入幾乎無損;token 級剪枝(LLMLingua 型)用在 coding 是災難;檢索取代整檔餵入方向對,但實作品質常吃掉理論收益。
+> **「省 20\~40%」這個帶寬本身可信,但它是各家 60\~95% 行銷數字被獨立量測打折後的殘值,而不是任何一家的原始宣稱。** 手段的風險差異極大:輸出側精簡與延遲載入幾乎無損;token 級剪枝(LLMLingua 型)用在 coding 是災難;檢索取代整檔餵入方向對,但實作品質常吃掉理論收益。
 
-一個對照最能說明問題:唯一一份**中立、同任務、同機器**的橫測(ComputingForGeeks,baseline 284,473 tokens),把一票自稱省 60~95% 的工具實測成 **0~43%**:
+一個對照最能說明問題:唯一一份**中立、同任務、同機器**的橫測(ComputingForGeeks,baseline 284,473 tokens),把一票自稱省 60\~95% 的工具實測成 **0\~43%**:
 
 | 工具 | 自稱 | 中立橫測實測 |
 |-|-|-|
 | token-savior | −80% | **43%** |
 | caveman | 65% | **38% / 37%** |
 | ooples token-optimizer-mcp | 95%+ | **23%** |
-| RTK | 60~90% | **0%**(輸出乾淨時完全沒省) |
+| RTK | 60\~90% | **0%**(輸出乾淨時完全沒省) |
 | code-review-graph | — | **5%**(小 repo 反而 0.7x 變貴) |
 
-使用者印象中的「20~40%」跟獨立量測對得上,跟廠商標題(60~95%)對不上。
+使用者印象中的「20\~40%」跟獨立量測對得上,跟廠商標題(60\~95%)對不上。
 
 ---
 
@@ -47,7 +47,7 @@
 | 問題 | 結論 |
 |-|-|
 | **Q1 手段** | 五類機制:①token 級 prompt 壓縮 ②語意/符號檢索取代整檔讀取 ③context 中介層/長期記憶 ④輸出側 diff-edit ⑤模型路由/快取 proxy。詳見〈手段分類〉 |
-| **Q2 代價** | 差異巨大且可分層(見下方風險表)。最關鍵發現:token 級 perplexity(困惑度,衡量模型對一段文字的「意外」程度)剪枝會破壞 coding 的識別符/數值/語法(壓縮後 AST(抽象語法樹,Abstract Syntax Tree)正確率僅 **0.29%**);而**行級 task-aware 剪枝**(SWE-Pruner)在全量 SWE-bench Verified 上 −23~38% token 且成功率**反升** 1.2~1.4 個百分點(pts,percentage points) |
+| **Q2 代價** | 差異巨大且可分層(見下方風險表)。最關鍵發現:token 級 perplexity(困惑度,衡量模型對一段文字的「意外」程度)剪枝會破壞 coding 的識別符/數值/語法(壓縮後 AST(抽象語法樹,Abstract Syntax Tree)正確率僅 **0.29%**);而**行級 task-aware 剪枝**(SWE-Pruner)在全量 SWE-bench Verified 上 −23\~38% token 且成功率**反升** 1.2\~1.4 個百分點(pts,percentage points) |
 | **Q3 使用者實證** | 大量印證 Q2 的懷疑:Serena「用了反而更快撞 context 上限」+ 靜默改壞碼;claude-context 索引失同步「從來搜不到」;mem0 存出互相矛盾的記憶;Claude Code 自己的 /compact 是最大宗「壓縮後失憶」抱怨來源 |
 
 ---
@@ -71,12 +71,12 @@
 
 | 專案 | 機制 | 宣稱節省(量測口徑) | 證據強度 | 能力風險 | 使用者負面訊號 |
 |-|-|-|-|-|-|
-| SWE-Pruner | A(行級) | 23~54% token(agent 總 token,成功率反升) | 🟢 單一團隊、零重現 | 🟡 | 未找到(但部署量小) |
+| SWE-Pruner | A(行級) | 23\~54% token(agent 總 token,成功率反升) | 🟢 單一團隊、零重現 | 🟡 | 未找到(但部署量小) |
 | Aider(repo-map + diff) | B+D | 不宣稱 %(repo-map 是開銷) | 🟢 全場最誠實 | 🟢 diff(強模型)/🟡 repo-map | 有:#752 預算超標 16 倍、SEARCH-REPLACE 失敗群 |
-| claude-context | B | ~40%(30 題 localization) | 🟡 n=30、弱模型 | 🟡 | 有:索引失同步 #145/#226/#232 |
+| claude-context | B | \~40%(30 題 localization) | 🟡 n=30、弱模型 | 🟡 | 有:索引失同步 #145/#226/#232 |
 | LLMLingua 家族 | A(token 級) | up to 20x(input tokens,CoT 任務) | 🟡 官方窄 / coding 被獨立證據打穿 | 🔴(coding) | 有:#89 錯答率 +18pts、#136 崩到 0.02 |
 | mem0 | C | >90%(vs 重播全史) | 🟡 高度爭議 | 🟡 | 有:#5867 矛盾記憶 |
-| Anthropic 官方功能 | C/D/E | 84% / 14~70% / 85% / 98.7%(internal) | 🟡 internal-only,機制透明 | 🟢 | 少;唯 /compact 有大量「失憶」抱怨 |
+| Anthropic 官方功能 | C/D/E | 84% / 14\~70% / 85% / 98.7%(internal) | 🟡 internal-only,機制透明 | 🟢 | 少;唯 /compact 有大量「失憶」抱怨 |
 | RouteLLM | E | 85% 省費 + 保 95%(無 coding) | 🟡 in-domain / 崩 OOD | 🔴(agentic) | 學術反證強、repo 無明顯抱怨 |
 | Serena | B | 無數字(社群傳 70%,查無據) | 🔴 明文拒測、LLM 自評 | 🟡 | 有:Reddit「反而更耗」、#1529 靜默改壞碼 |
 | SuperClaude | C | 70%→30-50%(零方法論) | 🔴 | ⚫ | 有:#286 框架自吃 43.8k context |
@@ -84,9 +84,9 @@
 | token-savior | B/C/D | −80% 自稱 → 中立 43% | 🔴 自製 tsbench | 🟡 未嚴謹評測能力 | — |
 | caveman | D(強制電報體輸出) | 65% 自稱 → 中立 38% | 🔴 自測 | 🟢 中立測「答案相同」;但 terse 工作負載可能反增 | — |
 | ooples token-optimizer-mcp | B/D | 95%+ 自稱 → 中立 23% | 🔴 零方法論 | 🟡 未評測 | — |
-| RTK | D(壓噪音輸出) | 60~90% 自稱 → 中立 0% | 🔴 自測 | 🟢 只壓噪音、風險低 | — |
+| RTK | D(壓噪音輸出) | 60\~90% 自稱 → 中立 0% | 🔴 自測 | 🟢 只壓噪音、風險低 | — |
 | code-review-graph | B(圖檢索) | 中立 5%(小 repo 反而 0.7x 變貴) | 🔴 | 🟡 未評測 | — |
-| 其他(claude-mem、Headroom 等) | C/D | 10x、~50%(自稱) | 🔴 自測 | 🟡 | 有:claude-mem #618 token 膨脹 |
+| 其他(claude-mem、Headroom 等) | C/D | 10x、\~50%(自稱) | 🔴 自測 | 🟡 | 有:claude-mem #618 token 膨脹 |
 
 ---
 
@@ -106,7 +106,7 @@
 
 - **Serena MCP**(26.5k★):以 LSP(Language Server Protocol,語言伺服器協定,IDE 用來取得符號/定義/引用的標準介面)做符號級檢索,工具用符號名路徑(`MyClass/my_method`)取代整檔讀取。
   - 程式碼:`FindSymbolTool`(`src/serena/tools/symbol_tools.py:132`,參數 `include_body` 註明 "Use judiciously")、`GetSymbolsOverviewTool`(`:36`)、`ReplaceSymbolBodyTool`(`:571`)。
-  - **官方自家 eval 的真實例子**:`get_symbols_overview` 一次呼叫回 ~2.5KB JSON vs Grep ~3KB;官方原話節省幅度是 *"saves ~1 call and some context window tokens per navigation"* —— 遠小於社群流傳的「省 70%」(該 70% 查無出處)。
+  - **官方自家 eval 的真實例子**:`get_symbols_overview` 一次呼叫回 \~2.5KB JSON vs Grep \~3KB;官方原話節省幅度是 *"saves \~1 call and some context window tokens per navigation"* —— 遠小於社群流傳的「省 70%」(該 70% 查無出處)。
 - **claude-context**(Zilliz,12.1k★):AST-aware 切塊 → embedding → Milvus 向量庫 → 混合檢索。
   - **唯一「原則上可重現」的 vendor 量測**(repo `evaluation/README.md`):30 題 SWE-bench Verified 檢索子任務、GPT-4o-mini,tokens 73,373 → 44,449(**−39.4%**)、F1(精確率與召回率的調和平均,越高代表找對檔案的能力越好)0.40 vs 0.40 持平。這就是行銷句「Cut Token Waste by 40%」的全部實驗基礎。
   - 弱點:n=30、限定 2-file 改動、用最受檢索恩惠的弱模型、只測 file localization(F1=0.40 表示兩組都過半機率找錯檔)。
@@ -123,7 +123,7 @@
 ### ④ Context 中介層 / 長期記憶
 
 - **mem0**(arXiv 2504.19413):跨 session 抽取重點事實進向量庫,取代重播全部對話史。宣稱 "saves more than 90% token cost"。
-  - **口徑陷阱**:>90% 是 vs「每次重播 16k~26k token 全史」這個 baseline —— 省 token 是機制上保送的,爭點全在準確率(見〈使用者實證〉)。
+  - **口徑陷阱**:>90% 是 vs「每次重播 16k\~26k token 全史」這個 baseline —— 省 token 是機制上保送的,爭點全在準確率(見〈使用者實證〉)。
 - **SuperClaude**(23.6k★):把 markdown 指令檔注入 context 的「行為框架」。v1 README 宣稱 "70% reduction",現版改口 "30-50% fewer tokens" —— **兩代皆零方法論**。
 - **Anthropic 官方**:context editing + memory tool(宣稱 84% @ 100-turn web search)、Tool Search Tool(85% 省 input 側 tool definitions)。數字全部 internal、無獨立重現,但機制透明。
 
@@ -180,12 +180,12 @@
 
 ### 附帶:Claude Code /compact 是所有人比較的 baseline,自身即最大量負面實證
 
-- **#10006**:「每次 auto-compact,它丟掉每一個細節」。**#13919**:skills 在 compaction 後全失效,任務時間從「~1 小時」變「5-6+ 小時」。工程師實測:「compaction 後明顯變笨,不知道自己剛在看哪些檔案」。
+- **#10006**:「每次 auto-compact,它丟掉每一個細節」。**#13919**:skills 在 compaction 後全失效,任務時間從「\~1 小時」變「5-6+ 小時」。工程師實測:「compaction 後明顯變笨,不知道自己剛在看哪些檔案」。
 - 分類:CLAUDE.md/skills 不回注是**工程 bug**(現版已部分修復);摘要丟中途決策/檔案清單是**機制性有損壓縮**。
 
 ### 平衡:檢索方向也有正面獨立證據
 
-- **Cursor 官方 A/B**(2025-11):同模型下 semantic search vs grep-only,平均**準確率高 12.5%**(6.5%~23.5%);大型 codebase code retention +2.6%。—— 反駁「檢索必然使 coding agent 變笨」的極端讀法。
+- **Cursor 官方 A/B**(2025-11):同模型下 semantic search vs grep-only,平均**準確率高 12.5%**(6.5%\~23.5%);大型 codebase code retention +2.6%。—— 反駁「檢索必然使 coding agent 變笨」的極端讀法。
 - 但對照 Claude Code 官方立場:「Claude Code 目前不用 RAG(Retrieval-Augmented Generation,檢索增強生成,先向量檢索再把片段餵給模型);我們測下來 agentic search 在 Code 的使用情境優於 RAG」。
 
 ---
