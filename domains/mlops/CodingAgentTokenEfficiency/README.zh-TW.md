@@ -131,7 +131,7 @@
 
 - **RouteLLM**(arXiv 2406.18665):訓練強/弱模型路由器,簡單任務派便宜模型。宣稱「85% 省費用 + 保 95% GPT-4 能力」,但**只測 MT Bench/MMLU/GSM8K,無 coding**。
 - **claude-code-router**(35.8k★):本地 proxy 把 Claude Code 各類流量路由到便宜模型。自身不宣稱 % 節省。
-- **prompt caching**:省的是**費用不是 token**,且寫入有 1.25×/2× 溢價 —— 低命中率時反而更貴。
+- **prompt caching**:省的是**費用不是 token**,且寫入有 1.25×/2× 溢價 —— 低命中率時反而更貴。**且它與大多數動態省 token 方法在很大程度上相衝突(見〈該不該用〉)。**
 
 ---
 
@@ -156,7 +156,8 @@
   | LongCodeZip(行級) | 89.3% |
   | SWE-Pruner(行級) | 87.3% |
 
-- **誠實邊界**:單輪 8x 極限壓縮時 EM(Exact Match,完全匹配率,輸出與標準答案逐字一致的比例)仍從 40.5 掉到 31.0(有實質退化);僅 Python;單一團隊、零第三方重現。**評級:最值得驗證,但尚不足以放心採用。**
+- **誠實邊界**:單輪 8x 極限壓縮時 EM(Exact Match,完全匹配率,輸出與標準答案逐字一致的比例)仍從 40.5 掉到 31.0(有實質退化);僅 Python;單一團隊、零第三方重現。
+- **評級:很可能是可實際採用的方法、具參考價值。** 它是本次調查中唯一「省得多(−23\~38% token)又不掉能力(成功率反升)」有完整公開數據支撐的方向,機制(行級 task-aware)也站得住腳,值得作為設計參考。之所以還不列 🟢「放心採用」,純粹是外部驗證不足(單一團隊、零重現、僅 Python),不是機制或數據有硬傷 —— 建議先在自己的 codebase 上驗證(closure recipe #15)再導入,而非直接照搬或直接否定。
 
 ---
 
@@ -194,6 +195,8 @@
 
 - **想無腦省又不冒險**:優先用「機制上近無損」的手段 —— targeted/diff edits(Claude 4+ 級模型上格式順從稅可忽略)、噪音工具輸出壓縮(只在輸出髒時有效)、tool-definition 延遲載入、prompt caching(注意 cache-miss 反噬與寫入溢價)。Anthropic 內建的 token-efficient tool use 無需採用動作、已內建。
 - **大 codebase(>20k LoC(lines of code,程式碼行數)級)且願付索引維運成本**:才值得上語意檢索工具;預期理論收益會被索引失同步、MCP 固定開銷部分吃掉。
+- **最值得追的新方向**:SWE-Pruner 型的**行級 task-aware 剪枝**很可能是可用且值得參考的方法 —— 唯一「省得多又不掉能力」有完整公開數據者。導入前先自架 skimmer + 在自己 codebase 用 `ccusage` 實測(closure recipe #15),但不必因為「preprint、單一團隊」就直接排除。
+- **⚠️ prompt caching 與動態省 token 方法在很大程度上相衝突,別無腦疊用**:prompt caching 靠「prompt 前綴逐位元組穩定、只在尾端 append」才能吃 0.1x 的 cache-read 折扣;但大多數動態縮 context 的方法(LLMLingua 壓縮、SWE-Pruner 剪枝、Anthropic context editing 清除舊 tool call、記憶/摘要改寫)**每輪都會改動前綴**,一改就讓該點之後的 cache 全部失效 → 退回全價 miss + 1.25×/2× 寫入溢價,兩者疊用可能比各自單用還貴。兩種策略方向相反:caching 要「穩定、只增不改」的 context,積極剪枝要「邊改邊縮」。依成本結構二選一 —— 成本主要來自重複的穩定長前綴就選 caching,來自無上限成長的 context 就選剪枝。
 - **絕不要**:把 token 級 perplexity 剪枝(LLMLingua 型)用在 coding;把 2024 式分類器路由的 85%/95% 宣稱外推到 agentic coding。
 - **通則**:分母不明的百分比不可比。引用任何「省 X%」前,先問**量什麼(input/output/費用/單一子任務)、什麼工作負載、baseline 是誰**。
 

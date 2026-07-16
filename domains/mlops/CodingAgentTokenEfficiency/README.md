@@ -131,7 +131,7 @@ Replace "stuffing the whole file into context" with precise retrieval.
 
 - **RouteLLM** (arXiv 2406.18665): trains a strong/weak model router, sending simple tasks to the cheaper model. Claims "85% cost saving + retains 95% of GPT-4 capability", but **only tested on MT Bench/MMLU/GSM8K, no coding**.
 - **claude-code-router** (35.8k★): a local proxy that routes Claude Code's various traffic to cheaper models. Makes no % saving claim of its own.
-- **prompt caching**: saves **cost, not tokens**, and cache writes carry a 1.25×/2× premium — at low hit rates it is actually more expensive.
+- **prompt caching**: saves **cost, not tokens**, and cache writes carry a 1.25×/2× premium — at low hit rates it is actually more expensive. **It also largely conflicts with most dynamic token-saving methods (see "Should You Use It").**
 
 ---
 
@@ -156,7 +156,8 @@ This one deserves its own section because it is **simultaneously the strongest c
   | LongCodeZip (line-level) | 89.3% |
   | SWE-Pruner (line-level) | 87.3% |
 
-- **Honest boundaries**: at single-turn 8x extreme compression, EM (Exact Match, the fraction of outputs identical word-for-word to the reference) still drops from 40.5 to 31.0 (a substantial regression); Python-only; single-team, zero third-party replication. **Rating: most worth verifying, but not yet safe to adopt with confidence.**
+- **Honest boundaries**: at single-turn 8x extreme compression, EM (Exact Match, the fraction of outputs identical word-for-word to the reference) still drops from 40.5 to 31.0 (a substantial regression); Python-only; single-team, zero third-party replication.
+- **Rating: very likely a genuinely adoptable method with reference value.** It is the only direction in this survey with full public data behind "saves a lot (−23\~38% tokens) without losing capability (success rate rises)", and its mechanism (line-level task-aware) is sound — worth using as a design reference. The only reason it isn't yet in the 🟢 "adopt with confidence" tier is insufficient external validation (single-team, zero replication, Python-only), not any flaw in the mechanism or the data — so verify it on your own codebase (closure recipe #15) before adopting, rather than either copying it blindly or dismissing it.
 
 ---
 
@@ -194,6 +195,8 @@ All citations below carry an issue number/link and are traceable. Each is classi
 
 - **Want to save with zero risk**: prefer the "near-lossless by mechanism" tools — targeted/diff edits (the format-compliance tax is negligible on Claude 4+ class models), noisy tool-output compression (only helps when output is dirty), tool-definition lazy loading, prompt caching (watch for cache-miss backfire and the write premium). Anthropic's built-in token-efficient tool use requires no adoption action — it's already built in.
 - **Large codebase (>20k LoC (lines of code) class) and willing to pay index maintenance cost**: only then are semantic retrieval tools worth it; expect the theoretical gains to be partly eaten by index desync and MCP fixed overhead.
+- **The most promising new direction to track**: SWE-Pruner-style **line-level task-aware pruning** is very likely usable and worth referencing — the only approach with full public data behind "saves a lot without losing capability". Before adopting, self-host the skimmer and measure on your own codebase with `ccusage` (closure recipe #15), but don't dismiss it just because it's a preprint from a single team.
+- **⚠️ prompt caching largely conflicts with dynamic token-saving methods — don't naively stack them**: prompt caching only earns the 0.1x cache-read discount when the prompt prefix is byte-stable and only appended to at the tail; but most dynamic context-shrinking methods (LLMLingua compression, SWE-Pruner pruning, Anthropic context editing clearing old tool calls, memory/summary rewriting) **mutate the prefix every turn**, and any mutation invalidates the cache from that point on → back to full-price misses + the 1.25×/2× write premium, so stacking the two can cost more than either alone. The two strategies pull in opposite directions: caching wants a stable, append-only context; aggressive pruning wants to mutate-and-shrink. Pick one by cost structure — if cost is dominated by a repeated stable long prefix, choose caching; if by unbounded growing context, choose pruning.
 - **Never**: use token-level perplexity pruning (LLMLingua style) for coding; extrapolate 2024-era classifier routing's 85%/95% claims to agentic coding.
 - **General rule**: percentages with an unknown denominator are not comparable. Before citing any "saves X%", ask **what is measured (input/output/cost/a single subtask), under what workload, against which baseline**.
 
