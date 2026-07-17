@@ -1,0 +1,567 @@
+{
+  "note_path": "domains/natural_language_processing/Infini-attention/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Infini-attention",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-16T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Efficient Infinite Context Transformers with Infini-attention",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Efficient Infinite Context Transformers with Infini-attention"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "COLM 2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "colm2024_conference"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2024",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "colm2024_conference"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Tsendsuren Munkhdalai",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Tsendsuren Munkhdalai, Manaal Faruqui and Siddharth Gopal"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "colm2024_conference"
+    },
+    {
+      "claim_id": "fig-arch",
+      "claim_text": "Infini-attention 的單層結構",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/architecture.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.07143/assets/x1.png",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-attention has an additional compressive memory with linear attention for processing infinitely long contexts"
+    },
+    {
+      "claim_id": "fig-vsxl",
+      "claim_text": "Transformer-XL 只快取上一個 segment 的 KV",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/vs_transformer_xl.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.07143/assets/x2.png",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer (top) has an entire context history whereas Transformer-XL (bottom) discards old contexts"
+    },
+    {
+      "claim_id": "fig-gate",
+      "claim_text": "specialized head、貼近 0.5 者為 mixer head",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/gating_heads.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.07143/assets/x3.png",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "two types of heads emerged in Infini-attention after training"
+    },
+    {
+      "claim_id": "fig-sumlen",
+      "claim_text": "BookSum 驗證集上 Rouge overall 分數對輸入長度",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/booksum_length.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.07143/assets/x4.png",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformers obtain better Rouge overall scores with more book text provided as input"
+    },
+    {
+      "claim_id": "body-p1-3tb",
+      "claim_text": "光是 KV cache 就有 3TB 的記憶體足跡",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "3TB memory footprint for a 500B model with batch size 512 and context length 2048"
+    },
+    {
+      "claim_id": "body-p2-solution",
+      "claim_text": "壓縮記憶體（compressive memory），用 linear attention",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "incorporates a compressive memory into the vanilla attention mechanism"
+    },
+    {
+      "claim_id": "body-p3-tasks",
+      "claim_text": "1M 長度的 passkey 檢索",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "long-context language modeling, 1M length passkey context block retrieval and 500K length book summarization tasks"
+    },
+    {
+      "claim_id": "body-p4-nostate",
+      "claim_text": "同一個 attention 層不會把任何狀態帶到下一個 segment",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "no state is carried over to the next input sequence"
+    },
+    {
+      "claim_id": "body-p5-localattn",
+      "claim_text": "scaled dot-product attention：先算出 $Q, K, V$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "standard causal dot-product attention context within each segment"
+    },
+    {
+      "claim_id": "body-e1-adot",
+      "claim_text": "A_{dot} = \\mathrm{softmax}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "\\frac{Q K^T}{\\sqrt{d_{model}}}"
+    },
+    {
+      "claim_id": "body-p6-reuseqkv",
+      "claim_text": "直接重用** dot-product attention 已經算好的",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "we reuse the query, key and value states"
+    },
+    {
+      "claim_id": "body-e2-amem",
+      "claim_text": "A_{mem} = \\frac{\\sigma(Q)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "\\sigma({Q}) M_{s-1}"
+    },
+    {
+      "claim_id": "body-p7-sigma",
+      "claim_text": "element-wise 的 ELU+1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "use element-wise ELU + 1 as the activation function"
+    },
+    {
+      "claim_id": "body-e3-update",
+      "claim_text": "M_s \\leftarrow M_{s-1} + \\sigma(K)^\\top V",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "\\sigma(K)^T V"
+    },
+    {
+      "claim_id": "body-e4-delta",
+      "claim_text": "M_s \\leftarrow M_{s-1} + \\sigma(K)^\\top \\left(V",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "\\sigma(K)^T (V - \\frac{\\sigma({K}) M_{s-1}}"
+    },
+    {
+      "claim_id": "body-p8-gating",
+      "claim_text": "每個 head 只多一個訓練參數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "adds only a single scalar value as training parameter per head"
+    },
+    {
+      "claim_id": "body-e5-fuse",
+      "claim_text": "A = \\mathrm{sigmoid}(\\beta) \\odot A_{mem}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "\\odot A_{mem} + (1 - \\textit{sigmoid}(\\beta)) \\odot A_{dot}"
+    },
+    {
+      "claim_id": "body-p9-heads",
+      "claim_text": "分數貼近 0 或 1 的「specialized head」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "specialized heads with a gating score near 0 or 1 and mixer heads with a score close to 0.5"
+    },
+    {
+      "claim_id": "body-p10-vsxl",
+      "claim_text": "只快取「上一個 segment」的 KV",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Transformer-XL (bottom) discards old contexts since it caches the KV states for the last segment only"
+    },
+    {
+      "claim_id": "body-p11-const",
+      "claim_text": "即常數複雜度 $d_{key} \\times d_{value} + d_{key}$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "constant memory complexity of $d_{key} \\times d_{value} + d_{key}$"
+    },
+    {
+      "claim_id": "body-p11-dims",
+      "claim_text": "$d_{key}=d_{value}=128$、$H=8$ heads、$l=12$ 層",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "12 layers and 8 attention heads of dimension 128 each"
+    },
+    {
+      "claim_id": "body-p11-16m",
+      "claim_text": "正好對上論文報告的壓縮記憶大小 1.6M",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "1.6M (114x) & None"
+    },
+    {
+      "claim_id": "body-p11-unroll",
+      "claim_text": "$32768 / 2048 = 16$ 步展開（BPTT）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "unroll over 16 steps"
+    },
+    {
+      "claim_id": "body-p12-leadin",
+      "claim_text": "perplexity 還更低",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer outperforms memorizing transformers"
+    },
+    {
+      "claim_id": "body-t1-infini",
+      "claim_text": "9.65",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer\\tiny{ (Linear)} & 1.6M (114x) & None & 2048 & \\bf{9.65} & 2.24"
+    },
+    {
+      "claim_id": "body-t1-baselines",
+      "claim_text": "11.88",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Transformer-XL & 50M (3.7x) & 2048 & 2048 & 11.88 & 2.42"
+    },
+    {
+      "claim_id": "body-t1-memtrans",
+      "claim_text": "Memorizing Transformers：183M (1x) 記憶、PG19 11.37、Arxiv-math 2.26",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Memorizing Transformers & 183M (1x) & 2048 & 2048 & 11.37 & 2.26"
+    },
+    {
+      "claim_id": "body-t1-rmt",
+      "claim_text": "RMT：2.5M (73x) 記憶、PG19 13.27、Arxiv-math 2.55",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "RMT & 2.5M (73x) & None & 2048 & 13.27 & 2.55"
+    },
+    {
+      "claim_id": "body-p13-beats",
+      "claim_text": "優於 Transformer-XL 的 11.88 與 Memorizing Transformers 的 11.37",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Memorizing Transformers & 183M (1x) & 2048 & 2048 & 11.37 & 2.26"
+    },
+    {
+      "claim_id": "body-p13-65k",
+      "claim_text": "後者是在第 9 層用長度 65K 的 KV 記憶",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "KV memory with length of 65K at its $9^{th}$ layer"
+    },
+    {
+      "claim_id": "body-p13-100k",
+      "claim_text": "把訓練序列長度從 32K 進一步拉到 100K 並改在 Arxiv-math 上訓練，perplexity 還能再降到 Linear 的 2.21 與 Linear+Delta 的 2.20（此數字僅來自該 Arxiv-math 100K 實驗，不含 PG19）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "We further increased the training sequence length to 100K from 32K and trained the models on Arxiv-math dataset. 100K training further decreased the perplexity score to \\textbf{2.21} and \\textbf{2.20} for $Linear$ and $Linear + Delta$ models."
+    },
+    {
+      "claim_id": "body-p13-delta-marginal",
+      "claim_text": "delta rule 帶來的差異其實非常小",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": null,
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-p13-delta-quant",
+      "claim_text": "在 PG19 上兩者僅差 0.02 perplexity（9.65 vs 9.67，約 0.21%），在 Arxiv-math 上則反而是 Linear + Delta 低 0.01（2.23 vs 2.24）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer\\tiny{ (Linear)} & 1.6M (114x) & None & 2048 & \\bf{9.65} & 2.24 \\\\\n    Infini-Transformer\\tiny{ (Linear + Delta)} & 1.6M (114x) & None & 2048 & 9.67 & \\bf{2.23} \\\\"
+    },
+    {
+      "claim_id": "body-p14-passkey-setup",
+      "claim_text": "1B LLM 的 vanilla MHA 換成 Infini-attention",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "replaced the vanilla MHA in a 1B LLM with Infini-attention"
+    },
+    {
+      "claim_id": "body-p14-segment-2k",
+      "claim_text": "每個 Infini-attention 層實際處理的 segment 長度在所有 LLM 實驗中一律固定為 $N=2\\text{K}$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-17T00:00:00Z",
+      "quoted_snippet": "The segment length $N$ was set to 2K throughout our experiments."
+    },
+    {
+      "claim_id": "body-p14-ft",
+      "claim_text": "fine-tune 400 步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "fine-tuning on 5K length inputs for 400 steps"
+    },
+    {
+      "claim_id": "body-p14-passkey-pretrain",
+      "claim_text": "passkey：先用 4K 輸入 continual pre-train 30K 步、batch size 64",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "continued to pre-train on inputs with length of 4K. The model was trained for 30K steps with batch size of 64"
+    },
+    {
+      "claim_id": "body-t2-ft",
+      "claim_text": "96/94/100",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer\\tiny{ (Linear)} & 100/100/100 & 100/100/100 & 100/100/100 & 97/99/100 & 96/94/100"
+    },
+    {
+      "claim_id": "body-t2-zs",
+      "claim_text": "14/13/98",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer\\tiny{ (Linear)}  & 14/13/98 & 11/14/100 & 6/3/100"
+    },
+    {
+      "claim_id": "body-t2-zs-delta",
+      "claim_text": "13/11/99",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformer\\tiny{ (Linear + Delta)}  & 13/11/99 & 6/9/99"
+    },
+    {
+      "claim_id": "body-p15-booksum-setup",
+      "claim_text": "評估時直接餵到 **500K**",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "increase to 500K for evaluating"
+    },
+    {
+      "claim_id": "body-p15-decode",
+      "claim_text": "生成溫度 0.5、$top_p=0.95$、解碼 1024 步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "generation temperature of 0.5 and $top_{p} = 0.95$ and set the number of decoding steps to 1024"
+    },
+    {
+      "claim_id": "body-p15-booksum-pretrain",
+      "claim_text": "BookSum：8B 模型用 8K 輸入 continual pre-train 30K 步",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "continuously pre-training a 8B LLM model with 8K input length for 30K steps"
+    },
+    {
+      "claim_id": "body-p15-booksum-ft",
+      "claim_text": "BookSum：fine-tune 時輸入長度設為 32K",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "We set the input length to 32K for fine-tuning"
+    },
+    {
+      "claim_id": "body-p15-sota",
+      "claim_text": "取得新的 SOTA",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "achieves a new SOTA on BookSum"
+    },
+    {
+      "claim_id": "body-t3-infini",
+      "claim_text": "40.0",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformers\\tiny{ (Linear + Delta)} & \\bf 40.0"
+    },
+    {
+      "claim_id": "body-t3-unlimiformer",
+      "claim_text": "17.2",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "PRIMERA + Unlimiformer &\t37.9 &\t8.2 &\t16.3 &\t17.2"
+    },
+    {
+      "claim_id": "body-p16-trend-claim",
+      "claim_text": "宣稱餵進越多書本文字表現越好",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "clear trend showing that with more text provided as input from books"
+    },
+    {
+      "claim_id": "body-p16-saturate",
+      "claim_text": "相對 128K 的 19.43 峰值，256K 的 19.23 與 500K 的 19.34 分別低 0.20 與 0.09，最後三點未再超過 128K，並非單調成長（500K 比 256K 略回升 0.11）",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2404.07143/assets/x4.png",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-p1-real",
+      "claim_text": "3TB KV cache（500B 模型、batch 512、context 2048）這個引用數字具體且可核",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "3TB memory footprint for a 500B model with batch size 512 and context length 2048"
+    },
+    {
+      "claim_id": "crit-p2-baselines",
+      "claim_text": "都不是現代長上下文 LLM",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "all our models have 12 layers and 8 attention heads"
+    },
+    {
+      "claim_id": "crit-p3-scale",
+      "claim_text": "拿一個 8B 的 decoder LLM 去比 BART、PRIMERA 這類專為摘要打造的 encoder-decoder 模型",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "compares our model against the encoder-decoder models that were built particularly for the summarization task"
+    },
+    {
+      "claim_id": "crit-p3-borrowed",
+      "claim_text": "後者的數字是直接引用自 Unlimiformer 論文",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "The BART, PRIMERA and Unlimiformer results are from \\citet{bertsch2024unlimiformer}."
+    },
+    {
+      "claim_id": "crit-p4-passkey",
+      "claim_text": "干擾文字是同一段「The grass is green…」重複 x 次堆出來的低熵內容",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "The grass is green. The sky is blue. The sun is yellow."
+    },
+    {
+      "claim_id": "crit-p4-delta-taskdep",
+      "claim_text": "delta rule 的效果隨任務而異：語言建模 perplexity 幾乎無差（9.65 vs 9.67），但 1M passkey fine-tune 後 Linear+Delta 100/100/100 略勝 Linear 96/94/100，BookSum Overall Rouge 18.5 對 18.0",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "Infini-Transformers\\tiny{ (Linear)} & 37.9 &\t8.7 &\t17.6 &\t18.0 \\\\\n    Infini-Transformers\\tiny{ (Linear + Delta)} & \\bf 40.0 & \\bf\t8.8 & \\bf\t17.9 &\t\\bf 18.5"
+    },
+    {
+      "claim_id": "crit-p5-capacity",
+      "claim_text": "把整段歷史壓進一個 $d_{key} \\times d_{value}$ 的固定矩陣，數學上必然是有損的",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "crit-p2-smallmodel-cap",
+      "claim_text": "12 層、8 head（每 head 維度 128、每層 FFN hidden layer 4096）的從頭訓練小模型",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2404.07143v2",
+      "retrieved_at": "2026-07-16T00:00:00Z",
+      "quoted_snippet": "all our models have 12 layers and 8 attention heads of dimension 128 each and FFNs with hidden layer 4096"
+    }
+  ]
+}
