@@ -1,0 +1,414 @@
+{
+  "note_path": "domains/recommender_system/TokenFactory/README.md",
+  "domain": "recommender_system",
+  "topic": "TokenFactory",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-16T07:15:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Token Factory: Efficiently Integrating Diverse Signals into Large Recommendation Models",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Token Factory: Efficiently Integrating Diverse Signals into Large Recommendation Models"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv:2606.19635v2",
+      "kind": "paper-claim",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "arXiv:2606.19635"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "2026. Token"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Xilun Chen, Shao-Chuan Wang, Baykal Cakici, Lukasz Heldt, Lichan Hong, Raghu Keshavan, Aniruddh Nath, Li Wei, Xinyang Yi",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Xilun Chen, Shao-Chuan Wang, Baykal Cakici, Lukasz Heldt, Lichan Hong,"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "paper-claim",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Information Retrieval (cs.IR)"
+    },
+    {
+      "claim_id": "fig2",
+      "claim_text": "Token Factory 整體架構,dense、sparse、embedding 訊號經三個 Token Maker 變成 soft token",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2-architecture.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Token Factory Architecture"
+    },
+    {
+      "claim_id": "fig3",
+      "claim_text": "單一觀看歷史項目的 Token Maker",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3-token-maker.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Token maker for user watch history"
+    },
+    {
+      "claim_id": "fig4",
+      "claim_text": "相同 batch size 下,baseline(黑線)與 Token Factory(紅線)在 CTR 任務上的 ROC AUC",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig4-roc-same-batch.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "keeping the same batch size"
+    },
+    {
+      "claim_id": "fig4-auc-range",
+      "claim_text": "縱軸 AUC 大致落在約 0.74–0.77 這個區間,但這是從圖表縱軸目測的範圍",
+      "kind": "reasonable-inference",
+      "target": "note-section:fig4-caption",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "initially, but catches up to the baseline at 1.5M steps and consistently performs comparably afterwards"
+    },
+    {
+      "claim_id": "fig6",
+      "claim_text": "ranking ablation 的 ROC AUC",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig6-ablation.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Figure 6: ROC AUC comparison"
+    },
+    {
+      "claim_id": "fig7",
+      "claim_text": "soft token 輸入在所有 layer/head 上的最大 attention",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig7-soft-attention.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Max attention scores across all layers/heads for Soft"
+    },
+    {
+      "claim_id": "fig9",
+      "claim_text": "文字 SID 輸入在所有 layer/head 上的最大 attention",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig9-sid-attention.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "textual SID inputs"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "把觀看完成率、觀看時長等 dense 訊號轉成文字再交給 custom tokenizer",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "creates a significant computational bottleneck"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "一種直接落在多模態模型 embedding 空間裡的向量表示",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "an embedding representation directly"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "離線指標為 Recall@10",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "We use recall@10 to measure"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "而非查字彙表得到的離散 ID",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "map text to vocabulary indices"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "一個 Token Maker 包含一組輸入特徵與一份",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "A Token Maker consists of a set of input features"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "E_{input} = \\mathrm{Concat}(t_1(f_1), t_2(f_2), ..., t_n(f_n))",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "T_{output} = G(E_{input})",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "它與 LRM 端到端共同訓練",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "is co-trained end-to-end with the Large Recommendation Model"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "簡單特徵映成單一 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "simple features are mapped to a single token"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "feature_sequence_length: 500",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "feature_sequence_length: 500"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "每個觀看歷史項目佔 12 個 token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "item takes 12 tokens (8 tokens for the SID, 1 token for the"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "第一種是 MLP 壓縮",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "using an MLP on the sequence dimension"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "預先算好並快取",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "pre-computed and cached to significantly reduce"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "110M MoE 版 Gemini encoder",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "derived from 110M Mixture-of-Exports(MoE) variant of Gemini"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "離線 Recall@10 相對 baseline 提升 +2.0%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "+2.0% improvement in offline Recall@10"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "+16.8%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "+16.8%"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "Unique Impressions(一日新鮮影片,線上)+67.1%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Impressions for one-day-fresh videos soared by 67.1%"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "Satisfied Watchers(線上)+0.04%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "positive gains in both Satisfied Watchers (+0.04%) and Satisfied"
+    },
+    {
+      "claim_id": "body-table-4",
+      "claim_text": "Satisfied Watch Time(線上)+0.05%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Watch Time (+0.05%)."
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "把觀看歷史從 200 拉到 500",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "the watch history from 200 to 500 in the CTR prediction task and"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "近半數文字 SID token",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "textual SID tokens in the prompt are virtually unattended"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "12×200 = 2400 已超過上限,論文只能從左側截斷最舊紀錄",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Excessive tokens beyond the 1536 limit are truncated from"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "把 treatment 的 batch size 調大 200% 之後才出現",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "increase the global training batch size for the treatment by 200%"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "歸因於 480 的 token 預算",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "the context window budget or constraint (480)"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "可以簡單如一個 MLP",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "prompt 為 30%、訓練快 200%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "training speed of about 200% faster due to the fact that the prompt length is only about 30% of the baseline length"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "這個比較裡 treatment 的 prompt 比 baseline 多了 30 個 token,因此並不是嚴格固定 token 預算下的對照",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "prompt length of 30 tokens compared to baseline to hold the extra"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "在 dense/sparse 特徵齊備下,soft token 與文字 SID 沒有明顯差距",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "Using soft tokens or the SID format did not show a clear gap"
+    },
+    {
+      "claim_id": "critical-prose-7",
+      "claim_text": "論文並未提供放寬預算讓兩者都不截斷的對照,因此無法宣稱 soft token 表示法本身更強",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-7",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "This is mostly due"
+    },
+    {
+      "claim_id": "intro-lrm-promise",
+      "claim_text": "以 Transformer 為骨幹的 LRM 近年在工業級推薦任務上展現了很大的潛力(great promise)",
+      "kind": "paper-claim",
+      "target": "README.md#introduction",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "demonstrated great promise"
+    },
+    {
+      "claim_id": "intro-lem-foundation",
+      "claim_text": "dense 與 sparse 特徵構成傳統 Large Embedding Model(LEM)的基礎",
+      "kind": "paper-claim",
+      "target": "README.md#introduction",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "form the foundation of Large Embedding Models (LEMs), carry"
+    },
+    {
+      "claim_id": "fig2-kvcache-scope",
+      "claim_text": "query／user 層級特徵跨候選不變,故其 soft token 可預先計算並快取(KV Cache 前綴);candidate 特徵隨候選改變,不在快取前綴內",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2-architecture.png",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "remain static while scoring multiple candidate items"
+    },
+    {
+      "claim_id": "critical-prose-8",
+      "claim_text": "離線用的是 ROC AUC、Recall@10 等標準度量,但 baseline 模型、資料與線上指標皆內部自定義且未公開,亦無可重現碼庫,外部無法獨立驗證",
+      "kind": "reasonable-inference",
+      "target": "README.md#critical-assessment",
+      "source_url": "https://arxiv.org/abs/2606.19635",
+      "retrieved_at": "2026-07-16T07:00:00Z",
+      "quoted_snippet": "production-scale recommendation environment"
+    }
+  ]
+}
