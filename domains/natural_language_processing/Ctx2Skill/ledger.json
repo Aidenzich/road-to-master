@@ -1,0 +1,396 @@
+{
+  "note_path": "domains/natural_language_processing/Ctx2Skill/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Ctx2Skill",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-19T11:20:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "From Context to Skills: Can Language Models Learn from Context Skillfully?",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "From Context to Skills: Can Language Models"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv preprint (2604.27660v3)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "arXiv:2604.27660v3"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "2604.27660"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Shuzheng Si, Haozhe Zhao, Yu Lei, Qingyi Wang, ... Maosong Sun (THU / DeepLang AI / UIUC / FDU / CUHK)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Shuzheng Si"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/S1s-Z/Ctx2Skill",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "https://github.com/S1s-Z/Ctx2Skill"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "neurips_2026"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "許多真實任務要求語言模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "many real-world tasks require LMs to learn from complex contexts"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "缺乏外部回饋訊號",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "prohibitive cost of manual skill annotation"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "自動從脈絡中發現、精煉並挑選",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "autonomously discovers, refines, and selects context-specific skills"
+    },
+    {
+      "claim_id": "body-prose-4a",
+      "claim_text": "CL-bench 有 500 個脈絡",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "31,607"
+    },
+    {
+      "claim_id": "body-prose-4b",
+      "claim_text": "GPT-4.1 從 11.1% 到 16.5%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "11.1% to 16.5%"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "只有當「所有評分準則都通過」時任務才算解出",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "we define a solving indicator"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "y_j(\\pi;C) = \\prod_{k}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "y_j(\\pi;C) = \\prod_{k}"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "推理部署時只用 Reasoner 那份",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "short Markdown file pre-pended to the system prompt"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "五個「凍結參數」的 LM 角色構成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "a correct answer requires inducing the rules"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "把 Proposer 與 Generator 拆成兩個 agent（診斷與物化分離）是刻意設計",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Merging the \\textit{Proposer} and \\textit{Generator} into a single agent"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "這種退化在迴圈內偵測不到",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "this collapse is undetectable within the loop"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "評分準則通過率最低的失敗題加進 hard 探針集",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "the lowest rubric pass rate is added to the hard probe set"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "\\rho^h(i) = \\frac",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "\\rho^h(i) = \\frac"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "把乘積換成加法（Additive Scoring）會掉 0.6%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "the multiplicative form better penalizes"
+    },
+    {
+      "claim_id": "body-prose-12a",
+      "claim_text": "skill 檔隨輪次近似線性成長",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "each iteration appends exactly one new skill"
+    },
+    {
+      "claim_id": "body-prose-12b",
+      "claim_text": "Cross-Time Replay 選出的最終 skill 中位數只有 705 字",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "1,703"
+    },
+    {
+      "claim_id": "body-prose-12c",
+      "claim_text": "第 1 輪 Reasoner 平均解出約",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "average number of solved tasks rising from"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "GPT-4.1 + Ctx2Skill",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "11.1% to 16.5%"
+    },
+    {
+      "claim_id": "body-table-1b",
+      "claim_text": "GPT-5.1 + Ctx2Skill",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "GPT-5.1 from 21.1% to 25.8%"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "Ctx2Skill 在三個 backbone 上都贏過兩個基線",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "11.1% to 16.5%"
+    },
+    {
+      "claim_id": "body-prose-14a",
+      "claim_text": "反而超過原生更強、但沒 skill 的 Gemini 3 Pro",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "surpasses stronger frontier models without skills, e.g., Gemini 3 Pro"
+    },
+    {
+      "claim_id": "body-prose-14b",
+      "claim_text": "GPT-5.1 生成的 skill 給 GPT-4.1 用得到 16.1%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "nearly matching GPT-4.1"
+    },
+    {
+      "claim_id": "fig-method",
+      "claim_text": "Ctx2Skill 總覽：self-play 迴圈與 Cross-Time Replay",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/method.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "The overview of"
+    },
+    {
+      "claim_id": "fig-skilldist",
+      "claim_text": "Cross-Time Replay 選中的輪次分布",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/skill_distribution.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Distribution of selected iterations"
+    },
+    {
+      "claim_id": "fig-subcat",
+      "claim_text": "CL-bench 各子類 solving rate：GPT-4.1 有無 skill 對照",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/subcategory.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Per sub-category solving rate on CL-bench"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "即便用上 Ctx2Skill，最好的 GPT-5.1 也只有 25.8% solving rate",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "achieves only a"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "不做多次獨立執行、不報 error bar 或信賴區間",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "do not perform multiple independent runs"
+    },
+    {
+      "claim_id": "critical-prose-3a",
+      "claim_text": "出題（Challenger）、作答（Reasoner）、判分（Judge）都由同一個模型家族擔任",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "cross-verifier and human agreement"
+    },
+    {
+      "claim_id": "critical-prose-3b",
+      "claim_text": "用 GPT-4.1 當裁判，而受評的 Ctx2Skill skill 也是 GPT-4.1 產的",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "GPT-4.1 as a judge"
+    },
+    {
+      "claim_id": "critical-prose-4a",
+      "claim_text": "機制本身相對「最佳固定輪次」只多 +0.6%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "outperforms every fixed iteration"
+    },
+    {
+      "claim_id": "critical-prose-4b",
+      "claim_text": "移除它 GPT-4.1 掉到 13.8%，是最大單項消融",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Removing \\textit{Challenger} skills evolving causes the largest drop"
+    },
+    {
+      "claim_id": "critical-prose-5a",
+      "claim_text": "skill 並非全面有益",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "workflow orchestration"
+    },
+    {
+      "claim_id": "critical-prose-5b",
+      "claim_text": "Instructional Procedures 反而從 8.8% 掉到 5.3%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Per sub-category solving rate on CL-bench"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "摘要寫 GPT-5.1 基線為 21.2%，正文與主結果表卻是 21.1%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "21.2% to 25.8%"
+    },
+    {
+      "claim_id": "fig-concept",
+      "claim_text": "Ctx2Skill 概念示意圖：在無人工標註、無外部回饋下把脈絡的規則與流程提煉成自然語言 skill 作 inference-time skill augmentation",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/concept.png",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "extract rules and procedures from"
+    },
+    {
+      "claim_id": "critical-prose-4c",
+      "claim_text": "固定用某一輪的 skill，GPT-4.1 解題率隨輪次從 Iter-1 的 15.9% 逐步降到 Iter-5 的 14.7%",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "Using Skills from Iter-1"
+    },
+    {
+      "claim_id": "body-prose-12d",
+      "claim_text": "GPT-5.1 選中的最終 skill 中位字數 3,682 逼近其 Iter-3 的 3,871，選中輪次整體偏晚，與 GPT-4.1/GPT-5.2 偏早不同",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/pdf/2604.27660",
+      "retrieved_at": "2026-07-19T11:07:09Z",
+      "quoted_snippet": "3632.3 & 3682"
+    }
+  ]
+}
