@@ -9,6 +9,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Variation in Verification: Understanding Verification Dynamics in Large Language Models](https://arxiv.org/abs/2509.17995) | ICLR | '26 | [✓](https://github.com/YefanZhou/llm-verify-dynamics) | [EN](./VariationInVerification/) · [中文](./VariationInVerification/README.zh-TW.md) |
 | [From Context to Skills: Can Language Models Learn from Context Skillfully?](https://arxiv.org/abs/2604.27660) | arXiv | '26 | [✓](https://github.com/S1s-Z/Ctx2Skill) | [EN](./Ctx2Skill/) · [中文](./Ctx2Skill/README.zh-TW.md) |
 | [AutoMem: Automated Learning of Memory as a Cognitive Skill](https://arxiv.org/abs/2607.01224) | arXiv | '26 | [✓](https://github.com/autoLearnMem/AutoMem) | [EN](./AutoMem/) · [中文](./AutoMem/README.zh-TW.md) |
 | [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120) | ICLR | '26 | [✓](https://github.com/microsoft/lost_in_conversation) | [EN](./LLMs-Lost-In-MultiTurn/) · [中文](./LLMs-Lost-In-MultiTurn/README.zh-TW.md) |
