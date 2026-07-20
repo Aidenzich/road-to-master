@@ -2,6 +2,7 @@
 ## Papers
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
+| [Token Factory: Efficiently Integrating Diverse Signals into Large Recommendation Models](https://arxiv.org/abs/2606.19635) | arXiv | '26 | - | [EN](./TokenFactory/) · [中文](./TokenFactory/README.zh-TW.md) |
 | [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](https://arxiv.org/abs/2502.13581) | ICML | '25 | [✓](https://github.com/google-deepmind/action_piece) | [EN](./ActionPiece/) · [中文](./ActionPiece/README.zh-TW.md) |
 | [ContrastVAE: Contrastive Variational AutoEncoder for Sequential Recommendation](https://arxiv.org/abs/2209.00456) | CIKM |  ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/YuWang-1024/ContrastVAE) | [EN](./ContrastVAE/) · [中文](./ContrastVAE/README.zh-TW.md) |
 | [CBiT: Contrastive Learning with Bidirectional Transformers for Sequential Recommendation](https://arxiv.org/abs/2208.03895)| CIKM | ['22](https://www.cikm2022.org/papers-posters) | [✓](https://github.com/hw-du/CBiT/tree/master.) | [EN](./CBiT/) · [中文](./CBiT/README.zh-TW.md) |

@@ -1,0 +1,540 @@
+{
+  "note_path": "domains/natural_language_processing/MAST/README.md",
+  "domain": "natural_language_processing",
+  "topic": "MAST",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-14T03:35:00Z",
+  "entries": [
+    {
+      "claim_id": "cell-title",
+      "claim_text": "Why Do Multi-Agent LLM Systems Fail?",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "Why Do Multi-Agent LLM Systems Fail?"
+    },
+    {
+      "claim_id": "cell-venue",
+      "claim_text": "NeurIPS 2025 Datasets & Benchmarks (arXiv 2503.13657v3)",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "\\usepackage[final,dandb]{neurips_2025}"
+    },
+    {
+      "claim_id": "cell-year",
+      "claim_text": "2025",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "neurips_2025"
+    },
+    {
+      "claim_id": "cell-authors",
+      "claim_text": "Mert Cemri, Melissa Z. Pan, Shuyi Yang, Lakshya A Agrawal, Bhavya Chopra, Rishabh Tiwari, Kurt Keutzer, Aditya Parameswaran, Dan Klein, Kannan Ramchandran, Matei Zaharia, Joseph E. Gonzalez, Ion Stoica (UC Berkeley; Intesa Sanpaolo)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "Mert Cemri"
+    },
+    {
+      "claim_id": "cell-code",
+      "claim_text": "https://github.com/multi-agent-systems-failure-taxonomy/MAST",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/multi-agent-systems-failure-taxonomy/MAST",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "https://github.com/multi-agent-systems-failure-taxonomy/MAST"
+    },
+    {
+      "claim_id": "cell-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "paper"
+    },
+    {
+      "claim_id": "fig-taxonomy",
+      "claim_text": "MAST taxonomy: 14 failure modes in three categories mapped to MAS execution stages  [evidence: evidence/taxonomy_figure.tex; evidence/figure1_taxonomy_readout.md (figure imgs/mast_taxonomy.png)]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mast_taxonomy.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x2.png",
+      "retrieved_at": "2026-07-14T03:29:00Z",
+      "quoted_snippet": "The inter-agent conversation stages indicate when a failure typically occurs within the end-to-end MAS execution pipeline."
+    },
+    {
+      "claim_id": "fig-failure-rates",
+      "claim_text": "Failure rates of popular MAS across benchmarks (not directly comparable)  [evidence: evidence/mas_failure_rates.tex; evidence/figure_failure_rates_readout.md (figure imgs/mas_failure_rates.png)]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mas_failure_rates.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x1.png",
+      "retrieved_at": "2026-07-14T03:29:00Z",
+      "quoted_snippet": "Failure rates of six popular Multi-Agent LLM Systems with GPT-4o and Claude-3.7-Sonnet."
+    },
+    {
+      "claim_id": "fig-distribution",
+      "claim_text": "Distribution of failures across systems on 210 traces  [evidence: evidence/failure_distribution.tex (source/06_discussions.tex:4-8)]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/failure_distribution.png",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x4.png",
+      "retrieved_at": "2026-07-14T03:29:00Z",
+      "quoted_snippet": "labels on total 210 traces"
+    },
+    {
+      "claim_id": "fig-workflow",
+      "claim_text": "MAST dataset construction workflow: trace collection, failure identification, taxonomy development via IAA, MAST, MAS failure detection",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/dataset_construction_workflow.png",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "Methodological workflow for constructing the \\dataset{} dataset, involving the empirical identification of failure modes, the development of \\taxonomy{}"
+    },
+    {
+      "claim_id": "fig-info-withholding",
+      "claim_text": "AppWorld trace exhibiting FM-2.4 Information Withholding: Phone Agent fails to communicate the username-format API requirement to the Supervisor Agent, who also fails to seek clarification  [evidence: evidence/info_withholding.tex (source/04_methodology.tex:56-61)]",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/info_withholding_trace.png",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "The Phone Agent fails to communicate API requirements (username format) to the Supervisor Agent, who also fails to seek clarification, leading to repeated failed logins and task failure."
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "41% to 86.7%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "41\\% to 86.7\\% failure rate"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "Grounded Theory",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "using Grounded Theory"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "1600",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "1600+ annotated traces"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "κ = 0.79",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "strong Cohen's Kappa score of 0.79"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "six human experts",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "closely examined by six human experts"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "Cohen's Kappa",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "We measure agreement using Cohen's Kappa score"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\kappa = \\frac{p_o - p_e}{1 - p_e}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "strong average of κ = 0.88",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "achieving a strong average of $\\kappa = \\cohenskappainterannotatoraverage{}$"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "Pre-Execution",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "(Pre-Execution, Execution, and Post-Execution)"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "Step repetition",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "FM-1.3: \\textbf{Step repetition}"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "MAS failure is not merely",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "MAS failure is not merely a function of challenges in the underlying model"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "FM-2.4 Information Withholding",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "This illustrates an agent-to-agent conversation exhibiting Failure Mode 2.4: Information Withholding."
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "1.1 為 11.8%",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "FM-1.1, 11.8"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "accuracy 94%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "accuracy 94\\%, Cohen's Kappa of 0.77"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "strong Cohen's Kappa score of 0.79",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "strong Cohen's Kappa score of 0.79"
+    },
+    {
+      "claim_id": "body-prose-13-manus",
+      "claim_text": "Manus excluded from primary MAST-Data due to lack of full execution traces",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "the absence of comprehensive trace data prevents their inclusion in the primary \\dataset{}"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "+9.4%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "+9.4\\% increase in overall task success rate"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "p-value of 0.4",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "Wilcoxon test returned a p-value of 0.4"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "84.75",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "84.75 $\\pm$ 1.94"
+    },
+    {
+      "claim_id": "body-table-2-variance",
+      "claim_text": "88.83",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "85.50 $\\pm$ 1.18 & 88.83 $\\pm$ 1.51 & 40.6 & 91.5"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "more complex solutions",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "need for more complex solutions and fundamental MAS redesigns"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "1.56x more FC3 failure",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "1.56x more FC3 failure than ChatDev"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "measured on different benchmarks",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "measured on different benchmarks, therefore they are not directly comparable"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "FM-1.1 為 11.8%",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "FM-1.1, 11.8"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "max of 0.63",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "moderate correlations (max of 0.63)"
+    },
+    {
+      "claim_id": "critical-prose-3-ha",
+      "claim_text": "210/1642 = 12.8%",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "HA: Human Annotated (Failure modes are annotated by humans)"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "low correlations (0.17-0.32)",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:05:00Z",
+      "quoted_snippet": "shows low correlations (0.17-0.32)"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "pip install agentdash",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T03:28:43Z",
+      "quoted_snippet": "pip install agentdash"
+    },
+    {
+      "claim_id": "body-prose-18-o1-baseline",
+      "claim_text": "Table row with source label \"o1\": accuracy 0.89, Cohen's kappa 0.58 (row referred to by its source label only; no zero-shot / no-example configuration asserted)  [evidence: evidence/llm_judge.tex (source/04_methodology.tex:47)]",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "o1 & 0.89 & 0.62 & 0.68 & 0.64  & 0.58 \\\\"
+    },
+    {
+      "claim_id": "body-prose-19-o1-cost",
+      "claim_text": "LLM-as-a-Judge average cost $1.8 per trace  [evidence: evidence/llm_judge_cost.tex (source/13_llm_judge_cost.tex:4)]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "The average cost across all MAS frameworks is $\\$1.8$"
+    },
+    {
+      "claim_id": "body-prose-20-wilcoxon-gpt4o",
+      "claim_text": "GPT-4o Wilcoxon p-value of 0.03 (statistically significant)  [evidence: evidence/ag2_chatdev_accuracies.tex (source/09_solutions.tex:124)]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "the Wilcoxon test yields a p-value of 0.03 when comparing the baseline to both the improved prompt and the new topology"
+    },
+    {
+      "claim_id": "body-prose-21-fc1-deltas",
+      "claim_text": "GPT-4o shows 39% fewer FC1 failures; MetaGPT has 60-68% less FC1/FC2 failure than ChatDev  [evidence: evidence/failure_distribution.tex (source/06_discussions.tex:17)]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "significantly fewer FC1 (System Design Issues) failures by 39\\%"
+    },
+    {
+      "claim_id": "body-prose-22-metagpt-6068",
+      "claim_text": "MetaGPT has 60-68% less failure in FC1 and FC2 than ChatDev  [evidence: evidence/failure_distribution.tex (source/06_discussions.tex:17)]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "having 60-68\\% less failure in FC1 and FC2"
+    },
+    {
+      "claim_id": "body-prose-22-fc3-chatdev-inference",
+      "claim_text": "The paper itself offers a tentative cause for MetaGPT's 1.56x-higher FC3 (Task Verification) count relative to ChatDev: MetaGPT relies on SoPs for spec adherence (strong FC1) while ChatDev's architecture weights verification more via its explicit testing/reviewing phases (code review static + system testing dynamic), lowering ChatDev's FC3. The paper frames this as speculation ('This may stem from...') without direct validating evidence; it is the paper's own stated reasoning, not the note authors'  [evidence: evidence/chatdev_phases.tex (source/99_appendix.tex:148-149 framework description + source/06_discussions.tex:17 for the 1.56x figure + source/10_mast_analysis.tex:30 observation and source/10_mast_analysis.tex:31 the paper's causal explanation)]",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T13:20:00Z",
+      "quoted_snippet": "However ChatDev places a higher importance in verification as it is reflected by the specific testing and reviewing phases in ChatDev's archiectural design, causing fewer verification issues"
+    },
+    {
+      "claim_id": "critical-prose-6-chatdev-fail",
+      "claim_text": "ChatDev failure rate 75.0% on ProgramDev  [evidence: evidence/figure_failure_rates_readout.md (figure imgs/mas_failure_rates.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x1.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "ChatDev (ProgramDev): Success 25.0% | Failure 75.0%"
+    },
+    {
+      "claim_id": "critical-prose-7-hyperagent-fail",
+      "claim_text": "HyperAgent failure rate 74.7% on SWE-Bench Lite  [evidence: evidence/figure_failure_rates_readout.md (figure imgs/mas_failure_rates.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x1.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "HyperAgent (SWE-Bench Lite): Success 25.3% | Failure 74.7%"
+    },
+    {
+      "claim_id": "critical-prose-8-category-totals",
+      "claim_text": "Figure 1 category totals 37.17% / 31.41% / 31.41%  [evidence: evidence/figure1_taxonomy_readout.md (figure imgs/mast_taxonomy.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x2.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "FC1 Poor Specification (System Design): 37.17%"
+    },
+    {
+      "claim_id": "critical-prose-9-fig1-fc2-fc3",
+      "claim_text": "Figure 1 FC2 and FC3 totals both 31.41%  [evidence: evidence/figure1_taxonomy_readout.md (figure imgs/mast_taxonomy.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x2.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "FC2 Inter-Agent Misalignment (Agent Coordination): 31.41%"
+    },
+    {
+      "claim_id": "critical-prose-10-fig1-mode11",
+      "claim_text": "Figure 1 shows FM-1.1 at 15.2% (vs 11.8% in Section 4 text)  [evidence: evidence/figure1_taxonomy_readout.md (figure imgs/mast_taxonomy.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x2.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "1.1 Disobey Task Specification: 15.2%   (Section 4 text: 11.8%)"
+    },
+    {
+      "claim_id": "critical-prose-11-o1-precision-recall",
+      "claim_text": "o1 (few-shot) precision 0.833, recall 0.77  [evidence: evidence/llm_judge.tex (source/04_methodology.tex:49)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "o1 (few shot) & 0.94 & 0.77 &  0.833  & 0.80 & 0.77 \\\\"
+    },
+    {
+      "claim_id": "critical-prose-12-appworld-867",
+      "claim_text": "AppWorld failure rate 86.7% on Test-C  [evidence: evidence/figure_failure_rates_readout.md (figure imgs/mas_failure_rates.png)]",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://ar5iv.labs.arxiv.org/html/2503.13657/assets/x1.png",
+      "retrieved_at": "2026-07-14T04:40:00Z",
+      "quoted_snippet": "AppWorld (Test-C): Success 13.3% | Failure 86.7%"
+    },
+    {
+      "claim_id": "coverage-foundational-methodology-150traces",
+      "claim_text": "150 條 trace（Grounded Theory 歸納樣本）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-methodology-150",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "we first collect 150 traces from five MAS frameworks, which are closely examined by six human experts"
+    },
+    {
+      "claim_id": "coverage-foundational-methodology-15000lines",
+      "claim_text": "每條 trace 平均超過 15,000 行文字",
+      "kind": "evidence-supported",
+      "target": "note-section:body-methodology-15000",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "over 150 MAS execution traces (each averaging over 15,000 lines of text)"
+    },
+    {
+      "claim_id": "coverage-foundational-methodology-20hours",
+      "claim_text": "每位專家投入超過 20 小時標註這 150 條 trace",
+      "kind": "evidence-supported",
+      "target": "note-section:body-methodology-20hours",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "over 20 hours of annotation per expert for these 150 traces"
+    },
+    {
+      "claim_id": "coverage-dataset-size-1642",
+      "claim_text": "MAST-Data 收錄 1642 條標註 trace",
+      "kind": "evidence-supported",
+      "target": "note-section:body-dataset-1642",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "\\newcommand{\\numTraceInMAD}{1642}"
+    },
+    {
+      "claim_id": "coverage-per-mode-table-fc1-rates",
+      "claim_text": "FC1 各 failure mode 佔比：FM-1.2 1.5%、FM-1.3 15.7%、FM-1.4 2.80%、FM-1.5 12.4%（FM-1.1 11.8% 另見 body-prose-11）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-per-mode",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "failing to follow task requirements (FM-1.1, 11.8\\%) or agent roles (FM-1.2, 1.5\\%), step repetitions (FM-1.3, 15.7\\%), context loss (FM-1.4, 2.80\\%), or not recognizing task completion (FM-1.5, 12.4\\%)"
+    },
+    {
+      "claim_id": "coverage-per-mode-table-fc2-rates",
+      "claim_text": "FC2 各 failure mode 佔比：FM-2.1 2.20%、FM-2.2 6.80%、FM-2.3 7.40%、FM-2.4 0.85%、FM-2.5 1.90%、FM-2.6 13.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-per-mode",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "unexpected conversation resets (FM-2.1, 2.20\\%), proceeding with wrong assumptions instead of seeking clarification (FM-2.2, 6.80\\%), task derailment (FM-2.3, 7.40\\%), withholding crucial information (FM-2.4, 0.85\\%), ignoring other agents' input (FM-2.5, 1.90\\%), or mismatches between reasoning and action (FM-2.6, 13.2\\%)"
+    },
+    {
+      "claim_id": "coverage-per-mode-table-fc3-rates",
+      "claim_text": "FC3 各 failure mode 佔比：FM-3.1 6.20%、FM-3.2 8.20%、FM-3.3 9.10%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-per-mode",
+      "source_url": "https://arxiv.org/abs/2503.13657",
+      "retrieved_at": "2026-07-14T05:20:00Z",
+      "quoted_snippet": "premature termination (FM-3.1, 6.20\\%), no or incomplete verification (FM-3.2, 8.20\\%), or incorrect verification (FM-3.3, 9.10\\%)"
+    }
+  ]
+}

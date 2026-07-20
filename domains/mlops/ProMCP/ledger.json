@@ -1,0 +1,360 @@
+{
+  "note_path": "domains/mlops/ProMCP/README.md",
+  "domain": "mlops",
+  "topic": "ProMCP",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-19T14:20:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "ProMCP: Profiling Token Flows and Latency Costs in Model Context Protocol–Based LLM Agents",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Profiling Token Flows and Latency Costs in Model Context"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "Findings of ACL 2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Findings of the Association for Computational Linguistics: ACL 2026"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "July 2-7, 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Sumera Anjum, Weijian Zheng, Rajkumar Kettimuthu, Heng Fan, Yunhe Feng",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Sumera Anjum"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/ResponsibleAILab/ProMCP",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "github.com/ResponsibleAILab/ProMCP"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Findings of the Association for Computational Linguistics: ACL 2026"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "整合問題",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "integration problem in which n"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "first-order concern",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "consumption and latency"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "Token Tracking Module（TTM）與 Latency Monitoring Module",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "profiling and instrumentation"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "20 個 MCP server、169 個 tool",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "20 MCP servers exposing 169"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "Answer Synthesis",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "final user-facing response"
+    },
+    {
+      "claim_id": "body-fig1-caption",
+      "claim_text": "把一次完整的工具調用互動拆解為六個標準階段",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "decomposes each interaction into six stages"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "protocol token footprint",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "run_id, task_id, stage index"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "6061.06",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "6061.06"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "T_{\\mathrm{total}}",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-equation-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "tool schema footprint 主導",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "tools_discovery",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "tools_discovery step dominates initializa"
+    },
+    {
+      "claim_id": "body-init-transport",
+      "claim_text": "HTTP/SSE 的初始化 latency 明顯低於 STDIO",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "demonstrate significantly lower initialization"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "3,411 tokens",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "14.60"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "1,282,317",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "1,063,220"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "tool_call 訊息序列化本身在三種拓樸都只佔 0.4–2.1%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "tool execution constitutes a negligible"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "57.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "57.3"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "52–63%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "81.8"
+    },
+    {
+      "claim_id": "body-prose-15-multiplier",
+      "claim_text": "約為客製設定（Mistral 64,959／LLaMA 11,240／C-Cust 52,930）的 20–114 倍",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "64,959 ± 31,991"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "86.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "4.06–4.91"
+    },
+    {
+      "claim_id": "body-latency-exc-1",
+      "claim_text": "58.20s／15.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "58.20 ± 12.50"
+    },
+    {
+      "claim_id": "body-latency-exc-2",
+      "claim_text": "7.01s／7.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "7.01 ± 5.30"
+    },
+    {
+      "claim_id": "figure-table1",
+      "claim_text": "Table 1 token distribution across MCP phases and deployment topologies",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/table1-token-distribution.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Token distribution across MCP phases"
+    },
+    {
+      "claim_id": "figure-table2",
+      "claim_text": "Table 2 latency distribution across MCP phases and deployment topologies",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/table2-latency-distribution.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Latency distribution across MCP phases"
+    },
+    {
+      "claim_id": "figure-fig1",
+      "claim_text": "Figure 1 ProMCP architecture and six-stage loop with LMM and TTM",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/figure1-architecture.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "decomposes each interaction into six stages"
+    },
+    {
+      "claim_id": "figure-fig2",
+      "claim_text": "Figure 2 token distribution during MCP session initialization and tool discovery across 20 servers",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/figure2-token-initialization.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Token distribution during MCP session"
+    },
+    {
+      "claim_id": "figure-fig3",
+      "claim_text": "Figure 3 latency distribution during MCP session initialization and tool discovery; STDIO cold start vs HTTP/SSE",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/figure3-latency-initialization.png",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Latency distribution during MCP session"
+    },
+    {
+      "claim_id": "critical-prose-0",
+      "claim_text": "MCP-RADAR 沿 accuracy、first-error position 描述 tool-use 行為，但不檢視 protocol overhead",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-0",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "accuracy and first-error position, but does not"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "conversations.json",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "conversations.json"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "orchestration policy choice",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "an orchestration policy choice"
+    },
+    {
+      "claim_id": "critical-models",
+      "claim_text": "Mistral Small 3.2 24B 與 LLaMA 3.2",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Mistral Small 3.2 24B and LLaMA-3.2"
+    },
+    {
+      "claim_id": "critical-evalcard",
+      "claim_text": "max tokens unconstrained",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "Unconstrained"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "53,161 ± 85,875",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "85,875"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "instrumentation 與 measurement",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1967.pdf",
+      "retrieved_at": "2026-07-19T13:53:03+00:00",
+      "quoted_snippet": "future optimizations must prioritize schema"
+    }
+  ]
+}
