@@ -1,0 +1,531 @@
+{
+ "note_path": "domains/natural_language_processing/VariationInVerification/README.md",
+ "domain": "natural_language_processing",
+ "topic": "VariationInVerification",
+ "no_untrusted_code_executed": true,
+ "generated_at": "2026-07-19T18:20:00+00:00",
+ "entries": [
+  {
+   "claim_id": "ac-title",
+   "claim_text": "Variation in Verification: Understanding Verification Dynamics in Large Language Models",
+   "kind": "evidence-supported",
+   "target": "table-cell:title",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "\\title{Variation in Verification: Understanding Verification Dynamics in Large Language Models}"
+  },
+  {
+   "claim_id": "ac-venue",
+   "claim_text": "ICLR 2026",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue",
+   "source_url": "https://arxiv.org/abs/2509.17995",
+   "retrieved_at": "2026-07-19T18:19:00+00:00",
+   "quoted_snippet": "ICLR 2026"
+  },
+  {
+   "claim_id": "ac-year",
+   "claim_text": "2025",
+   "kind": "evidence-supported",
+   "target": "table-cell:year",
+   "source_url": "https://arxiv.org/abs/2509.17995",
+   "retrieved_at": "2026-07-19T18:19:00+00:00",
+   "quoted_snippet": "Submitted on 22 Sep 2025"
+  },
+  {
+   "claim_id": "ac-authors",
+   "claim_text": "Yefan Zhou, Austin Xu, Yilun Zhou, Janvijay Singh, Jiang Gui, Shafiq Joty",
+   "kind": "evidence-supported",
+   "target": "table-cell:authors",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Yefan Zhou$^{1,2}$"
+  },
+  {
+   "claim_id": "ac-code",
+   "claim_text": "https://github.com/YefanZhou/llm-verify-dynamics",
+   "kind": "paper-claim",
+   "target": "table-cell:official-code",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "https://github.com/YefanZhou/llm-verify-dynamics"
+  },
+  {
+   "claim_id": "ac-venue-kind",
+   "claim_text": "paper",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue-kind",
+   "source_url": "https://arxiv.org/abs/2509.17995",
+   "retrieved_at": "2026-07-19T18:19:00+00:00",
+   "quoted_snippet": "ICLR 2026"
+  },
+  {
+   "claim_id": "bp-1",
+   "claim_text": "generative verifier",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-1",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "the model typically generates a chain-of-thought (CoT) reasoning trace and then outputs a binary verdict token"
+  },
+  {
+   "claim_id": "bp-2",
+   "claim_text": "verification asymmetry",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "verifying a solution is often easier than generating one from scratch, a phenomenon referred to as ``verification asymmetry''"
+  },
+  {
+   "claim_id": "bp-3",
+   "claim_text": "verifier generation capability",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-3",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "systematic study of generative verification across three dimensions--problem difficulty, generator capability, and verifier generation capability"
+  },
+  {
+   "claim_id": "bp-4",
+   "claim_text": "12 個 benchmark",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "12 benchmarks across mathematical reasoning, knowledge, and natural language reasoning tasks using 14 open-source models (2B to 72B parameter range) and GPT-4o"
+  },
+  {
+   "claim_id": "bp-5",
+   "claim_text": "K=64",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-5",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Since $K$ is fixed at 64 throughout"
+  },
+  {
+   "claim_id": "be-1",
+   "claim_text": "p_G(x) =",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-1",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "as the pass rate on a single problem"
+  },
+  {
+   "claim_id": "bp-6",
+   "claim_text": "model-agnostic",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "It provides a model-agnostic way to partition problems by difficulty"
+  },
+  {
+   "claim_id": "be-2",
+   "claim_text": "d(x) =",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-2",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "We define the difficulty of a problem as the average pass rate across a set of diverse generators"
+  },
+  {
+   "claim_id": "bp-7",
+   "claim_text": "V(x,r)=0.5",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-7",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "we set $V(x, r)=0.5$ in this case"
+  },
+  {
+   "claim_id": "be-3",
+   "claim_text": "1 - V(x,r)",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-3",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "the probability of the verifier accepting a correct response"
+  },
+  {
+   "claim_id": "bp-8",
+   "claim_text": "verification gain",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-8",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "We define the \\emph{verification gain} from verifier $V$ as the difference relative to the performance without verification"
+  },
+  {
+   "claim_id": "be-4",
+   "claim_text": "a(r_i) = y^*(x)",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "only responses deemed ``Correct'' are retained for evaluation"
+  },
+  {
+   "claim_id": "bp-9",
+   "claim_text": "15×15",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-9",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "we subsample 8 responses from each 64-sample pool, balanced with 4 correct and 4 incorrect when possible"
+  },
+  {
+   "claim_id": "bt-1a",
+   "claim_text": "2,347",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "We collect a total of 2,347 problems from the test sets of eight mathematical reasoning benchmarks"
+  },
+  {
+   "claim_id": "bt-1b",
+   "claim_text": "1,196",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "We randomly subsample 10\\% from each of its 14 disciplines, yielding 1,196 problems"
+  },
+  {
+   "claim_id": "bt-1c",
+   "claim_text": "901",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "We collect 901 multiple-choice problems from three benchmarks"
+  },
+  {
+   "claim_id": "bp-10",
+   "claim_text": "TNR 卻看不出與難度的一致關係",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-10",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "$\\tpr$ increases steadily as problems become easier, while $\\tnr$ shows no clear trend"
+  },
+  {
+   "claim_id": "bp-11",
+   "claim_text": "自己先算一個參考答案",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-11",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "verifiers tend to generate their own reference solutions for comparison during verification"
+  },
+  {
+   "claim_id": "bp-12",
+   "claim_text": "39.1%",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-12",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "39.1\\% of verification FNs containing a reference answer mistake in the hard set of problems"
+  },
+  {
+   "claim_id": "bp-13",
+   "claim_text": "熱圖從左紅到右藍",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-13",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "the heatmap shifts generally from red to blue, indicating a substantial decrease in $\\tnr$"
+  },
+  {
+   "claim_id": "bp-14",
+   "claim_text": "TNR 有 0.68",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-14",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "$\\tnr$ drops from 0.68 on solutions generated by Llama-3.1-8B to 0.17 on those by Qwen3-32B"
+  },
+  {
+   "claim_id": "bp-15",
+   "claim_text": "locally weighted regression",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "we employ locally weighted regression~\\citep{Cleveland1979} with a bandwidth of 0.6 to fit nonparametric curves"
+  },
+  {
+   "claim_id": "bp-16a",
+   "claim_text": "約在 0.65 附近飽和",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Mathematics plateaus around 0.65 accuracy after initial gains"
+  },
+  {
+   "claim_id": "bp-16b",
+   "claim_text": "低於隨機準確率",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "verifiers achieve below-random accuracy on hard NL Reasoning problems"
+  },
+  {
+   "claim_id": "bt-2a",
+   "claim_text": "0.95",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-2",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "This is confirmed by linear and nonparametric fits that yield nearly identical $R^2$ values, with $r > 0.9$"
+  },
+  {
+   "claim_id": "bt-2b",
+   "claim_text": "0.84",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-2",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Hard and easy regimes show nonlinearity with nonparametric $R^2$ exceeding linear $R^2$ by 0.1–0.2 and $r < 0.85$"
+  },
+  {
+   "claim_id": "bp-17",
+   "claim_text": "verification gain 在「弱—中等」生成器達到峰值",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "verification gain (gray bars) peaks at weak-medium generators, which achieve high $\\tnr$ for effective error filtering while maintaining moderate $\\tpr$"
+  },
+  {
+   "claim_id": "bp-18a",
+   "claim_text": "75.7%",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "The performance gap shrinks from 10.3\\% to 2.5\\%, closing 75.7\\% of the original difference"
+  },
+  {
+   "claim_id": "bp-18b",
+   "claim_text": "181 題",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "difficulty in the range [0.7, 0.8) from the Mathematics domain, including 181 problems"
+  },
+  {
+   "claim_id": "bp-19a",
+   "claim_text": "verifier scaling",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "scaling verifiers from 7B models to GPT-4o fails to overcome fundamental verification challenges"
+  },
+  {
+   "claim_id": "bp-19b",
+   "claim_text": "0.1 以下",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "verification gains drop to 0.1 or below for both verifiers on easy and hard problems"
+  },
+  {
+   "claim_id": "fig-overview",
+   "claim_text": "驗證動態總覽圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/overview.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Overview of our study on verification dynamics"
+  },
+  {
+   "claim_id": "fig-fn",
+   "claim_text": "false-negative 機制圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fn_mechanism.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Interpreting RQ1 finding by analyzing solving mistakes in false-negative verifications"
+  },
+  {
+   "claim_id": "fig-heatmap",
+   "claim_text": "TNR 熱圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/heatmap_tnr_math.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Generator capability influences verifier performance of identifying incorrect responses"
+  },
+  {
+   "claim_id": "fig-vcap",
+   "claim_text": "分層驗證器能力圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/vcap_stratified_math.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "When stratified by problem difficulty, distinct correlation patterns emerge"
+  },
+  {
+   "claim_id": "fig-tts",
+   "claim_text": "TTS pass rate 圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/tts_passrate_math.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "Gemma2-9B starts from a significantly lower baseline but, after verification, achieves a pass rate nearly matching Gemma2-27B"
+  },
+  {
+   "claim_id": "fig-tpr-diff",
+   "claim_text": "TPR 隨難度單調上升圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/tpr_across_model.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "$\\tpr$ increases steadily as problems become easier, while $\\tnr$ shows no clear trend"
+  },
+  {
+   "claim_id": "fig-tnr-diff",
+   "claim_text": "TNR 無一致難度趨勢圖",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/tnr_across_model.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "$\\tpr$ increases steadily as problems become easier, while $\\tnr$ shows no clear trend"
+  },
+  {
+   "claim_id": "fig-tpr-heatmap",
+   "claim_text": "TPR 熱圖幾乎全紅、值多 >0.7",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/verifier_generator_heatmap_tpr_math.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "The heatmap is dominated by red colors, with values mostly above 0.7, indicating that most verifiers are already reliable at recognizing correct responses"
+  },
+  {
+   "claim_id": "fig-surface",
+   "claim_text": "表層錯誤率隨生成器能力下降",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/generator_mistake_rate_vs_capability.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "as generator capability increases, the frequency of surface-level errors decreases"
+  },
+  {
+   "claim_id": "fig-tts-gain",
+   "claim_text": "驗證增益在弱—中生成器達峰、TPR升TNR崩",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/tts_gain_math.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "verification gain (gray bars) peaks at weak-medium generators, which achieve high $\\tnr$ for effective error filtering while maintaining moderate $\\tpr$ to preserve correct responses"
+  },
+  {
+   "claim_id": "fig-gain-gap",
+   "claim_text": "強弱驗證器增益差距在難度兩極與強生成器處收斂",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/verifier_comparison_gain_gap.png",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T18:40:00+00:00",
+   "quoted_snippet": "The verification gain gap between weak and strong verifiers narrows at both low and high problem difficulty extremes, and when using strong generators"
+  },
+  {
+   "claim_id": "cp-1",
+   "claim_text": "難度打 TPR、生成器打 TNR",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-1",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "cp-2a",
+   "claim_text": "等權平均在類別先驗不同的真實部署下未必是對的目標函數",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-2",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "cp-2b",
+   "claim_text": "majority-vote",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-2",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "our formulation of TTS differs from the common setting where a single ``best'' response (e.g., by majority vote) is selected and then evaluated"
+  },
+  {
+   "claim_id": "cp-3a",
+   "claim_text": "沒有提出新的驗證器或訓練法",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-3",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "cp-3b",
+   "claim_text": "帶有這種循環定義的內生性",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-3",
+   "source_url": null,
+   "retrieved_at": null,
+   "quoted_snippet": ""
+  },
+  {
+   "claim_id": "cp-4a",
+   "claim_text": "論文在 RQ4.1／RQ5.1 用 inference FLOPs 把 generator 與 verifier 的算力相加、依難度分層做系統性取捨分析",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T19:10:00+00:00",
+   "quoted_snippet": "when results are reported with verification, the FLOPs of both the generator and the verifier are summed"
+  },
+  {
+   "claim_id": "cp-4b",
+   "claim_text": "token 消耗案例",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T10:20:00+00:00",
+   "quoted_snippet": "pairing a weak generator with a strong verifier can match the performance of a strong generator alone while reducing token consumption"
+  },
+  {
+   "claim_id": "cp-4c",
+   "claim_text": "效率量測用 inference FLOPs = 2ND",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T19:10:00+00:00",
+   "quoted_snippet": "For the efficiency metric, we use inference FLOPs, computed as $2ND"
+  },
+  {
+   "claim_id": "cp-4d",
+   "claim_text": "GPT-4o 有效參數硬估為 100B、僅用於相對比較",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T19:10:00+00:00",
+   "quoted_snippet": "we estimate the number of active parameters during inference as 100B"
+  },
+  {
+   "claim_id": "cp-4e",
+   "claim_text": "GPT-4o 當驗證器 193 tokens、當生成器 483 tokens，約 2.5× 省用量",
+   "kind": "evidence-supported",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2509.17995v1",
+   "retrieved_at": "2026-07-19T19:10:00+00:00",
+   "quoted_snippet": "using GPT-4o as a verifier consumes 193 tokens on average per prompt, whereas GPT-4o as a generator uses 483 tokens per prompt on average"
+  }
+ ]
+}
