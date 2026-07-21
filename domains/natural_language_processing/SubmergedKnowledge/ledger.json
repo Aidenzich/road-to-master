@@ -1,0 +1,585 @@
+{
+  "note_path": "domains/natural_language_processing/SubmergedKnowledge/README.md",
+  "domain": "natural_language_processing",
+  "topic": "SubmergedKnowledge",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-19T09:05:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Are LLMs Really Not Knowledgeable? Mining the Submerged Knowledge in LLMs' Memory",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "Are LLMs Really Not Knowledgeable?"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ICLR 2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://iclr.cc/virtual/2026/day/4/24",
+      "retrieved_at": "2026-07-19T09:02:00+00:00",
+      "quoted_snippet": "ICLR 2026"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://iclr.cc/virtual/2026/day/4/24",
+      "retrieved_at": "2026-07-19T09:02:00+00:00",
+      "quoted_snippet": "ICLR 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Xingjian Tao, Yiwei Wang, Yujun Cai, Zhicheng Yang, Jing Tang",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "Xingjian Tao"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "results reported in this paper"
+    },
+    {
+      "claim_id": "body-1",
+      "claim_text": "把這種「藏在分布裡、沒被表達出來」的知識稱為 submerged knowledge（潛藏知識）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "consistently assign high probability scores to the correct answer ``Olympia''"
+    },
+    {
+      "claim_id": "body-2",
+      "claim_text": "受測模型是 9 個 1.5B 到 72B 的開源模型",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\textsc{Qwen2-72b}"
+    },
+    {
+      "claim_id": "body-3",
+      "claim_text": "造成一種 memory-masking（記憶遮蔽）效應",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "revealing a memory-masking effect"
+    },
+    {
+      "claim_id": "body-4",
+      "claim_text": "只看最終輸出的傳統評測，會系統性地低估參數裡真正編碼的知識",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "these logits reflect the model's internal knowledge state before the final output selection"
+    },
+    {
+      "claim_id": "body-5",
+      "claim_text": "正確答案出現在 top-k logits 內的比例",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "represents cases where the correct answer appears within the top-k logits"
+    },
+    {
+      "claim_id": "body-eq-1",
+      "claim_text": "\\text{Hits}@k = \\frac{N^{k}_{correct}}{N}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\text{Hits}@k = \\frac{N^{k}_{correct}}{N}"
+    },
+    {
+      "claim_id": "body-6",
+      "claim_text": "用相對小的 k 就能有效捕捉儲存的知識並維持計算效率",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "a relatively small k value effectively captures stored knowledge while maintaining computational efficiency"
+    },
+    {
+      "claim_id": "body-7",
+      "claim_text": "只要 top-k 中任一 token 與標準答案共享至少三個連續字元，就算命中",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "if any of the top-$k$ tokens share at least three consecutive characters with the ground truth, we classify that token as a match"
+    },
+    {
+      "claim_id": "body-8",
+      "claim_text": "取輸出分布依 logit 排序，再依 k 逐步放寬命中門檻",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the correct answer is frequently located within a relatively small number of tokens at the beginning"
+    },
+    {
+      "claim_id": "body-tab-1a",
+      "claim_text": "90.5 | 88.1 | 87.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{90.5} & \\multicolumn{1}{c}{88.1} & \\multicolumn{1}{c}{87.1}"
+    },
+    {
+      "claim_id": "body-tab-1b",
+      "claim_text": "48.3 | 42.4 | 36.9",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{48.3} & \\multicolumn{1}{c}{42.4} & \\multicolumn{1}{c}{36.9}"
+    },
+    {
+      "claim_id": "body-tab-1c",
+      "claim_text": "83.4 | 79.6 | 76.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{83.4} & \\multicolumn{1}{c}{79.6} & \\multicolumn{1}{c}{76.6}"
+    },
+    {
+      "claim_id": "body-9",
+      "claim_text": "LLaMA3-70b 在 DBPedia-Head 的 Hits@100 達 92.1%，而較舊的 LLaMA2-70b 只有 70.5%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the \\llamad model achieves a score of 92.1\\%, the \\llamac model scores 90.5\\%, and the \\llamab model scores 70.5\\%"
+    },
+    {
+      "claim_id": "body-10",
+      "claim_text": "正確答案仍以 logit 排序落在 top-2 或 top-3",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the correct answer still appears among the top-$k$ (e.g., $k=2$ or $3$) candidates by logit rank"
+    },
+    {
+      "claim_id": "body-eq-2",
+      "claim_text": "a^* = \\arg\\max_{t \\in T_k \\setminus U} P(t \\mid q)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "a^* = \\arg\\max_{t \\in T_k \\setminus U} P(t \\mid q)"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "a* <- L[i]",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\State $a^* \\gets L[i]$"
+    },
+    {
+      "claim_id": "body-11a",
+      "claim_text": "作者明確聲明這個「unsure 過濾解碼」只是量化 memory-masking 效應的分析探針",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "``Unsure'' Filtering Decoding strategy is designed strictly as an \\textit{analytical probe} to quantify the memory-masking effect, rather than as a deployment-ready method"
+    },
+    {
+      "claim_id": "body-11b",
+      "claim_text": "LLaMA3-70b 的回收率從 greedy 的 11.2%（Head）升到 23.0%（+11.8）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{11.2} & \\multicolumn{1}{c}{8.7} & \\multicolumn{1}{c}{6.0} & \\multicolumn{1}{c}{23.0\\uagreen{11.8}}"
+    },
+    {
+      "claim_id": "body-12a",
+      "claim_text": "開放域（DBPedia）的 Hits@k 高於特定域（IMDB、GoodReads）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the \\metricname for the open-domain dataset is higher than that for the domain-specific datasets"
+    },
+    {
+      "claim_id": "body-12b",
+      "claim_text": "較新的模型 Hits@k 較高（LLaMA3 明顯勝過 LLaMA2",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the \\metricname of LLaMA3 significantly surpasses that of LLaMA2, regardless of model size"
+    },
+    {
+      "claim_id": "body-13a",
+      "claim_text": "隨熱門度下降，無資訊比例上升，成為 accuracy 掉落的主要來源",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "as dataset popularity decreases, the proportion of uninformative responses increases, which emerges as a key factor contributing to the decline in accuracy"
+    },
+    {
+      "claim_id": "body-13b",
+      "claim_text": "Head/Torso/Tail 分別有 56%、61%、65% 的回應屬於無資訊類",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "more than half of the responses in the Head, Torso, and Tail sub-datasets are uninformative"
+    },
+    {
+      "claim_id": "body-14",
+      "claim_text": "Head 從 Hits@1 的 17.2% 一路升到 Hits@5 的 57.9%、Hits@100 的 92.1%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "Using \\llamac on DBpedia, while Hits@1 is only 17.2\\%, Hits@5 reaches 57.9\\%"
+    },
+    {
+      "claim_id": "body-15",
+      "claim_text": "圖裡標的是 logit 排名（Rank 1/2/3）而非 logit 數值",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the model's final answer is ``unsure'', but the correct answer, or a subword related to it, appears in the second position of the logits"
+    },
+    {
+      "claim_id": "body-16",
+      "claim_text": "LLaMA2-13b（70.9%）與 LLaMA2-70b（70.5%）幾乎打平",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamaa}} & \\multicolumn{1}{c}{70.9}"
+    },
+    {
+      "claim_id": "body-17",
+      "claim_text": "Qwen2-72b 的 accuracy 最高（17.3%）卻只排在 Hits@100 的中段（90.1%）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\qwenc}} & \\multicolumn{1}{c}{17.3}"
+    },
+    {
+      "claim_id": "fig-case",
+      "claim_text": "模型雖然把 Olympia 藏在機率第二高的位置，最終仍輸出錯誤的 Seattle（論文 Figure 1，示意圖）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/case_example.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "a scenario where a model possesses potentially correct memories yet fails to provide the correct answer"
+    },
+    {
+      "claim_id": "fig-unsure",
+      "claim_text": "不同回應類型的分布：DBPedia 的 head/torso/tail 有超過半數是 uninformative（Figure 7）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/response_distribution.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the distribution of three response types: uninformative, right, and wrong"
+    },
+    {
+      "claim_id": "fig-model-size",
+      "claim_text": "Figure 2：不同規模模型在 DBPedia-Head（k=100）的 Hits@k",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_model_size.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "The \\metricname scores of different large language models on the DBPedia-Head dataset when $k = 100$."
+    },
+    {
+      "claim_id": "fig-model-size-13b",
+      "claim_text": "LLaMA2-13b DBPedia-Head Hits@100 = 70.9，與 LLaMA2-70b 70.5 幾乎打平",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_model_size.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamaa}} & \\multicolumn{1}{c}{70.9}"
+    },
+    {
+      "claim_id": "fig-compare",
+      "claim_text": "Figure 3：8 個 LLM 按 Accuracy 與 Hits@100 在 DBPedia-Head、k=100 的排名",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3a_models_acc.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "The ranking of LLMs based on Accuracy and \\metricname on DBPedia-Head when $k = 100$."
+    },
+    {
+      "claim_id": "fig-compare-acc-qwen",
+      "claim_text": "Qwen2-72b accuracy 最高 17.3%（DBPedia-Head）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3a_models_acc.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\qwenc}} & \\multicolumn{1}{c}{17.3}"
+    },
+    {
+      "claim_id": "fig-compare-acc-l2",
+      "claim_text": "LLaMA2-70b accuracy 高居第二 16.0%（DBPedia-Head）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3a_models_acc.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "{\\textbf{\\llamab}}& \\multicolumn{1}{c}{16.0}"
+    },
+    {
+      "claim_id": "fig-compare-hits-qwen",
+      "claim_text": "Qwen2-72b Hits@100 僅中段 90.1%（DBPedia-Head）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3b_models_hits.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\qwenc}} & \\multicolumn{1}{c}{90.1}"
+    },
+    {
+      "claim_id": "fig-result",
+      "claim_text": "Figure 4：LLaMA3-8b 在 DBpedia 的 Hits@k 隨 k=1,5,10,50,100 遞增",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig4_k_selection.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "For different values of $k$, We report the \\metricname of \\llamac on the DBpedia dataset."
+    },
+    {
+      "claim_id": "fig-mul-a",
+      "claim_text": "Figure 5：Hits@k 排名的累積分布；DBPedia 對熱門度的影響小於 IMDB",
+      "kind": "paper-claim",
+      "target": "figure:imgs/fig5a_dbpedia_ranks.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the difference in popularity has a smaller impact on \\metricname for the DBPedia dataset compared to IMDB"
+    },
+    {
+      "claim_id": "fig-mul-b",
+      "claim_text": "Figure 5(b)：IMDB 的累積命中分布，Tail 即使到 k≈10^3 仍低於 Head/Torso",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig5b_imdb_ranks.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "The cumulative distribution of the ranks of \\metricname in the QA task"
+    },
+    {
+      "claim_id": "fig-unsurecase-r2",
+      "claim_text": "Figure 6：Q1 top-1 為 unsure、top-2 為與正解相關的 subword，Q2 top-1 為 unsure、top-2 為完整正解，皆落在 logits 第二位",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig6_unsure_case_study.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the model's final answer is ``unsure'', but the correct answer, or a subword related to it, appears in the second position of the logits"
+    },
+    {
+      "claim_id": "fig-unsurecase-r3",
+      "claim_text": "Figure 6：Q3 top-1 為空字元，正確答案落在第三高機率的 token",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig6_unsure_case_study.png",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "the correct answer appears in the token with the third-highest probability"
+    },
+    {
+      "claim_id": "crit-1a",
+      "claim_text": "招牌數字 17.2%→57.9% 出自 Figure 4，摘要與第 2 節明確引用",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "Using \\llamac on DBpedia, while Hits@1 is only 17.2\\%, Hits@5 reaches 57.9\\%"
+    },
+    {
+      "claim_id": "crit-1b",
+      "claim_text": "LLaMA3-8b 在 DBPedia 的 Head/Torso/Tail 是 48.3/42.4/36.9",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{48.3} & \\multicolumn{1}{c}{42.4} & \\multicolumn{1}{c}{36.9}"
+    },
+    {
+      "claim_id": "crit-1c",
+      "claim_text": "Figure 4 被標為 LLaMA3-8b 在 DBpedia 的 Hits@k 圖",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "For different values of $k$, We report the \\metricname of \\llamac on the DBpedia dataset."
+    },
+    {
+      "claim_id": "crit-1d",
+      "claim_text": "LLaMA3-8b 表格 Hits@100 Head=90.5，與 Figure 4 的 92.1 不符",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamac}} & \\multicolumn{1}{c}{90.5} & \\multicolumn{1}{c}{88.1} & \\multicolumn{1}{c}{87.1}"
+    },
+    {
+      "claim_id": "crit-1e",
+      "claim_text": "Figure 4 的 k=5 Head/Tail（57.9/43.1）幾乎命中 LLaMA3-70b 表格列 57.8/50.0/43.1",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamad}} & \\multicolumn{1}{c}{57.8} & \\multicolumn{1}{c}{50.0} & \\multicolumn{1}{c}{43.1}"
+    },
+    {
+      "claim_id": "crit-1f",
+      "claim_text": "Figure 4 的 k=100 Head 92.1、Tail 87.9 完全命中 LLaMA3-70b 表格列",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamad}} & \\multicolumn{1}{c}{92.1} & \\multicolumn{1}{c}{89.2} & \\multicolumn{1}{c}{87.9}"
+    },
+    {
+      "claim_id": "crit-1g",
+      "claim_text": "Figure 4 的 k=10 Head 67.9 與 LLaMA3-70b 表格列完全一致",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamad}} & \\multicolumn{1}{c}{67.9} & \\multicolumn{1}{c}{60.3} & \\multicolumn{1}{c}{54.3}"
+    },
+    {
+      "claim_id": "crit-1h",
+      "claim_text": "Figure 4 那組數字幾乎逐格命中的是 LLaMA3-70b 的表格列",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "For different values of $k$, We report the \\metricname of \\llamac on the DBpedia dataset."
+    },
+    {
+      "claim_id": "crit-1i",
+      "claim_text": "17.2 這個值也剛好是 k=5 表裡 LLaMA2-13b 的 Torso 格",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamaa}} & \\multicolumn{1}{c}{23.0} & \\multicolumn{1}{c}{17.2}"
+    },
+    {
+      "claim_id": "crit-2",
+      "claim_text": "把 subword 的字面重疊也算成「擁有知識」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "if any of the top-$k$ tokens share at least three consecutive characters with the ground truth, we classify that token as a match"
+    },
+    {
+      "claim_id": "crit-3a",
+      "claim_text": "Mistral-7b 幾乎沒動（16.5→16.7，+0.2）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{16.5} & \\multicolumn{1}{c}{11.0} & \\multicolumn{1}{c}{7.5} & \\multicolumn{1}{c}{16.7\\uagreen{0.2}}"
+    },
+    {
+      "claim_id": "crit-3b",
+      "claim_text": "LLaMA3-8b 在 DBPedia-Head 只 +3.8（9.8→13.6）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{9.8} & \\multicolumn{1}{c}{7.3} & \\multicolumn{1}{c}{5.1} & \\multicolumn{1}{c}{13.6\\uagreen{3.8}}"
+    },
+    {
+      "claim_id": "crit-4f",
+      "claim_text": "introduction 把 standard accuracy 等同 Hits@1 並對 LLaMA3-8b/DBPedia 報 17.2%",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "17.2\\% standard accuracy (Hits@1)"
+    },
+    {
+      "claim_id": "crit-4g",
+      "claim_text": "但 Figure 3(a)/skip 表給同一 LLaMA3-8b/DBPedia-Head 的 accuracy 為 9.8%，與 17.2% 矛盾",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\multicolumn{1}{c}{\\textbf{\\llamac}} & \\multicolumn{1}{c}{9.8}"
+    },
+    {
+      "claim_id": "crit-4a",
+      "claim_text": "第 4 節寫「DBLP is an open-domain dataset」",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "DBLP is an open-domain dataset, while IMDB and Goodreads are domain-specific datasets"
+    },
+    {
+      "claim_id": "crit-4b",
+      "claim_text": "Torso（79.6）與 Tail（76.6）都低於 80%",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "when $k = 50$, the \\metricname for the head, torso, and tail sections exceeds 80\\%"
+    },
+    {
+      "claim_id": "crit-4c",
+      "claim_text": "連 LaTeX 用的還是 `iclr2025_conference` 模板",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\usepackage{iclr2025_conference,times}"
+    },
+    {
+      "claim_id": "crit-4d",
+      "claim_text": "實驗段說參數規模從 1.5B 到 70B",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "ranging from 1.5B to 70B parameters"
+    },
+    {
+      "claim_id": "crit-4e",
+      "claim_text": "模型清單卻列了 72B 的 Qwen2-72b，連上界都對不齊",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "\\textsc{Qwen2-72b}\\xspace"
+    },
+    {
+      "claim_id": "crit-5",
+      "claim_text": "這使 Hits@k 本質上是一個 oracle（需標準答案）診斷量",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2412.20846",
+      "retrieved_at": "2026-07-19T08:53:55+00:00",
+      "quoted_snippet": "represents cases where the correct answer appears within the top-k logits"
+    }
+  ]
+}
