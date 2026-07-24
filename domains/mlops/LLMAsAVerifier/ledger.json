@@ -1,0 +1,558 @@
+{
+  "note_path": "domains/mlops/LLMAsAVerifier/README.md",
+  "domain": "mlops",
+  "topic": "LLMAsAVerifier",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-24T08:30:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "LLM-as-a-Verifier: A General-Purpose Verification Framework",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "\\title{LLM-as-a-Verifier: A General-Purpose Verification Framework}"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv preprint (2607.05391v2, cs.AI)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "arXiv:2607.05391v2 [cs.AI] 7 Jul 2026"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "arXiv:2607.05391v2 [cs.AI] 7 Jul 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Jacky Kwok, Shulu Li, Pranav Atreya, Yuejiang Liu, Yixing Jiang, Chelsea Finn, Marco Pavone, Ion Stoica, Azalia Mirhoseini (Stanford / UC Berkeley / NVIDIA Research)",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "Jacky Kwok1 , Shulu Li2 , Pranav Atreya2 , Yuejiang Liu1 , Yixing Jiang1"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "https://github.com/llm-as-a-verifier/llm-as-a-verifier"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "arXiv:2607.05391v2 [cs.AI]"
+    },
+    {
+      "claim_id": "ac-review",
+      "claim_text": "Not peer-reviewed (arXiv preprint; camera-ready may differ)",
+      "kind": "reasonable-inference",
+      "target": "table-cell:peer-review-status",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "arXiv:2607.05391v2 [cs.AI] 7 Jul 2026"
+    },
+    {
+      "claim_id": "fig-sota",
+      "claim_text": "Overall Performance Results: Terminal-Bench V2 86.5%, SWE-Bench Verified 78.2%, RoboRewardBench 87.4%, MedAgentBench 73.3%",
+      "kind": "paper-claim",
+      "target": "figure:imgs/sota_bars.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "achieves state-of-the-art performance across coding, robotics, and medical domains: Terminal-Bench V2 (86.5\\%), SWE-Bench Verified (78.2\\%), RoboRewardBench (87.4\\%), and MedAgentBench (73.3\\%)."
+    },
+    {
+      "claim_id": "fig-scaling",
+      "claim_text": "Verification accuracy improves along all three axes on Terminal-Bench V2: granularity, repeated evaluation, criteria decomposition",
+      "kind": "paper-claim",
+      "target": "figure:imgs/scaling_axes.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "verification accuracy consistently improves as we scale across multiple dimensions: (1) the granularity of score tokens, (2) the number of repeated evaluations, and (3) the decomposition of evaluation criteria."
+    },
+    {
+      "claim_id": "fig-judge",
+      "claim_text": "Judge tie rate falls from 26.7% to 5.5% across K; verifier yields zero ties",
+      "kind": "paper-claim",
+      "target": "figure:imgs/judge_vs_verifier.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "The judge produces ties in $26.7\\%$ of comparisons at $k{=}1$ due to coarse discrete scoring, decreasing to $5.5\\%$ at $k{=}16$ as averaging breaks ties. In contrast, the verifier yields zero ties."
+    },
+    {
+      "claim_id": "fig-ppt",
+      "claim_text": "Probabilistic Pivot Tournament: five-stage pipeline (candidates, ring pass, pivot selection, pivot tournament, selection)",
+      "kind": "paper-claim",
+      "target": "figure:imgs/pivot_tournament.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "A five-stage pipeline for selecting the best of $N$ candidates under a constrained verification budget."
+    },
+    {
+      "claim_id": "b-prose-1",
+      "claim_text": "coding agent 對同一題跑五次，其中至少一次寫出正確補丁的機率往往很高——但你事後**不知道是哪一次**。這篇論文把這",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "the success rate reaches 98.9\\% when pooling trajectories across the full Terminal-Bench~V2 leaderboard"
+    },
+    {
+      "claim_id": "b-prose-2",
+      "claim_text": "的具體問題是：**在不做任何額外訓練的前提下，用一個現成 LLM 當 verifier，把 best-of-N 選擇做得夠準，逼",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "coarse scoring induces a high tie rate (27\\%) on Terminal-Bench"
+    },
+    {
+      "claim_id": "b-prose-3",
+      "claim_text": "階解法只有一句話：**不要取 argmax，取期望值。** 對同一組 score token 的機率分佈求期望，就得到連續分數；",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "estimates the quality of candidate solutions by computing the expectation over the distribution of scoring token logits"
+    },
+    {
+      "claim_id": "b-prose-4",
+      "claim_text": "衡量成功**：把 verifier 當作 trajectory reward model，在四個 benchmark 上做 be",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "It achieves state-of-the-art performance on Terminal-Bench V2 (86.5\\%), SWE-Bench Verified (78.2\\%), RoboRewardBench (87.4\\% Trajectory Preference Accuracy), and MedAgentBench (73.3\\%)."
+    },
+    {
+      "claim_id": "b-prose-5",
+      "claim_text": "定義清楚。一個 verifier 面對任務 prompt $x$、一條軌跡 $\\tau$（agent 與環境互動的完整序列 $s",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "yielding a discrete reward $R_{\\text{LM}}(t,\\tau)\\in\\{1,\\ldots,G\\}$ with resolution $1/G$"
+    },
+    {
+      "claim_id": "b-prose-6",
+      "claim_text": "as-a-Verifier 保留同一個評分 prompt，但改讀模型在評分位置的 logprob 分佈，對其求期望：",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "by extracting the logprobs from $<score_A>$ and $<score_B>$ tags"
+    },
+    {
+      "claim_id": "b-eq-1",
+      "claim_text": "(x, \\tau) = \\frac{1}{CK} \\sum_{c=1}^{C} \\sum_{k=1}^{K} \\sum_{g=1",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "\\sum_{g=1}^{G} p_{\\theta}(v_g \\mid x, c, \\tau)\\,\\phi(v_g)"
+    },
+    {
+      "claim_id": "b-prose-7",
+      "claim_text": "V_{\\mathrm{score}}=\\{v_1,\\dots,v_G\\}$ 是一組有序的評分 token，$\\phi(v_g)$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "where $C$ is the number of evaluation criteria, $K$ is the number of repeated verifications, $G$ is the number of score tokens (granularity level)"
+    },
+    {
+      "claim_id": "b-prose-8",
+      "claim_text": "作細節（在官方程式碼 `llm_verifier/fine_grained_reward.py` 裡）值得點出：評分並非用數字 ",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/fine_grained_reward.py:62",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "\"score_format\": \"LETTER_A_TO_T\","
+    },
+    {
+      "claim_id": "b-prose-9",
+      "claim_text": "的期望值計算（數字為說明用途，非論文原文）：假設 verifier 在評分位置給 $p(\\text{A})=0.6,\\ p(\\t",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-9",
+      "source_url": "",
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "b-eq-2",
+      "claim_text": "(\\tau_i \\succ \\tau_j \\mid x) = \\frac{1}{1+\\exp\\!\\big(-(R(x,\\tau_",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "\\frac{1}{1+\\exp\\!\\big(-(R(x,\\tau_i)-R(x,\\tau_j))\\big)}"
+    },
+    {
+      "claim_id": "b-prose-norm",
+      "claim_text": "論文**先**把 $R(x,\\tau)$ 用線性映射 $R\\mapsto(R-\\phi_{\\min})/(\\phi_{\\max}-\\phi_{\\min})$ 正規化到 $[0,1]$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "We first normalize $R(x,\\tau)\\in[0,1]$ by the linear map"
+    },
+    {
+      "claim_id": "b-prose-norm-code",
+      "claim_text": "官方 `pivot_tournament.py` 的 `bradley_terry` docstring 也明寫",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/pivot_tournament.py:52",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "p(a beats b) under the Bradley-Terry model on rewards in [0, 1]."
+    },
+    {
+      "claim_id": "b-prose-10",
+      "claim_text": "Score granularity $G$**：對付「解析度」誤差。把 $G$ 從 1 加到 20，pairwise verif",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "rising from $73.1\\%$ at $G{=}1$ to $77.5\\%$ at $G{=}20$, from $74.7\\%$ at $K{=}1$ to $77.4\\%$ at $K{=}16$"
+    },
+    {
+      "claim_id": "b-prose-11",
+      "claim_text": "離散 judge 在 $K=1$ 時有 26.7% 的比較打成平手",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "The judge produces ties in $26.7\\%$ of comparisons at $k{=}1$ due to coarse discrete scoring, decreasing to $5.5\\%$ at $k{=}16$"
+    },
+    {
+      "claim_id": "b-prose-12",
+      "claim_text": "Terminal-Bench V2 的 `query-optimize` 任務具體展示粒度的作用（軌跡由 Claude Opus",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "generated by Claude~Opus~4.5 under the OpenHands harness and scored by Gemini~2.5~Flash"
+    },
+    {
+      "claim_id": "b-prose-13",
+      "claim_text": "ni 2.5 Flash 其實能識破這個失敗模式，但它用的是「稍微乾淨一點」「略為直接」這類含糊、graded 的措辭。當跑 1",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "expresses it in graded, hedged language"
+    },
+    {
+      "claim_id": "b-table-1",
+      "claim_text": " | $\\#(s_c > s_i)$ 選對 | 平手 (tie) | $\\#(s_c < s_i)$ 選錯 | | Judge（",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "& $12/100$ & $88/100$ & $0/100$"
+    },
+    {
+      "claim_id": "b-prose-14",
+      "claim_text": "udge 在 88/100 次把兩條打成平手；對**同一組** 1–5 分佈取期望就把平手全消掉、69 次選對；把粒度加到 20",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "ranking the correct trajectory higher in $69$ runs"
+    },
+    {
+      "claim_id": "b-prose-15",
+      "claim_text": "airwise 偏好，最直觀的選法是 round-robin：對所有 $\\binom{N}{2}$ 對兩兩比較、累積 soft ",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "such a schedule scales as $\\mathcal{O}(N^2)$ pairwise verifications and quickly dominates verifier cost as $N$ grows"
+    },
+    {
+      "claim_id": "b-prose-16",
+      "claim_text": "*Ring pass**：抽一個隨機 Hamiltonian cycle，只評分環上 $N$ 對相鄰候選。因為是單一環，每個候選",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "so any systematic preference of the language models for one slot over the other cancels in expectation across the ring"
+    },
+    {
+      "claim_id": "b-eq-3",
+      "claim_text": " + k(N-k) + \\binom{k}{2} $$",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "The total number of pairwise verifications is $N + k(N-k) + \\binom{k}{2}$"
+    },
+    {
+      "claim_id": "b-prose-17",
+      "claim_text": "$ 線性成長。舉例 $N=20,\\ k=5$：$20 + 5\\times15 + 10 = 105$ 個查詢對（論文稱 pair",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/pivot_tournament.py:37",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "DEFAULT_PIVOTS = 2"
+    },
+    {
+      "claim_id": "b-prose-18",
+      "claim_text": " 題、每題 20 條候選的 Terminal-Bench V2 設定下，PPT 的預算–準確度取捨如下（節錄自 appendix",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "We curate $N=20$ candidate trajectories per task on Terminal-Bench~V2 (89 tasks, Terminus-2 harness)"
+    },
+    {
+      "claim_id": "b-table-2",
+      "claim_text": " | 查詢對數 | 選擇準確度 (%) | | pass@1 | — | 52.64 | | V1（$3N$ 預算） | 4,2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "pass@1   & --- & $52.64$"
+    },
+    {
+      "claim_id": "b-prose-19",
+      "claim_text": "清 PPT 買到了什麼：$k=5$ 用約**一半**預算（6,609/13,111 ≈ 50%）拿到 66.27%，仍比 ful",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "$k{=}5$ reaches $66.27\\%$ accuracy using $6{,}609$ pairs, while $k{=}9$ achieves $67.13\\%$ accuracy with $9{,}630$ pairs"
+    },
+    {
+      "claim_id": "b-prose-20",
+      "claim_text": "續分數還有兩個延伸用途。其一是 **task progress**：對成功軌跡的每個 prefix 打分，用 Spearman ",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-23",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "Spearman VOC $0.848$ on successful trajectories and $0.769$ on failed ones"
+    },
+    {
+      "claim_id": "b-prose-21",
+      "claim_text": "的是官方程式庫 `llm_verifier/progress.py` 的 docstring 自己承認：離線 `track` 在",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/progress.py:18",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "earlier checkpoints could in principle be"
+    },
+    {
+      "claim_id": "c-prose-1",
+      "claim_text": "ification 是瓶頸」這個問題是真實且重要的——best-of-N 的 oracle 上限確實遠高於 Pass@1。但論文",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "the oracle Pass@5 upper bound on this candidate pool is $92.1\\%$"
+    },
+    {
+      "claim_id": "c-prose-2",
+      "claim_text": "adline 拆開看，verifier 相對 Pass@1 的實際增益其實不大：Terminal-Bench 83.1→86.5",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "RoboRewardBench (87.4\\% Trajectory Preference Accuracy)"
+    },
+    {
+      "claim_id": "c-prose-3",
+      "claim_text": "的可信度取決於 verifier 與生成者是否獨立。SWE-Bench 的候選池包含 Gemini 3 Flash，而 veri",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "sampling one trajectory each from Claude Opus 4.5, Gemini 3 Flash, and MiniMax M2.5. Gemini 2.5 Flash again serves as the verifier"
+    },
+    {
+      "claim_id": "c-prose-4",
+      "claim_text": " **token-level logprobs**：整個方法建立在能讀到評分位置的分佈上，而 GPT-5.5、Claude Op",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/fine_grained_reward.py:404",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "expected = sum(v * p for v, p in probs.items()) / total_p"
+    },
+    {
+      "claim_id": "c-prose-4b",
+      "claim_text": "$G=20$ 的上限根本是 API `top_logprobs=20` 這個硬限制決定的（程式碼註解直書「the OpenAI API caps this at 20」）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/fine_grained_reward.py:225",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "top_logprobs=top_logprobs,  # the OpenAI API caps this at 20"
+    },
+    {
+      "claim_id": "c-prose-4c",
+      "claim_text": "當後端拿不到 logprob 時，程式碼預設把該次比較記為 0.5/0.5 平手（on_error=\"tie\"），該平手只寫進當次結果、不落盤快取；預設 progress=True 下前三個錯誤會被 print、進度條也顯示累積錯誤數，因此不是完全靜默。",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/fine_grained_reward.py:543",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "``\"tie\"`` scores the comparison\n    0.5/0.5 for this run only (failures are **never written to the cache**"
+    },
+    {
+      "claim_id": "c-prose-4c2",
+      "claim_text": "整批比較都失敗時 PPT 不會隨機化選擇，而是對相等的平均偏好與最終分數以候選 index 遞增做決定性 tie-break，退回最低 index 的候選。",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/pivot_tournament.py:67",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "\"\"\"Top-k candidates by mean preference w_i / c_i (ties broken by index).\"\"\""
+    },
+    {
+      "claim_id": "c-prose-4d",
+      "claim_text": "官方實作 `fine_grained_reward.py` 透過 `VERTEX_API_KEY` 走 Vertex AI 取用 Gemini 2.5 Flash（`genai.Client(vertexai=True, ...)`，註解明寫「Only Vertex AI is supported」）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "/tmp/llm-verifier-r2.YoOKnp/repo/llm_verifier/fine_grained_reward.py:94",
+      "retrieved_at": "2026-07-24T06:20:00+00:00",
+      "quoted_snippet": "vertex_key = os.environ.get(\"VERTEX_API_KEY\")"
+    },
+    {
+      "claim_id": "c-prose-5",
+      "claim_text": " **hand-designed criteria**：criteria decomposition 對每個 domain 手寫",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "criteria decomposition could be learned or dynamically generated per domain rather than hand-designed"
+    },
+    {
+      "claim_id": "c-prose-6",
+      "claim_text": "量的是「verifier 分數的排序」與「時間步的排序」之間的 Spearman 相關。這裡有一個 chronological-",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "a calibrated estimator of task progress"
+    },
+    {
+      "claim_id": "c-prose-7",
+      "claim_text": "分的證據面很窄：off-policy 只在 LIBERO 的**單一** `ketchup` 任務（n=5 seeds）上得到 ",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-7",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "higher sample efficiency across success-rate targets from $0.2$ to $0.6$"
+    },
+    {
+      "claim_id": "c-prose-8",
+      "claim_text": "**方向正確、工程紮實、但被 SOTA 敘事包裝得比實際更強**的貢獻。「argmax → 期望」消除平手的洞見是乾淨且可複用的",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-8",
+      "source_url": "",
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-oracle",
+      "claim_text": "Oracle Pass@K reaches 98.9% on Terminal-Bench V2 when pooling leaderboard trajectories; single-model reference lines Claude Mythos 82.0% and Claude Opus 4.7 69.4%.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/oracle_bon_plot.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "Oracle Pass@$K$ reaches 98.9\\% on Terminal-Bench~V2."
+    },
+    {
+      "claim_id": "b-prose-22",
+      "claim_text": "這條軸也能跨模態遷移到 robotics",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "Trajectory-preference accuracy on RoboRewardBench rises from $81.5\\%$ at $K{=}1$ to $87.4\\%$ at $K{=}8$"
+    },
+    {
+      "claim_id": "fig-roboreward",
+      "claim_text": "RoboRewardBench 圖說（論文文字）：LLM-as-a-Verifier 從 k=1 的 81.5% 升到 k=8 的 87.4%，且在每個預算下都領先已訓練 baseline。",
+      "kind": "paper-claim",
+      "target": "figure:imgs/roborewardbench.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "rising from $81.5\\%$ at $k{=}1$ to $87.4\\%$ at $k{=}8$. LLM-as-a-Verifier outperforms LLM-as-a-Judge and prior reward models (TOPReward, RoboReward-8B, Robometer-4B)"
+    },
+    {
+      "claim_id": "fig-roboreward-obs",
+      "claim_text": "圖上藍線起點肉眼約 79.8%，在 k=1 落在 RoboReward-8B 的 81.4% 綠色點虛線之下，約 k=2 才交叉超車——與論文文字宣稱的 81.5% 起點、每個預算領先不一致。",
+      "kind": "reasonable-inference",
+      "target": "figure:imgs/roborewardbench.png",
+      "source_url": "imgs/roborewardbench.png",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-voc",
+      "claim_text": "VOC pytorch-model-cli figure: successful trajectory verifier score rises overall (with visible mid-trajectory dips ~0.61->0.585->0.605->0.59 before jumping to 1.0 at DONE), failed trajectory (torchvision disk-space/compile failure) rises to ~0.36 and stays lower.",
+      "kind": "reasonable-inference",
+      "target": "figure:imgs/voc_pytorch_model_cli.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "We observe a strong correlation between the chronological progression of code generation steps and the scores from LLM-as-a-Verifier"
+    },
+    {
+      "claim_id": "b-prose-23",
+      "claim_text": "失敗軌跡（紅線）分數並非完全停滯，而是仍緩步爬到約 0.36",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-24",
+      "source_url": "imgs/voc_pytorch_model_cli.png",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "b-prose-voc-dip",
+      "claim_text": "成功軌跡（綠線）並非嚴格單調：它在中段有數次可見的回落（約 0.61→0.585→0.605→0.59）才在結尾跳到 1.0",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-24",
+      "source_url": "imgs/voc_pytorch_model_cli.png",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-rl",
+      "claim_text": "RL sample-efficiency figure: LIBERO ketchup DSRL-SAC verifier reward ~1.8x fewer steps, final 0.76 vs 0.69; MATH GRPO ~1.1x. Verifier is red, sparse baseline grey.",
+      "kind": "paper-claim",
+      "target": "figure:imgs/combined_libero_math.png",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "achieves the same success rate using $\\approx1.8\\times$ fewer environment steps and reaches a higher final success rate ($0.76$ vs.\\ $0.69$)"
+    },
+    {
+      "claim_id": "b-prose-24",
+      "claim_text": "相對 V1（$3N$ 預算，65.62%）的增益也很薄",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "V1 ($3N$ budget) \\citep{singh_v_1_2026}   & $4{,}200$ & $65.62$"
+    },
+    {
+      "claim_id": "b-prose-25",
+      "claim_text": "Criteria decomposition $C$**：對付「單一準則是壞代理」的問題。對 code agent，把「這條軌跡",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2607.05391v2",
+      "retrieved_at": "2026-07-24T06:18:13+00:00",
+      "quoted_snippet": "any one criterion alone achieves $75.2\\%$--$76.4\\%$ accuracy, and their ensemble reaches $78.3\\%$"
+    }
+  ]
+}
