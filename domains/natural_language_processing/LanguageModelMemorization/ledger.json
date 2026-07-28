@@ -1,0 +1,630 @@
+{
+ "note_path": "domains/natural_language_processing/LanguageModelMemorization/README.md",
+ "domain": "natural_language_processing",
+ "topic": "LanguageModelMemorization",
+ "no_untrusted_code_executed": true,
+ "generated_at": "2026-07-28T04:30:00Z",
+ "entries": [
+  {
+   "claim_id": "cell-title",
+   "claim_text": "How much do language models memorize?",
+   "kind": "evidence-supported",
+   "target": "table-cell:title",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "How much do language models memorize?"
+  },
+  {
+   "claim_id": "cell-venue",
+   "claim_text": "arXiv preprint (2505.24832v3, cs.CL)",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue",
+   "source_url": "https://arxiv.org/abs/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "2505.24832"
+  },
+  {
+   "claim_id": "cell-year",
+   "claim_text": "2025",
+   "kind": "evidence-supported",
+   "target": "table-cell:year",
+   "source_url": "https://arxiv.org/abs/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "2505.24832"
+  },
+  {
+   "claim_id": "cell-authors",
+   "claim_text": "John X. Morris, Chawin Sitawarin, Chuan Guo, Narine Kokhlikyan, G. Edward Suh, Alexander M. Rush, Kamalika Chaudhuri, Saeed Mahloujifar",
+   "kind": "evidence-supported",
+   "target": "table-cell:authors",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "John X. Morris"
+  },
+  {
+   "claim_id": "cell-venue-kind",
+   "claim_text": "paper",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue-kind",
+   "source_url": "https://arxiv.org/abs/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "2505.24832"
+  },
+  {
+   "claim_id": "cell-official-code",
+   "claim_text": "Official code: unknown — the paper only describes an in-house training setup (models trained from scratch on a single A100 in bfloat16) and links no code repository, so no official release could be located.",
+   "kind": "reasonable-inference",
+   "target": "table-cell:official-code",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "All models are trained on a single A100 GPU in bfloat16 precision, and we use gradient accumulation if a batch cannot fit in memory."
+  },
+  {
+   "claim_id": "intro-1",
+   "claim_text": "卻用 15 兆（trillion）token 訓練（磁碟上約 7 TB）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-1",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "15 trillion tokens (around $7 TB$ on disk)"
+  },
+  {
+   "claim_id": "intro-2",
+   "claim_text": "核心作法是把總記憶量拆成兩塊：unintended memorization",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "We formally separate memorization into two components"
+  },
+  {
+   "claim_id": "intro-3",
+   "claim_text": "GPT 家族約 3.6 bits-per-parameter",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-3",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "3.6 bits-per-parameter"
+  },
+  {
+   "claim_id": "fp-extraction",
+   "claim_text": "會做次方運算本來就是語言模型該有的能力",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-4",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "the fact that a model outputs something is not necessarily a sign of memorization"
+  },
+  {
+   "claim_id": "fp-shannon-intro",
+   "claim_text": "訓練演算法 $L$ 把樣本映到訓練後模型",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-5",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "I(X,Y) = H(X) - H(X\\mid Y)"
+  },
+  {
+   "claim_id": "eq-mem-total",
+   "claim_text": "I(X, \\hat{\\Theta}) = H(X) - H(X \\mid \\hat{\\Theta})",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-1",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "mem} (X, \\hat{\\Theta})&= I(X, \\hat{\\Theta})= H(X) - H(X\\mid \\hat{\\Theta})"
+  },
+  {
+   "claim_id": "eq-mem-unintended",
+   "claim_text": "H(X \\mid \\Theta) - H(X \\mid (\\Theta,\\hat{\\Theta}))",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-2",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "H(X \\mid \\Theta) - H(X \\mid (\\Theta,\\hat{\\Theta})"
+  },
+  {
+   "claim_id": "fp-generalization",
+   "claim_text": "generalization（intended memorization）則是總記憶量減去 unintended 的部分",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "generalization} (or intended memorization) must be"
+  },
+  {
+   "claim_id": "fp-superadd-intro",
+   "claim_text": "逐樣本記憶量之和是資料集記憶量的下界，而模型本身的資訊熵是它的上界",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-7",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Super-additivity of Unintended Memorization"
+  },
+  {
+   "claim_id": "eq-superadd",
+   "claim_text": "\\leq H(\\hat{\\Theta})",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-3",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Super-additivity of Unintended Memorization"
+  },
+  {
+   "claim_id": "fp-superadd-implication",
+   "claim_text": "unintended memorization 會隨資料量增加，但絕不會超過模型容量",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-8",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "unintended memorization should scale with the dataset size but cannot exceed the total capacity"
+  },
+  {
+   "claim_id": "fp-singleton",
+   "claim_text": "全是單一實例（singleton），無法對單一樣本估熵",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-9",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "It is impossible to measure the entropy"
+  },
+  {
+   "claim_id": "eq-kolmogorov",
+   "claim_text": "H^K(x) = \\min_{f(p)=x} |p|",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-4",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "shortest description of  $x$ with respect to computational model"
+  },
+  {
+   "claim_id": "fp-relative-hk",
+   "claim_text": "相對版本 $H^K(x \\mid \\theta)$ 是",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-10",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "shortest representation of $x$, when we have $\\theta$ available as a reference"
+  },
+  {
+   "claim_id": "eq-kol-unintended",
+   "claim_text": "H^K(x\\mid \\theta) - H^K(x\\mid (\\theta, \\hat{\\theta}))",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-5",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "our notion of Kolmogorov memorization closely approximates Shannon memorization"
+  },
+  {
+   "claim_id": "fp-kol-intuition",
+   "claim_text": "短掉的 bits 就是 $\\hat{\\theta}$ 對 $x$ 的非預期記憶",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-11",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "our notion of Kolmogorov memorization closely approximates Shannon memorization"
+  },
+  {
+   "claim_id": "fp-uncomputable",
+   "claim_text": "Kolmogorov 複雜度本身是**不可計算**的",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-12",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "known to be uncomputable"
+  },
+  {
+   "claim_id": "eq-est-reference",
+   "claim_text": "H^K(x \\mid \\theta) \\approx -\\log p(x \\mid \\theta)",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-equation-6",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "estimate $H^K(x \\mid \\hat{\\theta})$ by the negative log likelihood"
+  },
+  {
+   "claim_id": "eq-est-both",
+   "claim_text": "-\\log \\max\\{p(x \\mid \\hat{\\theta})",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-6",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "compute $-log(\\max\\{p(x \\mid \\hat{\\theta}), p(x \\mid \\theta)\\})$"
+  },
+  {
+   "claim_id": "eq-mem-u-likelihood",
+   "claim_text": "\\text{mem}^K_U(x,\\theta,\\hat{\\theta})",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-equation-7",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "mem}^K_U(x,\\theta,\\hat{\\theta}) =H^K(x\\mid \\theta) - H^K(x\\mid (\\theta, \\hat{\\theta})"
+  },
+  {
+   "claim_id": "fp-reference-baseline",
+   "claim_text": "參考模型如何扣掉泛化",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-13",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "mem}^K_U(x,\\theta,\\hat{\\theta}) =H^K(x\\mid \\theta) - H^K(x\\mid (\\theta, \\hat{\\theta})"
+  },
+  {
+   "claim_id": "fp-reference-model",
+   "claim_text": "同參數量、在最大量資料（整個資料集）上訓練",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-13",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "an equal parameter count trained on the maximum amount of data"
+  },
+  {
+   "claim_id": "fp-oracle-reference",
+   "claim_text": "追求最低評估 loss、參數量可以多出許多的 oracle 參考模型",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-13",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "achieves the best compression rate (lowest loss) on the evaluation dataset, and may have many more parameters"
+  },
+  {
+   "claim_id": "fp-synth-entropy",
+   "claim_text": "整個資料集的熵是 $H(x) = N S \\log_2 V$",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-14",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "H(x^i) = NS \\log_2 V"
+  },
+  {
+   "claim_id": "fp-bpp-linear",
+   "claim_text": "每參數 3.5 到 4 bits，依架構與精度而定",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "between 3.5 and 4 bits"
+  },
+  {
+   "claim_id": "tbl-alpha-min",
+   "claim_text": "最低 2.86（8 層、$d_\\text{model}=32$、bfloat16）",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "3.02 & 2.86"
+  },
+  {
+   "claim_id": "tbl-alpha-max",
+   "claim_text": "最高 4.23（1 層、$d_\\text{model}=32$、fp32）",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "4.23 & 3.93"
+  },
+  {
+   "claim_id": "fp-worked-example",
+   "claim_text": "實測 $2.29 \\times 10^6$ bits，誤差 2.97%",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "2.29 \\times 10^6"
+  },
+  {
+   "claim_id": "eq-capacity-pred",
+   "claim_text": "\\approx \\min(\\text{capacity}(L)",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-8",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "\\min(capacity(L), H(X))"
+  },
+  {
+   "claim_id": "fp-pred-error",
+   "claim_text": "這個線性容量預測的平均誤差僅 1.7%（掃 $S$）與 1.8%（掃 $V$）",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "1.7\\% while scaling $S$ and 1.8\\%"
+  },
+  {
+   "claim_id": "fp-precision",
+   "claim_text": "但平均 $\\alpha$ 只從 3.51 升到 3.83",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "most of the extra model bits added when increasing precision"
+  },
+  {
+   "claim_id": "tbl-precision",
+   "claim_text": "| bfloat16 | 3.51 |",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "increases model capacity from $3.51$ to $3.83$"
+  },
+  {
+   "claim_id": "fp-text-mix",
+   "claim_text": "否則截成 64 token 後約有 1–2% 序列變成重複",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "perfect deduplication"
+  },
+  {
+   "claim_id": "fp-transition",
+   "claim_text": "一旦裝不下，就開始用可重複利用的通用規律取代個別樣本的記憶",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-20",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "steadily increases as our smaller model is able to learn more about the small training set than the oracle"
+  },
+  {
+   "claim_id": "fp-extraction-gen",
+   "claim_text": "所有成功的訓練資料 extraction 都可歸因於泛化",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-21",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "all successful training data extraction is attributable to generalization"
+  },
+  {
+   "claim_id": "fp-tfidf",
+   "claim_text": "全訓練集 TF-IDF 最高的一筆（一段日文）記憶量排第三高",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-22",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "third-highest measured memorization"
+  },
+  {
+   "claim_id": "fp-mi-sigmoid",
+   "claim_text": "大模型過擬合小資料時 F1 從 1 開始",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-23",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "roughly sigmoidal form with respect to dataset size"
+  },
+  {
+   "claim_id": "eq-mi-sigmoid",
+   "claim_text": "\\frac{\\text{Capacity}(\\theta)}{|\\mathcal{D}|}",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-9",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Membership}_{F_1}(\\theta, \\mathcal{D})"
+  },
+  {
+   "claim_id": "fp-mi-fit",
+   "claim_text": "$c_1 = 1.34$、$c_2 = -0.034$、$c_3 = -33.14$",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-24",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "c_1 = 1.34$, $c_2=-0.034$, and $-33.14"
+  },
+  {
+   "claim_id": "fp-mi-validation",
+   "claim_text": "預測大致落在真實 F1 的 1.5 個百分點內",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-26",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "predictions are generally within $1.5$ points"
+  },
+  {
+   "claim_id": "tbl-validation",
+   "claim_text": "GPT2-XL |D|=170,654,583：目標 F1 55.00（即 0.55）對實測 54.61 ± 1.3，兩欄皆以百分點呈現",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-2",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "170,654,583"
+  },
+  {
+   "claim_id": "ca-gpt2-naming",
+   "claim_text": "正文寫 GPT-2 small（125M params），但 Table 4 把 123,702,528 參數列標為 GPT2-Medium，是論文自身的命名不一致",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-26",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "GPT-2 small ($125$M params)"
+  },
+  {
+   "claim_id": "fp-tokens-per-param",
+   "claim_text": "所有當代語言模型的 tokens-per-parameter 比值都在 $10^2$ 以上",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-27",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "trained with a tokens-per-parameter ratio of $10^2$ or higher"
+  },
+  {
+   "claim_id": "fig-plateau",
+   "claim_text": "均勻隨機資料上 unintended memorization 的高原 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_synth_plateau.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/synth_plateau.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x1.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Memorization plateaus at the empirical capacity limit"
+  },
+  {
+   "claim_id": "fig-bpp",
+   "claim_text": "容量對參數量的斜率為 3.64 bits-per-parameter （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_capacity_bpp.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/capacity_bpp.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x6.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Capacity in bits-per-parameter for models trained on synthetic data"
+  },
+  {
+   "claim_id": "fig-text-oracle",
+   "claim_text": "文字 unintended memorization 相對 oracle 先升後降 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_text_oracle_mem.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/text_oracle_mem.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x2.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "All quantities are calculated with respect to a large oracle"
+  },
+  {
+   "claim_id": "fig-double-descent",
+   "claim_text": "在合成 bitstring 實驗上，double descent 尖峰落在 dataset-to-capacity ratio 等於 1（此圖為合成資料，非文字）（evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_double_descent.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/double_descent.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x3.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "double descent occurs exactly when the dataset size begins to exceed"
+  },
+  {
+   "claim_id": "fig-mi-scaling",
+   "claim_text": "membership inference scaling law 熱圖與實測 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_mi_scaling_law.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/mi_scaling_law.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x7.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Scaling law curves for membership inference overlaid with empirical data"
+  },
+  {
+   "claim_id": "fig-tfidf",
+   "claim_text": "記憶量與 TF-IDF 的相關：罕見詞樣本最被記住 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_tfidf_memorization.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/tfidf_memorization.png",
+   "source_url": "https://ar5iv.labs.arxiv.org/html/2505.24832/assets/x15.png",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "The training documents with rarest words are typically the most memorized"
+  },
+  {
+   "claim_id": "fig-text-double-descent",
+   "claim_text": "文字 train/test loss 的 double descent：test loss 尖峰隨參數量右移，19.2M 約在 6e4 樣本 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_text_train_val_loss.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/text_train_val_loss.png",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Train and test losses of different model and dataset sizes trained on text. Double descent occurs when dataset size exceeds model capacity."
+  },
+  {
+   "claim_id": "fig-extraction-rates",
+   "claim_text": "8/16/32-token 前綴的 train 與 test extraction rate 在大資料集下趨同 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_text_extraction_rates.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/text_extraction_rates.png",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Extraction rates of 64-token training sequences across prefix lengths, for both train and evaluation."
+  },
+  {
+   "claim_id": "fig-membership-f1",
+   "claim_text": "membership inference F1 隨資料量呈 sigmoid 由 1.0 衰減至 0.5，容量越大下墜點越右 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_membership_f1_curves.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/membership_f1_curves.png",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Membership inference F1 across dataset sizes. In this case, F1 score of 0.5 implies random guessing."
+  },
+  {
+   "claim_id": "fig-membership-vs-extraction",
+   "claim_text": "membership vs extraction 呈 L 形：extraction=0 時 F1 仍可達約 0.93 （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_membership_vs_extraction.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/membership_vs_extraction.png",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Membership inference vs 32-token-prefix suffix extraction rate. Membership inference is generally easier than extraction."
+  },
+  {
+   "claim_id": "fig-table03-examples",
+   "claim_text": "20M 模型過容量後，TF-IDF 最高的前 20 筆全為非英語文本，index 0 記憶量 2.98 bits （evidence: .loop-manager/paper-cache/lm-memorization/evidence/fig_table03_examples.tex）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/table03_examples.png",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Highest TF-IDF training examples from a $20M$ param model trained past its capacity"
+  },
+  {
+   "claim_id": "ca-problem-real",
+   "claim_text": "這兩條主流路線確實無法區分「記住某筆資料」與「學會某種規律」",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-1",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "the fact that a model outputs something is not necessarily a sign of memorization"
+  },
+  {
+   "claim_id": "ca-baseline",
+   "claim_text": "membership inference 全程只用單一的 loss-based 門檻攻擊",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-2",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "standard loss-based membership inference"
+  },
+  {
+   "claim_id": "ca-plateau-not-limit",
+   "claim_text": "論文自己也點明因為 SGD 不保證找到全域最優，量到的其實是容量的**下界**",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-3",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "only ever measuring a lower bound on model capacity"
+  },
+  {
+   "claim_id": "ca-extrapolation",
+   "claim_text": "能多大程度用來推論模型對**自然文字**記住了多少，仍是開放的",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "do not necessarily generalize to other datasets, architectures, or training setups"
+  },
+  {
+   "claim_id": "ca-gap",
+   "claim_text": "membership F1 可達 0.97 而 extraction rate 為 0 的情形",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-5",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "membership inference is strictly higher in every case"
+  },
+  {
+   "claim_id": "ca-likelihood-access",
+   "claim_text": "整個方法依賴對模型 likelihood 的存取",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-6",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "estimate $H^K(x \\mid \\hat{\\theta})$ by the negative log likelihood"
+  },
+  {
+   "claim_id": "ca-1p5b-extrapolation",
+   "claim_text": "scaling law 雖驗證到 1.5B 參數，但現代前沿模型大上兩三個數量級",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-6",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "ranging from $500K$ to $1.5B$ parameters"
+  },
+  {
+   "claim_id": "fp-mi-limit-claim",
+   "claim_text": "當 $|\\mathcal{D}| \\to \\infty$ 時 attack 表現趨近 0.5，因而對訓練在無窮大資料上的模型，membership inference 與 extraction 都變得不可能",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-24",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "as $|\\mathcal{D}| \\rightarrow \\infty$, performance of our membership inference attack decreases to $0.5$"
+  },
+  {
+   "claim_id": "ca-mi-limit-inconsistency",
+   "claim_text": "sigmoid 內部趨近 $c_2 c_3 = (-0.034)\\times(-33.14) \\approx 1.13$，$\\sigma(1.13)\\approx 0.755$，代回得 $F_1 \\approx \\tfrac{1}{2}(1 + 1.34\\times0.755) \\approx 1.01$，而不是 0.5",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:body-prose-25",
+   "source_url": "https://arxiv.org/pdf/2505.24832v3",
+   "retrieved_at": "2026-07-28T03:12:07Z",
+   "quoted_snippet": "Solutions found are $c_1 = 1.34$, $c_2=-0.034$, and $-33.14$"
+  }
+ ]
+}
