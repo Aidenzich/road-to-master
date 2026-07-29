@@ -1,0 +1,23 @@
+Kimi K3 official repo static inventory (transport-disabled shallow clone)
+repo: https://github.com/MoonshotAI/Kimi-K3  (HEAD: 7c5be9599120d7993748de66a76128614f15f210)
+clone cmd: git -c protocol.ext.allow=never -c protocol.file.allow=never -c protocol.git.allow=never clone --depth=1
+no_untrusted_code_executed: true
+
+Complete file tree (only 4 tracked files; no source code of any kind):
+LICENSE
+README.md
+assets/kimi-logo.png
+k3_tech_report.pdf
+
+Per-file type + sha256:
+README.md | HTML document text, Unicode text, UTF-8 text, with very long lines (720) | sha256=46bb1354d6d5352b3e791e120667d386dbfb12b3f78b7916b4f31d49a0400443
+LICENSE | Unicode text, UTF-8 text | sha256=f45c677fa7f42405512b67f9b18b4ccd6927c6787492867763d80368631b7c54
+assets/kimi-logo.png | PNG image data, 1097 x 400, 8-bit/color RGBA, non-interlaced | sha256=4a80f64242bf907940765adc7bcf340c28dd83334b07c5503792a26495d1933b
+k3_tech_report.pdf | PDF document, version 1.5 | sha256=1f2978d89a9d7f138f6d6ae5f17fd6890dc673abeaea7fca96c1eca432c75ce8
+
+git blob sha (k3_tech_report.pdf): 6899a9ea0bb99868235e563fefbe08a5c0aa7bd2  (matches pinned source_blob_sha 6899a9ea0bb99868235e563fefbe08a5c0aa7bd2)
+
+Code-file scan (extensions .py .sh .cpp .cu .c .h .js .ts .ipynb .yaml .yml .toml Makefile Dockerfile requirements): NONE FOUND
+  (no matches -> repo ships no training/inference code)
+
+Secret scan (README.md, LICENSE for api key / secret / private key): CLEAN (0 matches)
