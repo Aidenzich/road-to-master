@@ -1,0 +1,612 @@
+{
+  "note_path": "domains/natural_language_processing/Kimi-K2.5/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Kimi-K2.5",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-29T00:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Kimi K2.5: Visual Agentic Intelligence",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "open-source multimodal agentic model"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "vendor technical report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/LICENSE",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Copyright (c) 2026 Moonshot AI"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Kimi Team",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Kimi Team"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/MoonshotAI/Kimi-K2.5",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "tech-report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/README.md",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "fig-latency",
+      "claim_text": "Agent Swarm 3x-4.5x faster execution time",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig8_latency.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "faster execution time compared to single-agent"
+    },
+    {
+      "claim_id": "fig-main",
+      "claim_text": "Kimi K2.5 main results (HLE w/tools 50.2)",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1_main_results.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "50.2 43.2 45.5 45.8"
+    },
+    {
+      "claim_id": "b-body-prose-1",
+      "claim_text": "Kimi K2.5 想解決的具體問題有兩個：第一，如何在**固定的視覺-文字 token 預算**下，讓一個語言模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "such as Kimi K2-Thinking [1], suffer from linear scaling"
+    },
+    {
+      "claim_id": "b-body-prose-2",
+      "claim_text": "報告的高階解法對應這兩點。針對第一點，K2.5 以 Kimi K2 這個 1.04 兆參數的 MoE 語言模型為底，",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "15 trillion mixed visual and text tokens"
+    },
+    {
+      "claim_id": "b-body-prose-3",
+      "claim_text": "如何衡量成功？報告在一份橫跨推理、程式、多模態（圖像與影片）、agentic 搜尋與 computer-use 的大",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "We benchmark against state-of-the-art proprietary and open-source models"
+    },
+    {
+      "claim_id": "b-body-prose-4",
+      "claim_text": "Kimi K2.5 不是從零訓練的新模型，而是把 Kimi K2 擴成原生多模態。語言骨幹沿用 Kimi K2：一個",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "1.04 trillion total parameters"
+    },
+    {
+      "claim_id": "b-body-prose-5",
+      "claim_text": "倉庫模型卡補充了論文正文未列的細節：模型為 MLA 注意力、SwiGLU 激活、61 層（其中 1 層 dense）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/README.md",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Attention Mechanism** | MLA"
+    },
+    {
+      "claim_id": "b-body-prose-6",
+      "claim_text": "MoonViT-3D 的關鍵是「影像與影片共用同一組參數與 embedding 空間」。它以 SigLIP-SO-4",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Initialized from SigLIP-SO-400M"
+    },
+    {
+      "claim_id": "b-body-prose-7",
+      "claim_text": "報告最反直覺的主張是：在固定視覺-文字 token 總預算下，**早期注入、低視覺比例**比傳統的後期高比例更好。T",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "early fusion with a lower vision ratio yields better results given a"
+    },
+    {
+      "claim_id": "b-body-table-1",
+      "claim_text": "| Vision Injection Timing | Vision Ratio | Vision Knowledg",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "25.8 43.8 65.7 45.5 58.5 24.8"
+    },
+    {
+      "claim_id": "b-body-prose-8",
+      "claim_text": "Early 在六欄裡有五欄最高（Text Reasoning 略輸 Mid 的 58.6）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "dip-and-recover"
+    },
+    {
+      "claim_id": "b-body-prose-9",
+      "claim_text": "要留意這張表與這組曲線的說服力邊界：它只呈現三個離散比例、單一 token 預算",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-10",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "b-body-prose-10",
+      "claim_text": "K2.5 的 post-training 有個大膽選擇：**只用純文字 SFT** 來啟動視覺與 agentic 能",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "uses only text SFT data to activate the visual"
+    },
+    {
+      "claim_id": "b-body-prose-11",
+      "claim_text": "接著是 outcome-based 視覺 RL，鎖定三類「必須看圖才能答對」的任務：視覺定位與計數、圖表與文件理解、",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "MMLU-Pro (84.7% → 86.4%)"
+    },
+    {
+      "claim_id": "b-body-prose-12",
+      "claim_text": "K2.5 的 RL 對每個問題 $x$ 用舊策略 $\\pi_{old}$ 取樣 $K$ 條回應，優化下式（式 1，符",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "For each problem x sampled from a dataset D"
+    },
+    {
+      "claim_id": "b-body-equation-1",
+      "claim_text": "$$L_{RL}(\\theta) = \\mathbb{E}_{x \\sim D}\\left[ \\frac{1}{N}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "relies strictly on the log-ratio"
+    },
+    {
+      "claim_id": "b-body-prose-13",
+      "claim_text": "$\\bar{r}(x)$ 是同一問題 $K$ 條回應的平均獎勵（作為 baseline）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "is the mean reward of all generated responses"
+    },
+    {
+      "claim_id": "b-body-prose-14",
+      "claim_text": "獎勵端對可驗證任務用 rule-based outcome reward，並額外加 budget-control r",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Generative Reward Models (GRMs) that provide granular"
+    },
+    {
+      "claim_id": "b-body-equation-2",
+      "claim_text": "$$\\mathrm{budget}(x) = \\mathrm{Percentile}\\big(\\{\\,|y_j| \\",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "percentile of token lengths among the subset of correct"
+    },
+    {
+      "claim_id": "b-body-prose-15",
+      "claim_text": "報告稱 Toggle 在 K2 Thinking 上讓輸出平均減少 25～30% 而效能幾乎不變，並宣稱只在數學/程",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Toggle decreases output tokens by 25"
+    },
+    {
+      "claim_id": "b-body-prose-16",
+      "claim_text": "Agent Swarm 的核心是 decoupled 架構：**可訓練的 orchestrator + 凍結的 su",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "circumvent two fundamental challenges: credit assignment"
+    },
+    {
+      "claim_id": "b-body-equation-3",
+      "claim_text": "$$r_{PARL}(x,y) = \\lambda_1 \\cdot r_{parallel} + \\lambda_2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "task-level outcome"
+    },
+    {
+      "claim_id": "b-body-prose-17",
+      "claim_text": "$r_{perf}$ 評估最終解的品質；$r_{parallel}$ 鼓勵生成 subagent 以避免「seria",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "a reward-hacking behavior in which the orchestrator"
+    },
+    {
+      "claim_id": "b-body-prose-18",
+      "claim_text": "把 BrowseComp 這一列讀完最能看出各機制的疊加效果。單一 K2.5、不做 context manageme",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Agent Swarm achieves 78.4%, representing a 17.8%"
+    },
+    {
+      "claim_id": "b-body-prose-19",
+      "claim_text": "延遲面的證據見 Figure 8：在 WideSearch 上，隨著目標 Item-F1 從 30% 拉高到 70%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-23",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "grows from approximately 1.8"
+    },
+    {
+      "claim_id": "b-body-prose-20",
+      "claim_text": "Table 4 是完整的對照表，涵蓋 51 個 benchmark／設定列（推理與通用 10、程式 9、agentic 9、影像 15、影片 6、computer-use 2）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-26",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "scores 96.1%, approaching"
+    },
+    {
+      "claim_id": "b-body-prose-20b",
+      "claim_text": "只有 Seal-0 與 WideSearch 採 4 次獨立執行取平均（Avg@4），其餘 agentic benchmark 原則上單次執行",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-26",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "averaged over 4 independent runs (Avg@4)"
+    },
+    {
+      "claim_id": "b-body-prose-21",
+      "claim_text": "摘要頁的 Figure 1 選了十個代表性面板，把 K2.5 以藍柱置於每組最左並凸顯",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "76.8           80.9             80.0"
+    },
+    {
+      "claim_id": "b-body-prose-21b",
+      "claim_text": "Figure 1 counterexamples: MMMU-Pro 78.5<81.0 (Gemini), MathVision 84.2<86.1 (Gemini), VideoMMMU 86.6<87.6 (Gemini)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "MathVision                      84.2          77.1*             83.0         86.1*"
+    },
+    {
+      "claim_id": "c-critical-prose-1",
+      "claim_text": "兩個核心問題都站得住腳。多模態的「固定預算下融合策略」是個真實的資源分配問題，長時序 agent 的線性延遲也確實是",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c-critical-prose-2",
+      "claim_text": "這是全報告最該打折扣的地方。作者自陳因為「無法穩定存取 GPT-5.2 API」而跳過部分高成本 benchmark",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "GPT-5.2-xhigh exhibited an approximate 10% failure"
+    },
+    {
+      "claim_id": "c-critical-prose-3",
+      "claim_text": "Agent Swarm 的三個評測裡有一個是完全自建、無法外部複現的「In-house Swarm Bench」，K",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "most pronounced on In-house Swarm bench"
+    },
+    {
+      "claim_id": "c-critical-prose-4",
+      "claim_text": "多數組件是既有想法的整合而非全新演算法：MoonViT/NaViT packing 來自 Kimi-VL 與既有工作",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "preliminary experiments show that text-vision SFT yields much worse"
+    },
+    {
+      "claim_id": "c-critical-prose-5",
+      "claim_text": "相較於同級 frontier 模型報告，這份報告缺了三塊關鍵內容：**沒有任何安全/風險評估章節、沒有資料汙染（co",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-6",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c-critical-browsecomp-cm",
+      "claim_text": "報告正文以 K2.5 開 context management 的 74.9 對 GPT-5.2 的 65.8；65.8 是 GPT-5.2 唯一的 BrowseComp 分數（該欄兩列合併為一格）。有另列 with-CM 數字的是 Claude 37.0→57.8、Gemini 37.8→59.2、DeepSeek 51.4→67.6，均落後 74.9",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "BrowseComp (w/ ctx manage)      74.9           57.8             59.2          67.6"
+    },
+    {
+      "claim_id": "c-critical-browsecomp-nocm",
+      "claim_text": "設定對齊、都看沒開 context management，K2.5 是 60.6 反而低於 GPT-5.2 的 65.8（Table 6 同列並排 78.4 60.6 37.0 65.8 77.9）",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "BrowseComp                  78.4              60.6              37.0             65.8              77.9"
+    },
+    {
+      "claim_id": "c-critical-browsecomp-65",
+      "claim_text": "GPT-5.2 沒開 context management 的 BrowseComp 為 65.8",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "reported 65.8%, Claude Opus 4.5 (37.0%)"
+    },
+    {
+      "claim_id": "fig-ratios",
+      "claim_text": "Figure 9：三種 vision-to-text 比例（10:90、20:80、50:50）在六項能力上的訓練曲線，10:90 早期低比例收斂最高，文字類項目呈 dip-and-recover",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig9_ratios.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Learning curves comparing vision-to-text ratios (10:90, 20:80, 50:50)"
+    },
+    {
+      "claim_id": "fig-toggle",
+      "claim_text": "Figure 5：Kimi K2 Thinking 套用 token-efficient RL（Toggle）前後，正確率幾乎不變（Improved 5 / Degraded 2）而 token 用量全面下降（Reduced 7 / Increased 0）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig5_toggle.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Comparison of model performance and token usage for Kimi K2 Thinking following token"
+    },
+    {
+      "claim_id": "fig-parl",
+      "claim_text": "Figure 4：PARL 環境下 training accuracy 隨訓練步數平滑上升，同時 average parallelism 也逐步提高，顯示並行程度為 RL 自發學得",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig4_parl_acc.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "the level of parallelism during training also gradually increases"
+    },
+    {
+      "claim_id": "b-body-prose-9new",
+      "claim_text": "實際採用的配方見 Table 3 的三階段：ViT 訓練（1T token、seq 4096）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "1T                         15T                        500B"
+    },
+    {
+      "claim_id": "b-body-prose-19new",
+      "claim_text": "值得注意的是，並行度並非人工指定，而是 RL 從環境回饋裡「長出來」的",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "the level of parallelism during training also gradually increases"
+    },
+    {
+      "claim_id": "b-infra-dep-1",
+      "claim_text": "把視覺編碼器塞進既有的大型語言模型訓練管線，最大的工程痛點在 Pipeline Parallelism（PP）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "which is composed of three stages in each training step"
+    },
+    {
+      "claim_id": "b-infra-dep-2",
+      "claim_text": "報告稱 DEP 讓 K2.5 沿用 K2 的並行策略、達到相對純文字訓練 90% 的多模態訓練效率",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "seamlessly inherits the parallel strategy of K2, achieving a multimodal training"
+    },
+    {
+      "claim_id": "b-infra-hw-1",
+      "claim_text": "訓練規模與硬體：K2.5 在 NVIDIA H800 叢集上訓練",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "combining 16-way Pipeline Parallelism (PP) with virtual stages"
+    },
+    {
+      "claim_id": "b-infra-hw-2",
+      "claim_text": "訓練硬體為 NVIDIA H800 GPU 叢集",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "trained on NVIDIA H800 GPU clusters"
+    },
+    {
+      "claim_id": "b-harness-general",
+      "claim_text": "Table 4 把六大類、五個對手併成一張表，但各列的取樣協定其實差很多",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "all Kimi K2.5 evaluations use temperature = 1.0, top-p ="
+    },
+    {
+      "claim_id": "b-harness-asterisk",
+      "claim_text": "公開但無現成分數的項目由作者在相同條件下重測並標星號",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Benchmarks without publicly available scores were re-evaluated under"
+    },
+    {
+      "claim_id": "b-harness-reasoning",
+      "claim_text": "- **推理**（HLE-Full、AIME 2025、HMMT、GPQA-Diamond、IMO-AnswerBench）用 96k token 的完成上限",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "we enforce a maximum completion budget of 96k tokens"
+    },
+    {
+      "claim_id": "b-harness-reasoning-avg",
+      "claim_text": "AIME 2025 與 HMMT 2025 取 64 次獨立執行平均（Avg@64）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "averaged over 64 independent runs (Avg@64)"
+    },
+    {
+      "claim_id": "b-harness-coding-avg",
+      "claim_text": "程式 benchmark 全部取 5 次獨立執行平均（Avg@5）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "All coding task results are averaged over 5 independent runs (Avg@5)"
+    },
+    {
+      "claim_id": "b-harness-swe-internal",
+      "claim_text": "SWE-Bench 系列用內部開發的評測框架、最小工具集 bash/create_file/insert/view/str_replace/submit",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "We employ an internally developed evaluation framework featuring a minimal tool set"
+    },
+    {
+      "claim_id": "b-harness-imgvid",
+      "claim_text": "影像／影片評測統一 max 64k token、取 3 次平均（Avg@3）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Averaged over 3 independent runs (Avg@3)"
+    },
+    {
+      "claim_id": "b-harness-video-short",
+      "claim_text": "短片抽 128 幀、空間解析度上限 896",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "we sample 128 uniform input frames with a maximum spatial resolution at 896"
+    },
+    {
+      "claim_id": "b-harness-video-long",
+      "claim_text": "長片抽 2048 幀、解析度 448",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "sampled for long video benchmarks (Video-MME, LongVideoBench & LVBench) with 448 spatial resolution"
+    },
+    {
+      "claim_id": "b-harness-agentic-nocm",
+      "claim_text": "agentic 搜尋預設不做 context management，超出 context window 直接算失敗",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "is applied to agentic evaluations"
+    },
+    {
+      "claim_id": "b-harness-cu-oneshot",
+      "claim_text": "computer-use 一律 one-shot、每回合上限 100 步",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "max_steps_per_episode = 100 for all experiments"
+    },
+    {
+      "claim_id": "b-harness-cu-claude",
+      "claim_text": "為求公平只讓 Claude Opus 4.5 用 computer-use 工具、排除其 browser tools（偏離其 System Card 設定）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "a departure from the System Card"
+    },
+    {
+      "claim_id": "c-visual-e2e-fig12",
+      "claim_text": "報告的招牌是「visual agentic intelligence」，但要問：有沒有一條量化證據",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "qualitative examples of Kimi K2.5 solving diverse visual reasoning tasks via tool-augmented"
+    },
+    {
+      "claim_id": "c-visual-e2e-fig11",
+      "claim_text": "Figure 11 展示 Agent Swarm 用階層式多 agent 分析 24 小時遊玩影片的質性範例",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K2.5/blob/master/tech_report.pdf",
+      "retrieved_at": "2026-07-29T00:00:00Z",
+      "quoted_snippet": "Figure 11 demonstrates our Agent Swarm tackling a challenging long-form video understanding task"
+    },
+    {
+      "claim_id": "c-visual-e2e-judgment",
+      "claim_text": "沒有一個量化 benchmark 把感知與行動串成端到端閉環；perception→tool/code→answer 只有 Figure 11/12 的質性佐證，視覺 agentic 目前是強感知與強編排兩分項能力的組合",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    }
+  ]
+}
