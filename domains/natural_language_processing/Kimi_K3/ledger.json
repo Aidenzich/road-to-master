@@ -1,0 +1,684 @@
+{
+  "note_path": "domains/natural_language_processing/Kimi_K3/README.md",
+  "domain": "natural_language_processing",
+  "topic": "Kimi_K3",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-07-29T16:00:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Kimi K3 Technical Report",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Kimi K3: Open Frontier Intelligence"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "Moonshot AI vendor technical report (GitHub-hosted PDF, not peer-reviewed)",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "We release the full Kimi K3 model weights"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "as of July 23, 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Kimi Team, Moonshot AI",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Kimi Team"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/MoonshotAI/Kimi-K3",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "https://huggingface.co/moonshotai/Kimi-K3"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "tech-report",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "We release the full Kimi K3 model weights to facilitate future research"
+    },
+    {
+      "claim_id": "fig-architecture",
+      "claim_text": "Kimi K3 architecture: each block is 3 KDA + 1 Gated MLA, each attention layer paired with Stable LatentMoE, AttnRes over embedding and preceding blocks, MoonViT-V2 vision pathway",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/architecture.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Each block contains three Kimi Delta Attention (KDA) layers followed by one Gated MLA layer"
+    },
+    {
+      "claim_id": "fig-scaling",
+      "claim_text": "Fitted scaling-law curves: Kimi K3 reaches the same validation loss at ~2.5x fewer FLOPs than Kimi K2",
+      "kind": "paper-claim",
+      "target": "figure:imgs/scaling_law.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Fitted scaling-law curves for Kimi K2 and Kimi K3"
+    },
+    {
+      "claim_id": "fig-kda-decay",
+      "claim_text": "Lower-bounded decay: Kimi Linear uses unbounded negative-Softplus while Kimi K3 bounds log-decay with a scaled sigmoid; the bounded range lets all causal tiles use dense Tensor Core matrix multiplications instead of position-pair diagonal computation",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/kda_lower_bounded_decay.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Kimi Linear uses an unbounded negative-Softplus\nmapping, whereas Kimi K3 bounds the log-decay with a scaled sigmoid; the curves show A = 0 and gmin = −5. (b) Kimi Linear\nevaluates each diagonal tile with an explicit position-pair computation, while the bounded range in Kimi K3 allows all causal tiles to"
+    },
+    {
+      "claim_id": "fig-moonvit-gradnorm",
+      "claim_text": "Vision-tower gradient norms: from-scratch MoonViT-V2 maintains lower gradient norms with fewer spikes than SigLIP-initialized MoonViT-3D, indicating more stable optimization",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/moonvit_gradnorm.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Compared with the SigLIP-initialized MoonViT-3D, the\nfrom-scratch MoonViT-V2 maintains lower gradient norms with fewer spikes, indicating more stable optimization."
+    },
+    {
+      "claim_id": "fig-rl-scaling",
+      "claim_text": "Scores and average assistant steps across eight public and in-house RL evaluations rise as RL FLOPs scale, with tool-call steps scaling up consistently",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/rl_flops_scaling.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Scores and the average assistant steps across a variety of public and in-house evaluations during RL. By scaling RL FLOPs,\ntool-call steps scale up consistently, accompanied by a comprehensive improvement in the model’s overall capability."
+    },
+    {
+      "claim_id": "fig-camera-repair",
+      "claim_text": "Completion curves on Camera Repair Management System: Kimi K3 reaches 1.000 vs Opus 4.8 0.918, GPT-5.5 0.893, Kimi K2.6 0.560",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/camera_repair_completion.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Completion curves on Camera Repair Management System, a black-box system replication task in which the agent\nreconstructs a hidden 3D-camera repair system as a web application through oracle queries. Completion denotes verifier-assessed"
+    },
+    {
+      "claim_id": "fig-cost-pareto",
+      "claim_text": "Score vs per-task inference cost on four suites; Kimi K3 sits on or near the cost-efficiency frontier but is not top-scoring on the GDPval-AA v2 and AA-Briefcase Elo suites",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cost_pareto.png",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Overall, Kimi K3 sits on or near the cost-efficiency frontier across all four suites, delivering near-top scores at a fraction\nof the cost of Claude Fable 5 in particular."
+    },
+    {
+      "claim_id": "bp1-open-1t",
+      "claim_text": "這條軸上長期停在 1T-class",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "remain within or slightly above the 1T-class parameter"
+    },
+    {
+      "claim_id": "bp2-896-16",
+      "claim_text": "每個 token 啟用 16 個",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "expands the routed expert space to 896 experts, with 16 activated per token"
+    },
+    {
+      "claim_id": "bp3-trails",
+      "claim_text": "整體仍落後最強的 Claude Fable 5 與 GPT-5.6 Sol",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Kimi K3 trails the strongest proprietary systems overall"
+    },
+    {
+      "claim_id": "bp4-31-ratio",
+      "claim_text": "每個 block 三層 KDA 接一層 Gated MLA",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Each block contains 3 KDA layers followed by 1 Gated MLA layer, giving a 3:1 mixing ratio"
+    },
+    {
+      "claim_id": "bp5-kda-gate",
+      "claim_text": "KDA 把 delta-rule recurrence 加上一個 channel-wise forget gate",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "with a channel-wise forget gate"
+    },
+    {
+      "claim_id": "bp6-write-strength",
+      "claim_text": "控制 delta-rule 的寫入強度",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "controls the delta-rule write strength"
+    },
+    {
+      "claim_id": "bp6-nope",
+      "claim_text": "並對所有 MLA 層採用 No Position Encoding（NoPE）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "applies No Position Encoding (NoPE) to all MLA layers"
+    },
+    {
+      "claim_id": "bp7-overflow",
+      "claim_text": "倒數會無界成長、在有限精度下發生上溢位（overflow）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "this reciprocal can grow without bound and overflow in finite"
+    },
+    {
+      "claim_id": "bp8-tensorcore",
+      "claim_text": "對角 tile 不必再做逐位置對的顯式計算",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "use dense Tensor Core matrix multiplications, eliminating the position-pair diagonal path"
+    },
+    {
+      "claim_id": "bp9-attnres-depth",
+      "claim_text": "每一層用一個可學習的 pseudo-query",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "each layer selectively retrieves representations from all preceding"
+    },
+    {
+      "claim_id": "bp10-8blocks",
+      "claim_text": "Kimi K3 取 $N\\approx 8$、每 block 12 層",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "we partition its layers into 8 blocks with 12-layer size"
+    },
+    {
+      "claim_id": "bp11-sparsity56",
+      "claim_text": "對應 $896/16 = 56$ 的稀疏度",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "corresponding to a sparsity of 56"
+    },
+    {
+      "claim_id": "bp12-activation-explosion",
+      "claim_text": "routed branch 的內部激活爆炸",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "produces exploding internal activations in the routed branch"
+    },
+    {
+      "claim_id": "bp12-situ",
+      "claim_text": "取 $\\beta_1=4$、$\\beta_2=25$，使輸出有界 $|f(x)|\\le \\beta_1\\beta_2 = 100$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "approaches the bound |f (x)| ≤ β1 β2 = 100 for large positive inputs"
+    },
+    {
+      "claim_id": "bp13-moonvit-scratch",
+      "claim_text": "完全從零開始、用 next-token prediction 訓練",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "entirely from scratch with next-token prediction"
+    },
+    {
+      "claim_id": "bp14-pixelshuffle",
+      "claim_text": "經 $2\\times 2$ pixel-shuffle 後降為 $16{,}384$ 個視覺 token",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "a pixel-shuffle operation with 2 × 2 downsampling reduces the number of visual tokens"
+    },
+    {
+      "claim_id": "bp15-2.5x-source",
+      "claim_text": "這些結構變化正是「約 2.5× scaling efficiency」的來源",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "a detailed architectural comparison between Kimi K2 and Kimi K3"
+    },
+    {
+      "claim_id": "bp16-2.5x-doubtful",
+      "claim_text": "屬於難以獨立重現的聲稱",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Evaluated on held-out OOD validation data, the scaling law curves"
+    },
+    {
+      "claim_id": "bp17-recipe",
+      "claim_text": "cosine 學習率排程配 1% linear warmup、weight decay 0.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "a cosine learning rate schedule with a 1% linear warmup"
+    },
+    {
+      "claim_id": "bp18-repro-doubt",
+      "claim_text": "但資料層級幾乎不可重現",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "estimated from the cold-start model"
+    },
+    {
+      "claim_id": "bp19-sandbox-count",
+      "claim_text": "共建立了 51,219,741 個 sandbox、橫跨 1,505,678 個 image",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "a total of 51,219,741 sandboxes across 1,505,678 images were created"
+    },
+    {
+      "claim_id": "bp19-checkpoint",
+      "claim_text": "增量 checkpoint / resume 延遲低至 133 ms / 49 ms",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "checkpoint and resume latencies as low as 133 ms and 49 ms"
+    },
+    {
+      "claim_id": "bp19-throttle-98",
+      "claim_text": "暫停中的 sandbox 在等待模型推論時可占 sandbox 生命週期高達 98%",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "which can account for as much as 98% of the sandbox lifetime"
+    },
+    {
+      "claim_id": "bp19-overcommit",
+      "claim_text": "實際工作負載中記憶體 overcommit 比率高達 6.5×",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "a memory overcommit ratio of up to 6.5× in real workloads"
+    },
+    {
+      "claim_id": "bp20-prefix-hit",
+      "claim_text": "直接從 token 2560 續 prefill，完全不重算 $[0, 2560)$",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "resumes prefill from token B instead of recomputing"
+    },
+    {
+      "claim_id": "bp21-webdev-arena",
+      "claim_text": "WebDev Arena 則以 1,678 Elo 排第一、是首個登頂該榜的開源模型",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "the first open model to top this leaderboard"
+    },
+    {
+      "claim_id": "bp21-gpqa",
+      "claim_text": "GPQA Diamond 93.5%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "scoring 93.5% on\nGPQA Diamond"
+    },
+    {
+      "claim_id": "bp21-programbench",
+      "claim_text": "ProgramBench 拿到最佳 77.8%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "It attains the best score on ProgramBench (77.8%)"
+    },
+    {
+      "claim_id": "bp21-terminalbench",
+      "claim_text": "88.3% 幾乎追平 GPT-5.6 Sol 的 88.8%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "it nearly matches\nGPT-5.6 Sol (88.3% vs. 88.8%)"
+    },
+    {
+      "claim_id": "bp21-frontierswe",
+      "claim_text": "FrontierSWE 81.2% 排第二（落後 Fable 5 的 86.6%）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "FrontierSWE                       81.2              86.6               71.3            66.7           64.9            67.3"
+    },
+    {
+      "claim_id": "bp21-critpt",
+      "claim_text": "CritPt 23.4% 明顯落後",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "on CritPt it scores 23.4%, lagging behind Claude"
+    },
+    {
+      "claim_id": "bp21-swemarathon",
+      "claim_text": "SWE-Marathon（偏 GPU kernel）42.0% 領先 Fable 5 七分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "SWE-Marathon                      42.0              35.0               39.0            40.0           14.0            13.0"
+    },
+    {
+      "claim_id": "bp21-mcpmark",
+      "claim_text": "MCPMark-Verified 94.5% 等多項最佳",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "MCPMark-Verified                  94.5              87.4              92.9             76.4           92.9             -"
+    },
+    {
+      "claim_id": "bp21-aa-others",
+      "claim_text": "落後 Fable 5（59.9）與 GPT-5.6 Sol（58.9）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "behind Claude\nFable 5 (59.9) and GPT-5.6 Sol (58.9)"
+    },
+    {
+      "claim_id": "bp21-aa-index",
+      "claim_text": "Intelligence Index v4.1 給 57.1（580 個模型中第 4）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Intelligence Index v4.1 of 57.1,\nranking fourth of 580 models"
+    },
+    {
+      "claim_id": "bp21-hle",
+      "claim_text": "HLE-Full（43.5% / 56.0%，不含/含工具）與 CritPt 23.4% 明顯落後",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "on HLE-Full it trails Claude Fable 5 and GPT-5.6\nSol both with and without tools, at 56.0% and 43.5%"
+    },
+    {
+      "claim_id": "be1-kda-state",
+      "claim_text": "\\mathrm{Diag}(\\alpha_t)\\, S_{t-1}",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "KDA applies channel-wise decay before the delta-rule update"
+    },
+    {
+      "claim_id": "be2-scaled-sigmoid",
+      "claim_text": "g_t = g_{\\min}\\,\\mathrm{Sigmoid}(e^{A} z_t)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Kimi K3 instead uses a scaled sigmoid to bound the log-decay from below"
+    },
+    {
+      "claim_id": "be3-attnres",
+      "claim_text": "h_l = \\sum_{i=0}^{l-1}\\alpha_{i\\to l}\\cdot v_i",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "we define a layer-specific learnable pseudo-query"
+    },
+    {
+      "claim_id": "be4-latentmoe",
+      "claim_text": "W_\\uparrow\\,\\mathrm{RMSNorm}(u)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "inserts\nRMSNorm [147] between expert aggregation and the up-projection"
+    },
+    {
+      "claim_id": "be5-mopd",
+      "claim_text": "r^d_{\\mathrm{opd}}(y_t\\mid e,x,y_{<t})",
+      "kind": "evidence-supported",
+      "target": "note-section:body-equation-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Rmax > 0 is a clipping threshold to constrain extreme advantage"
+    },
+    {
+      "claim_id": "bt1-arch-compare",
+      "claim_text": "| Total Parameters | 1.04T | 2.78T |",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Total Parameters                                       1.04T                     2.78T"
+    },
+    {
+      "claim_id": "bt1-experts-active",
+      "claim_text": "| Experts Active per Token | 8 | 16 |",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Experts Active per Token                                   8                       16"
+    },
+    {
+      "claim_id": "cp1-both-axes",
+      "claim_text": "把預訓練規模與 test-time 兩條軸一起推也是合理的研究方向",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "we pursue both scaling axes together to the frontier"
+    },
+    {
+      "claim_id": "cp1-3t-first",
+      "claim_text": "作為「首個開源 3T-class 模型」",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "first open\n3T-class model"
+    },
+    {
+      "claim_id": "cp2-fallback-cyberguard",
+      "claim_text": "報告未量化這些機制對分數的淨影響",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "The results of Claude Fable 5 include\nfallback behaviors and the results of GPT-5.6 Sol include potential cyberguards"
+    },
+    {
+      "claim_id": "cp2-harness-mix",
+      "claim_text": "Kimi K3 用 Kimi Code、別家用 Claude Code/Codex",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Claude models and GLM-5.2 are evaluated with Claude Code,\nwhile GPT models are evaluated with Codex"
+    },
+    {
+      "claim_id": "cp2-browsecomp-904",
+      "claim_text": "BrowseComp 表列 91.2%、但全 1M context 無 context management 時為 90.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "evaluated with the full 1M-token context window and no context\nmanagement, Kimi K3 achieves 90.4%"
+    },
+    {
+      "claim_id": "cp3-novelty",
+      "claim_text": "MLA 來自 DeepSeek-V2",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Multi-head Latent Attention (MLA), introduced in DeepSeek-V2"
+    },
+    {
+      "claim_id": "cp4-ace-0",
+      "claim_text": "在 41 題上達成任意程式碼執行為 0 題",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "achieving arbitrary code execution on 0 of 41 tasks"
+    },
+    {
+      "claim_id": "cp4-cyber-tier1",
+      "claim_text": "Tier 1 漏洞挖掘中經人工複核者約 70% 確認為真，含 16 個未知漏洞",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "approximately 70% were confirmed as genuine, including 16 previously unknown vulnerabilities"
+    },
+    {
+      "claim_id": "cp4-cyber-tier2",
+      "claim_text": "Tier 2 exploit 套件解出 36 題中的 14 題（38.9%），勝過 GLM-5.2 的 8 題（22.2%）",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "solving 14 of 36 tasks (38.9%) versus 8 of 36 (22.2%) for GLM-5.2"
+    },
+    {
+      "claim_id": "cp4-internal-bench",
+      "claim_text": "這等於承認評測與訓練迭代耦合，外部無法重現",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "benchmarks are refreshed and expanded frequently"
+    },
+    {
+      "claim_id": "cp4-license",
+      "claim_text": "Model as a Service 業者若連續 12 個月合計營收逾 2000 萬美元，須先與 Moonshot AI 另訂協議",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/LICENSE",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "operates a Model as a Service business,\nand the aggregate revenue of the Licensee and its affiliates exceeds 20 million\nUS dollars (or the equivalent in other currencies) in total over any consecutive\n12 months, the Licensee must enter into a separate agreement with Moonshot AI"
+    },
+    {
+      "claim_id": "cp4-license-ui",
+      "claim_text": "商用產品或服務若月活躍使用者逾一億、或月營收逾 2000 萬美元，其使用者介面須顯著標示「Kimi K3」",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/LICENSE",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "commercial products or services that have more than 100 million\nmonthly active users, or more than 20 million US dollars (or equivalent in other\ncurrencies) in monthly revenue, \"Kimi K3\" must be prominently displayed on the\nuser interface"
+    },
+    {
+      "claim_id": "cp5-trails",
+      "claim_text": "報告自己承認整體仍落後 Fable 5 與 GPT-5.6 Sol",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "Although gaps to the strongest proprietary models remain"
+    },
+    {
+      "claim_id": "cp5-cost",
+      "claim_text": "BrowseComp $2.03/task、約 GPT-5.6 Sol 一半",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf",
+      "retrieved_at": "2026-07-29T07:18:00Z",
+      "quoted_snippet": "the best score (91.2%) at $2.03 per task — half the cost of GPT-5.6 Sol"
+    },
+    {
+      "claim_id": "code-repo-inventory",
+      "claim_text": "官方 repo 完整檔案樹僅四個受版控檔案：LICENSE、README.md、assets/kimi-logo.png、k3_tech_report.pdf，無任何原始碼",
+      "kind": "evidence-supported",
+      "target": "code:repo-inventory",
+      "source_url": "evidence/repo_inventory.txt",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "Complete file tree (only 4 tracked files; no source code of any kind):\nLICENSE\nREADME.md\nassets/kimi-logo.png\nk3_tech_report.pdf"
+    },
+    {
+      "claim_id": "code-repo-model-card",
+      "claim_text": "README.md 經 file 判定為 HTML/UTF-8 文字文件（即 model card），非訓練/推論程式碼",
+      "kind": "evidence-supported",
+      "target": "code:repo-readme",
+      "source_url": "evidence/repo_inventory.txt",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "README.md | HTML document text, Unicode text, UTF-8 text"
+    },
+    {
+      "claim_id": "code-repo-logo",
+      "claim_text": "repo 內唯一的圖片資產 assets/kimi-logo.png 為 PNG 影像（1097 x 400）",
+      "kind": "evidence-supported",
+      "target": "code:repo-logo",
+      "source_url": "evidence/repo_inventory.txt",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "assets/kimi-logo.png | PNG image data, 1097 x 400"
+    },
+    {
+      "claim_id": "code-repo-pdf",
+      "claim_text": "k3_tech_report.pdf 的 git blob sha 6899a9ea… 與釘選 source_blob_sha 相符",
+      "kind": "evidence-supported",
+      "target": "code:repo-pdf",
+      "source_url": "evidence/repo_inventory.txt",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "git blob sha (k3_tech_report.pdf): 6899a9ea0bb99868235e563fefbe08a5c0aa7bd2"
+    },
+    {
+      "claim_id": "code-repo-nocode",
+      "claim_text": "對 .py/.sh/.cpp/.cu 等程式碼副檔名掃描結果為 NONE FOUND，repo 未附任何訓練或推論程式碼",
+      "kind": "evidence-supported",
+      "target": "code:repo-nocode-scan",
+      "source_url": "evidence/repo_inventory.txt",
+      "retrieved_at": "2026-07-29T07:20:00Z",
+      "quoted_snippet": "Code-file scan (extensions .py .sh .cpp .cu .c .h .js .ts .ipynb .yaml .yml .toml Makefile Dockerfile requirements): NONE FOUND"
+    }
+  ]
+}

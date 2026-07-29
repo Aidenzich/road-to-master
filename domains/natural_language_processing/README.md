@@ -10,6 +10,7 @@
 | Title | Venue | Year | Code | Review |
 |-|-|-|-|-|
 | [How much do language models memorize?](https://arxiv.org/abs/2505.24832) | arXiv | '25 | - | [EN](./LanguageModelMemorization/) · [中文](./LanguageModelMemorization/README.zh-TW.md) |
+| [Kimi K3 Technical Report](https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf) | tech-report | '26 | [✓](https://github.com/MoonshotAI/Kimi-K3) | [EN](./Kimi_K3/) · [中文](./Kimi_K3/README.zh-TW.md) |
 | [Are LLMs Really Not Knowledgeable? Mining the Submerged Knowledge in LLMs' Memory](https://arxiv.org/abs/2412.20846) | ICLR | '26 | - | [EN](./SubmergedKnowledge/) · [中文](./SubmergedKnowledge/README.zh-TW.md) |
 | [Variation in Verification: Understanding Verification Dynamics in Large Language Models](https://arxiv.org/abs/2509.17995) | ICLR | '26 | [✓](https://github.com/YefanZhou/llm-verify-dynamics) | [EN](./VariationInVerification/) · [中文](./VariationInVerification/README.zh-TW.md) |
 | [From Context to Skills: Can Language Models Learn from Context Skillfully?](https://arxiv.org/abs/2604.27660) | arXiv | '26 | [✓](https://github.com/S1s-Z/Ctx2Skill) | [EN](./Ctx2Skill/) · [中文](./Ctx2Skill/README.zh-TW.md) |
