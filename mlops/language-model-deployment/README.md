@@ -44,6 +44,11 @@ caching，以及成熟的 OpenAI-compatible server。請求超過當下可執行
 scheduler 會保留在等待佇列，並在 token budget 與 KV block 可用時持續併入
 後續 engine step；不是每次湊滿一個固定 batch 才開始。
 
+PagedAttention 管理 KV cache 的 block 佈局與生命週期，FlashAttention 則最佳化
+attention kernel 的資料搬運；兩者可以在 serving engine 中協作，但不是同一層的
+替代方案。詳細區分見
+[FlashAttention 與 PagedAttention：算子最佳化和 KV cache 管理](../../domains/utils/transformer-family/flash_attention/flash-attn-vs-paged-attn.md)。
+
 但「vLLM 支援 GGUF」不代表「vLLM 支援所有 GGUF 模型」。GGUF loader 仍需
 理解模型架構；而且官方文件將 GGUF 支援標示為 experimental、under-optimized。
 截至 2026-08-11，vLLM v0.27.0 與當日 main 都沒有 Muse Glimmer 的原生

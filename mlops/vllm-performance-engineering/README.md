@@ -33,6 +33,10 @@ decode，再把長 prefill 切塊塞入剩餘 token budget。因此 `max_num_bat
 是「每次 iteration 最多處理多少 tokens」，`max_num_seqs` 才是「每次 iteration
 最多處理多少 sequences」；兩者都不是 API 同時連線數。
 
+Attention kernel 的 I/O 最佳化與 KV cache 的分頁管理是兩個不同問題；可先閱讀
+[FlashAttention 與 PagedAttention 的架構比較](../../domains/utils/transformer-family/flash_attention/flash-attn-vs-paged-attn.md)，
+再回到本文觀察它們如何影響 scheduler、cache capacity 與 latency。
+
 Embedding／pooling 模型只有輸入前向與 pooling，沒有自迴歸 decode，所以不應把
 生成服務的 ITL、output tokens/s 或長時間保留 decode KV 的直覺直接套用上去。
 然而這不代表 vLLM pooling runtime 必然完全沒有 cache 配置：vLLM V1 已為部分
