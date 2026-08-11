@@ -2,17 +2,9 @@
 
 > 更新日期：2026-08-11
 
-把 vLLM 啟動並不等於完成部署。真正的效能工程，是先定義 workload 與 SLO，
-再用可重現的實驗找出品質、延遲、吞吐量和顯存成本之間的 Pareto frontier。
 本文以 vLLM 官方文件、模型卡及原始論文為依據，建立可驗證、可重現的調校方法。
 
-## 先釐清：這是不是 MLOps 的工作？
-
-是，但組織分工沒有唯一答案。推論 runtime 調校通常落在 MLOps、LLMOps、ML
-platform 或 inference engineering 的交集：模型團隊定義品質門檻，平台團隊維護
-映像、容量、觀測與回滾，服務擁有者則決定 latency／throughput SLO。重要的不是
-職稱，而是以下責任有明確 owner：
-
+## MLOps 
 - 固定模型、runtime、driver 與 kernel 版本，確保結果可重現。
 - 以真實 prompt/output 長度和到達率壓測，而不是只跑單筆 demo。
 - 同時守住品質、錯誤率、p95/p99 latency 與單位 token 成本。
