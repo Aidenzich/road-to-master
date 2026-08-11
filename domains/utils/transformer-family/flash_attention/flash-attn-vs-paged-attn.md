@@ -1,68 +1,92 @@
-# Flash Attention vs. Paged Attention 架構解析
+# FlashAttention 與 PagedAttention：算子最佳化和 KV cache 管理
 
+FlashAttention 與 PagedAttention 經常一起出現在 LLM serving 系統，卻不是互相
+替代的技術。FlashAttention 主要減少一次 attention 計算在 GPU 記憶體階層間的
+資料搬運；PagedAttention 則讓長度動態變化的 KV cache 能以固定大小 blocks
+配置、共享與回收。
 
+## 核心差異
 
+| 面向 | FlashAttention | PagedAttention |
+|---|---|---|
+| 主要問題 | Attention kernel 的 HBM I/O 與中間張量 | Serving 時 KV cache 的動態配置、碎片與共享 |
+| 抽象層級 | GPU attention algorithm／kernel | KV block manager + 能讀取 paged KV 的 attention algorithm |
+| 主要資料 | 當次計算的 Q、K、V、softmax statistics 與 output | 跨 decoding steps 保留的 K/V tensors |
+| 核心方法 | Tiling、online softmax、kernel fusion，避免物化完整 attention matrix | Logical blocks、physical blocks 與 block table；按需配置 physical blocks |
+| 直接收益 | 降低記憶體流量與 attention 暫存空間，改善 kernel latency | 降低 KV cache 浪費、提高可容納 sequences 數，支援 prefix／beam sharing |
+| 仍無法消除 | Attention 的數學計算量；Q/K/V 與 output 仍需讀寫 HBM | 最後一個 block 的內部碎片、block metadata 與 scheduler 成本 |
+| 常見受益階段 | 長序列 prefill／training；decode 也需相容的最佳化 kernel | 自迴歸 serving 的 prefill 與 decode，decode 階段持續成長最明顯 |
 
+## FlashAttention：避免物化二次方中間矩陣
 
-## 一、 核心對比與技術定位
+Naive attention 會把 $S = QK^T$ 與 softmax probabilities 寫入 HBM。對序列長度
+$N$，這些中間矩陣具有 $O(N^2)$ 空間需求。FlashAttention 將 Q、K、V 分塊，
+在 on-chip memory 中以 online softmax 累積結果，不把完整 $N \times N$ 矩陣
+寫回 HBM。
 
-| 對比維度 | Flash Attention (運算加速/IO最佳化) | Paged Attention (記憶體管理) |
-| :--- | :--- | :--- |
-| **解決痛點** | GPU 記憶體頻寬瓶頸 (Memory Wall / IO-Bound) | KV Cache 顯存碎片化與利用率低下 |
-| **核心目標** | 讓運算「跑得更快」 (降低延遲，提升計算極限) | 讓顯存「裝得下更多」 (提升 Batch Size 與吞吐量) |
-| **作用焦點** | Attention 矩陣機制的底層算子最佳化 (Kernel 層級)| LLM 生成過程中的上下文 (KV Cache) 分配機制 |
-| **發揮優勢階段**| Prefill (預填充/編碼) 階段效率極高 | Decode (解碼/生成) 階段顯存管線的核心 |
-| **核心技術手段**| Tiling (分塊計算)、Kernel Fusion (算子融合) | OS 分頁機制 (Paging)、Block Table 虛擬映射 |
+它仍然計算精確 attention，計算複雜度仍是 $O(N^2d)$；改善的是 I/O 複雜度與
+額外儲存，不是把 dense attention 變成線性時間。Q、K、V 仍要從 HBM 載入，
+output 也要寫回 HBM，因此「完全不碰 HBM」並不正確。
 
----
+## PagedAttention：按 block 管理 KV cache
 
-## 二、 Flash Attention：突破讀寫瓶頸 (IO-Aware)
+自迴歸推論需要保存每一層過去 tokens 的 K/V。每個 request 的實際長度不同，
+而且在 decode 過程中逐 token 成長；若為最大長度預留連續區域，容易造成過度
+預留與碎片。
 
-**核心概念**：把「草稿」留在腦袋裡算完，不寫在紙上。避免 GPU 運算單元（SRAM）頻繁去慢速的大容量顯存（HBM）讀寫短暫的過程數據。
+PagedAttention 把 request 的 KV cache 表示為 logical blocks，並透過 block table
+映射到不必連續的 physical blocks：
 
-1. **算子融合與分塊計算 (Tiling)**：
-   傳統 Attention 會將龐大的 $N \times N$ 注意力分數矩陣物化（Materialize）並寫入 HBM，再讀出來做 Softmax。Flash Attention 將 $Q, K, V$ 切成小塊 (Blocks) 載入高速但極小的 **SRAM**，在內部直接完成所有運算，**只將最終結果寫回 HBM**。
-2. **記憶體複雜度降維**：
-   將 Attention 的顯存佔用從暴衝的 $O(N^2)$ 降到了線性 $O(N)$，同時極大地減少了 HBM 的讀寫次數 (Memory Accesses)，有效解決 IO-Bound 瓶頸。
+1. Prefill 根據已處理的 prompt tokens 配置所需 blocks。
+2. Decode 填入最後一個 block；容量不足時再取得新的 physical block。
+3. Request 完成後，physical blocks 回到 free pool。
+4. 多個 sequences 共享相同 prompt 時，可透過 reference counting 與
+   copy-on-write 共享既有 blocks。
 
----
+這個設計把單一 sequence 的 block-level 內部浪費限制在最後一個未填滿 block，
+但不代表顯存可以達到 100% 利用率。模型權重、activations、CUDA graphs、allocator
+與 kernel workspaces 都需要 VRAM；block size 也在 kernel 效率、metadata 與內部
+碎片之間形成 trade-off。原始 vLLM 論文報告的低浪費與吞吐提升是其測試設定下
+的實驗結果，不是所有模型與 workload 的固定保證。
 
-## 三、 Paged Attention：解放顯存碎片化
+## 兩者如何一起工作
 
-**核心概念**：借鑑作業系統的「虛擬記憶體分頁」，動態為無法預知長度的對話分配空間。
+Serving engine 可以同時使用 paged KV cache 與 FlashAttention-family kernel：
 
-1. **痛點：未知的生成長度**：
-   傳統 LLM 生成文字時，需為每筆請求預先分配「最大可能長度」的連續顯存（KV Cache）。這會產生巨大的內部與外部碎片，導致實際顯存利用率通常不到 30%。
-2. **非連續存儲 (Paging Mechanisms)**：
-   將 KV Cache 切分成固定大小的單位 **Blocks**（例如每個 Block 存 16 個 Token 的 K 與 V）。
-3. **邏輯與物理映射 (Block Table)**：
-   系統在 CPU 記憶體中維護一張 **Block Table（類似 OS 的分頁表）**，負責記錄 Key-Value 映射：將對話的「邏輯 Block 編號」對應到 GPU 顯存中的「物理 Block 索引」。**注意：表內只存指標，真正的張量數據（KV Cache）皆存放於顯存中。**
-   * **分配時機**：在 Prefill（預填充）階段，如果 Prompt 有 32 個 Token，系統會**一次性**分配 2 個 Block（假設 1 Block = 16 Token）並記錄在 Block Table 中。進入 Decode（生成）階段後，每生成一個新 Token 就塞進最後一個 Block，<mark>直到最後一個 Block 塞滿了，系統才會去顯存池再要一個新的 Block</mark>。最糟的情況也只會浪費「最後一個 Block 沒裝滿」的零頭空格（浪費 < 4%）。
-   * **註銷時機（釋放與回收）**：當該筆 Request 徹底結束時（例如模型生成了 `<EOS>` 結束符號、達到長度上限，或客戶端主動中斷），vLLM 的調度器 (Scheduler) 就會將這張 Block Table 裡所有記錄的「物理 Block 指標」，歸還給 GPU 的「空閒池 (Free Pool)」。完成指標釋放後，這張專屬該 Request 的 Block Table 就會從 CPU 記憶體中被註銷刪除。
-4. **極致的顯存利用率（消滅碎片化）**：
-   * **消滅內部碎片 (Internal Fragmentation)**：傳統為了防範生成過長，必須一開始就為每個 Request 預先切出一大塊（例如 2048 token）的連續顯存。如果最後只生成了 100 個 token，剩下 1948 的空間就被白白鎖死（這就是巨大浪費）。有了 Block 和 Block Table 後，變成**用多少拿多少**。
-   * **消滅外部碎片 (External Fragmentation)**：傳統的連續分配，會在顯存池中留下許多不規則大小的「空隙」（像是裝箱時剩下的畸零空間），這些空隙太小放不下新 Request。但在 Paged Attention 中，所有的 Block 都是**一模一樣大**的標準規格。任何一個被釋放的 Block，都能立刻被其他 Request 拿去拼圖，顯存空間可以被 100% 嚴密榨乾。
-
----
-
-## 四、 兩者在 vLLM 中的協作 (The Big Picture)
-
-在先進的 LLM 推理框架（如 vLLM）中，這兩者並非競爭，而是**上下層的緊密結合**：
-
-* **資源調度 (Paged Attention)**：
-  負責「資源調度」。框架會決定每個 Request 的 KV Cache 該放在物理顯存的哪些**不連續 Blocks** 中，並維護 Block Table。
-* **運算加速 (Flash Attention / Paged-Flash Attention)**：
-  負責「極速運算」。當 Decode 階段需要計算 Attention 時，會拿著 Block Table 把這些分散的 KV Cache 讀入 SRAM，並套用 Flash Attention 的 Tiling 技巧快速算出結果。
-
----
-
-## 五、 如何在日誌中確認生效
-
-在啟動 vLLM 或其他推理引擎時，可透過日誌觀察後端算子的調用情況。若硬體支援，系統會自動選用最佳算子組合：
-
-```bash
-# 查看啟動日誌中是否包含以下字樣
-INFO: vLLM is using PagedAttention.
-INFO: Using FlashAttention-2 backend.
-# 此時代表你的框架正在完美運作：PA 管理顯存 + FA 加速算子
+```text
+request scheduler
+      │
+      ├─ KV block manager ── logical blocks → physical KV blocks
+      │
+      └─ attention backend ── block table + Q/K/V → attention output
 ```
+
+「Paged」描述 KV 的佈局與生命週期；「Flash」描述 attention 計算如何降低 I/O。
+實際 backend 必須同時支援模型 dtype、head size、KV dtype、block size、GPU compute
+capability 與所需 attention pattern。框架能管理 paged KV，不代表任意
+FlashAttention build 都能讀取該佈局。
+
+以 vLLM 為例，backend 會依硬體與模型配置自動驗證和選擇；目前官方 feature
+matrix 同時列出 FlashAttention、FlashInfer、Triton Attention 等選項，而且不同
+GPU 世代的優先序不同。因此不要依賴手寫的假想 log 字串判定功能已啟用，應：
+
+1. 固定 vLLM image/version 與啟動參數。
+2. 讀取實際啟動日誌中的 selected attention backend。
+3. 對照該版本的 backend feature matrix。
+4. 用目標 prompt/context/concurrency 實測 TTFT、ITL、throughput、VRAM 與錯誤率。
+
+## 選擇問題時的快速判斷
+
+- 單筆長 prompt 的 attention 很慢或暫存空間過高：先檢查 attention backend、
+  dtype、head dimension 與 FlashAttention 相容性。
+- 高併發或長 context 下 KV cache 接近滿載、發生 preemption：先檢查 cache
+  bytes/token、block 容量、scheduler budget 與 PagedAttention/KV manager metrics。
+- 兩種現象同時存在：分別量測 kernel latency 與 request-level queue/cache 指標，
+  不要把所有改善都歸因於其中一項技術。
+
+## 延伸閱讀
+
+- [FlashAttention 深度解析](./README.md)
+- [FlashAttention paper](https://arxiv.org/abs/2205.14135)
+- [PagedAttention / vLLM paper](https://arxiv.org/abs/2309.06180)
+- [vLLM attention backend feature matrix](https://docs.vllm.ai/en/latest/design/attention_backends/)

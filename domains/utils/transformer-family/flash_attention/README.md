@@ -1,7 +1,7 @@
 | Property  | Data |
 |-|-|
 | Created | 2026-01-23 |
-| Updated | 2026-01-23 |
+| Updated | 2026-08-11 |
 | Author | @Aiden |
 | Tags | #study #optimization #attention |
 
@@ -26,7 +26,7 @@ FlashAttention 是由 Tri Dao 等人於 2022 年提出的一種 **IO-aware** 的
 
 ## 動機：為什麼需要 FlashAttention？
 
-標準的 Self-Attention 具有 $O(N^2)$ 的時間和空間複雜度，其中 $N$ 是序列長度。當序列長度增加時：
+Naive Self-Attention 具有 $O(N^2)$ 的計算量與中間張量空間，其中 $N$ 是序列長度。下表只計算**單一 attention head 的一張 FP16 score matrix**，不代表模型的總 VRAM：
 
 | 序列長度 | 注意力矩陣大小 | 記憶體需求 (FP16) |
 |---------|--------------|------------------|
@@ -43,51 +43,14 @@ FlashAttention 是由 Tri Dao 等人於 2022 年提出的一種 **IO-aware** 的
 ---
 
 ## GPU 記憶體層次結構
-想像 GPU 是一間工廠：
-- **SRAM（Shared Memory）** = 工人手邊的工作台
-  - 容量小（約 192KB），但存取超快（~19 TB/s）
-  - 工人可以直接在上面操作，不用走動
-- **HBM（Global Memory）** = 工廠的大倉庫
-  - 容量大（40-80 GB），但存取較慢（~2 TB/s）
-  - 每次要資料都要走去倉庫搬，很花時間
+想像 GPU 是一間工廠：registers 與 shared memory 是運算單元附近、容量小但快速的
+工作區；HBM/global memory 是容量大但資料搬運成本較高的倉庫。實際容量與頻寬取決
+於 GPU 世代和型號，因此不應把某張 GPU 的數字當成 FlashAttention 的固定規格。
 
-**關鍵問題**：傳統 Attention 會產生超大的中間結果（$N \times N$ 矩陣），工作台放不下，只好存到倉庫。但每次存取倉庫都很慢，成為效能瓶頸。
-
-**FlashAttention 的解法**：把計算切成小塊，確保每一塊都能在工作台上完成，永遠不用跑倉庫。
-
-理解 FlashAttention 的關鍵在於理解 GPU 的記憶體層次結構：
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    GPU Architecture                  │
-├─────────────────────────────────────────────────────┤
-│                                                      │
-│  ┌──────────────────────────────────────────────┐   │
-│  │              SRAM (On-chip)                   │   │
-│  │  ┌────────────────────────────────────────┐  │   │
-│  │  │     Registers: ~20KB per SM            │  │   │
-│  │  │     Bandwidth: ~19 TB/s                │  │   │
-│  │  └────────────────────────────────────────┘  │   │
-│  │  ┌────────────────────────────────────────┐  │   │
-│  │  │     Shared Memory: 192KB per SM        │  │   │
-│  │  │     Bandwidth: ~19 TB/s                │  │   │
-│  │  └────────────────────────────────────────┘  │   │
-│  └──────────────────────────────────────────────┘   │
-│                         ▲                            │
-│                         │ ~10x faster                │
-│                         ▼                            │
-│  ┌──────────────────────────────────────────────┐   │
-│  │              HBM (Off-chip)                   │   │
-│  │  ┌────────────────────────────────────────┐  │   │
-│  │  │     Global Memory: 40-80 GB            │  │   │
-│  │  │     Bandwidth: ~2 TB/s (A100)          │  │   │
-│  │  └────────────────────────────────────────┘  │   │
-│  └──────────────────────────────────────────────┘   │
-│                                                      │
-└─────────────────────────────────────────────────────┘
-```
-
-**關鍵觀察**：SRAM 的存取速度比 HBM 快約 **10 倍**，但容量小約 **1000 倍**。
+Naive Attention 會產生 $N \times N$ scores/probabilities，並在不同 kernels 之間
+寫入、讀回 HBM。FlashAttention 的解法是把 Q、K、V 分塊載入 on-chip memory，
+用 online softmax 累積結果，避免把完整的二次方中間矩陣寫入 HBM。Q、K、V 仍需
+從 HBM 載入，最終 output 也要寫回；省掉的是大量中間資料搬運，而不是完全避開 HBM。
 
 ---
 
@@ -131,7 +94,8 @@ def standard_attention(Q, K, V):
 
 ## FlashAttention 核心原理
 
-FlashAttention 的核心思想是 **在 SRAM 中完成所有計算**，避免將 $N \times N$ 的中間矩陣寫入 HBM。
+FlashAttention 的核心思想是讓每個 tile 的主要運算與 softmax statistics 留在
+on-chip memory，避免將完整 $N \times N$ 中間矩陣寫入 HBM。
 
 ### 一句話總結
 
@@ -224,12 +188,15 @@ $$
 
 ### Causal Masking 的 Block-wise 優化
 
-對於 GPT 這類 Decoder-only 模型，需要使用 Causal Mask（遮蔽掉未來的 token）。在標準 Attention 中，即使被 Mask 掉的位置（右上三角矩陣）仍會參與運算，最後再乘上 0。
+對於 GPT 這類 Decoder-only 模型，需要使用 Causal Mask（遮蔽未來 token）。
+Naive dense 實作可能先計算右上三角區域再套 mask；其他 fused／triangular kernels
+也可能跳過這些工作，所以這不是所有「標準 Attention」實作的必然行為。
 
 FlashAttention 的 Tiling 策略帶來了一個額外優勢：**直接跳過無效的 Block**。
 
 - 因為是分塊計算，如果某個 Block 完全落在 Mask 區域內（例如 $Q$ 的時間步小於 $K$ 的時間步），該 Block **完全不需要讀取和計算**。
-- 這使得 Causal Attention 的計算量在 FlashAttention 中真正減半，進一步提升了效率。
+- 對完整的方形 causal attention，跳過整個被遮蔽的 tiles 可省去接近一半的 score
+  計算；邊界 tiles、kernel 排程與非方形 Q/K 長度會使實際加速不同。
 
 ---
 
@@ -350,16 +317,18 @@ $$
 
 ### 記憶體需求對比
 
-| 方法 | 前向儲存 | 總記憶體 |
+| 方法 | Attention 額外中間儲存 | 包含 Q/K/V/O 的量級 |
 |-----|---------|---------|
-| 標準 Attention | $O(N^2)$ | $O(N^2)$ |
-| FlashAttention | $O(N)$ | $O(N)$ |
+| Naive Attention | $O(N^2)$ | $O(N^2 + Nd)$ |
+| FlashAttention | $O(N)$ softmax statistics | $O(Nd)$ |
 
 ---
 
 ## FlashAttention-2 改進
 
-FlashAttention-2 在原版基礎上進行了多項優化，將 GPU 利用率從 **25-40%** 提升到 **50-73%**。
+FlashAttention-2 論文在其 A100 kernel benchmarks 中，將相對 theoretical maximum
+FLOPs/s 的效率由 FlashAttention 的 **25～40%** 提升至 **50～73%**。這不是整張
+GPU 的通用 utilization 指標，也不是任意模型的端到端提升。
 
 ### 主要改進
 
@@ -409,35 +378,6 @@ GPU 的工人分成小組（warp，32 個 thread 一組），同組的工人必�
 
 ---
 
-### 改進 4：迴圈順序優化
-處理 Q、K、V 三個矩陣時，迴圈的順序會影響效能。
-
-**FlashAttention-1 的做法**：外層迴圈遍歷 K, V blocks
-- 對於每個 K, V block，需要把所有 Q blocks 的結果都更新一遍
-- 這意味著 output (O) 矩陣要被反覆讀取和寫入 HBM
-
-**FlashAttention-2 的做法**：外層迴圈遍歷 Q blocks
-- 對於每個 Q block，遍歷所有 K, V blocks 來計算完整的 attention
-- 計算完成後，O 只需要寫入 HBM 一次
-
-這就像填問卷：與其每個題目都讓所有人輪流填一點，不如讓每個人一次把整份問卷填完再交——減少了問卷來回傳遞的次數。
-
-```python
-# FlashAttention-2: Q 在外層
-for i in range(num_Q_blocks):
-    load Q_i to SRAM
-    for j in range(num_KV_blocks):
-        load K_j, V_j to SRAM
-        compute attention for Q_i with K_j, V_j
-    write O_i to HBM  # 每個 Q block 的結果只寫一次
-```
-
-這種順序的優勢：
-- Q 的每個 block 只需寫入 HBM 一次
-- 更好的記憶體存取模式
-
----
-
 ## FlashAttention-3 改進
 
 FlashAttention-3 針對 NVIDIA Hopper GPU (H100) 進行了深度優化。
@@ -445,36 +385,27 @@ FlashAttention-3 針對 NVIDIA Hopper GPU (H100) 進行了深度優化。
 ### 主要特性
 
 #### 特性 1：WGMMA (Warpgroup Matrix Multiply-Accumulate)
-H100 GPU 引入了新的矩陣乘法指令 WGMMA，比舊的 WMMA 指令更強大。
-
-**傳統方式**：CPU 發指令 → GPU 執行 → CPU 等結果 → 發下一個指令（同步執行）
-
-**WGMMA 的改進**：CPU 發完指令就去做別的事，GPU 自己慢慢算，算完會通知（非同步執行）。
-WGMMA (Warpgroup Matrix Multiply-Accumulate) 是 Hopper 架構引入的新指令，它在 **Warpgroup (128 threads)** 層級運作，比傳統的 Warp (32 threads) 層級更有效率。且它支援 Tensor Memory Accelerator (TMA) 的非同步數據搬運，讓計算單元不用停下來等資料。
-
-這就像寄快遞：與其站在郵局等包裹寄到才離開，不如寄完就走，快遞到了會有簡訊通知。
+Hopper 引入 warpgroup-level asynchronous matrix multiply instructions。FlashAttention-3
+利用 WGMMA 與 Tensor Memory Accelerator（TMA），讓 GPU warpgroups 的矩陣運算
+和 global/shared memory 資料搬運重疊。這是 GPU kernel 內部的非同步 pipeline，
+不是「CPU 發一條指令後等待 GPU」的流程。
 
 ---
 
 #### 特性 2：Ping-pong Scheduling
 
-GPU 中的「warpgroup」是一組一起工作的 threads。FlashAttention-3 使用兩個 warpgroup 像打乒乓球一樣交替工作：
-
-- **Warpgroup A**：正在計算矩陣乘法
-- **Warpgroup B**：同時在從記憶體載入下一批資料
-
-當 A 算完需要新資料時，B 剛好載入完成，兩者交換角色。這樣記憶體延遲就被「藏起來」了，GPU 永遠有事做。
-
-這就像餐廳的雙廚房模式：一個廚房在煮菜時，另一個廚房在備料。菜上桌後兩邊角色互換，客人永遠不用等。
+Kernel 以 warp specialization 分配 producer 與 consumer 工作，並讓 consumer
+warpgroups 交錯執行 matmul 和 softmax。這可隱藏部分資料搬運與非 matmul 運算
+延遲，但收益取決於 shape、dtype 與硬體，不能理解為 GPU 永遠沒有 idle cycles。
 
 ---
 
 #### 特性 3：FP8 支援
 FP8 是一種只用 8 位元表示的浮點數（相比 FP16 的 16 位元或 FP32 的 32 位元）。
 
-**優勢**：
-- 計算量減半：同樣的硬體可以處理兩倍的數據
-- 記憶體減半：可以處理更長的序列或更大的 batch
+**潛在優勢**：FP8 operand payload 約為 FP16 的一半，且 Hopper Tensor Cores 有
+相應低精度吞吐能力；這不表示 attention 的數學 FLOPs 減半，也不保證端到端速度
+或可用 context 必然翻倍。
 
 **挑戰**：FP8 精度很低，容易造成數值問題
 
@@ -488,28 +419,16 @@ FP8 是一種只用 8 位元表示的浮點數（相比 FP16 的 16 位元或 FP
 ---
 
 #### 特性 4：Incoherent Processing
-傳統的 attention 計算有嚴格的順序依賴：
-1. 先算 $QK^T$
-2. 等算完才能做 softmax
-3. 等 softmax 完才能乘 V
-
-這種「等前一步完成才能開始下一步」的模式叫做「coherent（一致的）」處理，會造成 GPU 資源閒置。
-
-**Incoherent Processing 的做法**：
-- 把 softmax 的計算和矩陣乘法「解耦」
-- 讓不同的硬體單元可以同時工作
-- 即使前一步沒完全做完，只要有部分結果就開始做下一步
-
-這就像流水線作業：不用等整批產品都檢驗完才開始包裝，檢驗完一個就包一個。
+這裡的 incoherent processing 不是取消 $QK^T \rightarrow softmax \rightarrow PV$
+的資料依賴。FlashAttention-3 對輸入套用隨機正交變換，使 outliers 分散後再做
+FP8 block quantization；正交變換保持 attention 所需的數學關係，目的是降低低精度
+量化誤差。計算與資料搬運的重疊則屬於前述 asynchrony／warp specialization。
 
 ### 效能提升
 
-在 H100 上的效能對比：
-
-| 版本 | 相對效能 | 達到的 TFLOPS |
-|-----|---------|--------------|
-| FlashAttention-2 | 1.0x | ~400 TFLOPS |
-| FlashAttention-3 | 1.5-2.0x | ~600-750 TFLOPS |
+FlashAttention-3 論文在其 H100 測試設定中，報告 FP16 相對 FlashAttention-2
+有 1.5～2.0 倍速度提升，最高約 740 TFLOPs/s；FP8 接近 1.2 PFLOPs/s。這是指定
+GPU、kernel shapes 與 benchmark 的結果，不應直接外推成任意模型的端到端加速。
 
 ---
 
@@ -565,6 +484,7 @@ output = memory_efficient_attention(q, k, v)
 ```python
 import torch
 import torch.nn.functional as F
+from torch.nn.attention import SDPBackend, sdpa_kernel
 
 # PyTorch 2.0+ 內建 scaled_dot_product_attention
 # 會自動選擇最佳後端 (包括 FlashAttention)
@@ -573,12 +493,8 @@ q = torch.randn(2, 32, 2048, 64, dtype=torch.float16, device='cuda')
 k = torch.randn(2, 32, 2048, 64, dtype=torch.float16, device='cuda')
 v = torch.randn(2, 32, 2048, 64, dtype=torch.float16, device='cuda')
 
-# 使用 SDPA (自動選擇 FlashAttention 如果可用)
-with torch.backends.cuda.sdp_kernel(
-    enable_flash=True,
-    enable_math=False,
-    enable_mem_efficient=False
-):
+# 僅允許 FlashAttention backend；不相容時會直接報錯，適合驗證 backend。
+with sdpa_kernel(SDPBackend.FLASH_ATTENTION):
     output = F.scaled_dot_product_attention(q, k, v, is_causal=True)
 ```
 
@@ -593,37 +509,32 @@ with torch.backends.cuda.sdp_kernel(
 | 計算 FLOPs | $O(N^2 d)$ | $O(N^2 d)$ |
 | HBM 存取 | $O(N^2 + Nd)$ | $O(N^2 d^2 M^{-1})$ |
 
-當 $M = \Theta(Nd)$ 時，FlashAttention 的 HBM 存取為 $O(N^2 d / M) = O(N)$。
+當 $M = \Theta(Nd)$ 時，上式化簡為 $O(Nd)$；若把 head dimension $d$ 視為常數，
+才可簡寫成對序列長度 $N$ 的線性 I/O。
 
 ### 記憶體複雜度
 
-| 方法 | 中間儲存 | 總記憶體 |
+| 方法 | Attention 額外中間儲存 | 包含 Q/K/V/O 的量級 |
 |-----|---------|---------|
-| 標準 Attention | $O(N^2)$ | $O(N^2)$ |
-| FlashAttention | $O(N)$ | $O(N)$ |
+| Naive Attention | $O(N^2)$ | $O(N^2 + Nd)$ |
+| FlashAttention | $O(N)$ softmax statistics | $O(Nd)$ |
 
-### 實際效能數據
-
-在 A100 (40GB) 上的典型加速比：
-
-| 序列長度 | 加速比 (vs PyTorch) | 記憶體節省 |
-|---------|-------------------|-----------|
-| 512 | 2-3x | 5-20x |
-| 2K | 3-5x | 10-20x |
-| 8K | 4-7x | 10-20x |
-| 16K | 5-10x | 10-20x |
+實際加速不應套用固定倍數。應在相同 dtype、shape、causal mask、dropout、warmup
+與同步方式下，比較 kernel latency、peak allocated memory 與端到端模型吞吐；短序列
+或不相容 shape 可能讓 launch／dispatch overhead 主導。
 
 ---
 
 ## 限制與注意事項
 
 1. **硬體要求**
-   - 需要 NVIDIA GPU (Turing 架構及以上)
-   - 最佳效能在 Ampere (A100) 和 Hopper (H100)
+   - 支援範圍取決於套件與版本。官方 FlashAttention-2 CUDA 實作目前主要支援
+     Ampere、Ada、Hopper；Turing 使用另一個功能子集 repo，另有 ROCm backends。
+   - FlashAttention-3 針對 Hopper；不能把 FA3 的 H100 結果外推到其他 GPU。
 
 2. **精度要求**
-   - 主要支援 FP16 和 BF16
-   - FP32 需要特殊處理
+   - 官方 CUDA FlashAttention-2 主要支援 FP16/BF16；FA3 另有 Hopper FP8 forward。
+   - Backend 支援不等於模型品質不變，低精度路徑仍需數值驗證。
 
 3. **注意力變體支援**
    - 標準 attention ✓
@@ -631,8 +542,8 @@ with torch.backends.cuda.sdp_kernel(
    - 某些複雜的 attention mask 可能不支援
 
 4. **Head dimension 限制**
-   - 通常限制在 32, 64, 128, 256
-   - 非標準 head dim 可能無法使用
+   - 官方 CUDA FlashAttention-2 目前支援 head dimension 至 256；其他 backend、
+     backward、dropout 與 GPU 組合可能有不同限制，應查當下版本 feature matrix。
 
 ---
 
@@ -641,5 +552,8 @@ with torch.backends.cuda.sdp_kernel(
 1. [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135)
 2. [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691)
 3. [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://arxiv.org/abs/2407.08608)
-4. [Online normalizer calculation for softmax](https://arxiv.org/abs/1805.02867)
-5. [GitHub: flash-attention](https://github.com/Dao-AILab/flash-attention)
+4. [FlashAttention official implementation and support matrix](https://github.com/Dao-AILab/flash-attention)
+
+## 延伸閱讀
+
+- [FlashAttention 與 PagedAttention：算子最佳化和 KV cache 管理](./flash-attn-vs-paged-attn.md)

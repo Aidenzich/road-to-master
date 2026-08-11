@@ -30,3 +30,4 @@
 | [domains](./domains/) | The interesting paper of different domains |
 | [tips](./tips) | Some tips for data science |
 | [tools](./tools/) | Some tools for data science |
+| [mlops](./mlops/) | Notes on model deployment and ML operations |
