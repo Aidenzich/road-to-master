@@ -1,0 +1,585 @@
+{
+ "note_path": "domains/natural_language_processing/RefusalDirection/README.md",
+ "domain": "natural_language_processing",
+ "topic": "RefusalDirection",
+ "no_untrusted_code_executed": true,
+ "generated_at": "2026-08-12T11:35:00Z",
+ "entries": [
+  {
+   "claim_id": "ac-title",
+   "claim_text": "Refusal in Language Models Is Mediated by a Single Direction",
+   "kind": "paper-claim",
+   "target": "table-cell:title",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "Refusal in Language Models"
+  },
+  {
+   "claim_id": "ac-venue",
+   "claim_text": "NeurIPS 2024 (peer-reviewed, main conference)",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue",
+   "source_url": "https://dblp.org/rec/conf/nips/ArditiOSPPGN24.html",
+   "retrieved_at": "2026-08-12T11:30:00Z",
+   "quoted_snippet": "neurips_2024"
+  },
+  {
+   "claim_id": "ac-year",
+   "claim_text": "2024",
+   "kind": "evidence-supported",
+   "target": "table-cell:year",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "neurips_2024"
+  },
+  {
+   "claim_id": "ac-authors",
+   "claim_text": "Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes Gurnee, Neel Nanda",
+   "kind": "evidence-supported",
+   "target": "table-cell:authors",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "Andy Arditi"
+  },
+  {
+   "claim_id": "ac-code",
+   "claim_text": "https://github.com/andyrdt/refusal_direction",
+   "kind": "paper-claim",
+   "target": "table-cell:official-code",
+   "source_url": "https://github.com/andyrdt/refusal_direction",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "https://github.com/andyrdt/refusal_direction"
+  },
+  {
+   "claim_id": "ac-kind",
+   "claim_text": "paper",
+   "kind": "evidence-supported",
+   "target": "table-cell:venue-kind",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "neurips_2024"
+  },
+  {
+   "claim_id": "b1",
+   "claim_text": "對無害請求照做、對有害請求拒答",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-1",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "obey benign requests but refuse harmful ones"
+  },
+  {
+   "claim_id": "b2",
+   "claim_text": "rank-one",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-2",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "even a simple rank-one weight modification can nearly eliminate refusal behavior"
+  },
+  {
+   "claim_id": "b3",
+   "claim_text": "difference-in-means",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-3",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "single difference-in-means direction"
+  },
+  {
+   "claim_id": "b4",
+   "claim_text": "13 個 open-source chat model",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-4",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "13 popular open-source chat models up to 72B parameters in size"
+  },
+  {
+   "claim_id": "b5",
+   "claim_text": "線性表徵假設",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-5",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "represent features, or concepts, as linear directions in activation space"
+  },
+  {
+   "claim_id": "b6",
+   "claim_text": "平均 activation",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-6",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "we compute the difference between the model's mean activations when run on harmful and harmless instructions"
+  },
+  {
+   "claim_id": "e1",
+   "claim_text": "\\mathbf{r}_i^{(l)} = \\mu_i^{(l)}",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-1",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "\\mathbf{r}_i^{(l)} = \\boldsymbol{\\upmu}_i^{(l)} - \\boldsymbol{\\upnu}_i^{(l)}"
+  },
+  {
+   "claim_id": "b7",
+   "claim_text": "128 條指令",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-7",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "train and validation splits of 128 and 32 samples"
+  },
+  {
+   "claim_id": "b7c",
+   "claim_text": "官方 get_mean_diff 實作為 harmful 平均減 harmless 平均",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-7",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/submodules/generate_directions.py",
+   "retrieved_at": "2026-08-12T11:32:00Z",
+   "quoted_snippet": "mean_activations_harmful - mean_activations_harmless"
+  },
+  {
+   "claim_id": "b8",
+   "claim_text": "bypass_score",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-8",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "ability to bypass refusal when ablated and to induce refusal when added"
+  },
+  {
+   "claim_id": "b8c",
+   "claim_text": "prune_layer_percentage=0.2",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-8",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/submodules/select_direction.py",
+   "retrieved_at": "2026-08-12T11:32:00Z",
+   "quoted_snippet": "prune_layer_percentage=0.2"
+  },
+  {
+   "claim_id": "b9",
+   "claim_text": "-9.715",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-9",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "-9.715"
+  },
+  {
+   "claim_id": "b9c",
+   "claim_text": "官方 direction_metadata.json 記錄 Llama-3 8B 方向來自 pos -5、layer 12",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-9",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/runs/meta-llama-3-8b-instruct/direction_metadata.json",
+   "retrieved_at": "2026-08-12T11:32:00Z",
+   "quoted_snippet": "\"pos\": -5"
+  },
+  {
+   "claim_id": "b9d",
+   "claim_text": "官方 filter_fn 以 steering_score < induce_refusal_threshold(=0)排除候選，故 induce_score==0 的邊界候選被保留，與論文嚴格大於零略有差異",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-9",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/submodules/select_direction.py",
+   "retrieved_at": "2026-08-12T12:20:00Z",
+   "quoted_snippet": "if induce_refusal_threshold is not None and steering_score < induce_refusal_threshold:"
+  },
+  {
+   "claim_id": "t1",
+   "claim_text": "三個代表模型的方向選擇結果(Gemma 2B bypass_score -14.435)",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-1",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "-14.435"
+  },
+  {
+   "claim_id": "p10",
+   "claim_text": "就能直觀看到為什麼會選到 pos -5、layer 12",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-10",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "of each candidate direction for"
+  },
+  {
+   "claim_id": "b10",
+   "claim_text": "directional ablation",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-11",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "Directional ablation ``zeroes out'' the component along"
+  },
+  {
+   "claim_id": "e2",
+   "claim_text": "\\mathbf{x}' \\leftarrow \\mathbf{x} - \\hat{\\mathbf{r}}",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-2",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "\\mathbf{x}' \\leftarrow \\mathbf{x} - \\hat{\\mathbf{r}} \\hat{\\mathbf{r}}^{\\intercal} \\mathbf{x}"
+  },
+  {
+   "claim_id": "b11",
+   "claim_text": "activation -= (activation @ direction).unsqueeze(-1) * direction",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-12",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/utils/hook_utils.py",
+   "retrieved_at": "2026-08-12T11:32:00Z",
+   "quoted_snippet": "activation -= (activation @ direction).unsqueeze(-1) * direction"
+  },
+  {
+   "claim_id": "b12",
+   "claim_text": "activation addition",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-13",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "thereby inducing refusal"
+  },
+  {
+   "claim_id": "e3",
+   "claim_text": "\\mathbf{x}^{(l)} + \\mathbf{r}^{(l)}",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-3",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "\\mathbf{x}^{(l)'} \\leftarrow \\mathbf{x}^{(l)} + \\mathbf{r}^{(l)}"
+  },
+  {
+   "claim_id": "p14",
+   "claim_text": "遠離它原本的分佈，變成一個訓練時從未出現過的 out-of-distribution 狀態",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-14",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "However, note that the intervention pushes"
+  },
+  {
+   "claim_id": "b13",
+   "claim_text": "正交移除",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-15",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "orthogonalize its column vectors with respect to"
+  },
+  {
+   "claim_id": "e4",
+   "claim_text": "W_{\\mathrm{out}}' \\leftarrow W_{\\mathrm{out}}",
+   "kind": "evidence-supported",
+   "target": "note-section:body-equation-4",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "W_{\\text{out}}' \\leftarrow W_{\\text{out}} - \\hat{\\mathbf{r}} \\hat{\\mathbf{r}}^{\\intercal} W_{\\text{out}}"
+  },
+  {
+   "claim_id": "b14",
+   "claim_text": "完全等價",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-16",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "this weight modification is equivalent to the previously described inference-time directional ablation"
+  },
+  {
+   "claim_id": "b15",
+   "claim_text": "不需要梯度優化",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "requiring neither gradient-based optimization nor a dataset of harmful completions"
+  },
+  {
+   "claim_id": "b15c",
+   "claim_text": "改造 70B 模型的算力成本不到 5 美元",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-17",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:20:00Z",
+   "quoted_snippet": "using less than \\$5 of compute"
+  },
+  {
+   "claim_id": "b16",
+   "claim_text": "refusal score",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "If a model completion includes at least one such substring, it is classified as a refusal"
+  },
+  {
+   "claim_id": "b16b",
+   "claim_text": "所有評估生成採 greedy decoding、最大長度 512 tokens",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "we always use greedy decoding and a maximum generation length of 512 tokens"
+  },
+  {
+   "claim_id": "b16c",
+   "claim_text": "官方實作 gemma_model.py 定義 GEMMA_REFUSAL_TOKS = [235285]（Table 4 對應到字串 \"I cannot\"），為 refusal_metric 的操作值",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-18",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/model_utils/gemma_model.py",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "GEMMA_REFUSAL_TOKS = [235285]"
+  },
+  {
+   "claim_id": "b16d",
+   "claim_text": "官方 refusal score 判定使用 12 個拒答子字串（_test_prefixes_jailbreakbench）",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-18",
+   "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/refusal-direction-2406-11717/.loop-manager/code-clone/pipeline/submodules/evaluate_jailbreak.py",
+   "retrieved_at": "2026-08-12T12:20:00Z",
+   "quoted_snippet": "_test_prefixes_jailbreakbench = ["
+  },
+  {
+   "claim_id": "b17",
+   "claim_text": "必要性",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "Ablating the ``refusal direction'' reduces refusal rates and elicits unsafe completions"
+  },
+  {
+   "claim_id": "b17b",
+   "claim_text": "Llama-3 8B 無介入 refusal 0.95 / safety 0.97；directional ablation 後 0.01 / 0.15",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "Directional ablation & 0.01 & 0.15"
+  },
+  {
+   "claim_id": "b18",
+   "claim_text": "0.126",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-20",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "0.126"
+  },
+  {
+   "claim_id": "b18h",
+   "claim_text": "HarmBench 評估採其 test set 的 159 條 standard behaviors",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-19",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:20:00Z",
+   "quoted_snippet": "test set of 159 ``standard behaviors''"
+  },
+  {
+   "claim_id": "b19",
+   "claim_text": "harmbench asr",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-21",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "on par with prompt-specific jailbreak techniques"
+  },
+  {
+   "claim_id": "t2",
+   "claim_text": "HarmBench ASR: Qwen 14B Ortho 84.3",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-2",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "84.3"
+  },
+  {
+   "claim_id": "b20",
+   "claim_text": "system prompt",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-22",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "the discrepancy is not explained by prompt content alone"
+  },
+  {
+   "claim_id": "b21",
+   "claim_text": "能力保留",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-23",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "consistently drops for orthogonalized models"
+  },
+  {
+   "claim_id": "t3",
+   "claim_text": "coherence: Llama-3 70B TruthfulQA 59.5",
+   "kind": "evidence-supported",
+   "target": "note-section:body-table-3",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "59.5"
+  },
+  {
+   "claim_id": "b22",
+   "claim_text": "adversarial suffix",
+   "kind": "evidence-supported",
+   "target": "note-section:body-prose-24",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "The expression of the refusal direction after appending the adversarial suffix is heavily suppressed"
+  },
+  {
+   "claim_id": "p25",
+   "claim_text": "前八個最會寫入 refusal direction 的 attention head",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-25",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "output to the refusal direction is heavily suppressed when the adversarial suffix is appended"
+  },
+  {
+   "claim_id": "p26",
+   "claim_text": "注意力幾乎整個被「劫持」到 suffix 區",
+   "kind": "reasonable-inference",
+   "target": "note-section:body-prose-26",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "shifts attention from tokens in the instruction region to tokens in the suffix region"
+  },
+  {
+   "claim_id": "f1",
+   "claim_text": "Figure 1: ablation over 100 JailbreakBench harmful instructions",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig1_bypass_refusal.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "We evaluate each model over 100 harmful instructions from"
+  },
+  {
+   "claim_id": "f3",
+   "claim_text": "Figure 3: activation addition on 100 harmless Alpaca instructions",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig3_induce_refusal.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "induces refusal on 100 harmless instructions from"
+  },
+  {
+   "claim_id": "f5",
+   "claim_text": "Figure 5: cosine similarity of last-token activations with refusal direction",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig5_adv_suffix_cosine.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "Cosine similarity between last token residual stream activations and refusal direction"
+  },
+  {
+   "claim_id": "f6a",
+   "claim_text": "Figure 6a: top-8 head 輸出投影到 refusal direction 在 adversarial suffix 下被壓制（數值 4.9/3.8/1.35 由圖讀取）",
+   "kind": "reasonable-inference",
+   "target": "figure:imgs/fig6a_head_dfa_suppression.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "output to the refusal direction is heavily suppressed when the adversarial suffix is appended"
+  },
+  {
+   "claim_id": "f6b",
+   "claim_text": "Figure 6b: adversarial suffix 把注意力從 instruction 區轉移到 suffix 區（4.6->0.55、1.4->3.7 由圖讀取）",
+   "kind": "reasonable-inference",
+   "target": "figure:imgs/fig6b_attention_hijack.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "shifts attention from tokens in the instruction region to tokens in the suffix region"
+  },
+  {
+   "claim_id": "f8",
+   "claim_text": "Figure 10: Gemma 2B IT refusal_metric 對有害/無害呈雙峰分離（有害約 +5、無害約 -15，由圖讀取）",
+   "kind": "reasonable-inference",
+   "target": "figure:imgs/fig10_refusal_metric_gemma.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "The refusal metric separates harmful and harmless instructions for"
+  },
+  {
+   "claim_id": "f11a",
+   "claim_text": "Figure 11（左）: Llama-3 8B bypass_score 逐層曲線，pos -5 在 layer 12 達最低約 -10（由圖讀取）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig11a_bypass_scan.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "of each candidate direction for"
+  },
+  {
+   "claim_id": "f11b",
+   "claim_text": "Figure 11（右）: Llama-3 8B induce_score 逐層曲線，pos -5 在 layer 12 接近峰值約 8（由圖讀取）",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig11b_induce_scan.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "of each candidate direction for"
+  },
+  {
+   "claim_id": "f22",
+   "claim_text": "Figure 22: Gemma 7B IT act add 把 harmless activation 推離分佈，directional ablation 則留在分佈內",
+   "kind": "evidence-supported",
+   "target": "figure:imgs/fig22_act_add_ood.png",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "However, note that the intervention pushes"
+  },
+  {
+   "claim_id": "cr1",
+   "claim_text": "existence proof",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-1",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "existence proof that such a direction exists"
+  },
+  {
+   "claim_id": "cr2",
+   "claim_text": "依賴數個啟發式",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-2",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "relies on several heuristics"
+  },
+  {
+   "claim_id": "cr3",
+   "claim_text": "自訂成分",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:critical-prose-3",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "this string-matching approach has limitations"
+  },
+  {
+   "claim_id": "cr4",
+   "claim_text": "不推廣到未測試的模型",
+   "kind": "reasonable-inference",
+   "target": "note-section:critical-prose-4",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T11:28:05Z",
+   "quoted_snippet": "our findings may not generalize to untested models"
+  },
+  {
+   "claim_id": "g-tab4",
+   "claim_text": "論文 Table 4 對 Gemma IT 的 refusal token 集合列為 {235285}，與官方實作一致",
+   "kind": "paper-claim",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "\\textsc{Gemma IT} & \\{ $235285$ \\}"
+  },
+  {
+   "claim_id": "g-fig10cap",
+   "claim_text": "論文 Figure 10 圖說將 Gemma 拒答 token 寫為 234285，與 Table 4／官方實作的 235285 內部不一致",
+   "kind": "unproven-or-doubtful",
+   "target": "note-section:body-prose-18",
+   "source_url": "https://arxiv.org/abs/2406.11717v3",
+   "retrieved_at": "2026-08-12T12:00:00Z",
+   "quoted_snippet": "Refusals generally begin with token $234285$"
+  }
+ ]
+}
