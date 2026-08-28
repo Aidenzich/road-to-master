@@ -1,89 +1,73 @@
-# 容器內 ML workload 的資源感知：別把 host-visible 當成 Pod budget
+# Resource-Aware ML Workloads in Containers: Host-Visible Is Not the Pod Budget
 
-> 更新日期：2026-08-28
+> **English** | [繁體中文](./README.zh-TW.md)
 
-在 Kubernetes 裡，模型明明只被配置 8 CPU，PyTorch、OpenMP、MKL、ONNX Runtime
-或資料前處理程序卻可能建立遠多於 8 個執行緒。節點監控甚至可能顯示大量 CPU
-idle，但 Pod 內的推論仍斷斷續續、延遲暴增。
+> Updated: 2026-08-28
 
-這不是套件真的「繞過 Pod」取得額外資源。更精確的說法是：
+In Kubernetes, a model may be assigned only 8 CPUs while PyTorch, OpenMP, MKL, ONNX Runtime, or data-preprocessing code creates far more than 8 threads. Node monitoring may even show substantial idle CPU while inference inside the Pod remains intermittent and latency spikes.
 
-- **資源偵測（discovery）**可能看到 host CPU、physical cores、CPU affinity 或套件自己的
-  預設值，並據此建立 thread pool。
-- **資源執法（enforcement）**仍由 Linux cgroup 執行 Kubernetes 的 CPU、memory 等限制。
-- discovery 與 enforcement 對同一 workload 的預算理解不同，就會發生 oversubscription。
+This does not mean the libraries truly bypass the Pod to obtain additional resources. More precisely:
 
-Kubernetes [明確說明 CPU limit 是由 kernel throttling 強制執行](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)；它不是 thread pool
-大小，也不會自動替每個 ML runtime 選出合理的平行度。因此，`resources.limits.cpu: 8`
-不能取代 `OMP_NUM_THREADS=8`、`torch.set_num_threads(8)` 或相應 runtime 設定。
+- **Resource discovery** may observe host CPUs, physical cores, CPU affinity, or a library's own defaults and size a thread pool from that information.
+- **Resource enforcement** still applies Kubernetes CPU and memory limits through Linux cgroups.
+- Oversubscription occurs when discovery and enforcement disagree about the budget available to the same workload.
 
-## 為什麼全機 CPU idle，Pod 還是會被 throttle
+Kubernetes [explicitly states that CPU limits are enforced through kernel throttling](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits). A CPU limit is neither a thread-pool size nor a mechanism that automatically chooses sensible parallelism for every ML runtime. Therefore, `resources.limits.cpu: 8` does not replace `OMP_NUM_THREADS=8`, `torch.set_num_threads(8)`, or the corresponding runtime controls.
 
-假設節點有 128 cores，Pod 的 CPU limit 是 8。以常見的 100 ms CFS period 為例，
-該 Pod 在每個 period 共有約 800 ms 的 aggregate CPU time：
+## Why a Pod Can Be Throttled While the Host CPU Is Idle
 
-- 8 個持續工作的 threads 可以把預算均勻用完整個 100 ms。
-- 64 個 threads 理論上約 12.5 ms 就能一起用完 800 ms，之後整個 cgroup 等待下一個 period。
-- 其餘約 120 個 host cores 即使保持 idle，也不能借給已碰到 hard limit 的 Pod。
+Suppose a node has 128 cores and a Pod has a CPU limit of 8. With a typical 100 ms CFS period, the Pod receives about 800 ms of aggregate CPU time per period:
 
-對 BERT 這種包含許多小型 operator、barrier 與逐句呼叫的路徑，quota burst 還會疊加：
+- 8 continuously busy threads can spread that budget across the full 100 ms.
+- 64 threads can theoretically consume all 800 ms together in about 12.5 ms, after which the entire cgroup waits for the next period.
+- Even if the other 120 host cores remain idle, they cannot be borrowed by a Pod that has reached its hard limit.
 
-- OpenMP、MKL、OpenBLAS、PyTorch intra-op/inter-op 各自建立或喚醒 worker。
-- 多個 Python worker、DataLoader 或 serving process 再乘上一層 thread pool。
-- context switch、cache thrashing 與 thread-pool spinning 消耗預算。
-- barrier 只要等到一個被延後的 worker，整個 operator 就無法完成。
+For BERT paths containing many small operators, barriers, and per-sentence calls, quota bursts compound with other effects:
 
-所以限制 thread 數後變快，不代表「thread 越少越好」；它代表**有效平行度終於和
-cgroup 可用預算對齊**。
+- OpenMP, MKL, OpenBLAS, and PyTorch intra-op/inter-op execution may each create or wake workers.
+- Multiple Python workers, DataLoaders, or serving processes can multiply another layer of thread pools.
+- Context switching, cache thrashing, and thread-pool spinning consume the budget.
+- If a barrier waits for even one delayed worker, the entire operator cannot finish.
 
-一個實際案例中，約 128-core 節點上的 TTS Pod 限制為 8 CPU，程序總 thread 數約
-273。cgroup 觀察到 82 個 throttled periods，以及約 417 秒的累積 throttled time；舊路徑
-處理 85 句 BERT 曾耗時約 14 分 54 秒。將 PyTorch/BLAS 的數值計算 thread pools 對齊
-8 CPU 後，另一筆真實 workload 的 73 句前處理約 7 秒，單次 BERT forward 多數約
-25–40 ms。
+The speedup after limiting threads does not mean that fewer threads are always better. It means that **effective parallelism finally matches the budget available to the cgroup**.
 
-這不是嚴格控制所有變因的 benchmark，不能據此宣稱每個模型都應固定設成 8；但它證明
-了兩件事：全機 idle 不能排除 Pod throttling，而且 thread budget 必須是 workload contract
-的一部分。歷史慢請求發生時尚無 phase-level watchdog，因此不能回溯宣稱某一個 BERT
-operator 是唯一根因。
+In one real incident, a TTS Pod on a roughly 128-core node had an 8-CPU limit while the process had about 273 threads. The cgroup recorded 82 throttled periods and about 417 seconds of cumulative throttled time. On the old path, processing 85 BERT sentences once took about 14 minutes 54 seconds. After aligning the PyTorch and BLAS numerical thread pools with the 8-CPU budget, preprocessing another real workload of 73 sentences took about 7 seconds, and most individual BERT forwards took about 25–40 ms.
 
-## 業界常見資源認知落差比較表
+This was not a benchmark with every variable strictly controlled, so it does not prove that every model should be fixed at 8 threads. It does establish two points: host-level idle capacity does not rule out Pod throttling, and the thread budget must be part of the workload contract. The historical slow request had no phase-level watchdog, so the evidence cannot retrospectively prove that one BERT operator was the sole root cause.
 
-| 落差 | 套件／程序常看到什麼 | 實際限制或競爭點 | 常見症狀 | 優先處理方式 | 應觀測的證據 |
+## Common Resource-Perception Gaps in Production
+
+| Gap | What the library or process may see | Actual constraint or contention point | Common symptom | First response | Evidence to observe |
 | --- | --- | --- | --- | --- | --- |
-| CPU topology vs CPU quota | Host logical/physical CPU、affinity，或 runtime 預設 thread 數 | cgroup CPU quota/period | 節點 idle 但 Pod latency 呈週期性尖峰、`throttled` 持續增加 | 以 effective CPU budget 設定 intra-op、inter-op、OMP、MKL、OpenBLAS；先量測再調整 | [`cpu.stat` 與 CPU limit](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-kubernetes-applies-resource-requests-and-limits)、throttled ratio/time、run queue、phase latency、runtime thread 數 |
-| Process 數 × thread pool | 每個 worker 都認為自己可使用完整 CPU | 所有 workers 共用同一 Pod/cgroup quota | worker 增加後吞吐不升反降，context switches 與 load 暴增 | 先決定 process concurrency，再把每個 process 的 thread budget 分配到總 CPU 預算內 | process/thread 數、context switches、CPU PSI、每 worker throughput |
-| CPU request vs limit vs exclusive cores | Application 通常只知道可執行 CPU，不理解 Kubernetes QoS | request 影響排程與競爭權重；limit 是 hard ceiling；exclusive CPU 還需要 static CPU Manager、Guaranteed Pod 與整數 CPU request | 同規格 Pod 在不同節點 latency 差異大，與 sidecar/host process 互相干擾 | latency-sensitive workload 才評估 Guaranteed + static CPU Manager；一般 workload 先正確配置 request/limit | Pod QoS、cpuset、CPU Manager policy、steal/throttling、node noise |
-| Host RAM vs cgroup memory | Runtime、cache 或 allocator 可能依 host RAM 規劃 | Pod memory limit、tmpfs `emptyDir` 也可能計入 container memory | Node 看似有 RAM，但 Pod `OOMKilled`；page cache、模型 cache 或 tmpfs 推高 working set | 以 cgroup memory budget 設 cache、batch、prefetch；為 memory-backed volume 設 `sizeLimit` | working set/RSS、cgroup memory events、OOM reason、tmpfs/cache bytes |
-| `/dev/shm` vs DataLoader/IPC 需求 | multiprocessing 假設有足夠 POSIX shared memory | [Docker 預設 `/dev/shm` 只有 64 MiB](https://docs.docker.com/engine/containers/run/#runtime-constraints-on-resources)；Kubernetes volume 配置另行決定 | DataLoader bus error、NCCL/IPC 初始化失敗、大 batch 才偶發 | 明確配置 memory-backed `emptyDir` 或 runtime shm size，並把它納入 memory capacity | `df -h /dev/shm`、shared-memory 使用量、worker exit reason |
-| GPU device count vs 可用算力／VRAM | `CUDA_VISIBLE_DEVICES` 顯示一張 GPU | [NVIDIA time-slicing](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html#understanding-time-slicing-gpus) 只共享時間，沒有 MIG 等級的 memory/fault isolation；其他 sharing layer 也可能另有 VRAM/core contract | Pod 看得到 GPU 卻 OOM、latency 抖動，或兩個 workload 互相拖慢 | 明確選擇 exclusive、MIG、time-slicing 或 vendor vGPU；不要把「1 GPU」當成固定算力與 VRAM | per-process VRAM、SM utilization、allocator peak、Xid/OOM、sharing mode |
-| CPU/NUMA/GPU locality | Runtime 看到所有 CPUs 與一張可見 GPU | CPU、RAM 與 PCIe GPU 可能跨 NUMA node | Host utilization 正常但 H2D、tokenization 或 input pipeline latency 高且不穩 | 需要時使用 Topology Manager、CPU Manager/cpuset，並驗證 memory locality；不要只做 CPU pinning | NUMA miss、PCIe throughput、CPU affinity、GPU topology、phase latency |
-| Container writable layer vs 模型／checkpoint 大小 | Application 把 `/tmp`、HF cache、Torch cache 視為一般磁碟 | ephemeral-storage limit、node disk pressure、image pull/unpack 與 log 也競爭本機磁碟 | `Evicted`、`ENOSPC`、啟動或 checkpoint 變慢，重啟後 cache 消失 | 模型與大型 cache 放明確 volume；配置 ephemeral request/limit、清理與水位告警 | volume/rootfs bytes、inode、ephemeral-storage events、pull/unpack latency |
-| Runtime spinning vs 真實工作量 | Runtime 為降低單次延遲讓 idle worker spin | 多個模型／session 共用 CPU 時，spinning 會消耗 quota 與電力 | 沒有請求仍有固定 CPU，其他服務 p95 上升 | 依 latency/throughput 目標關閉或縮短 spinning；不要僅看單 request benchmark | idle CPU、power、session/thread 數、p50/p99、throttled time |
+| CPU topology vs CPU quota | Host logical/physical CPUs, affinity, or the runtime's default thread count | cgroup CPU quota/period | Node is idle, but Pod latency spikes periodically and `throttled` keeps increasing | Set intra-op, inter-op, OMP, MKL, and OpenBLAS from the effective CPU budget; measure before tuning | [`cpu.stat` and CPU limit](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-kubernetes-applies-resource-requests-and-limits), throttled ratio/time, run queue, phase latency, runtime thread count |
+| Process count × thread pool | Every worker assumes it can use the full CPU | All workers share one Pod/cgroup quota | More workers reduce throughput while context switches and load surge | Choose process concurrency first, then divide the total CPU budget among per-process thread pools | Process/thread count, context switches, CPU PSI, per-worker throughput |
+| CPU request vs limit vs exclusive cores | The application usually sees runnable CPUs but does not understand Kubernetes QoS | Request affects scheduling and contention weight; limit is a hard ceiling; exclusive CPUs also require static CPU Manager, a Guaranteed Pod, and an integer CPU request | Identical Pods have different latency across nodes or interfere with sidecars and host processes | Consider Guaranteed QoS plus static CPU Manager only for latency-sensitive workloads; otherwise first set correct requests and limits | Pod QoS, cpuset, CPU Manager policy, steal/throttling, node noise |
+| Host RAM vs cgroup memory | A runtime, cache, or allocator may plan from host RAM | Pod memory limit; tmpfs `emptyDir` may also count toward container memory | Node appears to have RAM, but the Pod is `OOMKilled`; page cache, model cache, or tmpfs expands the working set | Size cache, batch, and prefetch from the cgroup memory budget; set `sizeLimit` on memory-backed volumes | Working set/RSS, cgroup memory events, OOM reason, tmpfs/cache bytes |
+| `/dev/shm` vs DataLoader/IPC demand | Multiprocessing assumes sufficient POSIX shared memory | [Docker defaults `/dev/shm` to 64 MiB](https://docs.docker.com/engine/containers/run/#runtime-constraints-on-resources); Kubernetes volume configuration is separate | DataLoader bus errors, NCCL/IPC initialization failures, or failures only at large batch sizes | Explicitly configure a memory-backed `emptyDir` or runtime shm size and include it in memory capacity planning | `df -h /dev/shm`, shared-memory usage, worker exit reason |
+| GPU device count vs available compute/VRAM | `CUDA_VISIBLE_DEVICES` exposes one GPU | [NVIDIA time-slicing](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html#understanding-time-slicing-gpus) shares time only and lacks MIG-level memory/fault isolation; other sharing layers may define separate VRAM/core contracts | A Pod sees a GPU but OOMs, has unstable latency, or slows another workload | Explicitly choose exclusive GPU, MIG, time-slicing, or vendor vGPU; do not treat “1 GPU” as fixed compute and VRAM | Per-process VRAM, SM utilization, allocator peak, Xid/OOM, sharing mode |
+| CPU/NUMA/GPU locality | The runtime sees all CPUs and one visible GPU | CPU, RAM, and PCIe GPU may reside on different NUMA nodes | Host utilization looks normal, but H2D, tokenization, or input-pipeline latency is high and unstable | Use Topology Manager and CPU Manager/cpuset when needed, then verify memory locality; CPU pinning alone is insufficient | NUMA misses, PCIe throughput, CPU affinity, GPU topology, phase latency |
+| Container writable layer vs model/checkpoint size | The application treats `/tmp`, HF cache, and Torch cache as ordinary disk | Ephemeral-storage limit, node disk pressure, image pulls/unpacking, and logs compete for local disk | `Evicted`, `ENOSPC`, slow startup/checkpointing, or cache loss after restart | Put models and large caches on explicit volumes; set ephemeral requests/limits, cleanup, and watermarks | Volume/rootfs bytes, inodes, ephemeral-storage events, pull/unpack latency |
+| Runtime spinning vs real workload | The runtime keeps idle workers spinning to reduce single-request latency | With multiple models or sessions sharing CPU, spinning consumes quota and power | Fixed CPU usage without requests and increased p95 for other services | Disable or shorten spinning according to latency/throughput goals; do not rely on a single-request benchmark | Idle CPU, power, session/thread count, p50/p99, throttled time |
 
-表中的控制方式不是可以直接複製的固定模板。例如 Kubernetes static CPU Manager 只有在
-節點正確設定，且 container 位於 Guaranteed Pod、具有整數 CPU request 時，才會分配
-exclusive CPUs（見 [Kubernetes CPU Manager](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy-configuration)）。GPU time-slicing 也不等同 VRAM 隔離；NVIDIA 文件明確指出它沒有
-memory 或 fault isolation。
+These controls are not fixed templates that can be copied unchanged. For example, Kubernetes static CPU Manager allocates exclusive CPUs only when the node is configured correctly and the container belongs to a Guaranteed Pod with an integer CPU request; see [Kubernetes CPU Manager](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#static-policy-configuration). GPU time-slicing likewise does not provide VRAM isolation; NVIDIA explicitly documents the absence of memory and fault isolation.
 
-## 常見 ML runtime 的 CPU 控制面
+## CPU Controls for Common ML Runtimes
 
-| Runtime／library | 主要控制方式 | 常見陷阱 |
+| Runtime/library | Primary controls | Common trap |
 | --- | --- | --- |
-| PyTorch | `OMP_NUM_THREADS`、`MKL_NUM_THREADS`、`torch.set_num_threads()`、`torch.set_num_interop_threads()` | 必須在 eager/JIT/autograd 工作開始前設定；總 process threads 不會等於數值計算 threads |
-| NumPy + BLAS | `OMP_NUM_THREADS`、OpenBLAS/MKL 對應變數，或 `threadpoolctl` | NumPy 本身常是單 thread，但背後 BLAS 可以另外開多 thread |
-| TensorFlow | `tf.config.threading.set_intra_op_parallelism_threads()`、`set_inter_op_parallelism_threads()` | `tf.data`、serving workers 與 operator thread pools 可能形成多層平行 |
-| ONNX Runtime | `intra_op_num_threads`、`inter_op_num_threads`、execution mode、thread spinning 設定 | [預設 intra-op pool 可依 physical cores 建立](https://onnxruntime.ai/docs/performance/tune-performance/threading.html#intra-thread-count)；多個 session 會重複建立 pool |
-| DataLoader／multiprocessing | process/worker 數、prefetch、每個 child 的 BLAS/PyTorch threads | `workers × threads` 才是總 CPU 壓力；fork/spawn 行為與共享記憶體也要納入 |
-| Serving engine | request concurrency、batch/token budget、CPU preprocess workers | GPU batch 調大不代表 CPU tokenizer、音訊編碼、publisher 有足夠容量 |
+| PyTorch | `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `torch.set_num_threads()`, `torch.set_num_interop_threads()` | Configure them before eager, JIT, or autograd work begins; total process threads do not equal numerical-compute threads |
+| NumPy + BLAS | `OMP_NUM_THREADS`, the corresponding OpenBLAS/MKL variables, or `threadpoolctl` | NumPy itself is often single-threaded while the underlying BLAS opens additional threads |
+| TensorFlow | `tf.config.threading.set_intra_op_parallelism_threads()`, `set_inter_op_parallelism_threads()` | `tf.data`, serving workers, and operator pools may create multiple layers of parallelism |
+| ONNX Runtime | `intra_op_num_threads`, `inter_op_num_threads`, execution mode, thread-spinning settings | [The default intra-op pool may be sized from physical cores](https://onnxruntime.ai/docs/performance/tune-performance/threading.html#intra-thread-count); multiple sessions create repeated pools |
+| DataLoader/multiprocessing | Process/worker count, prefetch, per-child BLAS/PyTorch threads | `workers × threads` is the total CPU pressure; fork/spawn behavior and shared memory also matter |
+| Serving engine | Request concurrency, batch/token budget, CPU preprocessing workers | A larger GPU batch does not guarantee sufficient capacity in CPU tokenization, audio encoding, or publishing |
 
-設定環境變數要早於 NumPy、PyTorch 或會載入 BLAS/OpenMP 的套件 import。只在模型載入後
-修改，可能已經建立 thread pool，結果依 runtime 而異。
+Set environment variables before importing NumPy, PyTorch, or any package that loads BLAS/OpenMP. Changing them only after the model loads may be too late because the runtime may already have created its thread pools.
 
 ```python
 import os
 
-# 這個數字應由 deployment 的 effective CPU budget 注入，不應硬編碼成所有服務共用值。
+# The deployment should inject this effective CPU budget; do not hard-code one value for every service.
 threads = int(os.environ["ML_CPU_THREADS"])
 for name in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
     os.environ[name] = str(threads)
@@ -94,8 +78,7 @@ torch.set_num_threads(threads)
 torch.set_num_interop_threads(min(2, threads))
 ```
 
-Kubernetes 可以用 [`resourceFieldRef`](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#the-downward-api) 把 container CPU limit 以 millicores 注入 entrypoint，
-再由 entrypoint 轉成有上下界的 thread budget：
+Kubernetes can inject the container CPU limit in millicores through [`resourceFieldRef`](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#the-downward-api). The entrypoint can then convert it into a bounded thread budget:
 
 ```yaml
 resources:
@@ -114,57 +97,47 @@ env:
         divisor: 1m
 ```
 
-應用仍要驗證值存在、可解析並落在 release 支援的範圍；不要讓缺少 limit 變成 0 threads，
-也不要看到 64 host CPUs 就自動採用 64。若 Pod 有 sidecar，每個 container 的 budget 與整個
-Pod 的 QoS/資源總和都必須分別核對。
+The application must still validate that the value exists, parses correctly, and falls within a release-supported range. A missing limit must not become zero threads, and seeing 64 host CPUs must not automatically select 64 threads. If a Pod has sidecars, verify both each container's budget and the total Pod QoS/resources.
 
-## 診斷順序：從「哪一層在等」開始
+## Diagnostic Order: Start with Which Phase Is Waiting
 
-1. **拆 phase timer。** 將 normalization、tokenizer、H2D、model forward、postprocess、encode、
-   publish 分開量測；只有 end-to-end latency 無法區分 CPU、GPU、I/O 或 queue。
-2. **同時看 node 與 cgroup。** Node idle 不會否定 container throttling；Node busy 也不代表
-   該 request 一定在 CPU 上。
-3. **讀 effective CPU。** 比較 affinity/cpuset 與 quota/period。可用的平行度上界概念上是：
+1. **Instrument phase timers.** Measure normalization, tokenization, H2D, model forward, postprocessing, encoding, and publishing separately. End-to-end latency alone cannot distinguish CPU, GPU, I/O, or queue delay.
+2. **Observe node and cgroup together.** Node idle does not disprove container throttling; node busy does not prove that a request is executing on CPU.
+3. **Read the effective CPU budget.** Compare affinity/cpuset with quota/period. Conceptually, the upper bound on parallelism is:
 
    ```text
    effective_cpu = min(cpuset_cpu_count, cpu_quota / cpu_period)
    ```
 
-   quota 若為 unlimited，才只看 cpuset/affinity。fractional CPU 需要以 benchmark 決定 thread
-   數，不能直接把小數無條件進位。
-4. **列出所有 thread pools。** 除了 framework，還要包含 BLAS、tokenizer、DataLoader、web
-   server、Celery/Ray workers、ffmpeg 與 sidecar。
-5. **做相同輸入 A/B。** 固定 model、input、batch、GPU profile 與同機競爭 workload，只改
-   thread budget；比較 throughput、p50/p95/p99、throttling 與輸出品質。
-6. **保留 watchdog 與 stack。** phase 超時時輸出所有 thread stack，再由 orchestrator 重啟；
-   restart 是止血，不是根因證明。
+   Only when quota is unlimited should cpuset/affinity be used alone. Fractional CPU needs benchmarking to choose a thread count; do not unconditionally round it up.
+4. **Inventory every thread pool.** Include BLAS, tokenizers, DataLoaders, web servers, Celery/Ray workers, ffmpeg, and sidecars in addition to the framework.
+5. **Run a same-input A/B test.** Hold model, input, batch, GPU profile, and colocated competing workloads constant. Change only the thread budget, then compare throughput, p50/p95/p99, throttling, and output quality.
+6. **Preserve watchdog evidence and stacks.** On a phase timeout, emit all thread stacks before the orchestrator restarts the process. Restarting is mitigation, not proof of root cause.
 
-對 cgroup v2，`cpu.stat` 的 `nr_periods`、`nr_throttled`、`throttled_usec` 與 `cpu.max` 是重要
-證據；cgroup v1 使用對應的 `cpu.stat`、`cpu.cfs_quota_us` 與 `cpu.cfs_period_us`。監控系統可能
-以不同 metric 名稱暴露相同資料，runbook 應保存實際查詢，而不是只寫 dashboard 截圖。
+For cgroup v2, `nr_periods`, `nr_throttled`, and `throttled_usec` in `cpu.stat`, plus `cpu.max`, are important evidence. cgroup v1 exposes the corresponding `cpu.stat`, `cpu.cfs_quota_us`, and `cpu.cfs_period_us`. Monitoring systems may publish the same data under different metric names, so a runbook should preserve the actual queries rather than only dashboard screenshots.
 
-## Production checklist
+## Production Checklist
 
-- [ ] Deployment 明確宣告 CPU/memory requests 與 limits。
-- [ ] Application thread budget 來自 effective CPU，而不是 host CPU count。
-- [ ] `process concurrency × threads per process` 不超出經 benchmark 證明的容量。
-- [ ] Phase metrics、cgroup throttling、OOM、GPU allocated/reserved 與 queue age 可觀測。
-- [ ] `/dev/shm`、tmpfs、ephemeral storage、model cache 與 checkpoint 有容量上限。
-- [ ] GPU sharing 模式、VRAM/fault isolation 與 workload request 語意一致。
-- [ ] Latency-sensitive Pod 若要求 exclusive CPU，已驗證 QoS、整數 request、CPU Manager 與 NUMA。
-- [ ] 相同輸入做過冷啟動、穩態、並發與同機 noisy-neighbor A/B。
-- [ ] watchdog 能指出停滯 phase；重啟後任務具 checkpoint、冪等與安全重試。
+- [ ] The Deployment explicitly declares CPU/memory requests and limits.
+- [ ] The application thread budget comes from effective CPU, not the host CPU count.
+- [ ] `process concurrency × threads per process` stays within benchmarked capacity.
+- [ ] Phase metrics, cgroup throttling, OOMs, GPU allocated/reserved memory, and queue age are observable.
+- [ ] `/dev/shm`, tmpfs, ephemeral storage, model cache, and checkpoints have capacity limits.
+- [ ] GPU sharing mode, VRAM/fault isolation, and workload request semantics agree.
+- [ ] A latency-sensitive Pod requesting exclusive CPU has verified QoS, integer request, CPU Manager, and NUMA configuration.
+- [ ] Same-input A/B tests cover cold start, steady state, concurrency, and colocated noisy neighbors.
+- [ ] The watchdog identifies the stalled phase; restarted tasks support checkpoints, idempotency, and safe retries.
 
-## 參考資料
+## References
 
-- [Kubernetes：Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
-- [Kubernetes：Control CPU Management Policies on the Node](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/)
-- [PyTorch：Threading Environment Variables](https://docs.pytorch.org/docs/stable/threading_environment_variables.html)
-- [PyTorch：CPU threading and TorchScript inference](https://docs.pytorch.org/docs/stable/notes/cpu_threading_torchscript_inference.html)
-- [PyTorch：`torch.set_num_threads`](https://docs.pytorch.org/docs/stable/generated/torch.set_num_threads.html)
-- [NumPy：Number of threads used for linear algebra](https://numpy.org/doc/stable/reference/global_state.html#number-of-threads-used-for-linear-algebra)
-- [TensorFlow：Configure intra-op parallelism](https://www.tensorflow.org/api_docs/python/tf/config/threading/set_intra_op_parallelism_threads)
-- [TensorFlow：Configure inter-op parallelism](https://www.tensorflow.org/api_docs/python/tf/config/threading/set_inter_op_parallelism_threads)
-- [ONNX Runtime：Thread management](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
-- [Docker：Runtime constraints on resources](https://docs.docker.com/engine/containers/run/#runtime-constraints-on-resources)
-- [NVIDIA GPU Operator：Time-Slicing GPUs in Kubernetes](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html)
+- [Kubernetes: Resource Management for Pods and Containers](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+- [Kubernetes: Control CPU Management Policies on the Node](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/)
+- [PyTorch: Threading Environment Variables](https://docs.pytorch.org/docs/stable/threading_environment_variables.html)
+- [PyTorch: CPU threading and TorchScript inference](https://docs.pytorch.org/docs/stable/notes/cpu_threading_torchscript_inference.html)
+- [PyTorch: `torch.set_num_threads`](https://docs.pytorch.org/docs/stable/generated/torch.set_num_threads.html)
+- [NumPy: Number of threads used for linear algebra](https://numpy.org/doc/stable/reference/global_state.html#number-of-threads-used-for-linear-algebra)
+- [TensorFlow: Configure intra-op parallelism](https://www.tensorflow.org/api_docs/python/tf/config/threading/set_intra_op_parallelism_threads)
+- [TensorFlow: Configure inter-op parallelism](https://www.tensorflow.org/api_docs/python/tf/config/threading/set_inter_op_parallelism_threads)
+- [ONNX Runtime: Thread management](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
+- [Docker: Runtime constraints on resources](https://docs.docker.com/engine/containers/run/#runtime-constraints-on-resources)
+- [NVIDIA GPU Operator: Time-Slicing GPUs in Kubernetes](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html)
