@@ -6,10 +6,7 @@
 
 在 Kubernetes 裡，模型明明只被配置 8 CPU，PyTorch、OpenMP、MKL、ONNX Runtime
 或資料前處理程序卻可能建立遠多於 8 個執行緒。節點監控甚至可能顯示大量 CPU
-idle，但 Pod 內的推論仍斷斷續續、延遲暴增。
-
-這不是套件真的「繞過 Pod」取得額外資源。更精確的說法是：
-
+idle，但 Pod 內的推論仍斷斷續續、延遲暴增:
 - **資源偵測（discovery）**可能看到 host CPU、physical cores、CPU affinity 或套件自己的
   預設值，並據此建立 thread pool。
 - **資源執法（enforcement）**仍由 Linux cgroup 執行 Kubernetes 的 CPU、memory 等限制。
