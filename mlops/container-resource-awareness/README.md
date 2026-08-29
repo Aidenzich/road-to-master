@@ -5,9 +5,6 @@
 > Updated: 2026-08-28
 
 In Kubernetes, a model may be assigned only 8 CPUs while PyTorch, OpenMP, MKL, ONNX Runtime, or data-preprocessing code creates far more than 8 threads. Node monitoring may even show substantial idle CPU while inference inside the Pod remains intermittent and latency spikes.
-
-This does not mean the libraries truly bypass the Pod to obtain additional resources. More precisely:
-
 - **Resource discovery** may observe host CPUs, physical cores, CPU affinity, or a library's own defaults and size a thread pool from that information.
 - **Resource enforcement** still applies Kubernetes CPU and memory limits through Linux cgroups.
 - Oversubscription occurs when discovery and enforcement disagree about the budget available to the same workload.
