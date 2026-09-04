@@ -18,4 +18,4 @@
 | [ProPainter: Improving Propagation and Transformer for Video Inpainting](https://arxiv.org/abs/2309.03897) | ICCV | '23 | [✓](https://github.com/sczhou/ProPainter) | [EN](./ProPainter/) · [中文](./ProPainter/README.zh-TW.md) |
 | [DualEraser: Joint Video Object and Effect Removal](https://arxiv.org/abs/2605.30045) | arXiv | '26 | [✓](https://github.com/cyqii/GenEraser) | [EN](./DualEraser/) · [中文](./DualEraser/README.zh-TW.md) |
 | [EraserDiT: Fast Video Inpainting with Diffusion Transformer Model](https://arxiv.org/abs/2506.12853) | arXiv | '25 | [✓](https://github.com/JieLiu95/EraserDiT) | [EN](./EraserDiT/) · [中文](./EraserDiT/README.zh-TW.md) |
-
+| [Elevating Flow-Guided Video Inpainting with Reference Generation](https://arxiv.org/abs/2412.08975) | AAAI | '25 | [✓](https://github.com/suhwan-cho/RGVI) | [EN](./RGVI/) · [中文](./RGVI/README.zh-TW.md) |
