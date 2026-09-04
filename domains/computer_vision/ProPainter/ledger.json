@@ -1,0 +1,729 @@
+{
+  "note_path": "domains/computer_vision/ProPainter/README.md",
+  "domain": "computer_vision",
+  "topic": "ProPainter",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-09-04T16:15:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "ProPainter: Improving Propagation and Transformer for Video Inpainting",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "ProPainter: Improving Propagation and Transformer for Video Inpainting"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "ICCV 2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Accepted by ICCV 2023"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2023",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Submitted: 7 Sep 2023 (v1)"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Shangchen Zhou, Chongyi Li, Kelvin C.K. Chan, Chen Change Loy",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Authors: Shangchen Zhou, Chongyi Li, Kelvin C.K. Chan, Chen Change Loy"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/sczhou/ProPainter",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Code: https://github.com/sczhou/ProPainter"
+    },
+    {
+      "claim_id": "ac-kind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Accepted by ICCV 2023"
+    },
+    {
+      "claim_id": "b1",
+      "claim_text": "移除畫面中的物體、去除浮水印與 logo",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Video inpainting (VI) aims to fill gaps or missing regions in a video with visually consistent content while ensuring spatial and temporal coherence"
+    },
+    {
+      "claim_id": "b2",
+      "claim_text": "光流一旦不準就會留下貼歪的紋理與破綻",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "This isolated two-step process can result in unpleasant artifacts and texture misalignment due to inaccurate flow"
+    },
+    {
+      "claim_id": "b3",
+      "claim_text": "整體分三個元件",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "ProPainter comprises three key components: recurrent flow completion, dual-domain propagation, and mask-guided sparse Transformer"
+    },
+    {
+      "claim_id": "b4",
+      "claim_text": "並和九個既有方法",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "which consist of 508 and 90 video sequences, respectively"
+    },
+    {
+      "claim_id": "b4b",
+      "claim_text": "所有影片統一縮到 $432\\times 240$ 訓練與評估",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Video frames are sized to $432\\times 240$ for training and evaluation"
+    },
+    {
+      "claim_id": "b5",
+      "claim_text": "整條管線的順序是固定的",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "we then perform global image propagation and local feature propagation sequentially"
+    },
+    {
+      "claim_id": "b6",
+      "claim_text": "降採樣比例為 8 的特徵",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "flow completion modules that are learned together with inpainting-oriented losses can result in a suboptimal learning process and less accurate completed flow"
+    },
+    {
+      "claim_id": "b6b",
+      "claim_text": "降採樣比例為 8 的特徵",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "with a downsampling ratio of 8"
+    },
+    {
+      "claim_id": "eq1",
+      "claim_text": "\\mathcal{R}\\big(\\mathcal{D}(\\hat{f}_{t+1}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "\\hat{f_t} = \\mathcal{R} \\big(\\mathcal{D} (\\hat{f}_{t+1}; o_{t\\rightarrow t+1}, m_{t\\rightarrow t+1}), f_t\\big),"
+    },
+    {
+      "claim_id": "b7",
+      "claim_text": "光流端點誤差（EPE）在 YouTube-VOS 為 0.020",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "YouTube-VOS & 0.046  & 0.032  & 0.021  & \\bf{0.019}   & 0.020"
+    },
+    {
+      "claim_id": "b7b",
+      "claim_text": "比 SOTA 快約 40 倍（約 192 fps",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "over 40 times ($\\sim$192 fps"
+    },
+    {
+      "claim_id": "b7c",
+      "claim_text": "但每格只要 0.005 秒",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Runtime (s/frame) & 0.130   & 1.125  & 0.312    & 0.231    & \\bf{0.005}"
+    },
+    {
+      "claim_id": "b7d",
+      "claim_text": "光流端點誤差（EPE）在 DAVIS 為 0.051",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "DAVIS & 0.107   & 0.082  & 0.052    & \\bf{0.051}    & \\bf{0.051}"
+    },
+    {
+      "claim_id": "eq2",
+      "claim_text": "\\mathcal{E}_{t\\rightarrow t+1}(p) = \\Big\\|",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "\\mathcal{E}_{t\\rightarrow t+1}\\big(p\\big) = \\Big\\| \\hat{F}_{t\\rightarrow t+1}\\big(p\\big)"
+    },
+    {
+      "claim_id": "b8",
+      "claim_text": "門檻 $\\epsilon$ 設為 5",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "is a threshold and set to 5"
+    },
+    {
+      "claim_id": "eq3",
+      "claim_text": "\\mathcal{W}(X_{t+1}, \\hat{F}_{t\\rightarrow t+1}) * A_r",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "\\mathcal{W}\\big(X_{t+1}, \\hat{F}_{t\\rightarrow t+1}\\big) * A_r"
+    },
+    {
+      "claim_id": "b9",
+      "claim_text": "搬完立刻把遮罩更新成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "updating masks via $\\hat{M}_t = M_t - A_r$"
+    },
+    {
+      "claim_id": "b9b",
+      "claim_text": "這一步在 GPU 上做",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "we perform global image propagation on GPU with flow consistency check"
+    },
+    {
+      "claim_id": "b10",
+      "claim_text": "把完成後的光流當成 DCN 的基準偏移，只學相對光流的殘差偏移",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "flow-guided deformable alignment employs the completed flow as a base offset and refines it by learning offset residue"
+    },
+    {
+      "claim_id": "b11",
+      "claim_text": "無法處理 480p 影片",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "are unable to handle 480p videos with a 32G GPU"
+    },
+    {
+      "claim_id": "b11b",
+      "claim_text": "DAVIS 上物體區域平均只佔 13.6%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Object regions account for only 13.6\\% of the DAVIS"
+    },
+    {
+      "claim_id": "b12",
+      "claim_text": "特徵先經 soft split 得到 patch embedding",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "soft split operation~\\cite{liu2021fuseformer} to generate patch embeddings"
+    },
+    {
+      "claim_id": "b12b",
+      "claim_text": "實驗用 $5\\times 9$ 的小視窗",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "small window size of $5\\times 9$"
+    },
+    {
+      "claim_id": "b12c",
+      "claim_text": "query 端只對「碰到遮罩」的視窗做注意力",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "we selectively apply attention to query windows that intersect with the mask regions"
+    },
+    {
+      "claim_id": "eq4",
+      "claim_text": "S_Q = \\mathrm{Clip}\\Big(\\sum\\nolimits_{t=1}^{T_l} M^{\\downarrow}_t",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "S_{Q} = Clip~\\Big(\\sum \\nolimits_{t=1}^{T_l} M^{\\downarrow}_t, ~1\\Big)"
+    },
+    {
+      "claim_id": "b13",
+      "claim_text": "用時間步幅 2 交替取樣",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "with a temporal stride of 2 in our design"
+    },
+    {
+      "claim_id": "b14",
+      "claim_text": "推論時只跑 5 個迭代",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "we use only five iterations of the RAFT network to calculate optical flow"
+    },
+    {
+      "claim_id": "b14b",
+      "claim_text": "推論用的時間長度可以拉到 20 格，訓練時局部序列長度為 10",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "We adopt 8 Transformer blocks for the inpainting modules and use a local video sequence of length 10"
+    },
+    {
+      "claim_id": "b14c",
+      "claim_text": "推論用的時間長度可以拉到 20",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "ProPainter uses a temporal length of 20 for inference"
+    },
+    {
+      "claim_id": "b15",
+      "claim_text": "節錄自論文 Table 1，10 格的 FLOPs 與每格秒數",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "The FLOPs of all methods are computed based on a temporal length of 10"
+    },
+    {
+      "claim_id": "t1",
+      "claim_text": "ProPainter (ours) | 34.43 | 34.47 | 0.098 | 1.187 | 808G | 0.083",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "\\algname~(Ours) & \\red{\\underline{34.43}} & \\red{\\underline{0.9735}} & \\red{\\underline{0.042}} & \\red{\\underline{0.974}} &      \\red{\\underline{34.47}}"
+    },
+    {
+      "claim_id": "t1b",
+      "claim_text": "E$^2$FGVI | 33.71 | 33.01 | 0.116 | 1.289 | 986G | 0.085",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "986G & 0.085"
+    },
+    {
+      "claim_id": "b16",
+      "claim_text": "時間長度 10 時的 FLOPs 是 25.77G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "(10, 25.77)"
+    },
+    {
+      "claim_id": "b16b",
+      "claim_text": "到時間長度 60 時是 253G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "(60, 253)"
+    },
+    {
+      "claim_id": "t2",
+      "claim_text": "| 10 | 75.1 | 70 | 37.65 | 25.77 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "(10, 75.1)"
+    },
+    {
+      "claim_id": "t2b",
+      "claim_text": "| 60 | — | 824 | 690 | 253 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "(60, 253)"
+    },
+    {
+      "claim_id": "t2c",
+      "claim_text": "| 30 | 544 | 292 | 206 | 97 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "(30, 544)"
+    },
+    {
+      "claim_id": "b17",
+      "claim_text": "拿掉影像域傳遞會從 34.15 掉到 33.05",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "PSNR &  33.05 &  32.91  &   33.17  & 33.94         & {34.18} & 34.15"
+    },
+    {
+      "claim_id": "b18",
+      "claim_text": "Transformer 為 8 個區塊（depths = 8）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/model/propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "depths = 8"
+    },
+    {
+      "claim_id": "b18b",
+      "claim_text": "視窗大小為 5×9（window_size = (5, 9)）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/model/propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "window_size = (5, 9)"
+    },
+    {
+      "claim_id": "b18c",
+      "claim_text": "影像域傳遞不含可學習參數（learnable=False）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/model/propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "self.img_prop_module = BidirectionalPropagation(3, learnable=False)"
+    },
+    {
+      "claim_id": "b18d",
+      "claim_text": "key/value 的時間步幅為 2（t_dilation=2）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/model/propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "t_dilation=2"
+    },
+    {
+      "claim_id": "b19",
+      "claim_text": "釋出版的 RAFT 迭代預設是 20",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/inference_propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "\"--raft_iter\", type=int, default=20"
+    },
+    {
+      "claim_id": "b19b",
+      "claim_text": "是靠 `--subvideo_length`（預設 80）把影片切成子片段逐塊處理",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/inference_propainter.py",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "\"--subvideo_length\", type=int, default=80"
+    },
+    {
+      "claim_id": "b19c",
+      "claim_text": "把 GPU 記憶體成本與影片長度解耦",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/README_repo.md",
+      "retrieved_at": "2026-09-04T16:00:00+00:00",
+      "quoted_snippet": "effectively decouples GPU memory costs and video length"
+    },
+    {
+      "claim_id": "c1",
+      "claim_text": "頭條比較全部在 $432\\times 240$ 這種很低的解析度上完成",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Video frames are sized to $432\\times 240$ for training and evaluation"
+    },
+    {
+      "claim_id": "c1b",
+      "claim_text": "而且該表只剩 STTN 與 E$^2$FGVI 兩個對手",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "The comparison only includes STTN~\\cite{zeng2020learning} and E$^2$FGVI~\\cite{li2022towards}, since other methods require memory demands exceeding 32G"
+    },
+    {
+      "claim_id": "c2",
+      "claim_text": "在 DAVIS 上超越 SOTA 方法 1.14 dB",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "surpasses the state-of-the-art method by 1.14 dB in PSNR"
+    },
+    {
+      "claim_id": "c2b",
+      "claim_text": "摘要與 Table 1 指向 DAVIS 上約 1.46 dB 的 PSNR 領先",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "large margin of 1.46~dB in PSNR"
+    },
+    {
+      "claim_id": "c3",
+      "claim_text": "DAVIS 的增益明顯大於 YouTube-VOS",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "almost stationary scenes without motion, which limits the effectiveness of our dual-domain propagation module"
+    },
+    {
+      "claim_id": "c4",
+      "claim_text": "$S_Q$ 幾乎全為 1",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "higher than the average object ratio of 13.6\\%"
+    },
+    {
+      "claim_id": "c5",
+      "claim_text": "光流引導可變形對齊來自 BasicVSR++",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "we also adopt flow-guided deformable alignment module~\\cite{chan2022basicvsr++}"
+    },
+    {
+      "claim_id": "f-teaser",
+      "claim_text": "teaser",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/teaser.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Dual-domain propagation enables more effective propagation due to its global and reliable nature"
+    },
+    {
+      "claim_id": "f-overview",
+      "claim_text": "overview",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/overview.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "ProPainter comprises three key components: recurrent flow completion, dual-domain propagation, and mask-guided sparse Transformer"
+    },
+    {
+      "claim_id": "f-imgprop",
+      "claim_text": "img_prop",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/img_prop.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "Image propagation shows effective to fill most or entire masked regions"
+    },
+    {
+      "claim_id": "f-msvt",
+      "claim_text": "msvt",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/msvt.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T07:58:33+00:00",
+      "quoted_snippet": "our mask-guided sparse Transformer filters out unnecessary and redundant windows in the query and key/value space"
+    },
+    {
+      "claim_id": "f-dcn",
+      "claim_text": "特徵域光流引導可變形對齊模組結構",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/dcn_align.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Flow-guided deformable alignment is effective by taking reliable completed flows and mask-aware conditions."
+    },
+    {
+      "claim_id": "b16c",
+      "claim_text": "FGT 在 720p 就爆到 1880G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "(720, 1880)"
+    },
+    {
+      "claim_id": "b16d",
+      "claim_text": "ProPainter 到 960p 也只要 374G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "(960, 374)"
+    },
+    {
+      "claim_id": "b16e",
+      "claim_text": "E$^2$FGVI 於 960p 為 602G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "(960, 602)"
+    },
+    {
+      "claim_id": "b16f",
+      "claim_text": "FuseFormer 在長度 40 就衝到 937G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "(40, 937)"
+    },
+    {
+      "claim_id": "f-flops",
+      "claim_text": "flops_compare",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/flops_compare.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "FLOPs cures of different Transformer blocks."
+    },
+    {
+      "claim_id": "f-flowablation",
+      "claim_text": "有無影像域傳遞的定性消融",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/flow_prop_ablation.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Comparison of w/ and w/o image propagation."
+    },
+    {
+      "claim_id": "f-imgpropcomp",
+      "claim_text": "FGVC 與 ProPainter 影像傳遞的定性對比",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/img_prop_comparison.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Visual comparison on image propagation methods of FGVC~\\cite{gao2020flow} and ours."
+    },
+    {
+      "claim_id": "f-motion",
+      "claim_text": "YouTube-VOS 與 DAVIS 的運動幅度分布",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/motion_hist.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Motion magnitude distribution on YouTube-VOS~\\cite{xu2018youtube} and DAVIS~\\cite{perazzi2016benchmark} datasets."
+    },
+    {
+      "claim_id": "f-visual",
+      "claim_text": "影片補全與物體移除定性對比",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/visual_comparison.png",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Qualitative comparisons on both video completion and object removal."
+    },
+    {
+      "claim_id": "c1c",
+      "claim_text": "附錄 480p 的實際尺寸是 $864\\times 480$",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "864\\times 480"
+    },
+    {
+      "claim_id": "c1d",
+      "claim_text": "ProPainter 的 PSNR 是 33.81、每格 0.249 秒",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "ProPainter (Ours) & \\bf{33.81}"
+    },
+    {
+      "claim_id": "c1e",
+      "claim_text": "E$^2$FGVI 是 32.98、每格 0.332 秒",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "E$^2$FGVI~\\cite{li2022towards} & 32.98"
+    },
+    {
+      "claim_id": "b19d",
+      "claim_text": "1280×720、80 格在 fp32 下直接 OOM、fp16 約 25G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/README_repo.md",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "| 1280 x 720 | 28G / 19G | OOM / 25G |"
+    },
+    {
+      "claim_id": "b19e",
+      "claim_text": "720×480、80 格則約 13G / 8G",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-propainter-20260904/.loop-manager/paper-cache/propainter/code/README_repo.md",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "| 720 x 480 | 11G / 7G | 13G / 8G |"
+    },
+    {
+      "claim_id": "c6",
+      "claim_text": "地面上原本那道投射陰影卻在包含 ProPainter 在內的所有方法輸出裡都還留著",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "Qualitative comparisons on both video completion and object removal."
+    },
+    {
+      "claim_id": "b17b",
+      "claim_text": "拿掉影像域傳遞跌 1.10 dB",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "PSNR &  33.05 &  32.91  &   33.17  & 33.94         & {34.18} & 34.15"
+    },
+    {
+      "claim_id": "b17c",
+      "claim_text": "把影像傳遞換成 FGVC 反而更差（32.91）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2309.03897",
+      "retrieved_at": "2026-09-04T16:35:00+00:00",
+      "quoted_snippet": "PSNR &  33.05 &  32.91  &   33.17  & 33.94         & {34.18} & 34.15"
+    }
+  ]
+}
