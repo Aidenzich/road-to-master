@@ -1,0 +1,1008 @@
+{
+  "note_path": "domains/computer_vision/EraserDiT/README.md",
+  "domain": "computer_vision",
+  "topic": "EraserDiT",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-09-04T09:00:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "EraserDiT: Fast Video Inpainting with Diffusion Transformer Model",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "\\title{EraserDiT: Fast Video Inpainting with Diffusion Transformer Model}"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Jie Liu, Zheng Hui",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "Jie Liu,"
+    },
+    {
+      "claim_id": "ac-affiliation",
+      "claim_text": "Mango TV",
+      "kind": "paper-claim",
+      "target": "table-cell:affiliation",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "\\textsuperscript{\\rm 1}Mango TV"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv:2506.12853v2",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "arXiv:2506.12853v2 [cs.CV] 17 Aug 2025"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2025",
+      "kind": "paper-claim",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "arXiv:2506.12853v2 [cs.CV] 17 Aug 2025"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "tech-report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "arXiv:2506.12853v2 [cs.CV] 17 Aug 2025"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/JieLiu95/EraserDiT",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/JieLiu95/EraserDiT",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "https://github.com/JieLiu95/EraserDiT"
+    },
+    {
+      "claim_id": "ac-project",
+      "claim_text": "https://jieliu95.github.io/EraserDiT_demo/",
+      "kind": "evidence-supported",
+      "target": "table-cell:project-page",
+      "source_url": "https://jieliu95.github.io/EraserDiT_demo/",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "https://jieliu95.github.io/EraserDiT_demo/"
+    },
+    {
+      "claim_id": "ac-weights",
+      "claim_text": "https://huggingface.co/jieeliu/EraserDiT",
+      "kind": "evidence-supported",
+      "target": "table-cell:model-weights",
+      "source_url": "https://huggingface.co/jieeliu/EraserDiT",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "https://huggingface.co/jieeliu/EraserDiT"
+    },
+    {
+      "claim_id": "ac-backbone",
+      "claim_text": "LTX-Video",
+      "kind": "paper-claim",
+      "target": "table-cell:backbone",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we chose LTX-Video as our backbone model"
+    },
+    {
+      "claim_id": "fig-demo",
+      "claim_text": "字幕移除示例",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/demo_text.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The visual results of DiffEraser, MinimaxRemover, and the proposed method."
+    },
+    {
+      "claim_id": "fig-train",
+      "claim_text": "訓練管線",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/train_pipeline.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The training pipeline of the proposed method for video object removal."
+    },
+    {
+      "claim_id": "fig-test",
+      "claim_text": "推論管線",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/test_pipeline.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The inference pipeline of the proposed method for video object removal."
+    },
+    {
+      "claim_id": "fig-cycle",
+      "claim_text": "Circular Position-Shift",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/cycle.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The Circular Position-Shift strategy involves reflect padding the original video sequence"
+    },
+    {
+      "claim_id": "fig-r1",
+      "claim_text": "DAVIS 質化比較",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/results_01.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The results on the DAVIS dataset \\cite{perazzi2016benchmark} are presented as follows: the first column shows the input masked frames"
+    },
+    {
+      "claim_id": "fig-r2",
+      "claim_text": "DAVIS 與 HQVI 質化比較",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/results_02.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The results on the DAVIS \\cite{perazzi2016benchmark} and HQVI~\\cite{cho2025elevating} dataset are presented as follows"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "propagation 找不到可搬運的已知像素",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "when encountering large areas of masking, the generative capability of Generative Adversarial Networks (GANs) has been proven to be insufficient"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "一段 2K clip 推論要超過 7 分鐘",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the inference time for a single 2K-resolution clip exceeds 7 minutes"
+    },
+    {
+      "claim_id": "body-prose-2b",
+      "claim_text": "3D full attention 取代分離的時間",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "these methods employ a 3D full attention mechanism to maintain the consistency of large-movement objects"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "只要 65 秒",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "it takes only 65 seconds (testing on one NVIDIA H800 GPU) to complete a video with a resolution of 2160 × 2100 with 97 frames"
+    },
+    {
+      "claim_id": "body-prose-3b",
+      "claim_text": "Circular Position-Shift（CPS）策略",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we propose an inference method called the Circular Position-Shift strategy"
+    },
+    {
+      "claim_id": "body-prose-3c",
+      "claim_text": "約 60,000 段 mask 影片",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "this work generated approximately 60,000 mask videos for dynamic objects, including people and animals"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "PSNR、SSIM、LPIPS、VFID",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we employ PSNR, LPIPS, SSIM, and VFID to comprehensively evaluate"
+    },
+    {
+      "claim_id": "body-prose-4b",
+      "claim_text": "baseline 只比較 DiffEraser 與 MiniMax-Remover",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the second to fourth columns display the results of DiffEraser"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "拿 Lightricks 的 LTX-Video 當基礎架構做微調",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we chose LTX-Video as our backbone model"
+    },
+    {
+      "claim_id": "body-prose-5b",
+      "claim_text": "720p、129 影格就要 60GB 顯存",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "60GB needed for 129 frames at 720p resolution"
+    },
+    {
+      "claim_id": "body-prose-5e",
+      "claim_text": "以 $32\\times32\\times8$ 的時空下採樣達到約 1:192 的壓縮率，換來極快的推論速度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "Its greatest advantage is its inference speed, thanks to the design of a $1:192$ compression ratio with spatiotemporal downsampling of $32\\times32\\times8$"
+    },
+    {
+      "claim_id": "body-prose-5c",
+      "claim_text": "只微調 denoising video transformer",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "only train the parameters of the video transformer model for video inpainting"
+    },
+    {
+      "claim_id": "body-prose-5d",
+      "claim_text": "AutoencoderKLLTXVideo",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-5",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:18",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "vae = AutoencoderKLLTXVideo.from_pretrained(base_model_path, subfolder=\"vae\", use_safetensor=True)"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "沿通道維度串接而成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the input to the denoising video transformer combines the latent features of the masked video sequence with the spatiotemporally downsampled mask sequence"
+    },
+    {
+      "claim_id": "body-prose-6b",
+      "claim_text": "num_channels_latents = (in_channels - 1) // 2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/pipelines/pipeline_ltx_video2video.py:772",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "num_channels_latents = (self.transformer.config.in_channels - 1) // 2"
+    },
+    {
+      "claim_id": "body-prose-6c",
+      "claim_text": "以 `strength=0.8` 對 masked video 的 latent 加噪",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:55",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "strength=0.8,"
+    },
+    {
+      "claim_id": "body-prose-6d",
+      "claim_text": "論文正文從未定義 $M_j$ 的極性",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "masked video sequence $V_{M} = V_{i} * M_{j}$"
+    },
+    {
+      "claim_id": "body-prose-6e",
+      "claim_text": "先把目標遮罩門檻化為 1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:257",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "mask_align = torch.where(mask_align>(255/2*self.threshold),1,0)"
+    },
+    {
+      "claim_id": "body-prose-6f",
+      "claim_text": "把「目標為 1」的遮罩翻回去",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:276",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "video_align_normalized_masked = video_align_normalized*(1-mask_align)"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "$n$ 個像素影格會被壓成的 latent 時間長度",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the temporal features consist of $1 + \\frac{n-1}{8}$ frames"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "1 + \\frac{n-1}{8}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the temporal features consist of $1 + \\frac{n-1}{8}$ frames"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "每 8 個連續 mask 影格必須併成 1 張 mask",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:296",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "mask_wrapping_batch = torch.where(mask_wrapping_batch>=1,255,0)"
+    },
+    {
+      "claim_id": "body-prose-8b",
+      "claim_text": "論文正文卻寫成 \"intersected\"（交集）",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "eight temporally contiguous mask frames $M_{j}$ are intersected to form a single mask frame"
+    },
+    {
+      "claim_id": "body-prose-8c",
+      "claim_text": "屬於用詞與程式碼不一致",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "eight temporally contiguous mask frames $M_{j}$ are intersected to form a single mask frame"
+    },
+    {
+      "claim_id": "body-prose-8d",
+      "claim_text": "先對 mask 做 9 次十字核膨脹",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-8",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:46",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "dilate_iter=9,"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "MiniCPM-o-2.6（不是論文說的 Qwen2.5-VL）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/img_caption.py:8",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "'/mnt/afs/liujie/ckpts/MiniCPM-o-2_6'"
+    },
+    {
+      "claim_id": "body-prose-9b",
+      "claim_text": "論文說「例如 Qwen2.5-VL」",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "a vision-language model (VLM), such as Qwen2.5-VL"
+    },
+    {
+      "claim_id": "body-prose-9c",
+      "claim_text": "寫死「Remove the woman」的獨立示範腳本",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/img_caption.py:28",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "prompt2 = \"Remove the woman, and briefly explain which objects are included in the image"
+    },
+    {
+      "claim_id": "body-prose-9d",
+      "claim_text": "論文只說 mask 序列可依 prompt 取得，未交代生成方法",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "based on the prompt provided by the user for the object to be removed, a mask sequence $M_{test}$ can be obtained"
+    },
+    {
+      "claim_id": "fig3-bbox-vlm",
+      "claim_text": "Figure 3 圖說（README.md:58）：使用者在第一影格用 bounding box 框出物件，VLM 據此生成移除後場景的 prompt",
+      "kind": "paper-claim",
+      "target": "note-figure:test_pipeline",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "marks the object with a bounding box in the first frame. Then, a vision-language model (VLM), such as Qwen2.5-VL~\\cite{bai2025qwen2}, automatically generates a prompt describing the video as if the object were not present"
+    },
+    {
+      "claim_id": "fig3-qa",
+      "claim_text": "Figure 3 圖說（README.md:58）：圖中 Q/A 為固定問句格式與 VLM 答句，用於自動生成排除移除物件的 prompt",
+      "kind": "paper-claim",
+      "target": "note-figure:test_pipeline",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "``Q'' and ``A'' represent fixed question formats and VLM's answer, respectively, used for interacting with the user and generating automated prompts that exclude the object to be removed"
+    },
+    {
+      "claim_id": "fig3-stacked-frames",
+      "claim_text": "Figure 3 圖說（README.md:58）：左側輸入是彼此偏移疊放的堆疊影格示意圖，其黑色與粉紅色外框只是該示意圖的邊緣、論文未賦予角色；真正的標註是藍框，標出待移除物件（紅衣女子）",
+      "kind": "reasonable-inference",
+      "target": "note-figure:test_pipeline",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "``Q'' and ``A'' represent fixed question formats and VLM's answer, respectively"
+    },
+    {
+      "claim_id": "body-prose-9e",
+      "claim_text": "釋出 inference.py 需外部提供 mask 影片（--mask_path 預設 data/10268234_mask.mp4）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:125",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "parser.add_argument(\"--mask_path\", type=str, default=\"data/10268234_mask.mp4\", help=\"Input mask path.\")"
+    },
+    {
+      "claim_id": "body-prose-9f",
+      "claim_text": "run_batch 以 mask_path=video_mask_path 把外部遮罩影片傳入前處理",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:70",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "mask_path=video_mask_path,"
+    },
+    {
+      "claim_id": "body-prose-9g",
+      "claim_text": "--bbox_path 預設 None，僅在解析度不足 1080p 以上需裁切時才用",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-9",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:128",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "parser.add_argument(\"--bbox_path\", type=str, default=None, help=\"Input mask path.If the resolution is less than 1080p, the bbox_path can be set to None.\")"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "反射補上",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we first pad the input sequence using the reflect mode. Next, we concatenate the beginning and the end to form a circular sequence"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "2l - 2",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "circular sequence length $L = 2l - 2$"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "每個 denoising timestep 都加上 $\\alpha$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "accumulating $\\alpha$ at each timestep. This ensures that the model initiates the sliding window from different positions"
+    },
+    {
+      "claim_id": "body-prose-11b",
+      "claim_text": "CFG distillation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we employ the classifier-free guidance (CFG) distillation model to reduce the inference cost back to its original level"
+    },
+    {
+      "claim_id": "body-prose-11c",
+      "claim_text": "固定 guidance scale $3.0$",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "train it using a fixed guidance scale $3.0$"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "shift_alpha = 1*8+1 = 9",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:47",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "shift_alpha=1*8+1,"
+    },
+    {
+      "claim_id": "body-prose-12b",
+      "claim_text": "`pre_video_shift = output_frames[-9:]`",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:102",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "pre_video_shift = output_frames[-preprocessor.shift_alpha:,...].cpu()"
+    },
+    {
+      "claim_id": "body-prose-12c",
+      "claim_text": "跑的是完整雙路 CFG",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/pipelines/pipeline_ltx_video2video.py:864",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "noise_pred = noise_pred_uncond + self.guidance_scale * (noise_pred_text - noise_pred_uncond)"
+    },
+    {
+      "claim_id": "body-prose-12d",
+      "claim_text": "與論文 Algorithm 1 的逐步環狀位移在形式上並不相同",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:102",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "pre_video_shift = output_frames[-preprocessor.shift_alpha:,...].cpu()"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "`crop_flag = True if height*width > 1088*1920 else False`",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:30",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "crop_flag = True if height_input_ori * width_input_ori >1088 * 1920 else False"
+    },
+    {
+      "claim_id": "body-prose-13b",
+      "claim_text": "The maximum mask movement in the current video sequence exceeds 1080",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:54",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "The maximum mask movement in the current video sequence exceeds 1080 × 1920."
+    },
+    {
+      "claim_id": "body-prose-13c",
+      "claim_text": "DiT 從不對完整的 2160×2100 做 full attention",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:30",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "crop_flag = True if height_input_ori * width_input_ori >1088 * 1920 else False"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "960\\times960$、81 frames",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The video transformer is trained with a resolution of $960 \\times 960$ and 81 frames"
+    },
+    {
+      "claim_id": "body-table-1b",
+      "claim_text": "280k iters、24× A100(80G)",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "The training process comprises 280k iterations on 24 NVIDIA A100 (80G) GPUs"
+    },
+    {
+      "claim_id": "body-table-1c",
+      "claim_text": "600,000 段",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we downloaded 600,000 diverse background videos"
+    },
+    {
+      "claim_id": "body-table-1d",
+      "claim_text": "動物 ~30,000（1–5s）",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we obtained approximately 30,000 videos, each with a duration ranging from 1 to 5 seconds"
+    },
+    {
+      "claim_id": "body-table-1e",
+      "claim_text": "人物 ~32,000（5–20s）",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "We processed approximately 32,000 videos, each with a duration ranging from 5 to 20 seconds"
+    },
+    {
+      "claim_id": "body-table-1f",
+      "claim_text": "官方 `num_inference_steps=50` × `strength=0.8`",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:52",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "num_inference_steps=50,"
+    },
+    {
+      "claim_id": "body-table-1g",
+      "claim_text": "121 frames（重疊 9）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:48",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "TEMP_INFER_LEN=121,"
+    },
+    {
+      "claim_id": "body-equation-3",
+      "claim_text": "L_2 \\cdot (1 + D_{\\text{mask}})",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "L_{focal} = L_{2} * (1 + D_{mask})"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "$D_{\\text{mask}}$ 是 $M_j^{input}$ 的膨脹遮罩",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the $D_{mask}$ is the dilated mask"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "壓成 $1+(97-1)/8 = 13$ 個 latent 影格",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the temporal features consist of $1 + \\frac{n-1}{8}$ frames"
+    },
+    {
+      "claim_id": "body-prose-15b",
+      "claim_text": "對照 MiniMax-Remover 對同一輸入用 6 步卻要 7 分 20 秒",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "\\emph{Minimax-Remover} requires 7 minutes and 20 seconds to process the same input with only 6 denoising steps"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "本方法在這兩個被選中的 baseline 上四項指標皆最佳",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "our proposed method consistently outperforms both \\emph{DiffEraser} and \\emph{Minimax-Remover} across all considered evaluation metrics"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "30.78",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "Ours(EraserDiT)  & \\textbf{30.78} &\\textbf{0.9446} & \\textbf{0.0343} & \\textbf{0.0072} & \\textbf{65s}"
+    },
+    {
+      "claim_id": "body-table-2b",
+      "claim_text": "73s（960×528）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "DiffEraser       & 26.89 & 0.8480 & 0.0623 & 0.0502 & \\textcolor{red}{73s (960*528) }"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "摘要與官方 README 都寫 2160×2100",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "to complete a video with a resolution of 2160 × 2100 with 97 frames"
+    },
+    {
+      "claim_id": "critical-prose-1b",
+      "claim_text": "Table 1 的圖說與正文卻寫 2160×1200",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "with a resolution of 2160 × 1200 with 97 frames"
+    },
+    {
+      "claim_id": "critical-prose-1c",
+      "claim_text": "摘要宣稱「without any acceleration method」",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "with 97 frames without any acceleration method"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "DiffEraser 因解析度上限只在 $960\\times528$ 評測",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "Due to its resolution limitation of $960 \\times 528$"
+    },
+    {
+      "claim_id": "critical-prose-2b",
+      "claim_text": "baseline 僅 DiffEraser 與 MiniMax-Remover",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "our proposed method consistently outperforms both \\emph{DiffEraser} and \\emph{Minimax-Remover}"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "HQVI 這個評測資料集正是 RGVI",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "directly leveraging the ground-truth masks provided in the HQVI dataset \\cite{cho2025elevating}"
+    },
+    {
+      "claim_id": "critical-prose-3b",
+      "claim_text": "被註解掉的 RGVI 數據",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-3",
+      "source_url": ".loop-manager/paper-cache/eraserdit/evidence/results-table.tex",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "% RGVI             & 30.10 & 0.9489 & 0.0357 & \\textbf{0.0058}"
+    },
+    {
+      "claim_id": "critical-prose-3c",
+      "claim_text": "RGVI 在 SSIM 與 VFID 兩項其實優於 EraserDiT",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": ".loop-manager/paper-cache/eraserdit/evidence/results-table.tex",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "% RGVI             & 30.10 & 0.9489 & 0.0357 & \\textbf{0.0058}"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "一節通篇是文字描述",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we provide video comparisons in the supplementary material to highlight the differences"
+    },
+    {
+      "claim_id": "critical-prose-4b",
+      "claim_text": "找不到 Algorithm 1 逐步累積位移的環狀實作",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:47",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "shift_alpha=1*8+1,"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "骨幹、3D full attention、3D VAE、rectified flow、cross-attention 注入 prompt 全部來自 LTX-Video",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "we chose LTX-Video as our backbone model"
+    },
+    {
+      "claim_id": "critical-prose-5b",
+      "claim_text": "寫死「the woman」、換了 VLM 的示範腳本",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/img_caption.py:28",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "prompt2 = \"Remove the woman"
+    },
+    {
+      "claim_id": "critical-prose-6",
+      "claim_text": "官方 README 標明 2K 影片需要 >60GB 顯存",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://huggingface.co/jieeliu/EraserDiT",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "EraserDiT requires >60GB GPU memory for a 2K‑resolution video."
+    },
+    {
+      "claim_id": "critical-prose-6b",
+      "claim_text": "在「快速流水、極快鏡頭運動」場景結果不佳",
+      "kind": "paper-claim",
+      "target": "note-section:critical-prose-6",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "the results are suboptimal in scenarios involving rapidly flowing water and extremely fast camera movements"
+    },
+    {
+      "claim_id": "fig-tab1",
+      "claim_text": "論文 Table 1 原始排版：紅字標註 73s (960*528)，表題 97 frames",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/tab1_quantitative_results.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "with a resolution of 2160 × 1200 with 97 frames (\\emph{DiffEraser} is tested on the resolution of $960 \\times 528$)"
+    },
+    {
+      "claim_id": "body-prose-12e",
+      "claim_text": "TEMP_INFER_LEN=121 是像素影格批長，對應 16 個 temporal latent 影格",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-12",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:48",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "TEMP_INFER_LEN=121,"
+    },
+    {
+      "claim_id": "body-prose-13d",
+      "claim_text": "inference.py:52 以 3 個引數呼叫 bbox_video，但 pre.py:75 要求第 4 個 inference_idx",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:52",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "output_bbox = preprocessor.bbox_video(height_input_ori, width_input_ori, bbox_path)"
+    },
+    {
+      "claim_id": "body-prose-13e",
+      "claim_text": "bbox_video 定義要求第 4 個參數 inference_idx",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:75",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "def bbox_video(self, height_input_ori, width_input_ori, bbox_path, inference_idx):"
+    },
+    {
+      "claim_id": "body-prose-13f",
+      "claim_text": "bbox_cal 開啟 bbox_path 指向的 CSV，逐列讀取 bboxes 欄，並不讀取任何 mask 影格",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:347",
+      "retrieved_at": "2026-09-04T10:09:45+00:00",
+      "quoted_snippet": "bboxs = list(csv.DictReader(open(bbox_path, \"r\", encoding=\"utf-8-sig\")))"
+    },
+    {
+      "claim_id": "body-prose-13g",
+      "claim_text": "裁切視窗由每列 bboxes 座標的極值（x1_min/x2_max/y1_min/y2_max）決定，movement 檢查以 x2_max - x1_min > crop_w 判斷",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:368",
+      "retrieved_at": "2026-09-04T10:09:45+00:00",
+      "quoted_snippet": "if x2_max - x1_min>crop_w or y2_max - y1_min >crop_h:"
+    },
+    {
+      "claim_id": "body-prose-13h",
+      "claim_text": "--bbox_path 引數 help 字串誤標為 Input mask path",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:128",
+      "retrieved_at": "2026-09-04T10:09:45+00:00",
+      "quoted_snippet": "help=\"Input mask path.If the resolution is less than 1080p, the bbox_path can be set to None.\""
+    },
+    {
+      "claim_id": "critical-prose-2c",
+      "claim_text": "2160×1200 = 2,592,000 像素，是 960×528 = 506,880 像素的約 5.11 倍",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "with a resolution of 2160 × 1200 with 97 frames (\\emph{DiffEraser} is tested on the resolution of $960 \\times 528$)"
+    },
+    {
+      "claim_id": "fig-r2-striped",
+      "claim_text": "紅白繞桿對應論文所稱的 striped surfaces",
+      "kind": "paper-claim",
+      "target": "figure:imgs/results_02.png",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "in areas featuring intricate patterns—such as striped surfaces or dynamic water ripples"
+    },
+    {
+      "claim_id": "release-pad-1",
+      "claim_text": "首批路徑依 TEMP_INFER_LEN=121、shift_alpha=9 算出還缺 24 影格",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:51",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "num_frames_padded=(batch_size*wrapping_size+self.shift_alpha)-video_num_frame"
+    },
+    {
+      "claim_id": "release-pad-2",
+      "claim_text": "以反射方式 flip(0)[1:-1] 補幀",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:55",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "video_ori_align_temp = video_ori_align.flip(0)[1:len(video_ori_align)-1]"
+    },
+    {
+      "claim_id": "release-pad-3",
+      "claim_text": "inference_utils 以 num_frames=videos.shape[0] 呼叫 pipeline（首批為 121）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:49",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "num_frames=videos.shape[0],"
+    },
+    {
+      "claim_id": "release-pad-4",
+      "claim_text": "pipeline 依 (num_frames-1)//8+1 得 latent 時間長度，121 對應 16",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/pipelines/pipeline_ltx_video2video.py:775",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "latent_num_frames = (num_frames - 1) // self.vae_temporal_compression_ratio + 1"
+    },
+    {
+      "claim_id": "release-pad-5",
+      "claim_text": "釋出路徑下 DiT 實際處理 16 個 temporal latent 影格而非未補幀公式的 13",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-15",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/pipelines/pipeline_ltx_video2video.py:775",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "latent_num_frames = (num_frames - 1) // self.vae_temporal_compression_ratio + 1"
+    },
+    {
+      "claim_id": "mask-protocol-1",
+      "claim_text": "DAVIS 自行生成二值遮罩並重建 masked video，HQVI 直接使用資料集提供的 ground-truth 遮罩",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:20:00+00:00",
+      "quoted_snippet": "we generate binary masks and reconstruct the masked videos using the DAVIS dataset \\cite{perazzi2016benchmark}, while directly leveraging the ground-truth masks provided in the HQVI dataset"
+    },
+    {
+      "claim_id": "mask-protocol-2",
+      "claim_text": "DAVIS 重建品質部分取決於作者自訂遮罩，是解讀該欄數字的隱含變因",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:20:00+00:00",
+      "quoted_snippet": "we generate binary masks and reconstruct the masked videos using the DAVIS dataset"
+    },
+    {
+      "claim_id": "precision-1",
+      "claim_text": "釋出程式碼預設以 bfloat16 為 weight_dtype",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/inference.py:39",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "weight_dtype=torch.bfloat16"
+    },
+    {
+      "claim_id": "precision-2",
+      "claim_text": "transformer 以 torch_dtype=torch.bfloat16 載入",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:21",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "torch_dtype=torch.bfloat16)"
+    },
+    {
+      "claim_id": "precision-3",
+      "claim_text": "推論在 torch.autocast 下進行",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-1",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/inference_utils.py:44",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "with torch.autocast(str(device), dtype=weight_dtype):"
+    },
+    {
+      "claim_id": "precision-4",
+      "claim_text": "論文 Table 1 未記載計時所用精度，無法確立與 baseline 的精度對齊",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:20:00+00:00",
+      "quoted_snippet": "with a resolution of 2160 × 1200 with 97 frames"
+    }
+  ]
+}
