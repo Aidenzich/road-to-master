@@ -294,6 +294,33 @@
       "quoted_snippet": "strength=0.8,"
     },
     {
+      "claim_id": "body-prose-6d",
+      "claim_text": "論文正文從未定義 $M_j$ 的極性",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2506.12853",
+      "retrieved_at": "2026-09-04T09:00:00+00:00",
+      "quoted_snippet": "masked video sequence $V_{M} = V_{i} * M_{j}$"
+    },
+    {
+      "claim_id": "body-prose-6e",
+      "claim_text": "先把目標遮罩門檻化為 1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:257",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "mask_align = torch.where(mask_align>(255/2*self.threshold),1,0)"
+    },
+    {
+      "claim_id": "body-prose-6f",
+      "claim_text": "把「目標為 1」的遮罩翻回去",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": ".loop-manager/paper-cache/eraserdit/code-clone/utils/pre.py:276",
+      "retrieved_at": "2026-09-04T09:41:40+00:00",
+      "quoted_snippet": "video_align_normalized_masked = video_align_normalized*(1-mask_align)"
+    },
+    {
       "claim_id": "body-prose-7",
       "claim_text": "$n$ 個像素影格會被壓成的 latent 時間長度",
       "kind": "paper-claim",
