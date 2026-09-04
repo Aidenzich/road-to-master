@@ -181,6 +181,23 @@ Reranker 的影片證據也需要拆開看。論文用 Embedding-2B 召回 top-1
 - **時序理解仍存疑（重要保留）**：影片高分多半來自辨識稀疏畫面裡的靜態線索，而非理解連續動態——取樣 16 幀就已達到 64 幀約 96% 的表現，且論文完全沒有做「打亂幀順序 vs 保持順序」這類能證明時序理解的對照實驗。
 - **小型 reranker 對影片不划算**：Reranker-8B 把影片檢索分數從 53.6 推到 61.0，但 Reranker-2B 只有 53.2，反而略低於 Embedding-2B 原本的 53.6，收益主要來自 8B。
 
+
+## 補充
+官方 wrapper 的預設設定下，一小時影片最多只會留下 64 幀來產生一個 embedding。
+處理邏輯是：
+- 影片檔路徑：先按預設 fps=1 取得約 3,600 個候選時間點，再受 max_frames=64 限制。
+- Frame-list 路徑：只要輸入超過 64 張，就用 np.linspace 從頭到尾均勻選 64 張。實作見 qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:119。
+- 預設值明確是 MAX_FRAMES = 64，見 qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:30。
+
+一小時的平均取樣間隔大約是：3599 秒 ÷ 63 個間隔 ≈ 57.1 秒
+也就是大約每 57 秒才保留一幀。一個只持續幾秒的擊球、轉身或事故事件，很可能完全沒被取到。
+
+但 64 不是模型不可修改的硬上限，而是官方 wrapper 的預設與論文評測設定：
+- 建構 embedder 時可以提高 max_frames。
+- 直接傳影片檔時，也能針對單筆輸入覆寫 max_frames，見 qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:290。
+- 提高後仍會受視覺 token、context、顯存及每幀畫質預算約束，而且論文沒有證明一小時長片提高幀數後的實際品質。
+實務上不應直接把一小時壓成一個向量。比較合理的是切成例如 30–60 秒、帶重疊的片段，每段各產生 embedding；如此搜尋結果還能定位到具體時間區段。
+
 ## 🔗 Related notes
 
 - [Video-MME](../Video-MME/)
