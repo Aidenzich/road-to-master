@@ -1,0 +1,432 @@
+{
+  "note_path": "domains/computer_vision/DualEraser/README.md",
+  "domain": "computer_vision",
+  "topic": "DualEraser",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-09-04T10:30:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "DualEraser: Joint Video Object and Effect Removal via Balanced Text-Mask Guidance and Decoupled Locator-Preserver",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\title{DualEraser: Joint Video Object and Effect Removal via Balanced Text-Mask Guidance and Decoupled Locator-Preserver}"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv preprint (CVPR 2026 submission template; acceptance unverified)",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\def\\confName{CVPR}"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\def\\confYear{2026}"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Yuqing Chen, Lin Liu, Haisu Wu, Xiaopeng Zhang, Yaowei Wang, Yujiu Yang, Qi Tian",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Yuqing Chen and Lin Liu and Haisu Wu and Xiaopeng Zhang and Yaowei Wang and Yujiu Yang and Qi Tian"
+    },
+    {
+      "claim_id": "ac-official-code",
+      "claim_text": "https://github.com/cyqii/GenEraser",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/cyqii/GenEraser",
+      "retrieved_at": "2026-09-04T10:15:00+00:00",
+      "quoted_snippet": "# GenEraser: Generalizable Video Object Removal via Balanced Text-Mask Guidance and Decoupled Locator-Preserver"
+    },
+    {
+      "claim_id": "ac-venue-kind",
+      "claim_text": "paper",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\def\\confName{CVPR}"
+    },
+    {
+      "claim_id": "fig-framework",
+      "claim_text": "DualEraser 整體框架：Stage I（MCCE）、Stage II（LD-CFG）、推論 Locator 高噪聲 Preserver 低噪聲",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/framework.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\includegraphics[width=1.0\\linewidth]{Fig/MyMethod.pdf}"
+    },
+    {
+      "claim_id": "fig-training-phase",
+      "claim_text": "single expert 在 Stage I 訓練早期 vs 晚期於 VOR-Wild 上的定性對比，晚期殘留 wake 與街燈光暈重現",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/training_phase.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Qualitative comparisons of an expert model obtained at different phases of Stage I training on the VOR-Wild."
+    },
+    {
+      "claim_id": "fig-bipartite-ldcfg",
+      "claim_text": "上列 text-dominant、下列 mask-dominant；橘框 removal semantics、藍框 reconstruction semantics；MC-CFG vs LD-CFG",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/bipartite_ldcfg.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "The bottom panel presents Bipartite Text, including removal targets (yellow), target objects and effects (colored terms), and the desired post-removal scene (blue)."
+    },
+    {
+      "claim_id": "fig-qualitative",
+      "claim_text": "六類物理效果的定性比較，欄位含 EffectErase、Generative Omnimatte、ROSE、SVOR、DualEraser (Ours)",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/qualitative_effects.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "DualEraser eliminates target objects (red text) and their\neffects (yellow text). It outperforms existing methods by robustly removing\ndiverse complex effects."
+    },
+    {
+      "claim_id": "fig-failure",
+      "claim_text": "physical causality 失敗案例：移除運球小孩後籃球仍維持由小孩驅動的彈跳軌跡",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/failure_causality.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "After the child is removed, the basketball retains nearly the same child-driven motion as in the reference video despite the absence of the corresponding physical interaction."
+    },
+    {
+      "claim_id": "body-p1",
+      "claim_text": "joint video object and effect removal",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "we propose DualEraser, a novel framework for joint video object and effect removal."
+    },
+    {
+      "claim_id": "body-p2",
+      "claim_text": "modality dissonance",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "condition-level modality dissonance and optimization-level objective entanglement."
+    },
+    {
+      "claim_id": "body-p3",
+      "claim_text": "classifier-free guidance",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "a Learnable Deep CFG Fusion (LD-CFG) module adaptively balances the relative dominance between the text and mask conditions."
+    },
+    {
+      "claim_id": "body-p4",
+      "claim_text": "Erasure Preference Rate",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "the Erasure Preference Rate (EPR) is employed as the evaluation metric."
+    },
+    {
+      "claim_id": "body-p5",
+      "claim_text": "cross-modal dominance imbalance",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "cross-modal dominance imbalance"
+    },
+    {
+      "claim_id": "body-p6",
+      "claim_text": "0.4987 掉到 0.4346",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Early phase\n& 30.39\n& 23.29"
+    },
+    {
+      "claim_id": "body-p7",
+      "claim_text": "frozen VAE encoder",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "given a reference video"
+    },
+    {
+      "claim_id": "body-p8",
+      "claim_text": "flow-matching timestep",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "is the flow-matching timestep, and"
+    },
+    {
+      "claim_id": "body-p9",
+      "claim_text": "Qwen3-VL 8B",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "the Bipartite Text prompts for training and evaluation are generated using Qwen3-VL 8B"
+    },
+    {
+      "claim_id": "body-p10",
+      "claim_text": "Multi-Conditional Capability Elicitation",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "we extend the conditional-dropout strategy by randomly zeroing the mask latent"
+    },
+    {
+      "claim_id": "body-p11",
+      "claim_text": "dropout 機率設 0.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "we set the text-condition dropout probability to 0.1 and the probability of jointly zeroing the mask and masked-video latents to 0.2."
+    },
+    {
+      "claim_id": "body-p12",
+      "claim_text": "MC-CFG baseline",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "we extend conventional CFG to a multi-conditional inference baseline (MC-CFG) that accommodates both text and mask conditions."
+    },
+    {
+      "claim_id": "body-p13",
+      "claim_text": "text=1.0/mask=3.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "whereas VOR-Eval achieves its highest PSNR when both"
+    },
+    {
+      "claim_id": "body-p14",
+      "claim_text": "Simple Linear",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Simple Linear appends a linear layer directly to each block output and matches the parameter count of LD-CFG."
+    },
+    {
+      "claim_id": "body-p15",
+      "claim_text": "noise-level dual-expert",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "our proposed Locator and Preserver design differs from the generative noise-level expert"
+    },
+    {
+      "claim_id": "body-p16",
+      "claim_text": "MAE 高達 11.50",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "ROSE (Synthetic) & 3.85 & 3.31 \\\\\nVOR (Real) & 11.50 & 10.99"
+    },
+    {
+      "claim_id": "body-p17",
+      "claim_text": "從 33.55 掉到 30.32",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "removing the mask\ndecreases PSNR from 33.55 to 30.32 dB on ROSE-Bench and from 23.87 to 21.30 dB\non VOR-Eval, corresponding to reductions of 3.23 and 2.57 dB, respectively."
+    },
+    {
+      "claim_id": "body-p18",
+      "claim_text": "高 2.16 dB",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "over SVOR on the ROSE Benchmark and by"
+    },
+    {
+      "claim_id": "body-eq1",
+      "claim_text": "x_t = (1-t)\\,x_0 + t\\,\\epsilon",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "x_t &= (1-t)x_0+t\\epsilon, \\quad t\\in[0,1],"
+    },
+    {
+      "claim_id": "body-eq2",
+      "claim_text": "c^{\\mathrm{m}}_t = (x_t,t,x_{\\mathrm{ref}},m,x_{\\mathrm{m}},\\varnothing)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "denoting the empty text latent"
+    },
+    {
+      "claim_id": "body-eq3",
+      "claim_text": "\\tilde{v}_t = v^{\\mathrm{m}}_t + \\omega_{\\mathrm{m}}(v^{\\mathrm{f}}_t - v^{\\mathrm{m}}_t)",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-3",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\tilde{v}_{t} &= v^{\\text{m}}_{t} + \\omega_{\\text{m}} \\left( v^{\\text{f}}_{t} - v^{\\text{m}}_{t} \\right)"
+    },
+    {
+      "claim_id": "body-eq4",
+      "claim_text": "\\hat{h}^{\\mathrm{f}}_{i+1} = \\tilde{h}^{\\mathrm{f}}_{i+1} + f^{\\mathrm{m}}_i",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-4",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "\\hat{h}^{\\text{f}}_{i+1} &= \\tilde{h}^{\\text{f}}_{i+1} + f^\\text{m}_{i}( \\tilde{h}^{\\text{f}}_{i+1} - h^\\text{m}_{i+1})"
+    },
+    {
+      "claim_id": "body-table1",
+      "claim_text": "DualEraser 5B",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "DualEraser 5B"
+    },
+    {
+      "claim_id": "crit-p1",
+      "claim_text": "Table 1 與 Figure 3 提供了",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "an inherent optimization trade-off exists between high-level semantic erasure and  pixel-level background preservation."
+    },
+    {
+      "claim_id": "crit-p2",
+      "claim_text": "約 100K pair",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "containing approximately 17k video pairs"
+    },
+    {
+      "claim_id": "crit-p3",
+      "claim_text": "novel framework",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "differs from the generative noise-level expert"
+    },
+    {
+      "claim_id": "crit-p4",
+      "claim_text": "select multiple",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "two experts in video object removal independently evaluate all 195 cases."
+    },
+    {
+      "claim_id": "crit-p5",
+      "claim_text": "沒有任何 inference 程式",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://github.com/cyqii/GenEraser",
+      "retrieved_at": "2026-09-04T10:15:00+00:00",
+      "quoted_snippet": "Only three tracked files exist: README.md, LICENSE, and asset/showcases/showcases.gif — there is no inference or training code, no configuration files, and no model weights/checkpoints in the repository."
+    },
+    {
+      "claim_id": "fig-mc-cfg-scales",
+      "claim_text": "MC-CFG scale 敏感度：ROSE-Bench 最佳 text=1.0/mask=3.0、VOR-Eval 最佳 text=1.5/mask=1.5，多數曲線於 mask≥2.0 後下滑但 text=1.0 於 mask=3.0 略回升",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mc_cfg_guidance_scales.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Effect of the text and mask guidance scales on the PSNR of MC-CFG on"
+    },
+    {
+      "claim_id": "fig-no-mask",
+      "claim_text": "有無 spatial mask 的定性消融：缺 mask 會誤抹無關背景實例或無法鎖定目標",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/no_mask.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Qualitative comparison with and without spatial mask guidance. Without the mask condition, the model may fail to localize the intended target or modify unrelated regions."
+    },
+    {
+      "claim_id": "fig-no-perfect-text",
+      "claim_text": "殘缺 Bipartite Text 壓力測試：缺效果語義殘留煙、缺背景語義重建失真",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/no_perfect_text.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Qualitative stress test using incomplete Bipartite Text prompts. Missing effect-removal or background-reconstruction semantics can leave residual effects or produce inconsistent restored regions."
+    },
+    {
+      "claim_id": "fig-bad-case-occlusion",
+      "claim_text": "occlusion reconstruction 失敗：移除前景後被遮物件的身體結構斷裂",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/bad_case_occlusion.png",
+      "source_url": "https://arxiv.org/pdf/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Failure cases involving occlusion reconstruction. After a removal target is erased, DualEraser may produce structural discontinuities when recovering another object that was partially occluded by the target."
+    },
+    {
+      "claim_id": "crit-p4b",
+      "claim_text": "每位只評隨機分派的 117 個 case、每個 case 恰由 3 位不同志工評估",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "Each volunteer evaluates a randomly assigned subset of 117 input cases, where each case includes the anonymized outputs of all evaluated methods. The assignments are balanced such that every input case is evaluated by exactly three distinct volunteers."
+    },
+    {
+      "claim_id": "body-p8b",
+      "claim_text": "affine transformation 以增加相機視角多樣性",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "we apply affine transformations to the training videos to increase camera-viewpoint diversity. We also perform erosion and dilation on the input masks to improve the model's robustness to mask inaccuracies."
+    },
+    {
+      "claim_id": "body-p8c",
+      "claim_text": "mask 多由 SAM3 自動生成",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "These automatically generated masks are not always precise."
+    },
+    {
+      "claim_id": "body-p7-routing-boundary",
+      "claim_text": "它在四個 Locator 訓練時長中有三個（2,000／3,000／4,000 步）的 VOR-Wild EPR 最高，僅在 1,000 步時 0.675（0.3897）高於 0.875（0.3692）",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2605.30045",
+      "retrieved_at": "2026-09-04T10:13:20+00:00",
+      "quoted_snippet": "on VOR-Wild, a boundary\nof 0.875 achieves the highest EPR at three of the four evaluated training\ndurations. We therefore adopt 0.875 as the default routing boundary."
+    }
+  ]
+}

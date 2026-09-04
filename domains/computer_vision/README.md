@@ -16,4 +16,6 @@
 | [Image Generators are Generalist Vision Learners](https://arxiv.org/abs/2604.20329) | arXiv | '26 |  | [中文](./ImageGenerators-Generalist-Vision/) |
 | [DiffuEraser: A Diffusion Model for Video Inpainting](https://arxiv.org/abs/2501.10018) | arXiv | '25 | [✓](https://github.com/lixiaowen-xw/DiffuEraser.git) | [EN](./DiffuEraser/) · [中文](./DiffuEraser/README.zh-TW.md) |
 | [ProPainter: Improving Propagation and Transformer for Video Inpainting](https://arxiv.org/abs/2309.03897) | ICCV | '23 | [✓](https://github.com/sczhou/ProPainter) | [EN](./ProPainter/) · [中文](./ProPainter/README.zh-TW.md) |
+| [DualEraser: Joint Video Object and Effect Removal](https://arxiv.org/abs/2605.30045) | arXiv | '26 | [✓](https://github.com/cyqii/GenEraser) | [EN](./DualEraser/) · [中文](./DualEraser/README.zh-TW.md) |
 | [EraserDiT: Fast Video Inpainting with Diffusion Transformer Model](https://arxiv.org/abs/2506.12853) | arXiv | '25 | [✓](https://github.com/JieLiu95/EraserDiT) | [EN](./EraserDiT/) · [中文](./EraserDiT/README.zh-TW.md) |
+
