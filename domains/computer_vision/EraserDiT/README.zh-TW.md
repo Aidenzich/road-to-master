@@ -42,7 +42,7 @@ EraserDiT 不是從零訓練的 DiT，而是拿 Lightricks 的 LTX-Video 當基�
 
 ### 輸入怎麼構造、條件怎麼餵
 
-訓練時隨機取一段背景影片 $V_i$ 與一段 mask 影片 $M_j$，先做逐像素相乘得到 masked video $V_M = V_i \ast M_j$（被遮區歸零），再由 3D VAE encoder 以 $32\times32\times8$ 壓縮成 latent；對應的 mask 序列也下採樣到同一尺度。denoising transformer 的輸入，是把「加噪的 latent」「masked video 的 latent」「下採樣後的 mask」沿通道維度串接而成；prompt 則經 T5 編碼後，以 cross-attention 與影片 token 做特徵融合。官方 `pipeline_ltx_video2video.py` 印證了這個條件結構：transformer 每步同時吃 `hidden_states`（noisy latent）、`cond_latents`（masked video latent）與 `mask_values`（mask），而 `num_channels_latents = (in_channels - 1) // 2` 恰好對應「兩份 latent＋一份 mask」的通道配置。值得注意的是，官方推論其實是 video-to-video：以 `strength=0.8` 對 masked video 的 latent 加噪當作起點，而非從純高斯噪聲生成。
+訓練時隨機取一段背景影片 $V_i$ 與一段 mask 影片 $M_j$，論文寫成逐像素相乘 $V_M = V_i \ast M_j$ 得到 masked video，再由 3D VAE encoder 以 $32\times32\times8$ 壓縮成 latent；對應的 mask 序列也下採樣到同一尺度。這裡有一個論文留白、要對照程式碼才補得齊的細節：論文正文從未定義 $M_j$ 的極性（被移除區到底標 0 還是 1），只給了 $V_i \ast M_j$ 這個式子——若照字面要讓相乘把被移除區歸零，$M_j$ 就得是「背景為 1、目標為 0」的遮罩。但釋出程式碼採用相反極性：`pre.py` 先把目標遮罩門檻化為 1（`torch.where(mask_align>(255/2*self.threshold),1,0)`，被移除的目標區為 1），再以 `video*(1-mask)` 算 masked video（原始碼註解為 `# mask to be white`），也就是用 $1-M$ 把「目標為 1」的遮罩翻回去。最終效果一致（被移除區歸零），但論文的 $V_i \ast M_j$ 記法在極性上是留白的，真正的遮罩約定得看程式碼。denoising transformer 的輸入，是把「加噪的 latent」「masked video 的 latent」「下採樣後的 mask」沿通道維度串接而成；prompt 則經 T5 編碼後，以 cross-attention 與影片 token 做特徵融合。官方 `pipeline_ltx_video2video.py` 印證了這個條件結構：transformer 每步同時吃 `hidden_states`（noisy latent）、`cond_latents`（masked video latent）與 `mask_values`（mask），而 `num_channels_latents = (in_channels - 1) // 2` 恰好對應「兩份 latent＋一份 mask」的通道配置。值得注意的是，官方推論其實是 video-to-video：以 `strength=0.8` 對 masked video 的 latent 加噪當作起點，而非從純高斯噪聲生成。
 
 由於 3D Causal VAE 在時間維度也做 8 倍壓縮，$n$ 個像素影格會被壓成的 latent 時間長度為
 
