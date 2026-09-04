@@ -15,4 +15,5 @@
 | [Video-MME: The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video Analysis](https://arxiv.org/abs/2405.21075) | CVPR | '25 | [✓](https://video-mme.github.io) | [EN](./Video-MME/) · [中文](./Video-MME/README.zh-TW.md) |
 | [Why Far Looks Up: Probing Spatial Representation in Vision-Language Models](https://arxiv.org/abs/2605.30161) | ECCV | '26 | [✓](https://github.com/cheolhong0916/contrastive-probing) | [EN](./WhyFarLooksUp/) · [中文](./WhyFarLooksUp/README.zh-TW.md) |
 | [From Foundation to Application: Improving VLA Models in Practice](https://arxiv.org/abs/2607.06403) | arXiv | '26 | [✓](https://github.com/robbyant/lingbot-vla-v2) | [EN](./LingBot-VLA-2.0/) · [中文](./LingBot-VLA-2.0/README.zh-TW.md) |
+| [Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking](https://arxiv.org/abs/2601.04720) | arXiv | '26 | [✓](https://github.com/QwenLM/Qwen3-VL-Embedding) | [EN](./Qwen3-VL-Embedding/) · [中文](./Qwen3-VL-Embedding/README.zh-TW.md) |
 

@@ -1,0 +1,765 @@
+{
+  "note_path": "domains/vision_language/Qwen3-VL-Embedding/README.md",
+  "domain": "vision_language",
+  "topic": "Qwen3-VL-Embedding",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-09-04T04:20:00+00:00",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking",
+      "kind": "paper-claim",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "arXiv (technical report)",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "In this report, we introduce the Qwen3-VL-Embedding"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "as evaluated in January 2026"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Tongyi Lab, Alibaba Group",
+      "kind": "paper-claim",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Tongyi Lab, Alibaba Group"
+    },
+    {
+      "claim_id": "ac-code",
+      "claim_text": "https://github.com/QwenLM/Qwen3-VL-Embedding",
+      "kind": "paper-claim",
+      "target": "table-cell:official-code",
+      "source_url": "https://github.com/QwenLM/Qwen3-VL-Embedding",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "In this report, we introduce the Qwen3-VL-Embedding"
+    },
+    {
+      "claim_id": "ac-vkind",
+      "claim_text": "tech-report",
+      "kind": "reasonable-inference",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "In this report, we introduce the Qwen3-VL-Embedding"
+    },
+    {
+      "claim_id": "fig-arch",
+      "claim_text": "架構總覽",
+      "kind": "paper-claim",
+      "target": "figure:imgs/arch.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Overview of the Qwen3-VL-Embedding and Qwen3-VL-Reranker architecture"
+    },
+    {
+      "claim_id": "fig-pipe",
+      "claim_text": "多階段訓練管線",
+      "kind": "paper-claim",
+      "target": "figure:imgs/pipeline.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "The multi-stage training pipeline of Qwen3-VL-Embedding and Qwen3-VL-Reranker"
+    },
+    {
+      "claim_id": "fig-mrl",
+      "claim_text": "MRL 與量化的精度",
+      "kind": "paper-claim",
+      "target": "figure:imgs/mrl_qat.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Performance analysis of different embedding dimensions and embedding quantization"
+    },
+    {
+      "claim_id": "fig-gran",
+      "claim_text": "視覺粒度對各領域表現的影響",
+      "kind": "paper-claim",
+      "target": "figure:imgs/granularity.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Impact of visual granularity on model performance across different domains"
+    },
+    {
+      "claim_id": "b1",
+      "claim_text": "同一個表示空間",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "mapping diverse modalities, including text, images, document images, and video, into a unified representation space"
+    },
+    {
+      "claim_id": "b2",
+      "claim_text": "Embedding 模型採 bi-encoder",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the embedding model follows a bi-encoder architecture to produce dense vector representations"
+    },
+    {
+      "claim_id": "b3",
+      "claim_text": "9 個任務類別、共 78 個資料集",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "comprising nine task categories and 78 datasets in total"
+    },
+    {
+      "claim_id": "b4",
+      "claim_text": "影片 embedding",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "video-text matching"
+    },
+    {
+      "claim_id": "b5",
+      "claim_text": "取這個 token 對應的最後一層 hidden state",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the last hidden state corresponding to this token is used as the dense vector representation of the instance"
+    },
+    {
+      "claim_id": "b5b",
+      "claim_text": "Represent the user's input.",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-6",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "with the default instruction being ``Represent the user's input.''"
+    },
+    {
+      "claim_id": "b6",
+      "claim_text": "用 Embedding-2B 先召回 top-100 候選",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "retrieve the top 100 candidates before applying the reranking models"
+    },
+    {
+      "claim_id": "b7",
+      "claim_text": "8B 為 36 層、輸出 4096 維",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "& 8B & 36 & 32K & 4096 & Yes & Yes & Yes"
+    },
+    {
+      "claim_id": "t1",
+      "claim_text": "| Qwen3-VL-Embedding | 2B | 28 | 32K | 2048 | Yes | Yes |",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "& 2B & 28 & 32K & 2048 & Yes & Yes & Yes"
+    },
+    {
+      "claim_id": "b8",
+      "claim_text": "以 1 FPS 取樣、最多 64 幀",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "For video, we first sample at 1 FPS with a maximum of 64 frames."
+    },
+    {
+      "claim_id": "b9",
+      "claim_text": "np.linspace(0, len(frames) - 1, 64, dtype=int)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-10",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "frame_id_array = np.linspace(0, duration - 1, max_segments, dtype=int)"
+    },
+    {
+      "claim_id": "b10",
+      "claim_text": "每幀最多可到 983,040 像素",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/README.md:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "For a 16-frame video, each frame can have up to 983040 pixels (1280×768 resolution)"
+    },
+    {
+      "claim_id": "b10b",
+      "claim_text": "MAX_TOTAL_PIXELS = 10 * FRAME_MAX_PIXELS",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "MAX_TOTAL_PIXELS = 10 * FRAME_MAX_PIXELS"
+    },
+    {
+      "claim_id": "b10c",
+      "claim_text": "它從未被當成每幀上限傳給 processor",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "FRAME_MAX_PIXELS = 768 * IMAGE_FACTOR * IMAGE_FACTOR"
+    },
+    {
+      "claim_id": "b10d",
+      "claim_text": "這份 repository 並沒有公開可驗證的每幀影片 pixel 上限",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/README.md:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "For a 16-frame video, each frame can have up to 983040 pixels (1280×768 resolution)"
+    },
+    {
+      "claim_id": "b11",
+      "claim_text": "32×32=1024 像素的一個視覺 token",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "capping the maximum token consumption at 1,280"
+    },
+    {
+      "claim_id": "b12",
+      "claim_text": "MAX_LENGTH = 8192",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "MAX_LENGTH = 8192"
+    },
+    {
+      "claim_id": "b12b",
+      "claim_text": "真正生效的截斷是在 _preprocess_inputs 呼叫 processor 時以 truncation=True, max_length=self.max_length 委派給 processor 完成",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "text=text, images=images, videos=videos, video_metadata=video_metadata, truncation=True, "
+    },
+    {
+      "claim_id": "b12c",
+      "claim_text": "_truncate_tokens 只有定義、在 released wrapper 裡沒有呼叫點，並非實際生效的截斷路徑",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "def _truncate_tokens(self, token_ids: List[int], max_length: int)"
+    },
+    {
+      "claim_id": "b12d",
+      "claim_text": "_pooling_last 以 attention_mask 定位並取出每個序列最後一個有效位置的 hidden state",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-13",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "def _pooling_last(hidden_state: torch.Tensor, attention_mask: torch.Tensor)"
+    },
+    {
+      "claim_id": "b12e",
+      "claim_text": "PAD_TOKEN 在 released wrapper 僅定義未使用，wrapper 只透過 apply_chat_template(..., add_generation_prompt=True) 建立文字，故無法從靜態證據證明 pool 到的位置就是 PAD token",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-13",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "PAD_TOKEN = \"<|endoftext|>\""
+    },
+    {
+      "claim_id": "b13",
+      "claim_text": "F.normalize(embeddings, p=2, dim=-1)",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-14",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "embeddings = F.normalize(embeddings, p=2, dim=-1)"
+    },
+    {
+      "claim_id": "b14",
+      "claim_text": "分三個階段",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "We employ Low-Rank Adaptation (LoRA)"
+    },
+    {
+      "claim_id": "b14b",
+      "claim_text": "約 300M 筆合成資料",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "The multi-stage training pipeline of Qwen3-VL-Embedding and Qwen3-VL-Reranker"
+    },
+    {
+      "claim_id": "b15",
+      "claim_text": "scene cut detection",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "employing scene cut detection and removing static or corrupted segments, to preserve the integrity of temporal dynamics in video data"
+    },
+    {
+      "claim_id": "b16",
+      "claim_text": "Video Overall 從 s0 的 57.5",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "by distilling from a reranking model, the embedding model achieves a substantial performance boost in retrieval-oriented tasks"
+    },
+    {
+      "claim_id": "t2",
+      "claim_text": "| s0 | 65.8 | 57.5 | 74.8 | 66.6 |",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "65.8 & 60.8 & 65.9 & 51.1 & 48.4 & 57.5"
+    },
+    {
+      "claim_id": "b17",
+      "claim_text": "濾掉疑似 false negative",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "a masking factor to mitigate the impact of false negatives"
+    },
+    {
+      "claim_id": "e1",
+      "claim_text": "\\mathcal{L}_{\\mathrm{retrieval}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "\\mathcal{L}_\\textrm{retrieval} = - \\frac{1}{N}"
+    },
+    {
+      "claim_id": "b18",
+      "claim_text": "query–query 與 document–document 這兩類",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "we further modify the objective by removing the query--query and document--document terms"
+    },
+    {
+      "claim_id": "b19",
+      "claim_text": "reranker 算出正例與",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "reranker relevance logits for its positive document"
+    },
+    {
+      "claim_id": "e2",
+      "claim_text": "\\mathcal{L}_{\\mathrm{distill}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "\\mathcal{L}_{\\text{distill}}"
+    },
+    {
+      "claim_id": "b20",
+      "claim_text": "把重排當成二元分類",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the final relevance score is computed by applying the sigmoid function to the difference between the logits"
+    },
+    {
+      "claim_id": "b21",
+      "claim_text": "維度從 1024 降到 512 只掉 1.4%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-23",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "reducing the embedding dimension from 1024 to 512 results in only a 1.4"
+    },
+    {
+      "claim_id": "b21b",
+      "claim_text": "int8 幾乎無損，但 binary 會顯著傷害",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-23",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "int8 quantization preserves retrieval performance with negligible degradation, whereas binary quantization significantly impairs"
+    },
+    {
+      "claim_id": "b22",
+      "claim_text": "總 token 上限設在 15,000",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "we cap the total tokens at 15,000 and the frame count at 64"
+    },
+    {
+      "claim_id": "b22b",
+      "claim_text": "上下文限制 16,384 tokens",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the context length is constrained to 16,384 tokens"
+    },
+    {
+      "claim_id": "b22c",
+      "claim_text": "共 18 個資料集",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "5 & 5 & 5 & 3 & 18"
+    },
+    {
+      "claim_id": "b22d",
+      "claim_text": "論文只給出按任務類別加總的分數，未載明評測指標，也未逐一列出 18 個影片資料集的名稱、檢索方向與樣本規模；這些由外部 MMEB-V2（VLM2Vec-V2）基準定義，本論文僅引用而未在正文重現",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "we report its results on the MMEB-v2 benchmark~\\citep{meng2025vlm2vec}"
+    },
+    {
+      "claim_id": "t3",
+      "claim_text": "| Qwen3-VL-Embedding-8B | 8B | 78.4 | 71.0 | 58.7 | 56.1 | 67.1 |",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "78.4 & 71.0 & 58.7 & 56.1 & 67.1"
+    },
+    {
+      "claim_id": "t3b",
+      "claim_text": "| Seed-1.6-embedding-1215 | - | 85.2 | 66.7 | 59.1 | 54.8 | 67.7 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "85.2 & 66.7 & 59.1 & 54.8 & 67.7"
+    },
+    {
+      "claim_id": "t3c",
+      "claim_text": "| RzenEmbed | 8B | 58.8 | 63.5 | 51.0 | 45.5 | 55.7 |",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "58.8 & 63.5 & 51.0 & 45.5 & 55.7"
+    },
+    {
+      "claim_id": "b23",
+      "claim_text": "67.7 反而略高於 Qwen 的 67.1",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "85.2 & 66.7 & 59.1 & 54.8 & 67.7"
+    },
+    {
+      "claim_id": "b23b",
+      "claim_text": "加總 All=77.8",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "achieves an average score of 77.8 on MMEB-v2, representing a 6.7"
+    },
+    {
+      "claim_id": "b24",
+      "claim_text": "Reranker-8B 把影片檢索分數推到 61.0",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Qwen3-VL-Reranker-8B & 8B & 79.2 & 78.2 & 61.0 & 85.8"
+    },
+    {
+      "claim_id": "b24b",
+      "claim_text": "Reranker-2B 的影片分數 53.2",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Qwen3-VL-Reranker-2B & 2B & 75.2 & 74.0 & 53.2 & 83.2"
+    },
+    {
+      "claim_id": "b24c",
+      "claim_text": "同尺寸 Embedding-2B 的 53.6",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "Qwen3-VL-Embedding-2B & 2B & 73.4 & 74.8 & 53.6 & 79.2"
+    },
+    {
+      "claim_id": "b25",
+      "claim_text": "我方估計整段影片約產生 7–8 千個視覺 token",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-28",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the total token budget for all frames is constrained to 4,500"
+    },
+    {
+      "claim_id": "b25b",
+      "claim_text": "baseball player hits ball",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-28",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "baseball player hits ball"
+    },
+    {
+      "claim_id": "b26",
+      "claim_text": "若把它切成短片段（每段 <64 秒）就能保住 1 FPS 的時間解析度",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-29",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "b27",
+      "claim_text": "拆成三種不同性質的陳述",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-30",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "t4",
+      "claim_text": "訓練 4,500 tokens；評測 15,000 tokens",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-4",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the total token budget for all frames is constrained to 4,500"
+    },
+    {
+      "claim_id": "t4b",
+      "claim_text": "max_frames=64",
+      "kind": "paper-claim",
+      "target": "note-section:body-table-4",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "with a maximum of 64 frames"
+    },
+    {
+      "claim_id": "t4c",
+      "claim_text": "total_pixels=7,864,320",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-4",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/README.md:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "total_pixels=7864320"
+    },
+    {
+      "claim_id": "b28",
+      "claim_text": "兩軸都呈明顯遞減報酬",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-31",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "performance improves with increased resource consumption across all task categories"
+    },
+    {
+      "claim_id": "b28b",
+      "claim_text": "論文並沒有提供受控的解析度、壓縮率、FPS 或影片時長消融",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-31",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c1",
+      "claim_text": "跨模態統一檢索是一個真實且有經濟價值的問題",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "e-commerce product discovery to scientific literature exploration"
+    },
+    {
+      "claim_id": "c2",
+      "claim_text": "無法排除「影片分數其實可由靜態關鍵幀",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": ""
+    },
+    {
+      "claim_id": "c3",
+      "claim_text": "單看影片領域閉源 Seed-1.6-1215（67.7）就已超過 Qwen-8B（67.1）",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-3",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "85.2 & 66.7 & 59.1 & 54.8 & 67.7"
+    },
+    {
+      "claim_id": "c4",
+      "claim_text": "延伸 Qwen3-Embedding",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "We extend the loss function from the Qwen3 Embedding model"
+    },
+    {
+      "claim_id": "c5",
+      "claim_text": "影片總 token 預算在訓練是 4,500、評測是 15,000",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T04:09:02+00:00",
+      "quoted_snippet": "the total token budget for all frames is constrained to 4,500"
+    },
+    {
+      "claim_id": "c5b",
+      "claim_text": "釋出的 embedder 預設只有 8192",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T04:16:00+00:00",
+      "quoted_snippet": "MAX_LENGTH = 8192"
+    },
+    {
+      "claim_id": "fig1",
+      "claim_text": "論文 Figure 1：文字、影像、視覺文件與影片映射到同一個 Unified Multimodal Representation Space，並以「urban architecture」等語意概念做跨模態對齊",
+      "kind": "paper-claim",
+      "target": "figure:imgs/demonstration.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "Illustration of the Unified Multimodal Representation Space"
+    },
+    {
+      "claim_id": "fig4",
+      "claim_text": "論文 Figure 4：資料合成種子池的類別分布，影片端內圈為 Human-Centric／Nature-Scenery／Media-Entertainment 三大類，外圈細分為 Daily Activity、Sports、Wildlife、Time-lapse、Animation、Gaming 等",
+      "kind": "paper-claim",
+      "target": "figure:imgs/data_distribution.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "Data distribution of the seed pool for data synthesis"
+    },
+    {
+      "claim_id": "fig-teaser",
+      "claim_text": "論文首頁摘要下方的跨領域基準對比長條圖，視覺化呈現 Qwen3-VL-Embedding 在 MMEB image/video/visdoc 與 MMTEB 上相對各基線的表現，支撐其宣稱的排名第一",
+      "kind": "paper-claim",
+      "target": "figure:imgs/performance_comparison.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "ranking first among all models"
+    },
+    {
+      "claim_id": "t-img8",
+      "claim_text": "Qwen3-VL-Embedding-8B 的 MMEB-V2 Image Overall 為 80.1（teaser 長條圖深紫柱與 MMEB-V2 表同值）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/performance_comparison.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "80.2 & 92.3 & 80.1"
+    },
+    {
+      "claim_id": "t-visdoc8",
+      "claim_text": "Qwen3-VL-Embedding-8B 的 MMEB-V2 VisDoc Overall 為 82.4（teaser 長條圖與 MMEB-V2 表同值）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/performance_comparison.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "88.7 & 73.3 & 82.4"
+    },
+    {
+      "claim_id": "code-vidbranch",
+      "claim_text": "`video_kwargs` 會被覆寫成只含 `fps`、`max_frames` 的 dict",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "video_kwargs = {'fps': fps or self.fps, 'max_frames': max_frames or self.max_frames}"
+    },
+    {
+      "claim_id": "code-listbranch",
+      "claim_text": "這個 `total_pixels` 只在 **frame-list 路徑**的 `video_kwargs` 裡帶入",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-11",
+      "source_url": "/Users/aiden/Projects/isuper/.agents-workspace/research-note-qwen3-vl-embedding-video-20260904/.loop-manager/code-cache/qwen3-vl-embedding/src/models/qwen3_vl_embedding.py:393e297",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "video_kwargs = {'total_pixels': self.total_pixels}"
+    },
+    {
+      "claim_id": "mrl-callouts",
+      "claim_text": "Figure 6 標註：MS MARCO 1024 維 INT8 與 Float32 的 MRR@10 同為 0.360，延遲 43ms→12ms、記憶體 32,539MB→8,135MB；VL3-Syn 1024 維 Float32 0.497、INT8 0.487；BINARY 128 維 MS MARCO 僅 0.188（讀自圖內 callout）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/mrl_qat.png",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "Performance analysis of different embedding dimensions and embedding quantization"
+    },
+    {
+      "claim_id": "b-fig1",
+      "claim_text": "被投影到同一個「Unified Multimodal Representation Space」半球流形上",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "Illustration of the Unified Multimodal Representation Space"
+    },
+    {
+      "claim_id": "b-fig4",
+      "claim_text": "影片端（右）內圈是 Human-Centric、Nature/Scenery、Media/Entertainment 三大類",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "Data distribution of the seed pool for data synthesis"
+    },
+    {
+      "claim_id": "b-teaser",
+      "claim_text": "8B 在 MMEBimage 以 80.1 明顯領先（次高者僅 78.0，拉開 2.1 分），但 MMEBvisdoc 的 82.4 雖是全場最高，卻只以 0.2 分險勝閉源 Seed-1.6-Embedding-1215 的 82.2，屬邊際優勢而非「大幅領先」",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-26",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "70.7 & 82.2"
+    },
+    {
+      "claim_id": "b-teaser-imgnext",
+      "claim_text": "MMEBimage 次高者為 Seed-1.6-Embedding-1215 的 78.0，故 8B 的 80.1 領先 2.1 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-26",
+      "source_url": "https://arxiv.org/abs/2601.04720",
+      "retrieved_at": "2026-09-04T05:10:00+00:00",
+      "quoted_snippet": "89.0 & 78.0"
+    }
+  ]
+}
