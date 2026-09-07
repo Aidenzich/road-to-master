@@ -1,0 +1,468 @@
+{
+  "note_path": "domains/reinforcement_learning/WikiSkill/README.md",
+  "domain": "reinforcement_learning",
+  "topic": "WikiSkill",
+  "no_untrusted_code_executed": true,
+  "generated_at": "2026-09-07T01:05:00Z",
+  "entries": [
+    {
+      "claim_id": "ac-title",
+      "claim_text": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+      "kind": "evidence-supported",
+      "target": "table-cell:title",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution"
+    },
+    {
+      "claim_id": "ac-venue",
+      "claim_text": "2608.27454v1",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "arXiv:2608.27454v1"
+    },
+    {
+      "claim_id": "ac-year",
+      "claim_text": "2026",
+      "kind": "evidence-supported",
+      "target": "table-cell:year",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "2026-08-28"
+    },
+    {
+      "claim_id": "ac-authors",
+      "claim_text": "Liyan Tang, Cyrus Rashtchian, Chun-Sung Ferng, Andrew Tomkins, Da-Cheng Juan, Tu Vu",
+      "kind": "evidence-supported",
+      "target": "table-cell:authors",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Liyan Tang"
+    },
+    {
+      "claim_id": "ac-venuekind",
+      "claim_text": "paper",
+      "kind": "evidence-supported",
+      "target": "table-cell:venue-kind",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "reusable filesystem-based module"
+    },
+    {
+      "claim_id": "fig-arch",
+      "claim_text": "three layers",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_architecture.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "immutable execution traces (Raw Layer)"
+    },
+    {
+      "claim_id": "fig-case",
+      "claim_text": "ALFWorld",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3_case_study.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Case study of Wiki-guided skill evolution on ALFWorld"
+    },
+    {
+      "claim_id": "fig-scaling",
+      "claim_text": "stronger models",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1_scaling.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "its advantage becomes more pronounced for stronger models"
+    },
+    {
+      "claim_id": "body-prose-1",
+      "claim_text": "指導技能改進的「洞見」會散落在各輪的最佳化歷史",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-1",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "the insights that guide skill development typically remain scattered across optimization histories"
+    },
+    {
+      "claim_id": "body-prose-2",
+      "claim_text": "把經驗「編譯」成持久、可累積的知識",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-2",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "compiling experience into persistent, compounding knowledge"
+    },
+    {
+      "claim_id": "body-prose-3",
+      "claim_text": "把 agent 工作區切成三層",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-3",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "organizes the agent workspace into three layers"
+    },
+    {
+      "claim_id": "body-prose-4",
+      "claim_text": "作者在五個 benchmark",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-4",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "benchmarks spanning mathematical reasoning"
+    },
+    {
+      "claim_id": "body-prose-5",
+      "claim_text": "切成互斥的",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-5",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "We partition $\\mathcal{D}$ into three disjoint splits"
+    },
+    {
+      "claim_id": "body-prose-6",
+      "claim_text": "模型參數自始至終凍結",
+      "kind": "reasonable-inference",
+      "target": "note-section:body-prose-6",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "the knowledge base $W_k$ persists and compounds across iterations"
+    },
+    {
+      "claim_id": "body-prose-7",
+      "claim_text": "三層的不變式各異",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-7",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "immutable execution traces (Raw Layer)"
+    },
+    {
+      "claim_id": "body-prose-8",
+      "claim_text": "這一層是不可變（immutable）的",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-8",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "this layer is immutable"
+    },
+    {
+      "claim_id": "body-prose-9",
+      "claim_text": "記錄特定失敗模式或成功策略",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-9",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "individual markdown files that document specific failure modes or successful strategies"
+    },
+    {
+      "claim_id": "body-prose-10",
+      "claim_text": "回連到啟發它建立或修改的 wiki pattern",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-10",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "maps the skill back to the motivating Wiki patterns"
+    },
+    {
+      "claim_id": "body-prose-11",
+      "claim_text": "訓練 rollout 期間它被禁止",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-11",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "the Inference Agent is restricted from accessing the Wiki Layer"
+    },
+    {
+      "claim_id": "body-code-1",
+      "claim_text": "嚴格改善才接受",
+      "kind": "paper-claim",
+      "target": "note-section:body-code-1",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Roll back skills only; wiki retained"
+    },
+    {
+      "claim_id": "body-prose-12",
+      "claim_text": "候選只有在驗證分數高於歷史最佳",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-12",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "If accepted, the candidate skills are preserved as the new active skill set"
+    },
+    {
+      "claim_id": "body-equation-1",
+      "claim_text": "\\begin{cases}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-1",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "\\begin{cases}"
+    },
+    {
+      "claim_id": "body-prose-13",
+      "claim_text": "若驗證分數在任何時點達到上限",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-13",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "the evolution loop terminates early"
+    },
+    {
+      "claim_id": "body-prose-14",
+      "claim_text": "直接注入",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-14",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "the full content of active skills $S_{k-1}$ is injected directly into the Inference Agent's system prompt"
+    },
+    {
+      "claim_id": "body-prose-15",
+      "claim_text": "左側持久 wiki layer 的",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-15",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Case study of Wiki-guided skill evolution on ALFWorld"
+    },
+    {
+      "claim_id": "body-prose-16",
+      "claim_text": "在驗證集上沒能改善",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-16",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "which fails to improve performance on the validation set and is rejected"
+    },
+    {
+      "claim_id": "body-prose-17",
+      "claim_text": "52.8% 提升到 wikiskill 的 77.6%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-17",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "52.8\\% to 77.6\\% on ALFWorld"
+    },
+    {
+      "claim_id": "body-prose-18",
+      "claim_text": "注意驗證集普遍很小",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-18",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "benchmark validation splits are relatively small"
+    },
+    {
+      "claim_id": "body-table-1",
+      "claim_text": "35 | 18 | 124",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-1",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "35 & 18 & 124"
+    },
+    {
+      "claim_id": "body-prose-19",
+      "claim_text": "最多 8 筆軌跡",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-19",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "the system samples up to 8 traces per iteration"
+    },
+    {
+      "claim_id": "body-table-2",
+      "claim_text": "81.7 | 53.7 | 77.6 | 63.3",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-2",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Method comparison across inference models and test sets"
+    },
+    {
+      "claim_id": "body-prose-20",
+      "claim_text": "平均分別提升 3.3、5.1、10.0、5.8、12.0 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-20",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "improves average performance by 3.3, 5.1, 10.0, 5.8, and 12.0 points"
+    },
+    {
+      "claim_id": "body-prose-21",
+      "claim_text": "省略 gemma-4-31b",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-21",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "its advantage becomes more pronounced for stronger models"
+    },
+    {
+      "claim_id": "body-prose-22",
+      "claim_text": "4b 為 +12.3 分",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-22",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "+12.3 points for Qwen-3.5-4B to +17.5 points for Qwen-3.5-9B and +23.9 points for Qwen-3.6-27B"
+    },
+    {
+      "claim_id": "body-prose-23",
+      "claim_text": "做 2×2 消融",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-23",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "we independently vary wiki access for the Inference Agent during training rollouts and the Skill Proposer"
+    },
+    {
+      "claim_id": "body-table-3",
+      "claim_text": "72.6 | 44.7 | 76.6 | 60.7 | 63.7",
+      "kind": "evidence-supported",
+      "target": "note-section:body-table-3",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Ablation study on \\method using Gemini-3.5-Flash"
+    },
+    {
+      "claim_id": "body-prose-24",
+      "claim_text": "把平均從 48.7% 拉到 63.7%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-24",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "increases average benchmark performance from 48.7\\% to 63.7\\% (+15.0\\%)"
+    },
+    {
+      "claim_id": "body-prose-25",
+      "claim_text": "把 qwen-3.5-9b 從無技能的 24.3% 拉到 50.5%",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-25",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "Qwen-3.6-27B skills improve Qwen-3.5-9B to 50.5\\% on SpreadSheet"
+    },
+    {
+      "claim_id": "body-prose-26",
+      "claim_text": "WikiSkill 在所有資料集都採全批次",
+      "kind": "paper-claim",
+      "target": "note-section:body-prose-26",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "we set the batch size to the full training size"
+    },
+    {
+      "claim_id": "body-equation-2",
+      "claim_text": "1 + T_{\\text{ReAct}}",
+      "kind": "paper-claim",
+      "target": "note-section:body-equation-2",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "(1 + T_{\\text{ReAct}})"
+    },
+    {
+      "claim_id": "body-prose-27",
+      "claim_text": "與訓練集大小無關",
+      "kind": "evidence-supported",
+      "target": "note-section:body-prose-27",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:51:06Z",
+      "quoted_snippet": "may incur higher inference cost on some datasets"
+    },
+    {
+      "claim_id": "critical-prose-1",
+      "claim_text": "並非乾淨地只隔離 wiki",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-1",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "we also remove the Wiki Maintainer"
+    },
+    {
+      "claim_id": "critical-prose-2",
+      "claim_text": "等於讓技能演化去過擬合一個很小的 split",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-2",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "achieves a 100\\% score on the validation split"
+    },
+    {
+      "claim_id": "critical-prose-3",
+      "claim_text": "把它當成「更大規模」來支撐單調趨勢並不嚴謹",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-3",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "gains increasing with model scale"
+    },
+    {
+      "claim_id": "critical-prose-4",
+      "claim_text": "真正的新增量是那個",
+      "kind": "reasonable-inference",
+      "target": "note-section:critical-prose-4",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "these methods do not maintain what has been learned as a separate, evolving knowledge representation"
+    },
+    {
+      "claim_id": "critical-prose-5",
+      "claim_text": "它的「長期」尺度其實從未被量化",
+      "kind": "unproven-or-doubtful",
+      "target": "note-section:critical-prose-5",
+      "source_url": null,
+      "retrieved_at": null,
+      "quoted_snippet": "currently lacks an automated mechanism to prune the wiki"
+    },
+    {
+      "claim_id": "critical-table5-buckets",
+      "claim_text": "Table 5 只把接受的技能更新分進 Early（Iter 0–1）／Mid（Iter 2–4）／Late（Iter 5–7）三桶，總迭代上限 K 始終是符號",
+      "kind": "evidence-supported",
+      "target": "note-section:critical-prose-5",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:54:00Z",
+      "quoted_snippet": "Distribution of accepted skill updates across evolution iterations"
+    },
+    {
+      "claim_id": "fig-scaling-crossing",
+      "claim_text": "在最小的 Qwen-3.5-4B 上 SkillOpt 平均 35.2 勝過 EvoSkill 33.7，自 9B 起 EvoSkill 反超",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1_scaling.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:54:00Z",
+      "quoted_snippet": "EvoSkill & 41.7 & \\textbf{37.3} & \\textbf{18.6} & 29.5 & 41.5 & 33.7"
+    },
+    {
+      "claim_id": "fig-scaling-crossing-9b",
+      "claim_text": "Qwen-3.5-9B 上 EvoSkill 平均 42.3 高於 SkillOpt 40.2",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig1_scaling.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:54:00Z",
+      "quoted_snippet": "SkillOpt & 48.7 & 29.4 & 29.0 & 38.0 & 55.7 & 40.2"
+    },
+    {
+      "claim_id": "fig-case-arrows",
+      "claim_text": "圖中四色箭頭標出被拒歷史、接受更新、pattern 催生規則、演化日誌四條因果路徑（稽核軌跡）",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig3_case_study.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:54:00Z",
+      "quoted_snippet": "an audit trail of past proposal diffs and acceptance decisions"
+    },
+    {
+      "claim_id": "fig-arch-access",
+      "claim_text": "Inference Agent 注入技能但被限制存取 wiki，存取邊界不對稱",
+      "kind": "evidence-supported",
+      "target": "figure:imgs/fig2_architecture.png",
+      "source_url": "https://arxiv.org/abs/2608.27454",
+      "retrieved_at": "2026-09-07T00:54:00Z",
+      "quoted_snippet": "injecting active skills but restricting Wiki access"
+    }
+  ]
+}
