@@ -201,8 +201,8 @@ Preserve ... all accessories including any glasses ...
 同一參考圖不同輪次重新上傳按不同檔計數。既有服務、公開模型与 runtime 自訂節點不是此次成品暫存，仍保留。
 原有 SSH tunnel 未移除。未知 job 狀態曾短暫出現後恢復成功，腳本沿用原 job identity 查詢，沒有盲目重送。
 
-原先五組人物／多角度／CFG 實驗另外完成 18／35 張，剩下 17 張尚未由本腳本自動接續。
-這輪 batch 對照不自動算入那 17 張，也不能宣稱原研究全部結束。
+Batch 試跑完成時，原始實驗為 18／35 張；後續已以另一個單張續跑腳本完成剩下17張。
+目前35張皆已逐圖初檢，詳見第11節；batch對照仍分開計數，不冒充原研究的新條件。
 
 ## 9. 官方實作與研究補充：同圖多候選不等於異質 batch
 
@@ -272,3 +272,186 @@ Preserve ... all accessories including any glasses ...
 
 結論：本輪驗證了異質 batch 的基本產圖能力，但沒有證明有實用的吞吐量收益。
 已知編碼與快取實作問題應與仍未定位的採樣瓶頸分開處理，不能互相替代解釋。
+
+## 11. 原始 35 張研究完成後的逐圖比較
+
+更新：2026-09-13。原始 15 張基準＋20 張進階現已全部生成、下載驗證並逐圖人工初檢。
+其中最後 17 張使用原生單張工作流續跑，**沒有改用異質 batch**；也沒有因眼鏡措辭而重測。
+本節與前面 batch 效能試跑分開計數，不能把兩批的計時口徑直接混用。
+
+### 設計、計時與評分邊界
+
+- 五組虛構成年人物：2D 動畫、3D 動畫、電影偵探、古裝人物、科幻人物；不指向特定演員。
+- 六張參考圖（五人＋眼鏡物體）：Krea2 RedCraft hybrid，512×512、12 steps、CFG 1。
+- 29 張編輯：Qwen 2511 FP8 mixed、CPU encoder、512×512、40 steps、Euler/simple、
+  denoise 1、shift 3.1、CFGNorm 1、空字串 negative、無額外 LoRA；CFG 依下表。
+- 每次編輯直接讀原始參考圖，不把上一張編輯結果當下一張參考，避免累積漂移。
+- CFG 2／4／6 僅在動畫與真人偵探三分之二視角做同 prompt／seed／參考圖對照。
+- 本節「執行秒」是 Queue 提交到確認完成，包含 provider 排隊、載入、編碼、採樣、解碼及輪詢。
+  **不是前面 batch 表的 provider 全程或純採樣秒數**。
+- 原生工作流可以重用編碼快取：例如真人 CFG 4／6 約 58 秒，不能推論 CFG 越高越快。
+  最後17筆執行秒合計約 **2,070.933 秒（34分31秒）**，不含兩筆之間的下載／清理等時間。
+- 以下是單 seed、512px 的人工目視判讀，沒有身份識別分數、盲評、多輪統計或精確角度量測。
+  以「修改是否達成」「外觀與細節」「構圖／非目標變動」「風格」分開觀察，不提供虛假的通過率。
+
+### 五組背景／服裝對照
+
+修改目標分別為：燈籠街景／酒紅外套、叢林遺跡／綠背心、雨夜霓虹／深藍外套、
+竹林石橋／紫色刺繡袍、太空船儀表／白色工作飛行服。
+
+#### 2D 動畫
+
+| 原圖 | 換背景 | 換服裝 |
+|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/01-anime-reference.png) | ![背景](assets/qwen-image-edit-2511/01-anime-background.png) | ![服裝](assets/qwen-image-edit-2511/01-anime-outfit.png) |
+
+- 背景：燈籠街景符合要求，人物主要特徵保留；構圖稍拉遠、頭身比例與髮絲有變化。
+- 服裝：外套改為酒紅，灰背景與主要特徵保留；頭部稍放大、上緣貓耳裁切，並非只換顏色。
+
+#### 3D 動畫
+
+| 原圖 | 換背景 | 換服裝 |
+|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/02-animation3d-reference.png) | ![背景](assets/qwen-image-edit-2511/02-animation3d-background.png) | ![服裝](assets/qwen-image-edit-2511/02-animation3d-outfit.png) |
+
+- 背景：叢林遺跡與原配色保留；臉部、眼睛與鬍鬚細節有重繪，仍可辨為同一設計。
+- 服裝：背心改綠，眼鏡／鬍鬚／灰背景保留；臉形與表情略變，近景裁切略有變化。
+
+#### 電影偵探
+
+| 原圖 | 換背景 | 換服裝 |
+|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/03-noir-reference.png) | ![背景](assets/qwen-image-edit-2511/03-noir-background.png) | ![服裝](assets/qwen-image-edit-2511/03-noir-outfit.png) |
+
+- 背景：雨夜霓虹街景符合，傷痕及棕外套保留；人物縮小、臉部與質感略變。
+- 服裝：深藍外套符合；人物仍相近，但構圖明顯拉近並裁掉頭頂，衣領細節也重繪。
+
+#### 古裝人物
+
+| 原圖 | 換背景 | 換服裝 |
+|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/04-period-reference.png) | ![背景](assets/qwen-image-edit-2511/04-period-background.png) | ![服裝](assets/qwen-image-edit-2511/04-period-outfit.png) |
+
+- 背景：竹林石橋符合，髮帶與袍服保留；刺繡和臉部細節改變，非像素級背景替換。
+- 服裝：紫袍符合，但變成臉部特寫，馬尾／髮帶與多數服裝被裁出畫面，刺繡重繪。
+
+#### 科幻人物
+
+| 原圖 | 換背景 | 換服裝 |
+|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/05-scifi-reference.png) | ![背景](assets/qwen-image-edit-2511/05-scifi-background.png) | ![服裝](assets/qwen-image-edit-2511/05-scifi-outfit.png) |
+
+- 背景：太空船藍色儀表背景符合；臉與橘色服裝可辨，眼睛／領圈細節有變化。
+- 服裝：白色服裝黑立領符合，但厚太空領圈／肩帶也被改掉；prompt 指定 utility flight suit 與原圖太空服結構有落差，不能全算非預期缺陷。
+
+### CFG／多角度對照
+
+45° 測試要求臉朝畫面右方；側面要求朝畫面左方。不是只要有轉頭就算符合方向。
+
+#### 動畫：同 seed 的 CFG 2／4／6 與側面
+
+| CFG 2・45° | CFG 4・45° | CFG 6・45° | CFG 4・左側面 |
+|---|---|---|---|
+| ![threequarter-cfg2](assets/qwen-image-edit-2511/01-anime-threequarter-cfg2.png) | ![threequarter-cfg4](assets/qwen-image-edit-2511/01-anime-threequarter-cfg4.png) | ![threequarter-cfg6](assets/qwen-image-edit-2511/01-anime-threequarter-cfg6.png) | ![profile-cfg4](assets/qwen-image-edit-2511/01-anime-profile-cfg4.png) |
+
+#### 真人偵探：同 seed 的 CFG 2／4／6 與側面
+
+| CFG 2・45° | CFG 4・45° | CFG 6・45° | CFG 4・左側面 |
+|---|---|---|---|
+| ![threequarter-cfg2](assets/qwen-image-edit-2511/03-noir-threequarter-cfg2.png) | ![threequarter-cfg4](assets/qwen-image-edit-2511/03-noir-threequarter-cfg4.png) | ![threequarter-cfg6](assets/qwen-image-edit-2511/03-noir-threequarter-cfg6.png) | ![profile-cfg4](assets/qwen-image-edit-2511/03-noir-profile-cfg4.png) |
+
+| 角色 | 45°／CFG 4 | 左側面／CFG 4 |
+|---|---|---|
+| 3D 動畫 | ![45度](assets/qwen-image-edit-2511/02-animation3d-threequarter-cfg4.png) | ![側面](assets/qwen-image-edit-2511/02-animation3d-profile-cfg4.png) |
+| 古裝 | ![45度](assets/qwen-image-edit-2511/04-period-threequarter-cfg4.png) | ![側面](assets/qwen-image-edit-2511/04-period-profile-cfg4.png) |
+| 科幻 | ![45度](assets/qwen-image-edit-2511/05-scifi-threequarter-cfg4.png) | ![側面](assets/qwen-image-edit-2511/05-scifi-profile-cfg4.png) |
+
+判讀摘要：
+
+- 動畫 CFG 2 的臉較接近正面，沒有明確完成向右轉頭；CFG 4／6 較符合要求，兩者沒有明確全面優劣。
+- 真人 CFG 2／4／6 都朝右，但髮色、髮型、皮膚質感與傷痕細節有變化；CFG 6 灰鬢更明顯不等於身份最佳。
+- 3D 側面與動畫側面明顯拉近，局部頭頂／頭髮被裁；動畫貓耳因畫框限制不能直接判定為被刪除。
+- 科幻 45° 結果朝左而不是指定向右；側面方向正確，但構圖与耳部細節仍變動。
+- 無眼鏡的動畫／真人／古裝／科幻參考圖，在部分角度條件出現眼鏡或類似細線配件，
+  **均受模板 glasses 措辭干擾，排除其模型缺陷歸因，不據此排名 CFG**。
+- 不能宣稱 CFG 4 是通用最佳值；本次只支持它是可用的測試起點，缺少多 seed 與乾淨 prompt 對照。
+
+### 眼鏡操作：明確要求的編輯與非目標變動
+
+3D 人物原圖本來就有青色圓框眼鏡，此處明確要求換黑色方框／移除，
+不同於前述「無眼鏡原圖被通用模板提到眼鏡」的干擾案例。
+
+| 原人物 | 換黑色方框 | 移除眼鏡 |
+|---|---|---|
+| ![原人物](assets/qwen-image-edit-2511/02-animation3d-reference.png) | ![替換](assets/qwen-image-edit-2511/02-animation3d-glasses-replace.png) | ![移除](assets/qwen-image-edit-2511/02-animation3d-glasses-remove.png) |
+
+兩個指定操作都有發生，移除圖未見明顯鏡框殘留；但都變成極近特寫，
+臉／眼睛細節也改變，不能稱為「只改眼鏡、其他完全不動」。
+
+| 眼鏡原圖 | 45° | 側面 | 銀色材質 |
+|---|---|---|---|
+| ![原圖](assets/qwen-image-edit-2511/06-glasses-reference.png) | ![45度](assets/qwen-image-edit-2511/06-glasses-threequarter.png) | ![側面](assets/qwen-image-edit-2511/06-glasses-side.png) | ![銀色](assets/qwen-image-edit-2511/06-glasses-material.png) |
+
+轉向與換銀色基本符合，紅鉸鏈保留；但換材質圖缺少原本上方直橫橋，雙橋結構未完整保留。
+這個 prompt 明確要求保留雙橋，所以可記為本案例的非目標結構變動。
+45°／側面僅證明視角改變，沒有3D真值，不能宣稱產品幾何精確一致。
+
+### 35 張逐項參數、耗時與觀察
+
+點成品名稱可開啟本 repo 內的圖片。參考圖使用 Krea2，其他列使用 Qwen；所有列 batch=1、512×512。
+
+| 成品 | CFG | Steps | Seed | 執行秒 | 人工觀察 |
+|---|---:|---:|---:|---:|---|
+| [01-anime-reference](assets/qwen-image-edit-2511/01-anime-reference.png) | 1 | 12 | 2026091320 | 102.425 † | 原圖：銀髮紅眼、貓耳、圓眉與星形髮飾清楚，作為後續視覺基準。 |
+| [02-animation3d-reference](assets/qwen-image-edit-2511/02-animation3d-reference.png) | 1 | 12 | 2026091321 | 23.074 | 原圖：捲髮、大鼻、鬍鬚、青色圓框眼鏡與黃背心可辨。 |
+| [03-noir-reference](assets/qwen-image-edit-2511/03-noir-reference.png) | 1 | 12 | 2026091322 | 23.091 | 原圖：短髮短鬍、棕色外套、眉上傷痕可辨，沒有眼鏡。 |
+| [04-period-reference](assets/qwen-image-edit-2511/04-period-reference.png) | 1 | 12 | 2026091323 | 23.022 | 原圖：高馬尾紅髮帶、玉綠刺繡袍與完整頭部構圖，沒有眼鏡。 |
+| [05-scifi-reference](assets/qwen-image-edit-2511/05-scifi-reference.png) | 1 | 12 | 2026091324 | 23.086 | 原圖：銀色短捲髮、深膚色、橘色太空服與厚領圈；應依此生成圖而非文字理想設定判斷保留。 |
+| [01-anime-background](assets/qwen-image-edit-2511/01-anime-background.png) | 4 | 40 | 2026091330 | 188.418 | 燈籠街景符合要求，人物主要特徵保留；構圖稍拉遠、頭身比例與髮絲有變化。 |
+| [01-anime-outfit](assets/qwen-image-edit-2511/01-anime-outfit.png) | 4 | 40 | 2026091330 | 107.601 | 外套改為酒紅，灰背景與主要特徵保留；頭部稍放大、上緣貓耳裁切，並非只換顏色。 |
+| [02-animation3d-background](assets/qwen-image-edit-2511/02-animation3d-background.png) | 4 | 40 | 2026091331 | 157.905 | 叢林遺跡與原配色保留；臉部、眼睛與鬍鬚細節有重繪，仍可辨為同一設計。 |
+| [02-animation3d-outfit](assets/qwen-image-edit-2511/02-animation3d-outfit.png) | 4 | 40 | 2026091331 | 107.700 | 背心改綠，眼鏡／鬍鬚／灰背景保留；臉形與表情略變，近景裁切略有變化。 |
+| [03-noir-background](assets/qwen-image-edit-2511/03-noir-background.png) | 4 | 40 | 2026091332 | 157.619 | 雨夜霓虹街景符合，傷痕及棕外套保留；人物縮小、臉部與質感略變。 |
+| [03-noir-outfit](assets/qwen-image-edit-2511/03-noir-outfit.png) | 4 | 40 | 2026091332 | 107.616 | 深藍外套符合；人物仍相近，但構圖明顯拉近並裁掉頭頂，衣領細節也重繪。 |
+| [04-period-background](assets/qwen-image-edit-2511/04-period-background.png) | 4 | 40 | 2026091333 | 157.672 | 竹林石橋符合，髮帶與袍服保留；刺繡和臉部細節改變，非像素級背景替換。 |
+| [04-period-outfit](assets/qwen-image-edit-2511/04-period-outfit.png) | 4 | 40 | 2026091333 | 107.692 | 紫袍符合，但變成臉部特寫，馬尾／髮帶與多數服裝被裁出畫面，刺繡重繪。 |
+| [05-scifi-background](assets/qwen-image-edit-2511/05-scifi-background.png) | 4 | 40 | 2026091334 | 157.707 | 太空船藍色儀表背景符合；臉與橘色服裝可辨，眼睛／領圈細節有變化。 |
+| [05-scifi-outfit](assets/qwen-image-edit-2511/05-scifi-outfit.png) | 4 | 40 | 2026091334 | 107.675 | 白色服裝黑立領符合，但厚太空領圈／肩帶也被改掉；prompt 指定 utility flight suit 與原圖太空服結構有落差，不能全算非預期缺陷。 |
+| [06-glasses-reference](assets/qwen-image-edit-2511/06-glasses-reference.png) | 1 | 12 | 2026091350 | 53.875 | 物體原圖：圓黑框、雙橋、紅鉸鏈、透明鏡片與展開鏡腳可辨。 |
+| [01-anime-threequarter-cfg2](assets/qwen-image-edit-2511/01-anime-threequarter-cfg2.png) | 2 | 40 | 2026091360 | 161.489 | 頭部未明確朝指定畫面右方，身體轉動而臉更接近正面；新增眼鏡有 prompt 干擾，排除該項歸因。 |
+| [01-anime-threequarter-cfg4](assets/qwen-image-edit-2511/01-anime-threequarter-cfg4.png) | 4 | 40 | 2026091360 | 56.309 | 臉朝右，主要特徵保留；不是量測所得精確45度，仍有髮絲／耳形變化。 |
+| [01-anime-threequarter-cfg6](assets/qwen-image-edit-2511/01-anime-threequarter-cfg6.png) | 6 | 40 | 2026091360 | 157.783 | 臉朝右，與CFG4相近；耳形及髮量不同，無證據支持整體優於CFG4。 |
+| [01-anime-profile-cfg4](assets/qwen-image-edit-2511/01-anime-profile-cfg4.png) | 4 | 40 | 2026091360 | 107.687 | 朝左側臉符合，但構圖拉近且頭頂被裁切，貓耳無法完整驗證；不能直接判定貓耳消失。 |
+| [02-animation3d-threequarter-cfg4](assets/qwen-image-edit-2511/02-animation3d-threequarter-cfg4.png) | 4 | 40 | 2026091361 | 154.331 | 朝右三分之二視角，青色圓框眼鏡、鬍鬚、黃背心保留；局部造型變化。 |
+| [02-animation3d-profile-cfg4](assets/qwen-image-edit-2511/02-animation3d-profile-cfg4.png) | 4 | 40 | 2026091361 | 107.759 | 朝左側臉，眼鏡鏡腳可見；明顯變成特寫，頭髮與軀幹裁切，未維持相近構圖。 |
+| [03-noir-threequarter-cfg2](assets/qwen-image-edit-2511/03-noir-threequarter-cfg2.png) | 2 | 40 | 2026091362 | 157.835 | 朝右視角符合；頭髮／鬍鬚較深、皮膚較平滑，原眉上傷痕不清楚；身份細節非精確保留。 |
+| [03-noir-threequarter-cfg4](assets/qwen-image-edit-2511/03-noir-threequarter-cfg4.png) | 4 | 40 | 2026091362 | 57.711 | 朝右視角符合；髮型與傷痕細節有變化，與CFG2相近，未見明確全面優勢。 |
+| [03-noir-threequarter-cfg6](assets/qwen-image-edit-2511/03-noir-threequarter-cfg6.png) | 6 | 40 | 2026091362 | 57.759 | 朝右視角符合；灰鬢較明顯，但傷痕仍難核對，不能憑較多灰髮判為最佳。 |
+| [03-noir-profile-cfg4](assets/qwen-image-edit-2511/03-noir-profile-cfg4.png) | 4 | 40 | 2026091362 | 107.753 | 朝左側臉符合；髮型／鬍鬚細節改變；新增眼鏡屬受污染指標，不能判模型或batch缺陷。 |
+| [04-period-threequarter-cfg4](assets/qwen-image-edit-2511/04-period-threequarter-cfg4.png) | 4 | 40 | 2026091363 | 157.798 | 朝右視角，馬尾／紅髮帶／綠袍可辨；新增眼鏡受prompt干擾，不作身份失敗證據。 |
+| [04-period-profile-cfg4](assets/qwen-image-edit-2511/04-period-profile-cfg4.png) | 4 | 40 | 2026091363 | 107.755 | 朝左側臉與馬尾符合；髮型／臉部／刺繡細節變化；眼鏡同樣排除歸因。 |
+| [05-scifi-threequarter-cfg4](assets/qwen-image-edit-2511/05-scifi-threequarter-cfg4.png) | 4 | 40 | 2026091364 | 157.804 | 有轉成三分之二視角，但朝畫面左方，與要求向右相反；耳部配件／服裝细节也有改變。 |
+| [05-scifi-profile-cfg4](assets/qwen-image-edit-2511/05-scifi-profile-cfg4.png) | 4 | 40 | 2026091364 | 107.775 | 朝左側臉符合但裁切放大，耳周多出細線狀配件；涉及glasses措辭，不作乾淨的配件保留對照。 |
+| [02-animation3d-glasses-replace](assets/qwen-image-edit-2511/02-animation3d-glasses-replace.png) | 4 | 40 | 2026091370 | 153.976 | 青色圓框換成黑色方框，目標達成；但變成極近特寫，大小／構圖與眼睛細節未維持。 |
+| [02-animation3d-glasses-remove](assets/qwen-image-edit-2511/02-animation3d-glasses-remove.png) | 4 | 40 | 2026091370 | 107.785 | 眼鏡移除且未見明顯框架殘留，目標達成；極近特寫、眼神／眉毛改變，未達只改眼鏡。 |
+| [06-glasses-threequarter](assets/qwen-image-edit-2511/06-glasses-threequarter.png) | 4 | 40 | 2026091375 | 153.824 | 物體視角有轉，黑圓框與紅鉸鏈可辨；双橋／鏡腳投影需幾何核對，單圖不能證明精確3D一致。 |
+| [06-glasses-side](assets/qwen-image-edit-2511/06-glasses-side.png) | 4 | 40 | 2026091375 | 107.803 | 側面基本符合、鏡腳展開且紅鉸鏈可見；單視角不足驗證完整設計幾何。 |
+| [06-glasses-material](assets/qwen-image-edit-2511/06-glasses-material.png) | 4 | 40 | 2026091375 | 107.795 | 銀色材質與紅鉸鏈符合，但原本上方直橫橋不見，雙橋結構未完整保留。 |
+
+† 第一張原圖的 Queue 時間包含缺失 history 的人工恢復等待，排除於速度比較。
+短暫 unknown 狀態沿用原 job identity 恢復，沒有重送生成。
+
+### 驗證與結論
+
+35 張來源圖的檔案 SHA256／PNG 解碼／512×512 尺寸與生成紀錄逐筆核對；
+本 repo 附同一批原圖，沒有重生成、裁切或美化結果。完整 request／prompt／trace 仍在本機
+`isuper/sample/qwen-edit-five-groups-20260913/` 與其 `advanced/`。
+各圖人工觀察也同步寫回本機 `visual-review.json` 與 README。
+
+最後17張成品与六個上傳參考圖的遠端副本均有 cleanup receipt，輸出目錄不存在、remaining_inputs 為空。
+先前已完成18張的清理是另一批歷史凭證；不能把最後一次清理23檔寫成35張的唯一清理證據。
+
+這輪的實用結論是：**模型能完成多種局部修改與視角改變，但構圖、細節和幾何保留不能直接假設成立**。
+背景／顏色修改相對容易目視確認，換服裝與局部配件操作尤其要檢查額外拉近。
+CFG 沒有單調改善，也沒有證据支持所有問題來自 FP8；本輪沒有 BF16／FP8 對照。
+保留 prompt 干擾的歸因限制，不把不乾淨的案例包裝成模型能力定論。
