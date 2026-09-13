@@ -118,7 +118,7 @@ anime-05-wave-r2,qwen,anime,5,wave,2,unsupported,False,,,,False,,,,,,
 anime-05-wave-r2,h3,anime,5,wave,2,succeeded,True,failed,,601.9074008464813,True,2,1,2,2,2,五名角色依 Frieren、Fern、Loid、Yor、Anya 排列，均可見一手揮手，沒有明顯額外道具，手掌大致清楚。Frieren 紅色頸部寶石變為金色飾物；Yor 長黑手套變短露指手套，另一臂裸露。Anya 靠右邊界且部分輪廓被裁切，構圖完整性不足，但五人與主要動作可辨。
 live-05-wave-r2,codex,live,5,wave,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Five distinct figures in correct order, each one greeting hand. Rightmost hand reaches image edge; some unused arms disappear behind neighbours rather than clearly lowered. Bianca necklace missing; tie/crest details transfer between uniforms; Tyler clothing altered for free arm. Broad hair/face cues preserved."
 live-05-wave-r2,qwen,live,5,wave,2,unsupported,False,,,,False,,,,,,
-live-05-wave-r2,h3,live,5,wave,2,pending,False,,,,False,,,,,,
+live-05-wave-r2,h3,live,5,wave,2,succeeded,True,failed,,593.4020509719849,True,2,1,2,2,2,Wednesday、Enid、Bianca、Tyler、Dort 五人依序可辨，各有一手舉起，沒有明顯額外手臂或海報爪狀特效。Tyler 頸部束具變成耳機、制服與 Dort 西裝徽章細節偏移；左右邊緣人物貼近畫框。可見手掌大致清楚，主要問候動作成立。
 anime-01-book-r2,codex,anime,1,book,2,succeeded,True,,,27.4,True,2,2,2,2,2,"Single Frieren, matching ears/hair/eyes/red accessories and white-gold clothing. Holds one open green book with both hands at chest, head and gaze lowered toward book; plausible hand contact."
 anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648,True,0,1,0,1,2,單人條件生成兩名 Frieren 類似角色，各用雙手拿一本綠書並低頭看書。銀髮尖耳與白金服裝保留，但臉形／衣飾比例偏移，頭頂被裁切；兩人兩書不符合一人條件。可見握書手部清楚。
 anime-01-book-r2,h3,anime,1,book,2,pending,False,,,,False,,,,,,

@@ -2464,11 +2464,11 @@
       "model": "h3",
       "metric": "exact_count",
       "planned_pairs": 30,
-      "evaluated_pairs": 9,
-      "missing_pairs": 21,
-      "same_score": 9,
+      "evaluated_pairs": 10,
+      "missing_pairs": 20,
+      "same_score": 10,
       "changed_score": 0,
-      "both_clear_pass": 7,
+      "both_clear_pass": 8,
       "pairs": [
         {
           "cohort": "anime",
@@ -2586,6 +2586,19 @@
             2,
             2
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 5,
+          "action": "wave",
+          "case_ids": [
+            "live-05-wave-r1",
+            "live-05-wave-r2"
+          ],
+          "scores": [
+            2,
+            2
+          ]
         }
       ]
     },
@@ -2593,9 +2606,9 @@
       "model": "h3",
       "metric": "appearance_preserved",
       "planned_pairs": 30,
-      "evaluated_pairs": 9,
-      "missing_pairs": 21,
-      "same_score": 9,
+      "evaluated_pairs": 10,
+      "missing_pairs": 20,
+      "same_score": 10,
       "changed_score": 0,
       "both_clear_pass": 0,
       "pairs": [
@@ -2715,6 +2728,19 @@
             1,
             1
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 5,
+          "action": "wave",
+          "case_ids": [
+            "live-05-wave-r1",
+            "live-05-wave-r2"
+          ],
+          "scores": [
+            1,
+            1
+          ]
         }
       ]
     },
@@ -2722,11 +2748,11 @@
       "model": "h3",
       "metric": "reference_binding",
       "planned_pairs": 30,
-      "evaluated_pairs": 9,
-      "missing_pairs": 21,
-      "same_score": 9,
+      "evaluated_pairs": 10,
+      "missing_pairs": 20,
+      "same_score": 10,
       "changed_score": 0,
-      "both_clear_pass": 7,
+      "both_clear_pass": 8,
       "pairs": [
         {
           "cohort": "anime",
@@ -2844,6 +2870,19 @@
             2,
             2
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 5,
+          "action": "wave",
+          "case_ids": [
+            "live-05-wave-r1",
+            "live-05-wave-r2"
+          ],
+          "scores": [
+            2,
+            2
+          ]
         }
       ]
     },
@@ -2851,10 +2890,10 @@
       "model": "h3",
       "metric": "action_obedience",
       "planned_pairs": 30,
-      "evaluated_pairs": 9,
-      "missing_pairs": 21,
+      "evaluated_pairs": 10,
+      "missing_pairs": 20,
       "same_score": 6,
-      "changed_score": 3,
+      "changed_score": 4,
       "both_clear_pass": 1,
       "pairs": [
         {
@@ -2973,6 +3012,19 @@
             1,
             2
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 5,
+          "action": "wave",
+          "case_ids": [
+            "live-05-wave-r1",
+            "live-05-wave-r2"
+          ],
+          "scores": [
+            1,
+            2
+          ]
         }
       ]
     },
@@ -2980,10 +3032,10 @@
       "model": "h3",
       "metric": "hands_and_contacts",
       "planned_pairs": 30,
-      "evaluated_pairs": 9,
-      "missing_pairs": 21,
+      "evaluated_pairs": 10,
+      "missing_pairs": 20,
       "same_score": 6,
-      "changed_score": 3,
+      "changed_score": 4,
       "both_clear_pass": 4,
       "pairs": [
         {
@@ -3097,6 +3149,19 @@
           "case_ids": [
             "anime-05-wave-r1",
             "anime-05-wave-r2"
+          ],
+          "scores": [
+            1,
+            2
+          ]
+        },
+        {
+          "cohort": "live",
+          "count": 5,
+          "action": "wave",
+          "case_ids": [
+            "live-05-wave-r1",
+            "live-05-wave-r2"
           ],
           "scores": [
             1,
