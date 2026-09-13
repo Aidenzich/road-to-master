@@ -1,12 +1,13 @@
 {
   "registered_at": "2026-09-13T16:17:50Z",
   "question": "Does plural grammatical framing contribute to duplicate people in nominally single-person cases?",
-  "status": "planned_not_submitted",
+  "status": "partially_executed",
+  "execution_status": {"codex": "two submitted: anime succeeded, live output moderation blocked", "qwen": "not_submitted", "h3": "not_submitted"},
   "models": ["qwen", "h3", "codex"],
   "cases": ["anime-01-wave-r1", "live-01-wave-r1"],
   "change": "Replace plural generic character/people/subjects wording with singular descriptions throughout, preserving the exact one-person requirement and requested pose.",
   "unchanged": ["reference bytes and ordering", "seed where available", "resolution", "steps", "CFG", "graph", "library scene", "wave pose"],
   "hypothesis_not_conclusion": true,
   "compare_against": "Original immutable cases and their failed baseline outputs",
-  "notes": "This is a prompt wording bundle control, not an isolated single-token test. Codex seed unavailable; repeats are independent stochastic tool requests. No production change. Submit only after active GPU worker completes or at a safely planned owned boundary; never interrupt it."
+  "notes": "This is a prompt wording bundle control, not an isolated single-token test. Codex seed unavailable; repeats are independent stochastic tool requests. No production change. GPU submissions only after active GPU worker completes or at a safely planned owned boundary; never interrupt it. Codex runs independently without accessing that GPU. Original preregistration timestamp retained; frozen replacements and case IDs are in singular-control-index.json."
 }
