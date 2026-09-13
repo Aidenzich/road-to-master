@@ -194,6 +194,9 @@ f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) 
 f'場景與角色對應可由 [prepare_cases.py]({asset}/prepare_cases.py) 重建；[gpu_runner.py]({asset}/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。', '',
 'H3 5幀取圖保存原始MP4；若音軌0.20秒短於5/24秒，現有一般影片collector會拒絕影音等長檢查。此時分別記錄provider成功與catalog失敗，從已驗證的本機journal影片取圖；不重試、不補幀、不放寬產品校驗。只有實際解出5幀才記為取圖成功。所有已完成實验的遠端輸入／輸出需有hash比對與清理收據，不能用刪整個資料夾代替。', '']
 (REPO/'spikes/multichar-reference-benchmark-20260913.md').write_text('\n'.join(lines)+'\n')
-(ROOT/'README.md').write_text('# 六小時實驗進度\n\n完整持續更新報告：/Users/aiden/Projects/road-to-master/spikes/multichar-reference-benchmark-20260913.md\n\n'+
-    '\n'.join(lines[lines.index('## 進度與分母'):lines.index('## 個別結果')])+'\n')
+# Same complete report locally, with portable links to this experiment's files.
+for filename in ['results.csv','results.json','quality-summary.json','position-control-results.json']:
+    if (DEST/filename).exists():
+        shutil.copyfile(DEST/filename,ROOT/filename)
+(ROOT/'README.md').write_text(('\n'.join(lines)+'\n').replace(f']({asset}/',']('))
 print(f'Exported {len(rows)} planned arms; {sum(r["state"]=="succeeded" for r in rows)} successful results')
