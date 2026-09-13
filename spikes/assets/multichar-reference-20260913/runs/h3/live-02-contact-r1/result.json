@@ -1,0 +1,49 @@
+{
+  "case_id": "live-02-contact-r1",
+  "model": "h3",
+  "count": 2,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 164.06778216362,
+  "prequeue_wait_seconds": 0.6985628604888916,
+  "submitted": true,
+  "prompt_id": "232f8f47-877d-4bc9-8ea5-c7be4ec4691b",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:34:52.208000+00:00",
+    "execution_observed": "2026-09-13T18:34:53.247251+00:00",
+    "sampling_started": "2026-09-13T18:37:03.199222+00:00",
+    "sampling_progress": "2026-09-13T18:37:26.431398+00:00",
+    "first_step_observed": "2026-09-13T18:37:04.722133+00:00",
+    "sampling_completed": "2026-09-13T18:37:26.431478+00:00",
+    "execution_completed": "2026-09-13T18:37:28.268000+00:00",
+    "collection_started": "2026-09-13T18:37:29.109615+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789324654.591459,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：两人数量及左右顺序正确，黑辫/泪痕妆与紫发/条纹制服线索保留，Enid制服剪裁、胸前徽章和领结有改变。掌心清楚接触，但正面姿态显示为Wednesday左手与Enid右手，而非指定右/左手；接触偏高，两人也没有略转向彼此。其余手放下，没有额外道具，动作只部分符合。可见双手归属清晰，未见明显多指或融合。"
+  }
+}

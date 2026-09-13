@@ -1,0 +1,26 @@
+{
+  "case_id": "anime-01-contact-r1",
+  "model": "qwen",
+  "schema": "qa_multi_2b1aba66e06e4246858f7a4ec6ac24a9",
+  "version_id": "42b31084-9177-43f5-aa95-101665a7072f",
+  "inputs": {
+    "prompt": "Person 1 is Frieren, the character in reference image 1.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 1 distinct people are visible, each appearing once. The left-to-right order is Person 1. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one plain blue ceramic mug with both hands at chest level, looking toward the camera. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
+    "effective_prompt": "Person 1 is Frieren, the character in reference image 1.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 1 distinct people are visible, each appearing once. The left-to-right order is Person 1. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one plain blue ceramic mug with both hands at chest level, looking toward the camera. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
+    "width": 768,
+    "height": 512,
+    "steps": 40,
+    "seed": 20260914,
+    "candidate_count": 1,
+    "reference_asset_ids": [
+      "54f08759-6796-485a-b15c-265280ea40a7"
+    ],
+    "workflow_id": "qwen-edit-2511",
+    "model_id": "qwen-image-edit-2511",
+    "cfg_scale": 4
+  },
+  "admitted_epoch": 1789324655.343623,
+  "prequeue_wait_seconds": 0.7092061042785645,
+  "reference_hashes": [
+    "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+  ]
+}

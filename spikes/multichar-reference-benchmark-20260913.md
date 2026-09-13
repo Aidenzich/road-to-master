@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T18:35:38.689573+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T18:38:15.922874+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
-| H3 Ref2VA 5 frames | 60 | 23 | 23 | 0 | 0 | 23 |
+| H3 Ref2VA 5 frames | 60 | 24 | 24 | 0 | 0 | 24 |
 
 ### 資料完整性快照
 
@@ -72,7 +72,7 @@
 | 1 | H3 Ref2VA 5 frames | 12 | 0/6 | 0/6 | 0/6 | 0/6 | 5/6 |
 | 2 | Codex built-in | 12 | 12/12 | 9/12 | 12/12 | 4/12 | 12/12 |
 | 2 | Qwen Edit 2511 | 12 | 4/4 | 0/4 | 3/4 | 2/4 | 3/4 |
-| 2 | H3 Ref2VA 5 frames | 12 | 5/5 | 0/5 | 5/5 | 1/5 | 3/5 |
+| 2 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 1/6 | 4/6 |
 | 3 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 3 | Qwen Edit 2511 | 12 | 4/4 | 0/4 | 1/4 | 0/4 | 1/4 |
 | 3 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 1/4 | 3/4 |
@@ -127,12 +127,12 @@
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/result.json) |
 | anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/result.json) |
 | live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/result.json) |
-| anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/result.json) |
-| live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | [succeeded](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/result.json) |
+| anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/result.json) |
+| live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/result.json) |
 | anime-01-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r1/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-contact-r1/result.json) |
 | live-01-contact-r1 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-contact-r1/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-contact-r1/result.json) |
 | anime-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-contact-r1/result.json) |
-| live-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/result.json) | pending | pending |
+| live-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/result.json) |
 | anime-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/result.json) | pending | pending |
 | live-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/result.json) | pending | pending |
 | anime-04-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/result.json) | unsupported | pending |
@@ -362,7 +362,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/output.png) |
 
 ### anime-03-contact-r1
 
@@ -730,7 +730,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1-reverse-position/output.png) | Enid left and Wednesday right, apparent Enid left/Wednesday right palms correctly contact with other arms lowered. Broad appearance/costume retained. Contact remains above shoulder height near face; otherwise plausible hand anatomy. Spatial reversal successful. |
 | Qwen Edit 2511 | 尚未產出 | not_executed |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/output.png) | not_executed |  |
 
 ### anime-03-contact-r1-reverse-position
 
@@ -785,7 +785,7 @@
 | Qwen Edit 2511 | 4 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | Qwen Edit 2511 | 5 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | H3 Ref2VA 5 frames | 1 | 119.58 [119.28–168.01] (n=6) | 16.31 [16.06–47.23] (n=6) | 15.07 [14.90–15.19] (n=6) | 128.70 [126.72–189.77] (n=6) |
-| H3 Ref2VA 5 frames | 2 | 157.23 [154.38–203.59] (n=5) | 23.22 [22.92–56.06] (n=5) | 21.46 [21.43–21.82] (n=5) | 166.62 [162.94–224.54] (n=5) |
+| H3 Ref2VA 5 frames | 2 | 156.70 [154.38–203.59] (n=6) | 23.23 [22.92–56.06] (n=6) | 21.59 [21.43–21.82] (n=6) | 165.37 [162.94–224.54] (n=6) |
 | H3 Ref2VA 5 frames | 3 | 401.43 [399.37–409.77] (n=4) | 30.31 [30.21–30.38] (n=4) | 28.48 [28.33–28.51] (n=4) | 410.92 [408.93–419.67] (n=4) |
 | H3 Ref2VA 5 frames | 4 | 538.97 [520.97–550.82] (n=4) | 119.69 [119.61–119.80] (n=4) | 113.38 [113.28–113.52] (n=4) | 549.55 [537.07–560.32] (n=4) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=4) | 124.92 [124.85–125.24] (n=4) | 118.30 [118.25–118.67] (n=4) | 597.63 [587.57–609.83] (n=4) |
