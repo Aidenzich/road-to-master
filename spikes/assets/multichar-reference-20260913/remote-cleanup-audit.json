@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789325609.751227,
+  "checked_epoch": 1789329129.193324,
   "scope": "Only terminal submitted owned task files, explicit lstat paths; no deletion or global inventory. Active jobs excluded.",
   "files": [
     {
@@ -72,6 +72,30 @@
       "bytes": 88606,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/736058d7268044af-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-wave-r2",
+      "model": "h3",
+      "prompt_id": "63bc505c-00dc-4893-a3d8-fa8e2732bdf9",
+      "kind": "input",
+      "path": "2fa91975-b92d-43ce-90b4-cfcb94e13733-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/2fa91975-b92d-43ce-90b4-cfcb94e13733-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-wave-r2",
+      "model": "h3",
+      "prompt_id": "63bc505c-00dc-4893-a3d8-fa8e2732bdf9",
+      "kind": "output",
+      "path": "video/msai-studio/bd85626fbd1f8913-00_00001_.mp4",
+      "sha256": "0e0d98e43425ef7faab89d0eb5c55b049b211e2c1b12f90e473a4e18ecb3a351",
+      "bytes": 97007,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/bd85626fbd1f8913-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -231,6 +255,54 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "f09591fc-3375-4105-9ad3-0b7895f1868c",
+      "kind": "input",
+      "path": "0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "f09591fc-3375-4105-9ad3-0b7895f1868c",
+      "kind": "input",
+      "path": "0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "f09591fc-3375-4105-9ad3-0b7895f1868c",
+      "kind": "input",
+      "path": "0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/0f15bfc6-6fe2-4352-822c-995a6a862fbd-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "f09591fc-3375-4105-9ad3-0b7895f1868c",
+      "kind": "output",
+      "path": "video/msai-studio/96a026d77037c39a-00_00001_.mp4",
+      "sha256": "424b0f897615a3c4ea1ea6681d427b4e9cd9dceacf1ed0f929e9b7c93f839ba4",
+      "bytes": 74466,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/96a026d77037c39a-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "anime-03-wave-r1",
       "model": "h3",
       "prompt_id": "83d50317-783a-462e-a75d-17908c69b2fa",
@@ -336,6 +408,66 @@
       "bytes": 83139,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/6aeb396092a6269b-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+      "kind": "input",
+      "path": "2f7ee111-81b3-407e-b17a-66b43316a070-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/2f7ee111-81b3-407e-b17a-66b43316a070-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+      "kind": "input",
+      "path": "2f7ee111-81b3-407e-b17a-66b43316a070-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/2f7ee111-81b3-407e-b17a-66b43316a070-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+      "kind": "input",
+      "path": "2f7ee111-81b3-407e-b17a-66b43316a070-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/2f7ee111-81b3-407e-b17a-66b43316a070-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+      "kind": "input",
+      "path": "2f7ee111-81b3-407e-b17a-66b43316a070-ref-3.png",
+      "sha256": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "bytes": 212188,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/2f7ee111-81b3-407e-b17a-66b43316a070-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+      "kind": "output",
+      "path": "video/msai-studio/72b271173a3fc9a1-00_00001_.mp4",
+      "sha256": "526a9e37ef88ac0c1eb669af3153658052c684b458c3f771ef056c763b9bd45a",
+      "bytes": 78266,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/72b271173a3fc9a1-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -468,6 +600,78 @@
       "bytes": 80433,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/f1332759aaf2b573-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "input",
+      "path": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "input",
+      "path": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "input",
+      "path": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "input",
+      "path": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-3.png",
+      "sha256": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "bytes": 212188,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "input",
+      "path": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-4.png",
+      "sha256": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72",
+      "bytes": 150685,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/5958e6c9-9219-4a0b-a9d9-021d6bf2154e-ref-4.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+      "kind": "output",
+      "path": "video/msai-studio/3e5133346af4f4e4-00_00001_.mp4",
+      "sha256": "ef77c3bd331afeedba470869ec58b2c9ae69cc4573dd11600c6da15aef3622dc",
+      "bytes": 81654,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/3e5133346af4f4e4-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -612,6 +816,30 @@
       "bytes": 57359,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/072ac349e041ec96-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-wave-r2",
+      "model": "h3",
+      "prompt_id": "97241024-8481-413a-b59c-805c934caa35",
+      "kind": "input",
+      "path": "884a9d1b-4baf-4ab8-979d-73063eab8256-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/884a9d1b-4baf-4ab8-979d-73063eab8256-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-wave-r2",
+      "model": "h3",
+      "prompt_id": "97241024-8481-413a-b59c-805c934caa35",
+      "kind": "output",
+      "path": "video/msai-studio/5e3c52a9b0d90547-00_00001_.mp4",
+      "sha256": "09da8008716b2d764f5b69b31bbe0822d9d7509cb6cf9776818c194bad88da93",
+      "bytes": 58266,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/5e3c52a9b0d90547-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -771,6 +999,54 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "live-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "ce3b617c-57d8-4291-8834-e5a3392073ba",
+      "kind": "input",
+      "path": "d419a86e-3197-4756-97f8-9206e0ef20d0-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d419a86e-3197-4756-97f8-9206e0ef20d0-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "ce3b617c-57d8-4291-8834-e5a3392073ba",
+      "kind": "input",
+      "path": "d419a86e-3197-4756-97f8-9206e0ef20d0-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d419a86e-3197-4756-97f8-9206e0ef20d0-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "ce3b617c-57d8-4291-8834-e5a3392073ba",
+      "kind": "input",
+      "path": "d419a86e-3197-4756-97f8-9206e0ef20d0-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d419a86e-3197-4756-97f8-9206e0ef20d0-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-contact-r1",
+      "model": "h3",
+      "prompt_id": "ce3b617c-57d8-4291-8834-e5a3392073ba",
+      "kind": "output",
+      "path": "video/msai-studio/90599cf7bde57356-00_00001_.mp4",
+      "sha256": "52aef35079a8a31cf1f14038e9a3b9eecea9df9c6d4d2b3df9e70243bbb71958",
+      "bytes": 59010,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/90599cf7bde57356-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "live-03-wave-r1",
       "model": "h3",
       "prompt_id": "23ff077c-dd18-4108-afb2-a27093bff4d3",
@@ -876,6 +1152,66 @@
       "bytes": 64841,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/59d8b63dfc4a9149-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/fb4390e2-157e-48b7-b215-3db070f04576-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/fb4390e2-157e-48b7-b215-3db070f04576-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/fb4390e2-157e-48b7-b215-3db070f04576-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-3.png",
+      "sha256": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "bytes": 190281,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/fb4390e2-157e-48b7-b215-3db070f04576-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-contact-r1",
+      "model": "h3",
+      "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+      "kind": "output",
+      "path": "video/msai-studio/9c4c91ed6037575f-00_00001_.mp4",
+      "sha256": "4752b56f384e22b0b133eef908ac47f28f58a7ccda0f963d27ce442130fbe742",
+      "bytes": 60108,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/9c4c91ed6037575f-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -1008,6 +1344,78 @@
       "bytes": 62347,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/f409ce687b879836-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "input",
+      "path": "d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "input",
+      "path": "d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "input",
+      "path": "d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "input",
+      "path": "d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-3.png",
+      "sha256": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "bytes": 190281,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "input",
+      "path": "d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-4.png",
+      "sha256": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f",
+      "bytes": 127850,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/d840982c-bae7-4c47-9a99-8ea65dd0ab82-ref-4.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-contact-r1",
+      "model": "h3",
+      "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+      "kind": "output",
+      "path": "video/msai-studio/b132bdc997fd1e6a-00_00001_.mp4",
+      "sha256": "6336bc6c48941df8001b65a29d6b63a2386bbf6ea0c5bd7e96a3508c798219cd",
+      "bytes": 63356,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/b132bdc997fd1e6a-00_00001_.mp4",
       "remote_state": "absent"
     },
     {

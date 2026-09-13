@@ -97,7 +97,7 @@ live-01-wave-r2,qwen,live,1,wave,2,pending,False,,,,False,,,,,,
 live-01-wave-r2,h3,live,1,wave,2,succeeded,True,failed,,127.4449679851532,True,0,1,0,1,2,單一 Wednesday 參考圖產生四名人物，只有左側保留黑辮與黑裙的主要特徵，其他為新造棕髮及金髮學生。四人各舉手的動作可辨，但人物數量與單一角色對應不成立；可見手掌大致清楚。
 anime-02-wave-r2,codex,anime,2,wave,2,succeeded,True,,,38.4,True,2,2,2,2,2,"Frieren left and Fern right, distinct referenced hair/eyes/ears/clothing and visible accessories. Each has one open greeting hand with other arm lowered; two figures without extra props."
 anime-02-wave-r2,qwen,anime,2,wave,2,pending,False,,,,False,,,,,,
-anime-02-wave-r2,h3,anime,2,wave,2,pending,False,,,,False,,,,,,
+anime-02-wave-r2,h3,anime,2,wave,2,succeeded,True,failed,,163.69235110282898,True,2,1,2,1,2,Frieren 與 Fern 數量、左右順序及主要髮色／耳形保持；Frieren 頸部寶石與衣領細節偏移。Fern 同時舉起兩手，違反每人僅一手揮手、另一手放下；可见手掌清楚，未見明顯肢體融合。
 live-02-wave-r2,codex,live,2,wave,2,succeeded,True,,,25.3,True,2,1,2,2,2,"Two figures, Wednesday left and Enid right, matching braids/lilac hair and broad costumes. Enid jacket becomes waist-cropped with altered large crest, so fine costume retention is partial. One open hand each, other lowered; no claws or lettering."
 live-02-wave-r2,qwen,live,2,wave,2,pending,False,,,,False,,,,,,
 live-02-wave-r2,h3,live,2,wave,2,pending,False,,,,False,,,,,,
