@@ -20,6 +20,9 @@ def copy_file(relative):
 
 for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
+for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv']:
+    if (ROOT/relative).exists():
+        copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
     if reference['state']=='downloaded':
         copy_file(reference['file'])
@@ -114,7 +117,10 @@ for result_file in sorted((ROOT/'runs/qwen-fullref').glob('*/result.json')):
     baseline=f'![baseline]({asset}/runs/qwen/{cid}/output.png)' if (DEST/'runs/qwen'/cid/'output.png').exists() else '尚未產出'
     control=f'![fullref]({asset}/runs/qwen-fullref/{cid}/output.png)' if (result_file.parent/'output.png').exists() else result['state']
     lines.append(f'| {cid} | {baseline} | {control} | {notes} |')
-lines += ['', '## 重現與失敗歸類', '',
+lines += ['', '## 耗時與硬體紀錄', '',
+f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) · [推導腳本]({asset}/summarize_timings.py)', '',
+'provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution_success；provider_queue_seconds 取服務收件 create_time 至 execution_start。sampling_node_seconds 是採樣節點觀測區間，可能包含載模，並非純 CUDA kernel 時間；first_to_last_step_seconds 不含第一步之前的準備。collection_to_saved_seconds 只在兩事件都存在時提供。Codex 僅有內建工具牆鐘時間，沒有相同階段或硬體資訊，不作等算力速度排名。VRAM 是提交前快照，不是峰值；未知值保留 null。', '',
+'## 重現與失敗歸類', '',
 f'場景與角色對應可由 [prepare_cases.py]({asset}/prepare_cases.py) 重建；[gpu_runner.py]({asset}/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。', '',
 'H3 5幀取圖保存原始MP4；若音軌0.20秒短於5/24秒，現有一般影片collector會拒絕影音等長檢查。此時分別記錄provider成功與catalog失敗，從已驗證的本機journal影片取圖；不重試、不補幀、不放寬產品校驗。只有實際解出5幀才記為取圖成功。所有已完成實验的遠端輸入／輸出需有hash比對與清理收據，不能用刪整個資料夾代替。', '']
 (REPO/'spikes/multichar-reference-benchmark-20260913.md').write_text('\n'.join(lines)+'\n')

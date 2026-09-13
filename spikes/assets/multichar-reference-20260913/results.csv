@@ -16,7 +16,7 @@ anime-03-wave-r1,qwen,anime,3,wave,1,succeeded,True,succeeded,194.462415933609,T
 anime-03-wave-r1,h3,anime,3,wave,1,succeeded,True,failed,412.80980014801025,True,2,1,2,2,2,"Three distinct correctly ordered characters, each waving one clearly empty open hand and other arm lowered. Frieren silver hair/ears/green eyes and Fern purple hair/robe retained; Loid blond hair/green suit/red tie/black glove retained. Frieren neckline red gem replaced by dark circles and Loid lapel detail differs. First-frame visible hand anatomy plausible. Broad identity cues strong but exact costume details partial."
 live-03-wave-r1,codex,live,3,wave,1,succeeded,True,,41.8,True,2,1,2,2,2,"Three distinct correctly ordered characters with one open five-finger hand raised each. Wednesday braids/tear makeup/dress, Enid lilac hair/uniform and Bianca short hair/gray eyes/uniform retained. Bianca source necklace is not visible; clothing-detail retention is partial. No copied large poster letters."
 live-03-wave-r1,qwen,live,3,wave,1,succeeded,True,succeeded,195.5329451560974,True,2,0,0,0,1,"Three figures, but left character blends Bianca skin/eyes with purple bun; center resembles Enid but altered tuxedo; right unrelated dark double-bun hairstyle and gray coat replaces Wednesday. Required order lost. Right figure holds unrequested mug instead of greeting, center hand clawed rather than open wave. Hand geometry/ownership partly uncertain. Count alone passes."
-live-03-wave-r1,h3,live,3,wave,1,pending,False,,,False,,,,,,
+live-03-wave-r1,h3,live,3,wave,1,succeeded,True,failed,419.66780281066895,True,2,1,2,1,0,"Three correctly ordered characters, recognizable broad face/hair/clothing cues. Enid source claw/slash effects copied into raised hand; not a clean empty open greeting hand. Wednesday and Bianca wave; Bianca unused arm behind body rather than visibly lowered. Bianca clothing/neck details changed and no clear library background. First-frame hand/effect defect is severe; appearance/action partial."
 anime-04-wave-r1,codex,anime,4,wave,1,succeeded,True,,45.7,True,2,1,2,2,2,Four distinct characters in correct left-to-right order with one open five-fingered greeting hand each and other hands lowered. Character hair/eye/clothing designs broadly retained. Loid black gloves absent; Yor gloves shortened/open-finger instead of original long gloves. Appearance partially retained rather than exact clothing match. Wider than waist-up crop.
 anime-04-wave-r1,qwen,anime,4,wave,1,unsupported,False,,,False,,,,,,
 anime-04-wave-r1,h3,anime,4,wave,1,pending,False,,,False,,,,,,
@@ -68,25 +68,25 @@ live-01-contact-r1,h3,live,1,contact,1,pending,False,,,False,,,,,,
 anime-02-contact-r1,codex,anime,2,contact,1,succeeded,True,,37.3,True,2,2,2,1,2,"Two correct characters with clear palm-to-palm contact and unused hands lowered. Visible near arms appear to be Frieren LEFT and Fern RIGHT, opposite requested Frieren right/Fern left; gesture achieved but laterality fails. Contact above shoulder level. Hands overlap naturally without obvious extra limbs; exact finger count at contact partly occluded."
 anime-02-contact-r1,qwen,anime,2,contact,1,pending,False,,,False,,,,,,
 anime-02-contact-r1,h3,anime,2,contact,1,pending,False,,,False,,,,,,
-live-02-contact-r1,codex,live,2,contact,1,pending,False,,,False,,,,,,
+live-02-contact-r1,codex,live,2,contact,1,succeeded,True,,37.0,True,2,1,2,1,2,"Correct two people/order with joined palms and other arms lowered. Uses Wednesday left and Enid right near arms, opposite requested right/left; contact above shoulder. Enid upper garment changes into cropped jacket/contrasting sweater and belt rather than source uniform details. Hand contact plausible, fingers partly occluded. Appearance/action partial."
 live-02-contact-r1,qwen,live,2,contact,1,pending,False,,,False,,,,,,
 live-02-contact-r1,h3,live,2,contact,1,pending,False,,,False,,,,,,
-anime-03-contact-r1,codex,anime,3,contact,1,pending,False,,,False,,,,,,
+anime-03-contact-r1,codex,anime,3,contact,1,succeeded,True,,37.6,True,2,1,2,1,2,"Three correct people/order, Frieren and Fern touch palms, Loid observes with both hands lowered. Fern appears to raise right rather than specified left hand; exact laterality not fully satisfied. Loid source gloves absent. Visible hands/contacts plausible without extra limbs; good separation and no source props."
 anime-03-contact-r1,qwen,anime,3,contact,1,pending,False,,,False,,,,,,
 anime-03-contact-r1,h3,anime,3,contact,1,pending,False,,,False,,,,,,
-live-03-contact-r1,codex,live,3,contact,1,pending,False,,,False,,,,,,
+live-03-contact-r1,codex,live,3,contact,1,succeeded,True,,42.4,True,2,1,2,1,2,"Three correct distinct characters/order. Wednesday and Enid palm contact while Bianca watches with hands clasped low. Turned torsos appear consistent with Wednesday right/Enid left this time, but contact near face rather than shoulder height. Wednesday looks toward camera rather than partner; no explicit mutual gaze requirement. Bianca necklace absent. Hands/ownership plausible."
 live-03-contact-r1,qwen,live,3,contact,1,pending,False,,,False,,,,,,
 live-03-contact-r1,h3,live,3,contact,1,pending,False,,,False,,,,,,
-anime-04-contact-r1,codex,anime,4,contact,1,pending,False,,,False,,,,,,
+anime-04-contact-r1,codex,anime,4,contact,1,succeeded,True,,38.0,True,2,1,2,1,2,Four correctly ordered characters form two separate correct pairs with clear palm contact and other hands lowered. Yor appears to raise right rather than requested left hand; contact heights nearer face than shoulder. Loid gloves absent and Yor gloves shortened. No extra limbs; hands/ownership plausible. Framing wider than waist-up.
 anime-04-contact-r1,qwen,anime,4,contact,1,unsupported,False,,,False,,,,,,
 anime-04-contact-r1,h3,anime,4,contact,1,pending,False,,,False,,,,,,
-live-04-contact-r1,codex,live,4,contact,1,pending,False,,,False,,,,,,
+live-04-contact-r1,codex,live,4,contact,1,succeeded,True,,42.1,True,2,1,2,1,2,"Four correctly ordered characters form two separate requested pairs, unused hands lowered. Turned torsos/arms appear consistent with specified right/left sides. Palm contacts higher than shoulder for shorter partner; fine height constraint partial. Bianca necklace absent, Tyler restraint outfit loosened for pose. No obvious hand fusion or extra limbs."
 live-04-contact-r1,qwen,live,4,contact,1,unsupported,False,,,False,,,,,,
 live-04-contact-r1,h3,live,4,contact,1,pending,False,,,False,,,,,,
-anime-05-contact-r1,codex,anime,5,contact,1,pending,False,,,False,,,,,,
+anime-05-contact-r1,codex,anime,5,contact,1,succeeded,True,,45.0,True,2,1,2,1,2,"Five correct distinct characters and order; two correct pairs touch palms, Anya watches with both hands lowered. Yor appears to use right rather than requested left; pair contacts high. Loid gloves omitted, Yor gloves shortened; broad traits retained. Plausible hands and no cross-pair limb confusion. Wider full-body framing to include child."
 anime-05-contact-r1,qwen,anime,5,contact,1,unsupported,False,,,False,,,,,,
 anime-05-contact-r1,h3,anime,5,contact,1,pending,False,,,False,,,,,,
-live-05-contact-r1,codex,live,5,contact,1,pending,False,,,False,,,,,,
+live-05-contact-r1,codex,live,5,contact,1,succeeded,True,,45.4,True,2,1,2,1,2,"Five distinct ordered figures; Wednesday/Enid and Bianca/Tyler are separate pairs, Dort watches with arms down. Paired unused arms lowered, contacts clear. Turned poses appear consistent with requested hand sides, but contacts nearer face than shoulder for shorter partner. Bianca necklace absent, Tyler sleeves loosened. Outer figures partly cropped at sides, faces and contact hands visible. No gross anatomy defect."
 live-05-contact-r1,qwen,live,5,contact,1,unsupported,False,,,False,,,,,,
 live-05-contact-r1,h3,live,5,contact,1,pending,False,,,False,,,,,,
 anime-01-wave-r2,codex,anime,1,wave,2,pending,False,,,False,,,,,,

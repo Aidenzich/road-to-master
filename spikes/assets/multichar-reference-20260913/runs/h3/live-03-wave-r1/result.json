@@ -1,0 +1,49 @@
+{
+  "case_id": "live-03-wave-r1",
+  "model": "h3",
+  "count": 3,
+  "action": "wave",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 419.66780281066895,
+  "prequeue_wait_seconds": 0.8858768939971924,
+  "submitted": true,
+  "prompt_id": "23ff077c-dd18-4108-afb2-a27093bff4d3",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T16:24:07.344000+00:00",
+    "execution_observed": "2026-09-13T16:24:08.349413+00:00",
+    "sampling_started": "2026-09-13T16:30:25.024973+00:00",
+    "sampling_progress": "2026-09-13T16:30:55.230464+00:00",
+    "first_step_observed": "2026-09-13T16:30:26.899159+00:00",
+    "sampling_completed": "2026-09-13T16:30:55.230500+00:00",
+    "execution_completed": "2026-09-13T16:30:57.114000+00:00",
+    "collection_started": "2026-09-13T16:30:57.764105+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789317063.19047,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 0,
+    "reviewer": "assistant visual review",
+    "notes": "Three correctly ordered characters, recognizable broad face/hair/clothing cues. Enid source claw/slash effects copied into raised hand; not a clean empty open greeting hand. Wednesday and Bianca wave; Bianca unused arm behind body rather than visibly lowered. Bianca clothing/neck details changed and no clear library background. First-frame hand/effect defect is severe; appearance/action partial."
+  }
+}
