@@ -1,0 +1,18 @@
+{
+  "case_id": "live-01-book-r2",
+  "model": "codex",
+  "state": "failed",
+  "submitted": true,
+  "tool_elapsed_seconds": 21.3,
+  "timing_source": "tool call wall time",
+  "failure_category": "provider_output_moderation_blocked",
+  "provider_error_code": "moderation_blocked",
+  "moderation_stage": "output",
+  "provider_request_id": "08c47966-9e94-45b8-8f48-2938ac5367d4",
+  "provider_categories": ["other"],
+  "outputs": [],
+  "review": null,
+  "cleanup_complete": true,
+  "cleanup_scope": "No output returned and no 5090 files created. Built-in provider retention unknown.",
+  "notes": "Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
+}

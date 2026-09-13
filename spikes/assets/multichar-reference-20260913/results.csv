@@ -119,19 +119,19 @@ anime-05-wave-r2,h3,anime,5,wave,2,pending,False,,,,False,,,,,,
 live-05-wave-r2,codex,live,5,wave,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Five distinct figures in correct order, each one greeting hand. Rightmost hand reaches image edge; some unused arms disappear behind neighbours rather than clearly lowered. Bianca necklace missing; tie/crest details transfer between uniforms; Tyler clothing altered for free arm. Broad hair/face cues preserved."
 live-05-wave-r2,qwen,live,5,wave,2,unsupported,False,,,,False,,,,,,
 live-05-wave-r2,h3,live,5,wave,2,pending,False,,,,False,,,,,,
-anime-01-book-r2,codex,anime,1,book,2,pending,False,,,,False,,,,,,
+anime-01-book-r2,codex,anime,1,book,2,succeeded,True,,,27.4,True,2,2,2,2,2,"Single Frieren, matching ears/hair/eyes/red accessories and white-gold clothing. Holds one open green book with both hands at chest, head and gaze lowered toward book; plausible hand contact."
 anime-01-book-r2,qwen,anime,1,book,2,pending,False,,,,False,,,,,,
 anime-01-book-r2,h3,anime,1,book,2,pending,False,,,,False,,,,,,
-live-01-book-r2,codex,live,1,book,2,pending,False,,,,False,,,,,,
+live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_blocked,21.3,False,,,,,,"Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
 live-01-book-r2,qwen,live,1,book,2,pending,False,,,,False,,,,,,
 live-01-book-r2,h3,live,1,book,2,pending,False,,,,False,,,,,,
-anime-02-book-r2,codex,anime,2,book,2,pending,False,,,,False,,,,,,
+anime-02-book-r2,codex,anime,2,book,2,succeeded,True,,,36.6,True,2,2,2,1,2,Correct Frieren/Fern order and retained appearance. Frieren holds one open green book both hands; Fern points toward upper edge from viewer right. Reader-right page contact cannot be verified from cover-facing angle; gaze roughly down toward book. Hand shapes plausible.
 anime-02-book-r2,qwen,anime,2,book,2,pending,False,,,,False,,,,,,
 anime-02-book-r2,h3,anime,2,book,2,pending,False,,,,False,,,,,,
-live-02-book-r2,codex,live,2,book,2,pending,False,,,,False,,,,,,
+live-02-book-r2,codex,live,2,book,2,succeeded,True,,,38.9,True,2,2,2,1,2,"Wednesday left, Enid right, hair/makeup/costume broadly retained. Wednesday holds one green open book at chest with both hands, Enid points, both gaze down. Actual reader-right page contact obscured behind front cover; not clearly verifiable. No duplicate fingers obvious."
 live-02-book-r2,qwen,live,2,book,2,pending,False,,,,False,,,,,,
 live-02-book-r2,h3,live,2,book,2,pending,False,,,,False,,,,,,
-anime-03-book-r2,codex,anime,3,book,2,pending,False,,,,False,,,,,,
+anime-03-book-r2,codex,anime,3,book,2,succeeded,True,,,40.8,True,2,1,2,1,2,"Correct three-character order and roles: Frieren holds book both hands, Fern points, Loid leans in. Loid black gloves absent on visible lower hand. Finger touches upper page edge but reader-right page ambiguous, gaze not unambiguously on pages for everyone."
 anime-03-book-r2,qwen,anime,3,book,2,pending,False,,,,False,,,,,,
 anime-03-book-r2,h3,anime,3,book,2,pending,False,,,,False,,,,,,
 live-03-book-r2,codex,live,3,book,2,pending,False,,,,False,,,,,,
