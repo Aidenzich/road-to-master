@@ -1,0 +1,41 @@
+{
+  "case_id": "anime-01-book-r1",
+  "model": "h3",
+  "count": 1,
+  "action": "book",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 126.71733975410461,
+  "prequeue_wait_seconds": 0.6433672904968262,
+  "submitted": true,
+  "prompt_id": "26a16a72-d056-47a9-bf3c-07fa22fac9c9",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T17:09:08.934000+00:00",
+    "execution_observed": "2026-09-13T17:09:09.965941+00:00",
+    "sampling_started": "2026-09-13T17:10:50.319632+00:00",
+    "sampling_progress": "2026-09-13T17:11:06.375452+00:00",
+    "first_step_observed": "2026-09-13T17:10:51.477038+00:00",
+    "sampling_completed": "2026-09-13T17:11:06.375489+00:00",
+    "execution_completed": "2026-09-13T17:11:08.370000+00:00",
+    "collection_started": "2026-09-13T17:11:08.973342+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789319474.483365,
+  "review": null
+}

@@ -1,0 +1,49 @@
+{
+  "case_id": "live-05-wave-r1",
+  "model": "h3",
+  "count": 5,
+  "action": "wave",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 593.1196010112762,
+  "prequeue_wait_seconds": 0.879072904586792,
+  "submitted": true,
+  "prompt_id": "7672bc92-ebfb-4b5e-a7d8-b47d710a822e",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T16:59:13.752000+00:00",
+    "execution_observed": "2026-09-13T16:59:14.778042+00:00",
+    "sampling_started": "2026-09-13T17:06:49.329397+00:00",
+    "sampling_progress": "2026-09-13T17:08:54.315814+00:00",
+    "first_step_observed": "2026-09-13T17:06:56.029262+00:00",
+    "sampling_completed": "2026-09-13T17:08:54.315868+00:00",
+    "execution_completed": "2026-09-13T17:08:56.149000+00:00",
+    "collection_started": "2026-09-13T17:08:57.072394+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789319343.218776,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Five figures in correct Wednesday/Enid/Bianca/Tyler/Dort order; broad hair and costume cues retained with uniform/costume changes. Central figures have extra raised hands rather than one each, adjacent hands overlap. Dort right-edge hand cropped and gesture not clearly open. First-frame review only."
+  }
+}

@@ -28,10 +28,10 @@ anime-05-wave-r1,qwen,anime,5,wave,1,unsupported,False,,,,False,,,,,,
 anime-05-wave-r1,h3,anime,5,wave,1,succeeded,True,failed,,587.5748732089996,True,2,1,2,1,1,"Five figures in correct Frieren/Fern/Loid/Yor/Anya order. Loid gains glasses absent in reference; Frieren eye/neck gem and Yor costume/gloves drift. Anya raises both hands, right image-edge hand clipped. Other four wave once. First-frame review only."
 live-05-wave-r1,codex,live,5,wave,1,succeeded,True,,,44.3,True,2,1,2,2,2,"Five distinct correctly ordered characters, one open five-fingered hand per person. Recognizable hair/makeup/clothing cues maintained including Dort mustache/suit. Bianca necklace absent and Tyler sleeves modified for waving (source outfit/action conflict). New background wall lettering appears but is not the original oversized character-poster lettering. Faces unobstructed; outer arms near frame edges."
 live-05-wave-r1,qwen,live,5,wave,1,unsupported,False,,,,False,,,,,,
-live-05-wave-r1,h3,live,5,wave,1,pending,False,,,,False,,,,,,
+live-05-wave-r1,h3,live,5,wave,1,succeeded,True,failed,,593.1196010112762,True,2,1,2,1,1,"Five figures in correct Wednesday/Enid/Bianca/Tyler/Dort order; broad hair and costume cues retained with uniform/costume changes. Central figures have extra raised hands rather than one each, adjacent hands overlap. Dort right-edge hand cropped and gesture not clearly open. First-frame review only."
 anime-01-book-r1,codex,anime,1,book,1,succeeded,True,,,47.6,True,2,2,2,1,2,"Exactly one Frieren, reference hair/ears/eyes/earrings/neck gem and white-gold outfit preserved. Both hands hold one open green book at chest. Head tilted but gaze appears partly forward rather than clearly down on pages; action partial. Visible hand anatomy plausible, thumbs naturally obscured by book."
 anime-01-book-r1,qwen,anime,1,book,1,pending,False,,,,False,,,,,,
-anime-01-book-r1,h3,anime,1,book,1,pending,False,,,,False,,,,,,
+anime-01-book-r1,h3,anime,1,book,1,succeeded,True,failed,,126.71733975410461,False,,,,,,
 live-01-book-r1,codex,live,1,book,1,succeeded,True,,,25.0,True,2,2,2,2,2,"Exactly one character retaining braids, bangs, tear makeup, patterned dress and white collar/cuffs. Both hands hold open green book at chest; gaze visibly lowered to pages. Hand anatomy plausible, thumbs behind book; no original poster graphics."
 live-01-book-r1,qwen,live,1,book,1,pending,False,,,,False,,,,,,
 live-01-book-r1,h3,live,1,book,1,pending,False,,,,False,,,,,,
@@ -134,19 +134,19 @@ live-02-book-r2,h3,live,2,book,2,pending,False,,,,False,,,,,,
 anime-03-book-r2,codex,anime,3,book,2,succeeded,True,,,40.8,True,2,1,2,1,2,"Correct three-character order and roles: Frieren holds book both hands, Fern points, Loid leans in. Loid black gloves absent on visible lower hand. Finger touches upper page edge but reader-right page ambiguous, gaze not unambiguously on pages for everyone."
 anime-03-book-r2,qwen,anime,3,book,2,pending,False,,,,False,,,,,,
 anime-03-book-r2,h3,anime,3,book,2,pending,False,,,,False,,,,,,
-live-03-book-r2,codex,live,3,book,2,pending,False,,,,False,,,,,,
+live-03-book-r2,codex,live,3,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Three correctly ordered figures and book roles, plausible hands. Bianca necklace missing and uniforms simplified. Finger lands at upper page edge but exact reader-right page not verifiable; Bianca gaze appears toward Enid rather than clearly book."
 live-03-book-r2,qwen,live,3,book,2,pending,False,,,,False,,,,,,
 live-03-book-r2,h3,live,3,book,2,pending,False,,,,False,,,,,,
-anime-04-book-r2,codex,anime,4,book,2,pending,False,,,,False,,,,,,
+anime-04-book-r2,codex,anime,4,book,2,succeeded,True,,,41.2,True,2,1,2,1,2,Four characters ordered correctly and book/pointing roles preserved. Loid/Yor gloves absent; Yor hair becomes prominent updo. Exact right-page target unclear and Frieren gaze partly forward. Hands otherwise plausible; no extra held objects.
 anime-04-book-r2,qwen,anime,4,book,2,unsupported,False,,,,False,,,,,,
 anime-04-book-r2,h3,anime,4,book,2,pending,False,,,,False,,,,,,
-live-04-book-r2,codex,live,4,book,2,pending,False,,,,False,,,,,,
+live-04-book-r2,codex,live,4,book,2,succeeded,True,,,41.6,True,2,1,2,1,2,"Four faces in correct order, Wednesday holds green book two hands and Enid points from right. Bianca necklace absent; Tyler outfit changes from reference restraint. Exact page/finger contact hidden behind cover; gaze for rear viewers only roughly directed to book. Hands visible are plausible."
 live-04-book-r2,qwen,live,4,book,2,unsupported,False,,,,False,,,,,,
 live-04-book-r2,h3,live,4,book,2,pending,False,,,,False,,,,,,
-anime-05-book-r2,codex,anime,5,book,2,pending,False,,,,False,,,,,,
+anime-05-book-r2,codex,anime,5,book,2,succeeded,True,,,41.4,True,2,1,2,1,2,Five figures correctly ordered and book holder/pointer roles recognizable. Loid/Yor gloves missing and Yor hair/dress altered. Some gazes are forward or toward neighbour rather than book; reader-right page contact unclear. Hands plausible though Yor/Anya clasp hands rather than relaxed lowered arms.
 anime-05-book-r2,qwen,anime,5,book,2,unsupported,False,,,,False,,,,,,
 anime-05-book-r2,h3,anime,5,book,2,pending,False,,,,False,,,,,,
-live-05-book-r2,codex,live,5,book,2,pending,False,,,,False,,,,,,
+live-05-book-r2,codex,live,5,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Five correctly ordered figures, Wednesday holds one green book and Enid points. Bianca necklace missing; patterned tie shared with Dort, Tyler outfit altered. All broadly look toward book but exact page contact and lowered unused hands partly obscured. Visible hand anatomy plausible."
 live-05-book-r2,qwen,live,5,book,2,unsupported,False,,,,False,,,,,,
 live-05-book-r2,h3,live,5,book,2,pending,False,,,,False,,,,,,
 anime-01-contact-r2,codex,anime,1,contact,2,pending,False,,,,False,,,,,,
