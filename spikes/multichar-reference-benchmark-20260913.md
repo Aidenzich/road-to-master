@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T19:27:17.591725+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T19:37:34.534567+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -52,7 +52,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 18 | 18 | 0 | 24 | 18 |
-| H3 Ref2VA 5 frames | 60 | 28 | 28 | 0 | 0 | 28 |
+| H3 Ref2VA 5 frames | 60 | 29 | 29 | 0 | 0 | 29 |
 
 ### 資料完整性快照
 
@@ -98,7 +98,7 @@
 | 4 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 0/6 | 3/6 |
 | 5 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 5 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
-| 5 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 0/4 | 2/4 |
+| 5 | H3 Ref2VA 5 frames | 12 | 5/5 | 0/5 | 5/5 | 0/5 | 2/5 |
 
 ### 三模型均成功且已評估的相同場景
 
@@ -154,7 +154,7 @@
 | live-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-contact-r1/result.json) |
 | anime-04-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r1/result.json) |
 | live-04-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/result.json) |
-| anime-05-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-contact-r1/result.json) | pending |
+| anime-05-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/result.json) |
 | live-05-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-contact-r1/result.json) | pending |
 | anime-01-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-wave-r2/result.json) | pending | pending |
 | live-01-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-wave-r2/result.json) | pending | pending |
@@ -419,7 +419,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/output.png) |
 
 ### live-05-contact-r1
 
@@ -777,7 +777,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1-reverse-position/output.png) | Anya/Yor/Loid/Fern/Frieren reverse order correct with requested two pairings and Anya watching. Contacts above shoulder, some arm laterality ambiguous under turned poses. Loid only one glove, Yor short gloves/dress drift. Palm geometry plausible, unused arms mostly lowered. |
 | Qwen Edit 2511 | 尚未產出 | unsupported |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/output.png) | not_executed |  |
 
 ### live-05-contact-r1-reverse-position
 
@@ -805,7 +805,7 @@
 | H3 Ref2VA 5 frames | 2 | 156.70 [154.38–203.59] (n=6) | 23.23 [22.92–56.06] (n=6) | 21.59 [21.43–21.82] (n=6) | 165.37 [162.94–224.54] (n=6) |
 | H3 Ref2VA 5 frames | 3 | 406.40 [399.37–464.17] (n=6) | 30.36 [30.21–65.02] (n=6) | 28.50 [28.33–28.63] (n=6) | 416.24 [408.93–481.70] (n=6) |
 | H3 Ref2VA 5 frames | 4 | 547.42 [520.97–553.78] (n=6) | 119.74 [119.61–120.14] (n=6) | 113.45 [113.28–113.93] (n=6) | 557.41 [537.07–564.78] (n=6) |
-| H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=4) | 124.92 [124.85–125.24] (n=4) | 118.30 [118.25–118.67] (n=4) | 597.63 [587.57–609.83] (n=4) |
+| H3 Ref2VA 5 frames | 5 | 582.40 [576.72–592.35] (n=5) | 124.99 [124.85–125.42] (n=5) | 118.31 [118.25–118.90] (n=5) | 593.12 [587.57–609.83] (n=5) |
 
 Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控制，不能由下表得出等算力速度比。
 
