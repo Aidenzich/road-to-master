@@ -1,0 +1,20 @@
+subject_definitions:
+<Subject 1> is the adult man shown in <Picture 1>, retaining his face, short black hair, natural skin texture and white sleeveless shirt.
+<Subject 2> is the adult woman shown in <Picture 2>, retaining her face, black hair in two braids, natural skin texture and white T-shirt.
+
+summary:
+[reference generation] The two people stand together and make a quiet hush gesture toward the camera.
+
+retention_analysis:
+<Subject 1>: fully_preserved - Preserve the man's identity, facial proportions, hairstyle and clothing from <Picture 1>. Replace the original background and pose with the shared composition below.
+<Subject 2>: fully_preserved - Preserve the woman's identity, facial proportions, hairstyle and clothing from <Picture 2>. Replace the original background and pose with the shared composition below.
+
+detailed_description:
+[Shot 1] A single continuous unbroken shot: locked-off eye-level medium close-up in a softly sunlit room with a plain pale wall. <Subject 1> stands on the left and <Subject 2> stands on the right, shoulder to shoulder, both looking directly at the camera. Both faces and hands are fully visible. Each person's other hand remains lowered outside the composition. Soft window light reveals natural facial detail without beautification. The camera remains completely still; no cuts, no reframing, no transition.
+0.00-0.20833333333333334s: From the opening image, <Subject 1> and <Subject 2> each already hold one index finger vertically in front of their own closed lips in a clear hush gesture. They hold this pose calmly throughout, with only subtle natural breathing.
+
+overall_soundscape:
+Quiet indoor room tone only. Neither person speaks.
+
+non_diegetic_music:
+N/A
