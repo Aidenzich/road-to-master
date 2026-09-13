@@ -2,6 +2,7 @@
 from pathlib import Path
 import csv, hashlib, json, shutil
 from datetime import datetime, timezone
+from quality_summary import summarize
 
 ROOT=Path(__file__).resolve().parent
 REPO=Path('/Users/aiden/Projects/road-to-master')
@@ -22,7 +23,7 @@ for relative in ['plan.json','references.json','reference-receipts.json','case-i
     copy_file(relative)
 for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
                  'position-control-index.json','prepare_position_controls.py',
-                 'audit_evidence.py','evidence-audit.json']:
+                 'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py']:
     if (ROOT/relative).exists():
         copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
@@ -58,6 +59,8 @@ with (DEST/'results.csv').open('w') as f:
     w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n')
     w.writeheader();w.writerows(rows)
 (DEST/'results.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
+quality = summarize(rows)
+(DEST/'quality-summary.json').write_text(json.dumps(quality,ensure_ascii=False,indent=2)+'\n')
 now=datetime.now(timezone.utc).isoformat()
 asset=f'assets/{SLUG}'
 lines=[
@@ -91,8 +94,22 @@ if (ROOT/'evidence-audit.json').exists():
               f'[完整檢查與失敗清單]({asset}/evidence-audit.json) · [檢查程式]({asset}/audit_evidence.py)', '',
               '早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。']
 lines += ['', '評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。', '',
-f'[完整CSV]({asset}/results.csv) · [JSON]({asset}/results.json) · [預登記計畫]({asset}/plan.json)', '',
-'## 個別結果', '', '| 場景 | Codex | Qwen | H3 |', '|---|---|---|---|']
+f'[完整CSV]({asset}/results.csv) · [JSON]({asset}/results.json) · [預登記計畫]({asset}/plan.json)', '']
+lines += ['## 分組評分（明確符合數／已評估數）', '',
+          '只把評分2計為明確符合；1是部分符合或不確定，0是明確失敗。沒有圖、未審查與不支援不當作視覺0分，也不藏入已評估分母。以下原生流程表不包含額外對照。', '',
+          f'[人數／動作／重複批次的完整0/1/2及缺漏計數]({asset}/quality-summary.json)', '']
+for scope,title in [('all_available_baseline','目前可用的全部原生流程成果'),('three_model_matched_complete','三模型均成功且已評估的相同場景')]:
+    lines += [f'### {title}', '']
+    if scope == 'three_model_matched_complete':
+        lines += [f'目前交集為 {len(quality["matched_case_ids"])} 個場景。此表以成功且完成評估為條件，會排除失敗及不支援條件，存在完整案例選擇偏差；不是完整成功率或公平模型排名。尺寸、前處理、量化與seed可控性等差異仍存在。', '']
+    lines += ['| 人數 | 模型 | 格數 | 數量 | 外觀 | 對應 | 動作 | 手部 |', '|---:|---|---:|---:|---:|---:|---:|---:|']
+    for g in quality['groups']:
+        if g['scope'] != scope or g['dimension'] != 'count':
+            continue
+        scores = [f'{g["metrics"][m]["clear_pass"]}/{g["metrics"][m]["reviewed"]}' if g['metrics'][m]['reviewed'] else '—（0已評估）' for m in METRICS]
+        lines.append(f'| {g["value"]} | {MODEL_NAMES[g["model"]]} | {g["arms"]} | ' + ' | '.join(scores) + ' |')
+    lines += ['']
+lines += ['## 個別結果', '', '| 場景 | Codex | Qwen | H3 |', '|---|---|---|---|']
 for cid in CASES:
     cells=[]
     for model in MODEL_NAMES:
