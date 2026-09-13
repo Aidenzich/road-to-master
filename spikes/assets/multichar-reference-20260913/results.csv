@@ -67,7 +67,7 @@ live-01-contact-r1,qwen,live,1,contact,1,pending,False,,,,False,,,,,,
 live-01-contact-r1,h3,live,1,contact,1,succeeded,True,failed,,126.82325100898743,True,0,1,0,1,2,固定第一帧：要求恰好一人，却出现三个Wednesday样式角色和三个蓝杯，数量与一对一对应失败。黑色双辫、刘海和泪痕妆仍在，但来源黑色花纹连衣裙变成条纹西装制服。三个角色各自双手持杯并看向镜头，局部动作符合但整体复制成三份，仅记部分符合。可见手指与杯柄关系没有明确融合或多指。
 anime-02-contact-r1,codex,anime,2,contact,1,succeeded,True,,,37.3,True,2,2,2,1,2,"Two correct characters with clear palm-to-palm contact and unused hands lowered. Visible near arms appear to be Frieren LEFT and Fern RIGHT, opposite requested Frieren right/Fern left; gesture achieved but laterality fails. Contact above shoulder level. Hands overlap naturally without obvious extra limbs; exact finger count at contact partly occluded."
 anime-02-contact-r1,qwen,anime,2,contact,1,pending,False,,,,False,,,,,,
-anime-02-contact-r1,h3,anime,2,contact,1,pending,False,,,,False,,,,,,
+anime-02-contact-r1,h3,anime,2,contact,1,succeeded,True,failed,,164.1218798160553,True,2,1,2,1,2,固定第一帧：两人及左右顺序正确，主要发色、尖耳与衣服保留，Frieren颈部红宝石变为金色环饰。两人掌心接触，但从正面身体关系看使用的是Frieren左手与Fern右手，与指定相反；接触位置也偏高。Frieren另一手保留了明确排除的书本道具，并未空手放下。整体有击掌姿态但条件不全，动作记部分符合。可见手部归属清楚，未见明显多指或融合。
 live-02-contact-r1,codex,live,2,contact,1,succeeded,True,,,37.0,True,2,1,2,1,2,"Correct two people/order with joined palms and other arms lowered. Uses Wednesday left and Enid right near arms, opposite requested right/left; contact above shoulder. Enid upper garment changes into cropped jacket/contrasting sweater and belt rather than source uniform details. Hand contact plausible, fingers partly occluded. Appearance/action partial."
 live-02-contact-r1,qwen,live,2,contact,1,pending,False,,,,False,,,,,,
 live-02-contact-r1,h3,live,2,contact,1,pending,False,,,,False,,,,,,
