@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T16:13:07.860556+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T16:25:39.621486+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -33,9 +33,9 @@
 
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
-| Codex built-in | 60 | 11 | 11 | 0 | 0 | 11 |
+| Codex built-in | 60 | 19 | 19 | 0 | 0 | 19 |
 | Qwen Edit 2511 | 60 | 6 | 6 | 0 | 24 | 6 |
-| H3 Ref2VA 5 frames | 60 | 2 | 2 | 0 | 0 | 2 |
+| H3 Ref2VA 5 frames | 60 | 5 | 5 | 0 | 0 | 5 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -46,10 +46,10 @@
 | 場景 | Codex | Qwen | H3 |
 |---|---|---|---|
 | anime-01-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-wave-r1/result.json) |
-| live-01-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/result.json) | pending |
+| live-01-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-wave-r1/result.json) |
 | anime-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r1/result.json) |
-| live-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/result.json) | pending |
-| anime-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/result.json) | pending |
+| live-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/result.json) |
+| anime-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r1/result.json) |
 | live-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r1/result.json) | pending |
 | anime-04-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/result.json) | unsupported | pending |
 | live-04-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/result.json) | unsupported | pending |
@@ -58,16 +58,16 @@
 | anime-01-book-r1 | pending | pending | pending |
 | live-01-book-r1 | pending | pending | pending |
 | anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | pending | pending |
-| live-02-book-r1 | pending | pending | pending |
-| anime-03-book-r1 | pending | pending | pending |
-| live-03-book-r1 | pending | pending | pending |
-| anime-04-book-r1 | pending | unsupported | pending |
-| live-04-book-r1 | pending | unsupported | pending |
-| anime-05-book-r1 | pending | unsupported | pending |
-| live-05-book-r1 | pending | unsupported | pending |
+| live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | pending | pending |
+| anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | pending | pending |
+| live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | pending | pending |
+| anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | unsupported | pending |
+| live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | unsupported | pending |
+| anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | pending |
+| live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | pending |
 | anime-01-contact-r1 | pending | pending | pending |
 | live-01-contact-r1 | pending | pending | pending |
-| anime-02-contact-r1 | pending | pending | pending |
+| anime-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/result.json) | pending | pending |
 | live-02-contact-r1 | pending | pending | pending |
 | anime-03-contact-r1 | pending | pending | pending |
 | live-03-contact-r1 | pending | pending | pending |
@@ -122,7 +122,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-01-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-01-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-01-wave-r1/output.png) |
 
 ### anime-02-wave-r1
 
@@ -138,7 +138,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/output.png) |
 
 ### anime-03-wave-r1
 
@@ -146,7 +146,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r1/output.png) |
 
 ### live-03-wave-r1
 
@@ -195,6 +195,70 @@
 | Codex | Qwen | H3首幀 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-02-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-02-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-02-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-03-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-03-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-03-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-03-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-03-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-03-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-04-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-04-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-04-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-04-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-04-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-04-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-05-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-05-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-05-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-05-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-05-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-05-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-02-contact-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-02-contact-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-02-contact-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
 
 ## 單變因對照：第一張參考圖的裁切
 

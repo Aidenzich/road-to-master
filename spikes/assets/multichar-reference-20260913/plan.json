@@ -20,5 +20,5 @@
   "evaluation_scale": "0=clear fail, 1=partial/uncertain, 2=clear pass; null=not reviewed/not applicable. Subjective visible-trait assessment, not biometric identity verification.",
   "sampling": "Balanced coverage first; then repeat seeds, reverse reference order with equivalent role mapping, or single-variable repairs. Native Qwen 4/5 separate-reference arms are explicitly unsupported, excluded from inference success denominator.",
   "safety": "Only friendly nonsexual nonviolent interactions, all characters clothed. Reference names designate fictional portrayals, not factual events.",
-  "status": "preparing"
+  "status": "running"
 }

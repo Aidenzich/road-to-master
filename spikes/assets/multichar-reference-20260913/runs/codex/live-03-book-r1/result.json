@@ -1,0 +1,30 @@
+{
+  "case_id": "live-03-book-r1",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 28.2,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "6bf0574ab72156e783231108bf3317e41e6c067164a002e3222f4176020d76dc",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789316282.385618,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Three correctly ordered people look at same open green book held with both Wednesday hands; Enid index points near right-side page edge. Specific reader-right page placement not fully visible; partial action. Bianca necklace not visible; appearance otherwise recognizable. Plausible hands and no extra props."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}
