@@ -88,13 +88,13 @@ anime-05-contact-r1,qwen,anime,5,contact,1,unsupported,False,,,,False,,,,,,
 anime-05-contact-r1,h3,anime,5,contact,1,succeeded,True,failed,,588.8140301704407,True,2,1,2,0,1,固定第一帧：五人数量及顺序保留，主要角色线索可对应，Frieren颈饰改变、Yor长手套缩短。指定Frieren/Fern及Loid/Yor两组掌心接触未成立，多只手空举，反而中间Fern/Loid出现接触；Frieren仍拿书，Anya也伸手靠近Yor而非明确旁观手放下。动作分配失败。右侧人物贴边，低处手指与相邻角色接近重叠，无法完整核验手部，记部分符合。
 live-05-contact-r1,codex,live,5,contact,1,succeeded,True,,,45.4,True,2,1,2,1,2,"Five distinct ordered figures; Wednesday/Enid and Bianca/Tyler are separate pairs, Dort watches with arms down. Paired unused arms lowered, contacts clear. Turned poses appear consistent with requested hand sides, but contacts nearer face than shoulder for shorter partner. Bianca necklace absent, Tyler sleeves loosened. Outer figures partly cropped at sides, faces and contact hands visible. No gross anatomy defect."
 live-05-contact-r1,qwen,live,5,contact,1,unsupported,False,,,,False,,,,,,
-live-05-contact-r1,h3,live,5,contact,1,pending,False,,,,False,,,,,,
+live-05-contact-r1,h3,live,5,contact,1,succeeded,True,failed,,597.9500889778137,True,2,1,2,0,1,五人依序可辨識，數量與站位保持；服裝剪裁、校徽與 Tyler 的頸部物件有偏移。Enid 兩手舉起並與兩側形成接觸，非僅第一組擊掌；Bianca 與 Tyler 的指定第二組接觸未清楚成立，Dort 也舉手而非旁觀。重疊掌部接觸邊界難判，不能當作兩組正確手掌配對。
 anime-01-wave-r2,codex,anime,1,wave,2,succeeded,True,,,22.1,True,2,2,2,2,2,"One Frieren with pointed ears, green eyes, silver hair, red earrings and neck gem; one open raised hand, other arm lowered. No extra figure or held object."
 anime-01-wave-r2,qwen,anime,1,wave,2,pending,False,,,,False,,,,,,
-anime-01-wave-r2,h3,anime,1,wave,2,pending,False,,,,False,,,,,,
+anime-01-wave-r2,h3,anime,1,wave,2,succeeded,True,failed,,127.70483922958374,True,0,1,0,1,2,單一 Frieren 參考圖仍產生三人：兩側為銀髮尖耳變體，中間新增棕髮圓耳人物。服裝與頸飾改寫；三人都呈單手揮手，但並非要求的一人，左側手與右側頭部被邊界截斷。可見手掌大致清楚。
 live-01-wave-r2,codex,live,1,wave,2,succeeded,True,,,21.3,True,2,2,2,2,2,"One Wednesday with braids, tear makeup, patterned black dress and white collar/cuffs. One open greeting hand, other arm lowered; no duplicate person or source lettering."
 live-01-wave-r2,qwen,live,1,wave,2,pending,False,,,,False,,,,,,
-live-01-wave-r2,h3,live,1,wave,2,pending,False,,,,False,,,,,,
+live-01-wave-r2,h3,live,1,wave,2,succeeded,True,failed,,127.4449679851532,True,0,1,0,1,2,單一 Wednesday 參考圖產生四名人物，只有左側保留黑辮與黑裙的主要特徵，其他為新造棕髮及金髮學生。四人各舉手的動作可辨，但人物數量與單一角色對應不成立；可見手掌大致清楚。
 anime-02-wave-r2,codex,anime,2,wave,2,succeeded,True,,,38.4,True,2,2,2,2,2,"Frieren left and Fern right, distinct referenced hair/eyes/ears/clothing and visible accessories. Each has one open greeting hand with other arm lowered; two figures without extra props."
 anime-02-wave-r2,qwen,anime,2,wave,2,pending,False,,,,False,,,,,,
 anime-02-wave-r2,h3,anime,2,wave,2,pending,False,,,,False,,,,,,
