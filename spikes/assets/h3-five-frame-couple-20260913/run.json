@@ -1,0 +1,21 @@
+{
+  "schema": "qa_h3_ce1578021af24144a53845febe80c2e5",
+  "version_id": "5278b241-ea23-47a6-81f4-5c422cc34cbd",
+  "parameters": {
+    "prompt": "subject_definitions:\n<Subject 1> is the adult man shown in <Picture 1>, retaining his face, short black hair, natural skin texture and white sleeveless shirt.\n<Subject 2> is the adult woman shown in <Picture 2>, retaining her face, black hair in two braids, natural skin texture and white T-shirt.\n\nsummary:\n[reference generation] The two people stand together and make a quiet hush gesture toward the camera.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve the man's identity, facial proportions, hairstyle and clothing from <Picture 1>. Replace the original background and pose with the shared composition below.\n<Subject 2>: fully_preserved - Preserve the woman's identity, facial proportions, hairstyle and clothing from <Picture 2>. Replace the original background and pose with the shared composition below.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot: locked-off eye-level medium close-up in a softly sunlit room with a plain pale wall. <Subject 1> stands on the left and <Subject 2> stands on the right, shoulder to shoulder, both looking directly at the camera. Both faces and hands are fully visible. Each person's other hand remains lowered outside the composition. Soft window light reveals natural facial detail without beautification. The camera remains completely still; no cuts, no reframing, no transition.\n0.00-0.20833333333333334s: From the opening image, <Subject 1> and <Subject 2> each already hold one index finger vertically in front of their own closed lips in a clear hush gesture. They hold this pose calmly throughout, with only subtle natural breathing.\n\noverall_soundscape:\nQuiet indoor room tone only. Neither person speaks.\n\nnon_diegetic_music:\nN/A\n",
+    "effective_prompt": "subject_definitions:\n<Subject 1> is the adult man shown in <Picture 1>, retaining his face, short black hair, natural skin texture and white sleeveless shirt.\n<Subject 2> is the adult woman shown in <Picture 2>, retaining her face, black hair in two braids, natural skin texture and white T-shirt.\n\nsummary:\n[reference generation] The two people stand together and make a quiet hush gesture toward the camera.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve the man's identity, facial proportions, hairstyle and clothing from <Picture 1>. Replace the original background and pose with the shared composition below.\n<Subject 2>: fully_preserved - Preserve the woman's identity, facial proportions, hairstyle and clothing from <Picture 2>. Replace the original background and pose with the shared composition below.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot: locked-off eye-level medium close-up in a softly sunlit room with a plain pale wall. <Subject 1> stands on the left and <Subject 2> stands on the right, shoulder to shoulder, both looking directly at the camera. Both faces and hands are fully visible. Each person's other hand remains lowered outside the composition. Soft window light reveals natural facial detail without beautification. The camera remains completely still; no cuts, no reframing, no transition.\n0.00-0.20833333333333334s: From the opening image, <Subject 1> and <Subject 2> each already hold one index finger vertically in front of their own closed lips in a clear hush gesture. They hold this pose calmly throughout, with only subtle natural breathing.\n\noverall_soundscape:\nQuiet indoor room tone only. Neither person speaks.\n\nnon_diegetic_music:\nN/A\n",
+    "width": 640,
+    "height": 1024,
+    "steps": 20,
+    "seed": 20260913,
+    "candidate_count": 1,
+    "duration_seconds": 0.20833333333333334,
+    "workflow_id": "minimax-h3-ref2va",
+    "model_id": "minimax-h3-standard",
+    "reference_asset_ids": [
+      "627b722b-ee77-4c36-9573-04f7850b0672",
+      "26a402cd-9a9f-4c36-b478-1fcd24f1bd47"
+    ]
+  },
+  "explicit_frames": 5
+}
