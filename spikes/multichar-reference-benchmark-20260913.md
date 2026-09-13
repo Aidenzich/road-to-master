@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:22:15.611879+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:23:41.907901+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -65,6 +65,10 @@
 實際GPU工作流核查：779 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
 
 [實際工作流核查](assets/multichar-reference-20260913/workflow-audit.json) · [核查程式](assets/multichar-reference-20260913/audit_workflows.py)
+
+提交時間快照：134 筆 run 收據，已記錄時間落在窗口外 0 筆，缺少本機提交時間 0 筆。沒有provider時間的請求保留未知；沒有terminal result可能仍在執行，不能由檔案推斷程序已停止。此快照不代表六小時已結束。
+
+[逐筆提交時間](assets/multichar-reference-20260913/admission-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_admissions.py)
 
 遠端清理獨立快照：181 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
 

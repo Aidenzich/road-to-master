@@ -27,6 +27,7 @@ for relative in ['singular-control-plan.json','summarize_timings.py','timings.js
                  'position-control-index.json','prepare_position_controls.py',
                  'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py',
                  'audit_remote_cleanup.py','remote-cleanup-audit.json',
+                 'audit_admissions.py','admission-audit.json',
                  'audit_workflows.py','workflow-audit.json']:
     if (ROOT/relative).exists():
         copy_file(relative)
@@ -103,6 +104,10 @@ if (ROOT/'workflow-audit.json').exists():
     workflow_audit=json.loads((ROOT/'workflow-audit.json').read_text())
     lines += ['', f'實際GPU工作流核查：{len(workflow_audit["checks"])} 項，{len(workflow_audit["failed"])} 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。', '',
               f'[實際工作流核查]({asset}/workflow-audit.json) · [核查程式]({asset}/audit_workflows.py)']
+if (ROOT/'admission-audit.json').exists():
+    admission_audit=json.loads((ROOT/'admission-audit.json').read_text())
+    lines += ['', f'提交時間快照：{len(admission_audit["runs"])} 筆 run 收據，已記錄時間落在窗口外 {len(admission_audit["outside_window"])} 筆，缺少本機提交時間 {len(admission_audit["missing_admission"])} 筆。沒有provider時間的請求保留未知；沒有terminal result可能仍在執行，不能由檔案推斷程序已停止。此快照不代表六小時已結束。', '',
+              f'[逐筆提交時間]({asset}/admission-audit.json) · [檢查程式]({asset}/audit_admissions.py)']
 if (ROOT/'remote-cleanup-audit.json').exists():
     remote_audit=json.loads((ROOT/'remote-cleanup-audit.json').read_text())
     lines += ['', f'遠端清理獨立快照：{len(remote_audit["files"])} 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 {len(remote_audit["present"])}。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。', '',
