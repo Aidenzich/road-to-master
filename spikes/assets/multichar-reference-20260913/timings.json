@@ -1310,6 +1310,23 @@
   },
   {
     "model": "h3",
+    "case_id": "anime-04-book-r1",
+    "state": "succeeded",
+    "runner_seconds": 560.3170411586761,
+    "builtin_tool_wall_seconds": null,
+    "provider_execution_seconds": 550.818,
+    "provider_queue_seconds": 0.001,
+    "sampling_node_seconds": 119.672529,
+    "first_to_last_step_seconds": 113.450923,
+    "collection_to_saved_seconds": null,
+    "gpu": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+    "vram_total_bytes": 33670758400,
+    "vram_free_before_submit_bytes": 7729213716,
+    "prompt_id": "4e601dba-c703-4f91-b3f3-c45c0eaa6fae",
+    "cleanup_complete": true
+  },
+  {
+    "model": "h3",
     "case_id": "anime-04-wave-r1",
     "state": "succeeded",
     "runner_seconds": 543.1475119590759,

@@ -37,5 +37,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789322271.359534,
-  "review": null
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：四人数量及左右顺序正确，耳朵、发色与主要衣色保留。Loid被添加黑框眼镜，Frieren颈部宝石改成金色环饰，Yor长手套丢失。Frieren双手持一本绿色书，Fern手指在书缘；无法确认指向读者右页，多人视线未明确落在书上，因此动作部分符合。可见手部未见明显融合或额外手指。"
+  }
 }
