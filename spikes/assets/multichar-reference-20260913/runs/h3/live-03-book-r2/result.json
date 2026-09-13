@@ -1,0 +1,49 @@
+{
+  "case_id": "live-03-book-r2",
+  "model": "h3",
+  "count": 3,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 2,
+  "seed": 20260915,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 419.1090178489685,
+  "prequeue_wait_seconds": 0.7819671630859375,
+  "submitted": true,
+  "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T21:23:52.355000+00:00",
+    "execution_observed": "2026-09-13T21:23:53.397560+00:00",
+    "sampling_started": "2026-09-13T21:30:10.266087+00:00",
+    "sampling_progress": "2026-09-13T21:30:40.451024+00:00",
+    "first_step_observed": "2026-09-13T21:30:12.186710+00:00",
+    "sampling_completed": "2026-09-13T21:30:40.451057+00:00",
+    "execution_completed": "2026-09-13T21:30:42.415000+00:00",
+    "collection_started": "2026-09-13T21:30:43.493012+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789335049.116174,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Wednesday、Enid、Bianca 三人順序保持，黑辮妝容與淡紫髮可辨，制服領口／徽章偏移。三人面向同一本綠書，Bianca 沒有額外舉手；Wednesday 只有一隻持書手清楚可見，Enid 指尖／內頁被遮住，无法確認雙手持書及指定頁面全部成立。可見手部大致清楚。"
+  }
+}

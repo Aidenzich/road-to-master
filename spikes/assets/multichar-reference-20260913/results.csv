@@ -136,7 +136,7 @@ anime-03-book-r2,qwen,anime,3,book,2,pending,False,,,,False,,,,,,
 anime-03-book-r2,h3,anime,3,book,2,succeeded,True,failed,,414.2990131378174,True,2,1,2,1,2,Frieren、Fern、Loid 三人依序站立，主要外觀與服裝可辨，頸飾／衣領細節有偏移。Frieren 雙手持一本綠書，Fern 指向書邊／封面附近，無法確認指定內頁；Loid 兩臂放下但視線未清楚落在書頁。主要角色分工成立，精確閱讀／頁面要求僅部分符合，手部大致清楚。
 live-03-book-r2,codex,live,3,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Three correctly ordered figures and book roles, plausible hands. Bianca necklace missing and uniforms simplified. Finger lands at upper page edge but exact reader-right page not verifiable; Bianca gaze appears toward Enid rather than clearly book."
 live-03-book-r2,qwen,live,3,book,2,pending,False,,,,False,,,,,,
-live-03-book-r2,h3,live,3,book,2,pending,False,,,,False,,,,,,
+live-03-book-r2,h3,live,3,book,2,succeeded,True,failed,,419.1090178489685,True,2,1,2,1,2,Wednesday、Enid、Bianca 三人順序保持，黑辮妝容與淡紫髮可辨，制服領口／徽章偏移。三人面向同一本綠書，Bianca 沒有額外舉手；Wednesday 只有一隻持書手清楚可見，Enid 指尖／內頁被遮住，无法確認雙手持書及指定頁面全部成立。可見手部大致清楚。
 anime-04-book-r2,codex,anime,4,book,2,succeeded,True,,,41.2,True,2,1,2,1,2,Four characters ordered correctly and book/pointing roles preserved. Loid/Yor gloves absent; Yor hair becomes prominent updo. Exact right-page target unclear and Frieren gaze partly forward. Hands otherwise plausible; no extra held objects.
 anime-04-book-r2,qwen,anime,4,book,2,unsupported,False,,,,False,,,,,,
 anime-04-book-r2,h3,anime,4,book,2,pending,False,,,,False,,,,,,
