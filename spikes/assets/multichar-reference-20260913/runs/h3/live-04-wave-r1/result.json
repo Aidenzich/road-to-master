@@ -1,0 +1,49 @@
+{
+  "case_id": "live-04-wave-r1",
+  "model": "h3",
+  "count": 4,
+  "action": "wave",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 537.0697147846222,
+  "prequeue_wait_seconds": 0.8489811420440674,
+  "submitted": true,
+  "prompt_id": "eaebedfe-9dcd-40c5-aac3-b6d42c2c914b",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T16:40:25.356000+00:00",
+    "execution_observed": "2026-09-13T16:40:26.891280+00:00",
+    "sampling_started": "2026-09-13T16:47:04.814911+00:00",
+    "sampling_progress": "2026-09-13T16:49:04.421015+00:00",
+    "first_step_observed": "2026-09-13T16:47:11.136683+00:00",
+    "sampling_completed": "2026-09-13T16:49:04.421116+00:00",
+    "execution_completed": "2026-09-13T16:49:06.324000+00:00",
+    "collection_started": "2026-09-13T16:49:07.291915+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789318152.769985,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Four characters in requested order; broad hair and costume cues retained but Bianca necklace projects sideways and uniforms change. Wednesday raises neither hand, Enid raises both; Bianca hand overlaps Enid. Tyler waves. This is first-frame review only."
+  }
+}

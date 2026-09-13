@@ -1,0 +1,30 @@
+{
+  "case_id": "live-02-wave-r2",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 25.3,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "5562505ee07c2654450edd1dd2c2ebce8c587ded4090d0746e22ba385c20ab3f",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789318365.0719202,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Two figures, Wednesday left and Enid right, matching braids/lilac hair and broad costumes. Enid jacket becomes waist-cropped with altered large crest, so fine costume retention is partial. One open hand each, other lowered; no claws or lettering."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}
