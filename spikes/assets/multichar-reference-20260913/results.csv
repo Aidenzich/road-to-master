@@ -112,7 +112,7 @@ anime-04-wave-r2,qwen,anime,4,wave,2,unsupported,False,,,,False,,,,,,
 anime-04-wave-r2,h3,anime,4,wave,2,succeeded,True,failed,,601.2916371822357,True,2,1,2,1,2,Frieren、Fern、Loid、Yor 四人左右順序及主要外觀保留。Yor 兩手同時舉起而非單手，原本長黑手套變成一側短露指手套、另一側裸手；Frieren 頸飾由紅寶石變成深色小點。其餘三人單手揮手，可見手掌大致清楚。
 live-04-wave-r2,codex,live,4,wave,2,succeeded,True,,,41.4,True,2,1,2,2,2,"Four figures correctly ordered with one open hand each and unused hands visibly lowered. Broad reference likeness/hair retained, Bianca necklace absent and Tyler restraint clothing converted to free-arm torn outfit; source clothing/pose conflict remains a confound."
 live-04-wave-r2,qwen,live,4,wave,2,unsupported,False,,,,False,,,,,,
-live-04-wave-r2,h3,live,4,wave,2,pending,False,,,,False,,,,,,
+live-04-wave-r2,h3,live,4,wave,2,succeeded,True,failed,,540.0696220397949,True,2,1,2,1,2,Wednesday、Enid、Bianca、Tyler 四人順序保持，主要臉部／髮色可辨。Enid 同時舉起兩手，違反單手問候；其餘三人各一手。Tyler 頸部束具變成耳機，制服剪裁／徽章也有偏移；本張沒有明顯爪狀延伸，可見手掌大致清楚。
 anime-05-wave-r2,codex,anime,5,wave,2,succeeded,True,,,43.7,True,2,1,2,2,2,"Five figures in correct order including short pink-haired Anya, each waving with one hand. Loid and Yor black gloves missing; Yor dress simplified. Broad character cues remain distinct. Some unused hands occluded by bodies but arms lowered."
 anime-05-wave-r2,qwen,anime,5,wave,2,unsupported,False,,,,False,,,,,,
 anime-05-wave-r2,h3,anime,5,wave,2,pending,False,,,,False,,,,,,
