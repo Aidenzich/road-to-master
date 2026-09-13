@@ -2092,6 +2092,23 @@
   },
   {
     "model": "qwen",
+    "case_id": "live-01-book-r2",
+    "state": "succeeded",
+    "runner_seconds": 75.50440788269043,
+    "builtin_tool_wall_seconds": null,
+    "provider_execution_seconds": 64.756,
+    "provider_queue_seconds": 0.001,
+    "sampling_node_seconds": 63.352705,
+    "first_to_last_step_seconds": 61.689766,
+    "collection_to_saved_seconds": 2.342895,
+    "gpu": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+    "vram_total_bytes": 33670758400,
+    "vram_free_before_submit_bytes": 3834873894,
+    "prompt_id": "00e47356-0b94-4816-ad14-5b7d29916818",
+    "cleanup_complete": true
+  },
+  {
+    "model": "qwen",
     "case_id": "live-01-contact-r1",
     "state": "succeeded",
     "runner_seconds": 75.09941005706787,

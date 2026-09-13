@@ -123,7 +123,7 @@ anime-01-book-r2,codex,anime,1,book,2,succeeded,True,,,27.4,True,2,2,2,2,2,"Sing
 anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648,True,0,1,0,1,2,單人條件生成兩名 Frieren 類似角色，各用雙手拿一本綠書並低頭看書。銀髮尖耳與白金服裝保留，但臉形／衣飾比例偏移，頭頂被裁切；兩人兩書不符合一人條件。可見握書手部清楚。
 anime-01-book-r2,h3,anime,1,book,2,pending,False,,,,False,,,,,,
 live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_blocked,21.3,False,,,,,,"Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
-live-01-book-r2,qwen,live,1,book,2,pending,False,,,,False,,,,,,
+live-01-book-r2,qwen,live,1,book,2,succeeded,True,succeeded,,75.50440788269043,True,0,1,0,1,2,單人 Wednesday 條件生成兩名黑辮白領黑裙女子，各自雙手持一本綠書低頭閱讀；人數與書本數不符。瀏海及淚痕妝未保留、臉部特徵偏移；持書手部大致清楚。
 live-01-book-r2,h3,live,1,book,2,pending,False,,,,False,,,,,,
 anime-02-book-r2,codex,anime,2,book,2,succeeded,True,,,36.6,True,2,2,2,1,2,Correct Frieren/Fern order and retained appearance. Frieren holds one open green book both hands; Fern points toward upper edge from viewer right. Reader-right page contact cannot be verified from cover-facing angle; gaze roughly down toward book. Hand shapes plausible.
 anime-02-book-r2,qwen,anime,2,book,2,pending,False,,,,False,,,,,,

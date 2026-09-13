@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:26:43.189588+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:28:17.525185+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -8,7 +8,7 @@
 
 | 已評估條件 | Codex | Qwen | H3 |
 |---|---:|---:|---:|
-| 單人：恰好一人的明確符合數 | 9/9 | 0/9 | 0/8 |
+| 單人：恰好一人的明確符合數 | 9/9 | 0/10 | 0/8 |
 | 三人：角色對應的明確符合數 | 12/12 | 2/8 | 8/8 |
 | 三人：全部動作要求的明確符合數 | 3/12 | 0/8 | 2/8 |
 
@@ -51,7 +51,7 @@
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
-| Qwen Edit 2511 | 60 | 25 | 25 | 0 | 24 | 25 |
+| Qwen Edit 2511 | 60 | 26 | 26 | 0 | 24 | 26 |
 | H3 Ref2VA 5 frames | 60 | 36 | 36 | 0 | 0 | 36 |
 
 ### 資料完整性快照
@@ -89,7 +89,7 @@
 | 人數 | 模型 | 格數 | 數量 | 外觀 | 對應 | 動作 | 手部 |
 |---:|---|---:|---:|---:|---:|---:|---:|
 | 1 | Codex built-in | 12 | 9/9 | 9/9 | 9/9 | 8/9 | 9/9 |
-| 1 | Qwen Edit 2511 | 12 | 0/9 | 0/9 | 0/9 | 1/9 | 8/9 |
+| 1 | Qwen Edit 2511 | 12 | 0/10 | 0/10 | 0/10 | 1/10 | 9/10 |
 | 1 | H3 Ref2VA 5 frames | 12 | 0/8 | 0/8 | 0/8 | 0/8 | 7/8 |
 | 2 | Codex built-in | 12 | 12/12 | 9/12 | 12/12 | 4/12 | 12/12 |
 | 2 | Qwen Edit 2511 | 12 | 8/8 | 0/8 | 6/8 | 2/8 | 7/8 |
@@ -171,7 +171,7 @@
 | anime-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-wave-r2/result.json) | pending |
 | live-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-wave-r2/result.json) | pending |
 | anime-01-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-book-r2/result.json) | pending |
-| live-01-book-r2 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-book-r2/result.json) | pending | pending |
+| live-01-book-r2 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-book-r2/result.json) | pending |
 | anime-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/result.json) | pending | pending |
 | live-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/result.json) | pending | pending |
 | anime-03-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/result.json) | pending | pending |
@@ -521,6 +521,14 @@
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/anime-01-book-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-01-book-r2/output.png) | 未產出／待執行 |
 
+### live-01-book-r2
+
+[共同要求](assets/multichar-reference-20260913/cases/live-01-book-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-01-book-r2/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| 未產出／待執行 | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-book-r2/output.png) | 未產出／待執行 |
+
 ### anime-02-book-r2
 
 [共同要求](assets/multichar-reference-20260913/cases/anime-02-book-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-02-book-r2/h3-prompt.txt)
@@ -832,11 +840,11 @@
 | Codex built-in | reference_binding | 28/30 | 28 | 0 | 28 |
 | Codex built-in | action_obedience | 28/30 | 25 | 3 | 9 |
 | Codex built-in | hands_and_contacts | 28/30 | 28 | 0 | 28 |
-| Qwen Edit 2511 | exact_count | 7/30 | 7 | 0 | 4 |
-| Qwen Edit 2511 | appearance_preserved | 7/30 | 7 | 0 | 0 |
-| Qwen Edit 2511 | reference_binding | 7/30 | 6 | 1 | 1 |
-| Qwen Edit 2511 | action_obedience | 7/30 | 4 | 3 | 0 |
-| Qwen Edit 2511 | hands_and_contacts | 7/30 | 4 | 3 | 4 |
+| Qwen Edit 2511 | exact_count | 8/30 | 8 | 0 | 4 |
+| Qwen Edit 2511 | appearance_preserved | 8/30 | 8 | 0 | 0 |
+| Qwen Edit 2511 | reference_binding | 8/30 | 7 | 1 | 1 |
+| Qwen Edit 2511 | action_obedience | 8/30 | 5 | 3 | 0 |
+| Qwen Edit 2511 | hands_and_contacts | 8/30 | 5 | 3 | 5 |
 | H3 Ref2VA 5 frames | exact_count | 6/30 | 6 | 0 | 4 |
 | H3 Ref2VA 5 frames | appearance_preserved | 6/30 | 6 | 0 | 0 |
 | H3 Ref2VA 5 frames | reference_binding | 6/30 | 6 | 0 | 4 |
@@ -851,7 +859,7 @@
 
 | 模型 | 人數／參考圖 | GPU工作流執行 | 採樣節點觀測（可能含載模） | 首步至末步 | runner總耗時 |
 |---|---:|---|---|---|---|
-| Qwen Edit 2511 | 1 | 64.84 [64.62–111.31] (n=9) | 63.22 [62.88–94.35] (n=9) | 61.46 [60.96–61.63] (n=9) | 77.56 [75.10–135.74] (n=9) |
+| Qwen Edit 2511 | 1 | 64.80 [64.62–111.31] (n=10) | 63.29 [62.88–94.35] (n=10) | 61.47 [60.96–61.69] (n=10) | 77.44 [75.10–135.74] (n=10) |
 | Qwen Edit 2511 | 2 | 117.72 [116.43–118.08] (n=8) | 115.31 [113.76–115.59] (n=8) | 112.46 [110.97–112.75] (n=8) | 129.45 [128.70–131.55] (n=8) |
 | Qwen Edit 2511 | 3 | 181.57 [181.03–181.90] (n=8) | 178.05 [177.71–178.23] (n=8) | 173.41 [173.06–173.60] (n=8) | 194.60 [194.36–198.69] (n=8) |
 | Qwen Edit 2511 | 4 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
