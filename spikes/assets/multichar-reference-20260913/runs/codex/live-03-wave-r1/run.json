@@ -1,0 +1,17 @@
+{
+  "case_id": "live-03-wave-r1",
+  "model": "codex-built-in",
+  "state": "submitting",
+  "started_at": "2026-09-13 15:59:43 UTC",
+  "prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2. Person 3 is Bianca Barclay, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.\nPlease produce one landscape image with a 3:2 aspect ratio.",
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg",
+    "references/bianca.jpg"
+  ],
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "tool": "image_gen",
+  "requested_aspect_ratio": "3:2"
+}

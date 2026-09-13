@@ -1,29 +1,29 @@
 case_id,model,cohort,count,action,repeat,state,submitted,catalog_state,seconds,reviewed,exact_count,appearance_preserved,reference_binding,action_obedience,hands_and_contacts,notes
 anime-01-wave-r1,codex,anime,1,wave,1,pending,False,,,False,,,,,,
-anime-01-wave-r1,qwen,anime,1,wave,1,succeeded,True,succeeded,77.32529306411743,False,,,,,,
+anime-01-wave-r1,qwen,anime,1,wave,1,succeeded,True,succeeded,77.32529306411743,True,0,1,0,1,1,"Requested exactly one person, but output duplicates the character into two full-body figures. Hair color/head ornaments differ, pointed ears absent, eye color shifts. One figure carries an unrequested closed brown book despite empty-hands instruction; both wave but second other hand is not lowered. Small hand detail partly ambiguous. Clear count and one-to-one reference binding failure."
 anime-01-wave-r1,h3,anime,1,wave,1,pending,False,,,False,,,,,,
 live-01-wave-r1,codex,live,1,wave,1,pending,False,,,False,,,,,,
-live-01-wave-r1,qwen,live,1,wave,1,pending,False,,,False,,,,,,
+live-01-wave-r1,qwen,live,1,wave,1,succeeded,True,succeeded,79.6498589515686,True,0,1,0,2,2,"Exactly one person requested but two Wednesday-like figures appear. Both have dark braids and white collars, while facial appearance/makeup and dress pattern differ from source and each other. Both wave with one open hand and other lowered; no gross hand error visible at output scale. Full-body instead of waist-up. Duplicate person count is a clear failure."
 live-01-wave-r1,h3,live,1,wave,1,pending,False,,,False,,,,,,
 anime-02-wave-r1,codex,anime,2,wave,1,succeeded,True,,44.1,True,2,2,2,2,2,"Two distinct characters, Frieren left and Fern right; silver hair/elf ears/red earrings/white-gold clothing and purple hair/black outer robe retained. Each has one visible open five-finger hand raised; other arm lowered. No reference book or poster graphics copied. Subjective design assessment, not an identity metric."
 anime-02-wave-r1,qwen,anime,2,wave,1,succeeded,True,succeeded,128.99967312812805,True,2,1,2,2,2,"Two characters in correct left-to-right order with recognizable silver/purple hair and clothes; both raise open five-finger hands. Frieren face and eye color differ, pointed ears are not visibly retained. Output is thigh-up rather than requested waist-up. First-reference center-crop in the native adapter is a potential conditioning confound, not a proven cause."
-anime-02-wave-r1,h3,anime,2,wave,1,succeeded,True,failed,221.5952079296112,True,2,2,2,2,2,"Two distinct characters correctly ordered; silver hair, pointed elf ears, green eyes and red earrings versus purple hair/eyes and black-white robe retained. Both raise one open hand with distinct fingers; other arms lowered. Minor neckline accessory changes. Main score uses fixed first frame; all five extracted frames checked for gross consistency. This is static pose evidence, not an animation/action-duration test."
+anime-02-wave-r1,h3,anime,2,wave,1,succeeded,True,failed,221.5952079296112,True,2,1,2,2,2,"Two distinct characters correctly ordered, pointed elf ears/silver hair/green eyes/red earrings and purple hair/eyes/black-white robe retained. Each raises one empty five-fingered hand. Frieren red neckline gem is replaced by two dark circles, so exact accessory retention is partial under the same clothing-detail rubric used for Codex. All five frames visually checked; no gross count/order/hand change. Main score uses fixed first frame, not best frame. Static held-pose evidence only."
 live-02-wave-r1,codex,live,2,wave,1,succeeded,True,,48.0,True,2,2,2,2,2,"Wednesday left and Enid right, dark braids/tear makeup/patterned black dress versus lilac hair/striped uniform retained. Two raised open five-finger palms with separate lowered arms. Poster lettering and effects not copied. Enid expression changes to a smile, permitted by the scene. Visible-trait comparison only, not biometric identity verification."
-live-02-wave-r1,qwen,live,2,wave,1,pending,False,,,False,,,,,,
+live-02-wave-r1,qwen,live,2,wave,1,succeeded,True,succeeded,130.05111479759216,True,2,0,0,2,2,"Two people and wave poses correct, but left figure blends Enid lilac hair with Wednesday-like patterned clothing; right figure has brown shoulder-length hair, plain blue blazer and jeans. Wednesday dark braids and tear makeup absent, Enid uniform missing. Strong appearance and reference binding failure, not merely swapped ordering. Full-body framing."
 live-02-wave-r1,h3,live,2,wave,1,pending,False,,,False,,,,,,
 anime-03-wave-r1,codex,anime,3,wave,1,succeeded,True,,37.6,True,2,1,2,2,2,Three distinct correctly ordered characters each raise one open five-fingered hand with the other lowered. Frieren ears/hair/earrings and Fern purple hair/robe retained; Loid green suit and red tie retained but source black gloves are absent. This clothing-detail loss makes appearance preservation partial. Composition is wider than waist-up.
 anime-03-wave-r1,qwen,anime,3,wave,1,pending,False,,,False,,,,,,
 anime-03-wave-r1,h3,anime,3,wave,1,pending,False,,,False,,,,,,
-live-03-wave-r1,codex,live,3,wave,1,pending,False,,,False,,,,,,
+live-03-wave-r1,codex,live,3,wave,1,succeeded,True,,41.8,True,2,1,2,2,2,"Three distinct correctly ordered characters with one open five-finger hand raised each. Wednesday braids/tear makeup/dress, Enid lilac hair/uniform and Bianca short hair/gray eyes/uniform retained. Bianca source necklace is not visible; clothing-detail retention is partial. No copied large poster letters."
 live-03-wave-r1,qwen,live,3,wave,1,pending,False,,,False,,,,,,
 live-03-wave-r1,h3,live,3,wave,1,pending,False,,,False,,,,,,
-anime-04-wave-r1,codex,anime,4,wave,1,pending,False,,,False,,,,,,
+anime-04-wave-r1,codex,anime,4,wave,1,succeeded,True,,45.7,True,2,1,2,2,2,Four distinct characters in correct left-to-right order with one open five-fingered greeting hand each and other hands lowered. Character hair/eye/clothing designs broadly retained. Loid black gloves absent; Yor gloves shortened/open-finger instead of original long gloves. Appearance partially retained rather than exact clothing match. Wider than waist-up crop.
 anime-04-wave-r1,qwen,anime,4,wave,1,unsupported,False,,,False,,,,,,
 anime-04-wave-r1,h3,anime,4,wave,1,pending,False,,,False,,,,,,
 live-04-wave-r1,codex,live,4,wave,1,pending,False,,,False,,,,,,
 live-04-wave-r1,qwen,live,4,wave,1,unsupported,False,,,False,,,,,,
 live-04-wave-r1,h3,live,4,wave,1,pending,False,,,False,,,,,,
-anime-05-wave-r1,codex,anime,5,wave,1,pending,False,,,False,,,,,,
+anime-05-wave-r1,codex,anime,5,wave,1,succeeded,True,,44.1,True,2,1,2,2,2,"Five distinct characters in correct order, Anya appropriately shorter with pink hair/black horn clips/black-gold uniform. Everyone raises one open five-fingered hand, other lowered. Loid and Yor source gloves missing; appearance details partial. No source weapons or book retained. Faces unobstructed; crop wider than waist-up to include child."
 anime-05-wave-r1,qwen,anime,5,wave,1,unsupported,False,,,False,,,,,,
 anime-05-wave-r1,h3,anime,5,wave,1,pending,False,,,False,,,,,,
 live-05-wave-r1,codex,live,5,wave,1,pending,False,,,False,,,,,,

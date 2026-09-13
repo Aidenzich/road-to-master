@@ -34,5 +34,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789315119.003774,
-  "review": null
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Requested exactly one person, but output duplicates the character into two full-body figures. Hair color/head ornaments differ, pointed ears absent, eye color shifts. One figure carries an unrequested closed brown book despite empty-hands instruction; both wave but second other hand is not lowered. Small hand detail partly ambiguous. Clear count and one-to-one reference binding failure."
+  }
 }

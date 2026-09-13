@@ -39,11 +39,11 @@
   "finished_epoch": 1789314822.566644,
   "review": {
     "exact_count": 2,
-    "appearance_preserved": 2,
+    "appearance_preserved": 1,
     "reference_binding": 2,
     "action_obedience": 2,
     "hands_and_contacts": 2,
     "reviewer": "assistant visual review",
-    "notes": "Two distinct characters correctly ordered; silver hair, pointed elf ears, green eyes and red earrings versus purple hair/eyes and black-white robe retained. Both raise one open hand with distinct fingers; other arms lowered. Minor neckline accessory changes. Main score uses fixed first frame; all five extracted frames checked for gross consistency. This is static pose evidence, not an animation/action-duration test."
+    "notes": "Two distinct characters correctly ordered, pointed elf ears/silver hair/green eyes/red earrings and purple hair/eyes/black-white robe retained. Each raises one empty five-fingered hand. Frieren red neckline gem is replaced by two dark circles, so exact accessory retention is partial under the same clothing-detail rubric used for Codex. All five frames visually checked; no gross count/order/hand change. Main score uses fixed first frame, not best frame. Static held-pose evidence only."
   }
 }
