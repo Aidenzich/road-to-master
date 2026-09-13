@@ -2546,7 +2546,7 @@
     "count": 2,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2557,7 +2557,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-02-book-r2",
@@ -2606,7 +2606,7 @@
     "count": 2,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2617,7 +2617,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-02-book-r2",
@@ -2666,7 +2666,7 @@
     "count": 3,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2677,7 +2677,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-03-book-r2",
@@ -2726,7 +2726,7 @@
     "count": 3,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2737,7 +2737,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-03-book-r2",
@@ -2797,7 +2797,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "anime-04-book-r2",
@@ -2806,18 +2806,18 @@
     "count": 4,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
-    "submitted": false,
-    "catalog_state": null,
+    "state": "succeeded",
+    "submitted": true,
+    "catalog_state": "failed",
     "failure_category": null,
-    "seconds": null,
-    "reviewed": false,
-    "exact_count": null,
-    "appearance_preserved": null,
-    "reference_binding": null,
-    "action_obedience": null,
-    "hands_and_contacts": null,
-    "notes": ""
+    "seconds": 555.2652039527893,
+    "reviewed": true,
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "notes": "Four distinct characters in the requested left-to-right reference order. Frieren holds one open green book with both hands; Fern points near the outer cover/page edge, so pointing to the reader-right page is not clearly demonstrated. Loid looks forward rather than clearly down at the book. Frieren neck ornament differs and Yor lacks the reference long black gloves. Visible hands are plausible; exact action compliance remains partial."
   },
   {
     "case_id": "live-04-book-r2",
@@ -2857,7 +2857,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "live-04-book-r2",
@@ -2866,7 +2866,7 @@
     "count": 4,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2877,7 +2877,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-05-book-r2",
@@ -2917,7 +2917,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "anime-05-book-r2",
@@ -2926,7 +2926,7 @@
     "count": 5,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2937,7 +2937,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-05-book-r2",
@@ -2977,7 +2977,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "live-05-book-r2",
@@ -2986,7 +2986,7 @@
     "count": 5,
     "action": "book",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -2997,7 +2997,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-01-contact-r2",
@@ -3026,7 +3026,7 @@
     "count": 1,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3037,7 +3037,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-01-contact-r2",
@@ -3046,7 +3046,7 @@
     "count": 1,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3057,7 +3057,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-01-contact-r2",
@@ -3086,7 +3086,7 @@
     "count": 1,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3097,7 +3097,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-01-contact-r2",
@@ -3106,7 +3106,7 @@
     "count": 1,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3117,7 +3117,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-02-contact-r2",
@@ -3146,7 +3146,7 @@
     "count": 2,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3157,7 +3157,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-02-contact-r2",
@@ -3166,7 +3166,7 @@
     "count": 2,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3177,7 +3177,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-02-contact-r2",
@@ -3206,7 +3206,7 @@
     "count": 2,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3217,7 +3217,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-02-contact-r2",
@@ -3226,7 +3226,7 @@
     "count": 2,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3237,7 +3237,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-03-contact-r2",
@@ -3266,7 +3266,7 @@
     "count": 3,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3277,7 +3277,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-03-contact-r2",
@@ -3286,7 +3286,7 @@
     "count": 3,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3297,7 +3297,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-03-contact-r2",
@@ -3326,7 +3326,7 @@
     "count": 3,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3337,7 +3337,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-03-contact-r2",
@@ -3346,7 +3346,7 @@
     "count": 3,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3357,7 +3357,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-04-contact-r2",
@@ -3397,7 +3397,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "anime-04-contact-r2",
@@ -3406,7 +3406,7 @@
     "count": 4,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3417,7 +3417,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-04-contact-r2",
@@ -3457,7 +3457,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "live-04-contact-r2",
@@ -3466,7 +3466,7 @@
     "count": 4,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3477,7 +3477,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "anime-05-contact-r2",
@@ -3517,7 +3517,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "anime-05-contact-r2",
@@ -3526,7 +3526,7 @@
     "count": 5,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3537,7 +3537,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   },
   {
     "case_id": "live-05-contact-r2",
@@ -3577,7 +3577,7 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "Native adapter accepts at most 3 separate references"
   },
   {
     "case_id": "live-05-contact-r2",
@@ -3586,7 +3586,7 @@
     "count": 5,
     "action": "contact",
     "repeat": 2,
-    "state": "pending",
+    "state": "not_executed",
     "submitted": false,
     "catalog_state": null,
     "failure_category": null,
@@ -3597,6 +3597,6 @@
     "reference_binding": null,
     "action_obedience": null,
     "hands_and_contacts": null,
-    "notes": ""
+    "notes": "User requested wrap-up; no provider submission was made."
   }
 ]

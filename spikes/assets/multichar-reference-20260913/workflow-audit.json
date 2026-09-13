@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789331324.824139,
+  "checked_epoch": 1789335625.556988,
   "scope": "Terminal successful GPU arms only; accepted history graph vs prepared graph, key numerical settings, conditioning links and ordered upload hashes. No GPU reruns.",
   "checks": [
     {
@@ -74,6 +74,82 @@
     },
     {
       "check": "h3/anime-01-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-01-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "34f0edab-5102-4681-bbd5-166666f3a8f0",
+      "expected": "34f0edab-5102-4681-bbd5-166666f3a8f0"
+    },
+    {
+      "check": "h3/anime-01-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-01-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/anime-01-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-01-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-01-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-01-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-01-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-01-book-r2 connected refs",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/anime-01-book-r2 reference 1 bytes/order",
       "passed": true,
       "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
       "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
@@ -384,6 +460,88 @@
     },
     {
       "check": "h3/anime-02-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-02-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb",
+      "expected": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb"
+    },
+    {
+      "check": "h3/anime-02-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-02-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/anime-02-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-02-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-02-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-02-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-02-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-02-book-r2 connected refs",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/anime-02-book-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-02-book-r2 reference 2 bytes/order",
       "passed": true,
       "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
       "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
@@ -718,6 +876,94 @@
     },
     {
       "check": "h3/anime-03-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-03-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "expected": "86223c3a-af08-4194-99e4-9d88fe0ca3a2"
+    },
+    {
+      "check": "h3/anime-03-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-03-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "h3/anime-03-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-03-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-03-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-03-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-03-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-03-book-r2 connected refs",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "h3/anime-03-book-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-03-book-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-03-book-r2 reference 3 bytes/order",
       "passed": true,
       "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
       "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
@@ -1081,6 +1327,100 @@
       "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
     },
     {
+      "check": "h3/anime-04-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "expected": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c"
+    },
+    {
+      "check": "h3/anime-04-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-04-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-04-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-04-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-04-book-r2 connected refs",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-book-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-04-book-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-04-book-r2 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-04-book-r2 reference 4 bytes/order",
+      "passed": true,
+      "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
       "check": "h3/anime-04-contact-r1 provider prompt id",
       "passed": true,
       "actual": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
@@ -1264,6 +1604,100 @@
     },
     {
       "check": "h3/anime-04-wave-r1 reference 4 bytes/order",
+      "passed": true,
+      "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 provider prompt id",
+      "passed": true,
+      "actual": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "expected": "26c25845-d68a-4a5d-9869-f903e261bf42"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-wave-r2 LoadImage count",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-wave-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-wave-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-04-wave-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-04-wave-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-04-wave-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 connected refs",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-wave-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-04-wave-r2 reference 4 bytes/order",
       "passed": true,
       "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
       "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
@@ -1569,6 +2003,106 @@
       "expected": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72"
     },
     {
+      "check": "h3/anime-05-wave-r2 provider prompt id",
+      "passed": true,
+      "actual": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "expected": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-05-wave-r2 LoadImage count",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/anime-05-wave-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-05-wave-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-05-wave-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/anime-05-wave-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-05-wave-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 connected refs",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/anime-05-wave-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 reference 4 bytes/order",
+      "passed": true,
+      "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
+      "check": "h3/anime-05-wave-r2 reference 5 bytes/order",
+      "passed": true,
+      "actual": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72",
+      "expected": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72"
+    },
+    {
       "check": "h3/live-01-book-r1 provider prompt id",
       "passed": true,
       "actual": "dfa3c720-6291-4985-aa8d-9539a482f172",
@@ -1640,6 +2174,82 @@
     },
     {
       "check": "h3/live-01-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-01-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8",
+      "expected": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8"
+    },
+    {
+      "check": "h3/live-01-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-01-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/live-01-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-01-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-01-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/live-01-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-01-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-01-book-r2 connected refs",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/live-01-book-r2 reference 1 bytes/order",
       "passed": true,
       "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
       "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
@@ -1950,6 +2560,88 @@
     },
     {
       "check": "h3/live-02-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-02-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38",
+      "expected": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38"
+    },
+    {
+      "check": "h3/live-02-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-02-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/live-02-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-02-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-02-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/live-02-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-02-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-02-book-r2 connected refs",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/live-02-book-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-02-book-r2 reference 2 bytes/order",
       "passed": true,
       "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
       "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
@@ -2284,6 +2976,94 @@
     },
     {
       "check": "h3/live-03-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "h3/live-03-book-r2 provider prompt id",
+      "passed": true,
+      "actual": "590f506e-5b57-4107-820c-244786193ec9",
+      "expected": "590f506e-5b57-4107-820c-244786193ec9"
+    },
+    {
+      "check": "h3/live-03-book-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-03-book-r2 LoadImage count",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "h3/live-03-book-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-03-book-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-03-book-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/live-03-book-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-03-book-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-03-book-r2 connected refs",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "h3/live-03-book-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-03-book-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-03-book-r2 reference 3 bytes/order",
       "passed": true,
       "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
       "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
@@ -2835,6 +3615,100 @@
       "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
     },
     {
+      "check": "h3/live-04-wave-r2 provider prompt id",
+      "passed": true,
+      "actual": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "expected": "f776c6a6-e61f-436a-a063-45a5f8a50f45"
+    },
+    {
+      "check": "h3/live-04-wave-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-04-wave-r2 LoadImage count",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/live-04-wave-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-04-wave-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-04-wave-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/live-04-wave-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-04-wave-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-04-wave-r2 connected refs",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/live-04-wave-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-04-wave-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-04-wave-r2 reference 3 bytes/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "h3/live-04-wave-r2 reference 4 bytes/order",
+      "passed": true,
+      "actual": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+    },
+    {
       "check": "h3/live-05-book-r1 provider prompt id",
       "passed": true,
       "actual": "2cb5c3c4-0cfe-4dc2-8c54-773dbb6f3368",
@@ -3130,6 +4004,106 @@
     },
     {
       "check": "h3/live-05-wave-r1 reference 5 bytes/order",
+      "passed": true,
+      "actual": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f",
+      "expected": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f"
+    },
+    {
+      "check": "h3/live-05-wave-r2 provider prompt id",
+      "passed": true,
+      "actual": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "expected": "56148b65-65a7-40ed-923b-374a9d03c997"
+    },
+    {
+      "check": "h3/live-05-wave-r2 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-05-wave-r2 LoadImage count",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/live-05-wave-r2 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-05-wave-r2 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-05-wave-r2 seed",
+      "passed": true,
+      "actual": 20260915,
+      "expected": 20260915
+    },
+    {
+      "check": "h3/live-05-wave-r2 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-05-wave-r2 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-05-wave-r2 connected refs",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/live-05-wave-r2 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-05-wave-r2 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-05-wave-r2 reference 3 bytes/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "h3/live-05-wave-r2 reference 4 bytes/order",
+      "passed": true,
+      "actual": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+    },
+    {
+      "check": "h3/live-05-wave-r2 reference 5 bytes/order",
       "passed": true,
       "actual": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f",
       "expected": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f"

@@ -126,56 +126,56 @@ live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_bloc
 live-01-book-r2,qwen,live,1,book,2,succeeded,True,succeeded,,75.50440788269043,True,0,1,0,1,2,單人 Wednesday 條件生成兩名黑辮白領黑裙女子，各自雙手持一本綠書低頭閱讀；人數與書本數不符。瀏海及淚痕妝未保留、臉部特徵偏移；持書手部大致清楚。
 live-01-book-r2,h3,live,1,book,2,succeeded,True,failed,,127.32992601394653,True,2,2,2,2,2,只有一名 Wednesday，黑辮、瀏海、淚痕妝、白領白袖口與黑色花紋裙保持；雙手共同持一本打開的綠書，低頭看書。可見握書手部大致清楚，未見重複人物。這是相同單人提示詞換 seed 後成功的一例，不支持單人一定失敗的結論。
 anime-02-book-r2,codex,anime,2,book,2,succeeded,True,,,36.6,True,2,2,2,1,2,Correct Frieren/Fern order and retained appearance. Frieren holds one open green book both hands; Fern points toward upper edge from viewer right. Reader-right page contact cannot be verified from cover-facing angle; gaze roughly down toward book. Hand shapes plausible.
-anime-02-book-r2,qwen,anime,2,book,2,pending,False,,,,False,,,,,,
+anime-02-book-r2,qwen,anime,2,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-02-book-r2,h3,anime,2,book,2,succeeded,True,failed,,164.67701601982117,True,2,1,2,1,2,Frieren 與 Fern 數量、順序及主要外觀保持，Frieren 紅色頸部寶石變金色。Frieren 雙手拿綠書，Fern 伸手指向右側書邊／封面附近，無法確認讀者右頁，視線也未都清楚落在書上；主要分工可辨但精確要求僅部分符合。手部大致清楚。
 live-02-book-r2,codex,live,2,book,2,succeeded,True,,,38.9,True,2,2,2,1,2,"Wednesday left, Enid right, hair/makeup/costume broadly retained. Wednesday holds one green open book at chest with both hands, Enid points, both gaze down. Actual reader-right page contact obscured behind front cover; not clearly verifiable. No duplicate fingers obvious."
-live-02-book-r2,qwen,live,2,book,2,pending,False,,,,False,,,,,,
+live-02-book-r2,qwen,live,2,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-02-book-r2,h3,live,2,book,2,succeeded,True,failed,,170.169527053833,True,2,1,2,1,2,Wednesday 與 Enid 順序及主要髮色／妝容保持，Enid 制服徽章與領口有偏移。Wednesday 雙手持一本綠書，兩人目光朝書附近；Enid 手伸到書右邊但指尖／內頁被遮住，無法確認指定讀者右頁。可見持書手部大致清楚。
 anime-03-book-r2,codex,anime,3,book,2,succeeded,True,,,40.8,True,2,1,2,1,2,"Correct three-character order and roles: Frieren holds book both hands, Fern points, Loid leans in. Loid black gloves absent on visible lower hand. Finger touches upper page edge but reader-right page ambiguous, gaze not unambiguously on pages for everyone."
-anime-03-book-r2,qwen,anime,3,book,2,pending,False,,,,False,,,,,,
+anime-03-book-r2,qwen,anime,3,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-03-book-r2,h3,anime,3,book,2,succeeded,True,failed,,414.2990131378174,True,2,1,2,1,2,Frieren、Fern、Loid 三人依序站立，主要外觀與服裝可辨，頸飾／衣領細節有偏移。Frieren 雙手持一本綠書，Fern 指向書邊／封面附近，無法確認指定內頁；Loid 兩臂放下但視線未清楚落在書頁。主要角色分工成立，精確閱讀／頁面要求僅部分符合，手部大致清楚。
 live-03-book-r2,codex,live,3,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Three correctly ordered figures and book roles, plausible hands. Bianca necklace missing and uniforms simplified. Finger lands at upper page edge but exact reader-right page not verifiable; Bianca gaze appears toward Enid rather than clearly book."
-live-03-book-r2,qwen,live,3,book,2,pending,False,,,,False,,,,,,
+live-03-book-r2,qwen,live,3,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-03-book-r2,h3,live,3,book,2,succeeded,True,failed,,419.1090178489685,True,2,1,2,1,2,Wednesday、Enid、Bianca 三人順序保持，黑辮妝容與淡紫髮可辨，制服領口／徽章偏移。三人面向同一本綠書，Bianca 沒有額外舉手；Wednesday 只有一隻持書手清楚可見，Enid 指尖／內頁被遮住，无法確認雙手持書及指定頁面全部成立。可見手部大致清楚。
 anime-04-book-r2,codex,anime,4,book,2,succeeded,True,,,41.2,True,2,1,2,1,2,Four characters ordered correctly and book/pointing roles preserved. Loid/Yor gloves absent; Yor hair becomes prominent updo. Exact right-page target unclear and Frieren gaze partly forward. Hands otherwise plausible; no extra held objects.
-anime-04-book-r2,qwen,anime,4,book,2,unsupported,False,,,,False,,,,,,
-anime-04-book-r2,h3,anime,4,book,2,pending,False,,,,False,,,,,,
+anime-04-book-r2,qwen,anime,4,book,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+anime-04-book-r2,h3,anime,4,book,2,succeeded,True,failed,,555.2652039527893,True,2,1,2,1,2,"Four distinct characters in the requested left-to-right reference order. Frieren holds one open green book with both hands; Fern points near the outer cover/page edge, so pointing to the reader-right page is not clearly demonstrated. Loid looks forward rather than clearly down at the book. Frieren neck ornament differs and Yor lacks the reference long black gloves. Visible hands are plausible; exact action compliance remains partial."
 live-04-book-r2,codex,live,4,book,2,succeeded,True,,,41.6,True,2,1,2,1,2,"Four faces in correct order, Wednesday holds green book two hands and Enid points from right. Bianca necklace absent; Tyler outfit changes from reference restraint. Exact page/finger contact hidden behind cover; gaze for rear viewers only roughly directed to book. Hands visible are plausible."
-live-04-book-r2,qwen,live,4,book,2,unsupported,False,,,,False,,,,,,
-live-04-book-r2,h3,live,4,book,2,pending,False,,,,False,,,,,,
+live-04-book-r2,qwen,live,4,book,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+live-04-book-r2,h3,live,4,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-05-book-r2,codex,anime,5,book,2,succeeded,True,,,41.4,True,2,1,2,1,2,Five figures correctly ordered and book holder/pointer roles recognizable. Loid/Yor gloves missing and Yor hair/dress altered. Some gazes are forward or toward neighbour rather than book; reader-right page contact unclear. Hands plausible though Yor/Anya clasp hands rather than relaxed lowered arms.
-anime-05-book-r2,qwen,anime,5,book,2,unsupported,False,,,,False,,,,,,
-anime-05-book-r2,h3,anime,5,book,2,pending,False,,,,False,,,,,,
+anime-05-book-r2,qwen,anime,5,book,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+anime-05-book-r2,h3,anime,5,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-05-book-r2,codex,live,5,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Five correctly ordered figures, Wednesday holds one green book and Enid points. Bianca necklace missing; patterned tie shared with Dort, Tyler outfit altered. All broadly look toward book but exact page contact and lowered unused hands partly obscured. Visible hand anatomy plausible."
-live-05-book-r2,qwen,live,5,book,2,unsupported,False,,,,False,,,,,,
-live-05-book-r2,h3,live,5,book,2,pending,False,,,,False,,,,,,
+live-05-book-r2,qwen,live,5,book,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+live-05-book-r2,h3,live,5,book,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-01-contact-r2,codex,anime,1,contact,2,succeeded,True,,,36.6,True,2,2,2,2,2,"Single Frieren with silver hair/pointed ears/green eyes/red accessories and white-gold clothing. Both hands hold one plain blue mug at chest; looks toward camera. No extra person or prop, plausible handle/body contact."
-anime-01-contact-r2,qwen,anime,1,contact,2,pending,False,,,,False,,,,,,
-anime-01-contact-r2,h3,anime,1,contact,2,pending,False,,,,False,,,,,,
+anime-01-contact-r2,qwen,anime,1,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+anime-01-contact-r2,h3,anime,1,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-01-contact-r2,codex,live,1,contact,2,not_executed,False,,,,False,,,,,,The first repeat of this identical prompt/reference condition was rejected at provider output moderation. This planned repeat was not submitted; no rewrite or alternate API attempted. Excluded from submitted and visual-quality denominators.
-live-01-contact-r2,qwen,live,1,contact,2,pending,False,,,,False,,,,,,
-live-01-contact-r2,h3,live,1,contact,2,pending,False,,,,False,,,,,,
+live-01-contact-r2,qwen,live,1,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+live-01-contact-r2,h3,live,1,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-02-contact-r2,codex,anime,2,contact,2,succeeded,True,,,36.5,True,2,2,2,1,2,"Frieren left and Fern right, appearance cues retained; clean two-palm contact and unused hands lowered. Contact uses apparent Frieren left and Fern right instead of requested opposite hands, and is above shoulder height. Physical contact plausible but exact action partial."
-anime-02-contact-r2,qwen,anime,2,contact,2,pending,False,,,,False,,,,,,
-anime-02-contact-r2,h3,anime,2,contact,2,pending,False,,,,False,,,,,,
+anime-02-contact-r2,qwen,anime,2,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+anime-02-contact-r2,h3,anime,2,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-02-contact-r2,codex,live,2,contact,2,succeeded,True,,,39.7,True,2,1,2,1,2,"Wednesday and Enid correctly ordered, plausible palm contact, unused hands lowered. Apparent Wednesday left and Enid right hands used instead of requested right/left; contact near face rather than shoulder. Enid cropped jacket differs from source, broad faces/hair retained."
-live-02-contact-r2,qwen,live,2,contact,2,pending,False,,,,False,,,,,,
-live-02-contact-r2,h3,live,2,contact,2,pending,False,,,,False,,,,,,
+live-02-contact-r2,qwen,live,2,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+live-02-contact-r2,h3,live,2,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-03-contact-r2,codex,anime,3,contact,2,succeeded,True,,,38.3,True,2,1,2,1,2,"Three figures correctly ordered, Loid watches with lowered hands but black gloves missing. Frieren/Fern contact is physically plausible with unused hands down, yet uses apparent left/right hands instead of requested right/left and contact above shoulder."
-anime-03-contact-r2,qwen,anime,3,contact,2,pending,False,,,,False,,,,,,
-anime-03-contact-r2,h3,anime,3,contact,2,pending,False,,,,False,,,,,,
+anime-03-contact-r2,qwen,anime,3,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+anime-03-contact-r2,h3,anime,3,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-03-contact-r2,codex,live,3,contact,2,succeeded,True,,,56.8,True,2,1,2,1,2,"Three figures correctly ordered; Wednesday/Enid make plausible palm contact with apparent requested right/left arms. Contact is near face rather than shoulder; Bianca watches with clasped low hands. Bianca necklace missing and uniform details altered, broad identity cues retained."
-live-03-contact-r2,qwen,live,3,contact,2,pending,False,,,,False,,,,,,
-live-03-contact-r2,h3,live,3,contact,2,pending,False,,,,False,,,,,,
+live-03-contact-r2,qwen,live,3,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
+live-03-contact-r2,h3,live,3,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-04-contact-r2,codex,anime,4,contact,2,succeeded,True,,,41.8,True,2,1,2,1,2,Four figures in correct order with two separate plausible palm contacts. First pair appears correct right/left arms; second uses apparent Yor right rather than left. Contacts above shoulders. Loid gloves absent; Yor one short fingerless glove and altered dress. Unused arms lowered.
-anime-04-contact-r2,qwen,anime,4,contact,2,unsupported,False,,,,False,,,,,,
-anime-04-contact-r2,h3,anime,4,contact,2,pending,False,,,,False,,,,,,
+anime-04-contact-r2,qwen,anime,4,contact,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+anime-04-contact-r2,h3,anime,4,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-04-contact-r2,codex,live,4,contact,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Four figures ordered correctly, two separate plausible palm contacts and lowered unused arms. Apparent specified right/left pairings achieved, but contacts above shoulder height. Bianca necklace missing, uniforms simplified and Tyler clothing adjusted to free arms. Broad faces/hair retained."
-live-04-contact-r2,qwen,live,4,contact,2,unsupported,False,,,,False,,,,,,
-live-04-contact-r2,h3,live,4,contact,2,pending,False,,,,False,,,,,,
+live-04-contact-r2,qwen,live,4,contact,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+live-04-contact-r2,h3,live,4,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 anime-05-contact-r2,codex,anime,5,contact,2,succeeded,True,,,39.5,True,2,1,2,1,2,"Five correctly ordered figures, two distinct palm contacts, Anya watching with hands down. First pair apparent left/right instead of requested right/left; second Yor apparent right hand, height above shoulders. Loid gloves absent and Yor short gloves; broad identities retained."
-anime-05-contact-r2,qwen,anime,5,contact,2,unsupported,False,,,,False,,,,,,
-anime-05-contact-r2,h3,anime,5,contact,2,pending,False,,,,False,,,,,,
+anime-05-contact-r2,qwen,anime,5,contact,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+anime-05-contact-r2,h3,anime,5,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.
 live-05-contact-r2,codex,live,5,contact,2,succeeded,True,,,43.5,True,2,1,2,1,2,"Five figures correctly ordered, two clean palm contacts with apparent requested right/left arms, Dort watches hands lowered. First pair contact above shoulder; costumes altered, Bianca necklace absent, Tyler free-arm outfit. Natural hand geometry but exact action only partial."
-live-05-contact-r2,qwen,live,5,contact,2,unsupported,False,,,,False,,,,,,
-live-05-contact-r2,h3,live,5,contact,2,pending,False,,,,False,,,,,,
+live-05-contact-r2,qwen,live,5,contact,2,unsupported,False,,,,False,,,,,,Native adapter accepts at most 3 separate references
+live-05-contact-r2,h3,live,5,contact,2,not_executed,False,,,,False,,,,,,User requested wrap-up; no provider submission was made.

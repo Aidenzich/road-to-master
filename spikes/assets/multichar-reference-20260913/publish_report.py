@@ -10,6 +10,7 @@ REPO=Path('/Users/aiden/Projects/road-to-master')
 SLUG='multichar-reference-20260913'
 DEST=REPO/'spikes/assets'/SLUG
 PLAN=json.loads((ROOT/'plan.json').read_text())
+CLOSURE=json.loads((ROOT/'closure.json').read_text()) if (ROOT/'closure.json').exists() else {}
 CASES=json.loads((ROOT/'case-index.json').read_text())
 MODEL_NAMES={'codex':'Codex built-in','qwen':'Qwen Edit 2511','h3':'H3 Ref2VA 5 frames'}
 METRICS=['exact_count','appearance_preserved','reference_binding','action_obedience','hands_and_contacts']
@@ -23,6 +24,7 @@ def copy_file(relative):
 for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
 for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
+                 'closure.json','close_admissions.py','audit_terminal.py','terminal-audit.json',
                  'singular-control-index.json','prepare_singular_controls.py',
                  'position-control-index.json','prepare_position_controls.py',
                  'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py',
@@ -72,7 +74,7 @@ now=datetime.now(timezone.utc).isoformat()
 asset=f'assets/{SLUG}'
 lines=[
 '# 六小時多角色參考圖實驗：Codex／Qwen Edit／H3', '',
-f'資料更新：{now}。**持續實驗中，非最終結論。**', '',
+f'資料更新：{now}。**' + ('已收尾；以下為本次有限樣本的實驗結果。' if CLOSURE.get('status')=='completed' else '收尾中，等待已提交任務完成。' if CLOSURE else '持續實驗中，非最終結論。') + '**', '',
 '## 問題與方法', '',
 '比較同一組參考角色在 1–5 人、不同互動動作下的外觀保留、數量、對應與手部表現。六小時窗口：台灣時間 2026-09-13 23:41:32 至 2026-09-14 05:41:32；到期後不新增提交，已提交任務完成、檢查與清理另計。', '',
 '兩類角色 × 五種人數 × 三類動作 × 兩次重複，預先登記 60 個場景；完整窮舉所有角色子集／排列將遠超時窗，因此先做分層覆盖，再依剩餘時間增加單變因對照。未執行、流程不支援、執行失敗與未人工檢查皆分開列出。', '',
@@ -94,6 +96,16 @@ f'原始下載URL、尺寸與SHA-256見 [reference-receipts.json]({asset}/refere
 for model,name in MODEL_NAMES.items():
     sub=[r for r in rows if r['model']==model]
     lines.append(f'| {name} | {len(sub)} | {sum(bool(r["submitted"]) for r in sub)} | {sum(r["state"]=="succeeded" for r in sub)} | {sum(r["state"]=="failed" for r in sub)} | {sum(r["state"]=="unsupported" for r in sub)} | {sum(r["reviewed"] for r in sub)} |')
+if CLOSURE:
+    cutoff=datetime.fromtimestamp(CLOSURE['admission_closed_epoch'],timezone.utc).isoformat()
+    lines += ['',f'使用者要求提前收尾，於 {cutoff} 關閉未開始組合的提交。已接受的任務完成後才取回成果與核查清理；原登記六小時窗口保留，不改寫成完整窮舉已執行。', '',
+              f'基準未執行 {sum(r["state"]=="not_executed" for r in rows)} 格；不支援與失敗另計。未執行格不填零分、不納入成功率或品質比較的已執行分母。', '',
+              f'[收尾紀錄]({asset}/closure.json)']
+if (ROOT/'terminal-audit.json').exists():
+    terminal=json.loads((ROOT/'terminal-audit.json').read_text())
+    lines += ['', '### 最終資源核查', '',
+              f'核查通過：{terminal["passed"]}。工作程序鎖已釋放：{terminal["worker_lock_free"]}；本次佇列殘留 {len(terminal["owned_queue"])} 筆；逐一核查 {terminal["checked_schema_count"]} 個自有資料庫 schema，殘留 {len(terminal["remaining_owned_schemas"])} 個；成功但未目視評估 {len(terminal["successful_unreviewed"])} 筆。', '',
+              f'[完整終止核查]({asset}/terminal-audit.json) · [唯讀核查程式]({asset}/audit_terminal.py)']
 if (ROOT/'evidence-audit.json').exists():
     audit=json.loads((ROOT/'evidence-audit.json').read_text())
     lines += ['', '### 資料完整性快照', '',
@@ -145,7 +157,7 @@ for cid in CASES:
     cells=[]
     for model in MODEL_NAMES:
         f=DEST/'runs'/model/cid/'output.png'
-        cells.append(f'![{model}]({asset}/runs/{model}/{cid}/output.png)' if f.exists() else '未產出／待執行')
+        cells.append(f'![{model}]({asset}/runs/{model}/{cid}/output.png)' if f.exists() else '未產出（狀態見完整結果表）')
     lines += ['| '+' | '.join(cells)+' |','']
 lines += ['## 單變因對照：第一張參考圖的裁切', '',
           '此分支不更動產品。只將 Qwen 正／負文字編碼節點的 image1 改接完整第一張載入圖，輸出 latent 的尺寸／裁切保持不變。相同場景的 prompt、參考檔案與順序、seed、steps、CFG 不變。這些是額外對照，不計入上述原生流程的分母。', '',
@@ -258,7 +270,7 @@ f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) 
 '內建生圖拒絕、基礎設施錯誤、成功成像但品質不符是不同結果。`failure_category=provider_output_moderation_blocked` 表示服務輸出階段拒絕，沒有可評分圖片；不得算成人物一致性零分，也不自動改寫提示詞繞過或切換API。完整錯誤代碼與request ID保留在該筆result.json。', '',
 f'場景與角色對應可由 [prepare_cases.py]({asset}/prepare_cases.py) 重建；[gpu_runner.py]({asset}/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。', '',
 'H3 5幀取圖保存原始MP4；若音軌0.20秒短於5/24秒，現有一般影片collector會拒絕影音等長檢查。此時分別記錄provider成功與catalog失敗，從已驗證的本機journal影片取圖；不重試、不補幀、不放寬產品校驗。只有實際解出5幀才記為取圖成功。所有已完成實验的遠端輸入／輸出需有hash比對與清理收據，不能用刪整個資料夾代替。', '']
-observations=['## 目前觀察（非最終結論）', '',
+observations=['## 本次觀察（有限樣本，非模型排名）', '',
               '這是特定量化模型、參考素材與前處理工作流的比較，不是模型排行榜。以下只統計已成功成像且已評估的原生流程；執行失敗、不支援與未執行仍保留在完整分母表。', '',
               '| 已評估條件 | Codex | Qwen | H3 |', '|---|---:|---:|---:|']
 for count,metric,label in [(1,'exact_count','單人：恰好一人的明確符合數'),

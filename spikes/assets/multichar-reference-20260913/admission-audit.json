@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789331004.567961,
+  "checked_epoch": 1789335625.676939,
   "start_epoch": 1789314092,
   "stop_new_submissions_epoch": 1789335692,
   "scope": "Local recorded admission timestamps and exact-job provider receipt timestamps where available. Missing provider timestamps remain unknown. Missing terminal results require live-handle/queue verification, not automatic retry. Snapshot does not prove six-hour completion.",
@@ -894,6 +894,18 @@
     },
     {
       "model": "h3",
+      "case_id": "anime-01-book-r2",
+      "admitted_epoch": 1789333600.302925,
+      "provider_received_epoch": 1789333605.515,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "34f0edab-5102-4681-bbd5-166666f3a8f0",
+      "version_id": "6d6abb5c-fcf5-4612-8942-bfedb3750292"
+    },
+    {
+      "model": "h3",
       "case_id": "anime-01-contact-r1",
       "admitted_epoch": 1789324054.045114,
       "provider_received_epoch": 1789324059.031,
@@ -939,6 +951,18 @@
       "submitted": true,
       "prompt_id": "74674e1a-9922-4855-9a19-40cd163b5906",
       "version_id": "7108a837-e55d-44c9-a258-829e112b1ad7"
+    },
+    {
+      "model": "h3",
+      "case_id": "anime-02-book-r2",
+      "admitted_epoch": 1789333863.0936599,
+      "provider_received_epoch": 1789333869.797,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb",
+      "version_id": "3ec3e88b-b2b8-4a34-9602-26c42c2eedc5"
     },
     {
       "model": "h3",
@@ -990,6 +1014,18 @@
     },
     {
       "model": "h3",
+      "case_id": "anime-03-book-r2",
+      "admitted_epoch": 1789334207.097832,
+      "provider_received_epoch": 1789334214.16,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "version_id": "30606e79-afca-4e95-bfbb-d3c693577191"
+    },
+    {
+      "model": "h3",
       "case_id": "anime-03-contact-r1",
       "admitted_epoch": 1789325518.249408,
       "provider_received_epoch": 1789325524.626,
@@ -1038,6 +1074,18 @@
     },
     {
       "model": "h3",
+      "case_id": "anime-04-book-r2",
+      "admitted_epoch": 1789335049.977704,
+      "provider_received_epoch": 1789335057.596,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "version_id": "8acca710-42ce-47d2-9214-f04442c0f530"
+    },
+    {
+      "model": "h3",
       "case_id": "anime-04-contact-r1",
       "admitted_epoch": 1789326440.687841,
       "provider_received_epoch": 1789326448.185,
@@ -1059,6 +1107,18 @@
       "submitted": true,
       "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
       "version_id": "53b5a1c8-1850-48ba-9513-3035cad75c99"
+    },
+    {
+      "model": "h3",
+      "case_id": "anime-04-wave-r2",
+      "admitted_epoch": 1789331244.7370439,
+      "provider_received_epoch": 1789331251.824,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "version_id": "bb50071b-b16c-48ac-8612-42127ae248c8"
     },
     {
       "model": "h3",
@@ -1098,6 +1158,18 @@
     },
     {
       "model": "h3",
+      "case_id": "anime-05-wave-r2",
+      "admitted_epoch": 1789332395.7527602,
+      "provider_received_epoch": 1789332403.281,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "version_id": "3b86bfe1-0c06-4325-9100-3aef771a42b6"
+    },
+    {
+      "model": "h3",
       "case_id": "live-01-book-r1",
       "admitted_epoch": 1789319475.504172,
       "provider_received_epoch": 1789319481.942,
@@ -1107,6 +1179,18 @@
       "submitted": true,
       "prompt_id": "dfa3c720-6291-4985-aa8d-9539a482f172",
       "version_id": "c185a6d7-306e-4681-b10d-a80f42f651c9"
+    },
+    {
+      "model": "h3",
+      "case_id": "live-01-book-r2",
+      "admitted_epoch": 1789333731.223212,
+      "provider_received_epoch": 1789333736.769,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8",
+      "version_id": "eb18aa99-88bd-4fa1-934b-62fc3a8093f1"
     },
     {
       "model": "h3",
@@ -1158,6 +1242,18 @@
     },
     {
       "model": "h3",
+      "case_id": "live-02-book-r2",
+      "admitted_epoch": 1789334032.369447,
+      "provider_received_epoch": 1789334043.876,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38",
+      "version_id": "a2e83bf3-49f7-4c60-b87d-bbeb961db790"
+    },
+    {
+      "model": "h3",
       "case_id": "live-02-contact-r1",
       "admitted_epoch": 1789324486.7789829,
       "provider_received_epoch": 1789324492.207,
@@ -1203,6 +1299,18 @@
       "submitted": true,
       "prompt_id": "0859c527-af2f-4a54-8ca4-8eddd8d37f46",
       "version_id": "b3307c28-4f4e-4cf7-9673-fd1c72a6ce91"
+    },
+    {
+      "model": "h3",
+      "case_id": "live-03-book-r2",
+      "admitted_epoch": 1789334626.0502641,
+      "provider_received_epoch": 1789334632.354,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+      "version_id": "bd458044-2a79-4c33-9735-4e957344e4b3"
     },
     {
       "model": "h3",
@@ -1278,6 +1386,18 @@
     },
     {
       "model": "h3",
+      "case_id": "live-04-wave-r2",
+      "admitted_epoch": 1789331850.979705,
+      "provider_received_epoch": 1789331857.964,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "version_id": "59dfbe7c-aff5-4e5c-a4e2-0b8e38966753"
+    },
+    {
+      "model": "h3",
       "case_id": "live-05-book-r1",
       "admitted_epoch": 1789323447.3616269,
       "provider_received_epoch": 1789323461.545,
@@ -1313,6 +1433,18 @@
       "version_id": "b99a50a3-4c44-4748-ac9d-ce07b10384c9"
     },
     {
+      "model": "h3",
+      "case_id": "live-05-wave-r2",
+      "admitted_epoch": 1789333002.470123,
+      "provider_received_epoch": 1789333010.893,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "version_id": "4abe999d-b840-46b0-a0fc-d181bcdd70df"
+    },
+    {
       "model": "qwen",
       "case_id": "anime-01-book-r1",
       "admitted_epoch": 1789319609.1511219,
@@ -1323,6 +1455,18 @@
       "submitted": true,
       "prompt_id": "69a7f8a0-29a6-4870-b5d9-06a4d6d13c5f",
       "version_id": "67e0cfb7-d9e4-4094-aea2-93dcd342fd4e"
+    },
+    {
+      "model": "qwen",
+      "case_id": "anime-01-book-r2",
+      "admitted_epoch": 1789331089.8901482,
+      "provider_received_epoch": 1789331094.146,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "f4a53ac3-d337-4e06-8118-f778017ea156",
+      "version_id": "24192fd6-9803-46f7-98eb-eda8f1c420ee"
     },
     {
       "model": "qwen",
@@ -1470,6 +1614,18 @@
     },
     {
       "model": "qwen",
+      "case_id": "live-01-book-r2",
+      "admitted_epoch": 1789331168.334542,
+      "provider_received_epoch": 1789331172.842,
+      "recorded_admission_in_window": true,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "00e47356-0b94-4816-ad14-5b7d29916818",
+      "version_id": "e359e374-ac7a-4533-ad15-766438ee126f"
+    },
+    {
+      "model": "qwen",
       "case_id": "live-01-contact-r1",
       "admitted_epoch": 1789324790.83061,
       "provider_received_epoch": 1789324795.104,
@@ -1592,12 +1748,12 @@
       "model": "qwen",
       "case_id": "live-03-wave-r2",
       "admitted_epoch": 1789330894.522484,
-      "provider_received_epoch": null,
+      "provider_received_epoch": 1789330899.927,
       "recorded_admission_in_window": true,
-      "provider_received_in_window": null,
-      "terminal_result": null,
-      "submitted": null,
-      "prompt_id": null,
+      "provider_received_in_window": true,
+      "terminal_result": "succeeded",
+      "submitted": true,
+      "prompt_id": "aaf8a32c-34ce-4420-a0f3-f6df0293c2db",
       "version_id": "c40b7dff-a937-4982-af10-7cbbdc3facf5"
     },
     {
@@ -1615,18 +1771,5 @@
   ],
   "outside_window": [],
   "missing_admission": [],
-  "without_terminal_result": [
-    {
-      "model": "qwen",
-      "case_id": "live-03-wave-r2",
-      "admitted_epoch": 1789330894.522484,
-      "provider_received_epoch": null,
-      "recorded_admission_in_window": true,
-      "provider_received_in_window": null,
-      "terminal_result": null,
-      "submitted": null,
-      "prompt_id": null,
-      "version_id": "c40b7dff-a937-4982-af10-7cbbdc3facf5"
-    }
-  ]
+  "without_terminal_result": []
 }

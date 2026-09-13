@@ -1,8 +1,8 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T21:31:19.903713+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T21:40:48.504191+00:00。**已收尾；以下為本次有限樣本的實驗結果。**
 
-## 目前觀察（非最終結論）
+## 本次觀察（有限樣本，非模型排名）
 
 這是特定量化模型、參考素材與前處理工作流的比較，不是模型排行榜。以下只統計已成功成像且已評估的原生流程；執行失敗、不支援與未執行仍保留在完整分母表。
 
@@ -52,25 +52,37 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 26 | 26 | 0 | 24 | 26 |
-| H3 Ref2VA 5 frames | 60 | 46 | 46 | 0 | 0 | 46 |
+| H3 Ref2VA 5 frames | 60 | 47 | 47 | 0 | 0 | 47 |
+
+使用者要求提前收尾，於 2026-09-13T21:37:28.279905+00:00 關閉未開始組合的提交。已接受的任務完成後才取回成果與核查清理；原登記六小時窗口保留，不改寫成完整窮舉已執行。
+
+基準未執行 24 格；不支援與失敗另計。未執行格不填零分、不納入成功率或品質比較的已執行分母。
+
+[收尾紀錄](assets/multichar-reference-20260913/closure.json)
+
+### 最終資源核查
+
+核查通過：True。工作程序鎖已釋放：True；本次佇列殘留 0 筆；逐一核查 74 個自有資料庫 schema，殘留 0 個；成功但未目視評估 0 筆。
+
+[完整終止核查](assets/multichar-reference-20260913/terminal-audit.json) · [唯讀核查程式](assets/multichar-reference-20260913/audit_terminal.py)
 
 ### 資料完整性快照
 
-檢查 1027 項，記錄 349 個成果檔案雜湊；8 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。
+檢查 1104 項，記錄 426 個成果檔案雜湊；8 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。
 
 [完整檢查與失敗清單](assets/multichar-reference-20260913/evidence-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_evidence.py)
 
 早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。
 
-實際GPU工作流核查：981 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
+實際GPU工作流核查：1114 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
 
 [實際工作流核查](assets/multichar-reference-20260913/workflow-audit.json) · [核查程式](assets/multichar-reference-20260913/audit_workflows.py)
 
-提交時間快照：134 筆 run 收據，已記錄時間落在窗口外 0 筆，缺少本機提交時間 0 筆。沒有provider時間的請求保留未知；沒有terminal result可能仍在執行，不能由檔案推斷程序已停止。此快照不代表六小時已結束。
+提交時間快照：147 筆 run 收據，已記錄時間落在窗口外 0 筆，缺少本機提交時間 0 筆。沒有provider時間的請求保留未知；沒有terminal result可能仍在執行，不能由檔案推斷程序已停止。此快照不代表六小時已結束。
 
 [逐筆提交時間](assets/multichar-reference-20260913/admission-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_admissions.py)
 
-遠端清理獨立快照：217 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
+遠端清理獨立快照：262 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
 
 [逐檔封存與遠端不存在證據](assets/multichar-reference-20260913/remote-cleanup-audit.json) · [唯讀檢查程式](assets/multichar-reference-20260913/audit_remote_cleanup.py)
 
@@ -99,7 +111,7 @@
 | 3 | H3 Ref2VA 5 frames | 12 | 10/10 | 0/10 | 10/10 | 2/10 | 7/10 |
 | 4 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 4/12 | 12/12 |
 | 4 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
-| 4 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 0/8 | 5/8 |
+| 4 | H3 Ref2VA 5 frames | 12 | 9/9 | 0/9 | 9/9 | 0/9 | 6/9 |
 | 5 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 5 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 5 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 2/8 | 4/8 |
@@ -172,24 +184,24 @@
 | live-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/result.json) |
 | anime-01-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-book-r2/result.json) |
 | live-01-book-r2 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-book-r2/result.json) |
-| anime-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/result.json) |
-| live-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/result.json) |
-| anime-03-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/result.json) |
-| live-03-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/result.json) |
-| anime-04-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/result.json) | unsupported | pending |
-| live-04-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/result.json) | unsupported | pending |
-| anime-05-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/result.json) | unsupported | pending |
-| live-05-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/result.json) | unsupported | pending |
-| anime-01-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r2/result.json) | pending | pending |
-| live-01-contact-r2 | [not_executed](assets/multichar-reference-20260913/runs/codex/live-01-contact-r2/result.json) | pending | pending |
-| anime-02-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/result.json) | pending | pending |
-| live-02-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/result.json) | pending | pending |
-| anime-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/result.json) | pending | pending |
-| live-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/result.json) | pending | pending |
-| anime-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/result.json) | unsupported | pending |
-| live-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/result.json) | unsupported | pending |
-| anime-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/result.json) | unsupported | pending |
-| live-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/result.json) | unsupported | pending |
+| anime-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/result.json) |
+| live-02-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/live-02-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/result.json) |
+| anime-03-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/result.json) |
+| live-03-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/live-03-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/result.json) |
+| anime-04-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-book-r2/result.json) |
+| live-04-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-04-book-r2/result.json) |
+| anime-05-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-05-book-r2/result.json) |
+| live-05-book-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-book-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-05-book-r2/result.json) |
+| anime-01-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/anime-01-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-01-contact-r2/result.json) |
+| live-01-contact-r2 | [not_executed](assets/multichar-reference-20260913/runs/codex/live-01-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/live-01-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-01-contact-r2/result.json) |
+| anime-02-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/anime-02-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-02-contact-r2/result.json) |
+| live-02-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/live-02-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-02-contact-r2/result.json) |
+| anime-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r2/result.json) |
+| live-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-03-contact-r2/result.json) |
+| anime-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r2/result.json) |
+| live-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-04-contact-r2/result.json) |
+| anime-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r2/result.json) |
+| live-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-contact-r2/result.json) | [not_executed](assets/multichar-reference-20260913/runs/h3/live-05-contact-r2/result.json) |
 
 ## 圖片對照（包含失败成像，不做優勝挑選）
 
@@ -247,7 +259,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/output.png) |
 
 ### live-04-wave-r1
 
@@ -255,7 +267,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r1/output.png) |
 
 ### anime-05-wave-r1
 
@@ -263,7 +275,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r1/output.png) |
 
 ### live-05-wave-r1
 
@@ -271,7 +283,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/output.png) |
 
 ### anime-01-book-r1
 
@@ -327,7 +339,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/output.png) |
 
 ### live-04-book-r1
 
@@ -335,7 +347,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/output.png) |
 
 ### anime-05-book-r1
 
@@ -343,7 +355,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/output.png) |
 
 ### live-05-book-r1
 
@@ -351,7 +363,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/output.png) |
 
 ### anime-01-contact-r1
 
@@ -367,7 +379,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| 未產出／待執行 | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-01-contact-r1/output.png) |
+| 未產出（狀態見完整結果表） | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-01-contact-r1/output.png) |
 
 ### anime-02-contact-r1
 
@@ -407,7 +419,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r1/output.png) |
 
 ### live-04-contact-r1
 
@@ -415,7 +427,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/output.png) |
 
 ### anime-05-contact-r1
 
@@ -423,7 +435,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/output.png) |
 
 ### live-05-contact-r1
 
@@ -431,7 +443,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/output.png) |
 
 ### anime-01-wave-r2
 
@@ -487,7 +499,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/output.png) |
 
 ### live-04-wave-r2
 
@@ -495,7 +507,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r2/output.png) |
 
 ### anime-05-wave-r2
 
@@ -503,7 +515,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r2/output.png) |
 
 ### live-05-wave-r2
 
@@ -511,7 +523,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/output.png) |
 
 ### anime-01-book-r2
 
@@ -527,7 +539,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| 未產出／待執行 | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-book-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-01-book-r2/output.png) |
+| 未產出（狀態見完整結果表） | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-01-book-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-01-book-r2/output.png) |
 
 ### anime-02-book-r2
 
@@ -535,7 +547,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/output.png) |
 
 ### live-02-book-r2
 
@@ -543,7 +555,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/output.png) |
 
 ### anime-03-book-r2
 
@@ -551,7 +563,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/output.png) |
 
 ### live-03-book-r2
 
@@ -559,7 +571,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/output.png) |
 
 ### anime-04-book-r2
 
@@ -567,7 +579,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/output.png) | 未產出（狀態見完整結果表） | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r2/output.png) |
 
 ### live-04-book-r2
 
@@ -575,7 +587,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-05-book-r2
 
@@ -583,7 +595,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### live-05-book-r2
 
@@ -591,7 +603,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-01-contact-r2
 
@@ -599,7 +611,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-02-contact-r2
 
@@ -607,7 +619,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### live-02-contact-r2
 
@@ -615,7 +627,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-03-contact-r2
 
@@ -623,7 +635,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### live-03-contact-r2
 
@@ -631,7 +643,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-04-contact-r2
 
@@ -639,7 +651,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### live-04-contact-r2
 
@@ -647,7 +659,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### anime-05-contact-r2
 
@@ -655,7 +667,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ### live-05-contact-r2
 
@@ -663,7 +675,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/output.png) | 未產出（狀態見完整結果表） | 未產出（狀態見完整結果表） |
 
 ## 單變因對照：第一張參考圖的裁切
 
@@ -845,11 +857,11 @@
 | Qwen Edit 2511 | reference_binding | 8/30 | 7 | 1 | 1 |
 | Qwen Edit 2511 | action_obedience | 8/30 | 5 | 3 | 0 |
 | Qwen Edit 2511 | hands_and_contacts | 8/30 | 5 | 3 | 5 |
-| H3 Ref2VA 5 frames | exact_count | 16/30 | 15 | 1 | 12 |
-| H3 Ref2VA 5 frames | appearance_preserved | 16/30 | 15 | 1 | 0 |
-| H3 Ref2VA 5 frames | reference_binding | 16/30 | 15 | 1 | 12 |
-| H3 Ref2VA 5 frames | action_obedience | 16/30 | 11 | 5 | 1 |
-| H3 Ref2VA 5 frames | hands_and_contacts | 16/30 | 11 | 5 | 9 |
+| H3 Ref2VA 5 frames | exact_count | 17/30 | 16 | 1 | 13 |
+| H3 Ref2VA 5 frames | appearance_preserved | 17/30 | 16 | 1 | 0 |
+| H3 Ref2VA 5 frames | reference_binding | 17/30 | 16 | 1 | 13 |
+| H3 Ref2VA 5 frames | action_obedience | 17/30 | 12 | 5 | 1 |
+| H3 Ref2VA 5 frames | hands_and_contacts | 17/30 | 12 | 5 | 10 |
 
 [每組配對案例與分數](assets/multichar-reference-20260913/repeat-summary.json)
 
@@ -867,7 +879,7 @@
 | H3 Ref2VA 5 frames | 1 | 119.58 [118.90–168.01] (n=10) | 16.31 [16.02–47.23] (n=10) | 15.07 [14.90–15.22] (n=10) | 127.57 [126.44–189.77] (n=10) |
 | H3 Ref2VA 5 frames | 2 | 155.68 [153.68–203.59] (n=10) | 23.19 [22.92–56.06] (n=10) | 21.64 [21.43–21.82] (n=10) | 164.40 [161.76–224.54] (n=10) |
 | H3 Ref2VA 5 frames | 3 | 407.34 [399.37–464.17] (n=10) | 30.31 [30.18–65.02] (n=10) | 28.48 [28.26–28.63] (n=10) | 416.70 [408.93–481.70] (n=10) |
-| H3 Ref2VA 5 frames | 4 | 547.42 [520.97–585.59] (n=8) | 119.76 [119.61–155.30] (n=8) | 113.45 [113.28–113.93] (n=8) | 557.41 [537.07–601.29] (n=8) |
+| H3 Ref2VA 5 frames | 4 | 545.06 [520.97–585.59] (n=9) | 119.76 [119.61–155.30] (n=9) | 113.45 [113.28–113.93] (n=9) | 555.95 [537.07–601.29] (n=9) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=8) | 124.92 [124.81–125.59] (n=8) | 118.37 [118.25–118.90] (n=8) | 595.68 [587.57–609.83] (n=8) |
 
 Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控制，不能由下表得出等算力速度比。

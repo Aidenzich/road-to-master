@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789331327.612986,
+  "checked_epoch": 1789335625.384691,
   "scope": "Only terminal submitted owned task files, explicit lstat paths; no deletion or global inventory. Active jobs excluded.",
   "files": [
     {
@@ -24,6 +24,30 @@
       "bytes": 92077,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/f7258ddc0844d302-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-book-r2",
+      "model": "h3",
+      "prompt_id": "34f0edab-5102-4681-bbd5-166666f3a8f0",
+      "kind": "input",
+      "path": "6d6abb5c-fcf5-4612-8942-bfedb3750292-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/6d6abb5c-fcf5-4612-8942-bfedb3750292-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-book-r2",
+      "model": "h3",
+      "prompt_id": "34f0edab-5102-4681-bbd5-166666f3a8f0",
+      "kind": "output",
+      "path": "video/msai-studio/ab1cc336ad42ebfb-00_00001_.mp4",
+      "sha256": "e3b0fa92815d659565385fd6d83adb851d53e720493fe7e5e624ef4abb19c226",
+      "bytes": 94261,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/ab1cc336ad42ebfb-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -132,6 +156,42 @@
       "bytes": 75270,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/d33ddd7264e6b5ea-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-book-r2",
+      "model": "h3",
+      "prompt_id": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb",
+      "kind": "input",
+      "path": "3ec3e88b-b2b8-4a34-9602-26c42c2eedc5-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3ec3e88b-b2b8-4a34-9602-26c42c2eedc5-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-book-r2",
+      "model": "h3",
+      "prompt_id": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb",
+      "kind": "input",
+      "path": "3ec3e88b-b2b8-4a34-9602-26c42c2eedc5-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3ec3e88b-b2b8-4a34-9602-26c42c2eedc5-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-book-r2",
+      "model": "h3",
+      "prompt_id": "d6037ea4-9ccb-45d6-99b6-1c4e1c5c6deb",
+      "kind": "output",
+      "path": "video/msai-studio/cec54df2f16a9679-00_00001_.mp4",
+      "sha256": "8438348aeb80f4c18d76d1466a35ea9ca779908ddfd3dca76e7b0e8d474f5030",
+      "bytes": 76119,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/cec54df2f16a9679-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -288,6 +348,54 @@
       "bytes": 82776,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/ced860024d2a3255-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-book-r2",
+      "model": "h3",
+      "prompt_id": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "kind": "input",
+      "path": "30606e79-afca-4e95-bfbb-d3c693577191-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/30606e79-afca-4e95-bfbb-d3c693577191-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-book-r2",
+      "model": "h3",
+      "prompt_id": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "kind": "input",
+      "path": "30606e79-afca-4e95-bfbb-d3c693577191-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/30606e79-afca-4e95-bfbb-d3c693577191-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-book-r2",
+      "model": "h3",
+      "prompt_id": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "kind": "input",
+      "path": "30606e79-afca-4e95-bfbb-d3c693577191-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/30606e79-afca-4e95-bfbb-d3c693577191-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-book-r2",
+      "model": "h3",
+      "prompt_id": "86223c3a-af08-4194-99e4-9d88fe0ca3a2",
+      "kind": "output",
+      "path": "video/msai-studio/3fa0f66ca920c415-00_00001_.mp4",
+      "sha256": "63d942babeedd5a4ff9b9684cd3ee19d3c69a8daf2722e39f43a9df7d5ccafe1",
+      "bytes": 78329,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/3fa0f66ca920c415-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -495,6 +603,66 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-04-book-r2",
+      "model": "h3",
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "kind": "input",
+      "path": "8acca710-42ce-47d2-9214-f04442c0f530-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8acca710-42ce-47d2-9214-f04442c0f530-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-book-r2",
+      "model": "h3",
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "kind": "input",
+      "path": "8acca710-42ce-47d2-9214-f04442c0f530-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8acca710-42ce-47d2-9214-f04442c0f530-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-book-r2",
+      "model": "h3",
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "kind": "input",
+      "path": "8acca710-42ce-47d2-9214-f04442c0f530-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8acca710-42ce-47d2-9214-f04442c0f530-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-book-r2",
+      "model": "h3",
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "kind": "input",
+      "path": "8acca710-42ce-47d2-9214-f04442c0f530-ref-3.png",
+      "sha256": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "bytes": 212188,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8acca710-42ce-47d2-9214-f04442c0f530-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-book-r2",
+      "model": "h3",
+      "prompt_id": "2bdc13d6-da9d-47d1-8697-1b7f653bf29c",
+      "kind": "output",
+      "path": "video/msai-studio/f7a066ef2c82b353-00_00001_.mp4",
+      "sha256": "de08c400438c14fbdd1e9703465092dec2dd543645385b0ccc587af67c1753f9",
+      "bytes": 77725,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/f7a066ef2c82b353-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "anime-04-contact-r1",
       "model": "h3",
       "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
@@ -612,6 +780,66 @@
       "bytes": 77289,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/da4376757b42f1da-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "kind": "input",
+      "path": "bb50071b-b16c-48ac-8612-42127ae248c8-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bb50071b-b16c-48ac-8612-42127ae248c8-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "kind": "input",
+      "path": "bb50071b-b16c-48ac-8612-42127ae248c8-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bb50071b-b16c-48ac-8612-42127ae248c8-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "kind": "input",
+      "path": "bb50071b-b16c-48ac-8612-42127ae248c8-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bb50071b-b16c-48ac-8612-42127ae248c8-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "kind": "input",
+      "path": "bb50071b-b16c-48ac-8612-42127ae248c8-ref-3.png",
+      "sha256": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "bytes": 212188,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bb50071b-b16c-48ac-8612-42127ae248c8-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "26c25845-d68a-4a5d-9869-f903e261bf42",
+      "kind": "output",
+      "path": "video/msai-studio/286be6c105842677-00_00001_.mp4",
+      "sha256": "540637f37fa5162db9b7a1e314c57352d2cfc5f75ec27d2f0464cc14a90c60db",
+      "bytes": 81162,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/286be6c105842677-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -831,6 +1059,78 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "input",
+      "path": "3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "input",
+      "path": "3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "input",
+      "path": "3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "input",
+      "path": "3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-3.png",
+      "sha256": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "bytes": 212188,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "input",
+      "path": "3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-4.png",
+      "sha256": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72",
+      "bytes": 150685,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/3b86bfe1-0c06-4325-9100-3aef771a42b6-ref-4.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "afc0ab00-05be-4a6c-ba50-d0c2dd630b19",
+      "kind": "output",
+      "path": "video/msai-studio/d3e36c39ecf946a8-00_00001_.mp4",
+      "sha256": "47de526a608195eb315497131af7de807f213925d28ddd944e5a757c44264a96",
+      "bytes": 80214,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/d3e36c39ecf946a8-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "live-01-book-r1",
       "model": "h3",
       "prompt_id": "dfa3c720-6291-4985-aa8d-9539a482f172",
@@ -852,6 +1152,30 @@
       "bytes": 55754,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/81447da9431c9da6-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-book-r2",
+      "model": "h3",
+      "prompt_id": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8",
+      "kind": "input",
+      "path": "eb18aa99-88bd-4fa1-934b-62fc3a8093f1-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/eb18aa99-88bd-4fa1-934b-62fc3a8093f1-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-book-r2",
+      "model": "h3",
+      "prompt_id": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8",
+      "kind": "output",
+      "path": "video/msai-studio/75469783332e38c5-00_00001_.mp4",
+      "sha256": "fa927a84a67029a9ecf26906f62385e2feff4abf9ed85c25cb1144c6165033d0",
+      "bytes": 39642,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/75469783332e38c5-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -960,6 +1284,42 @@
       "bytes": 51557,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/548e05bc256154de-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-book-r2",
+      "model": "h3",
+      "prompt_id": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38",
+      "kind": "input",
+      "path": "a2e83bf3-49f7-4c60-b87d-bbeb961db790-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/a2e83bf3-49f7-4c60-b87d-bbeb961db790-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-book-r2",
+      "model": "h3",
+      "prompt_id": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38",
+      "kind": "input",
+      "path": "a2e83bf3-49f7-4c60-b87d-bbeb961db790-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/a2e83bf3-49f7-4c60-b87d-bbeb961db790-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-book-r2",
+      "model": "h3",
+      "prompt_id": "80f56ad4-f98e-4bae-8bc5-a1397fd50e38",
+      "kind": "output",
+      "path": "video/msai-studio/10c5450913cd02f0-00_00001_.mp4",
+      "sha256": "bc27b9389a402074bd559cafc6a2e2b2a0c293af1765cab1b06e6b8545fda0f8",
+      "bytes": 48830,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/10c5450913cd02f0-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -1116,6 +1476,54 @@
       "bytes": 59906,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/d5498f7156aa6445-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-book-r2",
+      "model": "h3",
+      "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+      "kind": "input",
+      "path": "bd458044-2a79-4c33-9735-4e957344e4b3-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bd458044-2a79-4c33-9735-4e957344e4b3-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-book-r2",
+      "model": "h3",
+      "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+      "kind": "input",
+      "path": "bd458044-2a79-4c33-9735-4e957344e4b3-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bd458044-2a79-4c33-9735-4e957344e4b3-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-book-r2",
+      "model": "h3",
+      "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+      "kind": "input",
+      "path": "bd458044-2a79-4c33-9735-4e957344e4b3-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/bd458044-2a79-4c33-9735-4e957344e4b3-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-book-r2",
+      "model": "h3",
+      "prompt_id": "590f506e-5b57-4107-820c-244786193ec9",
+      "kind": "output",
+      "path": "video/msai-studio/084b63720f549337-00_00001_.mp4",
+      "sha256": "62b51668220560f920d4214319646ac3ef0a7a38dc0439ba385d953ee864ca16",
+      "bytes": 55727,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/084b63720f549337-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -1443,6 +1851,66 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "live-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "kind": "input",
+      "path": "59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "kind": "input",
+      "path": "59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "kind": "input",
+      "path": "59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "kind": "input",
+      "path": "59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-3.png",
+      "sha256": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "bytes": 190281,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/59dfbe7c-aff5-4e5c-a4e2-0b8e38966753-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-04-wave-r2",
+      "model": "h3",
+      "prompt_id": "f776c6a6-e61f-436a-a063-45a5f8a50f45",
+      "kind": "output",
+      "path": "video/msai-studio/5204764b7d788044-00_00001_.mp4",
+      "sha256": "1b8c4061d6ed71b7985772ec6e8fd480959cd1c934d31f220e7f3768f5316297",
+      "bytes": 62756,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/5204764b7d788044-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "live-05-book-r1",
       "model": "h3",
       "prompt_id": "2cb5c3c4-0cfe-4dc2-8c54-773dbb6f3368",
@@ -1656,6 +2124,78 @@
       "bytes": 64415,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/3180a8f90cddf819-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "input",
+      "path": "4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "input",
+      "path": "4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "input",
+      "path": "4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "input",
+      "path": "4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-3.png",
+      "sha256": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "bytes": 190281,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "input",
+      "path": "4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-4.png",
+      "sha256": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f",
+      "bytes": 127850,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/4abe999d-b840-46b0-a0fc-d181bcdd70df-ref-4.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-05-wave-r2",
+      "model": "h3",
+      "prompt_id": "56148b65-65a7-40ed-923b-374a9d03c997",
+      "kind": "output",
+      "path": "video/msai-studio/8dde2caba95fcb01-00_00001_.mp4",
+      "sha256": "87a88991f47e48079ca906f94611ad91ec2a16f48a084762efa379bbb977fd63",
+      "bytes": 60392,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/8dde2caba95fcb01-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
