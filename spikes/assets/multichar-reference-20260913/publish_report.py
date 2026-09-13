@@ -215,6 +215,25 @@ f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) 
 '內建生圖拒絕、基礎設施錯誤、成功成像但品質不符是不同結果。`failure_category=provider_output_moderation_blocked` 表示服務輸出階段拒絕，沒有可評分圖片；不得算成人物一致性零分，也不自動改寫提示詞繞過或切換API。完整錯誤代碼與request ID保留在該筆result.json。', '',
 f'場景與角色對應可由 [prepare_cases.py]({asset}/prepare_cases.py) 重建；[gpu_runner.py]({asset}/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。', '',
 'H3 5幀取圖保存原始MP4；若音軌0.20秒短於5/24秒，現有一般影片collector會拒絕影音等長檢查。此時分別記錄provider成功與catalog失敗，從已驗證的本機journal影片取圖；不重試、不補幀、不放寬產品校驗。只有實際解出5幀才記為取圖成功。所有已完成實验的遠端輸入／輸出需有hash比對與清理收據，不能用刪整個資料夾代替。', '']
+observations=['## 目前觀察（非最終結論）', '',
+              '這是特定量化模型、參考素材與前處理工作流的比較，不是模型排行榜。以下只統計已成功成像且已評估的原生流程；執行失敗、不支援與未執行仍保留在完整分母表。', '',
+              '| 已評估條件 | Codex | Qwen | H3 |', '|---|---:|---:|---:|']
+for count,metric,label in [(1,'exact_count','單人：恰好一人的明確符合數'),
+                           (3,'reference_binding','三人：角色對應的明確符合數'),
+                           (3,'action_obedience','三人：全部動作要求的明確符合數')]:
+    cells=[]
+    for model in MODEL_NAMES:
+        group=next(g for g in quality['groups'] if g['scope']=='all_available_baseline' and g['dimension']=='count' and g['value']==count and g['model']==model)
+        metric_counts=group['metrics'][metric]
+        cells.append(f'{metric_counts["clear_pass"]}/{metric_counts["reviewed"]}' if metric_counts['reviewed'] else '未評估')
+    observations.append('| '+label+' | '+' | '.join(cells)+' |')
+observations += ['',
+    '- 人數與角色大致可辨，不代表細節、指定左右手或旁觀者動作正確；手部解剖正常也可能配錯角色。逐圖註記保留這些差異。',
+    '- 單人重複成多人是目前Qwen／H3原生流程反覆出現的失敗；不能據此斷言模型無法生成單人。原始提示詞含泛用複數表述，且Qwen第一張圖經中心裁切，皆是待分離的混雜因素。',
+    '- 一筆Qwen完整第一張參考圖的對照改善了人物細節，但只有單一案例，尚不能證明普遍改善或公平速度優勢。',
+    '- Qwen現有adapter最多3張獨立參考圖；4–5張標為不支援，沒有暗中減少圖片或改成拼貼。Codex沒有可控制seed，不能把兩張圖的差異當成嚴格同噪聲因果實驗。', '',
+    '[跳至分組評分](#分組評分明確符合數已評估數) · [跳至完整圖片對照](#圖片對照包含失败成像不做優勝挑選) · [耗時與硬體](#耗時與硬體紀錄)', '']
+lines[4:4]=observations
 (REPO/'spikes/multichar-reference-benchmark-20260913.md').write_text('\n'.join(lines)+'\n')
 # Same complete report locally, with portable links to this experiment's files.
 for filename in ['results.csv','results.json','quality-summary.json','position-control-results.json']:
