@@ -526,7 +526,7 @@
       "value": 4,
       "model": "h3",
       "arms": 12,
-      "succeeded": 2,
+      "succeeded": 3,
       "unsupported": 0,
       "metrics": {
         "exact_count": {
@@ -802,7 +802,7 @@
       "value": "book",
       "model": "h3",
       "arms": 20,
-      "succeeded": 6,
+      "succeeded": 7,
       "unsupported": 0,
       "metrics": {
         "exact_count": {
@@ -1216,7 +1216,7 @@
       "value": 1,
       "model": "h3",
       "arms": 30,
-      "succeeded": 16,
+      "succeeded": 17,
       "unsupported": 0,
       "metrics": {
         "exact_count": {

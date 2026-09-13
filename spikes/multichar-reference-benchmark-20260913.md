@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T17:56:26.392390+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T17:57:52.920912+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
-| H3 Ref2VA 5 frames | 60 | 16 | 16 | 0 | 0 | 16 |
+| H3 Ref2VA 5 frames | 60 | 17 | 17 | 0 | 0 | 16 |
 
 ### 資料完整性快照
 
@@ -44,6 +44,10 @@
 [完整檢查與失敗清單](assets/multichar-reference-20260913/evidence-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_evidence.py)
 
 早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。
+
+實際GPU工作流核查：459 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
+
+[實際工作流核查](assets/multichar-reference-20260913/workflow-audit.json) · [核查程式](assets/multichar-reference-20260913/audit_workflows.py)
 
 遠端清理獨立快照：97 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
 
@@ -121,7 +125,7 @@
 | live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/result.json) |
 | anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/result.json) |
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/result.json) |
-| anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | pending |
+| anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/result.json) |
 | live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | pending |
 | anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | pending |
 | live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | pending |
@@ -302,7 +306,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/output.png) |
 
 ### live-04-book-r1
 

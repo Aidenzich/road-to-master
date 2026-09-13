@@ -49,7 +49,7 @@ live-03-book-r1,qwen,live,3,book,1,succeeded,True,succeeded,,198.68617296218872,
 live-03-book-r1,h3,live,3,book,1,succeeded,True,failed,,408.93199372291565,True,2,1,2,1,2,固定第一帧：三人数量及左右顺序正确；银紫发与条纹制服等主要线索保留，但制服领口/领结和衣着细节改变。第一人持绿色书，第二人伸手指书，第三人观看；指向的是书缘，无法确认读者右页，第一人视线偏前，故动作仅部分符合。可见手部未见明显多指或融合。
 anime-04-book-r1,codex,anime,4,book,1,succeeded,True,,,39.6,True,2,1,2,1,2,Four correct distinct characters/order looking toward single green open book. Frieren holds it with both hands; Fern points near page edge. Loid rests hand on chin instead of all other hands lowered. Loid/Yor gloves absent and Yor hair rear styling differs. No gross hand anatomy issue; action and appearance partial.
 anime-04-book-r1,qwen,anime,4,book,1,unsupported,False,,,,False,,,,,,
-anime-04-book-r1,h3,anime,4,book,1,pending,False,,,,False,,,,,,
+anime-04-book-r1,h3,anime,4,book,1,succeeded,True,failed,,560.3170411586761,False,,,,,,
 live-04-book-r1,codex,live,4,book,1,succeeded,True,,,40.7,True,2,1,2,1,2,"Four distinct correctly ordered characters look at same green open book; Wednesday holds with both hands, Enid index near top page edge. Exact right-page contact uncertain; Bianca hands clasped low rather than hanging, Tyler hair touches top edge. Necklace omitted and Tyler sleeves adapted; appearance partial. Visible hands plausible."
 live-04-book-r1,qwen,live,4,book,1,unsupported,False,,,,False,,,,,,
 live-04-book-r1,h3,live,4,book,1,pending,False,,,,False,,,,,,
