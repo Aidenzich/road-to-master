@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T18:53:49.743125+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T19:00:37.125035+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 18 | 18 | 0 | 24 | 18 |
-| H3 Ref2VA 5 frames | 60 | 24 | 24 | 0 | 0 | 24 |
+| H3 Ref2VA 5 frames | 60 | 25 | 25 | 0 | 0 | 25 |
 
 ### 資料完整性快照
 
@@ -75,7 +75,7 @@
 | 2 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 1/6 | 4/6 |
 | 3 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 3 | Qwen Edit 2511 | 12 | 4/6 | 0/6 | 1/6 | 0/6 | 2/6 |
-| 3 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 1/4 | 3/4 |
+| 3 | H3 Ref2VA 5 frames | 12 | 5/5 | 0/5 | 5/5 | 1/5 | 4/5 |
 | 4 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 4/12 | 12/12 |
 | 4 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 4 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 0/4 | 2/4 |
@@ -85,7 +85,7 @@
 
 ### 三模型均成功且已評估的相同場景
 
-目前交集為 15 個場景。此表以成功且完成評估為條件，會排除失敗及不支援條件，存在完整案例選擇偏差；不是完整成功率或公平模型排名。尺寸、前處理、量化與seed可控性等差異仍存在。
+目前交集為 16 個場景。此表以成功且完成評估為條件，會排除失敗及不支援條件，存在完整案例選擇偏差；不是完整成功率或公平模型排名。尺寸、前處理、量化與seed可控性等差異仍存在。
 
 | 人數 | 模型 | 格數 | 數量 | 外觀 | 對應 | 動作 | 手部 |
 |---:|---|---:|---:|---:|---:|---:|---:|
@@ -95,9 +95,9 @@
 | 2 | Codex built-in | 6 | 6/6 | 5/6 | 6/6 | 2/6 | 6/6 |
 | 2 | Qwen Edit 2511 | 6 | 6/6 | 0/6 | 5/6 | 2/6 | 5/6 |
 | 2 | H3 Ref2VA 5 frames | 6 | 6/6 | 0/6 | 6/6 | 1/6 | 4/6 |
-| 3 | Codex built-in | 4 | 4/4 | 0/4 | 4/4 | 2/4 | 4/4 |
-| 3 | Qwen Edit 2511 | 4 | 4/4 | 0/4 | 1/4 | 0/4 | 1/4 |
-| 3 | H3 Ref2VA 5 frames | 4 | 4/4 | 0/4 | 4/4 | 1/4 | 3/4 |
+| 3 | Codex built-in | 5 | 5/5 | 0/5 | 5/5 | 2/5 | 5/5 |
+| 3 | Qwen Edit 2511 | 5 | 4/5 | 0/5 | 1/5 | 0/5 | 1/5 |
+| 3 | H3 Ref2VA 5 frames | 5 | 5/5 | 0/5 | 5/5 | 1/5 | 4/5 |
 | 4 | Codex built-in | 0 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 4 | Qwen Edit 2511 | 0 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 4 | H3 Ref2VA 5 frames | 0 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
@@ -133,7 +133,7 @@
 | live-01-contact-r1 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-contact-r1/result.json) |
 | anime-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-contact-r1/result.json) |
 | live-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/result.json) |
-| anime-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/result.json) | pending |
+| anime-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r1/result.json) |
 | live-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r1/result.json) | pending |
 | anime-04-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-contact-r1/result.json) | pending |
 | live-04-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-contact-r1/result.json) | pending |
@@ -370,7 +370,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r1/output.png) |
 
 ### live-03-contact-r1
 
@@ -740,7 +740,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1-reverse-position/output.png) | Loid/Fern/Frieren reversed order correct. Fern left palm meets Frieren right, Loid watches hands down, unused arms lowered. Contact above shoulder, Loid gloves missing. Broad appearance cues preserved and hands plausible. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/output.png) | not_executed |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r1/output.png) | not_executed |  |
 
 ### live-03-contact-r1-reverse-position
 
@@ -786,7 +786,7 @@
 | Qwen Edit 2511 | 5 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | H3 Ref2VA 5 frames | 1 | 119.58 [119.28–168.01] (n=6) | 16.31 [16.06–47.23] (n=6) | 15.07 [14.90–15.19] (n=6) | 128.70 [126.72–189.77] (n=6) |
 | H3 Ref2VA 5 frames | 2 | 156.70 [154.38–203.59] (n=6) | 23.23 [22.92–56.06] (n=6) | 21.59 [21.43–21.82] (n=6) | 165.37 [162.94–224.54] (n=6) |
-| H3 Ref2VA 5 frames | 3 | 401.43 [399.37–409.77] (n=4) | 30.31 [30.21–30.38] (n=4) | 28.48 [28.33–28.51] (n=4) | 410.92 [408.93–419.67] (n=4) |
+| H3 Ref2VA 5 frames | 3 | 403.02 [399.37–464.17] (n=5) | 30.34 [30.21–65.02] (n=5) | 28.49 [28.33–28.63] (n=5) | 412.81 [408.93–481.70] (n=5) |
 | H3 Ref2VA 5 frames | 4 | 538.97 [520.97–550.82] (n=4) | 119.69 [119.61–119.80] (n=4) | 113.38 [113.28–113.52] (n=4) | 549.55 [537.07–560.32] (n=4) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=4) | 124.92 [124.85–125.24] (n=4) | 118.30 [118.25–118.67] (n=4) | 597.63 [587.57–609.83] (n=4) |
 
