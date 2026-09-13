@@ -109,7 +109,7 @@ live-03-wave-r2,qwen,live,3,wave,2,succeeded,True,succeeded,,194.63597798347473,
 live-03-wave-r2,h3,live,3,wave,2,succeeded,True,failed,,436.4378778934479,True,2,1,2,1,0,Wednesday、Enid、Bianca 三人數量與左右對應保持，制服領口／徽章细节偏移。各有一手舉起，但 Enid 的手指伸出誇張黑色爪狀尖線，保留了要求捨棄的海報特效，並非自然空掌；另兩人的可見手掌相對正常。
 anime-04-wave-r2,codex,anime,4,wave,2,succeeded,True,,,42.5,True,2,1,2,2,2,"Correct four figures/order and one raised open hand per person, unused hands lowered. Loid black gloves retained this repeat; Yor gloves are short/fingerless instead of reference long gloves and dress details simplify."
 anime-04-wave-r2,qwen,anime,4,wave,2,unsupported,False,,,,False,,,,,,
-anime-04-wave-r2,h3,anime,4,wave,2,pending,False,,,,False,,,,,,
+anime-04-wave-r2,h3,anime,4,wave,2,succeeded,True,failed,,601.2916371822357,True,2,1,2,1,2,Frieren、Fern、Loid、Yor 四人左右順序及主要外觀保留。Yor 兩手同時舉起而非單手，原本長黑手套變成一側短露指手套、另一側裸手；Frieren 頸飾由紅寶石變成深色小點。其餘三人單手揮手，可見手掌大致清楚。
 live-04-wave-r2,codex,live,4,wave,2,succeeded,True,,,41.4,True,2,1,2,2,2,"Four figures correctly ordered with one open hand each and unused hands visibly lowered. Broad reference likeness/hair retained, Bianca necklace absent and Tyler restraint clothing converted to free-arm torn outfit; source clothing/pose conflict remains a confound."
 live-04-wave-r2,qwen,live,4,wave,2,unsupported,False,,,,False,,,,,,
 live-04-wave-r2,h3,live,4,wave,2,pending,False,,,,False,,,,,,

@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:29:15.915413+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:38:09.693432+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -52,7 +52,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 26 | 26 | 0 | 24 | 26 |
-| H3 Ref2VA 5 frames | 60 | 36 | 36 | 0 | 0 | 36 |
+| H3 Ref2VA 5 frames | 60 | 37 | 37 | 0 | 0 | 37 |
 
 ### 資料完整性快照
 
@@ -99,7 +99,7 @@
 | 3 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 2/8 | 5/8 |
 | 4 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 4/12 | 12/12 |
 | 4 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
-| 4 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 0/6 | 3/6 |
+| 4 | H3 Ref2VA 5 frames | 12 | 7/7 | 0/7 | 7/7 | 0/7 | 4/7 |
 | 5 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 5 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 5 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 0/6 | 2/6 |
@@ -166,7 +166,7 @@
 | live-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/result.json) |
 | anime-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r2/result.json) |
 | live-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/result.json) |
-| anime-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-wave-r2/result.json) | pending |
+| anime-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-wave-r2/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/result.json) |
 | live-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-wave-r2/result.json) | pending |
 | anime-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-05-wave-r2/result.json) | pending |
 | live-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-wave-r2/result.json) | pending |
@@ -487,7 +487,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/output.png) |
 
 ### live-04-wave-r2
 
@@ -845,11 +845,11 @@
 | Qwen Edit 2511 | reference_binding | 8/30 | 7 | 1 | 1 |
 | Qwen Edit 2511 | action_obedience | 8/30 | 5 | 3 | 0 |
 | Qwen Edit 2511 | hands_and_contacts | 8/30 | 5 | 3 | 5 |
-| H3 Ref2VA 5 frames | exact_count | 6/30 | 6 | 0 | 4 |
-| H3 Ref2VA 5 frames | appearance_preserved | 6/30 | 6 | 0 | 0 |
-| H3 Ref2VA 5 frames | reference_binding | 6/30 | 6 | 0 | 4 |
-| H3 Ref2VA 5 frames | action_obedience | 6/30 | 5 | 1 | 1 |
-| H3 Ref2VA 5 frames | hands_and_contacts | 6/30 | 5 | 1 | 3 |
+| H3 Ref2VA 5 frames | exact_count | 7/30 | 7 | 0 | 5 |
+| H3 Ref2VA 5 frames | appearance_preserved | 7/30 | 7 | 0 | 0 |
+| H3 Ref2VA 5 frames | reference_binding | 7/30 | 7 | 0 | 5 |
+| H3 Ref2VA 5 frames | action_obedience | 7/30 | 6 | 1 | 1 |
+| H3 Ref2VA 5 frames | hands_and_contacts | 7/30 | 6 | 1 | 4 |
 
 [每組配對案例與分數](assets/multichar-reference-20260913/repeat-summary.json)
 
@@ -867,7 +867,7 @@
 | H3 Ref2VA 5 frames | 1 | 119.75 [119.28–168.01] (n=8) | 16.31 [16.06–47.23] (n=8) | 15.07 [14.90–15.19] (n=8) | 127.97 [126.72–189.77] (n=8) |
 | H3 Ref2VA 5 frames | 2 | 156.11 [153.68–203.59] (n=8) | 23.17 [22.92–56.06] (n=8) | 21.60 [21.43–21.82] (n=8) | 164.09 [161.76–224.54] (n=8) |
 | H3 Ref2VA 5 frames | 3 | 406.40 [399.37–464.17] (n=8) | 30.31 [30.19–65.02] (n=8) | 28.50 [28.33–28.63] (n=8) | 416.24 [408.93–481.70] (n=8) |
-| H3 Ref2VA 5 frames | 4 | 547.42 [520.97–553.78] (n=6) | 119.74 [119.61–120.14] (n=6) | 113.45 [113.28–113.93] (n=6) | 557.41 [537.07–564.78] (n=6) |
+| H3 Ref2VA 5 frames | 4 | 549.79 [520.97–585.59] (n=7) | 119.77 [119.61–155.30] (n=7) | 113.45 [113.28–113.93] (n=7) | 558.87 [537.07–601.29] (n=7) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=6) | 125.11 [124.85–125.59] (n=6) | 118.49 [118.25–118.90] (n=6) | 595.53 [587.57–609.83] (n=6) |
 
 Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控制，不能由下表得出等算力速度比。
