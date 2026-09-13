@@ -105,7 +105,7 @@ anime-03-wave-r2,codex,anime,3,wave,2,succeeded,True,,,38.9,True,2,1,2,2,2,"Thre
 anime-03-wave-r2,qwen,anime,3,wave,2,succeeded,True,succeeded,,194.36429381370544,True,2,1,2,0,1,三人按銀髮白金服裝、紫髮黑袍、金髮綠西裝順序出現，主要角色位置可辨；Frieren 變紅眼且尖耳不見，Fern 眼色不一致，臉部比例偏移。Frieren 額外持紅杯，Fern 兩手都舉起，Loid 的手放在嘴前而非自然朝鏡頭揮手；手指輪廓狹長、掌部姿態不夠清楚。
 anime-03-wave-r2,h3,anime,3,wave,2,succeeded,True,failed,,412.597208738327,True,2,1,2,2,2,三人依 Frieren、Fern、Loid 順序站立，各自單手空掌揮手、另一臂垂下，手部大致清楚。Loid 新增原參考圖沒有的黑框眼鏡；Frieren 衣领寶石樣式略有偏移，左側手掌邊緣貼近畫面邊界。
 live-03-wave-r2,codex,live,3,wave,2,succeeded,True,,,38.4,True,2,1,2,1,2,"Wednesday, Enid, Bianca in requested order with distinct faces/hair. Bianca reference necklace missing, uniforms altered. One raised hand each, but Enid other arm appears behind Bianca rather than clearly lowered. Open hands anatomically plausible."
-live-03-wave-r2,qwen,live,3,wave,2,pending,False,,,,False,,,,,,
+live-03-wave-r2,qwen,live,3,wave,2,succeeded,True,succeeded,,194.63597798347473,True,2,0,0,0,2,三人數量成立，但左側是 Enid、中間為 Bianca 類似人物穿紫色高領服裝，右側為短黑髮另一名女子，Wednesday 無法辨識，角色順序与對應失敗。Enid 雙手揮手，右側額外拿文字書本及玻璃杯；不符合每人單手、另一手放下及空手要求。可見手掌大致清楚。
 live-03-wave-r2,h3,live,3,wave,2,succeeded,True,failed,,436.4378778934479,True,2,1,2,1,0,Wednesday、Enid、Bianca 三人數量與左右對應保持，制服領口／徽章细节偏移。各有一手舉起，但 Enid 的手指伸出誇張黑色爪狀尖線，保留了要求捨棄的海報特效，並非自然空掌；另兩人的可見手掌相對正常。
 anime-04-wave-r2,codex,anime,4,wave,2,succeeded,True,,,42.5,True,2,1,2,2,2,"Correct four figures/order and one raised open hand per person, unused hands lowered. Loid black gloves retained this repeat; Yor gloves are short/fingerless instead of reference long gloves and dress details simplify."
 anime-04-wave-r2,qwen,anime,4,wave,2,unsupported,False,,,,False,,,,,,
@@ -120,7 +120,7 @@ live-05-wave-r2,codex,live,5,wave,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Five d
 live-05-wave-r2,qwen,live,5,wave,2,unsupported,False,,,,False,,,,,,
 live-05-wave-r2,h3,live,5,wave,2,pending,False,,,,False,,,,,,
 anime-01-book-r2,codex,anime,1,book,2,succeeded,True,,,27.4,True,2,2,2,2,2,"Single Frieren, matching ears/hair/eyes/red accessories and white-gold clothing. Holds one open green book with both hands at chest, head and gaze lowered toward book; plausible hand contact."
-anime-01-book-r2,qwen,anime,1,book,2,pending,False,,,,False,,,,,,
+anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648,False,,,,,,
 anime-01-book-r2,h3,anime,1,book,2,pending,False,,,,False,,,,,,
 live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_blocked,21.3,False,,,,,,"Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
 live-01-book-r2,qwen,live,1,book,2,pending,False,,,,False,,,,,,
