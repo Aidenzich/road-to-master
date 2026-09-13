@@ -1,6 +1,7 @@
 """Export reviewed evidence to road-to-master. Never commits or pushes by itself."""
 from pathlib import Path
 import csv, hashlib, json, shutil
+from statistics import median
 from datetime import datetime, timezone
 from quality_summary import summarize
 
@@ -186,7 +187,28 @@ if position_index.exists():
             lines.append(f'| {name} | {baseline} | {output} | {notes} |')
         lines += ['']
     (DEST/'position-control-results.json').write_text(json.dumps(position_rows,indent=2,ensure_ascii=False)+'\n')
-lines += ['', '## 耗時與硬體紀錄', '',
+lines += ['', '## 耗時與硬體紀錄', '']
+if (ROOT/'timings.json').exists():
+    timing_rows=json.loads((ROOT/'timings.json').read_text())
+    case_counts={cid:json.loads((ROOT/'cases'/cid/'case.json').read_text())['count'] for cid in CASES}
+    lines += ['以下只含固定矩陣成功項目，不混入額外對照。每格為中位秒數 [最小–最大]；括號n是該欄有值的樣本數。缺失階段不填0。參考圖數與角色組合一起改變，因此不能把差值全歸因於圖數。', '',
+              '| 模型 | 人數／參考圖 | GPU工作流執行 | 採樣節點觀測（可能含載模） | 首步至末步 | runner總耗時 |',
+              '|---|---:|---|---|---|---|']
+    def timing_cell(subset,key):
+        values=[r[key] for r in subset if isinstance(r.get(key),(int,float))]
+        return f'{median(values):.2f} [{min(values):.2f}–{max(values):.2f}] (n={len(values)})' if values else '未知 (n=0)'
+    for model in ['qwen','h3']:
+        for count in range(1,6):
+            subset=[r for r in timing_rows if r['model']==model and r['state']=='succeeded' and case_counts.get(r['case_id'])==count]
+            values=[timing_cell(subset,key) for key in ['provider_execution_seconds','sampling_node_seconds','first_to_last_step_seconds','runner_seconds']]
+            lines.append(f'| {MODEL_NAMES[model]} | {count} | '+' | '.join(values)+' |')
+    lines += ['', 'Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控制，不能由下表得出等算力速度比。', '',
+              '| 人數／參考圖 | 內建工具牆鐘秒數 |','|---:|---|']
+    for count in range(1,6):
+        subset=[r for r in timing_rows if r['model']=='codex' and r['state']=='succeeded' and case_counts.get(r['case_id'])==count]
+        lines.append(f'| {count} | {timing_cell(subset,"builtin_tool_wall_seconds")} |')
+    lines += ['']
+lines += [
 f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) · [推導腳本]({asset}/summarize_timings.py)', '',
 'provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution_success；provider_queue_seconds 取服務收件 create_time 至 execution_start。sampling_node_seconds 是採樣節點觀測區間，可能包含載模，並非純 CUDA kernel 時間；first_to_last_step_seconds 不含第一步之前的準備。collection_to_saved_seconds 只在兩事件都存在時提供。Codex 僅有內建工具牆鐘時間，沒有相同階段或硬體資訊，不作等算力速度排名。VRAM 是提交前快照，不是峰值；未知值保留 null。', '',
 '## 重現與失敗歸類', '',
