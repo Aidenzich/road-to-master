@@ -20,11 +20,13 @@ codex,anime-03-wave-r2,succeeded,,38.9,,,,,,,,,,True
 codex,anime-04-book-r1,succeeded,,39.6,,,,,,,,,,True
 codex,anime-04-book-r2,succeeded,,41.2,,,,,,,,,,True
 codex,anime-04-contact-r1,succeeded,,38.0,,,,,,,,,,True
+codex,anime-04-contact-r2,succeeded,,41.8,,,,,,,,,,True
 codex,anime-04-wave-r1,succeeded,,45.7,,,,,,,,,,True
 codex,anime-04-wave-r2,succeeded,,42.5,,,,,,,,,,True
 codex,anime-05-book-r1,succeeded,,39.7,,,,,,,,,,True
 codex,anime-05-book-r2,succeeded,,41.4,,,,,,,,,,True
 codex,anime-05-contact-r1,succeeded,,45.0,,,,,,,,,,True
+codex,anime-05-contact-r2,succeeded,,39.5,,,,,,,,,,True
 codex,anime-05-wave-r1,succeeded,,44.1,,,,,,,,,,True
 codex,anime-05-wave-r2,succeeded,,43.7,,,,,,,,,,True
 codex,live-01-book-r1,succeeded,,25.0,,,,,,,,,,True
@@ -47,11 +49,13 @@ codex,live-03-wave-r2,succeeded,,38.4,,,,,,,,,,True
 codex,live-04-book-r1,succeeded,,40.7,,,,,,,,,,True
 codex,live-04-book-r2,succeeded,,41.6,,,,,,,,,,True
 codex,live-04-contact-r1,succeeded,,42.1,,,,,,,,,,True
+codex,live-04-contact-r2,succeeded,,41.1,,,,,,,,,,True
 codex,live-04-wave-r1,succeeded,,46.8,,,,,,,,,,True
 codex,live-04-wave-r2,succeeded,,41.4,,,,,,,,,,True
 codex,live-05-book-r1,succeeded,,42.3,,,,,,,,,,True
 codex,live-05-book-r2,succeeded,,42.0,,,,,,,,,,True
 codex,live-05-contact-r1,succeeded,,45.4,,,,,,,,,,True
+codex,live-05-contact-r2,succeeded,,43.5,,,,,,,,,,True
 codex,live-05-wave-r1,succeeded,,44.3,,,,,,,,,,True
 codex,live-05-wave-r2,succeeded,,41.1,,,,,,,,,,True
 h3,anime-01-book-r1,succeeded,126.71733975410461,,119.436,0.001,16.055857,14.898451,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7727116564,26a16a72-d056-47a9-bf3c-07fa22fac9c9,True
@@ -70,9 +74,11 @@ qwen,anime-01-book-r1,succeeded,134.69171619415283,,108.785,13.657,94.245341,60.
 qwen,anime-01-wave-r1,succeeded,77.32529306411743,,64.836,0.001,63.076884,61.485612,2.651338,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,5248863322,9e6a20c4-c32f-4db7-b4bb-89bf5f608e7a,True
 qwen,anime-02-book-r1,succeeded,131.54842615127563,,117.61,0.001,115.201671,112.374823,2.140981,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3834873894,0512e58a-3da3-4257-bf51-fd599ee38bd2,True
 qwen,anime-02-wave-r1,succeeded,128.99967312812805,,116.429,0.001,113.757138,110.971779,2.147755,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3942379286,30d4115d-b150-418b-8054-83bfaf2bcd88,True
+qwen,anime-03-book-r1,succeeded,194.56021881103516,,181.305,0.001,177.932243,173.296684,2.822104,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3834873894,94695f85-185e-4a0b-aff6-a9c6d2327543,True
 qwen,anime-03-wave-r1,succeeded,194.462415933609,,181.032,0.001,177.705617,173.059102,2.550299,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3832776742,c46c802d-cf3a-45cc-a53d-68f9f53d2147,True
 qwen,live-01-book-r1,succeeded,76.55363512039185,,64.617,0.001,63.042848,61.458052,2.314035,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3942379286,ba5f7806-5500-46b4-9eec-47b3afc9f3a8,True
 qwen,live-01-wave-r1,succeeded,79.6498589515686,,64.641,0.001,63.222348,61.603496,2.322979,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3832776742,6c51d41f-4c9a-4090-9597-978963c7a428,True
+qwen,live-02-book-r1,succeeded,129.79920506477356,,117.985,0.001,115.565406,112.724865,2.308948,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3834873894,5d4d8ddf-452c-4a3b-8c14-236aa43fbd5e,True
 qwen,live-02-wave-r1,succeeded,130.05111479759216,,117.717,0.001,115.269242,112.440424,2.520439,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3832776742,8eb8a6b9-675d-43f6-b1f8-85184ad166c4,True
 qwen,live-03-wave-r1,succeeded,195.5329451560974,,181.655,0.001,178.02972,173.395225,2.330711,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,4377385254,5f51146f-cb02-4c63-8773-29692f684ae4,True
 qwen-fullref,anime-02-wave-r1,succeeded,187.91384887695312,,160.184,13.676,144.608273,110.332868,2.286385,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7881343252,a1739988-555f-4e4b-829e-c14195da1163,True

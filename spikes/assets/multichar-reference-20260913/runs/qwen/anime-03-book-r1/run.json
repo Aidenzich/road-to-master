@@ -1,0 +1,30 @@
+{
+  "case_id": "anime-03-book-r1",
+  "model": "qwen",
+  "schema": "qa_multi_7af60e01498f4693910cf59dfd8ab90e",
+  "version_id": "a0392cda-5e3c-427b-867f-276cf9082c33",
+  "inputs": {
+    "prompt": "Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2. Person 3 is Loid Forger, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one open green book with both hands at chest level. Person 2 points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
+    "effective_prompt": "Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2. Person 3 is Loid Forger, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one open green book with both hands at chest level. Person 2 points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
+    "width": 768,
+    "height": 512,
+    "steps": 40,
+    "seed": 20260914,
+    "candidate_count": 1,
+    "reference_asset_ids": [
+      "60d2a669-733b-49cc-abac-a3e54d8c9123",
+      "16a8afbc-15d6-475a-ad59-cd6c58b3ed60",
+      "f96994cb-dc9c-435e-aa1a-90dc6261d345"
+    ],
+    "workflow_id": "qwen-edit-2511",
+    "model_id": "qwen-image-edit-2511",
+    "cfg_scale": 4
+  },
+  "admitted_epoch": 1789320084.944822,
+  "prequeue_wait_seconds": 0.7304892539978027,
+  "reference_hashes": [
+    "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+    "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+    "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+  ]
+}

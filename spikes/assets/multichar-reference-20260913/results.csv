@@ -39,10 +39,10 @@ anime-02-book-r1,codex,anime,2,book,1,succeeded,True,,,39.5,True,2,2,2,1,2,Corre
 anime-02-book-r1,qwen,anime,2,book,1,succeeded,True,succeeded,,131.54842615127563,True,2,1,2,1,1,"Two correctly ordered broad Frieren/Fern cues, but Frieren pointed ears absent and eyes/bangs change. Fern points at outer cover instead of right page and other hand reaches book instead of lowered. Frieren second supporting hand attachment obscured/ambiguous. Gaze mostly forward, not shared reading."
 anime-02-book-r1,h3,anime,2,book,1,pending,False,,,,False,,,,,,
 live-02-book-r1,codex,live,2,book,1,succeeded,True,,,37.6,True,2,2,2,1,2,"Correct two characters/order, facial cues and clothing. Wednesday holds green open book with both hands, Enid points toward upper page edge and both look down. Exact right-hand page contact is not fully visible from rear-of-book angle; partial action under same rubric as anime pair. No extra props or gross hand defects."
-live-02-book-r1,qwen,live,2,book,1,pending,False,,,,False,,,,,,
+live-02-book-r1,qwen,live,2,book,1,succeeded,True,succeeded,,129.79920506477356,True,2,1,2,1,2,"Two figures in Wednesday/Enid order with braids and pastel hair, but Wednesday bangs/face/makeup drift and Enid purple uniform replaced by blue sleeveless dress over white sleeves. Correct book holder/pointer broadly, exact reader-right page hidden. Visible hands plausible."
 live-02-book-r1,h3,live,2,book,1,pending,False,,,,False,,,,,,
 anime-03-book-r1,codex,anime,3,book,1,succeeded,True,,,37.9,True,2,1,2,1,2,"Three correctly ordered distinct characters look toward one open green book held by Frieren in both hands. Fern points to the page upper edge; specific right-hand page location uncertain from rear angle. Loid gloves absent, so clothing retention partial. Hands otherwise anatomically plausible; Loid hair touches upper frame boundary."
-anime-03-book-r1,qwen,anime,3,book,1,pending,False,,,,False,,,,,,
+anime-03-book-r1,qwen,anime,3,book,1,succeeded,True,succeeded,,194.56021881103516,False,,,,,,
 anime-03-book-r1,h3,anime,3,book,1,pending,False,,,,False,,,,,,
 live-03-book-r1,codex,live,3,book,1,succeeded,True,,,28.2,True,2,1,2,1,2,Three correctly ordered people look at same open green book held with both Wednesday hands; Enid index points near right-side page edge. Specific reader-right page placement not fully visible; partial action. Bianca necklace not visible; appearance otherwise recognizable. Plausible hands and no extra props.
 live-03-book-r1,qwen,live,3,book,1,pending,False,,,,False,,,,,,
@@ -167,15 +167,15 @@ anime-03-contact-r2,h3,anime,3,contact,2,pending,False,,,,False,,,,,,
 live-03-contact-r2,codex,live,3,contact,2,succeeded,True,,,56.8,True,2,1,2,1,2,"Three figures correctly ordered; Wednesday/Enid make plausible palm contact with apparent requested right/left arms. Contact is near face rather than shoulder; Bianca watches with clasped low hands. Bianca necklace missing and uniform details altered, broad identity cues retained."
 live-03-contact-r2,qwen,live,3,contact,2,pending,False,,,,False,,,,,,
 live-03-contact-r2,h3,live,3,contact,2,pending,False,,,,False,,,,,,
-anime-04-contact-r2,codex,anime,4,contact,2,pending,False,,,,False,,,,,,
+anime-04-contact-r2,codex,anime,4,contact,2,succeeded,True,,,41.8,True,2,1,2,1,2,Four figures in correct order with two separate plausible palm contacts. First pair appears correct right/left arms; second uses apparent Yor right rather than left. Contacts above shoulders. Loid gloves absent; Yor one short fingerless glove and altered dress. Unused arms lowered.
 anime-04-contact-r2,qwen,anime,4,contact,2,unsupported,False,,,,False,,,,,,
 anime-04-contact-r2,h3,anime,4,contact,2,pending,False,,,,False,,,,,,
-live-04-contact-r2,codex,live,4,contact,2,pending,False,,,,False,,,,,,
+live-04-contact-r2,codex,live,4,contact,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Four figures ordered correctly, two separate plausible palm contacts and lowered unused arms. Apparent specified right/left pairings achieved, but contacts above shoulder height. Bianca necklace missing, uniforms simplified and Tyler clothing adjusted to free arms. Broad faces/hair retained."
 live-04-contact-r2,qwen,live,4,contact,2,unsupported,False,,,,False,,,,,,
 live-04-contact-r2,h3,live,4,contact,2,pending,False,,,,False,,,,,,
-anime-05-contact-r2,codex,anime,5,contact,2,pending,False,,,,False,,,,,,
+anime-05-contact-r2,codex,anime,5,contact,2,succeeded,True,,,39.5,True,2,1,2,1,2,"Five correctly ordered figures, two distinct palm contacts, Anya watching with hands down. First pair apparent left/right instead of requested right/left; second Yor apparent right hand, height above shoulders. Loid gloves absent and Yor short gloves; broad identities retained."
 anime-05-contact-r2,qwen,anime,5,contact,2,unsupported,False,,,,False,,,,,,
 anime-05-contact-r2,h3,anime,5,contact,2,pending,False,,,,False,,,,,,
-live-05-contact-r2,codex,live,5,contact,2,pending,False,,,,False,,,,,,
+live-05-contact-r2,codex,live,5,contact,2,succeeded,True,,,43.5,True,2,1,2,1,2,"Five figures correctly ordered, two clean palm contacts with apparent requested right/left arms, Dort watches hands lowered. First pair contact above shoulder; costumes altered, Bianca necklace absent, Tyler free-arm outfit. Natural hand geometry but exact action only partial."
 live-05-contact-r2,qwen,live,5,contact,2,unsupported,False,,,,False,,,,,,
 live-05-contact-r2,h3,live,5,contact,2,pending,False,,,,False,,,,,,

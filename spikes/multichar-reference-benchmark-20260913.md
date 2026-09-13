@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T17:20:11.303607+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T17:26:06.412950+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -33,8 +33,8 @@
 
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
-| Codex built-in | 60 | 55 | 53 | 2 | 0 | 53 |
-| Qwen Edit 2511 | 60 | 9 | 9 | 0 | 24 | 9 |
+| Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
+| Qwen Edit 2511 | 60 | 11 | 11 | 0 | 24 | 10 |
 | H3 Ref2VA 5 frames | 60 | 12 | 12 | 0 | 0 | 12 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
@@ -58,8 +58,8 @@
 | anime-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-book-r1/result.json) |
 | live-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-book-r1/result.json) |
 | anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/result.json) | pending |
-| live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | pending | pending |
-| anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | pending | pending |
+| live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | pending |
+| anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | pending |
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | pending | pending |
 | anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | unsupported | pending |
 | live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | unsupported | pending |
@@ -101,10 +101,10 @@
 | live-02-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/result.json) | pending | pending |
 | anime-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/result.json) | pending | pending |
 | live-03-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/result.json) | pending | pending |
-| anime-04-contact-r2 | pending | unsupported | pending |
-| live-04-contact-r2 | pending | unsupported | pending |
-| anime-05-contact-r2 | pending | unsupported | pending |
-| live-05-contact-r2 | pending | unsupported | pending |
+| anime-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/result.json) | unsupported | pending |
+| live-04-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/result.json) | unsupported | pending |
+| anime-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/result.json) | unsupported | pending |
+| live-05-contact-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/result.json) | unsupported | pending |
 
 ## 圖片對照（包含失败成像，不做優勝挑選）
 
@@ -218,7 +218,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | 未產出／待執行 |
 
 ### anime-03-book-r1
 
@@ -226,7 +226,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | 未產出／待執行 |
 
 ### live-03-book-r1
 
@@ -531,6 +531,38 @@
 | Codex | Qwen | H3首幀 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-04-contact-r2
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-04-contact-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-04-contact-r2/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-04-contact-r2
+
+[共同要求](assets/multichar-reference-20260913/cases/live-04-contact-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-04-contact-r2/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-05-contact-r2
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-05-contact-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-05-contact-r2/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-05-contact-r2
+
+[共同要求](assets/multichar-reference-20260913/cases/live-05-contact-r2/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-05-contact-r2/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
 
 ## 單變因對照：第一張參考圖的裁切
 
