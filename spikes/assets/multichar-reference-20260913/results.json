@@ -651,13 +651,13 @@
     "catalog_state": "failed",
     "failure_category": null,
     "seconds": 126.71733975410461,
-    "reviewed": false,
-    "exact_count": null,
-    "appearance_preserved": null,
-    "reference_binding": null,
-    "action_obedience": null,
-    "hands_and_contacts": null,
-    "notes": ""
+    "reviewed": true,
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "notes": "Requested one Frieren but output has three duplicated Frieren figures, each holding a separate green book. Silver hair/ears/clothing broadly retained with neck-gem drift. Both-hand book holding plausible, gaze partly forward. Count and one-to-one reference binding clearly fail. First-frame review only."
   },
   {
     "case_id": "live-01-book-r1",

@@ -37,5 +37,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789319474.483365,
-  "review": null
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Requested one Frieren but output has three duplicated Frieren figures, each holding a separate green book. Silver hair/ears/clothing broadly retained with neck-gem drift. Both-hand book holding plausible, gaze partly forward. Count and one-to-one reference binding clearly fail. First-frame review only."
+  }
 }
