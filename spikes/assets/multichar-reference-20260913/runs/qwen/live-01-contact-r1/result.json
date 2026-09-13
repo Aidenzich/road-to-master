@@ -1,0 +1,46 @@
+{
+  "case_id": "live-01-contact-r1",
+  "model": "qwen",
+  "count": 1,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 75.09941005706787,
+  "prequeue_wait_seconds": 0.5873382091522217,
+  "submitted": true,
+  "prompt_id": "cd19be88-2167-451e-931e-d7c8639ba35a",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:39:55.105000+00:00",
+    "execution_observed": "2026-09-13T18:39:56.137812+00:00",
+    "sampling_started": "2026-09-13T18:39:56.636843+00:00",
+    "sampling_progress": "2026-09-13T18:40:59.519483+00:00",
+    "first_step_observed": "2026-09-13T18:39:58.214791+00:00",
+    "sampling_completed": "2026-09-13T18:40:59.519499+00:00",
+    "execution_completed": "2026-09-13T18:40:59.735000+00:00",
+    "collection_started": "2026-09-13T18:41:00.347926+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T18:41:02.495227+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789324865.941083,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "要求恰好一人，输出两名黑发双辫女性及两个蓝杯，数量和一对一对应失败。白领黑裙仍在，但刘海、泪痕妆、脸部外观改变，右侧裙子失去花纹。两人各自双手持杯并面向镜头，局部动作符合但人物复制成两份；全身构图不符合腰部中景。可见手部未见明确多指或融合。"
+  }
+}
