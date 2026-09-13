@@ -1,0 +1,30 @@
+{
+  "case_id": "live-03-contact-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 44.0,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "d157f070f6449358af951fa8c8fc2c423b2ba195ae0e3c592be87ea7f4ea1303",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789321489.053458,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Bianca/Enid/Wednesday reversed order correct, Enid left palm meets Wednesday right, Bianca watches with arms down. Contact above shoulder height. Bianca necklace absent and uniform details altered; broad identities distinct. Visible hands plausible."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

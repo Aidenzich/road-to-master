@@ -1,0 +1,30 @@
+{
+  "case_id": "live-02-contact-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 45.5,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "395c35db6a220c7bc8051f656b0dff869fd51d6fa6cf281d4a446bd1ea17c04e",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789321325.482492,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 2,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Enid left and Wednesday right, apparent Enid left/Wednesday right palms correctly contact with other arms lowered. Broad appearance/costume retained. Contact remains above shoulder height near face; otherwise plausible hand anatomy. Spatial reversal successful."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

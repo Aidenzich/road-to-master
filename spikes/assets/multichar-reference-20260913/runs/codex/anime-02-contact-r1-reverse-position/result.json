@@ -1,0 +1,30 @@
+{
+  "case_id": "anime-02-contact-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 27.7,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "46683df3a899810402dd2f4c7948898bd85fdd9fdbab349e80b20e5e10efa5be",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789321241.553643,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 2,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Fern left and Frieren right as requested, with apparent Fern left/Frieren right palms correctly touching. Unused arms lowered, anatomy plausible. Contact remains near face and above shoulder rather than specified height. Appearance cues retained."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T17:38:31.145167+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T17:48:00.786546+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
-| H3 Ref2VA 5 frames | 60 | 14 | 14 | 0 | 0 | 14 |
+| H3 Ref2VA 5 frames | 60 | 15 | 15 | 0 | 0 | 15 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -59,7 +59,7 @@
 | live-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-book-r1/result.json) |
 | anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/result.json) |
 | live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/result.json) |
-| anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | pending |
+| anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/result.json) |
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | pending |
 | anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | pending |
 | live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | pending |
@@ -226,7 +226,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/output.png) |
 
 ### live-03-book-r1
 
@@ -608,7 +608,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1-reverse-position/output.png) | Reversed Loid/Fern/Frieren order correct while Frieren retains book-holder role and Fern points. Loid glove absent on exposed wrist/hand and hand in pocket rather than lowered. Page target partly hidden; broad appearance retained, visible hands plausible. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | not_executed |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/output.png) | not_executed |  |
 
 ### live-03-book-r1-reverse-position
 
@@ -646,7 +646,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1-reverse-position/output.png) | Fern left and Frieren right as requested, with apparent Fern left/Frieren right palms correctly touching. Unused arms lowered, anatomy plausible. Contact remains near face and above shoulder rather than specified height. Appearance cues retained. |
 | Qwen Edit 2511 | 尚未產出 | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -656,7 +656,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1-reverse-position/output.png) | Enid left and Wednesday right, apparent Enid left/Wednesday right palms correctly contact with other arms lowered. Broad appearance/costume retained. Contact remains above shoulder height near face; otherwise plausible hand anatomy. Spatial reversal successful. |
 | Qwen Edit 2511 | 尚未產出 | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -666,7 +666,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1-reverse-position/output.png) | Loid/Fern/Frieren reversed order correct. Fern left palm meets Frieren right, Loid watches hands down, unused arms lowered. Contact above shoulder, Loid gloves missing. Broad appearance cues preserved and hands plausible. |
 | Qwen Edit 2511 | 尚未產出 | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -676,7 +676,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1-reverse-position/output.png) | Bianca/Enid/Wednesday reversed order correct, Enid left palm meets Wednesday right, Bianca watches with arms down. Contact above shoulder height. Bianca necklace absent and uniform details altered; broad identities distinct. Visible hands plausible. |
 | Qwen Edit 2511 | 尚未產出 | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -686,7 +686,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1-reverse-position/output.png) | Anya/Yor/Loid/Fern/Frieren reverse order correct with requested two pairings and Anya watching. Contacts above shoulder, some arm laterality ambiguous under turned poses. Loid only one glove, Yor short gloves/dress drift. Palm geometry plausible, unused arms mostly lowered. |
 | Qwen Edit 2511 | 尚未產出 | unsupported |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -696,7 +696,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1-reverse-position/output.png) | Dort/Tyler/Bianca/Enid/Wednesday reverse order correct, two requested pairings and Dort watching. Contact above shoulder, some apparent arm laterality differs under turned poses. Bianca necklace missing, Tyler costume altered. Contacts and hand ownership visibly coherent, unused hands down. |
 | Qwen Edit 2511 | 尚未產出 | unsupported |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
