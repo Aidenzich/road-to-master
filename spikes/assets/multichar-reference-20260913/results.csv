@@ -25,7 +25,7 @@ live-04-wave-r1,qwen,live,4,wave,1,unsupported,False,,,,False,,,,,,
 live-04-wave-r1,h3,live,4,wave,1,succeeded,True,failed,,537.0697147846222,True,2,1,2,0,1,"Four characters in requested order; broad hair and costume cues retained but Bianca necklace projects sideways and uniforms change. Wednesday raises neither hand, Enid raises both; Bianca hand overlaps Enid. Tyler waves. This is first-frame review only."
 anime-05-wave-r1,codex,anime,5,wave,1,succeeded,True,,,44.1,True,2,1,2,2,2,"Five distinct characters in correct order, Anya appropriately shorter with pink hair/black horn clips/black-gold uniform. Everyone raises one open five-fingered hand, other lowered. Loid and Yor source gloves missing; appearance details partial. No source weapons or book retained. Faces unobstructed; crop wider than waist-up to include child."
 anime-05-wave-r1,qwen,anime,5,wave,1,unsupported,False,,,,False,,,,,,
-anime-05-wave-r1,h3,anime,5,wave,1,pending,False,,,,False,,,,,,
+anime-05-wave-r1,h3,anime,5,wave,1,succeeded,True,failed,,587.5748732089996,True,2,1,2,1,1,"Five figures in correct Frieren/Fern/Loid/Yor/Anya order. Loid gains glasses absent in reference; Frieren eye/neck gem and Yor costume/gloves drift. Anya raises both hands, right image-edge hand clipped. Other four wave once. First-frame review only."
 live-05-wave-r1,codex,live,5,wave,1,succeeded,True,,,44.3,True,2,1,2,2,2,"Five distinct correctly ordered characters, one open five-fingered hand per person. Recognizable hair/makeup/clothing cues maintained including Dort mustache/suit. Bianca necklace absent and Tyler sleeves modified for waving (source outfit/action conflict). New background wall lettering appears but is not the original oversized character-poster lettering. Faces unobstructed; outer arms near frame edges."
 live-05-wave-r1,qwen,live,5,wave,1,unsupported,False,,,,False,,,,,,
 live-05-wave-r1,h3,live,5,wave,1,pending,False,,,,False,,,,,,
@@ -107,16 +107,16 @@ anime-03-wave-r2,h3,anime,3,wave,2,pending,False,,,,False,,,,,,
 live-03-wave-r2,codex,live,3,wave,2,succeeded,True,,,38.4,True,2,1,2,1,2,"Wednesday, Enid, Bianca in requested order with distinct faces/hair. Bianca reference necklace missing, uniforms altered. One raised hand each, but Enid other arm appears behind Bianca rather than clearly lowered. Open hands anatomically plausible."
 live-03-wave-r2,qwen,live,3,wave,2,pending,False,,,,False,,,,,,
 live-03-wave-r2,h3,live,3,wave,2,pending,False,,,,False,,,,,,
-anime-04-wave-r2,codex,anime,4,wave,2,pending,False,,,,False,,,,,,
+anime-04-wave-r2,codex,anime,4,wave,2,succeeded,True,,,42.5,True,2,1,2,2,2,"Correct four figures/order and one raised open hand per person, unused hands lowered. Loid black gloves retained this repeat; Yor gloves are short/fingerless instead of reference long gloves and dress details simplify."
 anime-04-wave-r2,qwen,anime,4,wave,2,unsupported,False,,,,False,,,,,,
 anime-04-wave-r2,h3,anime,4,wave,2,pending,False,,,,False,,,,,,
-live-04-wave-r2,codex,live,4,wave,2,pending,False,,,,False,,,,,,
+live-04-wave-r2,codex,live,4,wave,2,succeeded,True,,,41.4,True,2,1,2,2,2,"Four figures correctly ordered with one open hand each and unused hands visibly lowered. Broad reference likeness/hair retained, Bianca necklace absent and Tyler restraint clothing converted to free-arm torn outfit; source clothing/pose conflict remains a confound."
 live-04-wave-r2,qwen,live,4,wave,2,unsupported,False,,,,False,,,,,,
 live-04-wave-r2,h3,live,4,wave,2,pending,False,,,,False,,,,,,
-anime-05-wave-r2,codex,anime,5,wave,2,pending,False,,,,False,,,,,,
+anime-05-wave-r2,codex,anime,5,wave,2,succeeded,True,,,43.7,True,2,1,2,2,2,"Five figures in correct order including short pink-haired Anya, each waving with one hand. Loid and Yor black gloves missing; Yor dress simplified. Broad character cues remain distinct. Some unused hands occluded by bodies but arms lowered."
 anime-05-wave-r2,qwen,anime,5,wave,2,unsupported,False,,,,False,,,,,,
 anime-05-wave-r2,h3,anime,5,wave,2,pending,False,,,,False,,,,,,
-live-05-wave-r2,codex,live,5,wave,2,pending,False,,,,False,,,,,,
+live-05-wave-r2,codex,live,5,wave,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Five distinct figures in correct order, each one greeting hand. Rightmost hand reaches image edge; some unused arms disappear behind neighbours rather than clearly lowered. Bianca necklace missing; tie/crest details transfer between uniforms; Tyler clothing altered for free arm. Broad hair/face cues preserved."
 live-05-wave-r2,qwen,live,5,wave,2,unsupported,False,,,,False,,,,,,
 live-05-wave-r2,h3,live,5,wave,2,pending,False,,,,False,,,,,,
 anime-01-book-r2,codex,anime,1,book,2,pending,False,,,,False,,,,,,
