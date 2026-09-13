@@ -73,6 +73,7 @@ codex,live-05-contact-r2,succeeded,,43.5,,,,,,,,,,True
 codex,live-05-wave-r1,succeeded,,44.3,,,,,,,,,,True
 codex,live-05-wave-r2,succeeded,,41.1,,,,,,,,,,True
 h3,anime-01-book-r1,succeeded,126.71733975410461,,119.436,0.001,16.055857,14.898451,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7727116564,26a16a72-d056-47a9-bf3c-07fa22fac9c9,True
+h3,anime-01-book-r2,succeeded,126.43593502044678,,119.095,0.001,16.02094,15.023518,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7727116564,34f0edab-5102-4681-bbd5-166666f3a8f0,True
 h3,anime-01-contact-r1,succeeded,128.23930191993713,,119.727,0.001,16.305676,15.01389,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7729213716,6ebde671-cb86-45d0-8e95-9e66b26887fc,True
 h3,anime-01-wave-r1,succeeded,189.77399706840515,,168.008,11.453,47.230733,15.097279,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,4368616366,8448edcb-ce83-4cd5-839f-f4c13dec1bc5,True
 h3,anime-01-wave-r2,succeeded,127.70483922958374,,119.777,0.001,16.423557,15.130752,,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7727116564,63bc505c-00dc-4893-a3d8-fa8e2732bdf9,True
