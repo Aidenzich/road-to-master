@@ -23,7 +23,8 @@ for relative in ['plan.json','references.json','reference-receipts.json','case-i
     copy_file(relative)
 for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
                  'position-control-index.json','prepare_position_controls.py',
-                 'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py']:
+                 'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py',
+                 'audit_remote_cleanup.py','remote-cleanup-audit.json']:
     if (ROOT/relative).exists():
         copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
@@ -93,6 +94,10 @@ if (ROOT/'evidence-audit.json').exists():
               f'檢查 {len(audit["checks"])} 項，記錄 {len(audit["files"])} 個成果檔案雜湊；{len(audit["failed"])} 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。', '',
               f'[完整檢查與失敗清單]({asset}/evidence-audit.json) · [檢查程式]({asset}/audit_evidence.py)', '',
               '早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。']
+if (ROOT/'remote-cleanup-audit.json').exists():
+    remote_audit=json.loads((ROOT/'remote-cleanup-audit.json').read_text())
+    lines += ['', f'遠端清理獨立快照：{len(remote_audit["files"])} 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 {len(remote_audit["present"])}。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。', '',
+              f'[逐檔封存與遠端不存在證據]({asset}/remote-cleanup-audit.json) · [唯讀檢查程式]({asset}/audit_remote_cleanup.py)']
 lines += ['', '評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。', '',
 f'[完整CSV]({asset}/results.csv) · [JSON]({asset}/results.json) · [預登記計畫]({asset}/plan.json)', '']
 lines += ['## 分組評分（明確符合數／已評估數）', '',
