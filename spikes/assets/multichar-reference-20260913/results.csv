@@ -58,7 +58,7 @@ anime-05-book-r1,qwen,anime,5,book,1,unsupported,False,,,,False,,,,,,
 anime-05-book-r1,h3,anime,5,book,1,succeeded,True,failed,,609.8311231136322,True,2,1,2,1,2,固定第一帧：五个角色齐全且顺序正确，主要发色/耳朵/衣色可对应。Loid再次被加入黑框眼镜，Frieren颈部饰物变成金环，Yor长手套变为短手套；Anya靠右边缘。Frieren持一本绿色书，Fern指在书缘而非可见右页，其余几人的目光未明显看书，动作只部分符合。可见持书和指向手部没有明确额外手指或融合；构图比要求的腰部中景更宽。
 live-05-book-r1,codex,live,5,book,1,succeeded,True,,,42.3,True,2,1,2,1,2,Five correctly ordered recognizable figures looking toward same open green book held by Wednesday with two hands. Enid points near page top; exact reader-right page contact remains visually uncertain. Bianca necklace absent; Tyler clothing adapted into free sleeves. Visible hands plausible; outer people close to frame edges.
 live-05-book-r1,qwen,live,5,book,1,unsupported,False,,,,False,,,,,,
-live-05-book-r1,h3,live,5,book,1,pending,False,,,,False,,,,,,
+live-05-book-r1,h3,live,5,book,1,succeeded,True,failed,,602.1450679302216,True,2,1,2,1,2,固定第一帧：五人数量和左右顺序正确，主要发型、肤色及服装色块可对应。Tyler颈部装置变为耳机样式，Dort外套加入校徽，制服配件有改变。第一人持一本绿色书，第二人伸手到书边，其他人朝书的方向看；手指被书遮住，不能确认指向读者右页，第一人视线也未明确落在页上，因此动作部分符合。可见手部未见确定多指或融合；构图比要求的腰部中景更宽。
 anime-01-contact-r1,codex,anime,1,contact,1,succeeded,True,,,26.0,True,2,2,2,2,2,Exactly one Frieren retaining key hair/ears/eyes/earrings/neck gem and outfit. Holds single plain blue mug with both hands at chest and looks toward camera. Handle grip and other hand on cup plausible; no source book.
 anime-01-contact-r1,qwen,anime,1,contact,1,pending,False,,,,False,,,,,,
 anime-01-contact-r1,h3,anime,1,contact,1,pending,False,,,,False,,,,,,
