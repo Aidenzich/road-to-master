@@ -14,7 +14,8 @@ VL 編碼裝置與異質批次效能。結果限於本報告的模型版本、�
   GPU 編碼配置縮短 64.1%，主要來自編碼。CPU 配置 batch 2 對配對暖單張只縮短 0.93%。
 - **指定編輯多能成立，身份與幾何細節仍會漂移。** 35 張人物／物體研究與獨立五張合照／
   局部編輯實驗，觀察到構圖拉近、臉部／服裝／眼鏡細節變動；CFG 沒有通用最佳值。
-- **限制：** 單輪、有限 seed、512px、無盲評或身份分數；部分視角測試受 glasses 模板措辭干擾。
+- **三參考圖串行降級能完成，但主體數量未達標。** 576×384、12 steps、CFG 4，四個 batch 1 候選皆產出，但目視皆未完整呈現三個獨立紅／藍／綠玩具；容量成功不是品質通過。
+- **限制：** 單輪、有限 seed、主要為 512px（三圖降級組為 576×384）、無盲評或身份分數；部分視角測試受 glasses 模板措辭干擾。
   不據此作模型排名、FP8 品質歸因或正式部署驗收。
 
 ### 實驗分組與閱讀順序
@@ -26,7 +27,8 @@ VL 編碼裝置與異質批次效能。結果限於本報告的模型版本、�
 | 品質判讀與方法依據 | prompt 干擾、證據索引、官方實作與文獻 | 結果有效性與解釋界線 | 8–10 |
 | 人物／物體編輯 | 6 張參考＋29 張編輯，batch 1 | CFG、角度、背景、服裝及眼鏡 | 11 |
 | 雙人物合照與局部編輯 | 2 張參考＋3 張編輯，batch 1 | 多參考圖合成與身份保留 | 12 |
-| 結論與待驗證項目 | 已測範圍及限制 | 可採用結論與後續實驗 | 13 |
+| 三參考圖串行降級 | 3 張合成參考＋4 張候選，逐張 batch 1 | 容量與三主體合成品質 | 13 |
+| 結論與待驗證項目 | 已測範圍及限制 | 可採用結論與後續實驗 | 14 |
 
 ## 1. Batch 指的是什麼
 
@@ -535,7 +537,55 @@ Euler/simple、denoise 1、shift 3.1、CFGNorm 1，無外部 LoRA。指定尺寸
 沒有重生成或美化。遠端五個輸出、兩個 input 已清理，本機原件仍保留。
 本組共五張，與第 11 節的 35 張分開計數。
 
-## 13. 結論與待驗證項目
+## 13. 三參考圖串行降級：容量與合成品質
+
+本組使用三張合成玩具圖，而非三位人物的公園合照。目的是確認三參考图的低記憶體候選工作流能否完成，另以目視檢查三主體是否完整呈現。四個候選共用相同 prompt／參考圖，**不是異質 batch 4，也不是單個 sampler 的 batch 4**。
+
+### 配置、耗時與驗證範圍
+
+| 項目 | 實測 |
+|---|---|
+| 硬體／服務 | RTX 5090；Docker ComfyUI；圖片一般 GPU 記憶體策略，未啟用 lowvram |
+| 模型 | Qwen Image Edit 2511 FP8 mixed；Qwen 2.5 VL 7B FP8 scaled，device=default |
+| 輸入／輸出 | 三張紅／藍／綠參考圖；576×384，共四張輸出 |
+| 採樣 | Euler / simple，12 steps，CFG 4 |
+| 種子 | 20260913、20260914、20260915、20260916 |
+| 執行方式 | 四個 batch=1 KSampler，共用原始參考 latent／conditioning，不把上一張生成圖餵給下一張 |
+| ComfyUI 工作流 | 204.16 秒，provider log；不是純採樣時間 |
+| runner 至結果保存 | 219.16 秒；不等同工作流事件區間 |
+| 執行結果 | 四張產出且匯入成功；不代表主體保留通過 |
+
+背景容量事件為 768×512、三參考圖、batch 4、CFG 4、12 steps，在第一個 KSampler 步驟 OOM。本組直接測試 576×384／serial4 的降級工作流，沒有再觸發原始 OOM，也沒有相同尺寸的 batch 4 對照。因此無法分離降低尺寸與串行化各自的貢獻，更不能用 204.16 秒與第 7 節不同尺寸／步數的 batch 4 推導加速比。
+
+OOM 觸發、最多一次自動重試及恢復後不得第三次提交，由程式故障注入測試覆蓋，不冒充本組的真 GPU 端到端驗證。候選數維持四張，但降級尺寸與逐張 seed 策略不保證復現原批次圖像。
+
+### 參考圖與實際 prompt
+
+| Image 1：紅色 | Image 2：藍色 | Image 3：綠色 |
+|---|---|---|
+| ![紅色參考](assets/qwen-image-edit-2511/three-ref-input-1.png) | ![藍色參考](assets/qwen-image-edit-2511/three-ref-input-2.png) | ![綠色參考](assets/qwen-image-edit-2511/three-ref-input-3.png) |
+
+```text
+Place the red toy from image 1, blue toy from image 2 and green toy from image 3 side by side on a white table. Keep their colors.
+```
+
+### 四張生成結果
+
+| 候選 1 · Seed 20260913 | 候選 2 · Seed 20260914 |
+|---|---|
+| ![候選 1](assets/qwen-image-edit-2511/three-ref-output-1.png) | ![候選 2](assets/qwen-image-edit-2511/three-ref-output-2.png) |
+| 藍色與綠色兩個主體，未見獨立紅色玩具。 | 兩個主要玩具，紅／藍／綠混用於不同部位，非三個分別對應的主體。 |
+
+| 候選 3 · Seed 20260915 | 候選 4 · Seed 20260916 |
+|---|---|
+| ![候選 3](assets/qwen-image-edit-2511/three-ref-output-3.png) | ![候選 4](assets/qwen-image-edit-2511/three-ref-output-4.png) |
+| 藍色與紅色兩個主體，未見獨立綠色玩具。 | 前景藍色與綠色兩個主體；背景紅色物件不是第三個並排玩具。 |
+
+**目視結論：四張都沒有完整達成三個獨立紅／藍／綠玩具並排，外形也有明顯變化。容量／執行驗證通過，三主體合成品質未通過。** 本輪不足以歸因於模型能力、低 steps、參考图接線或其他配置，也不是人物身份一致性實驗。
+
+來源：`isuper/sample/veritas-qwen-memory-20260913/`。`run.json` 保存參數，`result.json` 保存事件與輸出雜湊，`cleanup.json` 保存清理憑證。三個遠端 input／四個 output 已清理，隔離資料庫 schema 已移除；本機原件保留。本節七張 PNG 與來源逐檔 byte compare 相同，沒有重生成或美化。
+
+## 14. 結論與待驗證項目
 
 1. 將 tracing identity 與內容快取分離；比較編碼 cache miss／hit，保留正確的計時歸屬。
 2. 實測每個 step 的模型 forward 次數、有效 batch shape、CFG 分組及 kernel／搬運時間。
