@@ -18,7 +18,7 @@ def copy_file(relative):
     target.parent.mkdir(parents=True,exist_ok=True)
     shutil.copyfile(source,target)
 
-for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','publish_report.py']:
+for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
     if reference['state']=='downloaded':

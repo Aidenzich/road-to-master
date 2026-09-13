@@ -1,0 +1,25 @@
+{
+  "case_id": "live-05-wave-r1",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 44.3,
+  "width": 1536,
+  "height": 1024,
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "cleanup_scope": "Local output saved; no 5090 files created. Built-in provider retention unknown.",
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "notes": "Five distinct correctly ordered characters, one open five-fingered hand per person. Recognizable hair/makeup/clothing cues maintained including Dort mustache/suit. Bianca necklace absent and Tyler sleeves modified for waving (source outfit/action conflict). New background wall lettering appears but is not the original oversized character-poster lettering. Faces unobstructed; outer arms near frame edges."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-50c35894-8628-46e0-a995-764b8d52b358-ref-1.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-50c35894-8628-46e0-a995-764b8d52b358-ref-2.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-50c35894-8628-46e0-a995-764b8d52b358-ref-3.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "output",
+      "path": "video/msai-studio/3cb7d889fa8ad961-00_00001_.png",
+      "state": "deleted"
+    }
+  ],
+  "prompt_id": "c46c802d-cf3a-45cc-a53d-68f9f53d2147"
+}
