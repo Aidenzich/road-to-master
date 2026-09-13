@@ -1,0 +1,30 @@
+{
+  "case_id": "anime-05-book-r1",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 39.7,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "c029ebe1dbfdaea79d523fd0e35c19d8f2c8e0c9f2ff5c57be045795ea5c9963",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789316526.275658,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Five distinct correctly ordered characters; one green open book held by Frieren, Fern points at page edge. Loid hand on chin and Anya both fists raised violate other-hands-lowered; Anya gaze toward group rather than clear book target. Loid gloves retained this time, Yor gloves shortened/open-finger. Broad character traits preserved, fine costume/action partial. Hands plausible."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

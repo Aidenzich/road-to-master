@@ -1,0 +1,46 @@
+{
+  "case_id": "live-01-book-r2",
+  "model": "qwen",
+  "count": 1,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 2,
+  "seed": 20260915,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 75.50440788269043,
+  "prequeue_wait_seconds": 0.8379199504852295,
+  "submitted": true,
+  "prompt_id": "00e47356-0b94-4816-ad14-5b7d29916818",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T20:26:12.843000+00:00",
+    "execution_observed": "2026-09-13T20:26:13.820395+00:00",
+    "sampling_started": "2026-09-13T20:26:14.150287+00:00",
+    "sampling_progress": "2026-09-13T20:27:17.502899+00:00",
+    "first_step_observed": "2026-09-13T20:26:15.813226+00:00",
+    "sampling_completed": "2026-09-13T20:27:17.502992+00:00",
+    "execution_completed": "2026-09-13T20:27:17.599000+00:00",
+    "collection_started": "2026-09-13T20:27:18.001277+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T20:27:20.344172+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789331243.85164,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "單人 Wednesday 條件生成兩名黑辮白領黑裙女子，各自雙手持一本綠書低頭閱讀；人數與書本數不符。瀏海及淚痕妝未保留、臉部特徵偏移；持書手部大致清楚。"
+  }
+}

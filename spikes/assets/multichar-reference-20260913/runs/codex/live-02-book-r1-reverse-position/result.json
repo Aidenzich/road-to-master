@@ -1,0 +1,30 @@
+{
+  "case_id": "live-02-book-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 40.7,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "4c3baf6b033ed6321f37a89038be0c6e5ecaa2b0cd50689ccfd61895947ba536",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789320669.2645812,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Enid left, Wednesday right as requested despite unchanged upload order. Wednesday still holds book both hands; Enid points toward page, both look down. Exact page contact partly hidden. Enid jacket cropped relative to reference; broad faces/hair/makeup retained, hands plausible."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

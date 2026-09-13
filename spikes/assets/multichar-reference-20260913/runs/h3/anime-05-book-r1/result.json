@@ -1,0 +1,43 @@
+{
+  "case_id": "anime-05-book-r1",
+  "model": "h3",
+  "count": 5,
+  "action": "book",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 609.8311231136322,
+  "prequeue_wait_seconds": 0.8870060443878174,
+  "submitted": true,
+  "prompt_id": "4cdee060-8dc8-43a4-a1f4-3ff5afd909ed",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:07:27.510000+00:00",
+    "execution_observed": "2026-09-13T18:07:28.704604+00:00",
+    "sampling_started": "2026-09-13T18:15:12.732236+00:00",
+    "sampling_progress": "2026-09-13T18:17:17.969442+00:00",
+    "first_step_observed": "2026-09-13T18:15:19.300435+00:00",
+    "sampling_completed": "2026-09-13T18:17:17.969495+00:00",
+    "execution_completed": "2026-09-13T18:17:19.857000+00:00",
+    "collection_started": "2026-09-13T18:17:20.340453+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789323446.451243,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：五个角色齐全且顺序正确，主要发色/耳朵/衣色可对应。Loid再次被加入黑框眼镜，Frieren颈部饰物变成金环，Yor长手套变为短手套；Anya靠右边缘。Frieren持一本绿色书，Fern指在书缘而非可见右页，其余几人的目光未明显看书，动作只部分符合。可见持书和指向手部没有明确额外手指或融合；构图比要求的腰部中景更宽。"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "anime-02-book-r2",
+  "model": "qwen",
+  "state": "not_executed",
+  "submitted": false,
+  "cleanup_complete": true,
+  "cleanup_not_applicable": true,
+  "review": null,
+  "notes": "User requested wrap-up; no provider submission was made.",
+  "admission_closed_epoch": 1789335448.279905
+}

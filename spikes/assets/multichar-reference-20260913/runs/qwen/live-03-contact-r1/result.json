@@ -1,0 +1,46 @@
+{
+  "case_id": "live-03-contact-r1",
+  "model": "qwen",
+  "count": 3,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 194.44177794456482,
+  "prequeue_wait_seconds": 0.7323970794677734,
+  "submitted": true,
+  "prompt_id": "03536964-d8f5-4360-b68f-829ca97018b8",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:48:49.216000+00:00",
+    "execution_observed": "2026-09-13T18:48:50.180176+00:00",
+    "sampling_started": "2026-09-13T18:48:52.523901+00:00",
+    "sampling_progress": "2026-09-13T18:51:50.756939+00:00",
+    "first_step_observed": "2026-09-13T18:48:57.183687+00:00",
+    "sampling_completed": "2026-09-13T18:51:50.757002+00:00",
+    "execution_completed": "2026-09-13T18:51:51.115000+00:00",
+    "collection_started": "2026-09-13T18:51:51.627522+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T18:51:53.935705+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789325517.441447,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 0,
+    "reference_binding": 0,
+    "action_obedience": 0,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "要求三人但只有两人：紫发制服人物在左，右侧深肤色人物混入Wednesday式双辫与黑色花纹衣着，独立的Wednesday缺失。数量、身份/衣着对应失败。击掌发生在这两人之间，缺少指定的Wednesday/Enid配对和第三名旁观者，动作角色分配失败；接触也高于肩部。可见掌心接触与手臂归属较清楚，未见确定多指或融合。"
+  }
+}

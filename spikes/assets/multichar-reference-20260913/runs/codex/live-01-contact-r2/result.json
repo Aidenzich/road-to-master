@@ -1,0 +1,12 @@
+{
+  "case_id": "live-01-contact-r2",
+  "model": "codex",
+  "state": "not_executed",
+  "submitted": false,
+  "outputs": [],
+  "review": null,
+  "failure_category": null,
+  "notes": "The first repeat of this identical prompt/reference condition was rejected at provider output moderation. This planned repeat was not submitted; no rewrite or alternate API attempted. Excluded from submitted and visual-quality denominators.",
+  "cleanup_complete": true,
+  "cleanup_scope": "No submission and no remote files."
+}

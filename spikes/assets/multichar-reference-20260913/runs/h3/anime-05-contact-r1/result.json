@@ -1,0 +1,43 @@
+{
+  "case_id": "anime-05-contact-r1",
+  "model": "h3",
+  "count": 5,
+  "action": "contact",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 588.8140301704407,
+  "prequeue_wait_seconds": 0.8789749145507812,
+  "submitted": true,
+  "prompt_id": "1a256db1-2ce5-4c25-b040-8413ada86fca",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T19:26:21.237000+00:00",
+    "execution_observed": "2026-09-13T19:26:22.373634+00:00",
+    "sampling_started": "2026-09-13T19:33:52.725262+00:00",
+    "sampling_progress": "2026-09-13T19:35:58.142906+00:00",
+    "first_step_observed": "2026-09-13T19:33:59.247451+00:00",
+    "sampling_completed": "2026-09-13T19:35:58.142974+00:00",
+    "execution_completed": "2026-09-13T19:36:00.157000+00:00",
+    "collection_started": "2026-09-13T19:36:00.613297+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789328166.316301,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：五人数量及顺序保留，主要角色线索可对应，Frieren颈饰改变、Yor长手套缩短。指定Frieren/Fern及Loid/Yor两组掌心接触未成立，多只手空举，反而中间Fern/Loid出现接触；Frieren仍拿书，Anya也伸手靠近Yor而非明确旁观手放下。动作分配失败。右侧人物贴边，低处手指与相邻角色接近重叠，无法完整核验手部，记部分符合。"
+  }
+}

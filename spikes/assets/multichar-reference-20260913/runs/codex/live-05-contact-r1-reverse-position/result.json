@@ -1,0 +1,30 @@
+{
+  "case_id": "live-05-contact-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 41.6,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "15678a3a6f4d487f17cc539263503dc9a352246c5d187ed16701ee17d10edc16",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789321657.4856372,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Dort/Tyler/Bianca/Enid/Wednesday reverse order correct, two requested pairings and Dort watching. Contact above shoulder, some apparent arm laterality differs under turned poses. Bianca necklace missing, Tyler costume altered. Contacts and hand ownership visibly coherent, unused hands down."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

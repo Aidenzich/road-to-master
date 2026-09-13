@@ -1,0 +1,46 @@
+{
+  "case_id": "anime-02-wave-r1",
+  "model": "qwen",
+  "count": 2,
+  "action": "wave",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 128.99967312812805,
+  "prequeue_wait_seconds": 0.6891100406646729,
+  "submitted": true,
+  "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T15:46:52.395000+00:00",
+    "execution_observed": "2026-09-13T15:46:53.394038+00:00",
+    "sampling_started": "2026-09-13T15:46:54.753207+00:00",
+    "sampling_progress": "2026-09-13T15:48:48.510317+00:00",
+    "first_step_observed": "2026-09-13T15:46:57.538566+00:00",
+    "sampling_completed": "2026-09-13T15:48:48.510345+00:00",
+    "execution_completed": "2026-09-13T15:48:48.824000+00:00",
+    "collection_started": "2026-09-13T15:48:50.392248+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T15:48:52.540003+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789314535.996109,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Two characters in correct left-to-right order with recognizable silver/purple hair and clothes; both raise open five-finger hands. Frieren face and eye color differ, pointed ears are not visibly retained. Output is thigh-up rather than requested waist-up. First-reference center-crop in the native adapter is a potential conditioning confound, not a proven cause."
+  }
+}

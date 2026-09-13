@@ -1,0 +1,43 @@
+{
+  "case_id": "live-05-contact-r1",
+  "model": "h3",
+  "count": 5,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 597.9500889778137,
+  "prequeue_wait_seconds": 1.3318979740142822,
+  "submitted": true,
+  "prompt_id": "af176705-e215-446c-baf3-f71b41271644",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T19:36:15.428000+00:00",
+    "execution_observed": "2026-09-13T19:36:16.392015+00:00",
+    "sampling_started": "2026-09-13T19:43:55.350687+00:00",
+    "sampling_progress": "2026-09-13T19:46:00.938270+00:00",
+    "first_step_observed": "2026-09-13T19:44:02.061569+00:00",
+    "sampling_completed": "2026-09-13T19:46:00.938342+00:00",
+    "execution_completed": "2026-09-13T19:46:02.886000+00:00",
+    "collection_started": "2026-09-13T19:46:03.987577+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789328769.440355,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "五人依序可辨識，數量與站位保持；服裝剪裁、校徽與 Tyler 的頸部物件有偏移。Enid 兩手舉起並與兩側形成接觸，非僅第一組擊掌；Bianca 與 Tyler 的指定第二組接觸未清楚成立，Dort 也舉手而非旁觀。重疊掌部接觸邊界難判，不能當作兩組正確手掌配對。"
+  }
+}

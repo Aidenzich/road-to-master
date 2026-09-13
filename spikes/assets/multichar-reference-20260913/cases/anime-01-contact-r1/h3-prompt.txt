@@ -1,0 +1,18 @@
+subject_definitions:
+<Subject 1> is Frieren, the character shown in <Picture 1>.
+
+summary:
+[reference generation] The referenced characters share one friendly library scene.
+
+retention_analysis:
+<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.
+
+detailed_description:
+[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 1 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> holds one plain blue ceramic mug with both hands at chest level, looking toward the camera. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.
+0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.
+
+overall_soundscape:
+Quiet library room tone. Nobody speaks.
+
+non_diegetic_music:
+N/A

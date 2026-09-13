@@ -1,0 +1,25 @@
+{
+  "case_id": "live-03-wave-r1",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 41.8,
+  "width": 1536,
+  "height": 1024,
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "cleanup_scope": "Local copy verified by image decode; no 5090 files created. Built-in provider retention unknown.",
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "notes": "Three distinct correctly ordered characters with one open five-finger hand raised each. Wednesday braids/tear makeup/dress, Enid lilac hair/uniform and Bianca short hair/gray eyes/uniform retained. Bianca source necklace is not visible; clothing-detail retention is partial. No copied large poster letters."
+  }
+}

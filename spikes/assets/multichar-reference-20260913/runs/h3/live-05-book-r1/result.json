@@ -1,0 +1,43 @@
+{
+  "case_id": "live-05-book-r1",
+  "model": "h3",
+  "count": 5,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 602.1450679302216,
+  "prequeue_wait_seconds": 0.870344877243042,
+  "submitted": true,
+  "prompt_id": "2cb5c3c4-0cfe-4dc2-8c54-773dbb6f3368",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:17:41.546000+00:00",
+    "execution_observed": "2026-09-13T18:17:42.572588+00:00",
+    "sampling_started": "2026-09-13T18:25:20.682199+00:00",
+    "sampling_progress": "2026-09-13T18:27:25.528434+00:00",
+    "first_step_observed": "2026-09-13T18:25:27.219123+00:00",
+    "sampling_completed": "2026-09-13T18:27:25.528510+00:00",
+    "execution_completed": "2026-09-13T18:27:27.384000+00:00",
+    "collection_started": "2026-09-13T18:27:27.858134+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789324053.297611,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：五人数量和左右顺序正确，主要发型、肤色及服装色块可对应。Tyler颈部装置变为耳机样式，Dort外套加入校徽，制服配件有改变。第一人持一本绿色书，第二人伸手到书边，其他人朝书的方向看；手指被书遮住，不能确认指向读者右页，第一人视线也未明确落在页上，因此动作部分符合。可见手部未见确定多指或融合；构图比要求的腰部中景更宽。"
+  }
+}

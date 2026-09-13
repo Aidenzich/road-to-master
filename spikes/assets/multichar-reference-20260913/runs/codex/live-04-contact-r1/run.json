@@ -1,0 +1,25 @@
+{
+  "case_id": "live-04-contact-r1",
+  "model": "codex-built-in",
+  "state": "submitting",
+  "started_epoch": 1789317172.449347,
+  "prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2. Person 3 is Bianca Barclay, the character in reference image 3. Person 4 is Tyler Galpin, the character in reference image 4.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 4 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3, Person 4. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 and Person 2 face slightly toward each other, gently touching Person 1's right palm to Person 2's left palm in a held high-five at shoulder height. Person 3 and Person 4 do a separate held high-five, Person 3's right palm touching Person 4's left palm. Each paired person keeps the unused hand lowered. Every hand clearly belongs to its own person. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.\nPlease produce one landscape image with a 3:2 aspect ratio.",
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg",
+    "references/bianca.jpg",
+    "references/tyler.jpg"
+  ],
+  "reference_hashes": [
+    "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+    "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+    "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+    "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+  ],
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "tool": "image_gen",
+  "requested_aspect_ratio": "3:2",
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
+}

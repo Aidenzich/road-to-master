@@ -1,0 +1,43 @@
+{
+  "case_id": "anime-04-wave-r1",
+  "model": "h3",
+  "count": 4,
+  "action": "wave",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 543.1475119590759,
+  "prequeue_wait_seconds": 0.8120110034942627,
+  "submitted": true,
+  "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T16:31:11.538000+00:00",
+    "execution_observed": "2026-09-13T16:31:12.713896+00:00",
+    "sampling_started": "2026-09-13T16:38:02.719512+00:00",
+    "sampling_progress": "2026-09-13T16:40:02.434081+00:00",
+    "first_step_observed": "2026-09-13T16:38:09.131269+00:00",
+    "sampling_completed": "2026-09-13T16:40:02.434128+00:00",
+    "execution_completed": "2026-09-13T16:40:04.423000+00:00",
+    "collection_started": "2026-09-13T16:40:04.876029+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789317610.986351,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Four distinct correctly ordered figures with broad hair/clothing cues and one waving hand each. Loid unused arm hidden behind back rather than lowered; eye design strongly altered. Yor dress/gloves simplified and neckline gem changes on Frieren. Raised hands show no gross extra limb defect at output scale. Wider framing and plain wall with minimal bookshelf. Fixed first frame reviewed."
+  }
+}

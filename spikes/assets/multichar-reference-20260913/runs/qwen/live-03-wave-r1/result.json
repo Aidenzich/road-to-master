@@ -1,0 +1,46 @@
+{
+  "case_id": "live-03-wave-r1",
+  "model": "qwen",
+  "count": 3,
+  "action": "wave",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 195.5329451560974,
+  "prequeue_wait_seconds": 0.7259628772735596,
+  "submitted": true,
+  "prompt_id": "5f51146f-cb02-4c63-8773-29692f684ae4",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T16:05:33.008000+00:00",
+    "execution_observed": "2026-09-13T16:05:34.026757+00:00",
+    "sampling_started": "2026-09-13T16:05:36.335412+00:00",
+    "sampling_progress": "2026-09-13T16:08:34.365065+00:00",
+    "first_step_observed": "2026-09-13T16:05:40.969907+00:00",
+    "sampling_completed": "2026-09-13T16:08:34.365132+00:00",
+    "execution_completed": "2026-09-13T16:08:34.663000+00:00",
+    "collection_started": "2026-09-13T16:08:35.870587+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T16:08:38.201298+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789315721.810049,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 0,
+    "reference_binding": 0,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Three figures, but left character blends Bianca skin/eyes with purple bun; center resembles Enid but altered tuxedo; right unrelated dark double-bun hairstyle and gray coat replaces Wednesday. Required order lost. Right figure holds unrequested mug instead of greeting, center hand clawed rather than open wave. Hand geometry/ownership partly uncertain. Count alone passes."
+  }
+}

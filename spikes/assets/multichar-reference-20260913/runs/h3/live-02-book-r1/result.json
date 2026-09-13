@@ -1,0 +1,43 @@
+{
+  "case_id": "live-02-book-r1",
+  "model": "h3",
+  "count": 2,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 166.61594820022583,
+  "prequeue_wait_seconds": 0.7262709140777588,
+  "submitted": true,
+  "prompt_id": "654048a8-f9ff-4700-aa9b-6a2bd03e6096",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T17:31:55.665000+00:00",
+    "execution_observed": "2026-09-13T17:31:56.869934+00:00",
+    "sampling_started": "2026-09-13T17:34:07.745766+00:00",
+    "sampling_progress": "2026-09-13T17:34:30.850855+00:00",
+    "first_step_observed": "2026-09-13T17:34:09.389642+00:00",
+    "sampling_completed": "2026-09-13T17:34:30.850949+00:00",
+    "execution_completed": "2026-09-13T17:34:32.892000+00:00",
+    "collection_started": "2026-09-13T17:34:33.889876+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789320879.318336,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Wednesday left and Enid right, one green book broadly held by Wednesday. Enid hands hidden behind book rather than visibly pointing with index finger; Wednesday gaze forward. Overlapping supporting hands make ownership uncertain. Uniform details change; broad hair/makeup cues retained. First-frame review only."
+  }
+}

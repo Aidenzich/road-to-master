@@ -1,0 +1,10 @@
+{
+  "qwen-fullref": {
+    "reason": "Baseline Qwen first reference is center-cropped to output aspect ratio before both positive/negative conditioning; original official image includes a near-top face.",
+    "hypothesis": "Using the uncropped first image for conditioning may preserve visible character traits better.",
+    "confirmed_cause": false,
+    "only_graph_changes": {"7.inputs.image1": ["21",0], "8.inputs.image1": ["21",0]},
+    "unchanged": ["reference files/order", "prompt", "seed", "steps", "cfg", "output dimensions", "latent sizing", "models", "sampler", "scheduler"],
+    "case_ids": ["anime-02-wave-r1", "live-02-wave-r1"]
+  }
+}

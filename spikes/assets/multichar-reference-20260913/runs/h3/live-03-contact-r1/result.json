@@ -1,0 +1,43 @@
+{
+  "case_id": "live-03-contact-r1",
+  "model": "h3",
+  "count": 3,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 431.4491801261902,
+  "prequeue_wait_seconds": 0.7648866176605225,
+  "submitted": true,
+  "prompt_id": "ce3b617c-57d8-4291-8834-e5a3392073ba",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T19:00:10.588000+00:00",
+    "execution_observed": "2026-09-13T19:00:11.599466+00:00",
+    "sampling_started": "2026-09-13T19:06:40.735162+00:00",
+    "sampling_progress": "2026-09-13T19:07:11.295702+00:00",
+    "first_step_observed": "2026-09-13T19:06:42.691424+00:00",
+    "sampling_completed": "2026-09-13T19:07:11.295759+00:00",
+    "execution_completed": "2026-09-13T19:07:13.260000+00:00",
+    "collection_started": "2026-09-13T19:07:14.329500+00:00"
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789326439.8138618,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：三人数量及左右顺序正确，主要黑辫/紫发/短发与服装色块可对应，制服领结及衣着细节改变。Enid两手都抬起，Bianca本应旁观且手放下，却抬手牵起细带/饰物，与右侧手掌的关系不清；违反只由前两人接触、其他手放下的要求，动作分配失败。右侧手/饰物与相邻手掌重叠，不能可靠核验接触关系，手部记部分符合。"
+  }
+}

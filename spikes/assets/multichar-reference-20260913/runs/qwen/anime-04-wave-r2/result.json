@@ -1,0 +1,7 @@
+{
+  "case_id": "anime-04-wave-r2",
+  "model": "qwen",
+  "state": "unsupported",
+  "reason": "Native adapter accepts at most 3 separate references",
+  "submitted": false
+}
