@@ -204,13 +204,71 @@ Preserve ... all accessories including any glasses ...
 原先五組人物／多角度／CFG 實驗另外完成 18／35 張，剩下 17 張尚未由本腳本自動接續。
 這輪 batch 對照不自動算入那 17 張，也不能宣稱原研究全部結束。
 
-## 9. 下一步：建議而非已完成
+## 9. 官方實作與研究補充：同圖多候選不等於異質 batch
+
+查核日期：2026-09-13。以下是外部文件／原始碼的證據，不是新增 GPU 實驗；
+不可用來回填本轮尚未量測的效能或解釋成已證明的瓶頸。
+
+### 官方 Qwen pipeline 的兩種 batch 語意
+
+[Qwen 2511 模型卡](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) 使用
+`QwenImageEditPlusPipeline`，其多張 `image` 範例是同一個編輯任務的多個參考來源，
+不是每張圖片各自配一個獨立 prompt 的異質 batch。
+
+查核的 [Diffusers 固定版本原始碼](https://github.com/huggingface/diffusers/blob/0d32f8054438fd38204ae2d46155d2c971c90da5/src/diffusers/pipelines/qwenimage/pipeline_qwenimage_edit_plus.py)
+在 `__call__` 中依 prompt 數量決定 `batch_size`，明確拒絕 `batch_size > 1`；
+同時另有 `num_images_per_prompt` 控制同一條件產生幾個候選。
+`encode_prompt` 先取得 embedding，再依候選數重複 embedding／mask；
+`prepare_latents` 也有參考圖 latent 編碼後複製到有效 batch 的路徑。
+
+因此，「同一張／組參考圖＋同一 prompt，只換 seed」具有共用編碼的原始碼依據。
+這與本輪自訂 ComfyUI adapter 的「不同 prompt＋不同參考圖」不是同一條官方支援路徑。
+多 prompt 的限制是此 pipeline 版本的實作限制，不等於模型架構在原理上不能接受異質條件。
+候選參數與複製路徑存在，也不代表我們已在本機實測該官方組合或證明它會加速。
+
+### 同一張圖，但 prompt 不同，能共用什麼？
+
+[ComfyUI Qwen 編碼原始碼](https://github.com/Comfy-Org/ComfyUI/blob/ca1622ca24bbdbbc19721b0577ffab98cf64eb4d/comfy_extras/nodes_qwen.py)
+的 `TextEncodeQwenImageEditPlus` 會分別執行圖片縮放／VAE encode，
+再把圖片與文字一起送入多模態編碼。因此以下是依程式結構作出的判讀：
+
+| 條件 | 可研究重用的部分 | 不能直接假定的部分 |
+|---|---|---|
+| 同圖＋同 prompt，只改 seed | 固定模型／前處理下的圖片與正負條件編碼 | 去噪結果仍依噪聲而不同，不能省略各候選採樣 |
+| 同圖＋不同 prompt | 圖片縮放、VAE reference latents 等圖像側計算 | 整份多模態 conditioning 不可只按圖片 ID 共用 |
+| 不同圖＋不同 prompt | 可在張量／模型契約相容時批次採樣 | 不可假設前處理或條件編碼相同 |
+
+僅修改 CFG 可不改變輸入條件編碼，但我們這版 adapter 明確要求同批相同 CFG；
+不能將「可重用編碼」推導成「現有 sampler 已支援每筆不同 CFG」。
+快取鍵還必須包含模型、prompt、參考內容／順序及前處理設定，不能只看 seed 或圖片檔名。
+
+### KATZ：diffusion 批次增加、延遲近乎等比例增加的實測
+
+[KATZ: Efficient Workflow Serving for Diffusion Models with Many Adapters（USENIX ATC 2025）](https://cse.hkust.edu.hk/~weiwa/papers/katz-atc25.pdf)
+§3.3、Figure 8 在 NVIDIA A10、A100、H800 上測試 SDXL，觀察到 batch 加倍時，
+服務延遲也近乎加倍，吞吐量收益有限。作者將其連結到高計算負載：單張生成已可大量使用 GPU 計算資源。
+論文亦分析 CFG 條件／無條件運算，指出合併為 latent batch 不必然帶來顯著收益。
+
+這是「diffusion batch 不一定明顯加速」的直接研究例證，**不是我們 Qwen＋5090 的根因證明**。
+模型、解析度、硬體與軟體路徑不同，不能引用其數字代替我們的 profiler、或據此宣布自訂實作沒有問題。
+
+另一方面，[Diffusers 通用 batch inference 文件](https://huggingface.co/docs/diffusers/main/using-diffusers/batched_inference)
+說明批次可改善原本未充分使用 GPU 的吞吐量，也增加記憶體需求與整批等待時間。
+其一般 image-to-image 多圖／多 prompt 說明不能覆蓋上面 Qwen Edit Plus 的特定限制。
+兩份資料並不矛盾：效益取決於原本資源利用情況及實際 pipeline，不是只由 batch 數字決定。
+
+本輪更精確的後續問題是：**同圖＋同 prompt、不同 seed，將編碼只算一次，
+與保留快取的逐張生成相比，端到端與採樣各能改善多少？**
+必須同時比較 cache miss／hit，不能刻意讓單張重算全部編碼再把差距全算成 GPU batching 的收益。
+
+## 10. 下一步：建議而非已完成
 
 1. 將 tracing identity 與內容快取分離；比較編碼 cache miss／hit，保留正確的計時歸屬。
 2. 實測每個 step 的模型 forward 次數、有效 batch shape、CFG 分組及 kernel／搬運時間。
 3. 再評估 encoder 放置、共用 reference VAE 計算或編碼批次化；保持 prompt／seed／輸出配對不變。
 4. 在正式 Pod 路徑重做有界配對測試，記錄 CPU、GPU 配額與同卡競爭，不混用環境數據。
-5. 多輪重複測量後再決定預設 batch；當前資料不足以推薦以 batch 4 作為加速策略。
+5. 增加同圖／同 prompt／不同 seed 的候選生成對照，分開量測共用編碼與採樣收益。
+6. 多輪重複測量後再決定預設 batch；當前資料不足以推薦以 batch 4 作為加速策略。
 
 結論：本輪驗證了異質 batch 的基本產圖能力，但沒有證明有實用的吞吐量收益。
 已知編碼與快取實作問題應與仍未定位的採樣瓶頸分開處理，不能互相替代解釋。
