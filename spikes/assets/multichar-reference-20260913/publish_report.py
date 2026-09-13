@@ -23,6 +23,7 @@ def copy_file(relative):
 for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
 for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
+                 'singular-control-index.json','prepare_singular_controls.py',
                  'position-control-index.json','prepare_position_controls.py',
                  'audit_evidence.py','evidence-audit.json','quality_summary.py','test_quality_summary.py',
                  'audit_remote_cleanup.py','remote-cleanup-audit.json',
@@ -187,6 +188,36 @@ if position_index.exists():
             lines.append(f'| {name} | {baseline} | {output} | {notes} |')
         lines += ['']
     (DEST/'position-control-results.json').write_text(json.dumps(position_rows,indent=2,ensure_ascii=False)+'\n')
+singular_index=ROOT/'singular-control-index.json'
+if singular_index.exists():
+    singular_rows=[]
+    lines += ['', '## 額外對照：單人提示詞改用單數措辭', '',
+              '僅替換預登記的整組單數措辭，保持角色、參考圖 bytes／順序、動作及場景；不是單一字詞因果實驗。Codex seed 不可控，原始 Codex 單人組本來就成功，不能用本對照宣稱修好 Qwen／H3 的重複人物問題。GPU 對照若未提交就標示未執行，亦不計入固定矩陣分母。', '',
+              f'[替換清單與基準雜湊]({asset}/singular-control-index.json)', '']
+    for control in json.loads(singular_index.read_text())['controls']:
+        cid=control['case_id']
+        baseline_id=control['baseline_case_id']
+        for filename in ('case.json','prompt.txt','h3-prompt.txt'):
+            copy_file(f'cases/{cid}/{filename}')
+        lines += [f'### {cid}', '', f'[單數prompt]({asset}/cases/{cid}/prompt.txt) · [原始prompt]({asset}/cases/{baseline_id}/prompt.txt)', '',
+                  '| 模型 | 原始 | 單數措辭 | 觀察 |', '|---|---|---|---|']
+        for model,name in MODEL_NAMES.items():
+            directory=ROOT/'runs'/model/cid
+            result_file=directory/'result.json'
+            result=json.loads(result_file.read_text()) if result_file.exists() else {}
+            state=result.get('state','not_executed')
+            for filename in ('run.json','result.json','events.json','history.json','cleanup.json','ffprobe.json',
+                             'output.png','output.mp4','frame-01.png','frame-02.png','frame-03.png','frame-04.png','frame-05.png'):
+                if (directory/filename).exists():
+                    copy_file(f'runs/{model}/{cid}/{filename}')
+            singular_rows.append(dict(case_id=cid,baseline_case_id=baseline_id,model=model,state=state,
+                                      submitted=result.get('submitted',False),review=result.get('review')))
+            baseline=f'![baseline]({asset}/runs/{model}/{baseline_id}/output.png)' if (ROOT/'runs'/model/baseline_id/'output.png').exists() else '尚未產出'
+            output=f'![singular]({asset}/runs/{model}/{cid}/output.png)' if (directory/'output.png').exists() else state
+            notes=(result.get('review') or {}).get('notes',result.get('notes','')).replace('|','/')
+            lines.append(f'| {name} | {baseline} | {output} | {notes} |')
+        lines += ['']
+    (DEST/'singular-control-results.json').write_text(json.dumps(singular_rows,indent=2,ensure_ascii=False)+'\n')
 lines += ['', '## 耗時與硬體紀錄', '']
 if (ROOT/'timings.json').exists():
     timing_rows=json.loads((ROOT/'timings.json').read_text())
@@ -236,7 +267,7 @@ observations += ['',
 lines[4:4]=observations
 (REPO/'spikes/multichar-reference-benchmark-20260913.md').write_text('\n'.join(lines)+'\n')
 # Same complete report locally, with portable links to this experiment's files.
-for filename in ['results.csv','results.json','quality-summary.json','position-control-results.json']:
+for filename in ['results.csv','results.json','quality-summary.json','position-control-results.json','singular-control-results.json']:
     if (DEST/filename).exists():
         shutil.copyfile(DEST/filename,ROOT/filename)
 (ROOT/'README.md').write_text(('\n'.join(lines)+'\n').replace(f']({asset}/',']('))

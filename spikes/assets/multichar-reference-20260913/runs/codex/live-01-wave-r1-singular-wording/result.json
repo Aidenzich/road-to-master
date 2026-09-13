@@ -1,0 +1,25 @@
+{
+  "case_id": "live-01-wave-r1-singular-wording",
+  "model": "codex",
+  "state": "failed",
+  "submitted": true,
+  "failure_category": "provider_output_moderation_blocked",
+  "tool_elapsed_seconds": 35.2,
+  "timing_source": "tool wall time, not pure inference",
+  "request_id": "d47311d2-9f24-4fb4-b035-6eafa78b4599",
+  "http_status": 400,
+  "provider_error": {
+    "type": "image_generation_user_error",
+    "code": "moderation_blocked",
+    "moderation_details": {"moderation_stage": "output", "categories": ["other"]}
+  },
+  "outputs": [],
+  "review": null,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "cleanup_complete": true,
+  "cleanup_scope": "No 5090 files created. Built-in provider retention unknown.",
+  "notes": "No image returned. Preserve provider refusal; no retry or bypass. Not a visual quality failure."
+}

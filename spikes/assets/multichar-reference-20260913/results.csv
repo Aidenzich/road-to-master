@@ -100,7 +100,7 @@ anime-02-wave-r2,qwen,anime,2,wave,2,pending,False,,,,False,,,,,,
 anime-02-wave-r2,h3,anime,2,wave,2,succeeded,True,failed,,163.69235110282898,True,2,1,2,1,2,Frieren 與 Fern 數量、左右順序及主要髮色／耳形保持；Frieren 頸部寶石與衣領細節偏移。Fern 同時舉起兩手，違反每人僅一手揮手、另一手放下；可见手掌清楚，未見明顯肢體融合。
 live-02-wave-r2,codex,live,2,wave,2,succeeded,True,,,25.3,True,2,1,2,2,2,"Two figures, Wednesday left and Enid right, matching braids/lilac hair and broad costumes. Enid jacket becomes waist-cropped with altered large crest, so fine costume retention is partial. One open hand each, other lowered; no claws or lettering."
 live-02-wave-r2,qwen,live,2,wave,2,pending,False,,,,False,,,,,,
-live-02-wave-r2,h3,live,2,wave,2,pending,False,,,,False,,,,,,
+live-02-wave-r2,h3,live,2,wave,2,succeeded,True,failed,,161.75875878334045,True,2,1,2,0,0,Wednesday 與 Enid 兩人順序和主要外觀可辨，制服細節偏移。Wednesday 兩手都舉起而非單手，Enid 手指延伸出極長黑色爪狀線條，帶回參考海報特效，並非自然空掌問候；手部／特效融合明顯。
 anime-03-wave-r2,codex,anime,3,wave,2,succeeded,True,,,38.9,True,2,1,2,2,2,"Three distinct characters in Frieren/Fern/Loid order, one open hand each and other hand lowered. Loid black reference gloves are missing and hair reaches top edge. Broad identity cues retained; costume preservation partial."
 anime-03-wave-r2,qwen,anime,3,wave,2,pending,False,,,,False,,,,,,
 anime-03-wave-r2,h3,anime,3,wave,2,pending,False,,,,False,,,,,,

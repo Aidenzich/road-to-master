@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T19:53:50.717724+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T19:57:22.160568+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -52,7 +52,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 18 | 18 | 0 | 24 | 18 |
-| H3 Ref2VA 5 frames | 60 | 33 | 33 | 0 | 0 | 33 |
+| H3 Ref2VA 5 frames | 60 | 34 | 34 | 0 | 0 | 34 |
 
 ### 資料完整性快照
 
@@ -89,7 +89,7 @@
 | 1 | H3 Ref2VA 5 frames | 12 | 0/8 | 0/8 | 0/8 | 0/8 | 7/8 |
 | 2 | Codex built-in | 12 | 12/12 | 9/12 | 12/12 | 4/12 | 12/12 |
 | 2 | Qwen Edit 2511 | 12 | 6/6 | 0/6 | 5/6 | 2/6 | 5/6 |
-| 2 | H3 Ref2VA 5 frames | 12 | 7/7 | 0/7 | 7/7 | 1/7 | 5/7 |
+| 2 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 1/8 | 5/8 |
 | 3 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 3 | Qwen Edit 2511 | 12 | 4/6 | 0/6 | 1/6 | 0/6 | 2/6 |
 | 3 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 1/6 | 4/6 |
@@ -159,7 +159,7 @@
 | anime-01-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-wave-r2/result.json) |
 | live-01-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-wave-r2/result.json) |
 | anime-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r2/result.json) |
-| live-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/result.json) | pending | pending |
+| live-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/result.json) |
 | anime-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r2/result.json) | pending | pending |
 | live-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/result.json) | pending | pending |
 | anime-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/result.json) | unsupported | pending |
@@ -459,7 +459,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/output.png) |
 
 ### anime-03-wave-r2
 
@@ -790,6 +790,33 @@
 | H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/output.png) | not_executed |  |
 
 
+## 額外對照：單人提示詞改用單數措辭
+
+僅替換預登記的整組單數措辭，保持角色、參考圖 bytes／順序、動作及場景；不是單一字詞因果實驗。Codex seed 不可控，原始 Codex 單人組本來就成功，不能用本對照宣稱修好 Qwen／H3 的重複人物問題。GPU 對照若未提交就標示未執行，亦不計入固定矩陣分母。
+
+[替換清單與基準雜湊](assets/multichar-reference-20260913/singular-control-index.json)
+
+### anime-01-wave-r1-singular-wording
+
+[單數prompt](assets/multichar-reference-20260913/cases/anime-01-wave-r1-singular-wording/prompt.txt) · [原始prompt](assets/multichar-reference-20260913/cases/anime-01-wave-r1/prompt.txt)
+
+| 模型 | 原始 | 單數措辭 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-01-wave-r1/output.png) | ![singular](assets/multichar-reference-20260913/runs/codex/anime-01-wave-r1-singular-wording/output.png) | 一名 Frieren，銀髮尖耳、綠眼、紅耳飾與頸部紅寶石及白金服裝保留。單手空掌揮手，另一臂垂下，無原圖書本道具；可見手部清楚。 |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-01-wave-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/anime-01-wave-r1/output.png) | not_executed |  |
+
+### live-01-wave-r1-singular-wording
+
+[單數prompt](assets/multichar-reference-20260913/cases/live-01-wave-r1-singular-wording/prompt.txt) · [原始prompt](assets/multichar-reference-20260913/cases/live-01-wave-r1/prompt.txt)
+
+| 模型 | 原始 | 單數措辭 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-01-wave-r1/output.png) | failed | No image returned. Preserve provider refusal; no retry or bypass. Not a visual quality failure. |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/live-01-wave-r1/output.png) | not_executed |  |
+
+
 ## 耗時與硬體紀錄
 
 以下只含固定矩陣成功項目，不混入額外對照。每格為中位秒數 [最小–最大]；括號n是該欄有值的樣本數。缺失階段不填0。參考圖數與角色組合一起改變，因此不能把差值全歸因於圖數。
@@ -802,7 +829,7 @@
 | Qwen Edit 2511 | 4 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | Qwen Edit 2511 | 5 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | H3 Ref2VA 5 frames | 1 | 119.75 [119.28–168.01] (n=8) | 16.31 [16.06–47.23] (n=8) | 15.07 [14.90–15.19] (n=8) | 127.97 [126.72–189.77] (n=8) |
-| H3 Ref2VA 5 frames | 2 | 156.16 [154.38–203.59] (n=7) | 23.22 [22.92–56.06] (n=7) | 21.51 [21.43–21.82] (n=7) | 164.12 [162.94–224.54] (n=7) |
+| H3 Ref2VA 5 frames | 2 | 156.11 [153.68–203.59] (n=8) | 23.17 [22.92–56.06] (n=8) | 21.60 [21.43–21.82] (n=8) | 164.09 [161.76–224.54] (n=8) |
 | H3 Ref2VA 5 frames | 3 | 406.40 [399.37–464.17] (n=6) | 30.36 [30.21–65.02] (n=6) | 28.50 [28.33–28.63] (n=6) | 416.24 [408.93–481.70] (n=6) |
 | H3 Ref2VA 5 frames | 4 | 547.42 [520.97–553.78] (n=6) | 119.74 [119.61–120.14] (n=6) | 113.45 [113.28–113.93] (n=6) | 557.41 [537.07–564.78] (n=6) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=6) | 125.11 [124.85–125.59] (n=6) | 118.49 [118.25–118.90] (n=6) | 595.53 [587.57–609.83] (n=6) |

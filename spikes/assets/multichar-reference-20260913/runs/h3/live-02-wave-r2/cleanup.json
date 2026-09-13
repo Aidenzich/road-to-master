@@ -1,0 +1,20 @@
+{
+  "prompt_id": "bf622c37-8084-4264-8cd8-2e0d6339b3ce",
+  "files": [
+    {
+      "kind": "input",
+      "path": "b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-0.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-1.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "output",
+      "path": "video/msai-studio/d06e20764deef4f2-00_00001_.mp4",
+      "state": "deleted"
+    }
+  ]
+}
