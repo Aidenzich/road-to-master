@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789329129.193324,
+  "checked_epoch": 1789331327.612986,
   "scope": "Only terminal submitted owned task files, explicit lstat paths; no deletion or global inventory. Active jobs excluded.",
   "files": [
     {
@@ -207,6 +207,42 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "45f60b6d-1e57-437e-80d5-7d536254f8ea",
+      "kind": "input",
+      "path": "8a0bfc8a-9c96-4932-ae1f-04b53f7a016d-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8a0bfc8a-9c96-4932-ae1f-04b53f7a016d-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "45f60b6d-1e57-437e-80d5-7d536254f8ea",
+      "kind": "input",
+      "path": "8a0bfc8a-9c96-4932-ae1f-04b53f7a016d-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8a0bfc8a-9c96-4932-ae1f-04b53f7a016d-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "45f60b6d-1e57-437e-80d5-7d536254f8ea",
+      "kind": "output",
+      "path": "video/msai-studio/1689d873e832947c-00_00001_.mp4",
+      "sha256": "069e62d7df89740bd073733115b41558fe6ceecd4683cc1ef18d171c3a30e41f",
+      "bytes": 78700,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/1689d873e832947c-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "anime-03-book-r1",
       "model": "h3",
       "prompt_id": "621cf5e4-d171-47eb-9514-889a64e3a54a",
@@ -348,6 +384,54 @@
       "bytes": 81902,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/4c9902cefe803f42-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "4367caec-798b-4c7e-96ca-88a4cdea1bed",
+      "kind": "input",
+      "path": "40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-0.png",
+      "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "bytes": 147259,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "4367caec-798b-4c7e-96ca-88a4cdea1bed",
+      "kind": "input",
+      "path": "40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-1.png",
+      "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "bytes": 118135,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "4367caec-798b-4c7e-96ca-88a4cdea1bed",
+      "kind": "input",
+      "path": "40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-2.png",
+      "sha256": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "bytes": 233361,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/40f18fa7-de5d-48a1-909a-ac8f15fd1679-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "4367caec-798b-4c7e-96ca-88a4cdea1bed",
+      "kind": "output",
+      "path": "video/msai-studio/238262f5859e3f76-00_00001_.mp4",
+      "sha256": "89ceef2076ee815009b0a24d26f0ae1d0953b6bc655115165e23b7e17321f9fd",
+      "bytes": 81320,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/238262f5859e3f76-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -951,6 +1035,42 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "live-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "bf622c37-8084-4264-8cd8-2e0d6339b3ce",
+      "kind": "input",
+      "path": "b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "bf622c37-8084-4264-8cd8-2e0d6339b3ce",
+      "kind": "input",
+      "path": "b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/b57bbf27-a87e-4df1-ad53-a0ad0a09aa02-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-wave-r2",
+      "model": "h3",
+      "prompt_id": "bf622c37-8084-4264-8cd8-2e0d6339b3ce",
+      "kind": "output",
+      "path": "video/msai-studio/d06e20764deef4f2-00_00001_.mp4",
+      "sha256": "eda79b37f8255d9c314ab43d008d85b898794a647df94c3fde93b4e21fa38570",
+      "bytes": 53379,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/d06e20764deef4f2-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "live-03-book-r1",
       "model": "h3",
       "prompt_id": "0859c527-af2f-4a54-8ca4-8eddd8d37f46",
@@ -1092,6 +1212,54 @@
       "bytes": 62702,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/94368a95658d3fb4-00_00001_.mp4",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "dadc5532-2710-499d-9ee8-1cfe985fd853",
+      "kind": "input",
+      "path": "8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-0.png",
+      "sha256": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "bytes": 161595,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-0.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "dadc5532-2710-499d-9ee8-1cfe985fd853",
+      "kind": "input",
+      "path": "8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-1.png",
+      "sha256": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "bytes": 146075,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "dadc5532-2710-499d-9ee8-1cfe985fd853",
+      "kind": "input",
+      "path": "8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-2.png",
+      "sha256": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "bytes": 151599,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/8bfc3b02-4a07-45e5-bdcd-5905d1ec41f4-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "h3",
+      "prompt_id": "dadc5532-2710-499d-9ee8-1cfe985fd853",
+      "kind": "output",
+      "path": "video/msai-studio/b62c1c5daafa6656-00_00001_.mp4",
+      "sha256": "828aeaa7583d6de21bf39cb5eef473aeeeb32b520675764dd7a4ecaf50c25309",
+      "bytes": 59401,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/b62c1c5daafa6656-00_00001_.mp4",
       "remote_state": "absent"
     },
     {
@@ -1515,6 +1683,30 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-01-book-r2",
+      "model": "qwen",
+      "prompt_id": "f4a53ac3-d337-4e06-8118-f778017ea156",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-24192fd6-9803-46f7-98eb-eda8f1c420ee-ref-1.png",
+      "sha256": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "bytes": 134587,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-24192fd6-9803-46f7-98eb-eda8f1c420ee-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-book-r2",
+      "model": "qwen",
+      "prompt_id": "f4a53ac3-d337-4e06-8118-f778017ea156",
+      "kind": "output",
+      "path": "video/msai-studio/054dfae82d8562eb-00_00001_.png",
+      "sha256": "6ce12f8be13c7d76741192b8e91f09b472e06b301a4bf9ae0ee716502f973387",
+      "bytes": 423435,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/054dfae82d8562eb-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "anime-01-contact-r1",
       "model": "qwen",
       "prompt_id": "7b07d1e8-0634-4bff-8211-4e691765e513",
@@ -1560,6 +1752,30 @@
       "bytes": 386902,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/bf4e26b503f54b61-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-wave-r2",
+      "model": "qwen",
+      "prompt_id": "88f4c50b-ae25-4f72-a88f-e432ab0cc00e",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-7e109b99-986e-4e0d-93c9-524f39c44529-ref-1.png",
+      "sha256": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "bytes": 134587,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-7e109b99-986e-4e0d-93c9-524f39c44529-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-01-wave-r2",
+      "model": "qwen",
+      "prompt_id": "88f4c50b-ae25-4f72-a88f-e432ab0cc00e",
+      "kind": "output",
+      "path": "video/msai-studio/4af26706a44168ab-00_00001_.png",
+      "sha256": "706ab2bacef7c7a29777b0fd7506776a1553a1e8afd6784d70369c071327cc58",
+      "bytes": 461091,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/4af26706a44168ab-00_00001_.png",
       "remote_state": "absent"
     },
     {
@@ -1668,6 +1884,42 @@
       "bytes": 409572,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/b3920af327aa1665-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "9e43389e-ca95-4f73-a93f-737bd003b711",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-5bc546d2-7ec5-41bf-81b2-adf9eaccde57-ref-1.png",
+      "sha256": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "bytes": 134587,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-5bc546d2-7ec5-41bf-81b2-adf9eaccde57-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "9e43389e-ca95-4f73-a93f-737bd003b711",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-5bc546d2-7ec5-41bf-81b2-adf9eaccde57-ref-2.png",
+      "sha256": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561",
+      "bytes": 108110,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-5bc546d2-7ec5-41bf-81b2-adf9eaccde57-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "9e43389e-ca95-4f73-a93f-737bd003b711",
+      "kind": "output",
+      "path": "video/msai-studio/eb719b29bd75bccb-00_00001_.png",
+      "sha256": "f597b54daf2b71d7a728707d59541c5e1d37f2e63751bfffa03d929b1cf99e26",
+      "bytes": 388870,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/eb719b29bd75bccb-00_00001_.png",
       "remote_state": "absent"
     },
     {
@@ -1815,6 +2067,54 @@
       "remote_state": "absent"
     },
     {
+      "case_id": "anime-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "8fb0da4f-94de-40dc-944d-5343363f3fd4",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-1.png",
+      "sha256": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "bytes": 134587,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "8fb0da4f-94de-40dc-944d-5343363f3fd4",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-2.png",
+      "sha256": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561",
+      "bytes": 108110,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "8fb0da4f-94de-40dc-944d-5343363f3fd4",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-3.png",
+      "sha256": "d4d6a59b5b47f5ecacbca34f7f3e42ad46e7e328d16d94caf5437d0bd7ea6d71",
+      "bytes": 146640,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-37d99fe6-4f43-4dd4-b144-e21a62b1d217-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "anime-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "8fb0da4f-94de-40dc-944d-5343363f3fd4",
+      "kind": "output",
+      "path": "video/msai-studio/31d7774a54610e0d-00_00001_.png",
+      "sha256": "465b4d961a0e79d6c4474692024e45717c006876fd97a59878cf5d40fb0d3e6b",
+      "bytes": 559731,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/31d7774a54610e0d-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
       "case_id": "live-01-book-r1",
       "model": "qwen",
       "prompt_id": "ba5f7806-5500-46b4-9eec-47b3afc9f3a8",
@@ -1836,6 +2136,30 @@
       "bytes": 425888,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/9f2c200ec43318b8-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-book-r2",
+      "model": "qwen",
+      "prompt_id": "00e47356-0b94-4816-ad14-5b7d29916818",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-e359e374-ac7a-4533-ad15-766438ee126f-ref-1.png",
+      "sha256": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "bytes": 650890,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-e359e374-ac7a-4533-ad15-766438ee126f-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-book-r2",
+      "model": "qwen",
+      "prompt_id": "00e47356-0b94-4816-ad14-5b7d29916818",
+      "kind": "output",
+      "path": "video/msai-studio/f20bee1c20bcb5e8-00_00001_.png",
+      "sha256": "dfb82dc405ea889d21fee445e549563fd5764a68d93b0d34efb7702757afbb9a",
+      "bytes": 459200,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/f20bee1c20bcb5e8-00_00001_.png",
       "remote_state": "absent"
     },
     {
@@ -1884,6 +2208,30 @@
       "bytes": 443728,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/0a97ea543a261726-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-wave-r2",
+      "model": "qwen",
+      "prompt_id": "49bd615f-ba10-450f-ab7e-c86ec1e51aff",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-7ba2fe9f-2412-4f24-8311-7779f9f462d0-ref-1.png",
+      "sha256": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "bytes": 650890,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-7ba2fe9f-2412-4f24-8311-7779f9f462d0-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-01-wave-r2",
+      "model": "qwen",
+      "prompt_id": "49bd615f-ba10-450f-ab7e-c86ec1e51aff",
+      "kind": "output",
+      "path": "video/msai-studio/43306ec5bc88c89b-00_00001_.png",
+      "sha256": "611e91be114703003008bf81eef9402bea7fd56d45fdf1640dbe1c89118dbb42",
+      "bytes": 467371,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/43306ec5bc88c89b-00_00001_.png",
       "remote_state": "absent"
     },
     {
@@ -1992,6 +2340,42 @@
       "bytes": 453426,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/96aa1fc7595fb52c-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "0ff8b2fe-fd1c-4361-9a35-362ceffbd351",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-3c91eb66-8ec8-438a-ba87-354e7d3c825c-ref-1.png",
+      "sha256": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "bytes": 650890,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-3c91eb66-8ec8-438a-ba87-354e7d3c825c-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "0ff8b2fe-fd1c-4361-9a35-362ceffbd351",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-3c91eb66-8ec8-438a-ba87-354e7d3c825c-ref-2.png",
+      "sha256": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca",
+      "bytes": 603099,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-3c91eb66-8ec8-438a-ba87-354e7d3c825c-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-02-wave-r2",
+      "model": "qwen",
+      "prompt_id": "0ff8b2fe-fd1c-4361-9a35-362ceffbd351",
+      "kind": "output",
+      "path": "video/msai-studio/6cc9815c6961c510-00_00001_.png",
+      "sha256": "d821bfc211b58d379aac190244abdd6692eddbed68adb041c47219b2d4543bad",
+      "bytes": 431677,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/6cc9815c6961c510-00_00001_.png",
       "remote_state": "absent"
     },
     {
@@ -2136,6 +2520,54 @@
       "bytes": 522044,
       "archive_verified": true,
       "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/6e537833fd6e7e3a-00_00001_.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "aaf8a32c-34ce-4420-a0f3-f6df0293c2db",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-1.png",
+      "sha256": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "bytes": 650890,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-1.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "aaf8a32c-34ce-4420-a0f3-f6df0293c2db",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-2.png",
+      "sha256": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca",
+      "bytes": 603099,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-2.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "aaf8a32c-34ce-4420-a0f3-f6df0293c2db",
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-3.png",
+      "sha256": "c0cb811ed3f806295a31dcee6ef2aa2ac677422840e55e08aa27194dd1ddc6d6",
+      "bytes": 631751,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/input/msai-qwen-image-edit-2511-c40b7dff-a937-4982-af10-7cbbdc3facf5-ref-3.png",
+      "remote_state": "absent"
+    },
+    {
+      "case_id": "live-03-wave-r2",
+      "model": "qwen",
+      "prompt_id": "aaf8a32c-34ce-4420-a0f3-f6df0293c2db",
+      "kind": "output",
+      "path": "video/msai-studio/534de336a2674398-00_00001_.png",
+      "sha256": "161468085c8966383ffefefe35e26a1b1aa5e9ff81951c35241130e0d71191b6",
+      "bytes": 496311,
+      "archive_verified": true,
+      "remote_path": "/data/comfyui-minimax-h3/output/video/msai-studio/534de336a2674398-00_00001_.png",
       "remote_state": "absent"
     },
     {
