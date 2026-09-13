@@ -1,0 +1,49 @@
+{
+  "case_id": "live-01-contact-r1",
+  "model": "h3",
+  "count": 1,
+  "action": "contact",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 126.82325100898743,
+  "prequeue_wait_seconds": 0.6267988681793213,
+  "submitted": true,
+  "prompt_id": "0ff90215-95ce-47ed-97f6-118e941ff22d",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T18:29:51.655000+00:00",
+    "execution_observed": "2026-09-13T18:29:52.684111+00:00",
+    "sampling_started": "2026-09-13T18:31:32.826872+00:00",
+    "sampling_progress": "2026-09-13T18:31:49.139339+00:00",
+    "first_step_observed": "2026-09-13T18:31:34.060018+00:00",
+    "sampling_completed": "2026-09-13T18:31:49.139414+00:00",
+    "execution_completed": "2026-09-13T18:31:50.936000+00:00",
+    "collection_started": "2026-09-13T18:31:51.909337+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789324317.2974951,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：要求恰好一人，却出现三个Wednesday样式角色和三个蓝杯，数量与一对一对应失败。黑色双辫、刘海和泪痕妆仍在，但来源黑色花纹连衣裙变成条纹西装制服。三个角色各自双手持杯并看向镜头，局部动作符合但整体复制成三份，仅记部分符合。可见手指与杯柄关系没有明确融合或多指。"
+  }
+}

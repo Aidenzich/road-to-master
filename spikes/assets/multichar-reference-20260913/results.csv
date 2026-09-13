@@ -61,10 +61,10 @@ live-05-book-r1,qwen,live,5,book,1,unsupported,False,,,,False,,,,,,
 live-05-book-r1,h3,live,5,book,1,succeeded,True,failed,,602.1450679302216,True,2,1,2,1,2,固定第一帧：五人数量和左右顺序正确，主要发型、肤色及服装色块可对应。Tyler颈部装置变为耳机样式，Dort外套加入校徽，制服配件有改变。第一人持一本绿色书，第二人伸手到书边，其他人朝书的方向看；手指被书遮住，不能确认指向读者右页，第一人视线也未明确落在页上，因此动作部分符合。可见手部未见确定多指或融合；构图比要求的腰部中景更宽。
 anime-01-contact-r1,codex,anime,1,contact,1,succeeded,True,,,26.0,True,2,2,2,2,2,Exactly one Frieren retaining key hair/ears/eyes/earrings/neck gem and outfit. Holds single plain blue mug with both hands at chest and looks toward camera. Handle grip and other hand on cup plausible; no source book.
 anime-01-contact-r1,qwen,anime,1,contact,1,pending,False,,,,False,,,,,,
-anime-01-contact-r1,h3,anime,1,contact,1,pending,False,,,,False,,,,,,
+anime-01-contact-r1,h3,anime,1,contact,1,succeeded,True,failed,,128.23930191993713,True,0,1,0,1,2,固定第一帧：要求恰好一人，但出现三个Frieren样式角色、三个蓝杯；左侧还保留不应出现的来源书本道具，人物数量与一对一对应失败。银发、尖耳与白金服装保留，颈部红宝石改为金色饰物，眼色略漂移。中间和右侧双手持蓝杯，左侧一手持杯一手持书；动作仅部分符合。可见手部无明确多指或融合。
 live-01-contact-r1,codex,live,1,contact,1,failed,True,,provider_output_moderation_blocked,23.3,False,,,,,,Unchanged benign preregistered single-person blue-mug scene. No output available for quality evaluation; provider rejection is not a measured visual-quality failure. No retry or alternate API.
 live-01-contact-r1,qwen,live,1,contact,1,pending,False,,,,False,,,,,,
-live-01-contact-r1,h3,live,1,contact,1,pending,False,,,,False,,,,,,
+live-01-contact-r1,h3,live,1,contact,1,succeeded,True,failed,,126.82325100898743,True,0,1,0,1,2,固定第一帧：要求恰好一人，却出现三个Wednesday样式角色和三个蓝杯，数量与一对一对应失败。黑色双辫、刘海和泪痕妆仍在，但来源黑色花纹连衣裙变成条纹西装制服。三个角色各自双手持杯并看向镜头，局部动作符合但整体复制成三份，仅记部分符合。可见手指与杯柄关系没有明确融合或多指。
 anime-02-contact-r1,codex,anime,2,contact,1,succeeded,True,,,37.3,True,2,2,2,1,2,"Two correct characters with clear palm-to-palm contact and unused hands lowered. Visible near arms appear to be Frieren LEFT and Fern RIGHT, opposite requested Frieren right/Fern left; gesture achieved but laterality fails. Contact above shoulder level. Hands overlap naturally without obvious extra limbs; exact finger count at contact partly occluded."
 anime-02-contact-r1,qwen,anime,2,contact,1,pending,False,,,,False,,,,,,
 anime-02-contact-r1,h3,anime,2,contact,1,pending,False,,,,False,,,,,,

@@ -1225,6 +1225,23 @@
   },
   {
     "model": "h3",
+    "case_id": "anime-01-contact-r1",
+    "state": "succeeded",
+    "runner_seconds": 128.23930191993713,
+    "builtin_tool_wall_seconds": null,
+    "provider_execution_seconds": 119.727,
+    "provider_queue_seconds": 0.001,
+    "sampling_node_seconds": 16.305676,
+    "first_to_last_step_seconds": 15.01389,
+    "collection_to_saved_seconds": null,
+    "gpu": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+    "vram_total_bytes": 33670758400,
+    "vram_free_before_submit_bytes": 7729213716,
+    "prompt_id": "6ebde671-cb86-45d0-8e95-9e66b26887fc",
+    "cleanup_complete": true
+  },
+  {
+    "model": "h3",
     "case_id": "anime-01-wave-r1",
     "state": "succeeded",
     "runner_seconds": 189.77399706840515,
@@ -1391,6 +1408,23 @@
     "vram_total_bytes": 33670758400,
     "vram_free_before_submit_bytes": 7727116564,
     "prompt_id": "dfa3c720-6291-4985-aa8d-9539a482f172",
+    "cleanup_complete": true
+  },
+  {
+    "model": "h3",
+    "case_id": "live-01-contact-r1",
+    "state": "succeeded",
+    "runner_seconds": 126.82325100898743,
+    "builtin_tool_wall_seconds": null,
+    "provider_execution_seconds": 119.281,
+    "provider_queue_seconds": 0.001,
+    "sampling_node_seconds": 16.312542,
+    "first_to_last_step_seconds": 15.079396,
+    "collection_to_saved_seconds": null,
+    "gpu": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+    "vram_total_bytes": 33670758400,
+    "vram_free_before_submit_bytes": 7729213716,
+    "prompt_id": "0ff90215-95ce-47ed-97f6-118e941ff22d",
     "cleanup_complete": true
   },
   {
