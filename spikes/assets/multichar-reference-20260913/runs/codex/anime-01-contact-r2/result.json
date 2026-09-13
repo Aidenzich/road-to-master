@@ -1,0 +1,30 @@
+{
+  "case_id": "anime-01-contact-r2",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 36.6,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "6aa8d5fd68c1c9849b6252a39d080fb1f8ab82aae212c5503714dc934fd46a9a",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789319650.827214,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 2,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Single Frieren with silver hair/pointed ears/green eyes/red accessories and white-gold clothing. Both hands hold one plain blue mug at chest; looks toward camera. No extra person or prop, plausible handle/body contact."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

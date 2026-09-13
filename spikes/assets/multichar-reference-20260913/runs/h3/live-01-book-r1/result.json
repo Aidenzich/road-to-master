@@ -1,0 +1,49 @@
+{
+  "case_id": "live-01-book-r1",
+  "model": "h3",
+  "count": 1,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 129.16760087013245,
+  "prequeue_wait_seconds": 0.9778041839599609,
+  "submitted": true,
+  "prompt_id": "dfa3c720-6291-4985-aa8d-9539a482f172",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T17:11:21.943000+00:00",
+    "execution_observed": "2026-09-13T17:11:22.925179+00:00",
+    "sampling_started": "2026-09-13T17:13:03.138776+00:00",
+    "sampling_progress": "2026-09-13T17:13:19.396567+00:00",
+    "first_step_observed": "2026-09-13T17:13:04.331643+00:00",
+    "sampling_completed": "2026-09-13T17:13:19.396582+00:00",
+    "execution_completed": "2026-09-13T17:13:21.250000+00:00",
+    "collection_started": "2026-09-13T17:13:23.045147+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789319608.440406,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "One requested Wednesday becomes three duplicated readers with separate green books. Braids/tear makeup broadly preserved, centre clothing drifts to grey-striped dress. Both-hand book holding and downward gaze present; count and one-to-one binding clearly fail. First-frame review only."
+  }
+}

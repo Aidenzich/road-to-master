@@ -1,0 +1,30 @@
+{
+  "case_id": "live-03-contact-r2",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 56.8,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "d5df686e724f322ee4b14cc6d36ef52d97354ac71bbfe394286a4a9e750fcac5",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789319970.512585,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Three figures correctly ordered; Wednesday/Enid make plausible palm contact with apparent requested right/left arms. Contact is near face rather than shoulder; Bianca watches with clasped low hands. Bianca necklace missing and uniform details altered, broad identity cues retained."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

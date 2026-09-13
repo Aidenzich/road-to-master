@@ -1,0 +1,30 @@
+{
+  "case_id": "live-02-contact-r2",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 39.7,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "1522871453660283d4c86d421875156acf605dda7ff6990d7e184d6d6d062787",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789319784.310604,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Wednesday and Enid correctly ordered, plausible palm contact, unused hands lowered. Apparent Wednesday left and Enid right hands used instead of requested right/left; contact near face rather than shoulder. Enid cropped jacket differs from source, broad faces/hair retained."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

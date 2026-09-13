@@ -30,13 +30,13 @@ live-05-wave-r1,codex,live,5,wave,1,succeeded,True,,,44.3,True,2,1,2,2,2,"Five d
 live-05-wave-r1,qwen,live,5,wave,1,unsupported,False,,,,False,,,,,,
 live-05-wave-r1,h3,live,5,wave,1,succeeded,True,failed,,593.1196010112762,True,2,1,2,1,1,"Five figures in correct Wednesday/Enid/Bianca/Tyler/Dort order; broad hair and costume cues retained with uniform/costume changes. Central figures have extra raised hands rather than one each, adjacent hands overlap. Dort right-edge hand cropped and gesture not clearly open. First-frame review only."
 anime-01-book-r1,codex,anime,1,book,1,succeeded,True,,,47.6,True,2,2,2,1,2,"Exactly one Frieren, reference hair/ears/eyes/earrings/neck gem and white-gold outfit preserved. Both hands hold one open green book at chest. Head tilted but gaze appears partly forward rather than clearly down on pages; action partial. Visible hand anatomy plausible, thumbs naturally obscured by book."
-anime-01-book-r1,qwen,anime,1,book,1,pending,False,,,,False,,,,,,
+anime-01-book-r1,qwen,anime,1,book,1,succeeded,True,succeeded,,134.69171619415283,True,0,1,0,1,2,"One requested Frieren becomes two full-body variants, each holding separate green book. Pointed ears absent, added dark headband and altered face/hair silhouette. Both-hand book holding broadly plausible; count/reference binding fail and requested waist-up framing not followed."
 anime-01-book-r1,h3,anime,1,book,1,succeeded,True,failed,,126.71733975410461,True,0,1,0,1,2,"Requested one Frieren but output has three duplicated Frieren figures, each holding a separate green book. Silver hair/ears/clothing broadly retained with neck-gem drift. Both-hand book holding plausible, gaze partly forward. Count and one-to-one reference binding clearly fail. First-frame review only."
 live-01-book-r1,codex,live,1,book,1,succeeded,True,,,25.0,True,2,2,2,2,2,"Exactly one character retaining braids, bangs, tear makeup, patterned dress and white collar/cuffs. Both hands hold open green book at chest; gaze visibly lowered to pages. Hand anatomy plausible, thumbs behind book; no original poster graphics."
-live-01-book-r1,qwen,live,1,book,1,pending,False,,,,False,,,,,,
-live-01-book-r1,h3,live,1,book,1,pending,False,,,,False,,,,,,
+live-01-book-r1,qwen,live,1,book,1,succeeded,True,succeeded,,76.55363512039185,False,,,,,,
+live-01-book-r1,h3,live,1,book,1,succeeded,True,failed,,129.16760087013245,True,0,1,0,1,2,"One requested Wednesday becomes three duplicated readers with separate green books. Braids/tear makeup broadly preserved, centre clothing drifts to grey-striped dress. Both-hand book holding and downward gaze present; count and one-to-one binding clearly fail. First-frame review only."
 anime-02-book-r1,codex,anime,2,book,1,succeeded,True,,,39.5,True,2,2,2,1,2,Correct two characters/order/appearance. Frieren holds one open green book with both hands at chest; Fern points toward upper book edge with index finger. Both look toward book. Specific right-hand page contact is not clear because pages face away from viewer; action partially rather than fully verified. Hand ownership/anatomy plausible.
-anime-02-book-r1,qwen,anime,2,book,1,pending,False,,,,False,,,,,,
+anime-02-book-r1,qwen,anime,2,book,1,succeeded,True,succeeded,,131.54842615127563,False,,,,,,
 anime-02-book-r1,h3,anime,2,book,1,pending,False,,,,False,,,,,,
 live-02-book-r1,codex,live,2,book,1,succeeded,True,,,37.6,True,2,2,2,1,2,"Correct two characters/order, facial cues and clothing. Wednesday holds green open book with both hands, Enid points toward upper page edge and both look down. Exact right-hand page contact is not fully visible from rear-of-book angle; partial action under same rubric as anime pair. No extra props or gross hand defects."
 live-02-book-r1,qwen,live,2,book,1,pending,False,,,,False,,,,,,
@@ -149,22 +149,22 @@ anime-05-book-r2,h3,anime,5,book,2,pending,False,,,,False,,,,,,
 live-05-book-r2,codex,live,5,book,2,succeeded,True,,,42.0,True,2,1,2,1,2,"Five correctly ordered figures, Wednesday holds one green book and Enid points. Bianca necklace missing; patterned tie shared with Dort, Tyler outfit altered. All broadly look toward book but exact page contact and lowered unused hands partly obscured. Visible hand anatomy plausible."
 live-05-book-r2,qwen,live,5,book,2,unsupported,False,,,,False,,,,,,
 live-05-book-r2,h3,live,5,book,2,pending,False,,,,False,,,,,,
-anime-01-contact-r2,codex,anime,1,contact,2,pending,False,,,,False,,,,,,
+anime-01-contact-r2,codex,anime,1,contact,2,succeeded,True,,,36.6,True,2,2,2,2,2,"Single Frieren with silver hair/pointed ears/green eyes/red accessories and white-gold clothing. Both hands hold one plain blue mug at chest; looks toward camera. No extra person or prop, plausible handle/body contact."
 anime-01-contact-r2,qwen,anime,1,contact,2,pending,False,,,,False,,,,,,
 anime-01-contact-r2,h3,anime,1,contact,2,pending,False,,,,False,,,,,,
-live-01-contact-r2,codex,live,1,contact,2,pending,False,,,,False,,,,,,
+live-01-contact-r2,codex,live,1,contact,2,not_executed,False,,,,False,,,,,,The first repeat of this identical prompt/reference condition was rejected at provider output moderation. This planned repeat was not submitted; no rewrite or alternate API attempted. Excluded from submitted and visual-quality denominators.
 live-01-contact-r2,qwen,live,1,contact,2,pending,False,,,,False,,,,,,
 live-01-contact-r2,h3,live,1,contact,2,pending,False,,,,False,,,,,,
-anime-02-contact-r2,codex,anime,2,contact,2,pending,False,,,,False,,,,,,
+anime-02-contact-r2,codex,anime,2,contact,2,succeeded,True,,,36.5,True,2,2,2,1,2,"Frieren left and Fern right, appearance cues retained; clean two-palm contact and unused hands lowered. Contact uses apparent Frieren left and Fern right instead of requested opposite hands, and is above shoulder height. Physical contact plausible but exact action partial."
 anime-02-contact-r2,qwen,anime,2,contact,2,pending,False,,,,False,,,,,,
 anime-02-contact-r2,h3,anime,2,contact,2,pending,False,,,,False,,,,,,
-live-02-contact-r2,codex,live,2,contact,2,pending,False,,,,False,,,,,,
+live-02-contact-r2,codex,live,2,contact,2,succeeded,True,,,39.7,True,2,1,2,1,2,"Wednesday and Enid correctly ordered, plausible palm contact, unused hands lowered. Apparent Wednesday left and Enid right hands used instead of requested right/left; contact near face rather than shoulder. Enid cropped jacket differs from source, broad faces/hair retained."
 live-02-contact-r2,qwen,live,2,contact,2,pending,False,,,,False,,,,,,
 live-02-contact-r2,h3,live,2,contact,2,pending,False,,,,False,,,,,,
-anime-03-contact-r2,codex,anime,3,contact,2,pending,False,,,,False,,,,,,
+anime-03-contact-r2,codex,anime,3,contact,2,succeeded,True,,,38.3,True,2,1,2,1,2,"Three figures correctly ordered, Loid watches with lowered hands but black gloves missing. Frieren/Fern contact is physically plausible with unused hands down, yet uses apparent left/right hands instead of requested right/left and contact above shoulder."
 anime-03-contact-r2,qwen,anime,3,contact,2,pending,False,,,,False,,,,,,
 anime-03-contact-r2,h3,anime,3,contact,2,pending,False,,,,False,,,,,,
-live-03-contact-r2,codex,live,3,contact,2,pending,False,,,,False,,,,,,
+live-03-contact-r2,codex,live,3,contact,2,succeeded,True,,,56.8,True,2,1,2,1,2,"Three figures correctly ordered; Wednesday/Enid make plausible palm contact with apparent requested right/left arms. Contact is near face rather than shoulder; Bianca watches with clasped low hands. Bianca necklace missing and uniform details altered, broad identity cues retained."
 live-03-contact-r2,qwen,live,3,contact,2,pending,False,,,,False,,,,,,
 live-03-contact-r2,h3,live,3,contact,2,pending,False,,,,False,,,,,,
 anime-04-contact-r2,codex,anime,4,contact,2,pending,False,,,,False,,,,,,
