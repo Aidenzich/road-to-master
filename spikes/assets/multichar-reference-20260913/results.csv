@@ -96,7 +96,7 @@ live-01-wave-r2,codex,live,1,wave,2,succeeded,True,,,21.3,True,2,2,2,2,2,"One We
 live-01-wave-r2,qwen,live,1,wave,2,succeeded,True,succeeded,,75.70945286750793,True,0,1,0,1,2,單一 Wednesday 參考圖產生兩名近似女子，均舉一手問候，仍非要求的一人。黑辮與白領黑色花紋服裝保留，但瀏海及淚痕妝不見，臉形改變，裙裝也變成長上衣加褲；手掌清楚。
 live-01-wave-r2,h3,live,1,wave,2,succeeded,True,failed,,127.4449679851532,True,0,1,0,1,2,單一 Wednesday 參考圖產生四名人物，只有左側保留黑辮與黑裙的主要特徵，其他為新造棕髮及金髮學生。四人各舉手的動作可辨，但人物數量與單一角色對應不成立；可見手掌大致清楚。
 anime-02-wave-r2,codex,anime,2,wave,2,succeeded,True,,,38.4,True,2,2,2,2,2,"Frieren left and Fern right, distinct referenced hair/eyes/ears/clothing and visible accessories. Each has one open greeting hand with other arm lowered; two figures without extra props."
-anime-02-wave-r2,qwen,anime,2,wave,2,pending,False,,,,False,,,,,,
+anime-02-wave-r2,qwen,anime,2,wave,2,succeeded,True,succeeded,,128.6991229057312,True,2,1,2,1,2,Frieren、Fern 兩人順序保持且各舉一手，但 Frieren 耳朵未呈現尖耳、眼色偏藍、頸飾變成金色，並帶回原圖書本。兩人全身而非腰上構圖；可見手掌清楚，動作大致成立但空手／移除來源道具要求未符合。
 anime-02-wave-r2,h3,anime,2,wave,2,succeeded,True,failed,,163.69235110282898,True,2,1,2,1,2,Frieren 與 Fern 數量、左右順序及主要髮色／耳形保持；Frieren 頸部寶石與衣領細節偏移。Fern 同時舉起兩手，違反每人僅一手揮手、另一手放下；可见手掌清楚，未見明顯肢體融合。
 live-02-wave-r2,codex,live,2,wave,2,succeeded,True,,,25.3,True,2,1,2,2,2,"Two figures, Wednesday left and Enid right, matching braids/lilac hair and broad costumes. Enid jacket becomes waist-cropped with altered large crest, so fine costume retention is partial. One open hand each, other lowered; no claws or lettering."
 live-02-wave-r2,qwen,live,2,wave,2,pending,False,,,,False,,,,,,
