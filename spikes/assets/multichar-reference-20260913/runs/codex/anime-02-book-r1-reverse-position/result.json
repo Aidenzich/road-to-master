@@ -1,0 +1,30 @@
+{
+  "case_id": "anime-02-book-r1-reverse-position",
+  "model": "codex",
+  "state": "succeeded",
+  "submitted": true,
+  "tool_elapsed_seconds": 36.4,
+  "timing_source": "tool wall time, not pure inference",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "32f1067a313aa230da53be212d46ff44b2481a55138de0d36d57d8e1ee5318b7",
+  "outputs": [
+    "output.png"
+  ],
+  "finished_epoch": 1789320590.729523,
+  "seed": null,
+  "steps": null,
+  "cfg": null,
+  "model_version": null,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 2,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "Requested reversed spatial order achieved: Fern left, Frieren right while reference upload order unchanged. Frieren still holds book both hands and Fern points, so action roles did not swap. Exact reader-right-page contact remains partly obscured at upper edge. Distinct appearance cues retained."
+  },
+  "cleanup_complete": true,
+  "cleanup_scope": "Verified local copy; no 5090 files created. Built-in provider retention unknown."
+}

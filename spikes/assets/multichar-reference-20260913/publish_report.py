@@ -20,7 +20,8 @@ def copy_file(relative):
 
 for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
-for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv']:
+for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
+                 'position-control-index.json','prepare_position_controls.py']:
     if (ROOT/relative).exists():
         copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
@@ -117,6 +118,40 @@ for result_file in sorted((ROOT/'runs/qwen-fullref').glob('*/result.json')):
     baseline=f'![baseline]({asset}/runs/qwen/{cid}/output.png)' if (DEST/'runs/qwen'/cid/'output.png').exists() else '尚未產出'
     control=f'![fullref]({asset}/runs/qwen-fullref/{cid}/output.png)' if (result_file.parent/'output.png').exists() else result['state']
     lines.append(f'| {cid} | {baseline} | {control} | {notes} |')
+position_index=ROOT/'position-control-index.json'
+if position_index.exists():
+    position_rows=[]
+    lines += ['', '## 額外對照：只反轉畫面左右排列', '',
+              '參考圖順序、角色編號、持書／指向／擊掌等動作角色與生成參數均維持原值，只改左右排列一句。目標是測試模型是否能脫離參考圖輸入順序排人；並非變更參考圖的上傳順序。Codex 沒有可控制seed，因此單張差異仍有隨機因素。這些額外對照不計入固定矩陣分母。', '',
+              f'[預登記與固定條件]({asset}/position-control-index.json)', '']
+    for control in json.loads(position_index.read_text())['controls']:
+        cid=control['case_id']
+        baseline_id=control['baseline_case_id']
+        for filename in ('case.json','prompt.txt','h3-prompt.txt'):
+            copy_file(f'cases/{cid}/{filename}')
+        lines += [f'### {cid}', '',
+                  f'[對照prompt]({asset}/cases/{cid}/prompt.txt) · [原始條件]({asset}/cases/{baseline_id}/prompt.txt)', '',
+                  '| 模型 | 原始排列 | 反轉排列 | 觀察 |', '|---|---|---|---|']
+        for model,name in MODEL_NAMES.items():
+            directory=ROOT/'runs'/model/cid
+            result_path=directory/'result.json'
+            result=json.loads(result_path.read_text()) if result_path.exists() else {}
+            state=result.get('state','not_executed')
+            if not result and model=='qwen' and not control['qwen_supported']:
+                state='unsupported'
+            for filename in ('run.json','result.json','events.json','history.json','cleanup.json','ffprobe.json',
+                             'output.png','output.mp4','frame-01.png','frame-02.png','frame-03.png','frame-04.png','frame-05.png'):
+                if (directory/filename).exists():
+                    copy_file(f'runs/{model}/{cid}/{filename}')
+            row=dict(case_id=cid,baseline_case_id=baseline_id,model=model,state=state,
+                     submitted=result.get('submitted',False),review=result.get('review'))
+            position_rows.append(row)
+            baseline=f'![baseline]({asset}/runs/{model}/{baseline_id}/output.png)' if (ROOT/'runs'/model/baseline_id/'output.png').exists() else '尚未產出'
+            output=f'![reverse]({asset}/runs/{model}/{cid}/output.png)' if (directory/'output.png').exists() else state
+            notes=(result.get('review') or {}).get('notes',result.get('notes','')).replace('|','/')
+            lines.append(f'| {name} | {baseline} | {output} | {notes} |')
+        lines += ['']
+    (DEST/'position-control-results.json').write_text(json.dumps(position_rows,indent=2,ensure_ascii=False)+'\n')
 lines += ['', '## 耗時與硬體紀錄', '',
 f'[逐筆階段耗時 CSV]({asset}/timings.csv) · [JSON]({asset}/timings.json) · [推導腳本]({asset}/summarize_timings.py)', '',
 'provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution_success；provider_queue_seconds 取服務收件 create_time 至 execution_start。sampling_node_seconds 是採樣節點觀測區間，可能包含載模，並非純 CUDA kernel 時間；first_to_last_step_seconds 不含第一步之前的準備。collection_to_saved_seconds 只在兩事件都存在時提供。Codex 僅有內建工具牆鐘時間，沒有相同階段或硬體資訊，不作等算力速度排名。VRAM 是提交前快照，不是峰值；未知值保留 null。', '',

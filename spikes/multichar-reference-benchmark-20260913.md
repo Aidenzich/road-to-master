@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T17:26:45.876373+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T17:31:32.971765+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -34,7 +34,7 @@
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
-| Qwen Edit 2511 | 60 | 11 | 11 | 0 | 24 | 11 |
+| Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
 | H3 Ref2VA 5 frames | 60 | 12 | 12 | 0 | 0 | 12 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
@@ -60,9 +60,9 @@
 | anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/result.json) | pending |
 | live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | pending |
 | anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | pending |
-| live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | pending | pending |
-| anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | unsupported | pending |
-| live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | unsupported | pending |
+| live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | pending |
+| anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | pending |
+| live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | pending |
 | anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | pending |
 | live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | pending |
 | anime-01-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r1/result.json) | pending | pending |
@@ -234,7 +234,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/output.png) | 未產出／待執行 |
 
 ### anime-04-book-r1
 
@@ -573,6 +573,133 @@
 | 場景 | 原流程 | 完整第一參考圖 | 觀察 |
 |---|---|---|---|
 | anime-02-wave-r1 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | ![fullref](assets/multichar-reference-20260913/runs/qwen-fullref/anime-02-wave-r1/output.png) | Two distinct characters correctly ordered and each waving one open five-fingered hand. Frieren has visible pointed ears, silver hair, greenish eyes and red earrings; Fern retains purple hair/eyes and black robe over white dress. Full-reference control improves the observed first-character cues relative to this one paired baseline; one seed does not establish causality or population quality. Framing remains wider than waist-up. |
+
+## 額外對照：只反轉畫面左右排列
+
+參考圖順序、角色編號、持書／指向／擊掌等動作角色與生成參數均維持原值，只改左右排列一句。目標是測試模型是否能脫離參考圖輸入順序排人；並非變更參考圖的上傳順序。Codex 沒有可控制seed，因此單張差異仍有隨機因素。這些額外對照不計入固定矩陣分母。
+
+[預登記與固定條件](assets/multichar-reference-20260913/position-control-index.json)
+
+### anime-02-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-02-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-02-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1-reverse-position/output.png) | Requested reversed spatial order achieved: Fern left, Frieren right while reference upload order unchanged. Frieren still holds book both hands and Fern points, so action roles did not swap. Exact reader-right-page contact remains partly obscured at upper edge. Distinct appearance cues retained. |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-02-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-02-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-02-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-book-r1-reverse-position/output.png) | Enid left, Wednesday right as requested despite unchanged upload order. Wednesday still holds book both hands; Enid points toward page, both look down. Exact page contact partly hidden. Enid jacket cropped relative to reference; broad faces/hair/makeup retained, hands plausible. |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### anime-03-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-03-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-03-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-03-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-03-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-03-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/output.png) | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### anime-05-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-05-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-05-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | unsupported |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-05-book-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-05-book-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-05-book-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | unsupported |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### anime-02-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-02-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-02-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-02-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-02-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-02-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### anime-03-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-03-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-03-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-03-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-03-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-03-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### anime-05-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/anime-05-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/anime-05-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | unsupported |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
+### live-05-contact-r1-reverse-position
+
+[對照prompt](assets/multichar-reference-20260913/cases/live-05-contact-r1-reverse-position/prompt.txt) · [原始條件](assets/multichar-reference-20260913/cases/live-05-contact-r1/prompt.txt)
+
+| 模型 | 原始排列 | 反轉排列 | 觀察 |
+|---|---|---|---|
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | not_executed |  |
+| Qwen Edit 2511 | 尚未產出 | unsupported |  |
+| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+
 
 ## 耗時與硬體紀錄
 

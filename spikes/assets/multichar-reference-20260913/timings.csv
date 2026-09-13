@@ -6,6 +6,7 @@ codex,anime-01-contact-r2,succeeded,,36.6,,,,,,,,,,True
 codex,anime-01-wave-r1,succeeded,,23.1,,,,,,,,,,True
 codex,anime-01-wave-r2,succeeded,,22.1,,,,,,,,,,True
 codex,anime-02-book-r1,succeeded,,39.5,,,,,,,,,,True
+codex,anime-02-book-r1-reverse-position,succeeded,,36.4,,,,,,,,,,True
 codex,anime-02-book-r2,succeeded,,36.6,,,,,,,,,,True
 codex,anime-02-contact-r1,succeeded,,37.3,,,,,,,,,,True
 codex,anime-02-contact-r2,succeeded,,36.5,,,,,,,,,,True
@@ -35,6 +36,7 @@ codex,live-01-contact-r1,failed,,23.3,,,,,,,,,,True
 codex,live-01-wave-r1,succeeded,,21.3,,,,,,,,,,True
 codex,live-01-wave-r2,succeeded,,21.3,,,,,,,,,,True
 codex,live-02-book-r1,succeeded,,37.6,,,,,,,,,,True
+codex,live-02-book-r1-reverse-position,succeeded,,40.7,,,,,,,,,,True
 codex,live-02-book-r2,succeeded,,38.9,,,,,,,,,,True
 codex,live-02-contact-r1,succeeded,,37.0,,,,,,,,,,True
 codex,live-02-contact-r2,succeeded,,39.7,,,,,,,,,,True
@@ -80,5 +82,6 @@ qwen,live-01-book-r1,succeeded,76.55363512039185,,64.617,0.001,63.042848,61.4580
 qwen,live-01-wave-r1,succeeded,79.6498589515686,,64.641,0.001,63.222348,61.603496,2.322979,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3832776742,6c51d41f-4c9a-4090-9597-978963c7a428,True
 qwen,live-02-book-r1,succeeded,129.79920506477356,,117.985,0.001,115.565406,112.724865,2.308948,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3834873894,5d4d8ddf-452c-4a3b-8c14-236aa43fbd5e,True
 qwen,live-02-wave-r1,succeeded,130.05111479759216,,117.717,0.001,115.269242,112.440424,2.520439,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,3832776742,8eb8a6b9-675d-43f6-b1f8-85184ad166c4,True
+qwen,live-03-book-r1,succeeded,198.68617296218872,,181.77,0.001,178.233425,173.595616,5.742377,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,4373000810,162f2920-1f06-46c9-a7ba-1d5233c89a00,True
 qwen,live-03-wave-r1,succeeded,195.5329451560974,,181.655,0.001,178.02972,173.395225,2.330711,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,4377385254,5f51146f-cb02-4c63-8773-29692f684ae4,True
 qwen-fullref,anime-02-wave-r1,succeeded,187.91384887695312,,160.184,13.676,144.608273,110.332868,2.286385,cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync,33670758400,7881343252,a1739988-555f-4e4b-829e-c14195da1163,True
