@@ -1,0 +1,49 @@
+{
+  "case_id": "live-04-book-r1",
+  "model": "h3",
+  "count": 4,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 555.9466397762299,
+  "prequeue_wait_seconds": 0.786761999130249,
+  "submitted": true,
+  "prompt_id": "05be4958-054f-4599-8a2d-cb53b2867c1b",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T17:57:59.819000+00:00",
+    "execution_observed": "2026-09-13T17:58:00.847134+00:00",
+    "sampling_started": "2026-09-13T18:05:03.145872+00:00",
+    "sampling_progress": "2026-09-13T18:07:02.949003+00:00",
+    "first_step_observed": "2026-09-13T18:05:09.425160+00:00",
+    "sampling_completed": "2026-09-13T18:07:02.949081+00:00",
+    "execution_completed": "2026-09-13T18:07:04.874000+00:00",
+    "collection_started": "2026-09-13T18:07:05.983086+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789322831.900116,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：四人数量和左右顺序正确，主要发型/服装色块仍可对应。Tyler颈部的约束装置变成类似耳机，制服领结/领带也改变。Wednesday持绿色书，Enid手部被书遮挡，无法确认指页。Bianca额外抬手并牵起类似领带/布条的物体，违反其余人手放下与同看一本书的要求，后两人看向镜头。局部手与细长物体连接关系不清，手部仅部分可核验。"
+  }
+}

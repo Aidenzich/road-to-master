@@ -52,7 +52,7 @@ anime-04-book-r1,qwen,anime,4,book,1,unsupported,False,,,,False,,,,,,
 anime-04-book-r1,h3,anime,4,book,1,succeeded,True,failed,,560.3170411586761,True,2,1,2,1,2,固定第一帧：四人数量及左右顺序正确，耳朵、发色与主要衣色保留。Loid被添加黑框眼镜，Frieren颈部宝石改成金色环饰，Yor长手套丢失。Frieren双手持一本绿色书，Fern手指在书缘；无法确认指向读者右页，多人视线未明确落在书上，因此动作部分符合。可见手部未见明显融合或额外手指。
 live-04-book-r1,codex,live,4,book,1,succeeded,True,,,40.7,True,2,1,2,1,2,"Four distinct correctly ordered characters look at same green open book; Wednesday holds with both hands, Enid index near top page edge. Exact right-page contact uncertain; Bianca hands clasped low rather than hanging, Tyler hair touches top edge. Necklace omitted and Tyler sleeves adapted; appearance partial. Visible hands plausible."
 live-04-book-r1,qwen,live,4,book,1,unsupported,False,,,,False,,,,,,
-live-04-book-r1,h3,live,4,book,1,pending,False,,,,False,,,,,,
+live-04-book-r1,h3,live,4,book,1,succeeded,True,failed,,555.9466397762299,True,2,1,2,0,1,固定第一帧：四人数量和左右顺序正确，主要发型/服装色块仍可对应。Tyler颈部的约束装置变成类似耳机，制服领结/领带也改变。Wednesday持绿色书，Enid手部被书遮挡，无法确认指页。Bianca额外抬手并牵起类似领带/布条的物体，违反其余人手放下与同看一本书的要求，后两人看向镜头。局部手与细长物体连接关系不清，手部仅部分可核验。
 anime-05-book-r1,codex,anime,5,book,1,succeeded,True,,,39.7,True,2,1,2,1,2,"Five distinct correctly ordered characters; one green open book held by Frieren, Fern points at page edge. Loid hand on chin and Anya both fists raised violate other-hands-lowered; Anya gaze toward group rather than clear book target. Loid gloves retained this time, Yor gloves shortened/open-finger. Broad character traits preserved, fine costume/action partial. Hands plausible."
 anime-05-book-r1,qwen,anime,5,book,1,unsupported,False,,,,False,,,,,,
 anime-05-book-r1,h3,anime,5,book,1,pending,False,,,,False,,,,,,

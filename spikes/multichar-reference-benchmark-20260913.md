@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T18:01:32.265097+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T18:08:28.107783+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
-| H3 Ref2VA 5 frames | 60 | 17 | 17 | 0 | 0 | 17 |
+| H3 Ref2VA 5 frames | 60 | 18 | 18 | 0 | 0 | 18 |
 
 ### 資料完整性快照
 
@@ -78,7 +78,7 @@
 | 3 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 1/4 | 3/4 |
 | 4 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 4/12 | 12/12 |
 | 4 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
-| 4 | H3 Ref2VA 5 frames | 12 | 3/3 | 0/3 | 3/3 | 0/3 | 2/3 |
+| 4 | H3 Ref2VA 5 frames | 12 | 4/4 | 0/4 | 4/4 | 0/4 | 2/4 |
 | 5 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 5 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 5 | H3 Ref2VA 5 frames | 12 | 2/2 | 0/2 | 2/2 | 0/2 | 0/2 |
@@ -126,7 +126,7 @@
 | anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/result.json) |
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/result.json) |
 | anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/result.json) |
-| live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | pending |
+| live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-04-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/result.json) |
 | anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | pending |
 | live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | pending |
 | anime-01-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r1/result.json) | pending | pending |
@@ -314,7 +314,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/output.png) |
 
 ### anime-05-book-r1
 
@@ -779,7 +779,7 @@
 | H3 Ref2VA 5 frames | 1 | 121.41 [119.31–168.01] (n=4) | 16.28 [16.06–47.23] (n=4) | 15.08 [14.90–15.19] (n=4) | 130.92 [126.72–189.77] (n=4) |
 | H3 Ref2VA 5 frames | 2 | 179.20 [154.38–203.59] (n=4) | 37.50 [22.92–56.06] (n=4) | 21.46 [21.43–21.82] (n=4) | 194.11 [162.94–224.54] (n=4) |
 | H3 Ref2VA 5 frames | 3 | 401.43 [399.37–409.77] (n=4) | 30.31 [30.21–30.38] (n=4) | 28.48 [28.33–28.51] (n=4) | 410.92 [408.93–419.67] (n=4) |
-| H3 Ref2VA 5 frames | 4 | 532.88 [520.97–550.82] (n=3) | 119.67 [119.61–119.71] (n=3) | 113.30 [113.28–113.45] (n=3) | 543.15 [537.07–560.32] (n=3) |
+| H3 Ref2VA 5 frames | 4 | 538.97 [520.97–550.82] (n=4) | 119.69 [119.61–119.80] (n=4) | 113.38 [113.28–113.52] (n=4) | 549.55 [537.07–560.32] (n=4) |
 | H3 Ref2VA 5 frames | 5 | 579.56 [576.72–582.40] (n=2) | 124.92 [124.85–124.99] (n=2) | 118.27 [118.25–118.29] (n=2) | 590.35 [587.57–593.12] (n=2) |
 
 Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控制，不能由下表得出等算力速度比。
