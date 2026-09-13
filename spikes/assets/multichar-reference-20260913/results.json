@@ -871,13 +871,13 @@
     "catalog_state": "succeeded",
     "failure_category": null,
     "seconds": 194.56021881103516,
-    "reviewed": false,
-    "exact_count": null,
-    "appearance_preserved": null,
-    "reference_binding": null,
-    "action_obedience": null,
-    "hands_and_contacts": null,
-    "notes": ""
+    "reviewed": true,
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "notes": "Three figures roughly Frieren/Fern/Loid order but two separate brown books instead of one green book. Fern does not point at page; gaze/action roles wrong and scene seated. Frieren head clipped, ears absent, floral hair ornaments added. Loid gloves retained; Fern hand/cuff geometry ambiguous."
   },
   {
     "case_id": "anime-03-book-r1",

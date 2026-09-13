@@ -34,5 +34,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789320279.5187159,
-  "review": null
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 1,
+    "reviewer": "assistant visual review",
+    "notes": "Three figures roughly Frieren/Fern/Loid order but two separate brown books instead of one green book. Fern does not point at page; gaze/action roles wrong and scene seated. Frieren head clipped, ears absent, floral hair ornaments added. Loid gloves retained; Fern hand/cuff geometry ambiguous."
+  }
 }
