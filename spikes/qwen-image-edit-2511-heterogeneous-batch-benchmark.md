@@ -2,6 +2,11 @@
 
 實驗日期：2026-09-13。性質：單輪工程試跑與效能診斷，不是模型排行榜或正式上線驗收。
 
+後續修正：第 1–10 節的效能數據限於 **lowvram＋reserve-vram 6、CPU 編碼**配置，
+不是 Qwen 的一般速度。第 13 節補上 GPU VL 對照：暖單張 54.891 秒、batch 4 為
+215.807 秒；收益主要来自編碼搬到 GPU，尚無明顯批次採樣加速證據。
+最初兩張人物參考合成一張合照的實验已完成，原圖與結果補在第 12 節，**不是 batch 2**。
+
 ## 摘要
 
 不同提示詞、不同參考圖與不同 seed 可以組成同一個 Qwen 圖像編輯採樣批次；
@@ -455,3 +460,87 @@ Batch 試跑完成時，原始實驗為 18／35 張；後續已以另一個單�
 背景／顏色修改相對容易目視確認，換服裝與局部配件操作尤其要檢查額外拉近。
 CFG 沒有單調改善，也沒有證据支持所有問題來自 FP8；本輪沒有 BF16／FP8 對照。
 保留 prompt 干擾的歸因限制，不把不乾淨的案例包裝成模型能力定論。
+
+## 12. 最初的雙人物合照與局部編輯驗證
+
+這組早於上述 35 張研究，之前漏收進本篇，並非未執行。兩張參考皆由 Krea2 生成的
+虛構成年人；Qwen 接收 ordered image 1／image 2，輸出一張合照（batch 1）。
+這驗證的是「兩張人物參考 → 同一張場景」，不是把兩個人的外貌融合成一個人。
+
+### 原圖與結果
+
+| 女人人物參考（image 1） | 男人人物參考（image 2） | Qwen 雙人合照 |
+|---|---|---|
+| ![女人原圖](assets/qwen-image-edit-2511/initial-01-reference-woman.png) | ![男人原圖](assets/qwen-image-edit-2511/initial-02-reference-man.png) | ![雙人公園合照](assets/qwen-image-edit-2511/initial-05-two-people.png) |
+
+| 只換咖啡館背景 | 只換深藍外套 |
+|---|---|
+| ![咖啡館](assets/qwen-image-edit-2511/initial-03-woman-cafe.png) | ![深藍外套](assets/qwen-image-edit-2511/initial-04-woman-blue-coat.png) |
+
+人工重新對照：合照確實有兩人，女人在左、男人在右，公園背景成立，髮型和服裝顏色可對應。
+但女人眼鏡明顯變大、鏡片／框色改變；兩人的臉部比例、衣領與衣服剪裁有漂移。
+因此是多圖輸入與合照流程成功，**不是精確身份保留通過**。換背景與換外套的目標也達成，
+但構圖從近臉拉遠、臉部細節改變，不能稱為只改指定區域。
+
+### 實際合照 prompt（原文，未重寫）
+
+```text
+Create a photorealistic waist-up portrait of two adult friends standing side by side in a sunlit park. The woman from image 1 stands on the left, the man from image 2 on the right. Preserve each distinct facial identity, hairstyle, skin tone and clothing: woman with round gold glasses and mustard cardigan; man with curly hair, short beard and teal jacket. Both look toward the camera. Exactly two people, do not merge their faces, natural proportions, no text.
+```
+
+### 參數與耗時
+
+| 輸出 | 模型 | Seed | Steps／CFG | Queue 執行秒 |
+|---|---|---:|---|---:|
+| 女人參考 | Krea2 | 2026091301 | 12／1 | 62.452 |
+| 男人參考 | Krea2 | 2026091302 | 12／1 | 23.022 |
+| 換咖啡館背景 | Qwen Edit 2511 | 2026091310 | 40／4 | 192.337 |
+| 換深藍外套 | Qwen Edit 2511 | 2026091311 | 40／4 | 107.696 |
+| 雙人物合照 | Qwen Edit 2511 | 2026091312 | 40／4 | 261.362 |
+
+全部 512×512、batch 1。Qwen 為 FP8 mixed＋Qwen 2.5 VL 7B FP8 scaled（CPU）＋Qwen VAE，
+Euler/simple、denoise 1、shift 3.1、CFGNorm 1，無外部 LoRA。指定尺寸，不是官方自動尺寸測量。
+本表為 Queue 執行時間（含載入、編碼、採樣、解碼及輪詢），**不是第 4 節的 provider 純事件區間**；
+不含排隊。首張另等既有工作 45.473 秒，其餘排隊約 0.45–0.47 秒。
+沒有雙人物 GPU 編碼對照，不能把後續單人物測速直接套用為合照速度。
+
+來源：`isuper/sample/qwen-edit-validation-20260913/`；每張保留原始 prompt、request、trace，
+`status.json` 記錄 seed／SHA256／尺寸與 cleanup。本 repo 五張 PNG 與來源逐一 hash／解碼核對，
+沒有重生成或美化。遠端五個輸出、兩個 input 已清理，本機原件仍保留。
+這五張是額外的初始流程驗證，不重複算入第 11 節的 35 張。
+
+## 13. 後續修正：VL 放 GPU 與新配置 batch 4
+
+原 Docker 參數含 `--lowvram --reserve-vram 6`，即使 CLIPLoader 選 `default`，實際 load device
+仍是 CPU。不能憑請求 enum 或檔名含 gpu 就宣稱 GPU 編碼。
+同映像臨時容器移除這兩旗標後，日誌確認 VL `load device=cuda:0, offload device=cpu`；
+初始 `current=cpu` 不代表推論仍在 CPU。移除顯式 reserve 使用預設策略，並不是完全零預留。
+
+| 配置／測試 | 張數 | Provider 秒 | 編碼秒 | 採樣秒 |
+|---|---:|---:|---:|---:|
+| 舊配置 default 第一張（實際 CPU） | 1 | 154.507 | 100.235 | 52.894 |
+| 舊配置 default 第二張（實際 CPU） | 1 | 153.060 | 99.815 | 53.018 |
+| 舊配置強制 CPU | 1 | 155.218 | 101.141 | 53.029 |
+| 新配置 GPU 第一張 | 1 | 63.738 | 3.284 | 57.538 |
+| 新配置 GPU 暖單張 | 1 | 54.891 | 1.040 | 53.627 |
+| 同一新容器強制 CPU 對照 | 1 | 152.608 | 98.680 | 53.125 |
+| 新配置 batch4 追測：單張 A 冷啟動暖機 | 1 | 63.388 | 3.185 | 57.262 |
+| 新配置 batch4 追測：暖批次 A/B/C/D | 4 | 215.807 | 4.113 | 210.379 |
+
+單張固定 A 的 prompt／參考圖／seed 2026091360；batch4 沿用第 3 節四組 prompt／圖片／seed。
+全部 512×512、40steps、CFG4、相同模型／採樣設定／計時節點，不命中跨 job 編碼快取。
+新舊容器同映像 `sha256:a4efd9f52036b324ae46b873b7dbee58b738a5722e2f626f7eaf5f4392544f45`。
+
+- 同一新容器暖 GPU／CPU 單張比較約 **2.78 倍速、時間減少 64.0%**，主要差異在編碼，採樣仍約 53 秒。
+- 新 batch4 平均 **53.952 秒／張**；比舊 CPU 配置 600.680 秒縮短 64.1%，但這是配置改善，不能當作 batch 加速比。
+- 新 batch4 採樣 210.379 秒，沒有比舊配置 200.226 秒更快；單輪非隨機化結果不能判定穩定退步或原因。
+- `4 × 54.891 = 219.564` 秒只是單張 A 的外推，不是 A/B/C/D 四組實測串行基準。
+  尚未補四組匹配單張、GPU batch2、多次重複與 kernel profiling；不能宣稱批次有顯著優勢。
+- 第一次新 GPU 單張觀察最高 29,636 MiB／32,607 MiB 是約五秒取樣最大值，非真實逐 job 峰值，亦不是新 batch4 的峰值。
+- CPU 是當時未經 A/B 的保守設定，不是模型必要限制。跨新舊容器同時移除兩旗標，無法分離各旗標的獨立效果；同新容器 CPU 對照比較有助歸因。
+
+證據目錄：`isuper/sample/qwen-vl-gpu-20260913/`（歷史檔名含 gpu，但實際 CPU）、
+`qwen-vl-normalvram-20260913/`（三組設備對照）與 `qwen-vl-gpu-batch4-20260913/`（新 batch4）。
+均保存 request／receipt／GPU 取樣／放置日誌。Batch4 曾短暫 unknown，沿原 job identity 恢復成功，沒有重送。
+新 batch4 與暖機共五張已下載驗證，遠端五個 output／四個 input／兩筆 history 清理完成；
+臨時容器移除、原 lowvram／reserve6 服務恢復。正式配置未改動，這不是已部署 GPU 編碼預設的宣告。
