@@ -1,0 +1,49 @@
+{
+  "case_id": "anime-04-contact-r1",
+  "model": "h3",
+  "count": 4,
+  "action": "contact",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 564.7832090854645,
+  "prequeue_wait_seconds": 0.8295979499816895,
+  "submitted": true,
+  "prompt_id": "74283fa6-a2e8-4d1d-9bb8-fada54cd7832",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T19:07:28.186000+00:00",
+    "execution_observed": "2026-09-13T19:07:29.328124+00:00",
+    "sampling_started": "2026-09-13T19:14:39.939170+00:00",
+    "sampling_progress": "2026-09-13T19:16:40.074791+00:00",
+    "first_step_observed": "2026-09-13T19:14:46.147409+00:00",
+    "sampling_completed": "2026-09-13T19:16:40.074828+00:00",
+    "execution_completed": "2026-09-13T19:16:41.971000+00:00",
+    "collection_started": "2026-09-13T19:16:43.811236+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789327009.2300081,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 0,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：四人数量及左右顺序正确，主要外观线索可对应，但Loid被添加眼镜、Frieren颈饰改变、Yor手套缩短。图中形成从左到右连续三组接触，Fern与Loid也额外抬起本应放下的手，违反仅两组指定配对。Frieren另一手仍持来源书本而非空手放下。动作分配失败；可见手掌/手臂归属清楚，未见明确额外肢体或融合。构图比要求的腰部中景更宽。"
+  }
+}
