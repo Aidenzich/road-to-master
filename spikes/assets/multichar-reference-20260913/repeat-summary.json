@@ -1884,9 +1884,9 @@
       "model": "qwen",
       "metric": "exact_count",
       "planned_pairs": 30,
-      "evaluated_pairs": 6,
-      "missing_pairs": 24,
-      "same_score": 6,
+      "evaluated_pairs": 7,
+      "missing_pairs": 23,
+      "same_score": 7,
       "changed_score": 0,
       "both_clear_pass": 4,
       "pairs": [
@@ -1967,6 +1967,19 @@
             2,
             2
           ]
+        },
+        {
+          "cohort": "anime",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "anime-01-book-r1",
+            "anime-01-book-r2"
+          ],
+          "scores": [
+            0,
+            0
+          ]
         }
       ]
     },
@@ -1974,9 +1987,9 @@
       "model": "qwen",
       "metric": "appearance_preserved",
       "planned_pairs": 30,
-      "evaluated_pairs": 6,
-      "missing_pairs": 24,
-      "same_score": 6,
+      "evaluated_pairs": 7,
+      "missing_pairs": 23,
+      "same_score": 7,
       "changed_score": 0,
       "both_clear_pass": 0,
       "pairs": [
@@ -2057,6 +2070,19 @@
             0,
             0
           ]
+        },
+        {
+          "cohort": "anime",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "anime-01-book-r1",
+            "anime-01-book-r2"
+          ],
+          "scores": [
+            1,
+            1
+          ]
         }
       ]
     },
@@ -2064,9 +2090,9 @@
       "model": "qwen",
       "metric": "reference_binding",
       "planned_pairs": 30,
-      "evaluated_pairs": 6,
-      "missing_pairs": 24,
-      "same_score": 5,
+      "evaluated_pairs": 7,
+      "missing_pairs": 23,
+      "same_score": 6,
       "changed_score": 1,
       "both_clear_pass": 1,
       "pairs": [
@@ -2147,6 +2173,19 @@
             0,
             0
           ]
+        },
+        {
+          "cohort": "anime",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "anime-01-book-r1",
+            "anime-01-book-r2"
+          ],
+          "scores": [
+            0,
+            0
+          ]
         }
       ]
     },
@@ -2154,9 +2193,9 @@
       "model": "qwen",
       "metric": "action_obedience",
       "planned_pairs": 30,
-      "evaluated_pairs": 6,
-      "missing_pairs": 24,
-      "same_score": 3,
+      "evaluated_pairs": 7,
+      "missing_pairs": 23,
+      "same_score": 4,
       "changed_score": 3,
       "both_clear_pass": 0,
       "pairs": [
@@ -2237,6 +2276,19 @@
             0,
             0
           ]
+        },
+        {
+          "cohort": "anime",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "anime-01-book-r1",
+            "anime-01-book-r2"
+          ],
+          "scores": [
+            1,
+            1
+          ]
         }
       ]
     },
@@ -2244,11 +2296,11 @@
       "model": "qwen",
       "metric": "hands_and_contacts",
       "planned_pairs": 30,
-      "evaluated_pairs": 6,
-      "missing_pairs": 24,
-      "same_score": 3,
+      "evaluated_pairs": 7,
+      "missing_pairs": 23,
+      "same_score": 4,
       "changed_score": 3,
-      "both_clear_pass": 3,
+      "both_clear_pass": 4,
       "pairs": [
         {
           "cohort": "anime",
@@ -2325,6 +2377,19 @@
           ],
           "scores": [
             1,
+            2
+          ]
+        },
+        {
+          "cohort": "anime",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "anime-01-book-r1",
+            "anime-01-book-r2"
+          ],
+          "scores": [
+            2,
             2
           ]
         }

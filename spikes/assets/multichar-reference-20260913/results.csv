@@ -120,7 +120,7 @@ live-05-wave-r2,codex,live,5,wave,2,succeeded,True,,,41.1,True,2,1,2,1,2,"Five d
 live-05-wave-r2,qwen,live,5,wave,2,unsupported,False,,,,False,,,,,,
 live-05-wave-r2,h3,live,5,wave,2,pending,False,,,,False,,,,,,
 anime-01-book-r2,codex,anime,1,book,2,succeeded,True,,,27.4,True,2,2,2,2,2,"Single Frieren, matching ears/hair/eyes/red accessories and white-gold clothing. Holds one open green book with both hands at chest, head and gaze lowered toward book; plausible hand contact."
-anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648,False,,,,,,
+anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648,True,0,1,0,1,2,單人條件生成兩名 Frieren 類似角色，各用雙手拿一本綠書並低頭看書。銀髮尖耳與白金服裝保留，但臉形／衣飾比例偏移，頭頂被裁切；兩人兩書不符合一人條件。可見握書手部清楚。
 anime-01-book-r2,h3,anime,1,book,2,pending,False,,,,False,,,,,,
 live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_blocked,21.3,False,,,,,,"Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
 live-01-book-r2,qwen,live,1,book,2,pending,False,,,,False,,,,,,

@@ -34,5 +34,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789331167.457408,
-  "review": null
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "單人條件生成兩名 Frieren 類似角色，各用雙手拿一本綠書並低頭看書。銀髮尖耳與白金服裝保留，但臉形／衣飾比例偏移，頭頂被裁切；兩人兩書不符合一人條件。可見握書手部清楚。"
+  }
 }

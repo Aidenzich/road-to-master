@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:26:14.259473+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:26:43.189588+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -8,7 +8,7 @@
 
 | 已評估條件 | Codex | Qwen | H3 |
 |---|---:|---:|---:|
-| 單人：恰好一人的明確符合數 | 9/9 | 0/8 | 0/8 |
+| 單人：恰好一人的明確符合數 | 9/9 | 0/9 | 0/8 |
 | 三人：角色對應的明確符合數 | 12/12 | 2/8 | 8/8 |
 | 三人：全部動作要求的明確符合數 | 3/12 | 0/8 | 2/8 |
 
@@ -51,7 +51,7 @@
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
-| Qwen Edit 2511 | 60 | 25 | 25 | 0 | 24 | 24 |
+| Qwen Edit 2511 | 60 | 25 | 25 | 0 | 24 | 25 |
 | H3 Ref2VA 5 frames | 60 | 36 | 36 | 0 | 0 | 36 |
 
 ### 資料完整性快照
@@ -89,7 +89,7 @@
 | 人數 | 模型 | 格數 | 數量 | 外觀 | 對應 | 動作 | 手部 |
 |---:|---|---:|---:|---:|---:|---:|---:|
 | 1 | Codex built-in | 12 | 9/9 | 9/9 | 9/9 | 8/9 | 9/9 |
-| 1 | Qwen Edit 2511 | 12 | 0/8 | 0/8 | 0/8 | 1/8 | 7/8 |
+| 1 | Qwen Edit 2511 | 12 | 0/9 | 0/9 | 0/9 | 1/9 | 8/9 |
 | 1 | H3 Ref2VA 5 frames | 12 | 0/8 | 0/8 | 0/8 | 0/8 | 7/8 |
 | 2 | Codex built-in | 12 | 12/12 | 9/12 | 12/12 | 4/12 | 12/12 |
 | 2 | Qwen Edit 2511 | 12 | 8/8 | 0/8 | 6/8 | 2/8 | 7/8 |
@@ -832,11 +832,11 @@
 | Codex built-in | reference_binding | 28/30 | 28 | 0 | 28 |
 | Codex built-in | action_obedience | 28/30 | 25 | 3 | 9 |
 | Codex built-in | hands_and_contacts | 28/30 | 28 | 0 | 28 |
-| Qwen Edit 2511 | exact_count | 6/30 | 6 | 0 | 4 |
-| Qwen Edit 2511 | appearance_preserved | 6/30 | 6 | 0 | 0 |
-| Qwen Edit 2511 | reference_binding | 6/30 | 5 | 1 | 1 |
-| Qwen Edit 2511 | action_obedience | 6/30 | 3 | 3 | 0 |
-| Qwen Edit 2511 | hands_and_contacts | 6/30 | 3 | 3 | 3 |
+| Qwen Edit 2511 | exact_count | 7/30 | 7 | 0 | 4 |
+| Qwen Edit 2511 | appearance_preserved | 7/30 | 7 | 0 | 0 |
+| Qwen Edit 2511 | reference_binding | 7/30 | 6 | 1 | 1 |
+| Qwen Edit 2511 | action_obedience | 7/30 | 4 | 3 | 0 |
+| Qwen Edit 2511 | hands_and_contacts | 7/30 | 4 | 3 | 4 |
 | H3 Ref2VA 5 frames | exact_count | 6/30 | 6 | 0 | 4 |
 | H3 Ref2VA 5 frames | appearance_preserved | 6/30 | 6 | 0 | 0 |
 | H3 Ref2VA 5 frames | reference_binding | 6/30 | 6 | 0 | 4 |
