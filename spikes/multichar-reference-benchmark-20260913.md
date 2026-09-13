@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T16:38:22.589276+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T16:45:18.142810+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -33,9 +33,9 @@
 
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
-| Codex built-in | 60 | 26 | 26 | 0 | 0 | 26 |
+| Codex built-in | 60 | 30 | 29 | 1 | 0 | 29 |
 | Qwen Edit 2511 | 60 | 6 | 6 | 0 | 24 | 6 |
-| H3 Ref2VA 5 frames | 60 | 6 | 6 | 0 | 0 | 6 |
+| H3 Ref2VA 5 frames | 60 | 7 | 7 | 0 | 0 | 7 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -51,12 +51,12 @@
 | live-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/result.json) |
 | anime-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r1/result.json) |
 | live-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-wave-r1/result.json) |
-| anime-04-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/result.json) | unsupported | pending |
+| anime-04-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/result.json) | unsupported | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/result.json) |
 | live-04-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/result.json) | unsupported | pending |
 | anime-05-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r1/result.json) | unsupported | pending |
 | live-05-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/result.json) | unsupported | pending |
-| anime-01-book-r1 | pending | pending | pending |
-| live-01-book-r1 | pending | pending | pending |
+| anime-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-book-r1/result.json) | pending | pending |
+| live-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-book-r1/result.json) | pending | pending |
 | anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | pending | pending |
 | live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | pending | pending |
 | anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | pending | pending |
@@ -65,8 +65,8 @@
 | live-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/result.json) | unsupported | pending |
 | anime-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/result.json) | unsupported | pending |
 | live-05-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/result.json) | unsupported | pending |
-| anime-01-contact-r1 | pending | pending | pending |
-| live-01-contact-r1 | pending | pending | pending |
+| anime-01-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r1/result.json) | pending | pending |
+| live-01-contact-r1 | [failed](assets/multichar-reference-20260913/runs/codex/live-01-contact-r1/result.json) | pending | pending |
 | anime-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/result.json) | pending | pending |
 | live-02-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/result.json) | pending | pending |
 | anime-03-contact-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/result.json) | pending | pending |
@@ -162,7 +162,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/output.png) |
 
 ### live-04-wave-r1
 
@@ -187,6 +187,22 @@
 | Codex | Qwen | H3首幀 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-01-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-01-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-01-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-01-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### live-01-book-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-01-book-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-01-book-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-01-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
 
 ### anime-02-book-r1
 
@@ -251,6 +267,14 @@
 | Codex | Qwen | H3首幀 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-01-contact-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-01-contact-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-01-contact-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-01-contact-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
 
 ### anime-02-contact-r1
 
@@ -333,6 +357,8 @@
 provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution_success；provider_queue_seconds 取服務收件 create_time 至 execution_start。sampling_node_seconds 是採樣節點觀測區間，可能包含載模，並非純 CUDA kernel 時間；first_to_last_step_seconds 不含第一步之前的準備。collection_to_saved_seconds 只在兩事件都存在時提供。Codex 僅有內建工具牆鐘時間，沒有相同階段或硬體資訊，不作等算力速度排名。VRAM 是提交前快照，不是峰值；未知值保留 null。
 
 ## 重現與失敗歸類
+
+內建生圖拒絕、基礎設施錯誤、成功成像但品質不符是不同結果。`failure_category=provider_output_moderation_blocked` 表示服務輸出階段拒絕，沒有可評分圖片；不得算成人物一致性零分，也不自動改寫提示詞繞過或切換API。完整錯誤代碼與request ID保留在該筆result.json。
 
 場景與角色對應可由 [prepare_cases.py](assets/multichar-reference-20260913/prepare_cases.py) 重建；[gpu_runner.py](assets/multichar-reference-20260913/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。
 

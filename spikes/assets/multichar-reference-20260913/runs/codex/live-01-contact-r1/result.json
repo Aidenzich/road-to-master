@@ -1,0 +1,20 @@
+{
+  "case_id": "live-01-contact-r1",
+  "model": "codex",
+  "state": "failed",
+  "submitted": true,
+  "tool_elapsed_seconds": 23.3,
+  "timing_source": "tool call wall time",
+  "failure_category": "provider_output_moderation_blocked",
+  "provider_error_code": "moderation_blocked",
+  "moderation_stage": "output",
+  "provider_request_id": "efb522e8-54be-48d5-b063-f6d814e4c4f7",
+  "provider_categories": [
+    "other"
+  ],
+  "outputs": [],
+  "review": null,
+  "cleanup_complete": true,
+  "cleanup_scope": "No output returned and no 5090 files created. Built-in provider retention unknown.",
+  "notes": "Unchanged benign preregistered single-person blue-mug scene. No output available for quality evaluation; provider rejection is not a measured visual-quality failure. No retry or alternate API."
+}

@@ -1,0 +1,380 @@
+[
+  {
+    "event": "prepared",
+    "data": {
+      "body": {
+        "prompt": {
+          "1": {
+            "inputs": {
+              "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+              "weight_dtype": "default"
+            },
+            "class_type": "UNETLoader"
+          },
+          "2": {
+            "inputs": {
+              "model": [
+                "1",
+                0
+              ],
+              "attention": "comfy kitchen attention"
+            },
+            "class_type": "ModelAttentionBackend"
+          },
+          "3": {
+            "inputs": {
+              "model": [
+                "2",
+                0
+              ],
+              "enable_fp16_accumulation": true
+            },
+            "class_type": "ModelPatchTorchSettings"
+          },
+          "4": {
+            "inputs": {
+              "model": [
+                "3",
+                0
+              ],
+              "chunks": 32,
+              "seq_threshold": 4096
+            },
+            "class_type": "MiniMaxChunkFeedForward"
+          },
+          "6": {
+            "inputs": {
+              "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+            },
+            "class_type": "VAELoader"
+          },
+          "7": {
+            "inputs": {
+              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+            },
+            "class_type": "VAELoader"
+          },
+          "8": {
+            "inputs": {
+              "type": "minimax",
+              "device": "default",
+              "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors"
+            },
+            "class_type": "CLIPLoader"
+          },
+          "11": {
+            "inputs": {
+              "noise_seed": 20260914
+            },
+            "class_type": "RandomNoise"
+          },
+          "12": {
+            "inputs": {
+              "vae": [
+                "6",
+                0
+              ],
+              "clip": [
+                "8",
+                0
+              ],
+              "width": 768,
+              "height": 512,
+              "length": 5,
+              "prompt": "subject_definitions:\n<Subject 1> is Frieren, the character shown in <Picture 1>.\n<Subject 2> is Fern, the character shown in <Picture 2>.\n<Subject 3> is Loid Forger, the character shown in <Picture 3>.\n<Subject 4> is Yor Forger, the character shown in <Picture 4>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 4 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
+              "audio_vae": [
+                "7",
+                0
+              ],
+              "ref_image_size": "match",
+              "ref_images.ref_image_0": [
+                "30",
+                0
+              ],
+              "ref_images.ref_image_1": [
+                "31",
+                0
+              ],
+              "ref_images.ref_image_2": [
+                "32",
+                0
+              ],
+              "ref_images.ref_image_3": [
+                "33",
+                0
+              ]
+            },
+            "class_type": "MiniMaxH3ReferenceToVideo"
+          },
+          "13": {
+            "inputs": {
+              "model": [
+                "4",
+                0
+              ],
+              "steps": 20,
+              "denoise": 1.0,
+              "scheduler": "linear_quadratic"
+            },
+            "class_type": "BasicScheduler"
+          },
+          "14": {
+            "inputs": {
+              "sampler_name": "euler"
+            },
+            "class_type": "KSamplerSelect"
+          },
+          "15": {
+            "inputs": {
+              "model": [
+                "4",
+                0
+              ],
+              "conditioning": [
+                "12",
+                0
+              ]
+            },
+            "class_type": "BasicGuider"
+          },
+          "16": {
+            "inputs": {
+              "noise": [
+                "11",
+                0
+              ],
+              "guider": [
+                "15",
+                0
+              ],
+              "sigmas": [
+                "13",
+                0
+              ],
+              "sampler": [
+                "14",
+                0
+              ],
+              "latent_image": [
+                "12",
+                1
+              ]
+            },
+            "class_type": "SamplerCustomAdvanced"
+          },
+          "17": {
+            "inputs": {
+              "vae": [
+                "6",
+                0
+              ],
+              "samples": [
+                "16",
+                0
+              ]
+            },
+            "class_type": "VAEDecode"
+          },
+          "18": {
+            "inputs": {
+              "vae": [
+                "7",
+                0
+              ],
+              "samples": [
+                "16",
+                0
+              ]
+            },
+            "class_type": "VAEDecodeAudio"
+          },
+          "19": {
+            "inputs": {
+              "fps": 24,
+              "audio": [
+                "18",
+                0
+              ],
+              "images": [
+                "17",
+                0
+              ],
+              "bit_depth": 8
+            },
+            "class_type": "CreateVideo"
+          },
+          "20": {
+            "inputs": {
+              "video": [
+                "19",
+                0
+              ],
+              "format": "mp4",
+              "format.codec": "h264",
+              "filename_prefix": "video/msai-studio/da4376757b42f1da-00",
+              "format.codec.encoding": "re-encode",
+              "format.codec.encoding.crf": 23.0
+            },
+            "class_type": "SaveVideo"
+          },
+          "30": {
+            "inputs": {
+              "image": "53b5a1c8-1850-48ba-9513-3035cad75c99-ref-0.png"
+            },
+            "class_type": "LoadImage"
+          },
+          "31": {
+            "inputs": {
+              "image": "53b5a1c8-1850-48ba-9513-3035cad75c99-ref-1.png"
+            },
+            "class_type": "LoadImage"
+          },
+          "32": {
+            "inputs": {
+              "image": "53b5a1c8-1850-48ba-9513-3035cad75c99-ref-2.png"
+            },
+            "class_type": "LoadImage"
+          },
+          "33": {
+            "inputs": {
+              "image": "53b5a1c8-1850-48ba-9513-3035cad75c99-ref-3.png"
+            },
+            "class_type": "LoadImage"
+          }
+        },
+        "client_id": "msai-studio-53b5a1c8-1850-48ba-9513-3035cad75c99"
+      },
+      "steps": 20,
+      "hardware": {
+        "phase": "before_submit",
+        "source": "comfy_system_stats",
+        "devices": [
+          {
+            "name": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+            "type": "cuda",
+            "index": 0,
+            "vram_free": 7727116564,
+            "vram_total": 33670758400,
+            "torch_vram_free": 77033748,
+            "torch_vram_total": 25266487296
+          }
+        ],
+        "software": {
+          "comfyui_version": "0.33.0",
+          "pytorch_version": "2.7.1+cu128"
+        },
+        "available": true,
+        "observed_at": "2026-09-13T16:31:10.058016+00:00"
+      },
+      "model_id": "minimax-h3-standard",
+      "workflow_id": "minimax-h3-ref2va",
+      "target_width": 768,
+      "target_height": 512,
+      "duration_seconds": 0.20833333333333334
+    },
+    "created_at": "2026-09-13 16:31:10.560023+00:00"
+  },
+  {
+    "event": "accepted",
+    "data": {
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2"
+    },
+    "created_at": "2026-09-13 16:31:11.560905+00:00"
+  },
+  {
+    "event": "execution_started",
+    "data": {
+      "clock": "provider",
+      "source": "comfy_websocket",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:31:11.717931+00:00",
+      "occurred_at": "2026-09-13T16:31:11.538000+00:00"
+    },
+    "created_at": "2026-09-13 16:31:11.719022+00:00"
+  },
+  {
+    "event": "execution_observed",
+    "data": {
+      "clock": "observer",
+      "source": "comfy_queue_poll",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:31:12.713896+00:00",
+      "occurred_at": "2026-09-13T16:31:12.713896+00:00"
+    },
+    "created_at": "2026-09-13 16:31:12.713512+00:00"
+  },
+  {
+    "event": "sampling_started",
+    "data": {
+      "clock": "observer",
+      "source": "comfy_websocket",
+      "node_id": "16",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:38:02.719512+00:00",
+      "occurred_at": "2026-09-13T16:38:02.719512+00:00"
+    },
+    "created_at": "2026-09-13 16:38:02.717868+00:00"
+  },
+  {
+    "event": "sampling_progress",
+    "data": {
+      "max": 20,
+      "clock": "observer",
+      "value": 20.0,
+      "source": "comfy_websocket",
+      "node_id": "16",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:40:02.434081+00:00",
+      "occurred_at": "2026-09-13T16:40:02.434081+00:00"
+    },
+    "created_at": "2026-09-13 16:38:09.131244+00:00"
+  },
+  {
+    "event": "first_step_observed",
+    "data": {
+      "max": 20,
+      "clock": "observer",
+      "value": 1,
+      "source": "comfy_websocket",
+      "node_id": "16",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:38:09.131269+00:00",
+      "occurred_at": "2026-09-13T16:38:09.131269+00:00"
+    },
+    "created_at": "2026-09-13 16:38:09.137367+00:00"
+  },
+  {
+    "event": "sampling_completed",
+    "data": {
+      "max": 20,
+      "clock": "observer",
+      "value": 20,
+      "source": "comfy_websocket",
+      "node_id": "16",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:40:02.434128+00:00",
+      "occurred_at": "2026-09-13T16:40:02.434128+00:00"
+    },
+    "created_at": "2026-09-13 16:40:02.440647+00:00"
+  },
+  {
+    "event": "execution_completed",
+    "data": {
+      "clock": "provider",
+      "source": "comfy_websocket",
+      "prompt_id": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
+      "observed_at": "2026-09-13T16:40:04.534120+00:00",
+      "occurred_at": "2026-09-13T16:40:04.423000+00:00"
+    },
+    "created_at": "2026-09-13 16:40:04.537340+00:00"
+  },
+  {
+    "event": "collection_started",
+    "data": {
+      "clock": "observer",
+      "source": "editor",
+      "occurred_at": "2026-09-13T16:40:04.876029+00:00"
+    },
+    "created_at": "2026-09-13 16:40:04.877466+00:00"
+  }
+]
