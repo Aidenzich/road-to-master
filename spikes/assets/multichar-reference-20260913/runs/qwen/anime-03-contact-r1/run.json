@@ -1,8 +1,6 @@
 {
   "case_id": "anime-03-contact-r1",
   "model": "qwen",
-  "schema": "qa_multi_5dcfd4b61dc643799813b670cb5f08e8",
-  "version_id": "c80191a8-8968-4e61-9354-c4c1d6e559d0",
   "inputs": {
     "prompt": "Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2. Person 3 is Loid Forger, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 and Person 2 face slightly toward each other, gently touching Person 1's right palm to Person 2's left palm in a held high-five at shoulder height. Person 3 watches with both hands lowered. Each paired person keeps the unused hand lowered. Every hand clearly belongs to its own person. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
     "effective_prompt": "Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2. Person 3 is Loid Forger, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 and Person 2 face slightly toward each other, gently touching Person 1's right palm to Person 2's left palm in a held high-five at shoulder height. Person 3 watches with both hands lowered. Each paired person keeps the unused hand lowered. Every hand clearly belongs to its own person. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.",
@@ -11,11 +9,6 @@
     "steps": 40,
     "seed": 20260914,
     "candidate_count": 1,
-    "reference_asset_ids": [
-      "a5f131e6-07d5-4778-830e-cb99de36ee29",
-      "a564893f-d56e-4054-b15f-99df7f2e8f73",
-      "c2a4e3b7-d1a6-4c91-b7c5-5bdb915be7a5"
-    ],
     "workflow_id": "qwen-edit-2511",
     "model_id": "qwen-image-edit-2511",
     "cfg_scale": 4
@@ -26,5 +19,11 @@
     "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
     "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
     "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
-  ]
+  ],
+  "references": [
+    "references/frieren.png",
+    "references/fern.png",
+    "references/loid.png"
+  ],
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

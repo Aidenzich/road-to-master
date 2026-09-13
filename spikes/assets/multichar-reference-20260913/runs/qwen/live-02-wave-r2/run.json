@@ -1,8 +1,6 @@
 {
   "case_id": "live-02-wave-r2",
   "model": "qwen",
-  "schema": "qa_multi_4a4130161c244807a944bb638aa5a7a4",
-  "version_id": "3c91eb66-8ec8-438a-ba87-354e7d3c825c",
   "inputs": {
     "prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 2 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
     "effective_prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 2 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
@@ -11,10 +9,6 @@
     "steps": 40,
     "seed": 20260915,
     "candidate_count": 1,
-    "reference_asset_ids": [
-      "c89b2177-76fa-45ca-b675-e6b556be25a6",
-      "15d3408c-ce6a-454f-b0d4-0ac872eb32bc"
-    ],
     "workflow_id": "qwen-edit-2511",
     "model_id": "qwen-image-edit-2511",
     "cfg_scale": 4
@@ -24,5 +18,10 @@
   "reference_hashes": [
     "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
     "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
-  ]
+  ],
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg"
+  ],
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

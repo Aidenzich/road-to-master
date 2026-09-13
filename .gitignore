@@ -166,3 +166,18 @@ cython_debug/
 
 
 .vscode
+
+# Multichar benchmark: runtime/raw artifacts stay in the local sample archive.
+/spikes/assets/multichar-reference-20260913/*.py
+/spikes/assets/multichar-reference-20260913/*-audit.json
+!/spikes/assets/multichar-reference-20260913/terminal-audit.json
+/spikes/assets/multichar-reference-20260913/runs/**/*.mp4
+/spikes/assets/multichar-reference-20260913/runs/**/frame-*.png
+/spikes/assets/multichar-reference-20260913/runs/**/events.json
+/spikes/assets/multichar-reference-20260913/runs/**/history.json
+/spikes/assets/multichar-reference-20260913/runs/**/cleanup.json
+/spikes/assets/multichar-reference-20260913/runs/**/ffprobe.json
+/spikes/assets/multichar-reference-20260913/**/journal/
+/spikes/assets/multichar-reference-20260913/**/blobs/
+/spikes/assets/multichar-reference-20260913/*.lock
+/spikes/assets/multichar-reference-20260913/*.tmp

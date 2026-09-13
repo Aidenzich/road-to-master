@@ -31,9 +31,9 @@
 |---|---|---|
 | Codex 內建生圖 | 同一語意 prompt + 3:2 構圖要求 | 工具未提供可核實 seed、steps、CFG、GPU 與底層模型版本；實際尺寸逐張記錄 |
 | Qwen Image Edit 2511 FP8 mixed | 768×512、40 steps、CFG4、Euler/simple、denoise1、shift3.1、CFGNorm1、batch1 | 現有 adapter／TextEncodeQwenImageEditPlus 接受至多3張獨立參考圖；4–5張原生條件不支援，不代表模型架構永遠不可能 |
-| H3 Ref2VA INT8 ConvRot | 768×512、20 steps、Euler/linear_quadratic、5幀、24fps、batch1、無Turbo LoRA | 專用六欄 prompt；5幀低於常規片長，視為取圖實驗。保留全部5幀及MP4，主比較固定第1幀，不挑最佳幀 |
+| H3 Ref2VA INT8 ConvRot | 768×512、20 steps、Euler/linear_quadratic、5幀、24fps、batch1、無Turbo LoRA | 專用六欄 prompt；5幀低於常規片長，視為取圖實驗。本機保留全部5幀及MP4；Git僅收錄固定第1幀，不挑最佳幀 |
 
-本地模型使用 RTX 5090，共享 ComfyUI 的 vision-flow 裝置策略；H3 low-VRAM／reserve6GiB，Qwen 使用既有 image 策略。工作流快照含實際編碼器裝置選項與硬體資訊。不重啟服務、不全域中斷 GPU。六個場景為一小模型批段並交替模型順序，以降低頻繁換模；時間漂移與cache差異仍是限制。
+本地模型使用 RTX 5090，共享 ComfyUI 的 vision-flow 裝置策略；H3 low-VRAM／reserve6GiB，Qwen 使用既有 image 策略。本機原始工作流快照含實際編碼器裝置選項與硬體資訊；Git保留研究參數與階段耗時。不重啟服務、不全域中斷 GPU。六個場景為一小模型批段並交替模型順序，以降低頻繁換模；時間漂移與cache差異仍是限制。
 
 ## 來源與素材限制
 
@@ -64,27 +64,27 @@
 
 核查通過：True。工作程序鎖已釋放：True；本次佇列殘留 0 筆；逐一核查 74 個自有資料庫 schema，殘留 0 個；成功但未目視評估 0 筆。
 
-[完整終止核查](assets/multichar-reference-20260913/terminal-audit.json) · [唯讀核查程式](assets/multichar-reference-20260913/audit_terminal.py)
+[完整終止核查](assets/multichar-reference-20260913/terminal-audit.json) · 唯讀核查程式（僅本機原始紀錄）
 
 ### 資料完整性快照
 
 檢查 1104 項，記錄 426 個成果檔案雜湊；8 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。
 
-[完整檢查與失敗清單](assets/multichar-reference-20260913/evidence-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_evidence.py)
+完整檢查與失敗清單（僅本機原始紀錄） · 檢查程式（僅本機原始紀錄）
 
 早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。
 
 實際GPU工作流核查：1114 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
 
-[實際工作流核查](assets/multichar-reference-20260913/workflow-audit.json) · [核查程式](assets/multichar-reference-20260913/audit_workflows.py)
+實際工作流核查（僅本機原始紀錄） · 核查程式（僅本機原始紀錄）
 
 提交時間快照：147 筆 run 收據，已記錄時間落在窗口外 0 筆，缺少本機提交時間 0 筆。沒有provider時間的請求保留未知；沒有terminal result可能仍在執行，不能由檔案推斷程序已停止。此快照不代表六小時已結束。
 
-[逐筆提交時間](assets/multichar-reference-20260913/admission-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_admissions.py)
+逐筆提交時間（僅本機原始紀錄） · 檢查程式（僅本機原始紀錄）
 
 遠端清理獨立快照：262 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
 
-[逐檔封存與遠端不存在證據](assets/multichar-reference-20260913/remote-cleanup-audit.json) · [唯讀檢查程式](assets/multichar-reference-20260913/audit_remote_cleanup.py)
+逐檔封存與遠端不存在證據（僅本機原始紀錄） · 唯讀檢查程式（僅本機原始紀錄）
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -892,7 +892,7 @@ Codex另表：只有工具牆鐘時間，沒有相同GPU／階段／解析度控
 | 4 | 41.50 [38.00–46.80] (n=12) |
 | 5 | 42.90 [39.50–45.40] (n=12) |
 
-[逐筆階段耗時 CSV](assets/multichar-reference-20260913/timings.csv) · [JSON](assets/multichar-reference-20260913/timings.json) · [推導腳本](assets/multichar-reference-20260913/summarize_timings.py)
+[逐筆階段耗時 CSV](assets/multichar-reference-20260913/timings.csv) · [JSON](assets/multichar-reference-20260913/timings.json) · 推導腳本（僅本機原始紀錄）
 
 provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution_success；provider_queue_seconds 取服務收件 create_time 至 execution_start。sampling_node_seconds 是採樣節點觀測區間，可能包含載模，並非純 CUDA kernel 時間；first_to_last_step_seconds 不含第一步之前的準備。collection_to_saved_seconds 只在兩事件都存在時提供。Codex 僅有內建工具牆鐘時間，沒有相同階段或硬體資訊，不作等算力速度排名。VRAM 是提交前快照，不是峰值；未知值保留 null。
 
@@ -900,7 +900,11 @@ provider_execution_seconds 取同一 prompt_id 的 execution_start 至 execution
 
 內建生圖拒絕、基礎設施錯誤、成功成像但品質不符是不同結果。`failure_category=provider_output_moderation_blocked` 表示服務輸出階段拒絕，沒有可評分圖片；不得算成人物一致性零分，也不自動改寫提示詞繞過或切換API。完整錯誤代碼與request ID保留在該筆result.json。
 
-場景與角色對應可由 [prepare_cases.py](assets/multichar-reference-20260913/prepare_cases.py) 重建；[gpu_runner.py](assets/multichar-reference-20260913/gpu_runner.py) 使用現有 Veritas adapter、PostgreSQL 的自有 schema 與本機清理 journal，需自行提供本地服務配置（此PR不含env或密鑰）。腳本含作者環境路徑，移植時須調整，不能當作通用一鍵執行套件。Codex 使用內建 image_gen 逐張呼叫，實際prompt与來源順序保存在各run.json，不宣稱可由seed重現。
+公開 cases 目錄保留完整提示詞、角色對應、參考圖順序與參數；run.json 是移除部署識別碼的研究用投影，不是可直接重送的服務請求。執行器、原始 ComfyUI 工作流、事件、清理收據與所有影片幀只留在本機 sample/multichar-six-hour-20260913。Codex 使用內建 image_gen 逐張呼叫，不宣稱可由 seed 重現。
 
 H3 5幀取圖保存原始MP4；若音軌0.20秒短於5/24秒，現有一般影片collector會拒絕影音等長檢查。此時分別記錄provider成功與catalog失敗，從已驗證的本機journal影片取圖；不重試、不補幀、不放寬產品校驗。只有實際解出5幀才記為取圖成功。所有已完成實验的遠端輸入／輸出需有hash比對與清理收據，不能用刪整個資料夾代替。
 
+
+## 版本庫收錄範圍
+
+Git 保留報告、每次成功實驗的固定比較圖片、來源資料、完整提示詞與精簡研究數據。原始影片、重複逐幀圖片、執行器、服務事件與逐檔清理紀錄僅存本機 `sample/multichar-six-hour-20260913`；未刪除原始證據。這些檔案已從目前 PR 檔案差異移除，但一般清理 commit 不會抹除較早 Git 歷史。

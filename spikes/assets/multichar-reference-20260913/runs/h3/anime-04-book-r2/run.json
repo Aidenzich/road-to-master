@@ -1,8 +1,6 @@
 {
   "case_id": "anime-04-book-r2",
   "model": "h3",
-  "schema": "qa_multi_f8ee7a65a86b4b92b443c925359631c7",
-  "version_id": "8acca710-42ce-47d2-9214-f04442c0f530",
   "inputs": {
     "prompt": "subject_definitions:\n<Subject 1> is Frieren, the character shown in <Picture 1>.\n<Subject 2> is Fern, the character shown in <Picture 2>.\n<Subject 3> is Loid Forger, the character shown in <Picture 3>.\n<Subject 4> is Yor Forger, the character shown in <Picture 4>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 4 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> holds one open green book with both hands at chest level. <Subject 2> points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
     "effective_prompt": "subject_definitions:\n<Subject 1> is Frieren, the character shown in <Picture 1>.\n<Subject 2> is Fern, the character shown in <Picture 2>.\n<Subject 3> is Loid Forger, the character shown in <Picture 3>.\n<Subject 4> is Yor Forger, the character shown in <Picture 4>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 4 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> holds one open green book with both hands at chest level. <Subject 2> points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
@@ -11,12 +9,6 @@
     "steps": 20,
     "seed": 20260915,
     "candidate_count": 1,
-    "reference_asset_ids": [
-      "24e9aae9-c52f-469f-8253-d50b13b19cf4",
-      "0145bbf9-7455-4da3-a84c-961afca5a10b",
-      "5a85da99-cda6-4efb-ad26-590758b92bec",
-      "efbfba49-a895-473c-80d0-c2344b62957b"
-    ],
     "workflow_id": "minimax-h3-ref2va",
     "model_id": "minimax-h3-standard",
     "duration_seconds": 0.20833333333333334
@@ -28,5 +20,12 @@
     "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
     "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
     "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
-  ]
+  ],
+  "references": [
+    "references/frieren.png",
+    "references/fern.png",
+    "references/loid.png",
+    "references/yor.png"
+  ],
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

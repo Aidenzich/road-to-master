@@ -15,5 +15,6 @@
   "steps": null,
   "cfg": null,
   "tool": "image_gen",
-  "requested_aspect_ratio": "3:2"
+  "requested_aspect_ratio": "3:2",
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

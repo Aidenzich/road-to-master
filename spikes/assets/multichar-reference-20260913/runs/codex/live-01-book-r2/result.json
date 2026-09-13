@@ -9,7 +9,9 @@
   "provider_error_code": "moderation_blocked",
   "moderation_stage": "output",
   "provider_request_id": "08c47966-9e94-45b8-8f48-2938ac5367d4",
-  "provider_categories": ["other"],
+  "provider_categories": [
+    "other"
+  ],
   "outputs": [],
   "review": null,
   "cleanup_complete": true,

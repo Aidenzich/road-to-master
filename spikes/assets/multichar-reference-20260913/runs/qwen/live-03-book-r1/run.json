@@ -1,8 +1,6 @@
 {
   "case_id": "live-03-book-r1",
   "model": "qwen",
-  "schema": "qa_multi_c44205284dc24a6ea37d455a9972bb68",
-  "version_id": "18f53f09-bfeb-4bc5-b24d-39c3075ed532",
   "inputs": {
     "prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2. Person 3 is Bianca Barclay, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one open green book with both hands at chest level. Person 2 points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
     "effective_prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2. Person 3 is Bianca Barclay, the character in reference image 3.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 3 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Person 1 holds one open green book with both hands at chest level. Person 2 points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
@@ -11,11 +9,6 @@
     "steps": 40,
     "seed": 20260914,
     "candidate_count": 1,
-    "reference_asset_ids": [
-      "ad8e0a30-526c-47d6-b129-d3b954c3d51e",
-      "456e22ba-ced4-48d0-8164-befb4ee5d043",
-      "6b04c9a8-7239-4e34-9ce7-26eb09834a73"
-    ],
     "workflow_id": "qwen-edit-2511",
     "model_id": "qwen-image-edit-2511",
     "cfg_scale": 4
@@ -26,5 +19,11 @@
     "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
     "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
     "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
-  ]
+  ],
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg",
+    "references/bianca.jpg"
+  ],
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

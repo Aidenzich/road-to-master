@@ -11,7 +11,12 @@
   "provider_error": {
     "type": "image_generation_user_error",
     "code": "moderation_blocked",
-    "moderation_details": {"moderation_stage": "output", "categories": ["other"]}
+    "moderation_details": {
+      "moderation_stage": "output",
+      "categories": [
+        "other"
+      ]
+    }
   },
   "outputs": [],
   "review": null,

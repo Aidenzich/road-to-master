@@ -1,8 +1,6 @@
 {
   "case_id": "live-03-book-r1",
   "model": "h3",
-  "schema": "qa_multi_d1147089bf8d4e8d800c5c246398a407",
-  "version_id": "b3307c28-4f4e-4cf7-9673-fd1c72a6ce91",
   "inputs": {
     "prompt": "subject_definitions:\n<Subject 1> is Wednesday Addams, the character shown in <Picture 1>.\n<Subject 2> is Enid Sinclair, the character shown in <Picture 2>.\n<Subject 3> is Bianca Barclay, the character shown in <Picture 3>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 3 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> holds one open green book with both hands at chest level. <Subject 2> points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
     "effective_prompt": "subject_definitions:\n<Subject 1> is Wednesday Addams, the character shown in <Picture 1>.\n<Subject 2> is Enid Sinclair, the character shown in <Picture 2>.\n<Subject 3> is Bianca Barclay, the character shown in <Picture 3>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 3 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> holds one open green book with both hands at chest level. <Subject 2> points to its right-hand page with one index finger. Everyone looks at the same book; all other hands are lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
@@ -11,11 +9,6 @@
     "steps": 20,
     "seed": 20260914,
     "candidate_count": 1,
-    "reference_asset_ids": [
-      "3614655a-c3f8-43f7-a787-a9dd5ef7b1e3",
-      "20f71943-9ff6-4509-9523-b46a766fc544",
-      "baf99ea4-e9a5-4c42-89d9-57d83e399ba2"
-    ],
     "workflow_id": "minimax-h3-ref2va",
     "model_id": "minimax-h3-standard",
     "duration_seconds": 0.20833333333333334
@@ -26,5 +19,11 @@
     "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
     "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
     "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
-  ]
+  ],
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg",
+    "references/bianca.jpg"
+  ],
+  "publication_note": "Research request projection; deployment IDs omitted. Exact provider graph and receipt retained only in local archive."
 }

@@ -27,13 +27,7 @@
     "collection_started": "2026-09-13T16:40:04.876029+00:00"
   },
   "outputs": [
-    "output.mp4",
-    "output.png",
-    "frame-01.png",
-    "frame-02.png",
-    "frame-03.png",
-    "frame-04.png",
-    "frame-05.png"
+    "output.png"
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789317610.986351,
