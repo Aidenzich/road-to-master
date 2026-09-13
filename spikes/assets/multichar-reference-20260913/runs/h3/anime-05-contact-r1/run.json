@@ -1,0 +1,34 @@
+{
+  "case_id": "anime-05-contact-r1",
+  "model": "h3",
+  "schema": "qa_multi_265052ca85764295960c1cde3c560c22",
+  "version_id": "5958e6c9-9219-4a0b-a9d9-021d6bf2154e",
+  "inputs": {
+    "prompt": "subject_definitions:\n<Subject 1> is Frieren, the character shown in <Picture 1>.\n<Subject 2> is Fern, the character shown in <Picture 2>.\n<Subject 3> is Loid Forger, the character shown in <Picture 3>.\n<Subject 4> is Yor Forger, the character shown in <Picture 4>.\n<Subject 5> is Anya Forger, the character shown in <Picture 5>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 5>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 5>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 5 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>, <Subject 5>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> and <Subject 2> face slightly toward each other, gently touching <Subject 1>'s right palm to <Subject 2>'s left palm in a held high-five at shoulder height. <Subject 3> and <Subject 4> do a separate held high-five, <Subject 3>'s right palm touching <Subject 4>'s left palm. <Subject 5> watches with both hands lowered. Each paired person keeps the unused hand lowered. Every hand clearly belongs to its own person. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
+    "effective_prompt": "subject_definitions:\n<Subject 1> is Frieren, the character shown in <Picture 1>.\n<Subject 2> is Fern, the character shown in <Picture 2>.\n<Subject 3> is Loid Forger, the character shown in <Picture 3>.\n<Subject 4> is Yor Forger, the character shown in <Picture 4>.\n<Subject 5> is Anya Forger, the character shown in <Picture 5>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 5>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 5>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 5 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>, <Subject 5>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. <Subject 1> and <Subject 2> face slightly toward each other, gently touching <Subject 1>'s right palm to <Subject 2>'s left palm in a held high-five at shoulder height. <Subject 3> and <Subject 4> do a separate held high-five, <Subject 3>'s right palm touching <Subject 4>'s left palm. <Subject 5> watches with both hands lowered. Each paired person keeps the unused hand lowered. Every hand clearly belongs to its own person. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
+    "width": 768,
+    "height": 512,
+    "steps": 20,
+    "seed": 20260914,
+    "candidate_count": 1,
+    "reference_asset_ids": [
+      "04961d42-1b78-4a46-a73d-0d6a4248d1de",
+      "c7b3585c-b129-48b1-93b8-d16a1ea683b6",
+      "1faaa384-7cfa-4505-b33c-9733154b1149",
+      "e5dfd444-a5c8-4782-aa8e-bab3182db05d",
+      "d2c5c70d-3054-4cb0-9b39-39a9bbad5828"
+    ],
+    "workflow_id": "minimax-h3-ref2va",
+    "model_id": "minimax-h3-standard",
+    "duration_seconds": 0.20833333333333334
+  },
+  "admitted_epoch": 1789327573.629708,
+  "prequeue_wait_seconds": 0.8789749145507812,
+  "reference_hashes": [
+    "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+    "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+    "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+    "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+    "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "prompt_id": "b8473c9d-dee7-435f-9903-a7b91758014b",
+  "files": [
+    {
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-0.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-1.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-2.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "input",
+      "path": "fb4390e2-157e-48b7-b215-3db070f04576-ref-3.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "output",
+      "path": "video/msai-studio/9c4c91ed6037575f-00_00001_.mp4",
+      "state": "deleted"
+    }
+  ]
+}

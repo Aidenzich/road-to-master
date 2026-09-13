@@ -82,7 +82,7 @@ anime-04-contact-r1,qwen,anime,4,contact,1,unsupported,False,,,,False,,,,,,
 anime-04-contact-r1,h3,anime,4,contact,1,succeeded,True,failed,,564.7832090854645,True,2,1,2,0,2,固定第一帧：四人数量及左右顺序正确，主要外观线索可对应，但Loid被添加眼镜、Frieren颈饰改变、Yor手套缩短。图中形成从左到右连续三组接触，Fern与Loid也额外抬起本应放下的手，违反仅两组指定配对。Frieren另一手仍持来源书本而非空手放下。动作分配失败；可见手掌/手臂归属清楚，未见明确额外肢体或融合。构图比要求的腰部中景更宽。
 live-04-contact-r1,codex,live,4,contact,1,succeeded,True,,,42.1,True,2,1,2,1,2,"Four correctly ordered characters form two separate requested pairs, unused hands lowered. Turned torsos/arms appear consistent with specified right/left sides. Palm contacts higher than shoulder for shorter partner; fine height constraint partial. Bianca necklace absent, Tyler restraint outfit loosened for pose. No obvious hand fusion or extra limbs."
 live-04-contact-r1,qwen,live,4,contact,1,unsupported,False,,,,False,,,,,,
-live-04-contact-r1,h3,live,4,contact,1,pending,False,,,,False,,,,,,
+live-04-contact-r1,h3,live,4,contact,1,succeeded,True,failed,,558.8730819225311,True,2,1,2,0,1,固定第一帧：四人数量及左右顺序保留，主要发型/服装色块可对应，Tyler颈部装置变耳机样式，制服领结与徽章改变，右侧人物贴边。Enid多抬一只手，Bianca抬手牵细带/饰物而非与Tyler掌心相接，Tyler的手独自抬起；两组指定接触未成立，动作失败。中间手掌、弯曲手指与细带重叠，接触和归属不能完整核验，手部记部分符合。
 anime-05-contact-r1,codex,anime,5,contact,1,succeeded,True,,,45.0,True,2,1,2,1,2,"Five correct distinct characters and order; two correct pairs touch palms, Anya watches with both hands lowered. Yor appears to use right rather than requested left; pair contacts high. Loid gloves omitted, Yor gloves shortened; broad traits retained. Plausible hands and no cross-pair limb confusion. Wider full-body framing to include child."
 anime-05-contact-r1,qwen,anime,5,contact,1,unsupported,False,,,,False,,,,,,
 anime-05-contact-r1,h3,anime,5,contact,1,pending,False,,,,False,,,,,,
