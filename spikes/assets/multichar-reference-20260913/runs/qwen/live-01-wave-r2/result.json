@@ -1,0 +1,46 @@
+{
+  "case_id": "live-01-wave-r2",
+  "model": "qwen",
+  "count": 1,
+  "action": "wave",
+  "cohort": "live",
+  "repeat": 2,
+  "seed": 20260915,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 75.70945286750793,
+  "prequeue_wait_seconds": 0.6529290676116943,
+  "submitted": true,
+  "prompt_id": "49bd615f-ba10-450f-ab7e-c86ec1e51aff",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T20:12:48.072000+00:00",
+    "execution_observed": "2026-09-13T20:12:49.085720+00:00",
+    "sampling_started": "2026-09-13T20:12:49.585188+00:00",
+    "sampling_progress": "2026-09-13T20:13:52.663171+00:00",
+    "first_step_observed": "2026-09-13T20:12:51.176555+00:00",
+    "sampling_completed": "2026-09-13T20:13:52.663258+00:00",
+    "execution_completed": "2026-09-13T20:13:52.734000+00:00",
+    "collection_started": "2026-09-13T20:13:53.512728+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T20:13:55.796877+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789330439.2718909,
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "單一 Wednesday 參考圖產生兩名近似女子，均舉一手問候，仍非要求的一人。黑辮與白領黑色花紋服裝保留，但瀏海及淚痕妝不見，臉形改變，裙裝也變成長上衣加褲；手掌清楚。"
+  }
+}
