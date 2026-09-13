@@ -90,7 +90,7 @@ live-05-contact-r1,codex,live,5,contact,1,succeeded,True,,,45.4,True,2,1,2,1,2,"
 live-05-contact-r1,qwen,live,5,contact,1,unsupported,False,,,,False,,,,,,
 live-05-contact-r1,h3,live,5,contact,1,succeeded,True,failed,,597.9500889778137,True,2,1,2,0,1,五人依序可辨識，數量與站位保持；服裝剪裁、校徽與 Tyler 的頸部物件有偏移。Enid 兩手舉起並與兩側形成接觸，非僅第一組擊掌；Bianca 與 Tyler 的指定第二組接觸未清楚成立，Dort 也舉手而非旁觀。重疊掌部接觸邊界難判，不能當作兩組正確手掌配對。
 anime-01-wave-r2,codex,anime,1,wave,2,succeeded,True,,,22.1,True,2,2,2,2,2,"One Frieren with pointed ears, green eyes, silver hair, red earrings and neck gem; one open raised hand, other arm lowered. No extra figure or held object."
-anime-01-wave-r2,qwen,anime,1,wave,2,pending,False,,,,False,,,,,,
+anime-01-wave-r2,qwen,anime,1,wave,2,succeeded,True,succeeded,,135.74319219589233,True,0,1,0,1,2,一張 Frieren 參考仍產生兩名近似角色；左側雙手揮手、右側單手揮手，並非一人單手。銀髮尖耳及白金服裝大致保留，但臉部比例與偏藍眼色不同；頭頂被裁切。可見手掌大致清楚。
 anime-01-wave-r2,h3,anime,1,wave,2,succeeded,True,failed,,127.70483922958374,True,0,1,0,1,2,單一 Frieren 參考圖仍產生三人：兩側為銀髮尖耳變體，中間新增棕髮圓耳人物。服裝與頸飾改寫；三人都呈單手揮手，但並非要求的一人，左側手與右側頭部被邊界截斷。可見手掌大致清楚。
 live-01-wave-r2,codex,live,1,wave,2,succeeded,True,,,21.3,True,2,2,2,2,2,"One Wednesday with braids, tear makeup, patterned black dress and white collar/cuffs. One open greeting hand, other arm lowered; no duplicate person or source lettering."
 live-01-wave-r2,qwen,live,1,wave,2,pending,False,,,,False,,,,,,

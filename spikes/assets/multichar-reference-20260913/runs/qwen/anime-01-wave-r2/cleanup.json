@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "kind": "input",
+      "path": "msai-qwen-image-edit-2511-7e109b99-986e-4e0d-93c9-524f39c44529-ref-1.png",
+      "state": "deleted"
+    },
+    {
+      "kind": "output",
+      "path": "video/msai-studio/4af26706a44168ab-00_00001_.png",
+      "state": "deleted"
+    }
+  ],
+  "prompt_id": "88f4c50b-ae25-4f72-a88f-e432ab0cc00e"
+}

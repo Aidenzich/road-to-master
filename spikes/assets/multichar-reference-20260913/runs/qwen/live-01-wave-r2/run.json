@@ -1,0 +1,26 @@
+{
+  "case_id": "live-01-wave-r2",
+  "model": "qwen",
+  "schema": "qa_multi_5484a47eb7424eae8aee5a2daea2875e",
+  "version_id": "7ba2fe9f-2412-4f24-8311-7779f9f462d0",
+  "inputs": {
+    "prompt": "Person 1 is Wednesday Addams, the character in reference image 1.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 1 distinct people are visible, each appearing once. The left-to-right order is Person 1. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
+    "effective_prompt": "Person 1 is Wednesday Addams, the character in reference image 1.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 1 distinct people are visible, each appearing once. The left-to-right order is Person 1. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
+    "width": 768,
+    "height": 512,
+    "steps": 40,
+    "seed": 20260915,
+    "candidate_count": 1,
+    "reference_asset_ids": [
+      "bb1a175f-5edd-4dc5-aceb-2d07f133b6d3"
+    ],
+    "workflow_id": "qwen-edit-2511",
+    "model_id": "qwen-image-edit-2511",
+    "cfg_scale": 4
+  },
+  "admitted_epoch": 1789330363.5585501,
+  "prequeue_wait_seconds": 0.6529290676116943,
+  "reference_hashes": [
+    "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+  ]
+}
