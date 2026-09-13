@@ -34,5 +34,13 @@
   ],
   "cleanup_complete": true,
   "finished_epoch": 1789319821.134269,
-  "review": null
+  "review": {
+    "exact_count": 0,
+    "appearance_preserved": 1,
+    "reference_binding": 0,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "One Wednesday requested, two duplicated braid-haired women produced. Left holds green book both hands, right clasps hands without book. Face/bangs/tear makeup drift and right clothing changes. Full-body instead of waist-up. Count and unique reference binding fail; visible hands plausible."
+  }
 }
