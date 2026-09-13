@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T18:52:57.837767+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T18:53:49.743125+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -39,17 +39,17 @@
 
 ### 資料完整性快照
 
-檢查 813 項，記錄 194 個成果檔案雜湊；8 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。
+檢查 899 項，記錄 256 個成果檔案雜湊；8 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。
 
 [完整檢查與失敗清單](assets/multichar-reference-20260913/evidence-audit.json) · [檢查程式](assets/multichar-reference-20260913/audit_evidence.py)
 
 早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。
 
-實際GPU工作流核查：459 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
+實際GPU工作流核查：681 項，0 項未通過；包括provider已接收圖與prepared圖一致、prompt、參考圖連線／順序／上傳雜湊、seed與採樣設定。這證明配置連線，不證明模型一定保留角色。
 
 [實際工作流核查](assets/multichar-reference-20260913/workflow-audit.json) · [核查程式](assets/multichar-reference-20260913/audit_workflows.py)
 
-遠端清理獨立快照：97 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
+遠端清理獨立快照：147 個已完成任務檔案的本機封存bytes／SHA-256通過核對，逐一SSH檢查後仍存在的遠端檔案為 0。僅包含終止且已有清理憑證的自有輸入／輸出；不包含正在生成的任務，也不代表整台5090為空。
 
 [逐檔封存與遠端不存在證據](assets/multichar-reference-20260913/remote-cleanup-audit.json) · [唯讀檢查程式](assets/multichar-reference-20260913/audit_remote_cleanup.py)
 

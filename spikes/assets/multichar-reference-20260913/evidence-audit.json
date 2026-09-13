@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789321980.361217,
+  "checked_epoch": 1789325613.887813,
   "scope": "Snapshot of terminal successful local receipts, decoded PNGs, stored ffprobe, reference and prompt invariants. Not a live remote deletion audit, workflow-graph semantic audit, independent ffprobe rerun, or completion assertion.",
   "checks": [
     {
@@ -2575,6 +2575,34 @@
       "passed": true
     },
     {
+      "check": "h3/anime-01-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 first frame fixed",
+      "passed": true
+    },
+    {
       "check": "h3/anime-01-wave-r1 reference hashes",
       "passed": true
     },
@@ -2628,6 +2656,34 @@
     },
     {
       "check": "h3/anime-02-book-r1 first frame fixed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 first frame fixed",
       "passed": true
     },
     {
@@ -2715,6 +2771,34 @@
       "passed": true
     },
     {
+      "check": "h3/anime-04-book-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 first frame fixed",
+      "passed": true
+    },
+    {
       "check": "h3/anime-04-wave-r1 reference hashes",
       "passed": true
     },
@@ -2740,6 +2824,34 @@
     },
     {
       "check": "h3/anime-04-wave-r1 first frame fixed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 first frame fixed",
       "passed": true
     },
     {
@@ -2799,6 +2911,34 @@
       "passed": true
     },
     {
+      "check": "h3/live-01-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 first frame fixed",
+      "passed": true
+    },
+    {
       "check": "h3/live-01-wave-r1 reference hashes",
       "passed": true
     },
@@ -2852,6 +2992,34 @@
     },
     {
       "check": "h3/live-02-book-r1 first frame fixed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 first frame fixed",
       "passed": true
     },
     {
@@ -2939,6 +3107,34 @@
       "passed": true
     },
     {
+      "check": "h3/live-04-book-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/live-04-book-r1 first frame fixed",
+      "passed": true
+    },
+    {
       "check": "h3/live-04-wave-r1 reference hashes",
       "passed": true
     },
@@ -2964,6 +3160,34 @@
     },
     {
       "check": "h3/live-04-wave-r1 first frame fixed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 decoded five frames",
+      "passed": true
+    },
+    {
+      "check": "h3/live-05-book-r1 first frame fixed",
       "passed": true
     },
     {
@@ -3015,6 +3239,26 @@
       "passed": true
     },
     {
+      "check": "qwen/anime-01-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
       "check": "qwen/anime-01-wave-r1 reference hashes",
       "passed": true
     },
@@ -3052,6 +3296,26 @@
     },
     {
       "check": "qwen/anime-02-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 cleanup receipts",
       "passed": true
     },
     {
@@ -3095,6 +3359,26 @@
       "passed": true
     },
     {
+      "check": "qwen/anime-03-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
       "check": "qwen/anime-03-wave-r1 reference hashes",
       "passed": true
     },
@@ -3132,6 +3416,26 @@
     },
     {
       "check": "qwen/live-01-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 cleanup receipts",
       "passed": true
     },
     {
@@ -3175,6 +3479,26 @@
       "passed": true
     },
     {
+      "check": "qwen/live-02-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 cleanup receipts",
+      "passed": true
+    },
+    {
       "check": "qwen/live-02-wave-r1 reference hashes",
       "passed": true
     },
@@ -3212,6 +3536,26 @@
     },
     {
       "check": "qwen/live-03-book-r1 cleanup receipts",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 reference hashes",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 prompt",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 seed",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 cleanup prompt id",
+      "passed": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 cleanup receipts",
       "passed": true
     },
     {
@@ -3937,6 +4281,65 @@
       ]
     },
     {
+      "file": "runs/h3/anime-01-contact-r1/output.mp4",
+      "sha256": "88c3c985cb003581e062ae1d5885dae3b3f478eccf0fa47e6dbdafd748d23848",
+      "bytes": 91826
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/output.png",
+      "sha256": "0e3f1ca227a329f55c94b8dd4add324ccdcfc377f9447ffc3dac9817378134f3",
+      "bytes": 366665,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/frame-01.png",
+      "sha256": "0e3f1ca227a329f55c94b8dd4add324ccdcfc377f9447ffc3dac9817378134f3",
+      "bytes": 366665,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/frame-02.png",
+      "sha256": "aa4a29d4a82c0eaf5c173d1cd75c7fd1a8961f35406e51bfc913a6396f8e148e",
+      "bytes": 397261,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/frame-03.png",
+      "sha256": "ae790cd70babdb43e30b59f084af3c1114084c2b8c38f4dc8b5a43bb4b2830e2",
+      "bytes": 392855,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/frame-04.png",
+      "sha256": "dc3c91361cbac75c68696ed399825259839eb105b148664d7b2a8c375d370af6",
+      "bytes": 412599,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-01-contact-r1/frame-05.png",
+      "sha256": "05c0db867717af9c242dfac5e6c73f9b8cda828d6dc94c90b3d17261c49a1aa7",
+      "bytes": 424084,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/h3/anime-01-wave-r1/output.mp4",
       "sha256": "381cdfb4bbc4c197042c6201ba1d0b889022b7bc6a069f143fbf802cb23f8383",
       "bytes": 88606
@@ -4049,6 +4452,65 @@
       "file": "runs/h3/anime-02-book-r1/frame-05.png",
       "sha256": "7efc31af1bb098fa5e1d8142bc68901e178ab2ffc2619f31136792784abf16cd",
       "bytes": 329965,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/output.mp4",
+      "sha256": "c35f84c143ab1efc07d6236d6d983e229a126a4eea1dc03bf25790401de3d8f2",
+      "bytes": 77371
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/output.png",
+      "sha256": "3e59cc47a0f33a29be284f5ffbb09238d989f6d0bdad83d67b8ce3f63778dbf4",
+      "bytes": 322175,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/frame-01.png",
+      "sha256": "3e59cc47a0f33a29be284f5ffbb09238d989f6d0bdad83d67b8ce3f63778dbf4",
+      "bytes": 322175,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/frame-02.png",
+      "sha256": "92149ae2af1f2d6bb8f792462da4d30ad972c70b1e2ca40266e4fb3cdb80441f",
+      "bytes": 346203,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/frame-03.png",
+      "sha256": "4298f4f5f3fac9f8c07f8f203e1dda3d0b2854db8be65bebc60949b30886e150",
+      "bytes": 342577,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/frame-04.png",
+      "sha256": "595802750432b1c7a59f1eafbf68ac151e8548b4648f29a17e7123388e8980a2",
+      "bytes": 358768,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-02-contact-r1/frame-05.png",
+      "sha256": "b8f7db7175ad3060305bb9dff1b7370f766ac453b01b9cd96b96b1426341d1c9",
+      "bytes": 366105,
       "dimensions": [
         768,
         512
@@ -4232,6 +4694,65 @@
       ]
     },
     {
+      "file": "runs/h3/anime-04-book-r1/output.mp4",
+      "sha256": "ad9ad5b7e56196408914a07debdc808267928aa6199e567b443bb86c7a0fe5c1",
+      "bytes": 83139
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/output.png",
+      "sha256": "8f0ae4dc265fcb8d8b5a08cf6268a256d83ee30a35966c73468a072d56aa2af7",
+      "bytes": 332435,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/frame-01.png",
+      "sha256": "8f0ae4dc265fcb8d8b5a08cf6268a256d83ee30a35966c73468a072d56aa2af7",
+      "bytes": 332435,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/frame-02.png",
+      "sha256": "9009cb97db01caee77b89ee334fe5e10d815be93a1ca8868e2412a12b0367c72",
+      "bytes": 361747,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/frame-03.png",
+      "sha256": "f3072880b945fb8151539ab2da345df49cc0ac772e54c05607c72616169594a3",
+      "bytes": 353844,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/frame-04.png",
+      "sha256": "08ab74c7ff188bc447f009e2f2dc0b35c2d0ea3ea1db559270490a1af9c0ec6a",
+      "bytes": 371210,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-04-book-r1/frame-05.png",
+      "sha256": "906af7050969473b6aa2d8c16e8ff9be718b5c39a5100fafbeb941c620508d6f",
+      "bytes": 382045,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/h3/anime-04-wave-r1/output.mp4",
       "sha256": "c53ea742a0a7ff0ea7e101716929e778afe90335820cc8240a189c5debe7d1ba",
       "bytes": 77289
@@ -4285,6 +4806,65 @@
       "file": "runs/h3/anime-04-wave-r1/frame-05.png",
       "sha256": "4b8e358e203d72a881e028f8e5cc128d4595e69045e740047a2c3f721d13ab78",
       "bytes": 340711,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/output.mp4",
+      "sha256": "03cf6638b979f1e79171ce3b9fd21ea92114efa262cf6dbe1fa1afbf4fc75cdd",
+      "bytes": 80433
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/output.png",
+      "sha256": "029c380eae4b2660d4f5f268183e9a2abeb4c0ff3700b3cce2f724eabc066858",
+      "bytes": 307696,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/frame-01.png",
+      "sha256": "029c380eae4b2660d4f5f268183e9a2abeb4c0ff3700b3cce2f724eabc066858",
+      "bytes": 307696,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/frame-02.png",
+      "sha256": "d6f1ddd3c3f426c847dde8fc4902a0ddea3ac36ebbb7a2f4ec736cb8ca30a27e",
+      "bytes": 343516,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/frame-03.png",
+      "sha256": "b2bd8c8b7f565cbec70d82eae9003357db7f6ae8110644337594b6d9acf49696",
+      "bytes": 348538,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/frame-04.png",
+      "sha256": "33a4cf7210464481b552f84b2e650b0cb30011e58d3cc5c84e4cf63a8f96cbcc",
+      "bytes": 352437,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/anime-05-book-r1/frame-05.png",
+      "sha256": "f9f823980fe1e7db49550dba0e7cf41b3e7dde632f5d8d04a89d06cf584d286d",
+      "bytes": 344456,
       "dimensions": [
         768,
         512
@@ -4409,6 +4989,65 @@
       ]
     },
     {
+      "file": "runs/h3/live-01-contact-r1/output.mp4",
+      "sha256": "266c4f4c9752b4287129651d58876025ac7e7854e37c2110536c2aec3565fa98",
+      "bytes": 51485
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/output.png",
+      "sha256": "e83d1cd976aad0160a9ac132043b11922e3c91adf18596b45efa818a298cf7ff",
+      "bytes": 285196,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/frame-01.png",
+      "sha256": "e83d1cd976aad0160a9ac132043b11922e3c91adf18596b45efa818a298cf7ff",
+      "bytes": 285196,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/frame-02.png",
+      "sha256": "63321a3c449e928c1b1109a1a3124ac154eb65cddd8222ed65e780fa5553e2d2",
+      "bytes": 308092,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/frame-03.png",
+      "sha256": "873e5976ef28493afde306daee37ef3efec9dfc2750ec750f4f6bad97cf760fe",
+      "bytes": 307316,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/frame-04.png",
+      "sha256": "b46252a4b2f1e18dbbf04f733a7320e416d8c461999aa5cab741e90e2b5050de",
+      "bytes": 310249,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-01-contact-r1/frame-05.png",
+      "sha256": "7fdfd91c3356c1e52cdae6fc8d3dc90b115e844f9e7126379cd10dd312e3015b",
+      "bytes": 288545,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/h3/live-01-wave-r1/output.mp4",
       "sha256": "01a36d35c7e50fe2506e2a48058c876e6558ff895a6689fff2735cd41d6aca78",
       "bytes": 57359
@@ -4521,6 +5160,65 @@
       "file": "runs/h3/live-02-book-r1/frame-05.png",
       "sha256": "db5a0d2ed272f1bef3652a68a37e3c20b918adf3c871eb8a9a13d137e3762282",
       "bytes": 246842,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/output.mp4",
+      "sha256": "330951544c9e5407e69fdbd772203b8ec7e66788b52eea440aa3893199929b72",
+      "bytes": 56407
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/output.png",
+      "sha256": "dc84069bd887f86940a81f53dae4fbd686a33fa2e1e52661b247bceaa6ec75ea",
+      "bytes": 262786,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/frame-01.png",
+      "sha256": "dc84069bd887f86940a81f53dae4fbd686a33fa2e1e52661b247bceaa6ec75ea",
+      "bytes": 262786,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/frame-02.png",
+      "sha256": "650405648b299352458840de6bfb137c70ae6dbc4020a1e3f17a8d163c13e608",
+      "bytes": 282301,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/frame-03.png",
+      "sha256": "2e6fc8cb83711f9a1679b74c7cee0c3f5fc5b30fa750638c96c9701e652188ab",
+      "bytes": 283118,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/frame-04.png",
+      "sha256": "389439eadbc8ef1dc22f2a57675d8a269b34de2c4b865eeb1d9bb3dedf5e339a",
+      "bytes": 281309,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-02-contact-r1/frame-05.png",
+      "sha256": "ebf3e7ef4d41db603134ad1822e96fff77fcb03d20dfd40ff55fc0309cb9d565",
+      "bytes": 264658,
       "dimensions": [
         768,
         512
@@ -4704,6 +5402,65 @@
       ]
     },
     {
+      "file": "runs/h3/live-04-book-r1/output.mp4",
+      "sha256": "2c606430b018238449c2270f702a7a8f85745b47369903e3e39985fbd4fa9053",
+      "bytes": 64841
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/output.png",
+      "sha256": "d224d368cd6965bb52ce6f3d18338ce140b6a591482f59df8014df3eecb98b79",
+      "bytes": 333072,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/frame-01.png",
+      "sha256": "d224d368cd6965bb52ce6f3d18338ce140b6a591482f59df8014df3eecb98b79",
+      "bytes": 333072,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/frame-02.png",
+      "sha256": "6c766cd670c0a152c2871bab5eff0b1a3daa3689f2dae81d6db0aae0a0110fd2",
+      "bytes": 350123,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/frame-03.png",
+      "sha256": "461d1737473fc497f44e657af8661008a5d0276213b0d4f9fea00b8e6289adc2",
+      "bytes": 342439,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/frame-04.png",
+      "sha256": "25575acad57d6e645c384bde4888617a6df3d12e56595e5882d67069bf665d01",
+      "bytes": 347633,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-04-book-r1/frame-05.png",
+      "sha256": "5231c28d225ef8069aeea7d2a85c4ac3627188d09bd07ff87a180165c2e4ff59",
+      "bytes": 342791,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/h3/live-04-wave-r1/output.mp4",
       "sha256": "572cda1cf044ee03f82a3d0f143e8468e5d1512f3aaf79c1321f0c05129596f0",
       "bytes": 61298
@@ -4757,6 +5514,65 @@
       "file": "runs/h3/live-04-wave-r1/frame-05.png",
       "sha256": "246148d59fad112b0b461e90fea4f79ed964f2724623c7892b76d857bed6375e",
       "bytes": 321172,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/output.mp4",
+      "sha256": "1c5e501b06f0d2a58a78abfbe9f166a69a3543de6d9c02e8ae79c79382d6e057",
+      "bytes": 62347
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/output.png",
+      "sha256": "e86658da7d77558649d26e65f57c36fd248eec4853867f671c8cece6c10927c6",
+      "bytes": 317519,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/frame-01.png",
+      "sha256": "e86658da7d77558649d26e65f57c36fd248eec4853867f671c8cece6c10927c6",
+      "bytes": 317519,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/frame-02.png",
+      "sha256": "ef1af5416063e9953acae9472eb44aad0f34883bbe6cb4b39848db74dd2d19ab",
+      "bytes": 333836,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/frame-03.png",
+      "sha256": "9715c441280018ab9097218327012a8d12786c93e47d19918b9dc9aa712df83a",
+      "bytes": 332865,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/frame-04.png",
+      "sha256": "88bee6cdff113cf3608c0cdb8099b923a7afeb0e42bd861979ee16d7bf9680d9",
+      "bytes": 331957,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/h3/live-05-book-r1/frame-05.png",
+      "sha256": "c1819ef18611377ac6f615e3aee74e9f766c9fa684cd48835bb52defaf390dd0",
+      "bytes": 318423,
       "dimensions": [
         768,
         512
@@ -4831,6 +5647,15 @@
       ]
     },
     {
+      "file": "runs/qwen/anime-01-contact-r1/output.png",
+      "sha256": "0f206fd96762a9cd1c19658602e6e8343462349ca80b57e03f370a1edcfee330",
+      "bytes": 324245,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/qwen/anime-01-wave-r1/output.png",
       "sha256": "0a1aa425ae4ebbae420f2e2cf9312299651e542b493e5b44fd768aa88df4909a",
       "bytes": 386902,
@@ -4843,6 +5668,15 @@
       "file": "runs/qwen/anime-02-book-r1/output.png",
       "sha256": "5f50b7ad676bc4670ff3af0b74b7125b9f1920a53447d68ae6a25a61573b1781",
       "bytes": 378570,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/qwen/anime-02-contact-r1/output.png",
+      "sha256": "f35d688aec47856e9c93a784c542b2769b596c6bfa8c7fae5293fc6386e1c8e8",
+      "bytes": 399084,
       "dimensions": [
         768,
         512
@@ -4867,6 +5701,15 @@
       ]
     },
     {
+      "file": "runs/qwen/anime-03-contact-r1/output.png",
+      "sha256": "3d829bb1d9263da11772c27849caade839c12fdd7e88b60920c6c8e7f3121e62",
+      "bytes": 459830,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/qwen/anime-03-wave-r1/output.png",
       "sha256": "0c54c1be82edd224d941ade6e5dc19d36b4d205ddd605e29cb5472393f58ce3a",
       "bytes": 485324,
@@ -4879,6 +5722,15 @@
       "file": "runs/qwen/live-01-book-r1/output.png",
       "sha256": "a893c2d9f64e0ff153668a2e61a681bf9b46fc9d4ecd935e4040480a73cbffc3",
       "bytes": 425888,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/qwen/live-01-contact-r1/output.png",
+      "sha256": "89583b060cf9af026916299761af8e6b31dbf337b6ef4fe4c480c70519a5fcf5",
+      "bytes": 415607,
       "dimensions": [
         768,
         512
@@ -4903,6 +5755,15 @@
       ]
     },
     {
+      "file": "runs/qwen/live-02-contact-r1/output.png",
+      "sha256": "488130be821a79b282a372ac1c41ad1de789f8ec8bc1d8e53879faccee57d833",
+      "bytes": 439671,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
       "file": "runs/qwen/live-02-wave-r1/output.png",
       "sha256": "ac7b370b52467c650441e98eaa26b9db53b3f3b05ddd12c9469bfa90897ff397",
       "bytes": 453426,
@@ -4915,6 +5776,15 @@
       "file": "runs/qwen/live-03-book-r1/output.png",
       "sha256": "86aa80f4d60d965392d6ba780592432250b68f0b8579dbd8fd758ba1148920b0",
       "bytes": 475574,
+      "dimensions": [
+        768,
+        512
+      ]
+    },
+    {
+      "file": "runs/qwen/live-03-contact-r1/output.png",
+      "sha256": "84158f7330bc4856e448f3bede523fdae50f93242ad824d2b0e5f98ba71da456",
+      "bytes": 457666,
       "dimensions": [
         768,
         512

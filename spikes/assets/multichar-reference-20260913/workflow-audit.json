@@ -1,5 +1,5 @@
 {
-  "checked_epoch": 1789322254.95976,
+  "checked_epoch": 1789325606.959174,
   "scope": "Terminal successful GPU arms only; accepted history graph vs prepared graph, key numerical settings, conditioning links and ordered upload hashes. No GPU reruns.",
   "checks": [
     {
@@ -74,6 +74,82 @@
     },
     {
       "check": "h3/anime-01-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-01-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "6ebde671-cb86-45d0-8e95-9e66b26887fc",
+      "expected": "6ebde671-cb86-45d0-8e95-9e66b26887fc"
+    },
+    {
+      "check": "h3/anime-01-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/anime-01-contact-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-01-contact-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-01-contact-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/anime-01-contact-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-01-contact-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-01-contact-r1 connected refs",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/anime-01-contact-r1 reference 1 bytes/order",
       "passed": true,
       "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
       "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
@@ -232,6 +308,88 @@
     },
     {
       "check": "h3/anime-02-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-02-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "5c2cea15-007c-4f9f-a15e-2206dc144a3b",
+      "expected": "5c2cea15-007c-4f9f-a15e-2206dc144a3b"
+    },
+    {
+      "check": "h3/anime-02-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/anime-02-contact-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-02-contact-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-02-contact-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/anime-02-contact-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-02-contact-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-02-contact-r1 connected refs",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/anime-02-contact-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-02-contact-r1 reference 2 bytes/order",
       "passed": true,
       "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
       "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
@@ -495,6 +653,100 @@
       "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
     },
     {
+      "check": "h3/anime-04-book-r1 provider prompt id",
+      "passed": true,
+      "actual": "4e601dba-c703-4f91-b3f3-c45c0eaa6fae",
+      "expected": "4e601dba-c703-4f91-b3f3-c45c0eaa6fae"
+    },
+    {
+      "check": "h3/anime-04-book-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 LoadImage count",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-book-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-04-book-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-04-book-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/anime-04-book-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-04-book-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-04-book-r1 connected refs",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/anime-04-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-04-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-04-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-04-book-r1 reference 4 bytes/order",
+      "passed": true,
+      "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
       "check": "h3/anime-04-wave-r1 provider prompt id",
       "passed": true,
       "actual": "2c2cd087-5583-48ad-a2f9-67cd5e6029a2",
@@ -587,6 +839,106 @@
       "passed": true,
       "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
       "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
+      "check": "h3/anime-05-book-r1 provider prompt id",
+      "passed": true,
+      "actual": "4cdee060-8dc8-43a4-a1f4-3ff5afd909ed",
+      "expected": "4cdee060-8dc8-43a4-a1f4-3ff5afd909ed"
+    },
+    {
+      "check": "h3/anime-05-book-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 LoadImage count",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/anime-05-book-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/anime-05-book-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/anime-05-book-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/anime-05-book-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/anime-05-book-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/anime-05-book-r1 connected refs",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference 4 bytes/order",
+      "passed": true,
+      "actual": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb",
+      "expected": "11fcfff8b59a204f0d5bcd6d14f638a19cbe72526e8dcfcb88f85a81c8ac8efb"
+    },
+    {
+      "check": "h3/anime-05-book-r1 reference 5 bytes/order",
+      "passed": true,
+      "actual": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72",
+      "expected": "441b8aaac28fd3069d823cfc709cf396318cf170fef8912d8ebe2fc432bd0f72"
     },
     {
       "check": "h3/anime-05-wave-r1 provider prompt id",
@@ -765,6 +1117,82 @@
       "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
     },
     {
+      "check": "h3/live-01-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "0ff90215-95ce-47ed-97f6-118e941ff22d",
+      "expected": "0ff90215-95ce-47ed-97f6-118e941ff22d"
+    },
+    {
+      "check": "h3/live-01-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/live-01-contact-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-01-contact-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-01-contact-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/live-01-contact-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-01-contact-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-01-contact-r1 connected refs",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "h3/live-01-contact-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
       "check": "h3/live-01-wave-r1 provider prompt id",
       "passed": true,
       "actual": "d8832eb4-5d68-4fac-9b06-4794ffd1cb02",
@@ -918,6 +1346,88 @@
     },
     {
       "check": "h3/live-02-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-02-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "232f8f47-877d-4bc9-8ea5-c7be4ec4691b",
+      "expected": "232f8f47-877d-4bc9-8ea5-c7be4ec4691b"
+    },
+    {
+      "check": "h3/live-02-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/live-02-contact-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-02-contact-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-02-contact-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/live-02-contact-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-02-contact-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-02-contact-r1 connected refs",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "h3/live-02-contact-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-02-contact-r1 reference 2 bytes/order",
       "passed": true,
       "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
       "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
@@ -1181,6 +1691,100 @@
       "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
     },
     {
+      "check": "h3/live-04-book-r1 provider prompt id",
+      "passed": true,
+      "actual": "05be4958-054f-4599-8a2d-cb53b2867c1b",
+      "expected": "05be4958-054f-4599-8a2d-cb53b2867c1b"
+    },
+    {
+      "check": "h3/live-04-book-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-04-book-r1 LoadImage count",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/live-04-book-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-04-book-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-04-book-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/live-04-book-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-04-book-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-04-book-r1 connected refs",
+      "passed": true,
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "check": "h3/live-04-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-04-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-04-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "h3/live-04-book-r1 reference 4 bytes/order",
+      "passed": true,
+      "actual": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+    },
+    {
       "check": "h3/live-04-wave-r1 provider prompt id",
       "passed": true,
       "actual": "eaebedfe-9dcd-40c5-aac3-b6d42c2c914b",
@@ -1273,6 +1877,106 @@
       "passed": true,
       "actual": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
       "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+    },
+    {
+      "check": "h3/live-05-book-r1 provider prompt id",
+      "passed": true,
+      "actual": "2cb5c3c4-0cfe-4dc2-8c54-773dbb6f3368",
+      "expected": "2cb5c3c4-0cfe-4dc2-8c54-773dbb6f3368"
+    },
+    {
+      "check": "h3/live-05-book-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-05-book-r1 LoadImage count",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/live-05-book-r1 prompt exact",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "h3/live-05-book-r1 dimensions/frames",
+      "passed": true,
+      "actual": [
+        768,
+        512,
+        5
+      ],
+      "expected": [
+        768,
+        512,
+        5
+      ]
+    },
+    {
+      "check": "h3/live-05-book-r1 seed",
+      "passed": true,
+      "actual": 20260914,
+      "expected": 20260914
+    },
+    {
+      "check": "h3/live-05-book-r1 schedule",
+      "passed": true,
+      "actual": [
+        20,
+        "linear_quadratic",
+        1.0
+      ],
+      "expected": [
+        20,
+        "linear_quadratic",
+        1
+      ]
+    },
+    {
+      "check": "h3/live-05-book-r1 sampler",
+      "passed": true,
+      "actual": "euler",
+      "expected": "euler"
+    },
+    {
+      "check": "h3/live-05-book-r1 connected refs",
+      "passed": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "check": "h3/live-05-book-r1 reference 1 bytes/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "h3/live-05-book-r1 reference 2 bytes/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "h3/live-05-book-r1 reference 3 bytes/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "h3/live-05-book-r1 reference 4 bytes/order",
+      "passed": true,
+      "actual": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f",
+      "expected": "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+    },
+    {
+      "check": "h3/live-05-book-r1 reference 5 bytes/order",
+      "passed": true,
+      "actual": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f",
+      "expected": "976a9e6ae8602caa57877c9fe7893181fc777faaf39458f5fe4ba9f7fdb7c69f"
     },
     {
       "check": "h3/live-05-wave-r1 provider prompt id",
@@ -1483,6 +2187,116 @@
       "passed": true,
       "actual": "msai-qwen-image-edit-2511-67e0cfb7-d9e4-4094-aea2-93dcd342fd4e-ref-1.png",
       "expected": "msai-qwen-image-edit-2511-67e0cfb7-d9e4-4094-aea2-93dcd342fd4e-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "7b07d1e8-0634-4bff-8211-4e691765e513",
+      "expected": "7b07d1e8-0634-4bff-8211-4e691765e513"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "expected": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-42b31084-9177-43f5-aa95-101665a7072f-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-42b31084-9177-43f5-aa95-101665a7072f-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-01-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-42b31084-9177-43f5-aa95-101665a7072f-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-42b31084-9177-43f5-aa95-101665a7072f-ref-1.png"
     },
     {
       "check": "qwen/anime-01-wave-r1 provider prompt id",
@@ -1739,6 +2553,152 @@
       "passed": true,
       "actual": "msai-qwen-image-edit-2511-533d5107-6c14-463f-95f3-994e4e7fc1a3-ref-2.png",
       "expected": "msai-qwen-image-edit-2511-533d5107-6c14-463f-95f3-994e4e7fc1a3-ref-2.png"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "82c00dae-d329-4f14-a191-73b4c9468a5b",
+      "expected": "82c00dae-d329-4f14-a191-73b4c9468a5b"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "expected": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 source 2 hash/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 upload 2 hash",
+      "passed": true,
+      "actual": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561",
+      "expected": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 7 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 7 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-2.png"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 8 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/anime-02-contact-r1 encoder 8 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-85cbd590-8be3-4953-8127-f9a7aad5d30b-ref-2.png"
     },
     {
       "check": "qwen/anime-02-wave-r1 provider prompt id",
@@ -2069,6 +3029,188 @@
       "expected": "msai-qwen-image-edit-2511-a0392cda-5e3c-427b-867f-276cf9082c33-ref-3.png"
     },
     {
+      "check": "qwen/anime-03-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "e9cb64bc-9ecd-443f-ac5e-2ac99a9267ae",
+      "expected": "e9cb64bc-9ecd-443f-ac5e-2ac99a9267ae"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+      "expected": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f",
+      "expected": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-1.png"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 source 2 hash/order",
+      "passed": true,
+      "actual": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+      "expected": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 upload 2 hash",
+      "passed": true,
+      "actual": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561",
+      "expected": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-2.png"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-2.png"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 source 3 hash/order",
+      "passed": true,
+      "actual": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a",
+      "expected": "7dec7ca73e2b549a879771524c725b1e040edfd1e61d3f19dfa9c54e4676b85a"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 upload 3 hash",
+      "passed": true,
+      "actual": "d4d6a59b5b47f5ecacbca34f7f3e42ad46e7e328d16d94caf5437d0bd7ea6d71",
+      "expected": "d4d6a59b5b47f5ecacbca34f7f3e42ad46e7e328d16d94caf5437d0bd7ea6d71"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image3 link",
+      "passed": true,
+      "actual": "23",
+      "expected": "23"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 7 image3 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-3.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-3.png"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image3 link",
+      "passed": true,
+      "actual": "23",
+      "expected": "23"
+    },
+    {
+      "check": "qwen/anime-03-contact-r1 encoder 8 image3 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-3.png",
+      "expected": "msai-qwen-image-edit-2511-c80191a8-8968-4e61-9354-c4c1d6e559d0-ref-3.png"
+    },
+    {
       "check": "qwen/anime-03-wave-r1 provider prompt id",
       "passed": true,
       "actual": "c46c802d-cf3a-45cc-a53d-68f9f53d2147",
@@ -2361,6 +3503,116 @@
       "expected": "msai-qwen-image-edit-2511-01d6e560-d00a-4b8b-b5fb-1b7bd80eca10-ref-1.png"
     },
     {
+      "check": "qwen/live-01-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "cd19be88-2167-451e-931e-d7c8639ba35a",
+      "expected": "cd19be88-2167-451e-931e-d7c8639ba35a"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "check": "qwen/live-01-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/live-01-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/live-01-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/live-01-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/live-01-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-01-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/live-01-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "expected": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-58c055d7-087a-4856-8701-a95032acf9aa-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-58c055d7-087a-4856-8701-a95032acf9aa-ref-1.png"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-01-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-58c055d7-087a-4856-8701-a95032acf9aa-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-58c055d7-087a-4856-8701-a95032acf9aa-ref-1.png"
+    },
+    {
       "check": "qwen/live-01-wave-r1 provider prompt id",
       "passed": true,
       "actual": "6c51d41f-4c9a-4090-9597-978963c7a428",
@@ -2615,6 +3867,152 @@
       "passed": true,
       "actual": "msai-qwen-image-edit-2511-84c39416-fbc1-40b7-bf07-60a2eea25516-ref-2.png",
       "expected": "msai-qwen-image-edit-2511-84c39416-fbc1-40b7-bf07-60a2eea25516-ref-2.png"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "1b29ecd1-7091-4cf3-8040-2368af66c1b3",
+      "expected": "1b29ecd1-7091-4cf3-8040-2368af66c1b3"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "check": "qwen/live-02-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/live-02-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/live-02-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/live-02-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/live-02-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-02-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/live-02-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "expected": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-1.png"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-1.png"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 source 2 hash/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 upload 2 hash",
+      "passed": true,
+      "actual": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca",
+      "expected": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 7 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 7 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-2.png"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 8 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/live-02-contact-r1 encoder 8 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-f7d61984-0726-415a-b88e-83f70bc954be-ref-2.png"
     },
     {
       "check": "qwen/live-02-wave-r1 provider prompt id",
@@ -2943,6 +4341,188 @@
       "passed": true,
       "actual": "msai-qwen-image-edit-2511-18f53f09-bfeb-4bc5-b24d-39c3075ed532-ref-3.png",
       "expected": "msai-qwen-image-edit-2511-18f53f09-bfeb-4bc5-b24d-39c3075ed532-ref-3.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 provider prompt id",
+      "passed": true,
+      "actual": "03536964-d8f5-4360-b68f-829ca97018b8",
+      "expected": "03536964-d8f5-4360-b68f-829ca97018b8"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 exact accepted graph matches prepared",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 LoadImage count",
+      "passed": true,
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "check": "qwen/live-03-contact-r1 sampling parameters",
+      "passed": true,
+      "actual": [
+        40,
+        4.0,
+        20260914,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "expected": [
+        40,
+        4,
+        20260914,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "check": "qwen/live-03-contact-r1 shift",
+      "passed": true,
+      "actual": 3.1,
+      "expected": 3.1
+    },
+    {
+      "check": "qwen/live-03-contact-r1 CFGNorm",
+      "passed": true,
+      "actual": 1.0,
+      "expected": 1
+    },
+    {
+      "check": "qwen/live-03-contact-r1 output dimensions",
+      "passed": true,
+      "actual": [
+        768,
+        512
+      ],
+      "expected": [
+        768,
+        512
+      ]
+    },
+    {
+      "check": "qwen/live-03-contact-r1 positive prompt",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "check": "qwen/live-03-contact-r1 negative prompt",
+      "passed": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "check": "qwen/live-03-contact-r1 source 1 hash/order",
+      "passed": true,
+      "actual": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+      "expected": "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 upload 1 hash",
+      "passed": true,
+      "actual": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13",
+      "expected": "246d44625849a59f04d5b34e658af5b190feea089652917e0dca483b3552ed13"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-1.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image1 link",
+      "passed": true,
+      "actual": "24",
+      "expected": "24"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image1 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-1.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-1.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 source 2 hash/order",
+      "passed": true,
+      "actual": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+      "expected": "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 upload 2 hash",
+      "passed": true,
+      "actual": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca",
+      "expected": "5d3579c10baae0af22254c48144827bd3547aec74ae119c4266e25c365acefca"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-2.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image2 link",
+      "passed": true,
+      "actual": "22",
+      "expected": "22"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image2 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-2.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-2.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 source 3 hash/order",
+      "passed": true,
+      "actual": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+      "expected": "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 upload 3 hash",
+      "passed": true,
+      "actual": "c0cb811ed3f806295a31dcee6ef2aa2ac677422840e55e08aa27194dd1ddc6d6",
+      "expected": "c0cb811ed3f806295a31dcee6ef2aa2ac677422840e55e08aa27194dd1ddc6d6"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image3 link",
+      "passed": true,
+      "actual": "23",
+      "expected": "23"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 7 image3 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-3.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-3.png"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image3 link",
+      "passed": true,
+      "actual": "23",
+      "expected": "23"
+    },
+    {
+      "check": "qwen/live-03-contact-r1 encoder 8 image3 file",
+      "passed": true,
+      "actual": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-3.png",
+      "expected": "msai-qwen-image-edit-2511-951ffe5f-efde-4a61-ad30-bfe6ee1a6648-ref-3.png"
     },
     {
       "check": "qwen/live-03-wave-r1 provider prompt id",
