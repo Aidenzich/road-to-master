@@ -21,7 +21,8 @@ def copy_file(relative):
 for relative in ['plan.json','references.json','reference-receipts.json','case-index.json','controls.json','prepare_cases.py','gpu_runner.py','fetch_references.py','record_review.py','codex_receipt.py','publish_report.py']:
     copy_file(relative)
 for relative in ['singular-control-plan.json','summarize_timings.py','timings.json','timings.csv',
-                 'position-control-index.json','prepare_position_controls.py']:
+                 'position-control-index.json','prepare_position_controls.py',
+                 'audit_evidence.py','evidence-audit.json']:
     if (ROOT/relative).exists():
         copy_file(relative)
 for reference in json.loads((ROOT/'reference-receipts.json').read_text()):
@@ -83,6 +84,12 @@ f'原始下載URL、尺寸與SHA-256見 [reference-receipts.json]({asset}/refere
 for model,name in MODEL_NAMES.items():
     sub=[r for r in rows if r['model']==model]
     lines.append(f'| {name} | {len(sub)} | {sum(bool(r["submitted"]) for r in sub)} | {sum(r["state"]=="succeeded" for r in sub)} | {sum(r["state"]=="failed" for r in sub)} | {sum(r["state"]=="unsupported" for r in sub)} | {sum(r["reviewed"] for r in sub)} |')
+if (ROOT/'evidence-audit.json').exists():
+    audit=json.loads((ROOT/'evidence-audit.json').read_text())
+    lines += ['', '### 資料完整性快照', '',
+              f'檢查 {len(audit["checks"])} 項，記錄 {len(audit["files"])} 個成果檔案雜湊；{len(audit["failed"])} 項未通過。此快照不代表實驗完成，也不等於重新連線驗證遠端刪除。', '',
+              f'[完整檢查與失敗清單]({asset}/evidence-audit.json) · [檢查程式]({asset}/audit_evidence.py)', '',
+              '早期8筆Codex多角色揮手請求只保存參考圖路徑，缺少提交當下的reference_hashes；現在原圖與下載紀錄雜湊一致，但不能以事後計算補造當時的傳輸證據。這8筆保留成果與缺漏標記，不宣稱完全可追溯。']
 lines += ['', '評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。', '',
 f'[完整CSV]({asset}/results.csv) · [JSON]({asset}/results.json) · [預登記計畫]({asset}/plan.json)', '',
 '## 個別結果', '', '| 場景 | Codex | Qwen | H3 |', '|---|---|---|---|']

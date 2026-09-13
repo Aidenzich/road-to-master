@@ -1,0 +1,49 @@
+{
+  "case_id": "live-03-book-r1",
+  "model": "h3",
+  "count": 3,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 408.93199372291565,
+  "prequeue_wait_seconds": 0.6653029918670654,
+  "submitted": true,
+  "prompt_id": "0859c527-af2f-4a54-8ca4-8eddd8d37f46",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T17:41:40.755000+00:00",
+    "execution_observed": "2026-09-13T17:41:41.774718+00:00",
+    "sampling_started": "2026-09-13T17:47:47.931032+00:00",
+    "sampling_progress": "2026-09-13T17:48:18.270228+00:00",
+    "first_step_observed": "2026-09-13T17:47:49.785163+00:00",
+    "sampling_completed": "2026-09-13T17:48:18.270269+00:00",
+    "execution_completed": "2026-09-13T17:48:20.120000+00:00",
+    "collection_started": "2026-09-13T17:48:20.964383+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789321706.408929,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 1,
+    "reference_binding": 2,
+    "action_obedience": 1,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "固定第一帧：三人数量及左右顺序正确；银紫发与条纹制服等主要线索保留，但制服领口/领结和衣着细节改变。第一人持绿色书，第二人伸手指书，第三人观看；指向的是书缘，无法确认读者右页，第一人视线偏前，故动作仅部分符合。可见手部未见明显多指或融合。"
+  }
+}
