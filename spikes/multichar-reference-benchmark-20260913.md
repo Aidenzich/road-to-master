@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:05:30.316236+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:11:20.104489+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -9,8 +9,8 @@
 | 已評估條件 | Codex | Qwen | H3 |
 |---|---:|---:|---:|
 | 單人：恰好一人的明確符合數 | 9/9 | 0/6 | 0/8 |
-| 三人：角色對應的明確符合數 | 12/12 | 1/6 | 7/7 |
-| 三人：全部動作要求的明確符合數 | 3/12 | 0/6 | 2/7 |
+| 三人：角色對應的明確符合數 | 12/12 | 1/6 | 8/8 |
+| 三人：全部動作要求的明確符合數 | 3/12 | 0/6 | 2/8 |
 
 - 人數與角色大致可辨，不代表細節、指定左右手或旁觀者動作正確；手部解剖正常也可能配錯角色。逐圖註記保留這些差異。
 - 單人重複成多人是目前Qwen／H3原生流程反覆出現的失敗；不能據此斷言模型無法生成單人。原始提示詞含泛用複數表述，且Qwen第一張圖經中心裁切，皆是待分離的混雜因素。
@@ -52,7 +52,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 18 | 18 | 0 | 24 | 18 |
-| H3 Ref2VA 5 frames | 60 | 35 | 35 | 0 | 0 | 35 |
+| H3 Ref2VA 5 frames | 60 | 36 | 36 | 0 | 0 | 36 |
 
 ### 資料完整性快照
 
@@ -92,7 +92,7 @@
 | 2 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 1/8 | 5/8 |
 | 3 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 3/12 | 12/12 |
 | 3 | Qwen Edit 2511 | 12 | 4/6 | 0/6 | 1/6 | 0/6 | 2/6 |
-| 3 | H3 Ref2VA 5 frames | 12 | 7/7 | 0/7 | 7/7 | 2/7 | 5/7 |
+| 3 | H3 Ref2VA 5 frames | 12 | 8/8 | 0/8 | 8/8 | 2/8 | 5/8 |
 | 4 | Codex built-in | 12 | 12/12 | 0/12 | 12/12 | 4/12 | 12/12 |
 | 4 | Qwen Edit 2511 | 12 | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） | —（0已評估） |
 | 4 | H3 Ref2VA 5 frames | 12 | 6/6 | 0/6 | 6/6 | 0/6 | 3/6 |
@@ -161,7 +161,7 @@
 | anime-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r2/result.json) |
 | live-02-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/result.json) |
 | anime-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r2/result.json) |
-| live-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/result.json) | pending | pending |
+| live-03-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/result.json) | pending | [succeeded](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/result.json) |
 | anime-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/result.json) | unsupported | pending |
 | live-04-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/result.json) | unsupported | pending |
 | anime-05-wave-r2 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/result.json) | unsupported | pending |
@@ -475,7 +475,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/output.png) | 未產出／待執行 | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/output.png) | 未產出／待執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/output.png) |
 
 ### anime-04-wave-r2
 
@@ -833,11 +833,11 @@
 | Qwen Edit 2511 | reference_binding | 0/30 | 0 | 0 | 0 |
 | Qwen Edit 2511 | action_obedience | 0/30 | 0 | 0 | 0 |
 | Qwen Edit 2511 | hands_and_contacts | 0/30 | 0 | 0 | 0 |
-| H3 Ref2VA 5 frames | exact_count | 5/30 | 5 | 0 | 3 |
-| H3 Ref2VA 5 frames | appearance_preserved | 5/30 | 5 | 0 | 0 |
-| H3 Ref2VA 5 frames | reference_binding | 5/30 | 5 | 0 | 3 |
-| H3 Ref2VA 5 frames | action_obedience | 5/30 | 4 | 1 | 1 |
-| H3 Ref2VA 5 frames | hands_and_contacts | 5/30 | 4 | 1 | 3 |
+| H3 Ref2VA 5 frames | exact_count | 6/30 | 6 | 0 | 4 |
+| H3 Ref2VA 5 frames | appearance_preserved | 6/30 | 6 | 0 | 0 |
+| H3 Ref2VA 5 frames | reference_binding | 6/30 | 6 | 0 | 4 |
+| H3 Ref2VA 5 frames | action_obedience | 6/30 | 5 | 1 | 1 |
+| H3 Ref2VA 5 frames | hands_and_contacts | 6/30 | 5 | 1 | 3 |
 
 [每組配對案例與分數](assets/multichar-reference-20260913/repeat-summary.json)
 
@@ -854,7 +854,7 @@
 | Qwen Edit 2511 | 5 | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) | 未知 (n=0) |
 | H3 Ref2VA 5 frames | 1 | 119.75 [119.28–168.01] (n=8) | 16.31 [16.06–47.23] (n=8) | 15.07 [14.90–15.19] (n=8) | 127.97 [126.72–189.77] (n=8) |
 | H3 Ref2VA 5 frames | 2 | 156.11 [153.68–203.59] (n=8) | 23.17 [22.92–56.06] (n=8) | 21.60 [21.43–21.82] (n=8) | 164.09 [161.76–224.54] (n=8) |
-| H3 Ref2VA 5 frames | 3 | 403.02 [399.37–464.17] (n=7) | 30.34 [30.19–65.02] (n=7) | 28.51 [28.33–28.63] (n=7) | 412.81 [408.93–481.70] (n=7) |
+| H3 Ref2VA 5 frames | 3 | 406.40 [399.37–464.17] (n=8) | 30.31 [30.19–65.02] (n=8) | 28.50 [28.33–28.63] (n=8) | 416.24 [408.93–481.70] (n=8) |
 | H3 Ref2VA 5 frames | 4 | 547.42 [520.97–553.78] (n=6) | 119.74 [119.61–120.14] (n=6) | 113.45 [113.28–113.93] (n=6) | 557.41 [537.07–564.78] (n=6) |
 | H3 Ref2VA 5 frames | 5 | 584.12 [576.72–592.35] (n=6) | 125.11 [124.85–125.59] (n=6) | 118.49 [118.25–118.90] (n=6) | 595.53 [587.57–609.83] (n=6) |
 

@@ -106,7 +106,7 @@ anime-03-wave-r2,qwen,anime,3,wave,2,pending,False,,,,False,,,,,,
 anime-03-wave-r2,h3,anime,3,wave,2,succeeded,True,failed,,412.597208738327,True,2,1,2,2,2,三人依 Frieren、Fern、Loid 順序站立，各自單手空掌揮手、另一臂垂下，手部大致清楚。Loid 新增原參考圖沒有的黑框眼鏡；Frieren 衣领寶石樣式略有偏移，左側手掌邊緣貼近畫面邊界。
 live-03-wave-r2,codex,live,3,wave,2,succeeded,True,,,38.4,True,2,1,2,1,2,"Wednesday, Enid, Bianca in requested order with distinct faces/hair. Bianca reference necklace missing, uniforms altered. One raised hand each, but Enid other arm appears behind Bianca rather than clearly lowered. Open hands anatomically plausible."
 live-03-wave-r2,qwen,live,3,wave,2,pending,False,,,,False,,,,,,
-live-03-wave-r2,h3,live,3,wave,2,pending,False,,,,False,,,,,,
+live-03-wave-r2,h3,live,3,wave,2,succeeded,True,failed,,436.4378778934479,True,2,1,2,1,0,Wednesday、Enid、Bianca 三人數量與左右對應保持，制服領口／徽章细节偏移。各有一手舉起，但 Enid 的手指伸出誇張黑色爪狀尖線，保留了要求捨棄的海報特效，並非自然空掌；另兩人的可見手掌相對正常。
 anime-04-wave-r2,codex,anime,4,wave,2,succeeded,True,,,42.5,True,2,1,2,2,2,"Correct four figures/order and one raised open hand per person, unused hands lowered. Loid black gloves retained this repeat; Yor gloves are short/fingerless instead of reference long gloves and dress details simplify."
 anime-04-wave-r2,qwen,anime,4,wave,2,unsupported,False,,,,False,,,,,,
 anime-04-wave-r2,h3,anime,4,wave,2,pending,False,,,,False,,,,,,
