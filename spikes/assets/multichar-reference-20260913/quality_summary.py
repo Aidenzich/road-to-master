@@ -2,6 +2,36 @@
 METRICS = ['exact_count', 'appearance_preserved', 'reference_binding', 'action_obedience', 'hands_and_contacts']
 MODELS = ['codex', 'qwen', 'h3']
 
+def summarize_repeats(rows):
+    """Pair only identical cohort/count/action; exclude unavailable metric scores."""
+    pairs = {}
+    for row in rows:
+        key = (row['model'], row['cohort'], row['count'], row['action'])
+        bucket = pairs.setdefault(key, {})
+        repeat = row['repeat']
+        if repeat in bucket:
+            raise ValueError(f'Duplicate repeat arm: {key}, repeat={repeat}')
+        bucket[repeat] = row
+    groups = []
+    for model in MODELS:
+        selected = [(key, pair) for key, pair in pairs.items() if key[0] == model]
+        for metric in METRICS:
+            observations = []
+            for key, pair in selected:
+                a, b = pair.get(1), pair.get(2)
+                if not all(r and r['state'] == 'succeeded' and r['reviewed']
+                           and r.get(metric) in (0, 1, 2) for r in (a, b)):
+                    continue
+                observations.append(dict(cohort=key[1], count=key[2], action=key[3],
+                                         case_ids=[a['case_id'], b['case_id']], scores=[a[metric], b[metric]]))
+            groups.append(dict(model=model, metric=metric, planned_pairs=len(selected),
+                               evaluated_pairs=len(observations), missing_pairs=len(selected)-len(observations),
+                               same_score=sum(o['scores'][0] == o['scores'][1] for o in observations),
+                               changed_score=sum(o['scores'][0] != o['scores'][1] for o in observations),
+                               both_clear_pass=sum(o['scores'] == [2, 2] for o in observations),
+                               pairs=observations))
+    return dict(groups=groups, limitation='Two repeats only; descriptive score agreement, not reliability estimation or statistical significance. Codex seed unknown; local seeds differ. Failed, unsupported and unreviewed arms excluded from evaluated pairs but retained as missing pairs. No controls.')
+
 def summarize(rows):
     matched = sorted({r['case_id'] for r in rows if all(
         any(x['case_id'] == r['case_id'] and x['model'] == model

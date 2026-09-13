@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T20:03:30.500454+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T20:05:30.316236+00:00。**持續實驗中，非最終結論。**
 
 ## 目前觀察（非最終結論）
 
@@ -816,6 +816,30 @@
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-01-wave-r1/output.png) | not_executed |  |
 | H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/live-01-wave-r1/output.png) | not_executed |  |
 
+
+## 兩次重複的評分一致性
+
+只配對相同模型、角色組、人數與動作的第1／2輪。每項指標各自排除沒有成果或未評估的配對，未完成／不支援不算0分。相同分數也可能是兩次都失敗，故另列兩次皆明確符合。只有兩次重複，不作可靠度或顯著性結論；Codex seed 未知，本地模型兩轮 seed 不同。
+
+| 模型 | 指標 | 已評估配對／預登記配對 | 相同分數 | 不同分數 | 兩次皆明確符合 |
+|---|---|---:|---:|---:|---:|
+| Codex built-in | exact_count | 28/30 | 28 | 0 | 28 |
+| Codex built-in | appearance_preserved | 28/30 | 27 | 1 | 8 |
+| Codex built-in | reference_binding | 28/30 | 28 | 0 | 28 |
+| Codex built-in | action_obedience | 28/30 | 25 | 3 | 9 |
+| Codex built-in | hands_and_contacts | 28/30 | 28 | 0 | 28 |
+| Qwen Edit 2511 | exact_count | 0/30 | 0 | 0 | 0 |
+| Qwen Edit 2511 | appearance_preserved | 0/30 | 0 | 0 | 0 |
+| Qwen Edit 2511 | reference_binding | 0/30 | 0 | 0 | 0 |
+| Qwen Edit 2511 | action_obedience | 0/30 | 0 | 0 | 0 |
+| Qwen Edit 2511 | hands_and_contacts | 0/30 | 0 | 0 | 0 |
+| H3 Ref2VA 5 frames | exact_count | 5/30 | 5 | 0 | 3 |
+| H3 Ref2VA 5 frames | appearance_preserved | 5/30 | 5 | 0 | 0 |
+| H3 Ref2VA 5 frames | reference_binding | 5/30 | 5 | 0 | 3 |
+| H3 Ref2VA 5 frames | action_obedience | 5/30 | 4 | 1 | 1 |
+| H3 Ref2VA 5 frames | hands_and_contacts | 5/30 | 4 | 1 | 3 |
+
+[每組配對案例與分數](assets/multichar-reference-20260913/repeat-summary.json)
 
 ## 耗時與硬體紀錄
 

@@ -3,7 +3,7 @@ from pathlib import Path
 import csv, hashlib, json, shutil
 from statistics import median
 from datetime import datetime, timezone
-from quality_summary import summarize
+from quality_summary import summarize, summarize_repeats
 
 ROOT=Path(__file__).resolve().parent
 REPO=Path('/Users/aiden/Projects/road-to-master')
@@ -65,6 +65,8 @@ with (DEST/'results.csv').open('w') as f:
 (DEST/'results.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
 quality = summarize(rows)
 (DEST/'quality-summary.json').write_text(json.dumps(quality,ensure_ascii=False,indent=2)+'\n')
+repeat_summary = summarize_repeats(rows)
+(DEST/'repeat-summary.json').write_text(json.dumps(repeat_summary,ensure_ascii=False,indent=2)+'\n')
 now=datetime.now(timezone.utc).isoformat()
 asset=f'assets/{SLUG}'
 lines=[
@@ -218,7 +220,12 @@ if singular_index.exists():
             lines.append(f'| {name} | {baseline} | {output} | {notes} |')
         lines += ['']
     (DEST/'singular-control-results.json').write_text(json.dumps(singular_rows,indent=2,ensure_ascii=False)+'\n')
-lines += ['', '## 耗時與硬體紀錄', '']
+lines += ['', '## 兩次重複的評分一致性', '',
+          '只配對相同模型、角色組、人數與動作的第1／2輪。每項指標各自排除沒有成果或未評估的配對，未完成／不支援不算0分。相同分數也可能是兩次都失敗，故另列兩次皆明確符合。只有兩次重複，不作可靠度或顯著性結論；Codex seed 未知，本地模型兩轮 seed 不同。', '',
+          '| 模型 | 指標 | 已評估配對／預登記配對 | 相同分數 | 不同分數 | 兩次皆明確符合 |', '|---|---|---:|---:|---:|---:|']
+for group in repeat_summary['groups']:
+    lines.append(f'| {MODEL_NAMES[group["model"]]} | {group["metric"]} | {group["evaluated_pairs"]}/{group["planned_pairs"]} | {group["same_score"]} | {group["changed_score"]} | {group["both_clear_pass"]} |')
+lines += ['', f'[每組配對案例與分數]({asset}/repeat-summary.json)', '', '## 耗時與硬體紀錄', '']
 if (ROOT/'timings.json').exists():
     timing_rows=json.loads((ROOT/'timings.json').read_text())
     case_counts={cid:json.loads((ROOT/'cases'/cid/'case.json').read_text())['count'] for cid in CASES}
@@ -267,7 +274,7 @@ observations += ['',
 lines[4:4]=observations
 (REPO/'spikes/multichar-reference-benchmark-20260913.md').write_text('\n'.join(lines)+'\n')
 # Same complete report locally, with portable links to this experiment's files.
-for filename in ['results.csv','results.json','quality-summary.json','position-control-results.json','singular-control-results.json']:
+for filename in ['results.csv','results.json','quality-summary.json','repeat-summary.json','position-control-results.json','singular-control-results.json']:
     if (DEST/filename).exists():
         shutil.copyfile(DEST/filename,ROOT/filename)
 (ROOT/'README.md').write_text(('\n'.join(lines)+'\n').replace(f']({asset}/',']('))

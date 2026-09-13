@@ -1,11 +1,28 @@
 import unittest
-from quality_summary import summarize, METRICS
+from quality_summary import summarize, summarize_repeats, METRICS
 
 def row(cid, model, state='succeeded', score=2):
     return dict(case_id=cid, model=model, count=2, action='book', repeat=1,
                 state=state, reviewed=score is not None, **{m: score for m in METRICS})
 
 class SummaryTests(unittest.TestCase):
+    def test_repeat_pairing_preserves_missingness_and_cohort(self):
+        rows=[]
+        for cohort, scores in [('anime', [2, 1]), ('live', [0, None])]:
+            for repeat, score in enumerate(scores, 1):
+                item=row(f'{cohort}-{repeat}', 'h3', score=score)
+                item.update(cohort=cohort, repeat=repeat)
+                rows.append(item)
+        group=next(g for g in summarize_repeats(rows)['groups'] if g['model']=='h3' and g['metric']=='exact_count')
+        self.assertEqual((group['planned_pairs'],group['evaluated_pairs'],group['missing_pairs']), (2,1,1))
+        self.assertEqual((group['same_score'],group['changed_score'],group['both_clear_pass']), (0,1,0))
+        self.assertEqual(group['pairs'][0]['case_ids'], ['anime-1','anime-2'])
+
+    def test_duplicate_repeat_is_rejected(self):
+        item=dict(row('a','codex'),cohort='anime')
+        with self.assertRaises(ValueError):
+            summarize_repeats([item,item])
+
     def test_missing_failure_is_not_a_visual_zero_or_matched(self):
         rows = [row('a', m) for m in ['codex', 'qwen', 'h3']]
         rows += [row('b', 'codex'), row('b', 'qwen', 'failed', None), row('b', 'h3', score=0)]
