@@ -1,0 +1,425 @@
+[
+  {
+    "event": "prepared",
+    "data": {
+      "body": {
+        "prompt": {
+          "1": {
+            "inputs": {
+              "unet_name": "image/qwen_image_edit_2511_fp8mixed.safetensors",
+              "weight_dtype": "default"
+            },
+            "class_type": "UNETLoader"
+          },
+          "2": {
+            "inputs": {
+              "type": "qwen_image",
+              "device": "default",
+              "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+            },
+            "class_type": "CLIPLoader"
+          },
+          "3": {
+            "inputs": {
+              "vae_name": "qwen_image_vae.safetensors"
+            },
+            "class_type": "VAELoader"
+          },
+          "4": {
+            "inputs": {
+              "model": [
+                "1",
+                0
+              ],
+              "shift": 3.1
+            },
+            "class_type": "ModelSamplingAuraFlow"
+          },
+          "5": {
+            "inputs": {
+              "model": [
+                "4",
+                0
+              ],
+              "strength": 1.0
+            },
+            "class_type": "CFGNorm"
+          },
+          "6": {
+            "inputs": {
+              "vae": [
+                "3",
+                0
+              ],
+              "pixels": [
+                "24",
+                0
+              ]
+            },
+            "class_type": "VAEEncode"
+          },
+          "7": {
+            "inputs": {
+              "vae": [
+                "3",
+                0
+              ],
+              "clip": [
+                "2",
+                0
+              ],
+              "image1": [
+                "24",
+                0
+              ],
+              "image2": [
+                "22",
+                0
+              ],
+              "prompt": "Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 2 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs."
+            },
+            "class_type": "TextEncodeQwenImageEditPlus"
+          },
+          "8": {
+            "inputs": {
+              "vae": [
+                "3",
+                0
+              ],
+              "clip": [
+                "2",
+                0
+              ],
+              "image1": [
+                "24",
+                0
+              ],
+              "image2": [
+                "22",
+                0
+              ],
+              "prompt": ""
+            },
+            "class_type": "TextEncodeQwenImageEditPlus"
+          },
+          "9": {
+            "inputs": {
+              "conditioning": [
+                "7",
+                0
+              ],
+              "reference_latents_method": "index_timestep_zero"
+            },
+            "class_type": "FluxKontextMultiReferenceLatentMethod"
+          },
+          "10": {
+            "inputs": {
+              "conditioning": [
+                "8",
+                0
+              ],
+              "reference_latents_method": "index_timestep_zero"
+            },
+            "class_type": "FluxKontextMultiReferenceLatentMethod"
+          },
+          "11": {
+            "inputs": {
+              "cfg": 4.0,
+              "seed": 20260914,
+              "model": [
+                "5",
+                0
+              ],
+              "steps": 40,
+              "denoise": 1.0,
+              "negative": [
+                "10",
+                0
+              ],
+              "positive": [
+                "9",
+                0
+              ],
+              "scheduler": "simple",
+              "latent_image": [
+                "6",
+                0
+              ],
+              "sampler_name": "euler"
+            },
+            "class_type": "KSampler"
+          },
+          "12": {
+            "inputs": {
+              "vae": [
+                "3",
+                0
+              ],
+              "samples": [
+                "11",
+                0
+              ]
+            },
+            "class_type": "VAEDecode"
+          },
+          "13": {
+            "inputs": {
+              "images": [
+                "12",
+                0
+              ],
+              "filename_prefix": "video/msai-studio/b3920af327aa1665-00"
+            },
+            "class_type": "SaveImage"
+          },
+          "21": {
+            "inputs": {
+              "image": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-1.png"
+            },
+            "class_type": "LoadImage"
+          },
+          "22": {
+            "inputs": {
+              "image": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-2.png"
+            },
+            "class_type": "LoadImage"
+          },
+          "24": {
+            "inputs": {
+              "crop": "center",
+              "image": [
+                "21",
+                0
+              ],
+              "width": 768,
+              "height": 512,
+              "upscale_method": "lanczos"
+            },
+            "class_type": "ImageScale"
+          }
+        },
+        "client_id": "msai-studio-3e36838c-52d6-4d36-b60e-745483675f53"
+      },
+      "steps": 40,
+      "hardware": {
+        "phase": "before_submit",
+        "source": "comfy_system_stats",
+        "devices": [
+          {
+            "name": "cuda:0 NVIDIA GeForce RTX 5090 : cudaMallocAsync",
+            "type": "cuda",
+            "index": 0,
+            "vram_free": 3942379286,
+            "vram_total": 33670758400,
+            "torch_vram_free": 75558678,
+            "torch_vram_total": 29058138112
+          }
+        ],
+        "software": {
+          "comfyui_version": "0.33.0",
+          "pytorch_version": "2.7.1+cu128"
+        },
+        "available": true,
+        "observed_at": "2026-09-13T15:46:50.910079+00:00"
+      },
+      "model_id": "qwen-image-edit-2511",
+      "cfg_scale": 4.0,
+      "workflow_id": "qwen-edit-2511",
+      "target_width": 768,
+      "target_height": 512,
+      "candidate_count": 1,
+      "reference_images": [
+        {
+          "label": "Picture 1",
+          "order": 0,
+          "width": 750,
+          "height": 683,
+          "sha256": "9522717727e63f344784ae1932faf4e2b181d2d220ef81783fa3e1f6fb919d4f",
+          "resized": false,
+          "uploaded_name": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-1.png",
+          "uploaded_width": 750,
+          "uploaded_height": 683,
+          "uploaded_sha256": "650631f8b6443f1b91890ec4d4fdec2160746d9bc92eaa6fd1eff062116f562f"
+        },
+        {
+          "label": "Picture 2",
+          "order": 1,
+          "width": 750,
+          "height": 683,
+          "sha256": "451b527dbe84281587c7d44a2e9eff8ec17cb4e27c36b315011a39ad9a71c541",
+          "resized": false,
+          "uploaded_name": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-2.png",
+          "uploaded_width": 750,
+          "uploaded_height": 683,
+          "uploaded_sha256": "7488239d9a5342fbd37d4c6e27bb63b8c1125d16209f6c03ab577ae4437a7561"
+        }
+      ],
+      "reference_profile": {
+        "lora": null,
+        "device": "default",
+        "max_pixels": 1048576,
+        "size_policy": "first-reference-center-crop-to-output",
+        "adapter_revision": "vision-flow:1549d8ac6d67d16c67eda6e11f4c7279ff159126",
+        "native_reference": true
+      },
+      "serial_candidates": false,
+      "reference_strength": null,
+      "execution_batch_size": 1,
+      "reference_adapter_id": null
+    },
+    "created_at": "2026-09-13 15:46:51.409723+00:00"
+  },
+  {
+    "event": "accepted",
+    "data": {
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88"
+    },
+    "created_at": "2026-09-13 15:46:52.407933+00:00"
+  },
+  {
+    "event": "execution_started",
+    "data": {
+      "clock": "provider",
+      "source": "comfy_websocket",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:46:52.566195+00:00",
+      "occurred_at": "2026-09-13T15:46:52.395000+00:00"
+    },
+    "created_at": "2026-09-13 15:46:52.567926+00:00"
+  },
+  {
+    "event": "execution_observed",
+    "data": {
+      "clock": "observer",
+      "source": "comfy_queue_poll",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:46:53.394038+00:00",
+      "occurred_at": "2026-09-13T15:46:53.394038+00:00"
+    },
+    "created_at": "2026-09-13 15:46:53.395712+00:00"
+  },
+  {
+    "event": "sampling_started",
+    "data": {
+      "clock": "observer",
+      "source": "comfy_websocket",
+      "node_id": "11",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:46:54.753207+00:00",
+      "occurred_at": "2026-09-13T15:46:54.753207+00:00"
+    },
+    "created_at": "2026-09-13 15:46:54.755406+00:00"
+  },
+  {
+    "event": "sampling_progress",
+    "data": {
+      "max": 40,
+      "clock": "observer",
+      "value": 40.0,
+      "source": "comfy_websocket",
+      "node_id": "11",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:48:48.510317+00:00",
+      "occurred_at": "2026-09-13T15:48:48.510317+00:00"
+    },
+    "created_at": "2026-09-13 15:46:57.540222+00:00"
+  },
+  {
+    "event": "first_step_observed",
+    "data": {
+      "max": 40,
+      "clock": "observer",
+      "value": 1,
+      "source": "comfy_websocket",
+      "node_id": "11",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:46:57.538566+00:00",
+      "occurred_at": "2026-09-13T15:46:57.538566+00:00"
+    },
+    "created_at": "2026-09-13 15:46:57.546539+00:00"
+  },
+  {
+    "event": "sampling_completed",
+    "data": {
+      "max": 40,
+      "clock": "observer",
+      "value": 40,
+      "source": "comfy_websocket",
+      "node_id": "11",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:48:48.510345+00:00",
+      "occurred_at": "2026-09-13T15:48:48.510345+00:00"
+    },
+    "created_at": "2026-09-13 15:48:48.512385+00:00"
+  },
+  {
+    "event": "execution_completed",
+    "data": {
+      "clock": "provider",
+      "source": "comfy_websocket",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "observed_at": "2026-09-13T15:48:49.035612+00:00",
+      "occurred_at": "2026-09-13T15:48:48.824000+00:00"
+    },
+    "created_at": "2026-09-13 15:48:49.037725+00:00"
+  },
+  {
+    "event": "collection_started",
+    "data": {
+      "clock": "observer",
+      "source": "editor",
+      "occurred_at": "2026-09-13T15:48:50.392248+00:00"
+    },
+    "created_at": "2026-09-13 15:48:50.392784+00:00"
+  },
+  {
+    "event": "remote_cleanup_pending",
+    "data": {
+      "files": [
+        {
+          "kind": "output",
+          "path": "video/msai-studio/b3920af327aa1665-00_00001_.png",
+          "size": 409572,
+          "sha256": "fe1860d525e22d3de790966f27fe7df9631fec4c15cd678925b85b29d0e67904"
+        }
+      ],
+      "base_url": "http://127.0.0.1:8188",
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88",
+      "request_id": "3e36838c-52d6-4d36-b60e-745483675f53"
+    },
+    "created_at": "2026-09-13 15:48:52.388694+00:00"
+  },
+  {
+    "event": "assets_saved",
+    "data": {
+      "clock": "observer",
+      "source": "editor",
+      "occurred_at": "2026-09-13T15:48:52.540003+00:00"
+    },
+    "created_at": "2026-09-13 15:48:52.539213+00:00"
+  },
+  {
+    "event": "remote_cleanup_completed",
+    "data": {
+      "files": [
+        {
+          "kind": "input",
+          "path": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-1.png",
+          "state": "deleted"
+        },
+        {
+          "kind": "input",
+          "path": "msai-qwen-image-edit-2511-3e36838c-52d6-4d36-b60e-745483675f53-ref-2.png",
+          "state": "deleted"
+        },
+        {
+          "kind": "output",
+          "path": "video/msai-studio/b3920af327aa1665-00_00001_.png",
+          "state": "deleted"
+        }
+      ],
+      "prompt_id": "30d4115d-b150-418b-8054-83bfaf2bcd88"
+    },
+    "created_at": "2026-09-13 15:48:55.969666+00:00"
+  }
+]

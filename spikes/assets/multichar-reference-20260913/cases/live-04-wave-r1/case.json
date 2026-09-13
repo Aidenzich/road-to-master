@@ -1,0 +1,48 @@
+{
+  "id": "live-04-wave-r1",
+  "cohort": "live",
+  "count": 4,
+  "action": "wave",
+  "repeat": 1,
+  "cast": [
+    "wednesday",
+    "enid",
+    "bianca",
+    "tyler"
+  ],
+  "references": [
+    "references/wednesday.jpg",
+    "references/enid.jpg",
+    "references/bianca.jpg",
+    "references/tyler.jpg"
+  ],
+  "reference_hashes": [
+    "c598991ccb69c3a7c6addbeb19cd54a69c2ee0a63e7f64adba4f98e60d7d0281",
+    "b223fbf1b6464140f8150b38c256eaa222a5bc789d3c609daf0d6203ee33abed",
+    "39e8d5e718a7d4c65f9abd43c26f029048abe3731d3ca3c4c7dbe4af6907e660",
+    "b0508ed29c48545219929d22d620615faba707e0c7797a335b00dc77241f140f"
+  ],
+  "seed": 20260914,
+  "prompt": "Person 1 is Wednesday Addams, the character in reference image 1. Person 2 is Enid Sinclair, the character in reference image 2. Person 3 is Bianca Barclay, the character in reference image 3. Person 4 is Tyler Galpin, the character in reference image 4.\nPreserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.\nExactly 4 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2, Person 3, Person 4. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.",
+  "h3_prompt": "subject_definitions:\n<Subject 1> is Wednesday Addams, the character shown in <Picture 1>.\n<Subject 2> is Enid Sinclair, the character shown in <Picture 2>.\n<Subject 3> is Bianca Barclay, the character shown in <Picture 3>.\n<Subject 4> is Tyler Galpin, the character shown in <Picture 4>.\n\nsummary:\n[reference generation] The referenced characters share one friendly library scene.\n\nretention_analysis:\n<Subject 1>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 1>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 2>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 2>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 3>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 3>; replace source pose, props, background, graphics and effects with the requested scene.\n<Subject 4>: fully_preserved - Preserve facial features, hairstyle, hair color and clothing from <Picture 4>; replace source pose, props, background, graphics and effects with the requested scene.\n\ndetailed_description:\n[Shot 1] A single continuous unbroken shot. The camera is locked. Exactly 4 distinct people are visible, each appearing once. The left-to-right order is <Subject 1>, <Subject 2>, <Subject 3>, <Subject 4>. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Photorealistic fictional television character scene with natural facial texture.\n0.00-0.20833333333333334s: All subjects are already holding the described pose in the opening image and calmly maintain it for the entire shot, with only subtle natural breathing. Hands remain settled at the specified contacts or objects. The camera and lighting remain stable.\n\noverall_soundscape:\nQuiet library room tone. Nobody speaks.\n\nnon_diegetic_music:\nN/A\n",
+  "camera_ledger": {
+    "function": "inspect character appearance and hand/object binding",
+    "framing": "waist-up group",
+    "height": "eye level",
+    "lens": "neutral perspective",
+    "path": "locked",
+    "speed": 0,
+    "axis": "frontal shared floor",
+    "depth": "hands / people / plain library wall",
+    "landing": "same stable pose",
+    "why_locked": "minimum-frame still comparison, no movement confound"
+  },
+  "transfer_exclusions": [
+    "pose",
+    "handheld props",
+    "background",
+    "poster graphics",
+    "special effects"
+  ],
+  "qwen_supported": false
+}
