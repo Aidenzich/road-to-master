@@ -2464,10 +2464,10 @@
       "model": "h3",
       "metric": "exact_count",
       "planned_pairs": 30,
-      "evaluated_pairs": 11,
-      "missing_pairs": 19,
+      "evaluated_pairs": 12,
+      "missing_pairs": 18,
       "same_score": 11,
-      "changed_score": 0,
+      "changed_score": 1,
       "both_clear_pass": 8,
       "pairs": [
         {
@@ -2612,6 +2612,19 @@
             0,
             0
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "live-01-book-r1",
+            "live-01-book-r2"
+          ],
+          "scores": [
+            0,
+            2
+          ]
         }
       ]
     },
@@ -2619,10 +2632,10 @@
       "model": "h3",
       "metric": "appearance_preserved",
       "planned_pairs": 30,
-      "evaluated_pairs": 11,
-      "missing_pairs": 19,
+      "evaluated_pairs": 12,
+      "missing_pairs": 18,
       "same_score": 11,
-      "changed_score": 0,
+      "changed_score": 1,
       "both_clear_pass": 0,
       "pairs": [
         {
@@ -2767,6 +2780,19 @@
             1,
             1
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "live-01-book-r1",
+            "live-01-book-r2"
+          ],
+          "scores": [
+            1,
+            2
+          ]
         }
       ]
     },
@@ -2774,10 +2800,10 @@
       "model": "h3",
       "metric": "reference_binding",
       "planned_pairs": 30,
-      "evaluated_pairs": 11,
-      "missing_pairs": 19,
+      "evaluated_pairs": 12,
+      "missing_pairs": 18,
       "same_score": 11,
-      "changed_score": 0,
+      "changed_score": 1,
       "both_clear_pass": 8,
       "pairs": [
         {
@@ -2922,6 +2948,19 @@
             0,
             0
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "live-01-book-r1",
+            "live-01-book-r2"
+          ],
+          "scores": [
+            0,
+            2
+          ]
         }
       ]
     },
@@ -2929,10 +2968,10 @@
       "model": "h3",
       "metric": "action_obedience",
       "planned_pairs": 30,
-      "evaluated_pairs": 11,
-      "missing_pairs": 19,
+      "evaluated_pairs": 12,
+      "missing_pairs": 18,
       "same_score": 7,
-      "changed_score": 4,
+      "changed_score": 5,
       "both_clear_pass": 1,
       "pairs": [
         {
@@ -3077,6 +3116,19 @@
             1,
             1
           ]
+        },
+        {
+          "cohort": "live",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "live-01-book-r1",
+            "live-01-book-r2"
+          ],
+          "scores": [
+            1,
+            2
+          ]
         }
       ]
     },
@@ -3084,11 +3136,11 @@
       "model": "h3",
       "metric": "hands_and_contacts",
       "planned_pairs": 30,
-      "evaluated_pairs": 11,
-      "missing_pairs": 19,
-      "same_score": 7,
+      "evaluated_pairs": 12,
+      "missing_pairs": 18,
+      "same_score": 8,
       "changed_score": 4,
-      "both_clear_pass": 5,
+      "both_clear_pass": 6,
       "pairs": [
         {
           "cohort": "anime",
@@ -3227,6 +3279,19 @@
           "case_ids": [
             "anime-01-book-r1",
             "anime-01-book-r2"
+          ],
+          "scores": [
+            2,
+            2
+          ]
+        },
+        {
+          "cohort": "live",
+          "count": 1,
+          "action": "book",
+          "case_ids": [
+            "live-01-book-r1",
+            "live-01-book-r2"
           ],
           "scores": [
             2,

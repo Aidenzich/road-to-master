@@ -124,43 +124,43 @@
       "value": 1,
       "model": "h3",
       "arms": 12,
-      "succeeded": 9,
+      "succeeded": 10,
       "unsupported": 0,
       "metrics": {
         "exact_count": {
-          "reviewed": 9,
-          "clear_pass": 0,
+          "reviewed": 10,
+          "clear_pass": 1,
           "partial_or_uncertain": 0,
           "clear_failure": 9,
-          "missing_or_inapplicable": 3
+          "missing_or_inapplicable": 2
         },
         "appearance_preserved": {
-          "reviewed": 9,
-          "clear_pass": 0,
+          "reviewed": 10,
+          "clear_pass": 1,
           "partial_or_uncertain": 9,
           "clear_failure": 0,
-          "missing_or_inapplicable": 3
+          "missing_or_inapplicable": 2
         },
         "reference_binding": {
-          "reviewed": 9,
-          "clear_pass": 0,
+          "reviewed": 10,
+          "clear_pass": 1,
           "partial_or_uncertain": 0,
           "clear_failure": 9,
-          "missing_or_inapplicable": 3
+          "missing_or_inapplicable": 2
         },
         "action_obedience": {
-          "reviewed": 9,
-          "clear_pass": 0,
+          "reviewed": 10,
+          "clear_pass": 1,
           "partial_or_uncertain": 9,
           "clear_failure": 0,
-          "missing_or_inapplicable": 3
+          "missing_or_inapplicable": 2
         },
         "hands_and_contacts": {
-          "reviewed": 9,
-          "clear_pass": 8,
+          "reviewed": 10,
+          "clear_pass": 9,
           "partial_or_uncertain": 1,
           "clear_failure": 0,
-          "missing_or_inapplicable": 3
+          "missing_or_inapplicable": 2
         }
       }
     },
@@ -814,43 +814,43 @@
       "value": "book",
       "model": "h3",
       "arms": 20,
-      "succeeded": 11,
+      "succeeded": 12,
       "unsupported": 0,
       "metrics": {
         "exact_count": {
-          "reviewed": 11,
-          "clear_pass": 8,
+          "reviewed": 12,
+          "clear_pass": 9,
           "partial_or_uncertain": 0,
           "clear_failure": 3,
-          "missing_or_inapplicable": 9
+          "missing_or_inapplicable": 8
         },
         "appearance_preserved": {
-          "reviewed": 11,
-          "clear_pass": 0,
+          "reviewed": 12,
+          "clear_pass": 1,
           "partial_or_uncertain": 11,
           "clear_failure": 0,
-          "missing_or_inapplicable": 9
+          "missing_or_inapplicable": 8
         },
         "reference_binding": {
-          "reviewed": 11,
-          "clear_pass": 8,
+          "reviewed": 12,
+          "clear_pass": 9,
           "partial_or_uncertain": 0,
           "clear_failure": 3,
-          "missing_or_inapplicable": 9
+          "missing_or_inapplicable": 8
         },
         "action_obedience": {
-          "reviewed": 11,
-          "clear_pass": 0,
+          "reviewed": 12,
+          "clear_pass": 1,
           "partial_or_uncertain": 10,
           "clear_failure": 1,
-          "missing_or_inapplicable": 9
+          "missing_or_inapplicable": 8
         },
         "hands_and_contacts": {
-          "reviewed": 11,
-          "clear_pass": 9,
+          "reviewed": 12,
+          "clear_pass": 10,
           "partial_or_uncertain": 2,
           "clear_failure": 0,
-          "missing_or_inapplicable": 9
+          "missing_or_inapplicable": 8
         }
       }
     },
@@ -1366,43 +1366,43 @@
       "value": 2,
       "model": "h3",
       "arms": 30,
-      "succeeded": 11,
+      "succeeded": 12,
       "unsupported": 0,
       "metrics": {
         "exact_count": {
-          "reviewed": 11,
-          "clear_pass": 8,
-          "partial_or_uncertain": 0,
-          "clear_failure": 3,
-          "missing_or_inapplicable": 19
-        },
-        "appearance_preserved": {
-          "reviewed": 11,
-          "clear_pass": 0,
-          "partial_or_uncertain": 11,
-          "clear_failure": 0,
-          "missing_or_inapplicable": 19
-        },
-        "reference_binding": {
-          "reviewed": 11,
-          "clear_pass": 8,
-          "partial_or_uncertain": 0,
-          "clear_failure": 3,
-          "missing_or_inapplicable": 19
-        },
-        "action_obedience": {
-          "reviewed": 11,
-          "clear_pass": 3,
-          "partial_or_uncertain": 7,
-          "clear_failure": 1,
-          "missing_or_inapplicable": 19
-        },
-        "hands_and_contacts": {
-          "reviewed": 11,
+          "reviewed": 12,
           "clear_pass": 9,
           "partial_or_uncertain": 0,
+          "clear_failure": 3,
+          "missing_or_inapplicable": 18
+        },
+        "appearance_preserved": {
+          "reviewed": 12,
+          "clear_pass": 1,
+          "partial_or_uncertain": 11,
+          "clear_failure": 0,
+          "missing_or_inapplicable": 18
+        },
+        "reference_binding": {
+          "reviewed": 12,
+          "clear_pass": 9,
+          "partial_or_uncertain": 0,
+          "clear_failure": 3,
+          "missing_or_inapplicable": 18
+        },
+        "action_obedience": {
+          "reviewed": 12,
+          "clear_pass": 4,
+          "partial_or_uncertain": 7,
+          "clear_failure": 1,
+          "missing_or_inapplicable": 18
+        },
+        "hands_and_contacts": {
+          "reviewed": 12,
+          "clear_pass": 10,
+          "partial_or_uncertain": 0,
           "clear_failure": 2,
-          "missing_or_inapplicable": 19
+          "missing_or_inapplicable": 18
         }
       }
     },

@@ -1,0 +1,49 @@
+{
+  "case_id": "live-01-book-r2",
+  "model": "h3",
+  "count": 1,
+  "action": "book",
+  "cohort": "live",
+  "repeat": 2,
+  "seed": 20260915,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "failed",
+  "catalog_error": "result_corrupt",
+  "elapsed_seconds": 127.32992601394653,
+  "prequeue_wait_seconds": 0.675868034362793,
+  "submitted": true,
+  "prompt_id": "69bfadfc-34ec-40f4-9858-9eb5b3230bc8",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T21:08:56.770000+00:00",
+    "execution_observed": "2026-09-13T21:08:57.806308+00:00",
+    "sampling_started": "2026-09-13T21:10:37.574515+00:00",
+    "sampling_progress": "2026-09-13T21:10:53.857498+00:00",
+    "first_step_observed": "2026-09-13T21:10:38.638583+00:00",
+    "sampling_completed": "2026-09-13T21:10:53.857550+00:00",
+    "execution_completed": "2026-09-13T21:10:55.666000+00:00",
+    "collection_started": "2026-09-13T21:10:57.075158+00:00"
+  },
+  "outputs": [
+    "output.mp4",
+    "output.png",
+    "frame-01.png",
+    "frame-02.png",
+    "frame-03.png",
+    "frame-04.png",
+    "frame-05.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789333862.2598531,
+  "review": {
+    "exact_count": 2,
+    "appearance_preserved": 2,
+    "reference_binding": 2,
+    "action_obedience": 2,
+    "hands_and_contacts": 2,
+    "reviewer": "assistant visual review",
+    "notes": "只有一名 Wednesday，黑辮、瀏海、淚痕妝、白領白袖口與黑色花紋裙保持；雙手共同持一本打開的綠書，低頭看書。可見握書手部大致清楚，未見重複人物。這是相同單人提示詞換 seed 後成功的一例，不支持單人一定失敗的結論。"
+  }
+}

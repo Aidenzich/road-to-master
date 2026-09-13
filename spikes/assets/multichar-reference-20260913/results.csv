@@ -124,7 +124,7 @@ anime-01-book-r2,qwen,anime,1,book,2,succeeded,True,succeeded,,77.55843997001648
 anime-01-book-r2,h3,anime,1,book,2,succeeded,True,failed,,126.43593502044678,True,0,1,0,1,2,單人條件生成三個近似 Frieren，各持一本綠書；銀髮尖耳保留，但眼色偏藍、紅色頸部寶石變深色小方塊。三人雙手持書姿態可辨，視線多朝前而非清楚看書，且三人三書不符一人要求；手部大致清楚。
 live-01-book-r2,codex,live,1,book,2,failed,True,,provider_output_moderation_blocked,21.3,False,,,,,,"Unchanged preregistered single-person green-book repeat. Output-stage provider rejection, not a measured visual-quality failure. No retry, prompt rewrite, or alternate API."
 live-01-book-r2,qwen,live,1,book,2,succeeded,True,succeeded,,75.50440788269043,True,0,1,0,1,2,單人 Wednesday 條件生成兩名黑辮白領黑裙女子，各自雙手持一本綠書低頭閱讀；人數與書本數不符。瀏海及淚痕妝未保留、臉部特徵偏移；持書手部大致清楚。
-live-01-book-r2,h3,live,1,book,2,pending,False,,,,False,,,,,,
+live-01-book-r2,h3,live,1,book,2,succeeded,True,failed,,127.32992601394653,True,2,2,2,2,2,只有一名 Wednesday，黑辮、瀏海、淚痕妝、白領白袖口與黑色花紋裙保持；雙手共同持一本打開的綠書，低頭看書。可見握書手部大致清楚，未見重複人物。這是相同單人提示詞換 seed 後成功的一例，不支持單人一定失敗的結論。
 anime-02-book-r2,codex,anime,2,book,2,succeeded,True,,,36.6,True,2,2,2,1,2,Correct Frieren/Fern order and retained appearance. Frieren holds one open green book both hands; Fern points toward upper edge from viewer right. Reader-right page contact cannot be verified from cover-facing angle; gaze roughly down toward book. Hand shapes plausible.
 anime-02-book-r2,qwen,anime,2,book,2,pending,False,,,,False,,,,,,
 anime-02-book-r2,h3,anime,2,book,2,pending,False,,,,False,,,,,,
