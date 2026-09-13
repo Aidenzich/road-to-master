@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T17:31:32.971765+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T17:38:31.145167+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -35,7 +35,7 @@
 |---|---:|---:|---:|---:|---:|---:|
 | Codex built-in | 60 | 59 | 57 | 2 | 0 | 57 |
 | Qwen Edit 2511 | 60 | 12 | 12 | 0 | 24 | 12 |
-| H3 Ref2VA 5 frames | 60 | 12 | 12 | 0 | 0 | 12 |
+| H3 Ref2VA 5 frames | 60 | 14 | 14 | 0 | 0 | 14 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -57,8 +57,8 @@
 | live-05-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/live-05-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/result.json) |
 | anime-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-01-book-r1/result.json) |
 | live-01-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-01-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-01-book-r1/result.json) |
-| anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/result.json) | pending |
-| live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | pending |
+| anime-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/result.json) |
+| live-02-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/result.json) |
 | anime-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/result.json) | pending |
 | live-03-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/result.json) | pending |
 | anime-04-book-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/result.json) | [unsupported](assets/multichar-reference-20260913/runs/qwen/anime-04-book-r1/result.json) | pending |
@@ -210,7 +210,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/output.png) |
 
 ### live-02-book-r1
 
@@ -218,7 +218,7 @@
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/output.png) |
 
 ### anime-03-book-r1
 
@@ -588,7 +588,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1-reverse-position/output.png) | Requested reversed spatial order achieved: Fern left, Frieren right while reference upload order unchanged. Frieren still holds book both hands and Fern points, so action roles did not swap. Exact reader-right-page contact remains partly obscured at upper edge. Distinct appearance cues retained. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/output.png) | not_executed |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/output.png) | not_executed |  |
 
 ### live-02-book-r1-reverse-position
 
@@ -598,7 +598,7 @@
 |---|---|---|---|
 | Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-book-r1-reverse-position/output.png) | Enid left, Wednesday right as requested despite unchanged upload order. Wednesday still holds book both hands; Enid points toward page, both look down. Exact page contact partly hidden. Enid jacket cropped relative to reference; broad faces/hair/makeup retained, hands plausible. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | not_executed |  |
-| H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
+| H3 Ref2VA 5 frames | ![baseline](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/output.png) | not_executed |  |
 
 ### anime-03-book-r1-reverse-position
 
@@ -606,7 +606,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1-reverse-position/output.png) | Reversed Loid/Fern/Frieren order correct while Frieren retains book-holder role and Fern points. Loid glove absent on exposed wrist/hand and hand in pocket rather than lowered. Page target partly hidden; broad appearance retained, visible hands plausible. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -616,7 +616,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-book-r1-reverse-position/output.png) | Reversed Bianca/Enid/Wednesday order correct with unchanged reference upload order. Wednesday holds single green book and Enid points, Bianca looks down. Bianca necklace absent and uniform details simplified. Exact page contact obscured at edge, visible hands plausible. |
 | Qwen Edit 2511 | ![baseline](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/output.png) | not_executed |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -626,7 +626,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1-reverse-position/output.png) | Five reversed positions Anya/Yor/Loid/Fern/Frieren correct; Frieren holds green book and Fern points. Some gazes remain forward rather than book, exact page contact hidden. Loid gloves absent, Yor short glove/dress drift, broad identities distinct. Visible hands plausible. |
 | Qwen Edit 2511 | 尚未產出 | unsupported |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
@@ -636,7 +636,7 @@
 
 | 模型 | 原始排列 | 反轉排列 | 觀察 |
 |---|---|---|---|
-| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | not_executed |  |
+| Codex built-in | ![baseline](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-book-r1-reverse-position/output.png) | Five reversed positions Dort/Tyler/Bianca/Enid/Wednesday correct. Wednesday holds book, Enid points, other figures lean toward it. Bianca necklace absent, Tyler outfit altered and exact page contact partly hidden. No obvious hand fusion, broad reference cues preserved. |
 | Qwen Edit 2511 | 尚未產出 | unsupported |  |
 | H3 Ref2VA 5 frames | 尚未產出 | not_executed |  |
 
