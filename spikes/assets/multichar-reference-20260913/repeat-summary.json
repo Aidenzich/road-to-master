@@ -3,39 +3,13 @@
     {
       "model": "codex",
       "metric": "exact_count",
-      "planned_pairs": 30,
-      "evaluated_pairs": 28,
-      "missing_pairs": 2,
-      "same_score": 28,
+      "planned_pairs": 24,
+      "evaluated_pairs": 24,
+      "missing_pairs": 0,
+      "same_score": 24,
       "changed_score": 0,
-      "both_clear_pass": 28,
+      "both_clear_pass": 24,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -142,19 +116,6 @@
         },
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "book",
           "case_ids": [
@@ -251,19 +212,6 @@
           "case_ids": [
             "live-05-book-r1",
             "live-05-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "contact",
-          "case_ids": [
-            "anime-01-contact-r1",
-            "anime-01-contact-r2"
           ],
           "scores": [
             2,
@@ -379,39 +327,13 @@
     {
       "model": "codex",
       "metric": "appearance_preserved",
-      "planned_pairs": 30,
-      "evaluated_pairs": 28,
-      "missing_pairs": 2,
-      "same_score": 27,
+      "planned_pairs": 24,
+      "evaluated_pairs": 24,
+      "missing_pairs": 0,
+      "same_score": 23,
       "changed_score": 1,
-      "both_clear_pass": 8,
+      "both_clear_pass": 4,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -518,19 +440,6 @@
         },
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "book",
           "case_ids": [
@@ -631,19 +540,6 @@
           "scores": [
             1,
             1
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "contact",
-          "case_ids": [
-            "anime-01-contact-r1",
-            "anime-01-contact-r2"
-          ],
-          "scores": [
-            2,
-            2
           ]
         },
         {
@@ -755,39 +651,13 @@
     {
       "model": "codex",
       "metric": "reference_binding",
-      "planned_pairs": 30,
-      "evaluated_pairs": 28,
-      "missing_pairs": 2,
-      "same_score": 28,
+      "planned_pairs": 24,
+      "evaluated_pairs": 24,
+      "missing_pairs": 0,
+      "same_score": 24,
       "changed_score": 0,
-      "both_clear_pass": 28,
+      "both_clear_pass": 24,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -894,19 +764,6 @@
         },
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "book",
           "case_ids": [
@@ -1003,19 +860,6 @@
           "case_ids": [
             "live-05-book-r1",
             "live-05-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "contact",
-          "case_ids": [
-            "anime-01-contact-r1",
-            "anime-01-contact-r2"
           ],
           "scores": [
             2,
@@ -1131,39 +975,13 @@
     {
       "model": "codex",
       "metric": "action_obedience",
-      "planned_pairs": 30,
-      "evaluated_pairs": 28,
-      "missing_pairs": 2,
-      "same_score": 25,
-      "changed_score": 3,
-      "both_clear_pass": 9,
+      "planned_pairs": 24,
+      "evaluated_pairs": 24,
+      "missing_pairs": 0,
+      "same_score": 22,
+      "changed_score": 2,
+      "both_clear_pass": 6,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -1270,19 +1088,6 @@
         },
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            1,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "book",
           "case_ids": [
@@ -1383,19 +1188,6 @@
           "scores": [
             1,
             1
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "contact",
-          "case_ids": [
-            "anime-01-contact-r1",
-            "anime-01-contact-r2"
-          ],
-          "scores": [
-            2,
-            2
           ]
         },
         {
@@ -1507,39 +1299,13 @@
     {
       "model": "codex",
       "metric": "hands_and_contacts",
-      "planned_pairs": 30,
-      "evaluated_pairs": 28,
-      "missing_pairs": 2,
-      "same_score": 28,
+      "planned_pairs": 24,
+      "evaluated_pairs": 24,
+      "missing_pairs": 0,
+      "same_score": 24,
       "changed_score": 0,
-      "both_clear_pass": 28,
+      "both_clear_pass": 24,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -1646,19 +1412,6 @@
         },
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "book",
           "case_ids": [
@@ -1755,19 +1508,6 @@
           "case_ids": [
             "live-05-book-r1",
             "live-05-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "contact",
-          "case_ids": [
-            "anime-01-contact-r1",
-            "anime-01-contact-r2"
           ],
           "scores": [
             2,
@@ -1883,41 +1623,15 @@
     {
       "model": "qwen",
       "metric": "exact_count",
-      "planned_pairs": 30,
-      "evaluated_pairs": 8,
-      "missing_pairs": 22,
-      "same_score": 8,
+      "planned_pairs": 24,
+      "evaluated_pairs": 4,
+      "missing_pairs": 20,
+      "same_score": 4,
       "changed_score": 0,
       "both_clear_pass": 4,
       "pairs": [
         {
           "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "anime",
           "count": 2,
           "action": "wave",
           "case_ids": [
@@ -1966,32 +1680,6 @@
           "scores": [
             2,
             2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            0,
-            0
           ]
         }
       ]
@@ -1999,39 +1687,13 @@
     {
       "model": "qwen",
       "metric": "appearance_preserved",
-      "planned_pairs": 30,
-      "evaluated_pairs": 8,
-      "missing_pairs": 22,
-      "same_score": 8,
+      "planned_pairs": 24,
+      "evaluated_pairs": 4,
+      "missing_pairs": 20,
+      "same_score": 4,
       "changed_score": 0,
       "both_clear_pass": 0,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2083,71 +1745,19 @@
             0,
             0
           ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
         }
       ]
     },
     {
       "model": "qwen",
       "metric": "reference_binding",
-      "planned_pairs": 30,
-      "evaluated_pairs": 8,
-      "missing_pairs": 22,
-      "same_score": 7,
+      "planned_pairs": 24,
+      "evaluated_pairs": 4,
+      "missing_pairs": 20,
+      "same_score": 3,
       "changed_score": 1,
       "both_clear_pass": 1,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2194,32 +1804,6 @@
           "case_ids": [
             "live-03-wave-r1",
             "live-03-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
           ],
           "scores": [
             0,
@@ -2231,39 +1815,13 @@
     {
       "model": "qwen",
       "metric": "action_obedience",
-      "planned_pairs": 30,
-      "evaluated_pairs": 8,
-      "missing_pairs": 22,
-      "same_score": 5,
-      "changed_score": 3,
+      "planned_pairs": 24,
+      "evaluated_pairs": 4,
+      "missing_pairs": 20,
+      "same_score": 2,
+      "changed_score": 2,
       "both_clear_pass": 0,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            1
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2314,32 +1872,6 @@
           "scores": [
             0,
             0
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
           ]
         }
       ]
@@ -2347,39 +1879,13 @@
     {
       "model": "qwen",
       "metric": "hands_and_contacts",
-      "planned_pairs": 30,
-      "evaluated_pairs": 8,
-      "missing_pairs": 22,
-      "same_score": 5,
-      "changed_score": 3,
-      "both_clear_pass": 5,
+      "planned_pairs": 24,
+      "evaluated_pairs": 4,
+      "missing_pairs": 20,
+      "same_score": 2,
+      "changed_score": 2,
+      "both_clear_pass": 2,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2429,32 +1935,6 @@
           ],
           "scores": [
             1,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            2,
             2
           ]
         }
@@ -2463,39 +1943,13 @@
     {
       "model": "h3",
       "metric": "exact_count",
-      "planned_pairs": 30,
-      "evaluated_pairs": 17,
-      "missing_pairs": 13,
-      "same_score": 16,
-      "changed_score": 1,
+      "planned_pairs": 24,
+      "evaluated_pairs": 13,
+      "missing_pairs": 11,
+      "same_score": 13,
+      "changed_score": 0,
       "both_clear_pass": 13,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2597,32 +2051,6 @@
           ],
           "scores": [
             2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            0,
             2
           ]
         },
@@ -2696,39 +2124,13 @@
     {
       "model": "h3",
       "metric": "appearance_preserved",
-      "planned_pairs": 30,
-      "evaluated_pairs": 17,
-      "missing_pairs": 13,
-      "same_score": 16,
-      "changed_score": 1,
+      "planned_pairs": 24,
+      "evaluated_pairs": 13,
+      "missing_pairs": 11,
+      "same_score": 13,
+      "changed_score": 0,
       "both_clear_pass": 0,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -2831,32 +2233,6 @@
           "scores": [
             1,
             1
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            1,
-            2
           ]
         },
         {
@@ -2929,39 +2305,13 @@
     {
       "model": "h3",
       "metric": "reference_binding",
-      "planned_pairs": 30,
-      "evaluated_pairs": 17,
-      "missing_pairs": 13,
-      "same_score": 16,
-      "changed_score": 1,
+      "planned_pairs": 24,
+      "evaluated_pairs": 13,
+      "missing_pairs": 11,
+      "same_score": 13,
+      "changed_score": 0,
       "both_clear_pass": 13,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -3063,32 +2413,6 @@
           ],
           "scores": [
             2,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            0,
-            0
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            0,
             2
           ]
         },
@@ -3162,39 +2486,13 @@
     {
       "model": "h3",
       "metric": "action_obedience",
-      "planned_pairs": 30,
-      "evaluated_pairs": 17,
-      "missing_pairs": 13,
-      "same_score": 12,
-      "changed_score": 5,
+      "planned_pairs": 24,
+      "evaluated_pairs": 13,
+      "missing_pairs": 11,
+      "same_score": 9,
+      "changed_score": 4,
       "both_clear_pass": 1,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -3293,32 +2591,6 @@
           "case_ids": [
             "live-05-wave-r1",
             "live-05-wave-r2"
-          ],
-          "scores": [
-            1,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            1,
-            1
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
           ],
           "scores": [
             1,
@@ -3395,39 +2667,13 @@
     {
       "model": "h3",
       "metric": "hands_and_contacts",
-      "planned_pairs": 30,
-      "evaluated_pairs": 17,
-      "missing_pairs": 13,
-      "same_score": 12,
-      "changed_score": 5,
-      "both_clear_pass": 10,
+      "planned_pairs": 24,
+      "evaluated_pairs": 13,
+      "missing_pairs": 11,
+      "same_score": 9,
+      "changed_score": 4,
+      "both_clear_pass": 7,
       "pairs": [
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "anime-01-wave-r1",
-            "anime-01-wave-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "wave",
-          "case_ids": [
-            "live-01-wave-r1",
-            "live-01-wave-r2"
-          ],
-          "scores": [
-            1,
-            2
-          ]
-        },
         {
           "cohort": "anime",
           "count": 2,
@@ -3529,32 +2775,6 @@
           ],
           "scores": [
             1,
-            2
-          ]
-        },
-        {
-          "cohort": "anime",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "anime-01-book-r1",
-            "anime-01-book-r2"
-          ],
-          "scores": [
-            2,
-            2
-          ]
-        },
-        {
-          "cohort": "live",
-          "count": 1,
-          "action": "book",
-          "case_ids": [
-            "live-01-book-r1",
-            "live-01-book-r2"
-          ],
-          "scores": [
-            2,
             2
           ]
         },
