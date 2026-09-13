@@ -1,0 +1,9 @@
+{
+  "case_id":"live-02-wave-r1","model":"codex","count":2,"cohort":"live","action":"wave","repeat":1,
+  "state":"succeeded","submitted":true,"tool_elapsed_seconds":48.0,
+  "timing_source":"tool call wall time, not pure inference","width":1536,"height":1024,
+  "seed":null,"steps":null,"cfg":null,"model_version":null,"outputs":["output.png"],
+  "cleanup_complete":true,"cleanup_note":"Built-in provider storage not inspectable; copied locally. No 5090 files created.",
+  "review":{"reviewer":"assistant visual review","exact_count":2,"appearance_preserved":2,"reference_binding":2,"action_obedience":2,"hands_and_contacts":2,
+  "notes":"Wednesday left and Enid right, dark braids/tear makeup/patterned black dress versus lilac hair/striped uniform retained. Two raised open five-finger palms with separate lowered arms. Poster lettering and effects not copied. Enid expression changes to a smile, permitted by the scene. Visible-trait comparison only, not biometric identity verification."}
+}

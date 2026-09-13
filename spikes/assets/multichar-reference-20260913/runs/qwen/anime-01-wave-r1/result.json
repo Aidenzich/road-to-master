@@ -1,0 +1,38 @@
+{
+  "case_id": "anime-01-wave-r1",
+  "model": "qwen",
+  "count": 1,
+  "action": "wave",
+  "cohort": "anime",
+  "repeat": 1,
+  "seed": 20260914,
+  "state": "succeeded",
+  "provider_success": true,
+  "catalog_state": "succeeded",
+  "catalog_error": "",
+  "elapsed_seconds": 77.32529306411743,
+  "prequeue_wait_seconds": 0.5980942249298096,
+  "submitted": true,
+  "prompt_id": "9e6a20c4-c32f-4db7-b4bb-89bf5f608e7a",
+  "stage_timestamps": {
+    "prepared": null,
+    "accepted": null,
+    "execution_started": "2026-09-13T15:57:27.656000+00:00",
+    "execution_observed": "2026-09-13T15:57:29.024563+00:00",
+    "sampling_started": "2026-09-13T15:57:29.354241+00:00",
+    "sampling_progress": "2026-09-13T15:58:32.431088+00:00",
+    "first_step_observed": "2026-09-13T15:57:30.945513+00:00",
+    "sampling_completed": "2026-09-13T15:58:32.431125+00:00",
+    "execution_completed": "2026-09-13T15:58:32.492000+00:00",
+    "collection_started": "2026-09-13T15:58:32.929339+00:00",
+    "remote_cleanup_pending": null,
+    "assets_saved": "2026-09-13T15:58:35.580677+00:00",
+    "remote_cleanup_completed": null
+  },
+  "outputs": [
+    "output.png"
+  ],
+  "cleanup_complete": true,
+  "finished_epoch": 1789315119.003774,
+  "review": null
+}

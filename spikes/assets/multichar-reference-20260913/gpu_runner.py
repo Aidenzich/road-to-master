@@ -27,6 +27,15 @@ class H3Minimum(ComfyUIGenerator):
     def submit(self, request, *, on_submission=None):
         return super().submit(replace(request,duration_seconds=seconds),on_submission=on_submission)
 
+class QwenFullReference(ComfyQwenImageGenerator):
+    def graph(self,*args,**kwargs):
+        graph=super().graph(*args,**kwargs)
+        # Single-variable control: keep full first reference for positive/negative
+        # conditioning. Output latent sizing remains exactly the baseline graph.
+        graph['7']['inputs']['image1']=['21',0]
+        graph['8']['inputs']['image1']=['21',0]
+        return graph
+
 def write(path, value):
     temporary = path.with_suffix(path.suffix+'.tmp')
     temporary.write_text(json.dumps(value,indent=2,ensure_ascii=False,default=str)+'\n')
@@ -36,6 +45,8 @@ def probe(path):
     return json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(path)]))
 
 def run_one(model, case_id):
+    assert model in ('qwen','qwen-fullref','h3')
+    is_qwen=model.startswith('qwen')
     case = json.loads((ROOT/'cases'/case_id/'case.json').read_text())
     out = ROOT/'runs'/model/case_id
     if (out/'result.json').exists():
@@ -46,7 +57,7 @@ def run_one(model, case_id):
     if (out/'run.json').exists():
         raise RuntimeError(f'Existing submission: {out}; recover, do not resubmit')
     out.mkdir(parents=True,exist_ok=True)
-    if model == 'qwen' and not case['qwen_supported']:
+    if is_qwen and not case['qwen_supported']:
         result = dict(case_id=case_id,model=model,state='unsupported',reason='Native adapter accepts at most 3 separate references',submitted=False)
         write(out/'result.json',result)
         return result
@@ -58,7 +69,8 @@ def run_one(model, case_id):
     os.environ['VERITAS_STUDIO_BLOB_ROOT'] = str(out/'blobs/studio')
     store = LocalStudioStore(out/'blobs/studio')
     cleaner = OutputCleaner('5090','/data/comfyui-minimax-h3','http://127.0.0.1:8188',out/'journal')
-    gen = (ComfyQwenImageGenerator('http://127.0.0.1:8188',output_cleaner=cleaner) if model=='qwen' else
+    qwen_class=QwenFullReference if model=='qwen-fullref' else ComfyQwenImageGenerator
+    gen = (qwen_class('http://127.0.0.1:8188',output_cleaner=cleaner) if is_qwen else
            H3Minimum('http://127.0.0.1:8188',workflow_id=contract.WORKFLOW_REFERENCE,output_cleaner=cleaner))
     waiting_start = time.time()
     while True:
@@ -91,12 +103,12 @@ def run_one(model, case_id):
                     display_name=f.name,kind='image',upload_stream=stream,
                     content_type='image/png' if f.suffix=='.png' else 'image/jpeg')
             assets.append(str(asset.asset['id']))
-        prompt = case['prompt'] if model=='qwen' else case['h3_prompt']
+        prompt = case['prompt'] if is_qwen else case['h3_prompt']
         inputs = dict(prompt=prompt,effective_prompt=prompt,width=PLAN['canvas']['width'],height=PLAN['canvas']['height'],
-            steps=PLAN[model]['steps'],seed=case['seed'],candidate_count=1,reference_asset_ids=assets,
-            workflow_id='qwen-edit-2511' if model=='qwen' else contract.WORKFLOW_REFERENCE,
-            model_id='qwen-image-edit-2511' if model=='qwen' else 'minimax-h3-standard')
-        if model=='qwen':
+            steps=PLAN['qwen' if is_qwen else 'h3']['steps'],seed=case['seed'],candidate_count=1,reference_asset_ids=assets,
+            workflow_id='qwen-edit-2511' if is_qwen else contract.WORKFLOW_REFERENCE,
+            model_id='qwen-image-edit-2511' if is_qwen else 'minimax-h3-standard')
+        if is_qwen:
             inputs['cfg_scale'] = PLAN['qwen']['cfg']
         else:
             inputs['duration_seconds'] = seconds
@@ -104,7 +116,7 @@ def run_one(model, case_id):
         if time.time()>=STOP:
             return {'state':'deadline','submitted':False}
         version = catalog.claim_generation_version(project_id=pid,segment_id=str(segment['id']),
-            kind='first_frame' if model=='qwen' else 'video',idempotency_key=str(uuid.uuid4()),inputs=inputs)['version']
+            kind='first_frame' if is_qwen else 'video',idempotency_key=str(uuid.uuid4()),inputs=inputs)['version']
         rid = str(version['id'])
         started = time.time()
         write(out/'run.json',dict(case_id=case_id,model=model,schema=schema,version_id=rid,inputs=inputs,

@@ -1,6 +1,6 @@
 # 六小時多角色參考圖實驗：Codex／Qwen Edit／H3
 
-資料更新：2026-09-13T15:50:34.665266+00:00。**持續實驗中，非最終結論。**
+資料更新：2026-09-13T15:58:57.974810+00:00。**持續實驗中，非最終結論。**
 
 ## 問題與方法
 
@@ -33,9 +33,9 @@
 
 | 模型 | 預登記格數 | 已提交 | 推論／取圖成功 | 執行失敗 | 不支援 | 已目視評估 |
 |---|---:|---:|---:|---:|---:|---:|
-| Codex built-in | 60 | 1 | 1 | 0 | 0 | 1 |
-| Qwen Edit 2511 | 60 | 1 | 1 | 0 | 24 | 1 |
-| H3 Ref2VA 5 frames | 60 | 0 | 0 | 0 | 0 | 0 |
+| Codex built-in | 60 | 3 | 3 | 0 | 0 | 3 |
+| Qwen Edit 2511 | 60 | 2 | 2 | 0 | 24 | 1 |
+| H3 Ref2VA 5 frames | 60 | 1 | 1 | 0 | 0 | 1 |
 
 評分：0明確失敗、1部分符合或不確定、2明確符合；null未審查／不適用。人工目視評分不是生物辨識身份驗證，也不是盲測或多評審共識。尚未有足夠重複樣本前，不宣稱統計顯著或模型優劣排名。
 
@@ -45,11 +45,11 @@
 
 | 場景 | Codex | Qwen | H3 |
 |---|---|---|---|
-| anime-01-wave-r1 | pending | pending | pending |
+| anime-01-wave-r1 | pending | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-01-wave-r1/result.json) | pending |
 | live-01-wave-r1 | pending | pending | pending |
-| anime-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/result.json) | pending |
-| live-02-wave-r1 | pending | pending | pending |
-| anime-03-wave-r1 | pending | pending | pending |
+| anime-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/result.json) | [succeeded](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r1/result.json) |
+| live-02-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/result.json) | pending | pending |
+| anime-03-wave-r1 | [succeeded](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/result.json) | pending | pending |
 | live-03-wave-r1 | pending | pending | pending |
 | anime-04-wave-r1 | pending | unsupported | pending |
 | live-04-wave-r1 | pending | unsupported | pending |
@@ -108,13 +108,47 @@
 
 ## 圖片對照（包含失败成像，不做優勝挑選）
 
+### anime-01-wave-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-01-wave-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-01-wave-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| 未產出／待執行 | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-01-wave-r1/output.png) | 未產出／待執行 |
+
 ### anime-02-wave-r1
 
 [共同要求](assets/multichar-reference-20260913/cases/anime-02-wave-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-02-wave-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3首幀 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | 未產出／待執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r1/output.png) |
+
+### live-02-wave-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/live-02-wave-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/live-02-wave-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+### anime-03-wave-r1
+
+[共同要求](assets/multichar-reference-20260913/cases/anime-03-wave-r1/prompt.txt) · [H3實際prompt](assets/multichar-reference-20260913/cases/anime-03-wave-r1/h3-prompt.txt)
+
+| Codex | Qwen | H3首幀 |
+|---|---|---|
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/output.png) | 未產出／待執行 | 未產出／待執行 |
+
+## 單變因對照：第一張參考圖的裁切
+
+此分支不更動產品。只將 Qwen 正／負文字編碼節點的 image1 改接完整第一張載入圖，輸出 latent 的尺寸／裁切保持不變。相同場景的 prompt、參考檔案與順序、seed、steps、CFG 不變。這些是額外對照，不計入上述原生流程的分母。
+
+[預登記對照](assets/multichar-reference-20260913/controls.json)
+
+| 場景 | 原流程 | 完整第一參考圖 | 觀察 |
+|---|---|---|---|
+| anime-02-wave-r1 | ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | ![fullref](assets/multichar-reference-20260913/runs/qwen-fullref/anime-02-wave-r1/output.png) | Two distinct characters correctly ordered and each waving one open five-fingered hand. Frieren has visible pointed ears, silver hair, greenish eyes and red earrings; Fern retains purple hair/eyes and black robe over white dress. Full-reference control improves the observed first-character cues relative to this one paired baseline; one seed does not establish causality or population quality. Framing remains wider than waist-up. |
 
 ## 重現與失敗歸類
 
