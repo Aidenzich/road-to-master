@@ -90,293 +90,295 @@ Exactly 2 distinct people are visible, each appearing once. The left-to-right or
 
 ## 圖片對照
 
+以下為長邊不超過768px的壓縮預覽，便於網頁閱讀；前述評分使用原始輸出，不以壓縮圖判斷細微差異。
+
 ### anime-02-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r1/preview.jpg) |
 
 ### live-02-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/preview.jpg) |
 
 ### anime-03-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r1/preview.jpg) |
 
 ### live-03-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r1/preview.jpg) |
 
 ### anime-04-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r1/preview.jpg) |
 
 ### live-04-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r1/preview.jpg) |
 
 ### anime-05-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r1/preview.jpg) |
 
 ### live-05-wave-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/preview.jpg) |
 
 ### anime-02-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-book-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r1/preview.jpg) |
 
 ### live-02-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/preview.jpg) |
 
 ### anime-03-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-book-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r1/preview.jpg) |
 
 ### live-03-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/preview.jpg) |
 
 ### anime-04-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r1/preview.jpg) |
 
 ### live-04-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/preview.jpg) |
 
 ### anime-05-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-book-r1/preview.jpg) |
 
 ### live-05-book-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/preview.jpg) |
 
 ### anime-02-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-contact-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-contact-r1/preview.jpg) |
 
 ### live-02-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-contact-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/preview.jpg) |
 
 ### anime-03-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-contact-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-contact-r1/preview.jpg) |
 
 ### live-03-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r1/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-contact-r1/preview.jpg) |
 
 ### anime-04-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-contact-r1/preview.jpg) |
 
 ### live-04-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/preview.jpg) |
 
 ### anime-05-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-contact-r1/preview.jpg) |
 
 ### live-05-contact-r1
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/preview.jpg) |
 
 ### anime-02-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-wave-r2/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r2/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-wave-r2/preview.jpg) |
 
 ### live-02-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r2/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/preview.jpg) |
 
 ### anime-03-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-wave-r2/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/anime-03-wave-r2/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-wave-r2/preview.jpg) |
 
 ### live-03-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/preview.jpg) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r2/preview.jpg) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/preview.jpg) |
 
 ### anime-04-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-wave-r2/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-wave-r2/preview.jpg) |
 
 ### live-04-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r2/preview.jpg) |
 
 ### anime-05-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-wave-r2/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-05-wave-r2/preview.jpg) |
 
 ### live-05-wave-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/preview.jpg) |
 
 ### anime-02-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-book-r2/preview.jpg) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-02-book-r2/preview.jpg) |
 
 ### live-02-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/preview.jpg) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/preview.jpg) |
 
 ### anime-03-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-book-r2/preview.jpg) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-03-book-r2/preview.jpg) |
 
 ### live-03-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/preview.jpg) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/preview.jpg) |
 
 ### anime-04-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r2/output.png) |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-book-r2/preview.jpg) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/anime-04-book-r2/preview.jpg) |
 
 ### live-04-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### anime-05-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-book-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### live-05-book-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### anime-02-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/output.png) | 未執行 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r2/preview.jpg) | 未執行 | 未執行 |
 
 ### live-02-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/output.png) | 未執行 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/preview.jpg) | 未執行 | 未執行 |
 
 ### anime-03-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/output.png) | 未執行 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r2/preview.jpg) | 未執行 | 未執行 |
 
 ### live-03-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/output.png) | 未執行 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/preview.jpg) | 未執行 | 未執行 |
 
 ### anime-04-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-04-contact-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### live-04-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### anime-05-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/preview.jpg) | 不支援 | 未執行 |
 
 ### live-05-contact-r2
 
 | Codex | Qwen | H3 |
 |---|---|---|
-| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/output.png) | 不支援 | 未執行 |
+| ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r2/preview.jpg) | 不支援 | 未執行 |
 
 ## 對照：完整第一張參考圖
 
@@ -384,7 +386,7 @@ Exactly 2 distinct people are visible, each appearing once. The left-to-right or
 
 | 原流程 | 完整第一參考圖 |
 |---|---|
-| ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/output.png) | ![fullref](assets/multichar-reference-20260913/runs/qwen-fullref/anime-02-wave-r1/output.png) |
+| ![baseline](assets/multichar-reference-20260913/runs/qwen/anime-02-wave-r1/preview.jpg) | ![fullref](assets/multichar-reference-20260913/runs/qwen-fullref/anime-02-wave-r1/preview.jpg) |
 
 ## 對照：空間排列反轉
 
@@ -394,73 +396,73 @@ Exactly 2 distinct people are visible, each appearing once. The left-to-right or
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1-reverse-position/preview.jpg) |
 
 ### live-02-book-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-book-r1-reverse-position/preview.jpg) |
 
 ### anime-03-book-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1-reverse-position/preview.jpg) |
 
 ### live-03-book-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-book-r1-reverse-position/preview.jpg) |
 
 ### anime-05-book-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1-reverse-position/preview.jpg) |
 
 ### live-05-book-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-book-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-book-r1-reverse-position/preview.jpg) |
 
 ### anime-02-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1-reverse-position/preview.jpg) |
 
 ### live-02-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1-reverse-position/preview.jpg) |
 
 ### anime-03-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1-reverse-position/preview.jpg) |
 
 ### live-03-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1-reverse-position/preview.jpg) |
 
 ### anime-05-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1-reverse-position/preview.jpg) |
 
 ### live-05-contact-r1-reverse-position
 
 | 原排列 | 反轉排列 |
 |---|---|
-| ![base](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1-reverse-position/output.png) |
+| ![base](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/preview.jpg) | ![reverse](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1-reverse-position/preview.jpg) |
 
 ## 參考來源
 
