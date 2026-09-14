@@ -199,8 +199,8 @@ cython_debug/
 /spikes/assets/multichar-reference-20260913/runs/**/output.png
 
 # Research folders publish Markdown and web previews, not local experiment records.
-/spikes/multi-character-reference-comparison/assets/**/*.json
-/spikes/multi-character-reference-comparison/assets/**/*.csv
-/spikes/multi-character-reference-comparison/assets/**/*.txt
-/spikes/multi-character-reference-comparison/assets/**/*.mp4
-/spikes/multi-character-reference-comparison/assets/runs/**/output.png
+/spikes/h3-codex-qwen-multi-character-reference-comparison/assets/**/*.json
+/spikes/h3-codex-qwen-multi-character-reference-comparison/assets/**/*.csv
+/spikes/h3-codex-qwen-multi-character-reference-comparison/assets/**/*.txt
+/spikes/h3-codex-qwen-multi-character-reference-comparison/assets/**/*.mp4
+/spikes/h3-codex-qwen-multi-character-reference-comparison/assets/runs/**/output.png
