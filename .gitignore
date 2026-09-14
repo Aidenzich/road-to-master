@@ -189,3 +189,8 @@ cython_debug/
 /spikes/assets/multichar-reference-20260913/plan.json
 /spikes/assets/multichar-reference-20260913/closure.json
 /spikes/assets/multichar-reference-20260913/terminal-audit.json
+
+# This is a notes publication, not a per-run experiment database.
+/spikes/assets/multichar-reference-20260913/**/*.json
+/spikes/assets/multichar-reference-20260913/**/*.csv
+/spikes/assets/multichar-reference-20260913/**/*.txt

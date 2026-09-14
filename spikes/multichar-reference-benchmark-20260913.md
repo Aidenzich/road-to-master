@@ -29,7 +29,17 @@
 | Qwen Edit 2511 | 48 | 16 | 24 | 8 |
 | H3 Ref2VA 取幀 | 48 | 37 | 0 | 11 |
 
-[研究配置](assets/multichar-reference-20260913/study-design.json) · [逐筆評分](assets/multichar-reference-20260913/results.csv)
+### 提示詞設計與範例
+
+提示詞先將角色綁定到依序輸入的參考圖，再指定人物數量、左右順序、共同場景、構圖與互動動作。參考圖只提供人物外觀，不沿用原圖姿勢、背景或海報元素。以下是兩人揮手案例的實際通用提示詞：
+
+```text
+Person 1 is Frieren, the character in reference image 1. Person 2 is Fern, the character in reference image 2.
+Preserve each reference character's facial features, hairstyle, hair color and clothing. Use the pictures for character appearance only, not their original pose, handheld props, background, poster lettering, borders or special effects. Show a new clean scene, not a poster or collage. Only the requested book or mug, when specified, is held; otherwise hands are empty.
+Exactly 2 distinct people are visible, each appearing once. The left-to-right order is Person 1, Person 2. They share one continuous floor in a bright simple library with pale walls. Use an eye-level waist-up composition, all heads and action-relevant hands fully visible with space between faces. Each person raises one open hand in a friendly greeting toward the camera, with the other hand lowered. All characters are calmly posed and fully clothed. Clean 2D anime illustration retaining the referenced character designs.
+```
+
+其他場景替換角色、人數與動作描述；反轉排列對照只反轉畫面站位，不改變參考圖順序與角色編號。H3另以 `Subject n` 對應 `Picture n`，分列角色定義、保留要求、鏡頭描述及音景；指定人物從第1幀即保持目標姿勢，固定鏡頭持續5幀，無台詞及配樂。
 
 ## 評分與限制
 
@@ -67,8 +77,6 @@
 | 5 | Qwen Edit 2511 | 未評估 | 未評估 | 未評估 | 未評估 | 未評估 |
 | 5 | H3 Ref2VA 取幀 | 8/8 | 0/8 | 8/8 | 2/8 | 4/8 |
 
-[完整分組數據](assets/multichar-reference-20260913/quality-summary.json) · [兩次生成的配對數據](assets/multichar-reference-20260913/repeat-summary.json)
-
 ## 耗時
 
 以下為成功基準組總耗時中位數；Codex僅有內建工具牆鐘時間，本地模型包含排隊與保存，不可直接用來比較算力效率。VRAM是提交前快照而非峰值。
@@ -80,13 +88,9 @@
 | 4 | 41.5（n=12） | 不適用 | 555.9（n=9） |
 | 5 | 42.9（n=12） | 不適用 | 595.7（n=8） |
 
-[逐筆階段耗時](assets/multichar-reference-20260913/timings.csv)
-
 ## 圖片對照
 
 ### anime-02-wave-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-wave-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -94,15 +98,11 @@
 
 ### live-02-wave-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-wave-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r1/output.png) |
 
 ### anime-03-wave-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-wave-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -110,15 +110,11 @@
 
 ### live-03-wave-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-wave-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r1/output.png) |
 
 ### anime-04-wave-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-wave-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -126,15 +122,11 @@
 
 ### live-04-wave-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-wave-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r1/output.png) |
 
 ### anime-05-wave-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-wave-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -142,15 +134,11 @@
 
 ### live-05-wave-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-wave-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-wave-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r1/output.png) |
 
 ### anime-02-book-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-book-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -158,15 +146,11 @@
 
 ### live-02-book-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-book-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r1/output.png) |
 
 ### anime-03-book-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-book-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -174,15 +158,11 @@
 
 ### live-03-book-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-book-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-book-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r1/output.png) |
 
 ### anime-04-book-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-book-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -190,15 +170,11 @@
 
 ### live-04-book-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-book-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-book-r1/output.png) |
 
 ### anime-05-book-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-book-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -206,15 +182,11 @@
 
 ### live-05-book-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-book-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-book-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-book-r1/output.png) |
 
 ### anime-02-contact-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-contact-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -222,15 +194,11 @@
 
 ### live-02-contact-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-contact-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-contact-r1/output.png) |
 
 ### anime-03-contact-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-contact-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -238,15 +206,11 @@
 
 ### live-03-contact-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-contact-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r1/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-contact-r1/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-contact-r1/output.png) |
 
 ### anime-04-contact-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-contact-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -254,15 +218,11 @@
 
 ### live-04-contact-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-contact-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-contact-r1/output.png) |
 
 ### anime-05-contact-r1
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-contact-r1/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -270,15 +230,11 @@
 
 ### live-05-contact-r1
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-contact-r1/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-contact-r1/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-contact-r1/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-contact-r1/output.png) |
 
 ### anime-02-wave-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-wave-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -286,15 +242,11 @@
 
 ### live-02-wave-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-wave-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-02-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-wave-r2/output.png) |
 
 ### anime-03-wave-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-wave-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -302,15 +254,11 @@
 
 ### live-03-wave-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-wave-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-wave-r2/output.png) | ![qwen](assets/multichar-reference-20260913/runs/qwen/live-03-wave-r2/output.png) | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-wave-r2/output.png) |
 
 ### anime-04-wave-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-wave-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -318,15 +266,11 @@
 
 ### live-04-wave-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-wave-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-04-wave-r2/output.png) |
 
 ### anime-05-wave-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-wave-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -334,15 +278,11 @@
 
 ### live-05-wave-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-wave-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-wave-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-wave-r2/output.png) | 不支援 | ![h3](assets/multichar-reference-20260913/runs/h3/live-05-wave-r2/output.png) |
 
 ### anime-02-book-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-book-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -350,15 +290,11 @@
 
 ### live-02-book-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-book-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-02-book-r2/output.png) |
 
 ### anime-03-book-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-book-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -366,15 +302,11 @@
 
 ### live-03-book-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-book-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-book-r2/output.png) | 未執行 | ![h3](assets/multichar-reference-20260913/runs/h3/live-03-book-r2/output.png) |
 
 ### anime-04-book-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-book-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -382,15 +314,11 @@
 
 ### live-04-book-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-book-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-book-r2/output.png) | 不支援 | 未執行 |
 
 ### anime-05-book-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-book-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -398,15 +326,11 @@
 
 ### live-05-book-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-book-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-book-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-05-book-r2/output.png) | 不支援 | 未執行 |
 
 ### anime-02-contact-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-02-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-02-contact-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -414,15 +338,11 @@
 
 ### live-02-contact-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-02-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-02-contact-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-02-contact-r2/output.png) | 未執行 | 未執行 |
 
 ### anime-03-contact-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-03-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-03-contact-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -430,15 +350,11 @@
 
 ### live-03-contact-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-03-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-03-contact-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-03-contact-r2/output.png) | 未執行 | 未執行 |
 
 ### anime-04-contact-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-04-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-04-contact-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -446,23 +362,17 @@
 
 ### live-04-contact-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/live-04-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-04-contact-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/live-04-contact-r2/output.png) | 不支援 | 未執行 |
 
 ### anime-05-contact-r2
 
-[通用提示詞](assets/multichar-reference-20260913/cases/anime-05-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/anime-05-contact-r2/h3-prompt.txt)
-
 | Codex | Qwen | H3 |
 |---|---|---|
 | ![codex](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r2/output.png) | 不支援 | 未執行 |
 
 ### live-05-contact-r2
-
-[通用提示詞](assets/multichar-reference-20260913/cases/live-05-contact-r2/prompt.txt) · [H3提示詞](assets/multichar-reference-20260913/cases/live-05-contact-r2/h3-prompt.txt)
 
 | Codex | Qwen | H3 |
 |---|---|---|
@@ -482,15 +392,11 @@
 
 ### anime-02-book-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-02-book-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-book-r1-reverse-position/output.png) |
 
 ### live-02-book-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-02-book-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -498,15 +404,11 @@
 
 ### anime-03-book-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-03-book-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-book-r1-reverse-position/output.png) |
 
 ### live-03-book-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-03-book-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -514,15 +416,11 @@
 
 ### anime-05-book-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-05-book-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-book-r1-reverse-position/output.png) |
 
 ### live-05-book-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-05-book-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -530,15 +428,11 @@
 
 ### anime-02-contact-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-02-contact-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-02-contact-r1-reverse-position/output.png) |
 
 ### live-02-contact-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-02-contact-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -546,15 +440,11 @@
 
 ### anime-03-contact-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-03-contact-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-03-contact-r1-reverse-position/output.png) |
 
 ### live-03-contact-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-03-contact-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -562,15 +452,11 @@
 
 ### anime-05-contact-r1-reverse-position
 
-[對照提示詞](assets/multichar-reference-20260913/cases/anime-05-contact-r1-reverse-position/prompt.txt)
-
 | 原排列 | 反轉排列 |
 |---|---|
 | ![base](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1/output.png) | ![reverse](assets/multichar-reference-20260913/runs/codex/anime-05-contact-r1-reverse-position/output.png) |
 
 ### live-05-contact-r1-reverse-position
-
-[對照提示詞](assets/multichar-reference-20260913/cases/live-05-contact-r1-reverse-position/prompt.txt)
 
 | 原排列 | 反轉排列 |
 |---|---|
@@ -582,6 +468,5 @@
 - [SPY×FAMILY官方](https://spy-family.net/tvseries/)
 - [Netflix Wednesday角色介紹](https://www.netflix.com/tudum/articles/wednesday-season-2-character-cast-guide)
 - [Qwen Image Edit 2511模型卡](https://huggingface.co/Qwen/Qwen-Image-Edit-2511)
-- [來源檔案與雜湊](assets/multichar-reference-20260913/reference-receipts.json)
 
-參考圖版權屬各權利人；生成圖片為虛構場景。本報告收錄固定比較圖片、提示詞及研究數據；原始影片與執行期證據另存本機，不屬於Git發布內容。
+參考圖版權屬各權利人；生成圖片為虛構場景。本報告收錄研究方法、參數、比較結果與成果圖片。
