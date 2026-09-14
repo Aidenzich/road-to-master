@@ -181,3 +181,19 @@ cython_debug/
 /spikes/assets/multichar-reference-20260913/**/blobs/
 /spikes/assets/multichar-reference-20260913/*.lock
 /spikes/assets/multichar-reference-20260913/*.tmp
+
+# Public research scope is 2–5 people; excluded raw cases stay local.
+/spikes/assets/multichar-reference-20260913/cases/*-01-*/
+/spikes/assets/multichar-reference-20260913/runs/*/*-01-*/
+/spikes/assets/multichar-reference-20260913/singular-control*.json
+/spikes/assets/multichar-reference-20260913/plan.json
+/spikes/assets/multichar-reference-20260913/closure.json
+/spikes/assets/multichar-reference-20260913/terminal-audit.json
+
+# This is a notes publication, not a per-run experiment database.
+/spikes/assets/multichar-reference-20260913/**/*.json
+/spikes/assets/multichar-reference-20260913/**/*.csv
+/spikes/assets/multichar-reference-20260913/**/*.txt
+
+# Full-resolution generated images remain local; publish preview.jpg instead.
+/spikes/assets/multichar-reference-20260913/runs/**/output.png
