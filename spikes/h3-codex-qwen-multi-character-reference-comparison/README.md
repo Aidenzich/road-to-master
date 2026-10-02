@@ -79,6 +79,8 @@ Exactly 2 distinct people are visible, each appearing once. The left-to-right or
 
 ## 耗時
 
+另見 [H3 加速 LoRA 耗時統計](../h3-acceleration-lora-benchmark/README.md)：8 秒影片、無 LoRA 30 步與 TaoMate 3-step／Turbo 8-step 的歷史紀錄比較；此補充資料不併入本篇 5 幀多角色實驗。
+
 以下為成功基準組總耗時中位數；Codex僅有內建工具牆鐘時間，本地模型包含排隊與保存，不可直接用來比較算力效率。VRAM是提交前快照而非峰值。
 
 | 參考圖數 | Codex工具秒數 | Qwen總秒數 | H3總秒數 |
