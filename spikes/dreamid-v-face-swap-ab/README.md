@@ -18,7 +18,7 @@
 | 項目 | 設定 |
 |---|---|
 | 硬體 | NVIDIA GeForce RTX 5090（32 GB），PyTorch 2.9.1+cu128 |
-| 模型 | DreamID-V Wan-1.3B Faster（`dreamidv_faster.pth`），Wan2.1-T2V-1.3B 的 T5／VAE |
+| 模型 | DreamID-V Wan-1.3B Faster（`dreamidv_faster.pth`）＋ Wan2.1 VAE；Faster 版的文字條件用節點內附、預先算好的 `context.pth`，不載入 T5 |
 | 節點 | ComfyUI_JR_DreamID-V（commit `8c25f32`），長影片分段取樣節點 |
 | 取樣 | 12 步、unipc、1280×720、每段 81 格、前後段重疊 8 格、seed 42 |
 | 姿態／遮罩 | DWPose（ONNX），由節點自動產生 |
