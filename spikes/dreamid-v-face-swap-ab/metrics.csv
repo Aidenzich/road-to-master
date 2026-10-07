@@ -1,0 +1,5 @@
+variant,vae_encode_fix,frames,id_sim_ref_mean,id_sim_ref_p10,id_sim_source_mean,bg_psnr_db,bg_flicker_vs_source,face_sharpness_lapvar_median,mouth_corr_source,mouth_amp_ratio,total_wall_s
+A_face_crop_paste,yes,750,0.408,0.360,0.214,39.86,-0.327,397.4,0.868,0.950,2684.5
+B_full_frame,yes,750,0.422,0.371,0.163,38.59,-0.369,334.7,0.825,0.920,2722.5
+A_face_crop_paste,no,750,0.384,0.338,0.234,39.86,-0.327,349.9,0.874,0.956,
+B_full_frame,no,750,0.431,0.389,0.156,29.62,3.635,293.9,0.790,0.860,2732.8
