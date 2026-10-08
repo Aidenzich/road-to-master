@@ -1,7 +1,7 @@
 | Property  | Data |
 |-|-|
 | Created | 2026-01-23 |
-| Updated | 2026-08-11 |
+| Updated | 2026-10-07 |
 | Author | @Aiden |
 | Tags | #study #optimization #attention |
 
@@ -21,6 +21,7 @@ FlashAttention 是由 Tri Dao 等人於 2022 年提出的一種 **IO-aware** 的
 - [FlashAttention-3 改進](#flashattention-3-改進)
 - [實作範例](#實作範例)
 - [效能分析](#效能分析)
+- [實務：RTX 5090 上還需要裝 flash-attn 嗎？](#實務rtx-5090-上還需要裝-flash-attn-嗎)
 
 ---
 
@@ -531,6 +532,8 @@ with sdpa_kernel(SDPBackend.FLASH_ATTENTION):
    - 支援範圍取決於套件與版本。官方 FlashAttention-2 CUDA 實作目前主要支援
      Ampere、Ada、Hopper；Turing 使用另一個功能子集 repo，另有 ROCm backends。
    - FlashAttention-3 針對 Hopper；不能把 FA3 的 H100 結果外推到其他 GPU。
+   - 消費級 Blackwell（RTX 50 系列，sm_120）的現況見下方
+     [實務：RTX 5090 上還需要裝 flash-attn 嗎？](#實務rtx-5090-上還需要裝-flash-attn-嗎)。
 
 2. **精度要求**
    - 官方 CUDA FlashAttention-2 主要支援 FP16/BF16；FA3 另有 Hopper FP8 forward。
@@ -547,12 +550,86 @@ with sdpa_kernel(SDPBackend.FLASH_ATTENTION):
 
 ---
 
+## 實務：RTX 5090 上還需要裝 flash-attn 嗎？
+
+> 情境（2026-10）：在 RTX 5090（sm_120，32 GB）＋ PyTorch 2.9.1+cu128 上跑 Wan2.1-1.3B
+> 架構的影片 DiT（DreamID-V 換臉，720p、每段 81 格）。原始碼硬性要求 `flash_attn`，
+> 環境沒有安裝，改走 PyTorch SDPA 後一段要 3–4 分鐘，於是問：補裝 flash-attn 會不會快很多？
+
+### 結論
+
+**幾乎不會。** PyTorch SDPA 內建的 FLASH_ATTENTION backend 就是 FA2 kernel，在 sm_120
+上可用且是預設選擇；外掛 flash-attn 2.x 只多約 2%，還有安裝問題。真正有感的加速來自
+**低精度 attention（SageAttention 2.x）**，代價是要做畫質驗證。
+
+### 為什麼這個工作負載卡在 attention
+
+- 720p、81 格經 Wan VAE（時間 /4、空間 /8）與 1×2×2 patch 後：
+  $(1280/16)\times(720/16)\times 21 = 80\times45\times21 \approx 75{,}600$ tokens。
+- 1.3B 模型 12 heads、head_dim 128，每層 self-attention 約 $4N^2dH \approx 35$ TFLOP，
+  30 層約 1 PFLOP；線性層約 0.2 PFLOP（粗估）。**attention 約佔 80% 運算量**，
+  且隨 $N^2$ 成長，所以解析度從 480p 升到 720p 的代價遠大於像素比。
+
+### 實測：PyTorch 2.9.1 在 sm_120 上的 SDPA backends
+
+在 RTX 5090、`torch 2.9.1+cu128`、cuDNN 9.10 上，以 bf16、`(1, 12, 2048, 128)`、無 mask
+逐一強制 backend：
+
+| Backend | 結果 | 預設可選（`can_use_*`） |
+|-|-|-|
+| `FLASH_ATTENTION`（內建 FA2） | 可執行 | True |
+| `EFFICIENT_ATTENTION` | 可執行 | True |
+| `CUDNN_ATTENTION` | 可執行 | True |
+| `MATH` | 可執行 | — |
+
+PyTorch 2.9.1 原始碼的預設優先順序是 FLASH → EFFICIENT → MATH → CUDNN；只有 sm90／sm100
+會自動把 cuDNN 排到最前面，**sm_120 不會**。所以「沒裝 flash-attn、走 SDPA」在這張卡上
+本來就在跑 FA2 kernel。
+
+```python
+import torch, torch.nn.functional as F
+from torch.nn.attention import sdpa_kernel, SDPBackend
+q = torch.randn(1, 12, 2048, 128, device="cuda", dtype=torch.bfloat16); k = torch.randn_like(q); v = torch.randn_like(q)
+for b in [SDPBackend.FLASH_ATTENTION, SDPBackend.EFFICIENT_ATTENTION, SDPBackend.CUDNN_ATTENTION]:
+    with sdpa_kernel([b]):
+        F.scaled_dot_product_attention(q, k, v)   # 不支援時會直接 raise
+```
+
+### 選項比較（sm_120）
+
+| 選項 | 預期效果 | 狀態與代價 |
+|-|-|-|
+| 外掛 flash-attn 2.x | 比 SDPA flash 快約 2%（第三方 5090 實測 190.6 vs 186.7 TFLOPS） | 從原始碼編 sm_120 會在 backward kernel 失敗；現成 wheel 綁 torch 2.8，與 2.9 ABI 不相容 |
+| FlashAttention-3 | — | 只支援 Hopper（sm90） |
+| FA4 / CuTe 的 sm_120 路徑 | 未知 | 2026-03 才合併 forward，沿用 Sm80 mma、tile 縮小（sm_120 SMEM 約 99 KB），沒有 5090 速度數據 |
+| SDPA 改用 cuDNN backend | kernel 約 +9%（同一份第三方實測 203.6 TFLOPS），端到端粗估 +4–7% | 只需 `sdpa_kernel([CUDNN_ATTENTION, FLASH_ATTENTION])`；未在本工作負載驗證 |
+| **SageAttention 2.x**（INT8 QK／FP8 PV） | 官方稱 5090 kernel 約為 FA2 的 2.7 倍；社群在 ComfyUI（Qwen-Image）端到端快 30–35% | 需自行編譯 2.2.x（`pip` 上的 1.0.6 會出黑圖）；Wan 類影片的畫質影響要用固定 seed 比對 |
+| SageAttention 3（FP4） | 論文稱 5090 約 1038 TOPS | 需 Python ≥ 3.13、官方不保證無損，建議頭尾 timestep 退回 Sage2 |
+
+### 判斷原則
+
+1. **先確認 SDPA 實際走哪個 backend**，再談「沒裝 flash-attn 所以慢」。在 Ampere 之後的卡上，
+   PyTorch 內建的 FA2 通常已經在用。
+2. 把模型原始碼的 `flash_attn` 硬依賴改成 SDPA fallback 時，要注意 varlen padding mask 會被
+   忽略：batch=1、序列等長時影響小，但文字 context 的補零 token 仍會被注意到，應目視驗證。
+3. 速度問題先算 token 數。$N^2$ 讓解析度與每段格數成為最大的旋鈕；換 kernel 是第二順位。
+4. 低精度 attention 是真正的加速來源，但屬於畫質取捨，要用固定 seed／固定輸入做 A/B。
+
+---
+
 ## 參考資料
 
 1. [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135)
 2. [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691)
 3. [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://arxiv.org/abs/2407.08608)
 4. [FlashAttention official implementation and support matrix](https://github.com/Dao-AILab/flash-attention)
+5. [PyTorch v2.9.1 `sdp_utils.cpp`（SDPA backend 選擇與架構檢查）](https://github.com/pytorch/pytorch/blob/v2.9.1/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp)
+6. [Writing a fast attention kernel for RTX 5090（SDPA／flash-attn／cuDNN 對照）](https://gau-nernst.github.io/fa-5090/)
+7. [flash-attention issue #2361：sm_120 原始碼編譯失敗](https://github.com/Dao-AILab/flash-attention/issues/2361)
+8. [flash-attention PR #2329：CuTe sm_120/121 forward](https://github.com/Dao-AILab/flash-attention/pull/2329)
+9. [SageAttention（2.x／3）](https://github.com/thu-ml/SageAttention)
+10. [SageAttention3: Microscaling FP4 Attention](https://arxiv.org/abs/2505.11594)
+11. [ComfyUI discussion #11583：RTX 5090 上的 SageAttention 實測](https://github.com/Comfy-Org/ComfyUI/discussions/11583)
 
 ## 延伸閱讀
 
