@@ -31,3 +31,7 @@
 | [tips](./tips) | Some tips for data science |
 | [tools](./tools/) | Some tools for data science |
 | [mlops](./mlops/) | Notes on model deployment and ML operations |
+
+## Research Notes
+
+- [歌聲換聲的機械感與自然度評測](./spikes/singing-voice-naturalness-evaluation.md) — Human listening, automatic metrics, and the limits of artifact diagnosis.
